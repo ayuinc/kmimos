@@ -1,14 +1,14 @@
-
-<nav id="footer" class="bg-warning navbar navbar-default navbar-fixed-bottom borderless" role="navigation">  
-  <div class="container">
-    <div class="row pt-21 pb-21">
-      <div class="col-md-12 pt-7 small">
-        <nav>
-          <% unless current_provider %>
-            <%= link_to 'Regístrate como proveedor', new_provider_path, class: "h5 text-muted not-underline" %>
-          <% end %>  
-        </nav>
-      </div>
+<div id="footer" class="mt-70-mob">  
+  <section class="bg-warning">
+    <div class="container">
+      <div class="row pt-21 pb-21">
+        <div class="col-md-12 pt-7 small">
+          <nav>
+            <% unless current_provider %>
+              <%= link_to 'Regístrate como proveedor', new_provider_path, class: "h5 text-muted not-underline" %>
+            <% end %>  
+          </nav>
+        </div>
     </div>
-  </div>
-</nav>  
+  </section>
+</div>

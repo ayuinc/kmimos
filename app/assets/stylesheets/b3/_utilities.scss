@@ -87,62 +87,62 @@
 }
 
 // Margins
-@for $h from -7 to 11 {
+@for $h from -7 to 15 {
   .m-#{$h*7} {
     margin: em($h*7)!important;
   }
 }
 
-@for $i from -7 to 11 {
+@for $i from -7 to 15 {
   .mt-#{$i*7} {
     margin-top: em($i*7)!important;
   }
 }
 
-@for $j from -7 to 11 {
+@for $j from -7 to 15 {
   .mb-#{$j*7} {
     margin-bottom: em($j*7)!important;
   }
 }
 
-@for $k from -7 to 11 {
+@for $k from -7 to 15 {
   .ml-#{$k*7} {
     margin-left: em($k*7)!important;
   }
 }
 
-@for $l from -7 to 11 {
+@for $l from -7 to 15 {
   .mr-#{$l*7} {
     margin-right: em($l*7)!important;
   }
 }
 
     // Paddings
-@for $m from -7 to 11 {
+@for $m from -7 to 15 {
   .pt-#{$m*7} {
     padding-top: em($m*7)!important;
   }
 }
 
-@for $n from -7 to 11 {
+@for $n from -7 to 15 {
   .pb-#{$n*7} {
     padding-bottom: em($n*7)!important;
   }
 }
 
-@for $o from -7 to 11 {
+@for $o from -7 to 15 {
   .pl-#{$o*7} {
     padding-left: em($o*7)!important;
   }
 }
 
-@for $p from -7 to 11 {
+@for $p from -7 to 15 {
   .pr-#{$p*7} {
     padding-right: em($p*7)!important;
   }
 }
 
-@for $q from -7 to 11 {
+@for $q from -7 to 15 {
   .p-#{$q*7} {
     padding: em($q*7)!important;
   }

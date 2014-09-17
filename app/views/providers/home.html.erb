@@ -2,7 +2,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 mt-70 text-center">
-        <h3 class="text-muted">Soluciones para<strong> tu casa</strong></h3>
+        <h3 class="text-muted hidden-sm hidden-xs">Soluciones para<strong> tu casa</strong></h3>
+        <h3 class="text-muted hidden-md hidden-lg pt-14">Soluciones para<strong> tu casa</strong></h3>
         <h5 class="text-muted pb-14">Encuentra proveedores previamente evaluados y verificados.</h5>
       </div>
     </div>
@@ -84,17 +85,17 @@
     <div class="container">
         <div class="row">
           <div class="col-md-1"></div>
-          <div class="col-md-4">
-            <%= image_tag("server_rosa.png", :class => "img-responsive mt-49") %>
+          <div class="col-md-4 pl-42">
+            <%= image_tag("server_rosa.png", :class => "img-responsive mt-56") %>
           </div>
           <div class="col-md-1"></div>
-          <div class="col-md-6">
+          <div class="col-md-6 p-35">
             <div class="row mt-35 p-21 server-des">
                 <h5 class="text-primary thin"><i class="fa-star"> </i>Server de la semana:</h5>
                 <h4 class="text-center text-primary">Rosa</h4>
                 <p class="text-primary">La señora Rosa es querida en toda casa donde llega por su increíble capacidad para organizar y limpiar en tiempo record.</p><p class="text-primary">Por eso y mucho más, es nuestra Server de la semana.</p>
                 <div class="row">
-                    <button class="btn btn-primary">Contactar a Rosa</button>
+                <%= link_to 'Contactar a Rosa', providers_path, :class => "btn btn-primary" %>
                 </div>
             </div>  
           </div>
@@ -103,12 +104,13 @@
       </div> <!-- container -->
 </section>
 <section id="listo">
-  <div class="container mb-70">
+  <div class="container mb-77 mt-77">
     <div class="col-md-3"></div>
-    <div class="col-md-6 m-14">
+    <div class="col-md-6 m-28">
       <h4 class="text-secondary text-center">¿Listo para conseguir ayuda con las tareas de tu hogar?</h4>
-      <div class="row text-center">
-        <%= link_to 'Ver proveedores disponibles', providers_path, :class => "btn btn-secondary" %>
+      <div class="row text-center p-28">
+        <%= link_to 'Ver proveedores disponibles', providers_path, :class => "btn btn-lg btn-secondary hidden-xs hidden-sm" %>
+        <%= link_to 'Ver proveedores <br> disponibles'.html_safe, providers_path, :class => "btn btn-sm btn-secondary hidden-md hidden-lg" %>
       </div>  
     </div>
     <div class="col-md-3"></div>
