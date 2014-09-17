@@ -28,7 +28,7 @@
                 <%= f.text_field :email, class: "form-control" %>
               </div>
               <div class="col-md-4">
-                <%= f.label :dni, "DNI:" %><br>
+                <%= f.label :dni, "IFE:" %><br>
                 <%= f.text_field :dni, class: "form-control" %>
               </div>
               <div class="col-md-4">
@@ -43,7 +43,7 @@
                 <%= f.collection_select(:category_id, Category.all, :id, :name, {}, { :class=> "form-control" }) %>
               </div>
               <div class="col-md-4">
-                <%= f.label :price, "Precio por hora (S/.):" %><br>
+                <%= f.label :price, "Precio por hora (MXN):" %><br>
                 <%= f.text_field :price, class: "form-control" %>
               </div>
             </div>

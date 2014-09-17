@@ -10,71 +10,44 @@
 </section>
 <section id="home-filters"> 
   <div class="container p-35">
-    <div class="row">
+    <div class="row pt-63 pb-70">
       <ul class="list-unstyled">
         <li>
-          <a href="#">
+          <%= link_to(category_path(Category.find_by(name: "Mantenimiento"))) do %>
+            <%= image_tag("mantenimiento.png", :class => "img-circle" ) %>
+            <div class="overlay">
+              <span class="small">Mantenimiento</span>
+            </div>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to(category_path(Category.find_by(name: "Limpieza"))) do %>
             <%= image_tag("wiping.png", :class => "img-circle" ) %>
             <div class="overlay">
               <span>Limpieza</span>
             </div>
-          </a>
+          <% end %>
         </li>
         <li>
-          <a href="">
-            <%= image_tag("flowers.png", :class => "img-circle" ) %>
-            <div class="overlay">
-              <span>Jardinería</span>
+          <%= link_to(category_path(Category.find_by(name: "Asistente Personal"))) do %>
+            <%= image_tag("asistente.png", :class => "img-circle" ) %>
+            <div class="overlay pt-35">
+              <span>Asistente Personal</span>
             </div>
-          </a>
+          <% end %>
         </li>
+
         <li>
-          <a href="">
-            <%= image_tag("dog_white.png", :class => "img-circle" ) %>
+          <%= link_to(category_path(Category.find_by(name: "Mudanza"))) do %>
+            <%= image_tag("mudanza.png", :class => "img-circle" ) %>
             <div class="overlay">
-              <span>Mascotas</span>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="">
-            <%= image_tag("car_b.png", :class => "img-circle" ) %>
-            <div class="overlay">
-              <span>Automotriz</span>
-            </div>
-          </a>
+              <span>Mudanza</span>
+          </div>
+         <% end %>
         </li>
       </ul>
     </div>
-    <div class="row">
-      <ul class="list-unstyled">
-        <li>
-          <a href="#">
-            <%= image_tag("pipe.png", :class => "img-circle" ) %>
-            <div class="overlay">
-              <span>Gasfitería</span>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <%= image_tag("screwdriver.png", :class => "img-circle" ) %>
-            <div class="overlay">
-              <span>Instalaciones</span>
-            </div>
-          </a>
-        </li>
-        <li>
-          <%= link_to(category_path(Category.find_by(name: "Electricista"))) do %>
-            <%= image_tag("power.png", :class => "img-circle" ) %>
-            <div class="overlay">
-              <span>Electricidad</span>
-            </div>
-          <% end %>  
-          </a>
-        </li>
-      </ul>
-    </div>
+
   </div>
 </section>
 <section id="home-pasos" class="text-center bg-warning">
@@ -115,7 +88,7 @@
             <%= image_tag("server_rosa.png", :class => "img-responsive mt-49") %>
           </div>
           <div class="col-md-1"></div>
-          <div class="col-md-6 p-21 m-21">
+          <div class="col-md-6">
             <div class="row mt-35 p-21 server-des">
                 <h5 class="text-primary thin"><i class="fa-star"> </i>Server de la semana:</h5>
                 <h4 class="text-center text-primary">Rosa</h4>
@@ -130,7 +103,7 @@
       </div> <!-- container -->
 </section>
 <section id="listo">
-  <div class="container">
+  <div class="container mb-70">
     <div class="col-md-3"></div>
     <div class="col-md-6 m-14">
       <h4 class="text-secondary text-center">¿Listo para conseguir ayuda con las tareas de tu hogar?</h4>

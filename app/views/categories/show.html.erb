@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row text-center">
     <%= search_form_for @search do |f| %>
-      <%= f.label :locations_id_eq, "Distrito:" %>
+      <%= f.label :locations_id_eq, "Municipio:" %>
       <%= f.collection_select :locations_id_eq, Location.order(:name), :id, :name, {include_blank: "Todos"}, {class:"borderless form-location-nav"} %> 
       <%= f.label :category_id_eq, "Servicio:" %>
       <%= f.collection_select :category_id_eq, Category.order(:name), :id, :name, {include_blank: "Todos", :selected => params[:id]}, {class:"borderless form-servers-nav"} %>

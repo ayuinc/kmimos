@@ -252,7 +252,7 @@ es:
             locations: "Ubicaciones"
             price: "Precio por hora"
             phone: "Teléfono"
-            dni: "DNI"
+            dni: "IFE"
         location:
             street_address: "Dirección"   
             district: "Distrito"

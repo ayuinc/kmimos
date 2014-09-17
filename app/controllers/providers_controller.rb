@@ -85,7 +85,6 @@ class ProvidersController < ApplicationController
     end
 
     def get_ranges
-      size = (Location.all.count/3).ceil
       sets = Location.all.in_groups(3, false)
       @locations_set_1 = sets[0]
       @locations_set_2 = sets[1]

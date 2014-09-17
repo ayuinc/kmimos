@@ -31,7 +31,7 @@ class Provider < ActiveRecord::Base
 
   def prov_locations_modal
     if self.locations.count == Location.all.count 
-      return "Todos los distritos de Lima Metropolitana."
+      return "Todos los municipios de México DF."
     else
       return self.locations.map(&:name).join(", ")
     end

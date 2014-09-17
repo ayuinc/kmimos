@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row text-center mt-7">
     <%= search_form_for @search do |f| %>
-      <%= f.label :locations_id_eq, "Distrito:" %>
+      <%= f.label :locations_id_eq, "Municipio:" %>
       <%= f.collection_select :locations_id_eq, Location.order(:name), :id, :name, {include_blank: "Todos"}, {class:"borderless form-location-nav"} %> 
       <%= f.label :category_id_eq, "Servicio:" %>
       <%= f.collection_select :category_id_eq, Category.order(:name), :id, :name, {include_blank: "Todos"}, {class:"borderless form-servers-nav"} %>
@@ -19,7 +19,7 @@
         <p class="mt-49 mb-7 text-left">Mostrando proveedores de la categoría <span class="medium"><%= Category.find(params[:q][:category_id_eq].to_i).name %>:</span></p>
       <% end %>    
     <% else %>
-      <p>Por favor intenta otra búsqueda.</p>  
+      <p class="pt-35">Por favor intenta otra búsqueda.</p>  
     </div>  
   <% end %>  
   </div> <!-- row - Mensaje relacionado a resultados de búsqueda. --> 
