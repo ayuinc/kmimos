@@ -1,0 +1,164 @@
+.proveedor-profile {
+  background: white;
+  border-right: 1px solid $gray-lighter;
+  border-left: 1px solid $gray-lighter;
+  border-bottom: 1px solid $gray-lighter;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.proveedor-profile-body {
+  background: lighten($gray-lighter, 5%);
+}
+
+.proveedor-v2-body {
+  min-height: 768px;
+  .providers-profile-locations li.badge {
+    &:nth-child(1) {
+      background-color: $brand-primary;
+    }
+    &:nth-child(2) {
+      background-color: $brand-info;
+    }
+    &:nth-child(3) {
+      background-color: $brand-danger;
+    }
+    &:nth-child(4) {
+      background-color: $brand-warning;
+    }
+  }
+}
+
+.event-color {
+  background: $brand-primary !important;
+  color: $gray-darker !important;
+  border: white !important;
+  opacity: 1 !important;
+}
+
+.proveedores-create-account {
+  border-bottom: 1px solid $brand-primary;
+}
+
+.providers-dashboard-body {
+  min-height: 768px;
+  .perfil {
+    min-height: 670px;
+  }
+}
+
+.content {
+  min-height: 768px;
+}
+
+.icon-box {
+  border-top-left-radius: $border-radius-base;
+  border-top-right-radius: $border-radius-base;
+  border-left: 3px solid $brand-primary;
+  border-right: 3px solid $brand-primary;
+  border-bottom: 1px solid $gray-lighter;
+  border-top: 3px solid $brand-primary;
+  height: 220px;
+  background: white;
+}
+
+.sales-pitch {
+  border-bottom-left-radius: $border-radius-base;
+  border-bottom-right-radius: $border-radius-base;
+  border-bottom: 3px solid $brand-primary;
+  border-left: 3px solid $brand-primary;
+  border-right: 3px solid $brand-primary;
+  background: white;
+}
+
+.providers-create-events {
+  min-height: 768px;
+}
+
+.navbar {
+  min-height: 21px;
+}
+
+.set-events-form {
+  .control-label {
+    padding-top: 3px;
+  }
+}
+
+ul.search-results {
+  @media only screen and (max-width: $screen-xs) and (max-width: $screen-sm) {
+    & > li:nth-child(odd) {
+      background: lighten($gray-lighter, 4%);
+    }
+  }
+}
+
+.alert-icon-col {
+  height: 127px;
+}
+
+.whyjoin-nav {
+  border-top: 1px solid $gray-lighter;
+  width: 100%;
+  height: 70px;
+  z-index: 30;
+  nav {
+    span {
+      height: 69px;
+      display: block;
+      float: left;
+      padding: 21px 67px;
+      &.active {
+        background: lighten($brand-primary, 49%);
+        border-bottom: 3px solid $brand-primary;
+      }
+      &:nth-child(2) {
+        border-left: 1px solid $gray-lighter;
+        border-right: 1px solid $gray-lighter;
+      }
+      a {
+        text-transform: uppercase;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+#pitches {
+  section {
+    padding: 88px 0;
+  }
+}
+
+.providers-dashboard-nav {
+  padding-top: 4px;
+  li:nth-child(n+2) {
+    border-left: 1px solid $gray-light;
+  }
+  @media only screen and (max-width: $screen-xs) and (max-width: $screen-sm) {
+    li:nth-child(n+2) {
+      border-left: none;
+    } 
+  }
+  .navbar-toggle {
+    padding: 5px 10px;
+  }
+}
+
+.checkbox-inline.no_indent,
+.checkbox-inline.no_indent+.checkbox-inline.no_indent {
+  margin-left: 0;
+  margin-right: 10px;
+}
+.checkbox-inline.no_indent:last-child {
+  margin-right: 0;
+}
+
+
+
+
+
+
+

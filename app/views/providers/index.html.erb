@@ -1,0 +1,62 @@
+<div class="container-fluid">
+  <div class="row text-center mt-7">
+    <%= search_form_for @search do |f| %>
+      <%= f.label :locations_id_eq, "Distrito:" %>
+      <%= f.collection_select :locations_id_eq, Location.order(:name), :id, :name, {include_blank: "Todos"}, {class:"borderless form-location-nav"} %> 
+      <%= f.label :category_id_eq, "Servicio:" %>
+      <%= f.collection_select :category_id_eq, Category.order(:name), :id, :name, {include_blank: "Todos"}, {class:"borderless form-servers-nav"} %>
+     
+      <%= f.submit "Buscar", class:"ml-14 mt-7 borderless form-search" %>
+    <% end %>
+  </div>  <!-- row --> 
+  <div class="row"> <!-- Mensaje relacionado a resultados de búsqueda. --> 
+    <div class="col-md-3"></div>
+    <div class="col-md-8 ml-14">
+    <% if !@providers.blank? %>
+      <% if !params[:q].nil? && !params[:q][:category_id_eq].nil? && !params[:q][:locations_id_eq].nil? %>
+        <p class="mt-49 mb-7 text-left">Mostrando proveedores de la categoría <span class="medium"><%= Category.find(params[:q][:category_id_eq].to_i).name %></span> para el distrito de <span><%= Location.find(params[:q][:locations_id_eq].to_i).name %>:</span></p>
+      <% elsif !params[:q].nil? && !params[:q][:category_id_eq].nil? && params[:q][:locations_id_eq].nil? %>
+        <p class="mt-49 mb-7 text-left">Mostrando proveedores de la categoría <span class="medium"><%= Category.find(params[:q][:category_id_eq].to_i).name %>:</span></p>
+      <% end %>    
+    <% else %>
+      <p>Por favor intenta otra búsqueda.</p>  
+    </div>  
+  <% end %>  
+  </div> <!-- row - Mensaje relacionado a resultados de búsqueda. --> 
+</div>
+  <% @providers.each do |provider| %>
+<div class="container pt-21 pb-14">
+  <div class="row mt-14 mb-14">
+    <div class="col-md-12">
+      <div class="col-md-2"></div>   
+      <div class="row">
+        <div class="col-md-8  p-0 list-profiles">
+          <div class="col-md-3 text-center p-14">
+            <% if provider.picture_url.present? %>
+              <%= image_tag(provider.picture_url, :class => "img-circle" ) %>
+            <% else %>  
+              <%= image_tag('server_carnet.png', :class => "img-circle" ) %>
+            <% end %>
+          </div>
+          <div class="col-md-6 pt-14">
+            <h5 class="mb-14 text-center"><%= provider.name %> <%= provider.last_name_1 %> <%= provider.last_name_2 %></h5>
+            <ul class="list-unstyled">
+              <li><span><i class="fa-check"></i>&nbsp;Categoría:&nbsp;</span><%= provider.category.name %></li>
+              <li><span><i class="fa-map-marker"></i>&nbsp;&nbsp;Distritos:&nbsp;</span><%= provider.prov_locations %></li>
+              <li><span><i class="fa-star"></i>&nbsp;Calificación promedio:&nbsp;</span> <%= provider.avg_rating %>/5</li>
+            </ul>
+
+          </div>
+          <div class="col-md-3 text-center">
+            <%= link_to "Contrátame <br> S/. #{provider.price}/hr".html_safe, provider, remote: true, :class => "mt-56 btn btn-primary" %>
+          </div>
+          </div>       
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+    </div>
+  </div>
+    <% end %>
+</div>
+
+<%= render "layouts/modal" %>

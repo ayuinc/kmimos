@@ -1,0 +1,89 @@
+<div class="container content mh-630">
+  <div class="row mt-63">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 mt-49">
+      <div class="panel panel-primary">
+          <div class="panel-heading">Actualiza tu perfil</div>
+          <div class="panel-body">
+          <%= form_for(@provider) do |f| %>
+            <%= render "providers/error_messages" %>
+            <div class="form-group row">
+              <div class="col-md-4">
+                <%= f.label :name, "Nombre:" %><br>
+                <%= f.text_field :name, class: "form-control" %>
+              </div>
+              <div class="col-md-4">
+                <%= f.label :last_name_1, "Apellido paterno:" %><br>
+                <%= f.text_field :last_name_1, class: "form-control" %>
+              </div>
+              <div class="col-md-4">
+                <%= f.label :last_name_2, "Apellido materno:" %><br>
+                <%= f.text_field :last_name_2, class: "form-control" %>
+              </div>
+            </div>  
+
+            <div class="form-group row">
+              <div class="col-md-4">
+                <%= f.label :email, "Correo electrónico:" %><br>
+                <%= f.text_field :email, class: "form-control" %>
+              </div>
+              <div class="col-md-4">
+                <%= f.label :dni, "DNI:" %><br>
+                <%= f.text_field :dni, class: "form-control" %>
+              </div>
+              <div class="col-md-4">
+                <%= f.label :phone, "Teléfono:" %><br>
+                <%= f.text_field :phone, class: "form-control" %>
+              </div>
+            </div>
+
+            <div class="form-group row">
+               <div class="col-md-5">
+                <label>¿A qué categoría perteneces?</label>
+                <%= f.collection_select(:category_id, Category.all, :id, :name, {}, { :class=> "form-control" }) %>
+              </div>
+              <div class="col-md-4">
+                <%= f.label :price, "Precio por hora (S/.):" %><br>
+                <%= f.text_field :price, class: "form-control" %>
+              </div>
+            </div>
+
+            <label>¿En qué distritos puedes trabajar?</label> <br>
+
+            <div class="row pt-14 pb-21">
+              <div class="col-md-12">
+                <%= check_box_tag('check_all', 'check_all', false, :onClick => "checkAll();") %> <p onclick="allLabel()" class="inline-block m-0 p-0 strong text-primary">Todos</p>
+              </div>
+            <div class="col-md-4 pr-0">
+              <%= hidden_field_tag "provider[location_ids][]", nil %>
+              <% @locations_set_1.each do |location| %>
+                <%= check_box_tag "provider[location_ids][]", location.id, @provider.location_ids.include?(location.id), id: dom_id(location), :onClick => "uncheckMain(this);", class: "location_cbx" %>
+                <%= label_tag dom_id(location), location.name, class: "small" %> <br>
+              <% end %>
+            </div>
+            <div class="col-md-4 pr-0">
+              <%= hidden_field_tag "provider[location_ids][]", nil %>
+              <% @locations_set_2.each do |location| %>
+                <%= check_box_tag "provider[location_ids][]", location.id, @provider.location_ids.include?(location.id), id: dom_id(location), :onClick => "uncheckMain(this);", class: "location_cbx" %>
+                <%= label_tag dom_id(location), location.name, class: "small" %> <br>
+              <% end %>
+            </div>
+            <div class="col-md-4 pr-0">
+              <%= hidden_field_tag "provider[location_ids][]", nil %>
+              <% @locations_set_3.each do |location| %>
+                <%= check_box_tag "provider[location_ids][]", location.id, @provider.location_ids.include?(location.id), id: dom_id(location), :onClick => "uncheckMain(this);", class: "location_cbx" %>
+                <%= label_tag dom_id(location), location.name, class: "small" %> <br>
+              <% end %>
+            </div>
+            </div>
+
+      <div class="form-group mt-14">
+        <%= f.submit "Actualizar perfil", id: "submit", class: "btn btn-primary-grad" %>
+      </div>
+
+    <% end %>
+       </div> <!-- panel-body -->
+      </div> <!-- panel-primary -->
+    </div>    <!-- col-md-8 -->
+  </div>   <!-- row --> 
+</div>   <!-- container -->   

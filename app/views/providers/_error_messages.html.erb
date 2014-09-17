@@ -1,0 +1,12 @@
+<% if @provider.errors.any? %>
+  <div id="error_explanation">
+    <div>
+      Por favor revisa lo siguiente:
+    </div>
+    <ul class="list-unstyled">
+    <% @provider.errors.full_messages.each do |msg| %>
+      <li>- <%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

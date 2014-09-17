@@ -1,0 +1,143 @@
+<section id="home-title" class="bg-primary">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 mt-70 text-center">
+        <h3 class="text-muted">Soluciones para<strong> tu casa</strong></h3>
+        <h5 class="text-muted pb-14">Encuentra proveedores previamente evaluados y verificados.</h5>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="home-filters"> 
+  <div class="container p-35">
+    <div class="row">
+      <ul class="list-unstyled">
+        <li>
+          <a href="#">
+            <%= image_tag("wiping.png", :class => "img-circle" ) %>
+            <div class="overlay">
+              <span>Limpieza</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <%= image_tag("flowers.png", :class => "img-circle" ) %>
+            <div class="overlay">
+              <span>Jardinería</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <%= image_tag("dog_white.png", :class => "img-circle" ) %>
+            <div class="overlay">
+              <span>Mascotas</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <%= image_tag("car_b.png", :class => "img-circle" ) %>
+            <div class="overlay">
+              <span>Automotriz</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <ul class="list-unstyled">
+        <li>
+          <a href="#">
+            <%= image_tag("pipe.png", :class => "img-circle" ) %>
+            <div class="overlay">
+              <span>Gasfitería</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <%= image_tag("screwdriver.png", :class => "img-circle" ) %>
+            <div class="overlay">
+              <span>Instalaciones</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <%= link_to(category_path(Category.find_by(name: "Electricista"))) do %>
+            <%= image_tag("power.png", :class => "img-circle" ) %>
+            <div class="overlay">
+              <span>Electricidad</span>
+            </div>
+          <% end %>  
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section id="home-pasos" class="text-center bg-warning">
+    <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h4 class="text-center pt-21 text-muted">1. Elige</h4>
+            <div class="demo">
+              <div class="hexa text-center" id="hexagon"></div>
+              <div class="hex-over"><i class="pl-7 fa-check-square-o small"></i></div>
+            </div> 
+            <h5 class="p-21 text-muted">Selecciona el servicio que necesitas y elige entre la lista de proveedores calificados.</h5>
+          </div>
+          <div class="col-md-4">
+            <h4 class="text-center pt-21 text-muted">2. Contrata</h4>
+            <div class="demo">
+              <div class="hexa text-center" id="hexagon"></div>
+              <div class="hex-over"><%= image_tag("handshake.png", :class => 'handshake') %></div>
+            </div>
+            <h5 class="p-21 text-muted">Contrata al proveedor que más se ajusta a tus necesidades.</h5> 
+          </div>
+          <div class="col-md-4">
+            <h4 class="text-center pt-21 text-muted">3. Evalúa</h4>
+            <div class="demo">
+              <div class="hexa text-center" id="hexagon"></div>
+              <div class="hex-over"><%= image_tag("call.png", :class => 'handshake') %></div>
+            </div> 
+            <h5 class="p-21 text-muted">Asígnale un puntaje al proveedor de acuerdo a la calidad del servicio brindado.</h5>
+          </div>
+        </div> <!-- row -->
+      </div> <!-- container -->
+</section>
+<section id="meet-server" class="bg-danger text-center">
+    <div class="container">
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-4">
+            <%= image_tag("server_rosa.png", :class => "img-responsive mt-49") %>
+          </div>
+          <div class="col-md-1"></div>
+          <div class="col-md-6 p-21 m-21">
+            <div class="row mt-35 p-21 server-des">
+                <h5 class="text-primary thin"><i class="fa-star"> </i>Server de la semana:</h5>
+                <h4 class="text-center text-primary">Rosa</h4>
+                <p class="text-primary">La señora Rosa es querida en toda casa donde llega por su increíble capacidad para organizar y limpiar en tiempo record.</p><p class="text-primary">Por eso y mucho más, es nuestra Server de la semana.</p>
+                <div class="row">
+                    <button class="btn btn-primary">Contactar a Rosa</button>
+                </div>
+            </div>  
+          </div>
+        </div>
+        </div> <!-- row -->
+      </div> <!-- container -->
+</section>
+<section id="listo">
+  <div class="container">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 m-14">
+      <h4 class="text-secondary text-center">¿Listo para conseguir ayuda con las tareas de tu hogar?</h4>
+      <div class="row text-center">
+        <%= link_to 'Ver proveedores disponibles', providers_path, :class => "btn btn-secondary" %>
+      </div>  
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</section>

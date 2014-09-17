@@ -1,0 +1,29 @@
+<section id="mini-profiles">          
+  <div class="container-fluid mh-210 bg-white m-0">
+    <div class="row">
+      <div class="profile-view">
+        <div class="col-md-4 text-center">
+          <div class="profile-pic text-center">
+            <% if provider.picture_url.present? %>
+              <%= image_tag(provider.picture_url, :class => "img-circle img-responsive mb-14" ) %>
+            <% else %>  
+              <%= image_tag('server_carnet.png', :class => "img-circle img-responsive mb-14" ) %>
+            <% end %>
+            <p class="mb-0"><i class="fa fa-user"></i> <%= provider.name %> <%= provider.last_name_1 %></p>
+            <i class="fa fa-check"></i><strong> <%= provider.category.name %></strong>
+            <p class="m-0 p-0" ><i class="fa fa-star"></i> <%= provider.avg_rating %>4.5/5</p>
+          </div>
+        </div >
+        <div class="col-md-8 mt-7">
+          <div class="info">
+            <h5 class="text-center mb-21">Hola, soy <%= provider.name %>.</h5>
+           <ul class="list-unstyled">
+            <li><i class="fa-phone"></i>&nbsp;Teléfono:&nbsp; <strong><%= provider.phone %></strong></li>
+            <li><span><i class="fa-map-marker mb-14"></i>&nbsp;Distritos donde puede trabajar:&nbsp;</span><%= provider.prov_locations_modal %></li>
+           </ul> 
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+</section>

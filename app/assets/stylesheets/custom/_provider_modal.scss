@@ -1,0 +1,53 @@
+.close {
+ float: right;
+ font-size: ($font-size-base * 1.5);
+ font-weight: $close-font-weight;
+ line-height: 1;
+ color: $brand-primary;
+ text-shadow: $close-text-shadow;
+ -webkit-appearance: none;
+ /* padding: 0; */
+ /* cursor: pointer; */
+ background: 0 0;
+ border: 0;
+ &:hover,
+ &:focus {
+  color: #26B5C2;
+ 	text-decoration: none;
+	cursor: pointer;
+  }
+}
+
+#mini-profiles {
+	.container-fluid {
+		padding: 3px;
+		.row {
+			.profile-view {
+				.col-md-4 {
+					i {
+						color: #2ad1e1;
+					}
+					.profile-pic {
+						img {
+							width: 150px;
+							border: 3px solid #2ad1e1;
+						}
+						h4 {
+							color: #2ad1e1;
+						}
+					}
+				}
+				.col-md-8 {
+					.info {
+						p {
+						 color: gray;
+						}
+						i {
+							color: #2ad1e1;
+						}
+					}
+				}
+			}
+		}	
+	}
+} 

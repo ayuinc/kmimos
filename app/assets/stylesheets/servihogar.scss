@@ -1,0 +1,69 @@
+// Instrucciones para manipular los estilos de SAM. NOTA: No utilizar acentos ni letras enhe en los comentarios ni en nombres de archivos
+  // Debes tener la gem de Sass instalada en tu computadora ejecutando a traves de la terminal: gem install sass
+  // Deben existir dos archivos uno de input (sam.scss) y otro de output (sam.css)
+  // Ejecutar: sass --watch sam.scss:sam.css para compilar los cambios. La terminal te arroja informacion sobre el estado de la compilacion, si esta es exitosa, veras los cambios reflejados en el archivo de output.
+  // Ejecuta sass --help para obtener mas comandos
+
+// Bourbon
+@import "bourbon/bourbon";
+  // Esta libreria de Sass permite trabajar con atajos en los @mixins. Tambien ayuda mucho en la inserciom de vendor prefixes y transformar pixeles a ems para un mejor responsive design y performance
+
+// Fonts
+  // Este espacio no ocupa nada porque las fonts las estamos insertando desde Typekit.com 
+
+// Core variables and mixins
+@import "b3/_variables_rails.scss";
+  // En este archivo se definen elementos como colores, tamanos, bordes, grosores, tipografias 
+@import "b3/_mixins.scss";
+
+// Reset
+@import "b3/_normalize.scss";
+@import "b3/_scaffolding.scss";
+
+// Core CSS
+@import "b3/_type.scss";
+@import "b3/_grid.scss";
+@import "b3/_forms.scss";
+@import "b3/_buttons.scss";
+
+// Components
+@import "b3/_alerts.scss";
+@import "b3/_badges.scss";
+@import "b3/_button-groups.scss";
+@import "b3/_component-animations.scss";
+@import "b3/_dropdowns.scss";
+@import "b3/_icons.scss";
+@import "b3/_input-groups.scss";
+@import "b3/_list-group.scss";
+@import "b3/_modals.scss";
+@import "b3/_navbar.scss";
+@import "b3/_navs.scss";
+@import "b3/_panels.scss";
+@import "b3/_tables.scss";
+@import "b3/_tooltip.scss";
+@import "b3/_popovers.scss";
+@import "b3/_pagination.scss";
+@import "b3/_wells.scss";
+
+// Templates
+@import "navs/_header_rails.scss";
+@import "home/_home_rails.scss";
+@import "proveedores/_proveedores.scss";
+@import "footer/_footer.scss";
+@import "errors/_errors.scss";
+
+
+// Components w/ JavaScript
+
+
+// Utility classes
+@import "b3/_responsive-utilities.scss";
+@import "b3/_utilities.scss";
+@import "b3/_mobile_box_model.scss";
+
+
+//Custom
+@import "custom/_home";
+@import "custom/_header_rails";
+@import "custom/_provider_modal";
+@import "custom/_list";

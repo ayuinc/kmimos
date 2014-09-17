@@ -1,0 +1,80 @@
+.home {
+  background: url(https://s3.amazonaws.com/viasam/Costa-Verde-DoodleOKx.png) no-repeat bottom center;
+  min-height: 530px;
+  @media only screen and (max-width: $screen-phone) and (max-width: $screen-tablet) {
+    background: none;
+    min-height: 280px;
+  }
+  .home-search-bar {
+    margin-top: 70px;
+    min-height: 37px;
+    .form-row {
+      background: $gray-lighter;
+      border-radius: $border-radius-base;
+    }
+    select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      position: absolute;
+      height: 52px;
+      text-indent: 1px;
+      text-overflow: '';
+      background: url(https://s3.amazonaws.com/viasam/select_drop_dark.png) no-repeat right;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    select::-ms-expand {
+      display: none;
+    }
+    @-moz-document url-prefix() {
+      select {
+        padding-top: 10px;
+      }
+    }
+    .form-control {
+      background-color: $gray-lighter;
+      border-left: none;
+      border-right: 1px solid $gray-lighter;
+      border-top: none;
+      border-bottom: none;
+      background-image: black;
+      font-size: 21px;
+      &.borderless {
+        border: none;
+      }
+    }
+    .btn {
+      height: 52px;
+      width: 170px;
+    }
+  }
+}
+
+.home-feed {
+  min-height: 500px;
+  .isotope-item {
+    min-height: 160px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

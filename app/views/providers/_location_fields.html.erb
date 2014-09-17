@@ -1,0 +1,6 @@
+<div class="form-group p-14 row builder-wrapper">
+  <div class="col-md-4 pl-0">
+    <%= f.label :location, "Distrito" %>
+    <%= f.collection_select(:location_id, Location.all, :id, :name, {prompt: 'Selecciona distrito'}, { :class=> "form-control" }) %>
+  </div>
+</div>
