@@ -17564,3 +17564,95 @@ Started GET "/assets/call.png" for 127.0.0.1 at 2014-09-17 16:47:56 -0500
 
 
 Started GET "/assets/server_rosa.png" for 127.0.0.1 at 2014-09-17 16:47:56 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-17 16:57:58 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (1.0ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mantenimiento' LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Limpieza' LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Asistente Personal' LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mudanza' LIMIT 1
+  Rendered providers/home.html.erb within layouts/application (33.2ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 343ms (Views: 318.6ms | ActiveRecord: 7.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-17 16:57:58 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-09-17 16:57:58 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-17 16:57:58 -0500
+
+
+Started GET "/assets/fullcalendar.min.js?body=1" for 127.0.0.1 at 2014-09-17 16:57:58 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-17 16:57:58 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-09-17 16:57:58 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2014-09-17 16:57:58 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-09-17 16:57:58 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-09-17 16:57:58 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-09-17 16:57:58 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-09-17 16:57:58 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-09-17 16:57:58 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-09-17 16:57:58 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-09-17 16:57:58 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-09-17 16:57:58 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-09-17 16:57:58 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-09-17 16:57:58 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-17 16:57:58 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-09-17 16:57:58 -0500
+
+
+Started GET "/assets/mantenimiento.png" for 127.0.0.1 at 2014-09-17 16:57:58 -0500
+
+
+Started GET "/assets/wiping.png" for 127.0.0.1 at 2014-09-17 16:57:58 -0500
+
+
+Started GET "/assets/handshake.png" for 127.0.0.1 at 2014-09-17 16:57:59 -0500
+
+
+Started GET "/assets/asistente.png" for 127.0.0.1 at 2014-09-17 16:57:59 -0500
+
+
+Started GET "/assets/call.png" for 127.0.0.1 at 2014-09-17 16:57:59 -0500
+
+
+Started GET "/assets/server_rosa.png" for 127.0.0.1 at 2014-09-17 16:57:59 -0500
+
+
+Started GET "/assets/mudanza.png" for 127.0.0.1 at 2014-09-17 16:57:59 -0500

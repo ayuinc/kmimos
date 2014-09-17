@@ -11,7 +11,7 @@
             <% end %>
             <p class="mb-0"><i class="fa fa-user"></i> <%= provider.name %> <%= provider.last_name_1 %></p>
             <i class="fa fa-check"></i><strong> <%= provider.category.name %></strong>
-            <p class="m-0 p-0" ><i class="fa fa-star"></i> <%= provider.avg_rating %>4.5/5</p>
+            <p class="m-0 p-0" ><i class="fa fa-star"></i> <%= provider.avg_rating %>/5</p>
           </div>
         </div >
         <div class="col-md-8 mt-7">
@@ -19,7 +19,7 @@
             <h5 class="text-center mb-21">Hola, soy <%= provider.name %>.</h5>
            <ul class="list-unstyled">
             <li><i class="fa-phone"></i>&nbsp;Teléfono:&nbsp; <strong><%= provider.phone %></strong></li>
-            <li><span><i class="fa-map-marker mb-14"></i>&nbsp;Distritos donde puede trabajar:&nbsp;</span><%= provider.prov_locations_modal %></li>
+            <li><span><i class="fa-map-marker mb-14"></i>&nbsp;Municipios donde puede trabajar:&nbsp;</span><%= provider.prov_locations_modal %></li>
            </ul> 
           </div>
         </div>

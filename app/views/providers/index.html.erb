@@ -14,7 +14,7 @@
     <div class="col-md-8 ml-14">
     <% if !@providers.blank? %>
       <% if !params[:q].nil? && !params[:q][:category_id_eq].nil? && !params[:q][:locations_id_eq].nil? %>
-        <p class="mt-49 mb-7 text-left">Mostrando proveedores de la categoría <span class="medium"><%= Category.find(params[:q][:category_id_eq].to_i).name %></span> para el distrito de <span><%= Location.find(params[:q][:locations_id_eq].to_i).name %>:</span></p>
+        <p class="mt-49 mb-7 text-left">Mostrando proveedores de la categoría <span class="medium"><%= Category.find(params[:q][:category_id_eq].to_i).name %></span> para el municipio de <span><%= Location.find(params[:q][:locations_id_eq].to_i).name %>:</span></p>
       <% elsif !params[:q].nil? && !params[:q][:category_id_eq].nil? && params[:q][:locations_id_eq].nil? %>
         <p class="mt-49 mb-7 text-left">Mostrando proveedores de la categoría <span class="medium"><%= Category.find(params[:q][:category_id_eq].to_i).name %>:</span></p>
       <% end %>    
@@ -42,13 +42,13 @@
             <h5 class="mb-14 text-center"><%= provider.name %> <%= provider.last_name_1 %> <%= provider.last_name_2 %></h5>
             <ul class="list-unstyled">
               <li><span><i class="fa-check"></i>&nbsp;Categoría:&nbsp;</span><%= provider.category.name %></li>
-              <li><span><i class="fa-map-marker"></i>&nbsp;&nbsp;Distritos:&nbsp;</span><%= provider.prov_locations %></li>
+              <li><span><i class="fa-map-marker"></i>&nbsp;&nbsp;Municipios:&nbsp;</span><%= provider.prov_locations %></li>
               <li><span><i class="fa-star"></i>&nbsp;Calificación promedio:&nbsp;</span> <%= provider.avg_rating %>/5</li>
             </ul>
 
           </div>
           <div class="col-md-3 text-center">
-            <%= link_to "Contrátame <br> S/. #{provider.price}/hr".html_safe, provider, remote: true, :class => "mt-56 btn btn-primary" %>
+            <%= link_to "Contrátame <br> #{provider.price}MXN/hr".html_safe, provider, remote: true, :class => "mt-56 btn btn-primary" %>
           </div>
           </div>       
         </div>
