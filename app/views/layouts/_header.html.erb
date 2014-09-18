@@ -31,7 +31,7 @@
             </li>
             <li class="hidden-lg hidden-md">
               <ul class="list-group m-0 pt-7">
-                <li class="list-group-item"><%= link_to '<i class="fa-edit"></i> Actualizar mi perfil'.html_safe, 'root_path' %></li>
+                <li class="list-group-item"><%= link_to '<i class="fa-edit"></i> Actualizar mi perfil'.html_safe, edit_provider_path(current_provider) %></li>
                 <li class="list-group-item"><%= link_to '<i class="fa-power-off"></i> Salir'.html_safe, salir_path, :method => :delete, class: "text-danger" %></li>
               </ul>
             </li>

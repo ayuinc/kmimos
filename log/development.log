@@ -17656,3 +17656,1044 @@ Started GET "/assets/server_rosa.png" for 127.0.0.1 at 2014-09-17 16:57:59 -0500
 
 
 Started GET "/assets/mudanza.png" for 127.0.0.1 at 2014-09-17 16:57:59 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-17 20:51:22 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (4.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (1.6ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mCategory Load (0.9ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mantenimiento' LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Limpieza' LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Asistente Personal' LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mudanza' LIMIT 1
+  Rendered providers/home.html.erb within layouts/application (43.3ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 367ms (Views: 342.1ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started GET "/assets/fullcalendar.min.js?body=1" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started GET "/assets/mantenimiento.png" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started GET "/assets/wiping.png" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started GET "/assets/mudanza.png" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started GET "/assets/server_rosa.png" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started GET "/assets/call.png" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started GET "/assets/asistente.png" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started GET "/assets/handshake.png" for 127.0.0.1 at 2014-09-17 20:51:23 -0500
+
+
+Started POST "/providers_sessions" for 127.0.0.1 at 2014-09-17 20:52:18 -0500
+Processing by ProvidersSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"77LM9OyGiDDBeQ2UTl05yEr7E6q9/rdWSJDcselUxPI=", "email"=>"", "password"=>"[FILTERED]", "commit"=>"Ingresa"}
+  [1m[36mProvider Load (1.8ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."email" = '' LIMIT 1[0m
+  Rendered layouts/_flash_alerts.html.erb (0.8ms)
+  Rendered providers_sessions/new.html.erb within layouts/application (4.5ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 112ms (Views: 19.3ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:19 -0500
+
+
+Started GET "/fonts/icomoon.woff?-dvsyy8" for 127.0.0.1 at 2014-09-17 20:52:19 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/icomoon.woff"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.1ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (6.9ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (38.0ms)
+
+
+Started GET "/fonts/icomoon.ttf?-dvsyy8" for 127.0.0.1 at 2014-09-17 20:52:19 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/icomoon.ttf"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.5ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (24.3ms)
+
+
+Started GET "/assets/underscore-min.map" for 127.0.0.1 at 2014-09-17 20:52:27 -0500
+
+
+Started POST "/providers_sessions" for 127.0.0.1 at 2014-09-17 20:52:32 -0500
+Processing by ProvidersSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"77LM9OyGiDDBeQ2UTl05yEr7E6q9/rdWSJDcselUxPI=", "email"=>"", "password"=>"[FILTERED]", "commit"=>"Ingresa"}
+  [1m[35mProvider Load (0.5ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."email" = '' LIMIT 1
+  Rendered layouts/_flash_alerts.html.erb (0.1ms)
+  Rendered providers_sessions/new.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 58ms (Views: 54.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-17 20:52:32 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:32 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-09-17 20:52:32 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:32 -0500
+
+
+Started GET "/assets/fullcalendar.min.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:32 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:32 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:32 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:32 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:32 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:32 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:32 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:32 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:32 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:32 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:32 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:32 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:32 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:32 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-09-17 20:52:32 -0500
+
+
+Started GET "/fonts/icomoon.woff?-dvsyy8" for 127.0.0.1 at 2014-09-17 20:52:32 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/icomoon.woff"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.8ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (41.9ms)
+
+
+Started GET "/assets/underscore-min.map" for 127.0.0.1 at 2014-09-17 20:52:32 -0500
+
+
+Started GET "/fonts/icomoon.ttf?-dvsyy8" for 127.0.0.1 at 2014-09-17 20:52:32 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/icomoon.ttf"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.3ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (30.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-17 20:52:34 -0500
+Processing by ProvidersController#home as HTML
+  [1m[36mLocation Load (0.6ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mantenimiento' LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Limpieza' LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Asistente Personal' LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mudanza' LIMIT 1[0m
+  Rendered providers/home.html.erb within layouts/application (72.6ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 86ms (Views: 80.9ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-17 20:52:34 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-09-17 20:52:34 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:34 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:34 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:34 -0500
+
+
+Started GET "/assets/fullcalendar.min.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:34 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:34 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:34 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:34 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:34 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:34 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:34 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:34 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:34 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:34 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:34 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:34 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:34 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-09-17 20:52:34 -0500
+
+
+Started GET "/assets/underscore-min.map" for 127.0.0.1 at 2014-09-17 20:52:35 -0500
+
+
+Started POST "/providers_sessions" for 127.0.0.1 at 2014-09-17 20:52:37 -0500
+Processing by ProvidersSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"77LM9OyGiDDBeQ2UTl05yEr7E6q9/rdWSJDcselUxPI=", "email"=>"", "password"=>"[FILTERED]", "commit"=>"Ingresa"}
+  [1m[35mProvider Load (0.5ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."email" = '' LIMIT 1
+  Rendered layouts/_flash_alerts.html.erb (0.1ms)
+  Rendered providers_sessions/new.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 16ms (Views: 13.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-17 20:52:37 -0500
+
+
+Started GET "/assets/fullcalendar.min.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:37 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:37 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:37 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:37 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:37 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:37 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-09-17 20:52:37 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:37 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:37 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:37 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:37 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:37 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:37 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:37 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:37 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:37 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-09-17 20:52:37 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-09-17 20:52:37 -0500
+
+
+Started GET "/fonts/icomoon.woff?-dvsyy8" for 127.0.0.1 at 2014-09-17 20:52:37 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/icomoon.woff"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.6ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.9ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (32.7ms)
+
+
+Started GET "/assets/underscore-min.map" for 127.0.0.1 at 2014-09-17 20:52:37 -0500
+
+
+Started GET "/fonts/icomoon.ttf?-dvsyy8" for 127.0.0.1 at 2014-09-17 20:52:37 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/icomoon.ttf"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.1ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (36.1ms)
+
+
+Started GET "/providers/new" for 127.0.0.1 at 2014-09-17 20:54:21 -0500
+Processing by ProvidersController#new as HTML
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  Rendered providers/_error_messages.html.erb (32.8ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered providers/new.html.erb within layouts/application (139.2ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 154ms (Views: 148.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-17 20:54:22 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:22 -0500
+
+
+Started GET "/assets/fullcalendar.min.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:22 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-09-17 20:54:22 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:22 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:22 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:22 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:22 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:22 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:22 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:22 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:22 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:22 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:22 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:22 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:22 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:22 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-09-17 20:54:22 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:22 -0500
+
+
+Started POST "/providers" for 127.0.0.1 at 2014-09-17 20:54:47 -0500
+Processing by ProvidersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"77LM9OyGiDDBeQ2UTl05yEr7E6q9/rdWSJDcselUxPI=", "provider"=>{"name"=>"Andrea", "last_name_1"=>"Del Rio", "last_name_2"=>"Lazo", "email"=>"aaa@bbb.com", "dni"=>"12345678", "phone"=>"12345678", "category_id"=>"1", "price"=>"30", "location_ids"=>["", "1", "2", "3", "4", "5", "6", "", "7", "8", "9", "10", "11", "", "12", "13", "14", "15", "16"], "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "check_all"=>"check_all", "commit"=>"Regístrate"}
+  [1m[36mLocation Load (0.6ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35mLocation Load (1.3ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mProvider Exists (0.5ms)[0m  SELECT 1 AS one FROM "providers" WHERE "providers"."email" = 'aaa@bbb.com' LIMIT 1
+  [1m[36mSQL (20.8ms)[0m  [1mINSERT INTO "providers" ("category_id", "created_at", "dni", "email", "last_name_1", "last_name_2", "name", "password_digest", "phone", "price", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["category_id", 1], ["created_at", Thu, 18 Sep 2014 01:54:47 UTC +00:00], ["dni", "12345678"], ["email", "aaa@bbb.com"], ["last_name_1", "Del Rio"], ["last_name_2", "Lazo"], ["name", "Andrea"], ["password_digest", "$2a$10$7VDLUZRfOZt3iTFYLDgyiefT6AjXPNmTPv.ieWSsIdkXjqULezyl6"], ["phone", "12345678"], ["price", 30.0], ["updated_at", Thu, 18 Sep 2014 01:54:47 UTC +00:00]]
+  [1m[35mSQL (4.2ms)[0m  INSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"  [["location_id", 1], ["provider_id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"[0m  [["location_id", 2], ["provider_id", 1]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"  [["location_id", 3], ["provider_id", 1]]
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"[0m  [["location_id", 4], ["provider_id", 1]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"  [["location_id", 5], ["provider_id", 1]]
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"[0m  [["location_id", 6], ["provider_id", 1]]
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"  [["location_id", 7], ["provider_id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"[0m  [["location_id", 8], ["provider_id", 1]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"  [["location_id", 9], ["provider_id", 1]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"[0m  [["location_id", 10], ["provider_id", 1]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"  [["location_id", 11], ["provider_id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"[0m  [["location_id", 12], ["provider_id", 1]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"  [["location_id", 13], ["provider_id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"[0m  [["location_id", 14], ["provider_id", 1]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"  [["location_id", 15], ["provider_id", 1]]
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"[0m  [["location_id", 16], ["provider_id", 1]]
+  [1m[35m (2.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 320ms (ActiveRecord: 36.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-17 20:54:47 -0500
+Processing by ProvidersController#home as HTML
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mantenimiento' LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Limpieza' LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Asistente Personal' LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mudanza' LIMIT 1[0m
+  Rendered providers/home.html.erb within layouts/application (13.7ms)
+  [1m[35mProvider Load (0.6ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (4.5ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 29ms (Views: 23.7ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-09-17 20:54:47 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:47 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:47 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-17 20:54:47 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:47 -0500
+
+
+Started GET "/assets/fullcalendar.min.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:47 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:47 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:47 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:47 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:47 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:47 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:47 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:47 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:47 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:47 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:47 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:47 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-09-17 20:54:47 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-17 20:54:47 -0500
+
+
+Started GET "/root_path" for 127.0.0.1 at 2014-09-17 20:54:55 -0500
+
+ActionController::RoutingError (No route matches [GET] "/root_path"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.4ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (20.1ms)
+
+
+Started GET "/root_path" for 127.0.0.1 at 2014-09-17 20:55:31 -0500
+
+ActionController::RoutingError (No route matches [GET] "/root_path"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.7ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.3ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (18.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-17 20:55:33 -0500
+Processing by ProvidersController#home as HTML
+  [1m[36mLocation Load (0.4ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mantenimiento' LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Limpieza' LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Asistente Personal' LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mudanza' LIMIT 1[0m
+  Rendered providers/home.html.erb within layouts/application (10.0ms)
+  [1m[35mProvider Load (0.5ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered layouts/_header.html.erb (5.4ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 72ms (Views: 66.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-17 20:55:33 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:33 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-09-17 20:55:33 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:33 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:33 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:33 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:33 -0500
+
+
+Started GET "/assets/fullcalendar.min.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:33 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:33 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:33 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:33 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:33 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:33 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:33 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:33 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:33 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:33 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:33 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-09-17 20:55:33 -0500
+
+
+Started GET "/assets/mantenimiento.png" for 127.0.0.1 at 2014-09-17 20:55:33 -0500
+
+
+Started GET "/assets/wiping.png" for 127.0.0.1 at 2014-09-17 20:55:33 -0500
+
+
+Started GET "/assets/asistente.png" for 127.0.0.1 at 2014-09-17 20:55:34 -0500
+
+
+Started GET "/assets/handshake.png" for 127.0.0.1 at 2014-09-17 20:55:34 -0500
+
+
+Started GET "/assets/server_rosa.png" for 127.0.0.1 at 2014-09-17 20:55:34 -0500
+
+
+Started GET "/assets/mudanza.png" for 127.0.0.1 at 2014-09-17 20:55:34 -0500
+
+
+Started GET "/assets/call.png" for 127.0.0.1 at 2014-09-17 20:55:34 -0500
+
+
+Started GET "/providers/1/edit" for 127.0.0.1 at 2014-09-17 20:55:37 -0500
+Processing by ProvidersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProvider Load (0.5ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", "1"]]
+  [1m[35mProvider Load (0.4ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mLocation Load (0.4ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  Rendered providers/_error_messages.html.erb (0.1ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  [1m[36m (0.9ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  Rendered providers/edit.html.erb within layouts/application (96.6ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 118ms (Views: 106.0ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-17 20:55:37 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-09-17 20:55:37 -0500
+
+
+Started GET "/assets/fullcalendar.min.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:37 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:37 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:37 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:37 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:37 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:37 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:37 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:37 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:37 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:37 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:37 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:37 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:37 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:37 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-09-17 20:55:37 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:37 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:37 -0500
+
+
+Started DELETE "/salir" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+Processing by ProvidersSessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"77LM9OyGiDDBeQ2UTl05yEr7E6q9/rdWSJDcselUxPI="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+Processing by ProvidersController#home as HTML
+  [1m[36mLocation Load (0.5ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mantenimiento' LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Limpieza' LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Asistente Personal' LIMIT 1
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mudanza' LIMIT 1[0m
+  Rendered providers/home.html.erb within layouts/application (16.2ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 29ms (Views: 23.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+
+
+Started GET "/assets/fullcalendar.min.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+
+
+Started GET "/assets/wiping.png" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+
+
+Started GET "/assets/asistente.png" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+
+
+Started GET "/assets/handshake.png" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+
+
+Started GET "/assets/mudanza.png" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+
+
+Started GET "/assets/mantenimiento.png" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+
+
+Started GET "/assets/call.png" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
+
+
+Started GET "/assets/server_rosa.png" for 127.0.0.1 at 2014-09-17 20:55:40 -0500
