@@ -3,9 +3,13 @@ class Provider < ActiveRecord::Base
 
   has_secure_password
 
-  validates_presence_of :email, :category_id, :name, :last_name_1, :last_name_2, :price, :phone, :dni
+  validate :fields_a_and_b_equal
+
+  validates_presence_of :email, :category_id, :name, :last_name_1, :last_name_2, :phone, :dni
 
   validates_uniqueness_of :email, format: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  
+  validates_uniqueness_of :dni
 
   belongs_to :category
 
@@ -13,7 +17,7 @@ class Provider < ActiveRecord::Base
   has_many :localizations
   has_many :locations, through: :localizations
   validates :locations, :presence => true
-  validates :dni, length: { is: 8, message: "debe tener 8 números." }
+  validates :dni, length: { is: 13, message: "debe tener 13 dígitos." }
   validates_format_of :dni,
     with: /[0-9]+\z/i,
     message: %Q[solo puede incluir números (0-9).]
@@ -36,5 +40,12 @@ class Provider < ActiveRecord::Base
       return self.locations.map(&:name).join(", ")
     end
   end
+
+  def fields_a_and_b_are_equal
+    if self.email == self.email_c
+      errors.add(:a, 'must be different to b')
+      errors.add(:b, 'must be different to a')
+    end
+  end  
 
 end

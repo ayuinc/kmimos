@@ -42,11 +42,11 @@
             <div class="form-group row">
                <div class="col-md-5">
                 <label>¿A qué categoría perteneces?</label>
-                <%= f.collection_select(:category_id, Category.all, :id, :name, {}, { :class=> "form-control" }) %>
+                <%= f.collection_select(:category_id, Category.all, :id, :name, {:include_blank => "Seleccione categoría"}, { :class=> "form-control" }) %>
               </div>
-              <div class="col-md-4">
-                <%= f.label :price, "Precio por hora (MXN):" %><br>
-                <%= f.text_field :price, class: "form-control" %>
+              <div class="col-md-7">
+                <%= f.label :description, "Descripción de servicios:" %><br>
+                <%= f.text_field :description, class: "form-control" %>
               </div>
             </div>
 

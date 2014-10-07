@@ -4,9 +4,9 @@ FactoryGirl.define do
     sequence(:last_name_1)     { |n| "Last-name#{n}" } 
     sequence(:last_name_2)     { |n| "Last-name#{n}" } 
     sequence(:email)         { |n| "provider#{n}@example.com" }
-    dni                    "45818351"
+    dni                    "0123456789123"
     phone                    "5342352"
-    price                    30.5
+    description                  "lo que hago"
     password                 "foobarbaz"
     password_confirmation    "foobarbaz"
     category

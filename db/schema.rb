@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910163216) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20141007225812) do
 
   create_table "categories", force: true do |t|
     t.string "name"
@@ -25,8 +22,8 @@ ActiveRecord::Schema.define(version: 20140910163216) do
     t.integer "location_id"
   end
 
-  add_index "localizations", ["location_id"], name: "index_localizations_on_location_id", using: :btree
-  add_index "localizations", ["provider_id"], name: "index_localizations_on_provider_id", using: :btree
+  add_index "localizations", ["location_id"], name: "index_localizations_on_location_id"
+  add_index "localizations", ["provider_id"], name: "index_localizations_on_provider_id"
 
   create_table "locations", force: true do |t|
     t.string "name"
@@ -45,9 +42,9 @@ ActiveRecord::Schema.define(version: 20140910163216) do
     t.float    "avg_rating"
     t.string   "picture_url"
     t.string   "phone"
-    t.float    "price"
+    t.text     "description"
   end
 
-  add_index "providers", ["category_id"], name: "index_providers_on_category_id", using: :btree
+  add_index "providers", ["category_id"], name: "index_providers_on_category_id"
 
 end

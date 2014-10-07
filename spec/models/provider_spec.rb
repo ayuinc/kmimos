@@ -23,7 +23,7 @@ describe Provider do
       it { should have_db_column(:phone) }
       it { should have_db_column(:picture_url) }
       it { should have_db_column(:avg_rating) }
-      it { should have_db_column(:price) }
+      it { should have_db_column(:description) }
     end
 
     describe 'validations' do
@@ -34,7 +34,7 @@ describe Provider do
       it { should validate_presence_of(:last_name_1) }
       it { should validate_presence_of(:last_name_2) }
       it { should validate_presence_of(:dni) }
-      it { should validate_presence_of(:price) }
+      it { should validate_uniqueness_of(:dni) }
       it { should validate_presence_of(:phone) }
       it { should validate_uniqueness_of(:email) }
     end
