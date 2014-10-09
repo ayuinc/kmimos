@@ -10,6 +10,11 @@ describe Provider do
       it { should belong_to(:category) }
       it { should have_many(:localizations) }
       it { should have_many(:locations).through(:localizations) }
+      it { should have_many(:pictures) }
+    end
+
+    context 'nested attributes' do
+      it { should accept_nested_attributes_for(:pictures) }
     end
 
     context 'columns' do
@@ -21,7 +26,6 @@ describe Provider do
       it { should have_db_column(:dni) }
       it { should have_db_column(:email) }
       it { should have_db_column(:phone) }
-      it { should have_db_column(:picture_url) }
       it { should have_db_column(:avg_rating) }
       it { should have_db_column(:description) }
     end

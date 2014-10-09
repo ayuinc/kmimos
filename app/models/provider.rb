@@ -3,7 +3,6 @@ class Provider < ActiveRecord::Base
   has_secure_password
   has_many :pictures, as: :imageable
   accepts_nested_attributes_for :pictures 
- # validate :fields_a_and_b_equal
   validates_presence_of :email, :category_id, :name, :last_name_1, :last_name_2, :phone, :dni
   validates_uniqueness_of :email, format: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates_uniqueness_of :dni
@@ -18,6 +17,7 @@ class Provider < ActiveRecord::Base
   validates_format_of :phone,
     with: /\A[0-9\-]+\z/,
     message: %Q[solo puede incluir números (0-9) y guiones "-".]  
+  validate :fields_a_and_b_are_equal
 
   def prov_locations
     if self.locations.count > 2
@@ -35,11 +35,14 @@ class Provider < ActiveRecord::Base
     end
   end
 
+  protected
+
   def fields_a_and_b_are_equal
-    if self.email == self.email_c
-      errors.add(:a, 'must be different to b')
-      errors.add(:b, 'must be different to a')
-    end
+    if self.email.present?
+      unless self.email == self.email_c
+        errors.add(:email_c, 'debe coincidir con el correo electrónico')
+      end
+    end  
   end  
 
 end

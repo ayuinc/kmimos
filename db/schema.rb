@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141009184742) do
+ActiveRecord::Schema.define(version: 20141009192426) do
 
   create_table "categories", force: true do |t|
     t.string "name"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20141009184742) do
     t.float    "avg_rating"
     t.string   "phone"
     t.text     "description"
+    t.string   "email_c"
   end
 
   add_index "providers", ["category_id"], name: "index_providers_on_category_id"

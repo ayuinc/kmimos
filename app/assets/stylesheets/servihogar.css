@@ -4011,6 +4011,16 @@ table th[class*="col-"] {
 #error_explanation {
   color: red; }
 
+#provider_pictures_attributes_0_image {
+  display: none; }
+
+.uneditable-input {
+  border: none; }
+
+#file-display {
+  font-size: 10px;
+  width: 100%; }
+
 .proveedor-profile {
   background: white;
   border-right: 1px solid #eeeeee;

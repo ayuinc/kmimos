@@ -228,6 +228,7 @@ es:
     attributes:
         provider: 
             email: "Correo electrónico"
+            email_c: "Confirmación de correo electrónico"
             password: "Contraseña"
             password_confirmation: "Confirmación de contraseña"
             name: "Nombre"
