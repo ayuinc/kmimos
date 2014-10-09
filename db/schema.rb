@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141007225812) do
+ActiveRecord::Schema.define(version: 20141009184742) do
 
   create_table "categories", force: true do |t|
     t.string "name"
@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(version: 20141007225812) do
     t.string "name"
   end
 
+  create_table "pictures", force: true do |t|
+    t.string   "image"
+    t.integer  "imageable_id"
+    t.string   "imageable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "pictures", ["imageable_id", "imageable_type"], name: "index_pictures_on_imageable_id_and_imageable_type"
+
   create_table "providers", force: true do |t|
     t.string   "name"
     t.string   "last_name_1"
@@ -40,7 +50,6 @@ ActiveRecord::Schema.define(version: 20141007225812) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.float    "avg_rating"
-    t.string   "picture_url"
     t.string   "phone"
     t.text     "description"
   end

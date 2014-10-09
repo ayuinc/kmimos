@@ -32,10 +32,10 @@
       <div class="row">
         <div class="col-md-8  p-0 list-profiles">
           <div class="col-md-3 text-center p-14">
-            <% if provider.picture_url.present? %>
-              <%= image_tag(provider.picture_url, :class => "img-circle" ) %>
-            <% else %>  
+            <% if provider.pictures.empty? %>
               <%= image_tag('server_carnet.png', :class => "img-circle" ) %>
+            <% else %>
+              <%= image_tag(provider.pictures.last.image_url(:thumb), :class => "img-circle") %>
             <% end %>
           </div>
           <div class="col-md-6 pt-14">
@@ -48,7 +48,7 @@
 
           </div>
           <div class="col-md-3 text-center">
-            <%= link_to "Contrátame <br> #{provider.price}MXN/hr".html_safe, provider, remote: true, :class => "mt-56 btn btn-primary" %>
+            <%= link_to "Contrátame".html_safe, provider, remote: true, :class => "mt-56 btn btn-primary" %>
           </div>
           </div>       
         </div>

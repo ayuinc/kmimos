@@ -1,0 +1,17 @@
+/.bundle
+/db/*.sqlite3
+/db/*.sqlite3-journal
+/log/*.log
+/tmp
+/ssl
+.zeus.sock
+zeus.json
+custom_plan.rb
+/coverage
+app/assets/.DS_Store
+.env
+public/uploads/picture/**
+/rerun.txt
+.css
+.sass-cache
+app/assets/stylesheets/.sass-cache

@@ -25,10 +25,16 @@
 
 
             <div class="form-group row">
-              <div class="col-md-4">
+              <div class="col-md-6">
                 <%= f.label :email, "Correo electrónico:" %><br>
                 <%= f.text_field :email, class: "form-control" %>
               </div>
+              <div class="col-md-6">
+                <p>confirmación de correo</p>
+              </div>
+            </div>
+
+            <div class="form-group row">
               <div class="col-md-4">
                 <%= f.label :dni, "IFE:" %><br>
                 <%= f.text_field :dni, class: "form-control" %>
@@ -36,6 +42,19 @@
               <div class="col-md-4">
                 <%= f.label :phone, "Teléfono:" %><br>
                 <%= f.text_field :phone, class: "form-control" %>
+              </div>
+              <div class="col-md-4">
+              <!-- builder  --> 
+               <%= f.fields_for :pictures, Picture.new do |p| %>
+              <label>Elegir imagen de perfil</label>
+                 <div class="form-group">
+                   <%= p.hidden_field :id %>
+                   <%= p.hidden_field :imageable_id %>
+                   <%= p.hidden_field :imageable_type %>
+                   <%= p.file_field :image %>
+                 </div>
+              <% end %>
+              <!-- builder -->
               </div>
             </div>
 

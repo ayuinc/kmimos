@@ -1,19 +1,13 @@
 class Provider < ActiveRecord::Base
   belongs_to :category
-
   has_secure_password
-
-  validate :fields_a_and_b_equal
-
+  has_many :pictures, as: :imageable
+  accepts_nested_attributes_for :pictures 
+ # validate :fields_a_and_b_equal
   validates_presence_of :email, :category_id, :name, :last_name_1, :last_name_2, :phone, :dni
-
   validates_uniqueness_of :email, format: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  
   validates_uniqueness_of :dni
-
   belongs_to :category
-
-
   has_many :localizations
   has_many :locations, through: :localizations
   validates :locations, :presence => true
