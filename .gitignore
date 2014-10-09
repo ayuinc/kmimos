@@ -15,3 +15,5 @@ public/uploads/picture/**
 .css
 .sass-cache
 app/assets/stylesheets/.sass-cache
+log/development.log
+/log/development.log
