@@ -33,6 +33,7 @@ class ProvidersController < ApplicationController
 
   # GET /providers/1/edit
   def edit
+    @provider.pictures.build
   end
 
   # POST /providers
