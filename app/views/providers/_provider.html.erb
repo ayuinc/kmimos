@@ -4,10 +4,10 @@
       <div class="profile-view">
         <div class="col-md-4 text-center">
           <div class="profile-pic text-center">
-            <% if provider.picture_url.present? %>
-              <%= image_tag(provider.picture_url, :class => "img-circle img-responsive mb-14" ) %>
-            <% else %>  
+            <% if provider.pictures.empty? %>
               <%= image_tag('server_carnet.png', :class => "img-circle img-responsive mb-14" ) %>
+            <% else %>
+              <%= image_tag(provider.pictures.last.image_url(:thumb), :class => "img-circle img-responsive mb-14") %>
             <% end %>
             <p class="mb-0"><i class="fa fa-user"></i> <%= provider.name %> <%= provider.last_name_1 %></p>
             <i class="fa fa-check"></i><strong> <%= provider.category.name %></strong>

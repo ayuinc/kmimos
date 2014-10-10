@@ -26,6 +26,20 @@ $(document).ready(function() {
   if (footerTop < docHeight) {
     $('#footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
   }
+
+  // pretty-fy the upload field
+  var realInputField = $('#provider_pictures_attributes_0_image');
+
+  // drop just the filename in the display field
+  realInputField.change(function() {
+    // $('#file-display').val $(@).val().replace(/^.*[\\\/]/, '');
+    $('#file-display').val("Archivo elegido: " + realInputField.val().replace(/^.*[\\\/]/, ''));
+  });
+
+  // trigger the real input field click to bring up the file selection dialog
+  $('#upload-btn').click(function() {
+    realInputField.click();
+  });
 });
 
 

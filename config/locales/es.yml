@@ -12,18 +12,12 @@ es:
     sessions: ingresa
     register: registro
     dashboard: paneldecontrol
-    whyjoin: unete
     providers_sessions: proveedor
     my_pic: fotos
     set_locations: lugaresdetrabajo
     locations: ubicaciones
     pick_locations: elegir_locaciones
     new: nuevo
-    events: slots
-    event: slot
-    time_administration: administrartiempo
-    past_appointments: citasatendidas
-    search: buscar
   date:
     abbr_day_names:
     - dom
@@ -222,26 +216,19 @@ es:
     errors:
       <<: *errors
       event_error: 'slot de tiempo'
-    attributes:
-      block:
-        start_day: "Fecha"
-        end_day: "Fecha límite"
-        start_hour_and_minute: "Hora inicial"
-        end_hour_and_minute: "Hora final"
-        event_size: "Duración"
   activerecord:
     models:
       user: usuario
+      category: categoría
       event: slot de tiempo
       provider: proveedor
       location: ubicación
-      district: distrito
-      block: slot
     errors:
       <<: *errors
     attributes:
         provider: 
             email: "Correo electrónico"
+            email_c: "Confirmación de correo electrónico"
             password: "Contraseña"
             password_confirmation: "Confirmación de contraseña"
             name: "Nombre"
@@ -253,8 +240,7 @@ es:
             price: "Precio por hora"
             phone: "Teléfono"
             dni: "IFE"
-        location:
-            street_address: "Dirección"   
-            district: "Distrito"
-        event:
-            email_phone_name: "Correo electrónico"    
+            category_id: "Categoría"
+        category:
+            name: "Categoría"    
+                
