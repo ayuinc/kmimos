@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20141009192426) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: true do |t|
     t.string "name"
   end
@@ -22,8 +25,8 @@ ActiveRecord::Schema.define(version: 20141009192426) do
     t.integer "location_id"
   end
 
-  add_index "localizations", ["location_id"], name: "index_localizations_on_location_id"
-  add_index "localizations", ["provider_id"], name: "index_localizations_on_provider_id"
+  add_index "localizations", ["location_id"], name: "index_localizations_on_location_id", using: :btree
+  add_index "localizations", ["provider_id"], name: "index_localizations_on_provider_id", using: :btree
 
   create_table "locations", force: true do |t|
     t.string "name"
@@ -37,7 +40,7 @@ ActiveRecord::Schema.define(version: 20141009192426) do
     t.datetime "updated_at"
   end
 
-  add_index "pictures", ["imageable_id", "imageable_type"], name: "index_pictures_on_imageable_id_and_imageable_type"
+  add_index "pictures", ["imageable_id", "imageable_type"], name: "index_pictures_on_imageable_id_and_imageable_type", using: :btree
 
   create_table "providers", force: true do |t|
     t.string   "name"
@@ -55,6 +58,6 @@ ActiveRecord::Schema.define(version: 20141009192426) do
     t.string   "email_c"
   end
 
-  add_index "providers", ["category_id"], name: "index_providers_on_category_id"
+  add_index "providers", ["category_id"], name: "index_providers_on_category_id", using: :btree
 
 end

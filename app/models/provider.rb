@@ -17,7 +17,7 @@ class Provider < ActiveRecord::Base
   validates_format_of :phone,
     with: /\A[0-9\-]+\z/,
     message: %Q[solo puede incluir números (0-9) y guiones "-".]  
-  validate :fields_a_and_b_are_equal
+  validate :fields_a_and_b_are_equal, on: :create
 
   def prov_locations
     if self.locations.count > 2

@@ -1,0 +1,2046 @@
+  [1m[36mProvider Load (9.1ms)[0m  [1mSELECT "providers".* FROM "providers"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-09 22:07:59 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (2.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError - Migrations are pending; run 'bin/rake db:migrate RAILS_ENV=development' to resolve this issue.:
+  activerecord (4.0.2) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.2) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__368436555017544738__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call'
+  rack-contrib (1.1.0) lib/rack/contrib/response_headers.rb:17:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/headers.rb:16:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/92271a4562ef69c5/variables" for 127.0.0.1 at 2014-10-09 22:07:59 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddDescriptionToProviders (20141007225812)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (15.1ms)[0m  [1mALTER TABLE "providers" ADD COLUMN "description" text[0m
+  [1m[35m (6.9ms)[0m  ALTER TABLE "providers" DROP "price"
+  [1m[36mSQL (4.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141007225812"]]
+  [1m[35m (2.4ms)[0m  COMMIT
+Migrating to CreatePictures (20141009172639)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (20.1ms)[0m  CREATE TABLE "pictures" ("id" serial primary key, "image" character varying(255), "imageable_id" integer, "imageable_type" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.2ms)[0m  [1mCREATE INDEX "index_pictures_on_imageable_id_and_imageable_type" ON "pictures" ("imageable_id", "imageable_type")[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141009172639"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to RemovePictureUrlFromProviders (20141009184742)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "providers" DROP "picture_url"[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141009184742"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddEmailcToProviders (20141009192426)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "providers" ADD COLUMN "email_c" character varying(255)[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141009192426"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-09 22:08:25 -0500
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by ProvidersController#home as HTML
+  [1m[36mLocation Load (1.2ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35mCategory Load (2.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mantenimiento' LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Limpieza' LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Asistente Personal' LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mudanza' LIMIT 1[0m
+  Rendered providers/home.html.erb within layouts/application (33.3ms)
+  Rendered layouts/_header.html.erb (3.1ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 400ms (Views: 376.7ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/assets/fullcalendar.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/assets/mantenimiento.png" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/assets/wiping.png" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/assets/asistente.png" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/assets/mudanza.png" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/assets/handshake.png" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/assets/call.png" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/assets/server_rosa.png" for 127.0.0.1 at 2014-10-09 22:08:26 -0500
+
+
+Started GET "/providers_sessions/new" for 127.0.0.1 at 2014-10-09 22:08:27 -0500
+Processing by ProvidersSessionsController#new as HTML
+  Rendered layouts/_flash_alerts.html.erb (0.6ms)
+  Rendered providers_sessions/new.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 51ms (Views: 14.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:27 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:27 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:27 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:27 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:27 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:27 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:27 -0500
+
+
+Started POST "/providers_sessions" for 127.0.0.1 at 2014-10-09 22:08:32 -0500
+Processing by ProvidersSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rAPfu1YlHqOw/l8QIQlMnJ26kW9KucJVa3SRi4TyDa0=", "email"=>"aaa@bbb.com", "password"=>"[FILTERED]", "commit"=>"Ingresa"}
+  [1m[35mProvider Load (0.6ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."email" = 'aaa@bbb.com' LIMIT 1
+  Rendered layouts/_flash_alerts.html.erb (0.1ms)
+  Rendered providers_sessions/new.html.erb within layouts/application (1.6ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 97ms (Views: 10.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:32 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:32 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:32 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:32 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:32 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:32 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:32 -0500
+
+
+Started GET "/fonts/icomoon.woff?-dvsyy8" for 127.0.0.1 at 2014-10-09 22:08:32 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/icomoon.woff"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.7ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (7.7ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (38.4ms)
+
+
+Started GET "/fonts/icomoon.ttf?-dvsyy8" for 127.0.0.1 at 2014-10-09 22:08:33 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/icomoon.ttf"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.5ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (21.5ms)
+
+
+Started POST "/providers_sessions" for 127.0.0.1 at 2014-10-09 22:08:40 -0500
+Processing by ProvidersSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rAPfu1YlHqOw/l8QIQlMnJ26kW9KucJVa3SRi4TyDa0=", "email"=>"aaa@bbb.com", "password"=>"[FILTERED]", "commit"=>"Ingresa"}
+  [1m[36mProvider Load (0.3ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."email" = 'aaa@bbb.com' LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 78ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-09 22:08:40 -0500
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mantenimiento' LIMIT 1[0m
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Limpieza' LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Asistente Personal' LIMIT 1[0m
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mudanza' LIMIT 1
+  Rendered providers/home.html.erb within layouts/application (15.8ms)
+  [1m[36mProvider Load (8.9ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (14.0ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 115ms (Views: 100.2ms | ActiveRecord: 11.5ms)
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:40 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:40 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:40 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:40 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:40 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:40 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:40 -0500
+
+
+Started GET "/providers/1/edit" for 127.0.0.1 at 2014-10-09 22:08:43 -0500
+Processing by ProvidersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProvider Load (0.7ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mProvider Load (0.6ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations"
+  Rendered providers/_error_messages.html.erb (2.4ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (3.1ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  Rendered providers/edit.html.erb within layouts/application (121.5ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 304ms (Views: 184.7ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:43 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:43 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:43 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:43 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:43 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:43 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:43 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:08:43 -0500
+
+
+Started GET "/fonts/icomoon.woff?-dvsyy8" for 127.0.0.1 at 2014-10-09 22:08:43 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/icomoon.woff"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.1ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (21.8ms)
+
+
+Started GET "/fonts/icomoon.ttf?-dvsyy8" for 127.0.0.1 at 2014-10-09 22:08:43 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/icomoon.ttf"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (20.3ms)
+
+
+Started PATCH "/providers/1" for 127.0.0.1 at 2014-10-09 22:08:50 -0500
+Processing by ProvidersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rAPfu1YlHqOw/l8QIQlMnJ26kW9KucJVa3SRi4TyDa0=", "provider"=>{"name"=>"Andrea", "last_name_1"=>"Del Rio", "last_name_2"=>"Lazo", "email"=>"aaa@bbb.com", "dni"=>"12345678", "phone"=>"12345678", "category_id"=>"1", "pictures_attributes"=>{"0"=>{"id"=>"", "imageable_id"=>"", "imageable_type"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fba41314158 @tempfile=#<Tempfile:/var/folders/0g/5yd79_dd5dn9l2ylrcx6yx_m0000gn/T/RackMultipart20141009-57312-1fijdcj>, @original_filename="IUICuwY0.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"provider[pictures_attributes][0][image]\"; filename=\"IUICuwY0.jpeg\"\r\nContent-Type: image/jpeg\r\n">}}, "location_ids"=>["", "1", "2", "3", "4", "5", "6", "", "7", "8", "9", "10", "11", "", "12", "13", "14", "15", "16"]}, "commit"=>"Actualizar perfil", "id"=>"1"}
+  [1m[35mProvider Load (0.6ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mLocation Load (0.4ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mLocation Load (0.5ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)[0m
+  [1m[35mLocation Load (0.6ms)[0m  SELECT "locations".* FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 193ms
+
+SystemStackError - stack level too deep:
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:70:in `'
+
+
+
+Started POST "/__better_errors/81eb8bdcc36e6a3b/variables" for 127.0.0.1 at 2014-10-09 22:08:51 -0500
+
+
+Started PATCH "/providers/1" for 127.0.0.1 at 2014-10-09 22:09:18 -0500
+Processing by ProvidersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rAPfu1YlHqOw/l8QIQlMnJ26kW9KucJVa3SRi4TyDa0=", "provider"=>{"name"=>"Andrea", "last_name_1"=>"Del Rio", "last_name_2"=>"Lazo", "email"=>"aaa@bbb.com", "dni"=>"12345678", "phone"=>"12345678", "category_id"=>"1", "pictures_attributes"=>{"0"=>{"id"=>"", "imageable_id"=>"", "imageable_type"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fba43771820 @tempfile=#<Tempfile:/var/folders/0g/5yd79_dd5dn9l2ylrcx6yx_m0000gn/T/RackMultipart20141009-57312-nen553>, @original_filename="IUICuwY0.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"provider[pictures_attributes][0][image]\"; filename=\"IUICuwY0.jpeg\"\r\nContent-Type: image/jpeg\r\n">}}, "location_ids"=>["", "1", "2", "3", "4", "5", "6", "", "7", "8", "9", "10", "11", "", "12", "13", "14", "15", "16"]}, "commit"=>"Actualizar perfil", "id"=>"1"}
+  [1m[35mProvider Load (0.6ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mLocation Load (0.4ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 155ms
+
+SystemStackError - stack level too deep:
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:70:in `'
+
+
+
+Started POST "/__better_errors/b134c84614e01395/variables" for 127.0.0.1 at 2014-10-09 22:09:18 -0500
+
+
+Started PATCH "/providers/1" for 127.0.0.1 at 2014-10-09 22:09:33 -0500
+Processing by ProvidersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rAPfu1YlHqOw/l8QIQlMnJ26kW9KucJVa3SRi4TyDa0=", "provider"=>{"name"=>"Andrea", "last_name_1"=>"Del Rio", "last_name_2"=>"Lazo", "email"=>"aaa@bbb.com", "dni"=>"1234567890123", "phone"=>"12345678", "category_id"=>"1", "pictures_attributes"=>{"0"=>{"id"=>"", "imageable_id"=>"", "imageable_type"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fba43722fe0 @tempfile=#<Tempfile:/var/folders/0g/5yd79_dd5dn9l2ylrcx6yx_m0000gn/T/RackMultipart20141009-57312-f8zzpw>, @original_filename="IUICuwY0.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"provider[pictures_attributes][0][image]\"; filename=\"IUICuwY0.jpeg\"\r\nContent-Type: image/jpeg\r\n">}}, "location_ids"=>["", "1", "2", "3", "4", "5", "6", "", "7", "8", "9", "10", "11", "", "12", "13", "14", "15", "16"]}, "commit"=>"Actualizar perfil", "id"=>"1"}
+  [1m[35mProvider Load (0.5ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mLocation Load (0.4ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)[0m
+  [1m[35mLocation Load (0.4ms)[0m  SELECT "locations".* FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 189ms
+
+SystemStackError - stack level too deep:
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:70:in `'
+
+
+
+Started POST "/__better_errors/6ac32f20ccf1b822/variables" for 127.0.0.1 at 2014-10-09 22:09:33 -0500
+
+
+Started PATCH "/providers/1" for 127.0.0.1 at 2014-10-09 22:10:30 -0500
+Processing by ProvidersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rAPfu1YlHqOw/l8QIQlMnJ26kW9KucJVa3SRi4TyDa0=", "provider"=>{"name"=>"Andrea", "last_name_1"=>"Del Rio", "last_name_2"=>"Lazo", "email"=>"aaa@bbb.com", "dni"=>"1234567890123", "phone"=>"12345678", "category_id"=>"1", "pictures_attributes"=>{"0"=>{"id"=>"", "imageable_id"=>"", "imageable_type"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fba437f3208 @tempfile=#<Tempfile:/var/folders/0g/5yd79_dd5dn9l2ylrcx6yx_m0000gn/T/RackMultipart20141009-57312-97jl2d>, @original_filename="IUICuwY0.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"provider[pictures_attributes][0][image]\"; filename=\"IUICuwY0.jpeg\"\r\nContent-Type: image/jpeg\r\n">}}, "location_ids"=>["", "1", "2", "3", "4", "5", "6", "", "7", "8", "9", "10", "11", "", "12", "13", "14", "15", "16"]}, "commit"=>"Actualizar perfil", "id"=>"1"}
+  [1m[35mProvider Load (2.8ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mLocation Load (0.5ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)[0m
+  [1m[35mLocation Load (0.6ms)[0m  SELECT "locations".* FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 160ms
+
+SystemStackError - stack level too deep:
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:70:in `'
+
+
+
+Started POST "/__better_errors/15f2560d29b39437/variables" for 127.0.0.1 at 2014-10-09 22:10:30 -0500
+
+
+Started PATCH "/providers/1" for 127.0.0.1 at 2014-10-09 22:10:46 -0500
+Processing by ProvidersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rAPfu1YlHqOw/l8QIQlMnJ26kW9KucJVa3SRi4TyDa0=", "provider"=>{"name"=>"Andrea", "last_name_1"=>"Del Rio", "last_name_2"=>"Lazo", "email"=>"aaa@bbb.com", "dni"=>"1234567890123", "phone"=>"12345678", "category_id"=>"1", "pictures_attributes"=>{"0"=>{"id"=>"", "imageable_id"=>"", "imageable_type"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fba437f0828 @tempfile=#<Tempfile:/var/folders/0g/5yd79_dd5dn9l2ylrcx6yx_m0000gn/T/RackMultipart20141009-57312-1dq8yox>, @original_filename="IUICuwY0.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"provider[pictures_attributes][0][image]\"; filename=\"IUICuwY0.jpeg\"\r\nContent-Type: image/jpeg\r\n">}}, "location_ids"=>["", "1", "2", "3", "4", "5", "6", "", "7", "8", "9", "10", "11", "", "12", "13", "14", "15", "16"]}, "commit"=>"Actualizar perfil", "id"=>"1"}
+  [1m[35mProvider Load (0.3ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mLocation Load (0.4ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mLocation Load (0.4ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 216ms
+
+SystemStackError - stack level too deep:
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:70:in `'
+
+
+
+Started POST "/__better_errors/23851de91fe1c84d/variables" for 127.0.0.1 at 2014-10-09 22:10:46 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mLocation Load (0.6ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Alvaro Obregón' LIMIT 1
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Azcapotzalco' LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Benito Juárez' LIMIT 1
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Coyoacán' LIMIT 1[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Cuajimalpa de Morelos' LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Cuauhtémoc' LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Gustavo A. Madero' LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Iztacalco' LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Iztapalapa' LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'La Magdalena Contreras' LIMIT 1[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Miguel Hidalgo' LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Milpa Alta' LIMIT 1[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Tlalpan' LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Tláhuac' LIMIT 1[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Venustiano Carranza' LIMIT 1
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Xochimilco' LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Asistente Personal' LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Limpieza' LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mantenimiento' LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mudanza' LIMIT 1[0m
+
+
+Started PATCH "/providers/1" for 127.0.0.1 at 2014-10-09 22:11:48 -0500
+Processing by ProvidersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rAPfu1YlHqOw/l8QIQlMnJ26kW9KucJVa3SRi4TyDa0=", "provider"=>{"name"=>"Andrea", "last_name_1"=>"Del Rio", "last_name_2"=>"Lazo", "email"=>"aaa@bbb.com", "dni"=>"1234567890123", "phone"=>"12345678", "category_id"=>"1", "pictures_attributes"=>{"0"=>{"id"=>"", "imageable_id"=>"", "imageable_type"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x007fba4555dd70 @tempfile=#<Tempfile:/var/folders/0g/5yd79_dd5dn9l2ylrcx6yx_m0000gn/T/RackMultipart20141009-57312-um0hlg>, @original_filename="IUICuwY0.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"provider[pictures_attributes][0][image]\"; filename=\"IUICuwY0.jpeg\"\r\nContent-Type: image/jpeg\r\n">}}, "location_ids"=>["", "1", "2", "3", "4", "5", "6", "", "7", "8", "9", "10", "11", "", "12", "13", "14", "15", "16"]}, "commit"=>"Actualizar perfil", "id"=>"1"}
+  [1m[35mProvider Load (0.3ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mLocation Load (0.4ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mLocation Load (0.4ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)[0m
+  [1m[35mLocation Load (0.4ms)[0m  SELECT "locations".* FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 211ms
+
+SystemStackError - stack level too deep:
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:70:in `'
+
+
+
+Started POST "/__better_errors/367392ad3bdec731/variables" for 127.0.0.1 at 2014-10-09 22:11:49 -0500
+
+
+Started PATCH "/providers/1" for 127.0.0.1 at 2014-10-09 22:12:05 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProvidersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rAPfu1YlHqOw/l8QIQlMnJ26kW9KucJVa3SRi4TyDa0=", "provider"=>{"name"=>"Andrea", "last_name_1"=>"Del Rio", "last_name_2"=>"Lazo", "email"=>"aaa@bbb.com", "dni"=>"1234567890123", "phone"=>"12345678", "category_id"=>"1", "pictures_attributes"=>{"0"=>{"id"=>"", "imageable_id"=>"", "imageable_type"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f9c50af00c0 @tempfile=#<Tempfile:/var/folders/0g/5yd79_dd5dn9l2ylrcx6yx_m0000gn/T/RackMultipart20141009-57908-dtcrug>, @original_filename="IUICuwY0.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"provider[pictures_attributes][0][image]\"; filename=\"IUICuwY0.jpeg\"\r\nContent-Type: image/jpeg\r\n">}}, "location_ids"=>["", "1", "2", "3", "4", "5", "6", "", "7", "8", "9", "10", "11", "", "12", "13", "14", "15", "16"]}, "commit"=>"Actualizar perfil", "id"=>"1"}
+  [1m[35mProvider Load (2.7ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mLocation Load (0.6ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mLocation Load (0.6ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)[0m
+  [1m[35mLocation Load (4.1ms)[0m  SELECT "locations".* FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 365ms
+
+SystemStackError - stack level too deep:
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:70:in `'
+
+
+
+Started POST "/__better_errors/c8615b1b93e049ea/variables" for 127.0.0.1 at 2014-10-09 22:12:05 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-09 22:12:08 -0500
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (0.4ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mantenimiento' LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Limpieza' LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Asistente Personal' LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mudanza' LIMIT 1
+  Rendered providers/home.html.erb within layouts/application (30.4ms)
+  [1m[36mProvider Load (0.4ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (5.3ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 273ms (Views: 265.6ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:08 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:09 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:09 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:09 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:09 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:09 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:09 -0500
+
+
+Started DELETE "/salir" for 127.0.0.1 at 2014-10-09 22:12:11 -0500
+Processing by ProvidersSessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"rAPfu1YlHqOw/l8QIQlMnJ26kW9KucJVa3SRi4TyDa0="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-09 22:12:11 -0500
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (0.6ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mantenimiento' LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Limpieza' LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Asistente Personal' LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mudanza' LIMIT 1
+  Rendered providers/home.html.erb within layouts/application (13.8ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 82ms (Views: 22.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:11 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:11 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:11 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:11 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:11 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:11 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:11 -0500
+
+
+Started GET "/providers" for 127.0.0.1 at 2014-10-09 22:12:14 -0500
+Processing by ProvidersController#index as HTML
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35mLocation Load (0.6ms)[0m  SELECT "locations".* FROM "locations" ORDER BY "locations"."name" ASC
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  [1m[35mProvider Load (0.3ms)[0m  SELECT "providers".* FROM "providers"
+  [1m[36mPicture Exists (2.0ms)[0m  [1mSELECT 1 AS one FROM "pictures" WHERE "pictures"."imageable_id" = $1 AND "pictures"."imageable_type" = $2 LIMIT 1[0m  [["imageable_id", 1], ["imageable_type", "Provider"]]
+  [1m[35mCategory Load (1.1ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 ORDER BY "categories"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mLocation Load (0.8ms)[0m  SELECT "locations".* FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1 LIMIT 2  [["provider_id", 1]]
+  Rendered layouts/_modal.html.erb (0.5ms)
+  Rendered providers/index.html.erb within layouts/application (110.6ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 127ms (Views: 118.5ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:14 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:14 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:14 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:14 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:14 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:14 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:14 -0500
+
+
+Started GET "/assets/server_carnet.png" for 127.0.0.1 at 2014-10-09 22:12:14 -0500
+
+
+Started GET "/assets/logo_color.png" for 127.0.0.1 at 2014-10-09 22:12:14 -0500
+
+
+Started GET "/providers" for 127.0.0.1 at 2014-10-09 22:12:17 -0500
+Processing by ProvidersController#index as HTML
+  [1m[36mLocation Load (0.4ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations" ORDER BY "locations"."name" ASC
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC[0m
+  [1m[35mProvider Load (0.4ms)[0m  SELECT "providers".* FROM "providers"
+  [1m[36mPicture Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "pictures" WHERE "pictures"."imageable_id" = $1 AND "pictures"."imageable_type" = $2 LIMIT 1[0m  [["imageable_id", 1], ["imageable_type", "Provider"]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 ORDER BY "categories"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mLocation Load (0.5ms)[0m  SELECT "locations".* FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1 LIMIT 2  [["provider_id", 1]]
+  Rendered layouts/_modal.html.erb (0.1ms)
+  Rendered providers/index.html.erb within layouts/application (27.8ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 43ms (Views: 36.0ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-09 22:12:17 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-09 22:12:17 -0500
+
+
+Started GET "/assets/fullcalendar.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:17 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:17 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:17 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:17 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:17 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:17 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:17 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:17 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:17 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:17 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:17 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:17 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:17 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:17 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:17 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:17 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-10-09 22:12:17 -0500
+
+
+Started GET "/assets/server_carnet.png" for 127.0.0.1 at 2014-10-09 22:12:17 -0500
+
+
+Started GET "/assets/logo_color.png" for 127.0.0.1 at 2014-10-09 22:12:17 -0500
+
+
+Started GET "/providers_sessions/new" for 127.0.0.1 at 2014-10-09 22:12:22 -0500
+Processing by ProvidersSessionsController#new as HTML
+  Rendered layouts/_flash_alerts.html.erb (0.6ms)
+  Rendered providers_sessions/new.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 21ms (Views: 20.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-09 22:12:22 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:22 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:22 -0500
+
+
+Started GET "/assets/fullcalendar.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:22 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-09 22:12:22 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:22 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:22 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:22 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:22 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:22 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:22 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:22 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:22 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:22 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:22 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:22 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:22 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:22 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-10-09 22:12:22 -0500
+
+
+Started POST "/providers_sessions" for 127.0.0.1 at 2014-10-09 22:12:35 -0500
+Processing by ProvidersSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rAPfu1YlHqOw/l8QIQlMnJ26kW9KucJVa3SRi4TyDa0=", "email"=>"aaa@bbb.com", "password"=>"[FILTERED]", "commit"=>"Ingresa"}
+  [1m[36mProvider Load (0.7ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."email" = 'aaa@bbb.com' LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 77ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-09 22:12:35 -0500
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (0.8ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mantenimiento' LIMIT 1[0m
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Limpieza' LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Asistente Personal' LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mudanza' LIMIT 1
+  Rendered providers/home.html.erb within layouts/application (14.9ms)
+  [1m[36mProvider Load (0.5ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_header.html.erb (5.3ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 36ms (Views: 29.9ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-09 22:12:35 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:35 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-09 22:12:35 -0500
+
+
+Started GET "/assets/fullcalendar.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:35 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:35 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:35 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:35 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:35 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:35 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:35 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:35 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:35 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:35 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:35 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:35 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:35 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:35 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:35 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-10-09 22:12:35 -0500
+
+
+Started GET "/providers/1/edit" for 127.0.0.1 at 2014-10-09 22:12:37 -0500
+Processing by ProvidersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProvider Load (0.5ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mProvider Load (0.6ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mLocation Load (0.4ms)[0m  SELECT "locations".* FROM "locations"
+  Rendered providers/_error_messages.html.erb (3.7ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.9ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  Rendered providers/edit.html.erb within layouts/application (119.1ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 143ms (Views: 130.1ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-09 22:12:37 -0500
+
+
+Started GET "/assets/fullcalendar.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:37 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:37 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-09 22:12:37 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:37 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:37 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:37 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:37 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:37 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:37 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:37 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:37 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:37 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:37 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:37 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:37 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:37 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:37 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-10-09 22:12:37 -0500
+
+
+Started GET "/fonts/icomoon.woff?-dvsyy8" for 127.0.0.1 at 2014-10-09 22:12:37 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/icomoon.woff"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.6ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.4ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (30.8ms)
+
+
+Started GET "/fonts/icomoon.ttf?-dvsyy8" for 127.0.0.1 at 2014-10-09 22:12:37 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/icomoon.ttf"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.6ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (20.2ms)
+
+
+Started PATCH "/providers/1" for 127.0.0.1 at 2014-10-09 22:12:42 -0500
+Processing by ProvidersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rAPfu1YlHqOw/l8QIQlMnJ26kW9KucJVa3SRi4TyDa0=", "provider"=>{"name"=>"Andrea", "last_name_1"=>"Del Rio", "last_name_2"=>"Lazo", "email"=>"aaa@bbb.com", "dni"=>"12345678", "phone"=>"12345678", "category_id"=>"1", "pictures_attributes"=>{"0"=>{"id"=>"", "imageable_id"=>"", "imageable_type"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f9c580387d8 @tempfile=#<Tempfile:/var/folders/0g/5yd79_dd5dn9l2ylrcx6yx_m0000gn/T/RackMultipart20141009-57908-3pctde>, @original_filename="IUICuwY0.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"provider[pictures_attributes][0][image]\"; filename=\"IUICuwY0.jpeg\"\r\nContent-Type: image/jpeg\r\n">}}, "location_ids"=>["", "1", "2", "3", "4", "5", "6", "", "7", "8", "9", "10", "11", "", "12", "13", "14", "15", "16"]}, "commit"=>"Actualizar perfil", "id"=>"1"}
+  [1m[35mProvider Load (0.5ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)[0m
+  [1m[35mLocation Load (0.5ms)[0m  SELECT "locations".* FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 172ms
+
+SystemStackError - stack level too deep:
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:70:in `'
+
+
+
+Started POST "/__better_errors/b836c99ec49bb8e3/variables" for 127.0.0.1 at 2014-10-09 22:12:43 -0500
+
+
+Started GET "/providers/1/edit" for 127.0.0.1 at 2014-10-09 22:12:54 -0500
+Processing by ProvidersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mProvider Load (0.2ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mProvider Load (0.4ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations"
+  Rendered providers/_error_messages.html.erb (0.1ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  [1m[35m (0.5ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".id FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1[0m  [["provider_id", 1]]
+  Rendered providers/edit.html.erb within layouts/application (118.6ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 245ms (Views: 125.1ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-09 22:12:54 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:54 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-09 22:12:54 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:54 -0500
+
+
+Started GET "/assets/fullcalendar.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:55 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:55 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:55 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:55 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:55 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:55 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:55 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:55 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:55 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:55 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:55 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:55 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:55 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-09 22:12:55 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-10-09 22:12:55 -0500
+
+
+Started GET "/fonts/icomoon.woff?-dvsyy8" for 127.0.0.1 at 2014-10-09 22:12:55 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/icomoon.woff"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.1ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (20.4ms)
+
+
+Started GET "/fonts/icomoon.ttf?-dvsyy8" for 127.0.0.1 at 2014-10-09 22:12:55 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/icomoon.ttf"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.3ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (19.8ms)
+
+
+Started PATCH "/providers/1" for 127.0.0.1 at 2014-10-09 22:12:59 -0500
+Processing by ProvidersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rAPfu1YlHqOw/l8QIQlMnJ26kW9KucJVa3SRi4TyDa0=", "provider"=>{"name"=>"Andrea", "last_name_1"=>"Del Rio", "last_name_2"=>"Lazo", "email"=>"aaa@bbb.com", "dni"=>"12345678", "phone"=>"12345678", "category_id"=>"1", "pictures_attributes"=>{"0"=>{"id"=>"", "imageable_id"=>"", "imageable_type"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f9c516a0d98 @tempfile=#<Tempfile:/var/folders/0g/5yd79_dd5dn9l2ylrcx6yx_m0000gn/T/RackMultipart20141009-57908-ehfez2>, @original_filename="IUICuwY0.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"provider[pictures_attributes][0][image]\"; filename=\"IUICuwY0.jpeg\"\r\nContent-Type: image/jpeg\r\n">}}, "location_ids"=>["", "1", "2", "3", "4", "5", "6", "", "7", "8", "9", "10", "11", "", "12", "13", "14", "15", "16"]}, "commit"=>"Actualizar perfil", "id"=>"1"}
+  [1m[35mProvider Load (0.4ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 93ms
+
+SystemStackError - stack level too deep:
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:70:in `'
+
+
+
+Started POST "/__better_errors/882c284adeba1c8d/variables" for 127.0.0.1 at 2014-10-09 22:12:59 -0500
+
+
+Started PATCH "/providers/1" for 127.0.0.1 at 2014-10-09 22:17:40 -0500
+Processing by ProvidersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rAPfu1YlHqOw/l8QIQlMnJ26kW9KucJVa3SRi4TyDa0=", "provider"=>{"name"=>"Andrea", "last_name_1"=>"Del Rio", "last_name_2"=>"Lazo", "email"=>"aaa@bbb.com", "dni"=>"12345678", "phone"=>"12345678", "category_id"=>"1", "pictures_attributes"=>{"0"=>{"id"=>"", "imageable_id"=>"", "imageable_type"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f9c52523050 @tempfile=#<Tempfile:/var/folders/0g/5yd79_dd5dn9l2ylrcx6yx_m0000gn/T/RackMultipart20141009-57908-1ht55na>, @original_filename="IUICuwY0.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"provider[pictures_attributes][0][image]\"; filename=\"IUICuwY0.jpeg\"\r\nContent-Type: image/jpeg\r\n">}}, "location_ids"=>["", "1", "2", "3", "4", "5", "6", "", "7", "8", "9", "10", "11", "", "12", "13", "14", "15", "16"]}, "commit"=>"Actualizar perfil", "id"=>"1"}
+  [1m[35mProvider Load (0.3ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mLocation Load (0.4ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)[0m
+  [1m[35mLocation Load (0.4ms)[0m  SELECT "locations".* FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 171ms
+
+SystemStackError - stack level too deep:
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:70:in `'
+
+
+
+Started POST "/__better_errors/097383386c7af109/variables" for 127.0.0.1 at 2014-10-09 22:17:41 -0500
+
+
+Started PATCH "/providers/1" for 127.0.0.1 at 2014-10-09 22:17:44 -0500
+Processing by ProvidersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rAPfu1YlHqOw/l8QIQlMnJ26kW9KucJVa3SRi4TyDa0=", "provider"=>{"name"=>"Andrea", "last_name_1"=>"Del Rio", "last_name_2"=>"Lazo", "email"=>"aaa@bbb.com", "dni"=>"12345678", "phone"=>"12345678", "category_id"=>"1", "pictures_attributes"=>{"0"=>{"id"=>"", "imageable_id"=>"", "imageable_type"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f9c55d72668 @tempfile=#<Tempfile:/var/folders/0g/5yd79_dd5dn9l2ylrcx6yx_m0000gn/T/RackMultipart20141009-57908-sjdzp9>, @original_filename="IUICuwY0.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"provider[pictures_attributes][0][image]\"; filename=\"IUICuwY0.jpeg\"\r\nContent-Type: image/jpeg\r\n">}}, "location_ids"=>["", "1", "2", "3", "4", "5", "6", "", "7", "8", "9", "10", "11", "", "12", "13", "14", "15", "16"]}, "commit"=>"Actualizar perfil", "id"=>"1"}
+  [1m[35mProvider Load (0.4ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", "1"]]
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16)[0m
+  [1m[35mLocation Load (0.4ms)[0m  SELECT "locations".* FROM "locations" INNER JOIN "localizations" ON "locations"."id" = "localizations"."location_id" WHERE "localizations"."provider_id" = $1  [["provider_id", 1]]
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+Completed 500 Internal Server Error in 89ms
+
+SystemStackError - stack level too deep:
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:70:in `'
+
+
+
+Started POST "/__better_errors/776e9d97a2c06272/variables" for 127.0.0.1 at 2014-10-09 22:17:44 -0500
+
+
+Started DELETE "/salir" for 127.0.0.1 at 2014-10-09 22:19:26 -0500
+Processing by ProvidersSessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"rAPfu1YlHqOw/l8QIQlMnJ26kW9KucJVa3SRi4TyDa0="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-09 22:19:26 -0500
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (0.6ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mantenimiento' LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Limpieza' LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Asistente Personal' LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mudanza' LIMIT 1
+  Rendered providers/home.html.erb within layouts/application (25.6ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 112ms (Views: 102.4ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-09 22:19:26 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-09 22:19:26 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:26 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:26 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:26 -0500
+
+
+Started GET "/assets/fullcalendar.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:26 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:26 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:26 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:26 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:26 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:26 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:26 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:26 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:26 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:26 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:26 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:26 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:26 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-10-09 22:19:26 -0500
+
+
+Started GET "/providers/new" for 127.0.0.1 at 2014-10-09 22:19:29 -0500
+Processing by ProvidersController#new as HTML
+  [1m[36mLocation Load (1.7ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  Rendered providers/_error_messages.html.erb (0.1ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered providers/new.html.erb within layouts/application (94.4ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 125ms (Views: 109.4ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-09 22:19:29 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-09 22:19:29 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:29 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:29 -0500
+
+
+Started GET "/assets/fullcalendar.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:29 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:29 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:29 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:29 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:29 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:29 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:29 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:29 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:29 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:29 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:29 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:29 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:29 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:29 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-10-09 22:19:29 -0500
+
+
+Started GET "/fonts/icomoon.woff?-dvsyy8" for 127.0.0.1 at 2014-10-09 22:19:29 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/icomoon.woff"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.4ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (22.7ms)
+
+
+Started GET "/fonts/icomoon.ttf?-dvsyy8" for 127.0.0.1 at 2014-10-09 22:19:29 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/icomoon.ttf"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.6ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (22.0ms)
+
+
+Started POST "/providers" for 127.0.0.1 at 2014-10-09 22:19:31 -0500
+Processing by ProvidersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rAPfu1YlHqOw/l8QIQlMnJ26kW9KucJVa3SRi4TyDa0=", "provider"=>{"name"=>"", "last_name_1"=>"", "last_name_2"=>"", "email"=>"", "email_c"=>"", "dni"=>"", "phone"=>"", "pictures_attributes"=>{"0"=>{"id"=>"", "imageable_id"=>"", "imageable_type"=>""}}, "category_id"=>"", "description"=>"", "location_ids"=>["", "", ""], "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Regístrate"}
+  [1m[36mLocation Load (0.5ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+Unpermitted parameters: description
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mProvider Exists (0.4ms)[0m  [1mSELECT 1 AS one FROM "providers" WHERE "providers"."email" = '' LIMIT 1[0m
+  [1m[35mProvider Exists (0.3ms)[0m  SELECT 1 AS one FROM "providers" WHERE "providers"."dni" = '' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  Rendered providers/_error_messages.html.erb (1.6ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered providers/new.html.erb within layouts/application (12.6ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 572ms (Views: 98.9ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-09 22:19:32 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-09 22:19:32 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:32 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:32 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:32 -0500
+
+
+Started GET "/assets/fullcalendar.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:32 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:32 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:32 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:32 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:32 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:32 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:32 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:32 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:32 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:32 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:32 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:32 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-09 22:19:32 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-10-09 22:19:32 -0500
+
+
+Started GET "/fonts/icomoon.woff?-dvsyy8" for 127.0.0.1 at 2014-10-09 22:19:32 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/icomoon.woff"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.1ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (63.1ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (86.5ms)
+
+
+Started GET "/fonts/icomoon.ttf?-dvsyy8" for 127.0.0.1 at 2014-10-09 22:19:32 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/icomoon.ttf"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.1ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (21.3ms)
+
+
+Started POST "/providers" for 127.0.0.1 at 2014-10-09 22:20:08 -0500
+Processing by ProvidersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rAPfu1YlHqOw/l8QIQlMnJ26kW9KucJVa3SRi4TyDa0=", "provider"=>{"name"=>"w", "last_name_1"=>"w", "last_name_2"=>"w", "email"=>"w@c.com", "email_c"=>"w@c.com", "dni"=>"0123456789123", "phone"=>"245", "pictures_attributes"=>{"0"=>{"id"=>"", "imageable_id"=>"", "imageable_type"=>"", "image"=>#<ActionDispatch::Http::UploadedFile:0x007f9c55ce1190 @tempfile=#<Tempfile:/var/folders/0g/5yd79_dd5dn9l2ylrcx6yx_m0000gn/T/RackMultipart20141009-57908-tepuvf>, @original_filename="IUICuwY0.jpeg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"provider[pictures_attributes][0][image]\"; filename=\"IUICuwY0.jpeg\"\r\nContent-Type: image/jpeg\r\n">}}, "category_id"=>"1", "description"=>"", "location_ids"=>["", "1", "", ""], "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Regístrate"}
+  [1m[36mLocation Load (0.6ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+Unpermitted parameters: description
+  [1m[35mLocation Load (4.6ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 213ms
+
+SystemStackError - stack level too deep:
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:70:in `'
+
+
+
+Started POST "/__better_errors/dcf644c99d73b0c2/variables" for 127.0.0.1 at 2014-10-09 22:20:09 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-09 22:25:45 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-09 22:25:45 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:45 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:45 -0500
+
+
+Started GET "/assets/fullcalendar.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:45 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:45 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:45 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:45 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:45 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:45 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:45 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:45 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:45 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:45 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:45 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:45 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:45 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:45 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-10-09 22:25:45 -0500
+
+
+Started GET "/providers/new" for 127.0.0.1 at 2014-10-09 22:25:47 -0500
+Processing by ProvidersController#new as HTML
+  [1m[36mLocation Load (0.8ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  Rendered providers/_error_messages.html.erb (0.1ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered providers/new.html.erb within layouts/application (21.5ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 110ms (Views: 98.5ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-09 22:25:47 -0500
+
+
+Started GET "/assets/fullcalendar.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:47 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:47 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:47 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:47 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-09 22:25:47 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:47 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:47 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:47 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:47 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:47 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:47 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:47 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:47 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:47 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:47 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:47 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:47 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-10-09 22:25:47 -0500
+
+
+Started GET "/fonts/icomoon.woff?-dvsyy8" for 127.0.0.1 at 2014-10-09 22:25:47 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/icomoon.woff"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.1ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (22.8ms)
+
+
+Started GET "/fonts/icomoon.ttf?-dvsyy8" for 127.0.0.1 at 2014-10-09 22:25:47 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/icomoon.ttf"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.1ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (17.8ms)
+
+
+Started GET "/providers/new" for 127.0.0.1 at 2014-10-09 22:25:49 -0500
+Processing by ProvidersController#new as HTML
+  [1m[36mLocation Load (0.4ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  Rendered providers/_error_messages.html.erb (0.0ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered providers/new.html.erb within layouts/application (12.9ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 29ms (Views: 24.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-09 22:25:49 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-09 22:25:49 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:49 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:49 -0500
+
+
+Started GET "/assets/fullcalendar.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:49 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:49 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:49 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:49 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:49 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:49 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:49 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:49 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:49 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:49 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:49 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:49 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:49 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-09 22:25:49 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-10-09 22:25:49 -0500
+
+
+Started GET "/fonts/icomoon.woff?-dvsyy8" for 127.0.0.1 at 2014-10-09 22:25:49 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/icomoon.woff"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.3ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (19.7ms)
+
+
+Started GET "/fonts/icomoon.ttf?-dvsyy8" for 127.0.0.1 at 2014-10-09 22:25:49 -0500
+
+ActionController::RoutingError (No route matches [GET] "/fonts/icomoon.ttf"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.4ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (27.0ms)
