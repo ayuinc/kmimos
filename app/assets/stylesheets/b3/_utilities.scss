@@ -118,7 +118,7 @@
 }
 
     // Paddings
-@for $m from -7 to 15 {
+@for $m from -7 to 11 {
   .pt-#{$m*7} {
     padding-top: em($m*7)!important;
   }
