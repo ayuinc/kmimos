@@ -2044,3 +2044,209 @@ ActionController::RoutingError (No route matches [GET] "/fonts/icomoon.ttf"):
   Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.4ms)
   Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
   Rendered /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (27.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (1.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mLocation Load (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Alvaro Obregón' LIMIT 1
+  [1m[36mLocation Load (1.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Azcapotzalco' LIMIT 1[0m
+  [1m[35mLocation Load (1.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Benito Juárez' LIMIT 1
+  [1m[36mLocation Load (1.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Coyoacán' LIMIT 1[0m
+  [1m[35mLocation Load (1.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Cuajimalpa de Morelos' LIMIT 1
+  [1m[36mLocation Load (1.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Cuauhtémoc' LIMIT 1[0m
+  [1m[35mLocation Load (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Gustavo A. Madero' LIMIT 1
+  [1m[36mLocation Load (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Iztacalco' LIMIT 1[0m
+  [1m[35mLocation Load (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Iztapalapa' LIMIT 1
+  [1m[36mLocation Load (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'La Magdalena Contreras' LIMIT 1[0m
+  [1m[35mLocation Load (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Miguel Hidalgo' LIMIT 1
+  [1m[36mLocation Load (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Milpa Alta' LIMIT 1[0m
+  [1m[35mLocation Load (1.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Tlalpan' LIMIT 1
+  [1m[36mLocation Load (1.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Tláhuac' LIMIT 1[0m
+  [1m[35mLocation Load (0.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Venustiano Carranza' LIMIT 1
+  [1m[36mLocation Load (1.0ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Xochimilco' LIMIT 1[0m
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Asistente Personal' LIMIT 1
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Limpieza' LIMIT 1[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mantenimiento' LIMIT 1
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mudanza' LIMIT 1[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-13 11:26:04 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (1.0ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mCategory Load (3.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mantenimiento' LIMIT 1[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Limpieza' LIMIT 1
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Asistente Personal' LIMIT 1[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mudanza' LIMIT 1
+  Rendered providers/home.html.erb within layouts/application (142.1ms)
+  Rendered layouts/_header.html.erb (7.0ms)
+  Rendered layouts/_footer.html.erb (2.0ms)
+Completed 200 OK in 1343ms (Views: 1268.0ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:06 -0500
+
+
+Started GET "/assets/fullcalendar.min.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:06 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-13 11:26:06 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:06 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-13 11:26:06 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:06 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:06 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:07 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:07 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:07 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:07 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:07 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:07 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:07 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:07 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:07 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:07 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:07 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-10-13 11:26:07 -0500
+
+
+Started GET "/assets/mantenimiento.png" for 127.0.0.1 at 2014-10-13 11:26:07 -0500
+
+
+Started GET "/assets/wiping.png" for 127.0.0.1 at 2014-10-13 11:26:07 -0500
+
+
+Started GET "/assets/asistente.png" for 127.0.0.1 at 2014-10-13 11:26:07 -0500
+
+
+Started GET "/assets/mudanza.png" for 127.0.0.1 at 2014-10-13 11:26:08 -0500
+
+
+Started GET "/assets/handshake.png" for 127.0.0.1 at 2014-10-13 11:26:08 -0500
+
+
+Started GET "/assets/call.png" for 127.0.0.1 at 2014-10-13 11:26:08 -0500
+
+
+Started GET "/assets/server_rosa.png" for 127.0.0.1 at 2014-10-13 11:26:08 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-13 11:26:35 -0500
+Processing by ProvidersController#home as HTML
+  [1m[36mLocation Load (1.0ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35mCategory Load (3.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mantenimiento' LIMIT 1
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Limpieza' LIMIT 1[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Asistente Personal' LIMIT 1
+  [1m[36mCategory Load (2.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mudanza' LIMIT 1[0m
+  Rendered providers/home.html.erb within layouts/application (62.1ms)
+  Rendered layouts/_header.html.erb (7.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 250ms (Views: 230.2ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:36 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:36 -0500
+
+
+Started GET "/assets/fullcalendar.min.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:36 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-13 11:26:36 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-13 11:26:36 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:36 -0500
+
+
+Started GET "/assets/bootstrap/bootstrap-datepicker.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:36 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:36 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:36 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:36 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:37 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:37 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:37 -0500
+
+
+Started GET "/assets/jquery.sticky.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:37 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:37 -0500
+
+
+Started GET "/assets/underscore-min.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:37 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:37 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-13 11:26:37 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-10-13 11:26:37 -0500
+
+
+Started GET "/assets/mantenimiento.png" for 127.0.0.1 at 2014-10-13 11:26:37 -0500
+
+
+Started GET "/assets/wiping.png" for 127.0.0.1 at 2014-10-13 11:26:37 -0500
+
+
+Started GET "/assets/asistente.png" for 127.0.0.1 at 2014-10-13 11:26:37 -0500
+
+
+Started GET "/assets/mudanza.png" for 127.0.0.1 at 2014-10-13 11:26:37 -0500
+
+
+Started GET "/assets/handshake.png" for 127.0.0.1 at 2014-10-13 11:26:37 -0500
+
+
+Started GET "/assets/call.png" for 127.0.0.1 at 2014-10-13 11:26:38 -0500
+
+
+Started GET "/assets/server_rosa.png" for 127.0.0.1 at 2014-10-13 11:26:38 -0500
