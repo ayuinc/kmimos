@@ -1,25 +1,20 @@
-//= require jquery
-//= require jquery_ujs
-//= require fullcalendar.min
+//= require jquery-2.1.1.min
+//= require jquery.flexslider-min.js
+//= require bootstrap/transition
 //= require bootstrap/collapse
-//= require bootstrap/bootstrap-datepicker
 //= require bootstrap/dropdown
 //= require bootstrap/collapse
-//= require bootstrap/transition
 //= require bootstrap/tooltip
 //= require bootstrap/z_popover
 //= require bootstrap/modal
 //= require bootstrap/tab
-//= require jquery.sticky
 //= require easing
-//= require underscore-min
 //= require typeahead.min
 //= require_self
 //= require_tree .
 
 $(document).ready(function() {
-
-	var docHeight = $(window).height();
+  var docHeight = $(window).height();
   var footerHeight = $('#footer').height();
   var footerTop = $('#footer').position().top + footerHeight;
 
@@ -39,6 +34,12 @@ $(document).ready(function() {
   // trigger the real input field click to bring up the file selection dialog
   $('#upload-btn').click(function() {
     realInputField.click();
+  });
+
+  $(window).load(function() {
+    $('.flexslider').flexslider({
+    	controlNav: true,
+    });
   });
 });
 

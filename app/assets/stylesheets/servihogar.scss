@@ -44,6 +44,14 @@
 @import "b3/_popovers.scss";
 @import "b3/_pagination.scss";
 @import "b3/_wells.scss";
+@import "b3/_glyphicons.scss";
+@import "b3/_carousel.scss";
+
+// Utility classes
+@import "b3/_responsive-utilities.scss";
+@import "b3/_utilities.scss";
+@import "b3/_mobile_box_model.scss";
+@import "custom/_flexslider";
 
 // Templates
 @import "navs/_header_rails.scss";
@@ -55,11 +63,6 @@
 
 // Components w/ JavaScript
 
-
-// Utility classes
-@import "b3/_responsive-utilities.scss";
-@import "b3/_utilities.scss";
-@import "b3/_mobile_box_model.scss";
 
 
 //Custom

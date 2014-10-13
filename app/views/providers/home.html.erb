@@ -81,28 +81,32 @@
         </div> <!-- row -->
       </div> <!-- container -->
 </section>
-<section id="meet-server" class="bg-danger text-center">
-    <div class="container">
-        <div class="row">
-          <div class="col-md-1"></div>
-          <div class="col-md-4 pl-42">
-            <%= image_tag("server_rosa.png", :class => "img-responsive mt-56") %>
-          </div>
-          <div class="col-md-1"></div>
-          <div class="col-md-6 p-35">
-            <div class="row mt-35 p-21 server-des">
-                <h5 class="text-primary thin"><i class="fa-star"> </i>Server de la semana:</h5>
-                <h4 class="text-center text-primary">Rosa</h4>
-                <p class="text-primary">La señora Rosa es querida en toda casa donde llega por su increíble capacidad para organizar y limpiar en tiempo record.</p><p class="text-primary">Por eso y mucho más, es nuestra Server de la semana.</p>
-                <div class="row">
-                <%= link_to 'Contactar a Rosa', providers_path, :class => "btn btn-primary" %>
-                </div>
-            </div>  
-          </div>
-        </div>
-        </div> <!-- row -->
-      </div> <!-- container -->
+
+<section>
+<!-- Place somewhere in the <body> of your page -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+<div class="flexslider">
+  <ul class="slides">
+    <li>
+      <%=image_tag('power.png') %>
+    </li>
+    <li>
+      <%=image_tag('pipe.png') %>
+    </li>
+    <li>
+      <%=image_tag('wiping.png') %>
+    </li>
+  </ul>
+</div>  
+      
+    </div>
+  </div>
+</div>
 </section>
+
 <section id="listo">
   <div class="container mb-77 mt-77">
     <div class="col-md-3"></div>
