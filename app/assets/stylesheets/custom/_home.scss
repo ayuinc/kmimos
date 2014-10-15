@@ -1,8 +1,9 @@
 #home-filters {
   // background: url(http://s3.postimg.org/9z6tol4jn/casa.jpg) no-repeat;
-  background: url(http://38.media.tumblr.com/3d156c8f2eda130780e2b381039d6827/tumblr_nabj1sNYFd1qfirfao1_1280.jpg) no-repeat;
+  background-image: url(http://s3.postimg.org/f7pu5otc3/perro_difuso.png);
   height: auto;
   background-size: cover;
+  background-repeat: no-repeat;
 
   ul {
     text-align: center;
@@ -23,7 +24,7 @@
           z-index: 30;
           font-size: 21px;
           width: 100%;
-          background: rgb(239,206,90);
+          background: rgba(0,0,0,0.8);
           height: 100%;
           top: 0;
           border-radius: 50%;
@@ -121,6 +122,11 @@ footer {
   }
 }
 
+#home-pasos {
+  .pasos {
+    background-color: #7F4104;
+  }
+}
 #hexagon {
   width: 80px;
   height: 120px;
@@ -220,5 +226,22 @@ footer {
 .handshake {
   margin-left: 12px;
   margin-top: 10px;
-;
 }
+
+.container-fluid {
+  .flexslider {
+    .slides {
+      li {
+        .carousel-caption {
+          background: rgba(255,255,255,0.9);
+          border-radius: 38px;
+          margin-left: 470px;
+          padding: 23px;
+          margin-bottom: 151px;
+          color: gray;
+          text-shadow: none;
+        }
+      }
+    }
+  }
+}    

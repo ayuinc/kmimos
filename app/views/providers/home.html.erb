@@ -1,122 +1,143 @@
-<section id="home-title" class="bg-primary">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 mt-70 text-center">
-        <h3 class="text-muted hidden-sm hidden-xs">Soluciones para<strong> tu casa</strong></h3>
-        <h3 class="text-muted hidden-md hidden-lg pt-14">Soluciones para<strong> tu casa</strong></h3>
-        <h5 class="text-muted pb-14">Encuentra proveedores previamente evaluados y verificados.</h5>
-      </div>
-    </div>
-  </div>
-</section>
+
 <section id="home-filters"> 
   <div class="container p-35">
-    <div class="row pt-63 pb-70">
+    <div class="row">
+      <div class="col-md-12 mt-70 text-center">
+        <h3 class="text-primary hidden-sm hidden-xs m-0">Consiente a tu <strong>mascota</strong></h3>
+        <h3 class="text-primary hidden-md hidden-lg pt-14 m-0">Consiente a tu <strong>mascota</strong></h3>
+        <h5 class="text-primary pb-14">Conéctate con gente de confianza para consentir a tu mascota como se merece.</h5>
+      </div>
+    </div>
+    <div class="row pt-35 mt-42 mb-70 pb-70">
       <ul class="list-unstyled">
         <li>
           <%= link_to(category_path(Category.find_by(name: "Mantenimiento"))) do %>
-            <%= image_tag("mantenimiento.png", :class => "img-circle" ) %>
+            <%= image_tag("iconos_fondo_color_kmimos-01.png", :class => "img-circle" ) %>
             <div class="overlay">
-              <span class="small">Mantenimiento</span>
+              <span>Paseo</span>
+            </div>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to(category_path(Category.find_by(name: "Mantenimiento"))) do %>
+            <%= image_tag("iconos_fondo_color_kmimos-04-04.png", :class => "img-circle" ) %>
+            <div class="overlay">
+              <span>Veterinaria</span>
             </div>
           <% end %>
         </li>
         <li>
           <%= link_to(category_path(Category.find_by(name: "Limpieza"))) do %>
-            <%= image_tag("wiping.png", :class => "img-circle" ) %>
+            <%= image_tag("iconos_fondo_color_kmimos-02.png", :class => "img-circle bg" ) %>
             <div class="overlay">
-              <span>Limpieza</span>
+              <span>Hotel</span>
             </div>
           <% end %>
         </li>
         <li>
           <%= link_to(category_path(Category.find_by(name: "Asistente Personal"))) do %>
-            <%= image_tag("asistente.png", :class => "img-circle" ) %>
-            <div class="overlay pt-35">
-              <span>Asistente Personal</span>
+            <%= image_tag("iconos_fondo_color_kmimos-03.png", :class => "img-circle" ) %>
+            <div class="overlay pt-42">
+              <span>Entrenador</span>
             </div>
           <% end %>
-        </li>
-
-        <li>
-          <%= link_to(category_path(Category.find_by(name: "Mudanza"))) do %>
-            <%= image_tag("mudanza.png", :class => "img-circle" ) %>
-            <div class="overlay">
-              <span>Mudanza</span>
-          </div>
-         <% end %>
         </li>
       </ul>
     </div>
 
   </div>
 </section>
-<section id="home-pasos" class="text-center bg-warning">
-    <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <h4 class="text-center pt-21 text-muted">1. Elige</h4>
-            <div class="demo">
-              <div class="hexa text-center" id="hexagon"></div>
-              <div class="hex-over"><i class="pl-7 fa-check-square-o small"></i></div>
-            </div> 
-            <h5 class="p-21 text-muted">Selecciona el servicio que necesitas y elige entre la lista de proveedores calificados.</h5>
-          </div>
-          <div class="col-md-4">
-            <h4 class="text-center pt-21 text-muted">2. Contrata</h4>
-            <div class="demo">
-              <div class="hexa text-center" id="hexagon"></div>
-              <div class="hex-over"><%= image_tag("handshake.png", :class => 'handshake') %></div>
-            </div>
-            <h5 class="p-21 text-muted">Contrata al proveedor que más se ajusta a tus necesidades.</h5> 
-          </div>
-          <div class="col-md-4">
-            <h4 class="text-center pt-21 text-muted">3. Evalúa</h4>
-            <div class="demo">
-              <div class="hexa text-center" id="hexagon"></div>
-              <div class="hex-over"><%= image_tag("call.png", :class => 'handshake') %></div>
-            </div> 
-            <h5 class="p-21 text-muted">Asígnale un puntaje al proveedor de acuerdo a la calidad del servicio brindado.</h5>
-          </div>
-        </div> <!-- row -->
-      </div> <!-- container -->
+<section id="home-pasos" class="text-center bg-muted">
+  <div class="pasos bg-primary p-21">
+    <h4 class="m-0 text-muted">
+      Todo lo que necesitas para tu hogar aquí
+    </h4>
+    <p class="m-0 text-muted">En 3 simples pasos:</p>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h4 class="text-center pt-21 text-primary">1. Elige</h4>
+        <div class="demo">
+          <div class="hexa text-center" id="hexagon"></div>
+          <div class="hex-over"><i class="pl-7 fa-check-square-o small"></i></div>
+        </div> 
+        <h5 class="p-21 text-primary">Selecciona el servicio que necesitas y elige entre la lista de proveedores calificados.</h5>
+      </div>
+      <div class="col-md-4">
+        <h4 class="text-center pt-21 text-primary">2. Contrata</h4>
+        <div class="demo">
+          <div class="hexa text-center" id="hexagon"></div>
+          <div class="hex-over"><%= image_tag("handshake.png", :class => 'handshake') %></div>
+        </div>
+        <h5 class="p-21 text-primary">Contrata al proveedor que más se ajusta a tus necesidades.</h5> 
+      </div>
+      <div class="col-md-4">
+        <h4 class="text-center pt-21 text-primary">3. Evalúa</h4>
+        <div class="demo">
+          <div class="hexa text-center" id="hexagon"></div>
+          <div class="hex-over"><%= image_tag("call.png", :class => 'handshake') %></div>
+        </div> 
+        <h5 class="p-21 text-primary">Asígnale un puntaje al proveedor de acuerdo a la calidad del servicio brindado.</h5>
+      </div>
+    </div> <!-- row -->
+  </div> <!-- container -->
 </section>
 
 <section>
-<!-- Place somewhere in the <body> of your page -->
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4"></div>
-    <div class="col-sm-4">
-<div class="flexslider">
-  <ul class="slides">
-    <li>
-      <%=image_tag('power.png') %>
-    </li>
-    <li>
-      <%=image_tag('pipe.png') %>
-    </li>
-    <li>
-      <%=image_tag('wiping.png') %>
-    </li>
-  </ul>
-</div>  
-      
+  <!-- Place somewhere in the <body> of your page -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="flexslider">
+        <ul class="slides">
+          <li>
+            <%=image_tag('kitchen.jpg') %>
+            <div class="carousel-caption">
+              <h3>Lorem ipsum dolor sit amet</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p><strong>Ana R.</strong></p>
+            </div>
+          </li>
+          <li>
+            <%=image_tag('bg-kitchen.jpg') %>
+            <div class="carousel-caption">
+              <h3>Lorem ipsum dolor sit amet</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p><strong>Irwin R.</strong></p>
+            </div>
+          </li>
+          <li>
+            <%=image_tag('bg-profile.jpg') %>
+            <div class="carousel-caption">
+              <h3>Lorem ipsum dolor sit amet</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p><strong>Liz R.</strong></p>
+            </div>
+          </li>
+        </ul>
+      </div>   
     </div>
   </div>
-</div>
 </section>
 
 <section id="listo">
   <div class="container mb-77 mt-77">
-    <div class="col-md-3"></div>
-    <div class="col-md-6 m-28">
-      <h4 class="text-secondary text-center">¿Listo para conseguir ayuda con las tareas de tu hogar?</h4>
-      <div class="row text-center p-28">
-        <%= link_to 'Ver proveedores disponibles', providers_path, :class => "btn btn-lg btn-secondary hidden-xs hidden-sm" %>
-        <%= link_to 'Ver proveedores <br> disponibles'.html_safe, providers_path, :class => "btn btn-sm btn-secondary hidden-md hidden-lg" %>
-      </div>  
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6 m-28">
+        <h4 class="text-secondary text-center">¿Listo para conseguir ayuda con las tareas de tu hogar?</h4>
+        <div class="row text-center p-28">
+          <%= link_to 'Ver proveedores disponibles', providers_path, :class => "btn btn-lg btn-secondary hidden-xs hidden-sm" %>
+          <%= link_to 'Ver proveedores <br> disponibles'.html_safe, providers_path, :class => "btn btn-sm btn-secondary hidden-md hidden-lg" %>
+        </div>  
+      </div>
+      <div class="col-md-3"></div>
     </div>
-    <div class="col-md-3"></div>
   </div>
 </section>

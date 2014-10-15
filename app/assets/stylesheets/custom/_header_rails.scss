@@ -76,10 +76,14 @@
 }
 
 .navbar-header {
+
   a {
     text-decoration: none;
     &:hover {
       text-decoration: none;
+    }
+    img {
+      padding: 10px;
     }
   }
 }
