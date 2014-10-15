@@ -1,4 +1,3 @@
-
 <section id="home-filters"> 
   <div class="container p-35">
     <div class="row">
@@ -11,7 +10,7 @@
     <div class="row pt-35 mt-42 mb-70 pb-70">
       <ul class="list-unstyled">
         <li>
-          <%= link_to(category_path(Category.find_by(name: "Mantenimiento"))) do %>
+          <%= link_to(category_path(Category.find_by(name: "Paseador"))) do %>
             <%= image_tag("iconos_fondo_color_kmimos-01.png", :class => "img-circle" ) %>
             <div class="overlay">
               <span>Paseo</span>
@@ -19,7 +18,7 @@
           <% end %>
         </li>
         <li>
-          <%= link_to(category_path(Category.find_by(name: "Mantenimiento"))) do %>
+          <%= link_to(category_path(Category.find_by(name: "Veterinario"))) do %>
             <%= image_tag("iconos_fondo_color_kmimos-04-04.png", :class => "img-circle" ) %>
             <div class="overlay">
               <span>Veterinaria</span>
@@ -27,7 +26,7 @@
           <% end %>
         </li>
         <li>
-          <%= link_to(category_path(Category.find_by(name: "Limpieza"))) do %>
+          <%= link_to(category_path(Category.find_by(name: "Hotel"))) do %>
             <%= image_tag("iconos_fondo_color_kmimos-02.png", :class => "img-circle bg" ) %>
             <div class="overlay">
               <span>Hotel</span>
@@ -35,7 +34,7 @@
           <% end %>
         </li>
         <li>
-          <%= link_to(category_path(Category.find_by(name: "Asistente Personal"))) do %>
+          <%= link_to(category_path(Category.find_by(name: "Entrenador"))) do %>
             <%= image_tag("iconos_fondo_color_kmimos-03.png", :class => "img-circle" ) %>
             <div class="overlay pt-42">
               <span>Entrenador</span>
