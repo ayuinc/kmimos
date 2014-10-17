@@ -33137,3 +33137,842 @@ ActionController::RoutingError (No route matches [GET] "/..."):
   Rendered c:/Ruby200/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.0ms)
   Rendered c:/Ruby200/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
   Rendered c:/Ruby200/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (483.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-15 16:24:07 -0500
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (0.0ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mantenimiento' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mantenimiento' LIMIT 1
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Limpieza' LIMIT 1[0m
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Asistente Personal' LIMIT 1
+  Rendered providers/home.html.erb within layouts/application (431.3ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 1285ms (Views: 1152.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-15 16:24:10 -0500
+
+
+Started GET "/assets/jquery.flexslider-min.js?body=1" for 127.0.0.1 at 2014-10-15 16:24:10 -0500
+
+
+Started GET "/assets/jquery-2.1.1.min.js?body=1" for 127.0.0.1 at 2014-10-15 16:24:10 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 16:24:10 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-15 16:24:11 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-15 16:24:11 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-15 16:24:11 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-15 16:24:11 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-15 16:24:11 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-15 16:24:11 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-15 16:24:11 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-15 16:24:11 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-15 16:24:11 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 16:24:11 -0500
+
+
+Started GET "/assets/logo_kmimos_blanco-04.png" for 127.0.0.1 at 2014-10-15 16:24:11 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-10-15 16:24:11 -0500
+
+
+Started GET "/assets/iconos_fondo_color_kmimos-01.png" for 127.0.0.1 at 2014-10-15 16:24:11 -0500
+
+
+Started GET "/assets/iconos_fondo_color_kmimos-04-04.png" for 127.0.0.1 at 2014-10-15 16:24:11 -0500
+
+
+Started GET "/assets/iconos_fondo_color_kmimos-02.png" for 127.0.0.1 at 2014-10-15 16:24:11 -0500
+
+
+Started GET "/assets/iconos_fondo_color_kmimos-03.png" for 127.0.0.1 at 2014-10-15 16:24:11 -0500
+
+
+Started GET "/assets/handshake.png" for 127.0.0.1 at 2014-10-15 16:24:11 -0500
+
+
+Started GET "/assets/call.png" for 127.0.0.1 at 2014-10-15 16:24:11 -0500
+
+
+Started GET "/assets/kitchen.jpg" for 127.0.0.1 at 2014-10-15 16:24:12 -0500
+
+
+Started GET "/assets/bg-kitchen.jpg" for 127.0.0.1 at 2014-10-15 16:24:12 -0500
+
+
+Started GET "/assets/bg-profile.jpg" for 127.0.0.1 at 2014-10-15 16:24:12 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-15 16:26:49 -0500
+Processing by ProvidersController#home as HTML
+  [1m[36mLocation Load (1.0ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mantenimiento' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mantenimiento' LIMIT 1[0m
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Limpieza' LIMIT 1
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Asistente Personal' LIMIT 1[0m
+  Rendered providers/home.html.erb within layouts/application (647.4ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 2038ms (Views: 1875.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery.flexslider-min.js?body=1" for 127.0.0.1 at 2014-10-15 16:26:52 -0500
+
+
+Started GET "/assets/jquery-2.1.1.min.js?body=1" for 127.0.0.1 at 2014-10-15 16:26:52 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 16:26:52 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-15 16:26:52 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-15 16:26:52 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-15 16:26:52 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-15 16:26:53 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-15 16:26:53 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-15 16:26:53 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-15 16:26:53 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-15 16:26:53 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-15 16:26:53 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-15 16:26:53 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 16:26:53 -0500
+
+
+Started GET "/assets/logo_kmimos_blanco-04.png" for 127.0.0.1 at 2014-10-15 16:26:53 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-10-15 16:26:53 -0500
+
+
+Started GET "/assets/iconos_fondo_color_kmimos-01.png" for 127.0.0.1 at 2014-10-15 16:26:53 -0500
+
+
+Started GET "/assets/iconos_fondo_color_kmimos-04-04.png" for 127.0.0.1 at 2014-10-15 16:26:53 -0500
+
+
+Started GET "/assets/iconos_fondo_color_kmimos-02.png" for 127.0.0.1 at 2014-10-15 16:26:53 -0500
+
+
+Started GET "/assets/iconos_fondo_color_kmimos-03.png" for 127.0.0.1 at 2014-10-15 16:26:53 -0500
+
+
+Started GET "/assets/handshake.png" for 127.0.0.1 at 2014-10-15 16:26:53 -0500
+
+
+Started GET "/assets/call.png" for 127.0.0.1 at 2014-10-15 16:26:54 -0500
+
+
+Started GET "/assets/kitchen.jpg" for 127.0.0.1 at 2014-10-15 16:26:54 -0500
+
+
+Started GET "/assets/bg-kitchen.jpg" for 127.0.0.1 at 2014-10-15 16:26:54 -0500
+
+
+Started GET "/assets/bg-profile.jpg" for 127.0.0.1 at 2014-10-15 16:26:54 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 16:28:27 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-15 16:28:27 -0500
+
+
+Started GET "/assets/servihogar.css.map" for 127.0.0.1 at 2014-10-15 16:28:27 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-15 16:38:22 -0500
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (1.0ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mantenimiento' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mantenimiento' LIMIT 1
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Limpieza' LIMIT 1[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Asistente Personal' LIMIT 1
+  Rendered providers/home.html.erb within layouts/application (1191.8ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 2565ms (Views: 2503.7ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-15 16:38:28 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 16:38:28 -0500
+
+
+Started GET "/assets/jquery-2.1.1.min.js?body=1" for 127.0.0.1 at 2014-10-15 16:38:28 -0500
+
+
+Started GET "/assets/jquery.flexslider-min.js?body=1" for 127.0.0.1 at 2014-10-15 16:38:28 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-15 16:38:28 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-15 16:38:28 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-15 16:38:29 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-15 16:38:29 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-15 16:38:29 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-15 16:38:29 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-15 16:38:29 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-15 16:38:30 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-15 16:38:30 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-15 16:38:30 -0500
+
+
+Started GET "/assets/logo_kmimos_blanco-04.png" for 127.0.0.1 at 2014-10-15 16:38:30 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-10-15 16:38:30 -0500
+
+
+Started GET "/assets/iconos_fondo_color_kmimos-01.png" for 127.0.0.1 at 2014-10-15 16:38:30 -0500
+
+
+Started GET "/assets/iconos_fondo_color_kmimos-04-04.png" for 127.0.0.1 at 2014-10-15 16:38:31 -0500
+
+
+Started GET "/assets/iconos_fondo_color_kmimos-02.png" for 127.0.0.1 at 2014-10-15 16:38:31 -0500
+
+
+Started GET "/assets/iconos_fondo_color_kmimos-03.png" for 127.0.0.1 at 2014-10-15 16:38:31 -0500
+
+
+Started GET "/assets/handshake.png" for 127.0.0.1 at 2014-10-15 16:38:31 -0500
+
+
+Started GET "/assets/call.png" for 127.0.0.1 at 2014-10-15 16:38:31 -0500
+
+
+Started GET "/assets/kitchen.jpg" for 127.0.0.1 at 2014-10-15 16:38:32 -0500
+
+
+Started GET "/assets/bg-kitchen.jpg" for 127.0.0.1 at 2014-10-15 16:38:32 -0500
+
+
+Started GET "/assets/bg-profile.jpg" for 127.0.0.1 at 2014-10-15 16:38:32 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-15 16:38:42 -0500
+
+
+Started GET "/assets/servihogar.css.map" for 127.0.0.1 at 2014-10-15 16:38:43 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-16 12:46:20 -0500
+Processing by ProvidersController#home as HTML
+  [1m[36mLocation Load (19.0ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mantenimiento' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Mantenimiento' LIMIT 1[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Limpieza' LIMIT 1
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Asistente Personal' LIMIT 1[0m
+  Rendered providers/home.html.erb within layouts/application (346.2ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 1514ms (Views: 1395.9ms | ActiveRecord: 21.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-16 12:46:23 -0500
+
+
+Started GET "/assets/jquery-2.1.1.min.js?body=1" for 127.0.0.1 at 2014-10-16 12:46:23 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-16 12:46:23 -0500
+
+
+Started GET "/assets/jquery.flexslider-min.js?body=1" for 127.0.0.1 at 2014-10-16 12:46:23 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-16 12:46:23 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-16 12:46:23 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-16 12:46:23 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-16 12:46:23 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-16 12:46:23 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-16 12:46:23 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-16 12:46:23 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-16 12:46:23 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-16 12:46:23 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-16 12:46:23 -0500
+
+
+Started GET "/assets/logo_kmimos_blanco-04.png" for 127.0.0.1 at 2014-10-16 12:46:23 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-10-16 12:46:23 -0500
+
+
+Started GET "/assets/iconos_fondo_color_kmimos-01.png" for 127.0.0.1 at 2014-10-16 12:46:23 -0500
+
+
+Started GET "/assets/iconos_fondo_color_kmimos-04-04.png" for 127.0.0.1 at 2014-10-16 12:46:23 -0500
+
+
+Started GET "/assets/iconos_fondo_color_kmimos-02.png" for 127.0.0.1 at 2014-10-16 12:46:24 -0500
+
+
+Started GET "/assets/iconos_fondo_color_kmimos-03.png" for 127.0.0.1 at 2014-10-16 12:46:24 -0500
+
+
+Started GET "/assets/handshake.png" for 127.0.0.1 at 2014-10-16 12:46:24 -0500
+
+
+Started GET "/assets/call.png" for 127.0.0.1 at 2014-10-16 12:46:24 -0500
+
+
+Started GET "/assets/kitchen.jpg" for 127.0.0.1 at 2014-10-16 12:46:24 -0500
+
+
+Started GET "/assets/bg-kitchen.jpg" for 127.0.0.1 at 2014-10-16 12:46:24 -0500
+
+
+Started GET "/assets/bg-profile.jpg" for 127.0.0.1 at 2014-10-16 12:46:24 -0500
+
+
+Started GET "/categories/3" for 127.0.0.1 at 2014-10-16 12:56:46 -0500
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCategory Load (30.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", "3"]]
+  [1m[36mLocation Load (21.0ms)[0m  [1mSELECT "locations".* FROM "locations" ORDER BY "locations"."name" ASC[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC
+  [1m[36mProvider Load (0.0ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."category_id" = ?[0m  [["category_id", 3]]
+  Rendered layouts/_modal.html.erb (0.0ms)
+  Rendered categories/show.html.erb within layouts/application (833.6ms)
+  Rendered layouts/_header.html.erb (28.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 1635ms (Views: 1152.8ms | ActiveRecord: 52.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-16 12:56:50 -0500
+
+
+Started GET "/assets/jquery-2.1.1.min.js?body=1" for 127.0.0.1 at 2014-10-16 12:56:50 -0500
+
+
+Started GET "/assets/jquery.flexslider-min.js?body=1" for 127.0.0.1 at 2014-10-16 12:56:50 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-16 12:56:50 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-16 12:56:50 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-16 12:56:50 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-16 12:56:50 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-16 12:56:50 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-16 12:56:50 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-16 12:56:50 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-16 12:56:51 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-16 12:56:51 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-16 12:56:51 -0500
+
+
+Started GET "/assets/logo_kmimos_blanco-04.png" for 127.0.0.1 at 2014-10-16 12:56:51 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-10-16 12:56:51 -0500
+
+
+Started GET "/assets/logo_color.png" for 127.0.0.1 at 2014-10-16 12:56:51 -0500
+
+
+Started GET "/categories/2" for 127.0.0.1 at 2014-10-16 12:57:04 -0500
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mLocation Load (1.0ms)[0m  [1mSELECT "locations".* FROM "locations" ORDER BY "locations"."name" ASC[0m
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC
+  [1m[36mProvider Load (1.0ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."category_id" = ?[0m  [["category_id", 2]]
+  Rendered categories/show.html.erb within layouts/application (792.5ms)
+Completed 500 Internal Server Error in 995ms
+
+NoMethodError - undefined method `picture_url' for #<Provider:0x536ae70>:
+  activemodel (4.0.2) lib/active_model/attribute_methods.rb:439:in `method_missing'
+  activerecord (4.0.2) lib/active_record/attribute_methods.rb:155:in `method_missing'
+  app/views/categories/show.html.erb:21:in `block in _app_views_categories_show_html_erb___505398676_44109660'
+  c:0:in `each'
+  app/views/categories/show.html.erb:13:in `_app_views_categories_show_html_erb___505398676_44109660'
+  actionpack (4.0.2) lib/action_view/template.rb:143:in `block in render'
+  activesupport (4.0.2) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.2) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.2) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  c:/Ruby200/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:423:in `_run__1027535384__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/app_request_handler.rb:13:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/meta_request_handler.rb:13:in `call'
+  bullet (4.13.1) lib/bullet/rack.rb:10:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__821079087__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call'
+  rack-contrib (1.1.0) lib/rack/contrib/response_headers.rb:17:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/headers.rb:16:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  c:/Ruby200/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  c:/Ruby200/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  c:/Ruby200/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/4c2d99477ebd685b/variables" for 127.0.0.1 at 2014-10-16 12:57:08 -0500
+
+
+Started GET "/providers" for 127.0.0.1 at 2014-10-16 12:59:06 -0500
+Processing by ProvidersController#index as HTML
+  [1m[35mLocation Load (0.0ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mLocation Load (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" ORDER BY "locations"."name" ASC[0m
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC
+  [1m[36mProvider Load (38.0ms)[0m  [1mSELECT "providers".* FROM "providers"[0m
+  Rendered providers/index.html.erb within layouts/application (1572.0ms)
+Completed 500 Internal Server Error in 1847ms
+
+LoadError - cannot load such file -- RMagick (You may need to install the rmagick gem):
+  activesupport (4.0.2) lib/active_support/dependencies.rb:229:in `block in require'
+  activesupport (4.0.2) lib/active_support/dependencies.rb:212:in `block in load_dependency'
+  activesupport (4.0.2) lib/active_support/dependencies.rb:616:in `new_constants_in'
+  activesupport (4.0.2) lib/active_support/dependencies.rb:212:in `load_dependency'
+  activesupport (4.0.2) lib/active_support/dependencies.rb:229:in `require'
+  carrierwave (0.10.0) lib/carrierwave/processing/rmagick.rb:65:in `block in <module:RMagick>'
+  activesupport (4.0.2) lib/active_support/concern.rb:114:in `append_features'
+  app/uploaders/image_uploader.rb:6:in `<class:ImageUploader>'
+  app/uploaders/image_uploader.rb:3:in `<top (required)>'
+  activesupport (4.0.2) lib/active_support/dependencies.rb:424:in `block in load_file'
+  activesupport (4.0.2) lib/active_support/dependencies.rb:616:in `new_constants_in'
+  activesupport (4.0.2) lib/active_support/dependencies.rb:423:in `load_file'
+  activesupport (4.0.2) lib/active_support/dependencies.rb:324:in `require_or_load'
+  activesupport (4.0.2) lib/active_support/dependencies.rb:463:in `load_missing_constant'
+  activesupport (4.0.2) lib/active_support/dependencies.rb:184:in `const_missing'
+  activesupport (4.0.2) lib/active_support/dependencies.rb:495:in `load_missing_constant'
+  activesupport (4.0.2) lib/active_support/dependencies.rb:184:in `const_missing'
+  app/models/picture.rb:3:in `<class:Picture>'
+  app/models/picture.rb:1:in `<top (required)>'
+  activesupport (4.0.2) lib/active_support/dependencies.rb:424:in `block in load_file'
+  activesupport (4.0.2) lib/active_support/dependencies.rb:616:in `new_constants_in'
+  activesupport (4.0.2) lib/active_support/dependencies.rb:423:in `load_file'
+  activesupport (4.0.2) lib/active_support/dependencies.rb:324:in `require_or_load'
+  activesupport (4.0.2) lib/active_support/dependencies.rb:463:in `load_missing_constant'
+  activesupport (4.0.2) lib/active_support/dependencies.rb:184:in `const_missing'
+  activesupport (4.0.2) lib/active_support/dependencies.rb:495:in `load_missing_constant'
+  activesupport (4.0.2) lib/active_support/dependencies.rb:184:in `const_missing'
+  activesupport (4.0.2) lib/active_support/inflector/methods.rb:228:in `block in constantize'
+  activesupport (4.0.2) lib/active_support/inflector/methods.rb:224:in `constantize'
+  activesupport (4.0.2) lib/active_support/dependencies.rb:535:in `get'
+  activesupport (4.0.2) lib/active_support/dependencies.rb:566:in `constantize'
+  activerecord (4.0.2) lib/active_record/inheritance.rb:117:in `block in compute_type'
+  activerecord (4.0.2) lib/active_record/inheritance.rb:115:in `compute_type'
+  activerecord (4.0.2) lib/active_record/reflection.rb:178:in `klass'
+  activerecord (4.0.2) lib/active_record/associations/association.rb:123:in `klass'
+  activerecord (4.0.2) lib/active_record/associations/collection_association.rb:37:in `reader'
+  activerecord (4.0.2) lib/active_record/associations/builder/association.rb:70:in `pictures'
+  app/views/providers/index.html.erb:35:in `block in _app_views_providers_index_html_erb___783109496_41866968'
+  c:0:in `each'
+  app/views/providers/index.html.erb:27:in `_app_views_providers_index_html_erb___783109496_41866968'
+  actionpack (4.0.2) lib/action_view/template.rb:143:in `block in render'
+  activesupport (4.0.2) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.2) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.2) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  c:/Ruby200/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:423:in `_run__465018268__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/app_request_handler.rb:13:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/meta_request_handler.rb:13:in `call'
+  bullet (4.13.1) lib/bullet/rack.rb:10:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__821079087__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call'
+  rack-contrib (1.1.0) lib/rack/contrib/response_headers.rb:17:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/headers.rb:16:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  c:/Ruby200/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  c:/Ruby200/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  c:/Ruby200/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/1aa2c22a315c9fbc/variables" for 127.0.0.1 at 2014-10-16 12:59:09 -0500
+
+
+Started GET "/categories/3" for 127.0.0.1 at 2014-10-16 12:59:19 -0500
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", "3"]]
+  [1m[36mLocation Load (1.0ms)[0m  [1mSELECT "locations".* FROM "locations" ORDER BY "locations"."name" ASC[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC
+  [1m[36mProvider Load (0.0ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."category_id" = ?[0m  [["category_id", 3]]
+  Rendered layouts/_modal.html.erb (0.0ms)
+  Rendered categories/show.html.erb within layouts/application (683.5ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 944ms (Views: 778.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/jquery-2.1.1.min.js?body=1" for 127.0.0.1 at 2014-10-16 12:59:22 -0500
+
+
+Started GET "/assets/jquery.flexslider-min.js?body=1" for 127.0.0.1 at 2014-10-16 12:59:22 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-16 12:59:22 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-16 12:59:22 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-16 12:59:22 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-16 12:59:22 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-16 12:59:22 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-16 12:59:22 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-16 12:59:22 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-16 12:59:22 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-16 12:59:22 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-16 12:59:23 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-16 12:59:23 -0500
+
+
+Started GET "/assets/logo_kmimos_blanco-04.png" for 127.0.0.1 at 2014-10-16 12:59:23 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-10-16 12:59:23 -0500
+
+
+Started GET "/assets/logo_color.png" for 127.0.0.1 at 2014-10-16 12:59:23 -0500
+
+
+Started GET "/categories/3" for 127.0.0.1 at 2014-10-16 13:00:37 -0500
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", "3"]]
+  [1m[36mLocation Load (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" ORDER BY "locations"."name" ASC[0m
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC
+  [1m[36mProvider Load (0.0ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."category_id" = ?[0m  [["category_id", 3]]
+  Rendered layouts/_modal.html.erb (1.0ms)
+  Rendered categories/show.html.erb within layouts/application (476.3ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 806ms (Views: 620.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-2.1.1.min.js?body=1" for 127.0.0.1 at 2014-10-16 13:00:39 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-16 13:00:39 -0500
+
+
+Started GET "/assets/jquery.flexslider-min.js?body=1" for 127.0.0.1 at 2014-10-16 13:00:40 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-16 13:00:40 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-16 13:00:40 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-16 13:00:40 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-16 13:00:40 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-16 13:00:40 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-16 13:00:40 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-16 13:00:40 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-16 13:00:40 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-16 13:00:41 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-16 13:00:41 -0500
+
+
+Started GET "/assets/logo_kmimos_blanco-04.png" for 127.0.0.1 at 2014-10-16 13:00:41 -0500
+
+
+Started GET "/assets/logo.png" for 127.0.0.1 at 2014-10-16 13:00:41 -0500
+
+
+Started GET "/assets/logo_color.png" for 127.0.0.1 at 2014-10-16 13:00:41 -0500

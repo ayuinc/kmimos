@@ -6827,6 +6827,8 @@ html[xmlns] .slides {
   height: auto;
   background-size: cover;
   background-repeat: no-repeat; }
+  #home-filters .text-fold {
+    color: #7F4104; }
   #home-filters ul {
     text-align: center; }
     #home-filters ul li {
@@ -6910,9 +6912,8 @@ html[xmlns] .slides {
   font-size: 16px;
   text-align: center; }
 
-footer .container .col-sm-7 img {
-  width: 70px;
-  margin-left: 590px; }
+#footer {
+  background-color: #7F4104; }
 
 #home-pasos .pasos {
   background-color: #7F4104; }

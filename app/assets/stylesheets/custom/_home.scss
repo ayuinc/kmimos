@@ -4,6 +4,9 @@
   height: auto;
   background-size: cover;
   background-repeat: no-repeat;
+  .text-fold {
+    color: #7F4104;
+  }
 
   ul {
     text-align: center;
@@ -111,15 +114,8 @@
   text-align: center;
 }
 
-footer {
-  .container {
-    .col-sm-7 {
-      img {
-        width: 70px;
-        margin-left: 590px;
-      }
-    }
-  }
+#footer {
+  background-color: #7F4104;
 }
 
 #home-pasos {
