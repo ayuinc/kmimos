@@ -1,4 +1,19 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
 /*! normalize.css v2.1.3 | MIT License | git.io/normalize */
+
 article,
 aside,
 details,
@@ -6823,12 +6838,10 @@ html[xmlns] .slides {
   font-size: 5em; }
 
 #home-filters {
-  background-image: url(http://s22.postimg.org/deqqkyzi9/perro2.png);
+  background-image: url(http://s3.postimg.org/f7pu5otc3/perro_difuso.png);
   height: auto;
   background-size: cover;
   background-repeat: no-repeat; }
-  #home-filters .text-fold {
-    color: #7F4104; }
   #home-filters ul {
     text-align: center; }
     #home-filters ul li {
@@ -6859,11 +6872,6 @@ html[xmlns] .slides {
           border: 4px solid #FFF; }
         #home-filters ul li a:hover .overlay {
           display: block; }
-  #home-filters .opciones {
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 17px; }
-    #home-filters .opciones .servicios img {
-      width: 120px; }
 
 #home-profiles .profile img {
   border-radius: 50%;
@@ -6917,11 +6925,12 @@ html[xmlns] .slides {
   font-size: 16px;
   text-align: center; }
 
-#footer {
-  background-color: #7F4104; }
+footer .container .col-sm-7 img {
+  width: 70px;
+  margin-left: 590px; }
 
-#pasos {
-  padding-left: 90px; }
+#home-pasos .pasos {
+  background-color: #7F4104; }
 
 #hexagon {
   width: 80px;
@@ -6988,6 +6997,10 @@ transform: rotate(-27deg);*/
 #home-title {
   height: auto; }
 
+#top {
+  position: fixed;
+  z-index: 999; }
+
 #meet-server {
   background-color: #F0EADB;
   height: auto; }
@@ -7005,37 +7018,13 @@ transform: rotate(-27deg);*/
   margin-top: 10px; }
 
 .container-fluid .flexslider .slides li .carousel-caption {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 38px;
+  margin-left: 470px;
   padding: 23px;
-  margin-bottom: 70px;
-  color: white;
-  text-shadow: none;
-  text-align: justify; }
-  .container-fluid .flexslider .slides li .carousel-caption img {
-    border: 1px solid white; }
-  .container-fluid .flexslider .slides li .carousel-caption a {
-    border-radius: 21px;
-    background-color: #F9F936;
-    padding: 7px 37px;
-    border: 2px solid white;
-    color: black; }
-
-#line {
-  border-bottom: 8px solid #EABD00; }
-  #line ul .pasos-1 {
-    top: 83px;
-    left: -169px; }
-  #line ul .pasos-2 {
-    top: 83px; }
-  #line ul .pasos-3 {
-    top: 83px;
-    right: -183px; }
-
-#text-yellow {
-  color: #F9F42F; }
-
-#btn-search {
-  border-radius: 27px;
-  padding: 12px 45px; }
+  margin-bottom: 151px;
+  color: gray;
+  text-shadow: none; }
 
 .main-nav {
   min-height: 30px;
@@ -7096,35 +7085,6 @@ transform: rotate(-27deg);*/
 .panel-heading > .panel-title nav a:nth-child(n + 2) {
   border-left: 1px solid #999999;
   padding-left: 3px; }
-
-.user-login-header-form {
-  padding-top: 10px; }
-
-.main-nav {
-  min-height: 30px;
-  width: 100%; }
-  .main-nav .claim {
-    padding-top: 12px;
-    line-height: 16px;
-    margin-left: 7px; }
-
-.navbar {
-  margin-bottom: 0; }
-
-.navbar .navbar-collapse ul li a {
-  text-decoration: none;
-  border: 2px solid #F39442;
-  border-radius: 33px;
-  padding: 4px 11px;
-  color: #F39442; }
-  .navbar .navbar-collapse ul li a:hover {
-    text-decoration: none; }
-
-.panel-heading > .panel-title nav a:nth-child(n + 2) {
-  padding-left: 3px; }
-
-button span {
-  background: white; }
 
 .user-login-header-form {
   padding-top: 10px; }

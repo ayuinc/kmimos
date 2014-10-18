@@ -102,6 +102,65 @@
 }
 
 
+// Nuevo navbar-header
+
+.main-nav {
+  min-height: 30px;
+  width: 100%;
+  .claim {
+    padding-top: 12px;
+    line-height: 16px;
+    margin-left: 7px;
+  }
+}
+.navbar {
+  margin-bottom: 0;
+}
+
+.navbar {
+  .navbar-collapse {
+    ul {
+      li {
+        a {
+          text-decoration: none;
+          border: 2px solid #F39442;
+          border-radius: 33px;
+          padding: 4px 11px;
+          color: #F39442;
+          &:hover {
+            text-decoration: none;
+          } 
+        }
+      }
+    }
+  }
+}
+
+.panel-heading > .panel-title {
+  nav {
+    a:nth-child(n + 2) {
+      padding-left: 3px;
+    }
+  }
+}
+
+button {
+  span {
+    background: white;
+  }
+}
+
+.user-login-header-form {
+  padding-top: 10px;
+}
+
+
+
+// Fin de navbar-header
+
+
+
+
 
 
 

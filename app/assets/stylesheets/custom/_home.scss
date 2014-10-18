@@ -1,6 +1,6 @@
 #home-filters {
   // background: url(http://s3.postimg.org/9z6tol4jn/casa.jpg) no-repeat;
-  background-image: url(http://s3.postimg.org/f7pu5otc3/perro_difuso.png);
+  background-image: url(http://s22.postimg.org/deqqkyzi9/perro2.png);
   height: auto;
   background-size: cover;
   background-repeat: no-repeat;
@@ -49,6 +49,15 @@
           display: block;
           }
         }
+      }
+    }
+  }
+  .opciones {
+    background: rgba(255,255,255,0.7);
+    border-radius: 17px;
+    .servicios {
+      img {
+        width: 120px;
       }
     }
   }
@@ -118,10 +127,9 @@
   background-color: #7F4104;
 }
 
-#home-pasos {
-  .pasos {
-    background-color: #7F4104;
-  }
+
+#pasos {
+  padding-left: 90px;
 }
 #hexagon {
   width: 80px;
@@ -199,11 +207,6 @@
   height: auto;
 }
 
-#top { 
-  position: fixed;
-  z-index: 999;
-   }
-
 #meet-server {
   background-color: #F0EADB;
   height: auto;
@@ -229,15 +232,49 @@
     .slides {
       li {
         .carousel-caption {
-          background: rgba(255,255,255,0.9);
-          border-radius: 38px;
-          margin-left: 470px;
           padding: 23px;
-          margin-bottom: 151px;
-          color: gray;
+          margin-bottom: 70px;
+          color: white;
           text-shadow: none;
+          text-align: justify;
+          img {
+            border: 1px solid white;
+          }
+          a {
+            border-radius: 21px;
+            background-color: #F9F936;
+            padding: 7px 37px;
+            border: 2px solid white;
+            color: black;;
+          }
         }
       }
     }
   }
 }    
+
+#line {
+  border-bottom: 8px solid #EABD00;
+  ul {
+    .pasos-1 {
+      top: 83px;
+      left: -169px;
+    }
+    .pasos-2 {
+      top: 83px;
+    }
+    .pasos-3 {
+      top: 83px;
+      right: -183px;
+    }
+  }
+}
+
+#text-yellow {
+  color: #F9F42F;
+}
+
+#btn-search {
+  border-radius: 27px;
+  padding: 12px 45px;
+}
