@@ -16,9 +16,19 @@
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav pull-right">
+        <% if current_provider %>
+              <li class="dropdown mt-7">
+                <a href="#" class="dropdown-toggle text-muted" data-toggle="dropdown">Hola, <%= current_provider.name %> <i class="fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to '<i class="fa-edit"></i> Actualizar mi perfil'.html_safe, edit_provider_path(current_provider) %></li>
+                  <li><%= link_to '<i class="fa-power-off"></i> Salir'.html_safe, salir_path, :method => :delete, class: "text-danger" %></li>
+                </ul>
+              </li>
+          <% else %>    
           <li class="active">
-           <a href="#">Ingresa a tu cuenta</a>
-          </li>   
+           <%= link_to 'Ingresa a tu cuenta'.html_safe, new_providers_session_path, class: "not-underline" %>
+          </li>
+          <% end %>   
         </ul>
       </div>
       <!--/.nav-collapse -->
@@ -175,7 +185,7 @@
     <div class="row">
       <div class="col-md-2"></div>
       <div class="col-md-8 m-28">
-        <h3 class="text-secondary text-center mt-7">¿Listo para conseguir quien te ayude concentir a tu perro?</h3>
+        <h3 class="text-secondary text-center mt-7">¿Listo para conseguir quien te ayude consentir a tu perro?</h3>
         <div class="row text-center">
           <%= link_to 'buscar aquí', providers_path, :class => "btn btn-lg btn-secondary", :id => "btn-search" %>
         </div>  

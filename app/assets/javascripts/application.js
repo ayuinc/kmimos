@@ -1,4 +1,5 @@
-//= require jquery-2.1.1.min
+//= require jquery
+//= require jquery_ujs
 //= require jquery.flexslider-min.js
 //= require bootstrap/transition
 //= require bootstrap/collapse
