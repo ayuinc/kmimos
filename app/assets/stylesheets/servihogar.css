@@ -7018,6 +7018,9 @@ transform: rotate(-27deg);*/
     padding: 7px 37px;
     border: 2px solid white;
     color: black; }
+.container-fluid .flexslider ol .flex-control-nav {
+  bottom: 54px;
+  z-index: 1000000; }
 
 #line {
   border-bottom: 8px solid #EABD00; }

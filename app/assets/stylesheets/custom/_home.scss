@@ -250,6 +250,12 @@
         }
       }
     }
+    ol {
+      .flex-control-nav {
+        bottom: 54px;
+        z-index: 1000000;
+      }
+    }
   }
 }    
 

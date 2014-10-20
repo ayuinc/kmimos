@@ -55455,3 +55455,621 @@ Started GET "/assets/kmimos-2.jpg" for 127.0.0.1 at 2014-10-17 19:31:38 -0500
 
 
 Started GET "/assets/kmimos-3.jpg" for 127.0.0.1 at 2014-10-17 19:31:39 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-17 19:40:43 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-17 19:40:43 -0500
+
+
+Started GET "/assets/servihogar.css.map" for 127.0.0.1 at 2014-10-17 19:40:43 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-17 19:47:40 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-17 19:47:40 -0500
+
+
+Started GET "/assets/servihogar.css.map" for 127.0.0.1 at 2014-10-17 19:47:41 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-17 19:56:20 -0500
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (0.0ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Veterinario' LIMIT 1[0m
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Paseador' LIMIT 1
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Hotel' LIMIT 1[0m
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Entrenador' LIMIT 1
+  Rendered providers/home.html.erb within layouts/application (842.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Paseador' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Veterinario' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Hotel' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Entrenador' LIMIT 1
+  Rendered layouts/_header.html.erb (985.7ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 3104ms (Views: 2981.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.flexslider-min.js?body=1" for 127.0.0.1 at 2014-10-17 19:56:26 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-17 19:56:26 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-17 19:56:26 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-17 19:56:26 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-17 19:56:26 -0500
+
+
+Started GET "/assets/jquery-2.1.1.min.js?body=1" for 127.0.0.1 at 2014-10-17 19:56:26 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-17 19:56:26 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-17 19:56:26 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-17 19:56:27 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-17 19:56:27 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-17 19:56:27 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-17 19:56:27 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-17 19:56:27 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-17 19:56:27 -0500
+
+
+Started GET "/assets/site-kmimos-12.png" for 127.0.0.1 at 2014-10-17 19:56:27 -0500
+
+
+Started GET "/assets/site-kmimos-05.png" for 127.0.0.1 at 2014-10-17 19:56:27 -0500
+
+
+Started GET "/assets/site-kmimos-07.png" for 127.0.0.1 at 2014-10-17 19:56:27 -0500
+
+
+Started GET "/assets/site-kmimos-06.png" for 127.0.0.1 at 2014-10-17 19:56:27 -0500
+
+
+Started GET "/assets/site-kmimos-08.png" for 127.0.0.1 at 2014-10-17 19:56:28 -0500
+
+
+Started GET "/assets/site-kmimos-09.png" for 127.0.0.1 at 2014-10-17 19:56:28 -0500
+
+
+Started GET "/assets/site-kmimos-10.png" for 127.0.0.1 at 2014-10-17 19:56:28 -0500
+
+
+Started GET "/assets/site-kmimos-11.png" for 127.0.0.1 at 2014-10-17 19:56:28 -0500
+
+
+Started GET "/assets/bg-kmimos.jpg" for 127.0.0.1 at 2014-10-17 19:56:28 -0500
+
+
+Started GET "/assets/kmimos-1.jpg" for 127.0.0.1 at 2014-10-17 19:56:28 -0500
+
+
+Started GET "/assets/kmimos-2.jpg" for 127.0.0.1 at 2014-10-17 19:56:28 -0500
+
+
+Started GET "/assets/kmimos-3.jpg" for 127.0.0.1 at 2014-10-17 19:56:28 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-17 19:56:33 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-17 19:56:33 -0500
+
+
+Started GET "/assets/servihogar.css.map" for 127.0.0.1 at 2014-10-17 19:56:34 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-17 19:57:21 -0500
+Processing by ProvidersController#home as HTML
+  [1m[36mLocation Load (0.0ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Veterinario' LIMIT 1
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Paseador' LIMIT 1[0m
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Hotel' LIMIT 1
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Entrenador' LIMIT 1[0m
+  Rendered providers/home.html.erb within layouts/application (198.1ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Paseador' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Veterinario' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Hotel' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Entrenador' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (253.2ms)
+  Rendered layouts/_footer.html.erb (1.0ms)
+Completed 200 OK in 543ms (Views: 491.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/jquery-2.1.1.min.js?body=1" for 127.0.0.1 at 2014-10-17 19:57:22 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-17 19:57:22 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-17 19:57:22 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-17 19:57:22 -0500
+
+
+Started GET "/assets/jquery.flexslider-min.js?body=1" for 127.0.0.1 at 2014-10-17 19:57:22 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-17 19:57:22 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-17 19:57:23 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-17 19:57:23 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-17 19:57:23 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-17 19:57:23 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-17 19:57:23 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-17 19:57:23 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-17 19:57:23 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-17 19:57:23 -0500
+
+
+Started GET "/assets/site-kmimos-12.png" for 127.0.0.1 at 2014-10-17 19:57:23 -0500
+
+
+Started GET "/assets/site-kmimos-05.png" for 127.0.0.1 at 2014-10-17 19:57:23 -0500
+
+
+Started GET "/assets/site-kmimos-07.png" for 127.0.0.1 at 2014-10-17 19:57:23 -0500
+
+
+Started GET "/assets/site-kmimos-06.png" for 127.0.0.1 at 2014-10-17 19:57:23 -0500
+
+
+Started GET "/assets/site-kmimos-08.png" for 127.0.0.1 at 2014-10-17 19:57:23 -0500
+
+
+Started GET "/assets/site-kmimos-09.png" for 127.0.0.1 at 2014-10-17 19:57:23 -0500
+
+
+Started GET "/assets/site-kmimos-10.png" for 127.0.0.1 at 2014-10-17 19:57:23 -0500
+
+
+Started GET "/assets/site-kmimos-11.png" for 127.0.0.1 at 2014-10-17 19:57:23 -0500
+
+
+Started GET "/assets/bg-kmimos.jpg" for 127.0.0.1 at 2014-10-17 19:57:23 -0500
+
+
+Started GET "/assets/kmimos-1.jpg" for 127.0.0.1 at 2014-10-17 19:57:23 -0500
+
+
+Started GET "/assets/kmimos-2.jpg" for 127.0.0.1 at 2014-10-17 19:57:23 -0500
+
+
+Started GET "/assets/kmimos-3.jpg" for 127.0.0.1 at 2014-10-17 19:57:23 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-17 19:58:12 -0500
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (1.0ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Veterinario' LIMIT 1[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Paseador' LIMIT 1
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Hotel' LIMIT 1[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Entrenador' LIMIT 1
+  Rendered providers/home.html.erb within layouts/application (224.1ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Paseador' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Veterinario' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Hotel' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Entrenador' LIMIT 1
+  Rendered layouts/_header.html.erb (516.3ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 830ms (Views: 786.5ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/jquery.flexslider-min.js?body=1" for 127.0.0.1 at 2014-10-17 19:58:14 -0500
+
+
+Started GET "/assets/jquery-2.1.1.min.js?body=1" for 127.0.0.1 at 2014-10-17 19:58:14 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-17 19:58:14 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-17 19:58:14 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-17 19:58:14 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-17 19:58:14 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-17 19:58:14 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-17 19:58:14 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-17 19:58:14 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-17 19:58:14 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-17 19:58:14 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-17 19:58:14 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-17 19:58:14 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-17 19:58:14 -0500
+
+
+Started GET "/assets/site-kmimos-12.png" for 127.0.0.1 at 2014-10-17 19:58:14 -0500
+
+
+Started GET "/assets/site-kmimos-05.png" for 127.0.0.1 at 2014-10-17 19:58:15 -0500
+
+
+Started GET "/assets/site-kmimos-07.png" for 127.0.0.1 at 2014-10-17 19:58:15 -0500
+
+
+Started GET "/assets/site-kmimos-06.png" for 127.0.0.1 at 2014-10-17 19:58:15 -0500
+
+
+Started GET "/assets/site-kmimos-08.png" for 127.0.0.1 at 2014-10-17 19:58:15 -0500
+
+
+Started GET "/assets/site-kmimos-09.png" for 127.0.0.1 at 2014-10-17 19:58:15 -0500
+
+
+Started GET "/assets/site-kmimos-10.png" for 127.0.0.1 at 2014-10-17 19:58:15 -0500
+
+
+Started GET "/assets/site-kmimos-11.png" for 127.0.0.1 at 2014-10-17 19:58:15 -0500
+
+
+Started GET "/assets/bg-kmimos.jpg" for 127.0.0.1 at 2014-10-17 19:58:15 -0500
+
+
+Started GET "/assets/kmimos-1.jpg" for 127.0.0.1 at 2014-10-17 19:58:15 -0500
+
+
+Started GET "/assets/kmimos-2.jpg" for 127.0.0.1 at 2014-10-17 19:58:15 -0500
+
+
+Started GET "/assets/kmimos-3.jpg" for 127.0.0.1 at 2014-10-17 19:58:15 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-17 19:58:18 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-17 19:58:18 -0500
+
+
+Started GET "/assets/servihogar.css.map" for 127.0.0.1 at 2014-10-17 19:58:19 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-17 19:59:25 -0500
+Processing by ProvidersController#home as HTML
+  [1m[36mLocation Load (0.0ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Veterinario' LIMIT 1
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Paseador' LIMIT 1[0m
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Hotel' LIMIT 1
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Entrenador' LIMIT 1[0m
+  Rendered providers/home.html.erb within layouts/application (524.3ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Paseador' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Veterinario' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Hotel' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Entrenador' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (726.5ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 1763ms (Views: 1641.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-17 19:59:28 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-17 19:59:28 -0500
+
+
+Started GET "/assets/jquery.flexslider-min.js?body=1" for 127.0.0.1 at 2014-10-17 19:59:28 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-17 19:59:28 -0500
+
+
+Started GET "/assets/jquery-2.1.1.min.js?body=1" for 127.0.0.1 at 2014-10-17 19:59:28 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-17 19:59:28 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-17 19:59:28 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-17 19:59:28 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-17 19:59:28 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-17 19:59:28 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-17 19:59:28 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-17 19:59:29 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-17 19:59:29 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-17 19:59:29 -0500
+
+
+Started GET "/assets/site-kmimos-12.png" for 127.0.0.1 at 2014-10-17 19:59:29 -0500
+
+
+Started GET "/assets/site-kmimos-05.png" for 127.0.0.1 at 2014-10-17 19:59:29 -0500
+
+
+Started GET "/assets/site-kmimos-07.png" for 127.0.0.1 at 2014-10-17 19:59:29 -0500
+
+
+Started GET "/assets/site-kmimos-06.png" for 127.0.0.1 at 2014-10-17 19:59:29 -0500
+
+
+Started GET "/assets/site-kmimos-08.png" for 127.0.0.1 at 2014-10-17 19:59:29 -0500
+
+
+Started GET "/assets/site-kmimos-09.png" for 127.0.0.1 at 2014-10-17 19:59:29 -0500
+
+
+Started GET "/assets/site-kmimos-10.png" for 127.0.0.1 at 2014-10-17 19:59:29 -0500
+
+
+Started GET "/assets/site-kmimos-11.png" for 127.0.0.1 at 2014-10-17 19:59:29 -0500
+
+
+Started GET "/assets/bg-kmimos.jpg" for 127.0.0.1 at 2014-10-17 19:59:30 -0500
+
+
+Started GET "/assets/kmimos-1.jpg" for 127.0.0.1 at 2014-10-17 19:59:30 -0500
+
+
+Started GET "/assets/kmimos-2.jpg" for 127.0.0.1 at 2014-10-17 19:59:30 -0500
+
+
+Started GET "/assets/kmimos-3.jpg" for 127.0.0.1 at 2014-10-17 19:59:30 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-17 19:59:43 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-17 19:59:44 -0500
+
+
+Started GET "/assets/servihogar.css.map" for 127.0.0.1 at 2014-10-17 19:59:44 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-17 20:00:52 -0500
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (1.0ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Veterinario' LIMIT 1[0m
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Paseador' LIMIT 1
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Hotel' LIMIT 1[0m
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Entrenador' LIMIT 1
+  Rendered providers/home.html.erb within layouts/application (652.4ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Paseador' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Veterinario' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Hotel' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Entrenador' LIMIT 1
+  Rendered layouts/_header.html.erb (542.4ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 1460ms (Views: 1363.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/jquery.flexslider-min.js?body=1" for 127.0.0.1 at 2014-10-17 20:00:56 -0500
+
+
+Started GET "/assets/jquery-2.1.1.min.js?body=1" for 127.0.0.1 at 2014-10-17 20:00:56 -0500
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-17 20:00:56 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-17 20:00:56 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-17 20:00:57 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-17 20:00:57 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-17 20:00:57 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-17 20:00:58 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-17 20:00:58 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-17 20:00:59 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-17 20:00:59 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-17 20:00:59 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-17 20:01:00 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-17 20:01:00 -0500
+
+
+Started GET "/assets/servihogar.css.map" for 127.0.0.1 at 2014-10-17 20:01:00 -0500
+
+
+Started GET "/assets/site-kmimos-12.png" for 127.0.0.1 at 2014-10-17 20:01:00 -0500
+
+
+Started GET "/assets/site-kmimos-05.png" for 127.0.0.1 at 2014-10-17 20:01:01 -0500
+
+
+Started GET "/assets/site-kmimos-07.png" for 127.0.0.1 at 2014-10-17 20:01:01 -0500
+
+
+Started GET "/assets/site-kmimos-06.png" for 127.0.0.1 at 2014-10-17 20:01:01 -0500
+
+
+Started GET "/assets/site-kmimos-08.png" for 127.0.0.1 at 2014-10-17 20:01:01 -0500
+
+
+Started GET "/assets/site-kmimos-09.png" for 127.0.0.1 at 2014-10-17 20:01:02 -0500
+
+
+Started GET "/assets/site-kmimos-10.png" for 127.0.0.1 at 2014-10-17 20:01:02 -0500
+
+
+Started GET "/assets/site-kmimos-11.png" for 127.0.0.1 at 2014-10-17 20:01:02 -0500
+
+
+Started GET "/assets/bg-kmimos.jpg" for 127.0.0.1 at 2014-10-17 20:01:02 -0500
+
+
+Started GET "/assets/kmimos-1.jpg" for 127.0.0.1 at 2014-10-17 20:01:02 -0500
+
+
+Started GET "/assets/kmimos-2.jpg" for 127.0.0.1 at 2014-10-17 20:01:03 -0500
+
+
+Started GET "/assets/kmimos-3.jpg" for 127.0.0.1 at 2014-10-17 20:01:03 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-10-17 20:01:10 -0500
+Processing by ProvidersController#home as HTML
+  [1m[36mLocation Load (1.0ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Veterinario' LIMIT 1
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Paseador' LIMIT 1[0m
+  [1m[35mCategory Load (5.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Hotel' LIMIT 1
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Entrenador' LIMIT 1[0m
+  Rendered providers/home.html.erb within layouts/application (589.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Paseador' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Veterinario' LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Hotel' LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Entrenador' LIMIT 1[0m
+  Rendered layouts/_header.html.erb (815.5ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+Completed 200 OK in 2243ms (Views: 1977.3ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/assets/servihogar.css?body=1" for 127.0.0.1 at 2014-10-17 20:01:14 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-10-17 20:01:14 -0500
+
+
+Started GET "/assets/jquery-2.1.1.min.js?body=1" for 127.0.0.1 at 2014-10-17 20:01:14 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-10-17 20:01:14 -0500
+
+
+Started GET "/assets/jquery.flexslider-min.js?body=1" for 127.0.0.1 at 2014-10-17 20:01:14 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-10-17 20:01:14 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-10-17 20:01:14 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-10-17 20:01:14 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-10-17 20:01:14 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-10-17 20:01:14 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-10-17 20:01:14 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-10-17 20:01:14 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-10-17 20:01:14 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-10-17 20:01:15 -0500
+
+
+Started GET "/assets/site-kmimos-12.png" for 127.0.0.1 at 2014-10-17 20:01:15 -0500
+
+
+Started GET "/assets/site-kmimos-05.png" for 127.0.0.1 at 2014-10-17 20:01:15 -0500
+
+
+Started GET "/assets/site-kmimos-07.png" for 127.0.0.1 at 2014-10-17 20:01:15 -0500
+
+
+Started GET "/assets/site-kmimos-06.png" for 127.0.0.1 at 2014-10-17 20:01:15 -0500
+
+
+Started GET "/assets/site-kmimos-08.png" for 127.0.0.1 at 2014-10-17 20:01:15 -0500
+
+
+Started GET "/assets/site-kmimos-09.png" for 127.0.0.1 at 2014-10-17 20:01:15 -0500
+
+
+Started GET "/assets/site-kmimos-10.png" for 127.0.0.1 at 2014-10-17 20:01:15 -0500
+
+
+Started GET "/assets/site-kmimos-11.png" for 127.0.0.1 at 2014-10-17 20:01:15 -0500
+
+
+Started GET "/assets/bg-kmimos.jpg" for 127.0.0.1 at 2014-10-17 20:01:15 -0500
+
+
+Started GET "/assets/kmimos-1.jpg" for 127.0.0.1 at 2014-10-17 20:01:15 -0500
+
+
+Started GET "/assets/kmimos-2.jpg" for 127.0.0.1 at 2014-10-17 20:01:15 -0500
+
+
+Started GET "/assets/kmimos-3.jpg" for 127.0.0.1 at 2014-10-17 20:01:15 -0500
