@@ -45,6 +45,7 @@
         }
 
         &:hover {
+          background-image: url(../images/site-kmimos-15.png);
           .overlay {
           display: block;
           }
@@ -250,11 +251,9 @@
         }
       }
     }
-    ol {
-      .flex-control-nav {
-        bottom: 54px;
-        z-index: 1000000;
-      }
+    .flex-control-nav {
+      bottom: 54px;
+      z-index: 1000000;
     }
   }
 }    
