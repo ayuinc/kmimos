@@ -45,6 +45,7 @@
         }
 
         &:hover {
+          background-image: url(../images/site-kmimos-15.png);
           .overlay {
           display: block;
           }
@@ -238,37 +239,25 @@
           text-shadow: none;
           text-align: justify;
           img {
-            border: 1px solid white;
+            border: 2px solid white;
+            padding: 10px;
           }
           a {
             border-radius: 21px;
             background-color: #F9F936;
-            padding: 7px 37px;
+            padding: 1px 28px;
             border: 2px solid white;
             color: black;;
           }
         }
       }
     }
+    .flex-control-nav {
+      bottom: 54px;
+      z-index: 1000000;
+    }
   }
 }    
-
-#line {
-  border-bottom: 8px solid #EABD00;
-  ul {
-    .pasos-1 {
-      top: 83px;
-      left: -169px;
-    }
-    .pasos-2 {
-      top: 83px;
-    }
-    .pasos-3 {
-      top: 83px;
-      right: -183px;
-    }
-  }
-}
 
 #text-yellow {
   color: #F9F42F;
@@ -277,4 +266,8 @@
 #btn-search {
   border-radius: 27px;
   padding: 12px 45px;
+}
+
+#text-gray {
+  color: #939191;
 }

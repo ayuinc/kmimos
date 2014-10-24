@@ -1,2 +1,12 @@
 #footer {
+	.container {
+		nav {
+			a.btn-registrarse {
+				padding: 12px 34px;
+				background: rgba(255,255,255,0.5);
+				color: #ED9213;
+				border-radius: 8px;
+			}
+		}
+	}
 }
