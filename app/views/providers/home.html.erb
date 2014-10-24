@@ -19,9 +19,8 @@
           <% if current_provider %>
             <li class="dropdown mt-7">
               <a href="#" class="dropdown-toggle text-muted" data-toggle="dropdown">Hola, <%= current_provider.name %> <i class="fa-caret-down"></i></a>
-              <ul class="dropdown-menu">
-                <li><%= link_to '<i class="fa-edit"></i> Actualizar mi perfil'.html_safe, edit_provider_path(current_provider) %></li>
-                <li class="divider"></li>
+              <ul class="dropdown-menu" id="dropdown-menu">
+                <li><%= link_to '<i class="fa-edit"></i> Actualizar mi perfil'.html_safe, edit_provider_path(current_provider), class: "text-danger" %></li>
                 <li><%= link_to '<i class="fa-power-off"></i> Salir'.html_safe, salir_path, :method => :delete, class: "text-danger" %></li>
               </ul>
             </li>
