@@ -30,24 +30,6 @@
   background: lighten($gray-lighter, 5%);
 }
 
-.proveedor-v2-body {
-  min-height: 768px;
-  .providers-profile-locations li.badge {
-    &:nth-child(1) {
-      background-color: $brand-primary;
-    }
-    &:nth-child(2) {
-      background-color: $brand-info;
-    }
-    &:nth-child(3) {
-      background-color: $brand-danger;
-    }
-    &:nth-child(4) {
-      background-color: $brand-warning;
-    }
-  }
-}
-
 .event-color {
   background: $brand-primary !important;
   color: $gray-darker !important;
@@ -93,34 +75,6 @@
 .alert-icon-col {
   height: 127px;
 }
-
-.providers-dashboard-nav {
-  padding-top: 4px;
-  li:nth-child(n+2) {
-    border-left: 1px solid $gray-light;
-  }
-  @media only screen and (max-width: $screen-xs) and (max-width: $screen-sm) {
-    li:nth-child(n+2) {
-      border-left: none;
-    } 
-  }
-  .navbar-toggle {
-    padding: 5px 10px;
-  }
-}
-
-.checkbox-inline.no_indent,
-.checkbox-inline.no_indent+.checkbox-inline.no_indent {
-  margin-left: 0;
-  margin-right: 10px;
-}
-.checkbox-inline.no_indent:last-child {
-  margin-right: 0;
-}
-
-
-
-
 
 
 

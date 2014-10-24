@@ -1,13 +1,15 @@
 <div id="footer" class="mt-70-mob">  
-  <section class="bg-primary pb-56 pt-56">
+  <section class="bg-primary pt-21">
     <div class="container">
-      <div class="row pt-21 pb-21">
-        <div class="col-md-12 pt-7 small">
+      <div class="row pt-21">
+        <div class="col-md-12 col-xs-12 pt-7 small">
           <nav>
             <% unless current_provider %>
-              <%= link_to 'Regístrate como proveedor', new_provider_path, class: "h5 text-muted not-underline" %>
-            <% end %>  
+              <%= link_to 'Regístrate como proveedor', new_provider_path, class: "btn-registrarse h5 not-underline" %>
+            <% end %>
           </nav>
+          <div class="col-md-8 mt-35 mb-7 p-0"><h5 class="light text-muted mt-21">Contáctanos: +52 1 55 6560 2472 </h5></div>
+          <div class="col-md-4 mt-35 mb-7"><a href="#"><i class="text-muted fa fa-twitter-square fa-5x pull-right"></i><i class="fa fa-facebook-square text-muted fa-5x pull-right"></i></a></div>
         </div>
     </div>
   </section>

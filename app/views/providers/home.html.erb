@@ -57,12 +57,12 @@
     <div class="row">
       <div class="col-md-8"></div>
       <div class="col-md-3">
-        <div class="opciones mt-7 mb-42 p-35">
+        <div class="opciones mt-7 mb-42 p-21">
           <div class="row">
             <div class="text col-md-12 text-center">
-              <h3 class="hidden-sm hidden-xs mt-7">Consiente a tu <strong>mascota</strong></h3>
-              <h3 class="hidden-md hidden-lg mt-7">Consiente a tu <strong>mascota</strong></h3>
-              <p class="pb-14">Conéctate con gente de confianza para consentir a tu mascota como se merece.</p>
+              <h3 class="light hidden-sm hidden-xs mt-7">Consiente a tu mascota</h3>
+              <h3 class="light hidden-md hidden-lg mt-7">Consiente a tu mascota</h3>
+              <h5 class="text-gray pb-14 light">Conéctate con gente de confianza para consentir a tu mascota como se merece.</h5>
             </div>
           </div>
           <div class="servicios row text-center">
@@ -104,38 +104,22 @@
 </section>
 <section id="home-pasos" class="text-center bg-muted">
   <div class="container text-center">
-    <div class="row" id="pasos"> 
-      <div class="col-xs-2"></div>
-      <div class="col-md-8 text-center" id="line">
-        <ul class="list-unstyled">
-          <li class="col-xs-4 pasos-1 pull-left p-14 relative">
-            <h2 class="pb-14">1</h2>
-            <%=image_tag('site-kmimos-09.png', class: "img-responsive mt--14") %>
-          </li>
-          <li class="col-xs-4 pasos-2 pull-left p-14 relative">
-            <h2 class="pb-14">2</h2>
-            <%=image_tag('site-kmimos-10.png', class: "img-responsive mt--14") %>
-          </li>
-          <li class="col-xs-4 pasos-3 pull-left p-14 relative">
-            <h2 class="pb-14">3</h2>
-             <%=image_tag('site-kmimos-11.png', class: "img-responsive mt--14") %>
-          </li>
-        </ul>
+    <div class="row text-center text-primary p-28"><h2 class="light">¿Cómo funciona?</h2></div>
+    <div class="row mb-35">
+      <div class="col-md-4 text-center">
+        <%=image_tag('site-kmimos-09.png', class: "mt--14") %>
+        <h3 class="mt-35 light text-gray">1. Elige</h3>
+        <h5 id="text-gray" class="p-21 light  ">Selecciona el servicio que necesitas y elige entre la lista de proveedores calificados.</h5>
       </div>
-    </div>
-    <div class="col-md-2 col-xs-2"></div>
-    <div class="row p-35">
-      <div class="col-md-4">
-        <h3 class="mt-35">Elige</h3>
-        <h5 class="p-21 ">Selecciona el servicio que necesitas y elige entre la lista de proveedores calificados.</h5>
+      <div class="col-md-4 text-center">
+        <%=image_tag('site-kmimos-10.png', class: "mt--14") %>
+        <h3 class="mt-35 light text-gray">2. Contrata</h3>
+        <h5 id="text-gray" class="p-21 light ">Contrata al proveedor <br> que más se ajusta a tus necesidades.</h5>
       </div>
-      <div class="col-md-4">
-        <h3 class="mt-35">Contrata</h3>
-        <h5 class="p-21 ">Contrata al proveedor que más se ajusta a tus necesidades.</h5>
-      </div>
-      <div class="col-md-4">
-        <h3 class="mt-35">Evalúa</h3>
-        <h5 class="p-21 ">Asígnale un puntaje al proveedor de acuerdo a la calidad del servicio brindado.</h5>
+      <div class="col-md-4 text-center">
+        <%=image_tag('site-kmimos-11.png', class: "mt--14") %>
+        <h3 class="mt-35 light text-gray">3. Evalúa</h3>
+        <h5 id="text-gray" class="p-21 light">Asígnale un puntaje al proveedor de acuerdo a la calidad del servicio brindado.</h5>
       </div>
     </div>
   </div>
@@ -145,53 +129,53 @@
   <!-- Place somewhere in the <body> of your page -->
   <div class="container-fluid">
     <div class="row">
-      <div class="flexslider">
+      <div class="flexslider m-0">
         <ul class="slides">
           <li>
-            <%=image_tag('bg-kmimos.jpg') %>
-            <div class="carousel-caption">
-              <div class="row text-center"><h3>Lorem ipsum dolor sit amet, consectetur.</h3></div>
-              <div class="col-md-4 m-21">
-                <%=image_tag('kmimos-1.jpg', class: "img-circle") %>
+            <%=image_tag('bg-kmimos.jpg', class: "img-responsive") %>
+            <div class="carousel-caption col-xs-8">
+              <div class="row text-center"><h3 class="light">Lorem ipsum dolor sit amet, consectetur.</h3></div>
+              <div class="col-md-4 col-xs-5 m-21">
+                <%=image_tag('kmimos-1.jpg', class: "img-circle img-responsive") %>
               </div>
-              <div class="col-md-6 text-justify m-21">
-                <h3 id="text-yellow">Lorem ipsum dolor</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              <div class="col-md-6 col-xd-4 text-justify m-21">
+                <h3 id="text-yellow" class="light">Lorem ipsum dolor</h3>
+                <p class="light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                 quis proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <a href="#"  class="btn btn-sm">Contactar</a>
+                <a href="#"  class="btn btn-sm"><h5 class="light">Contactar</h5></a>
               </div>
             </div>
           </li>
           <li>
-            <%=image_tag('bg-kmimos.jpg') %>
-            <div class="carousel-caption">
-              <div class="row text-center"><h3>Lorem ipsum dolor sit amet, consectetur.</h3></div>
-              <div class="col-md-4 m-21">
-                <%=image_tag('kmimos-2.jpg', class: "img-circle") %>
+            <%=image_tag('bg-kmimos.jpg', class: "img-responsive") %>
+            <div class="carousel-caption col-xs-8">
+              <div class="row text-center"><h3 class="light">Lorem ipsum dolor sit amet, consectetur.</h3></div>
+              <div class="col-md-4 col-xs-5 m-21">
+                <%=image_tag('kmimos-2.jpg', class: "img-circle img-responsive") %>
               </div>
-              <div class="col-md-6 text-justify m-21">
-                <h3 id="text-yellow">Lorem ipsum dolor</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              <div class="col-md-6 col-xd-4 text-justify m-21">
+                <h3 id="text-yellow" class="light">Lorem ipsum dolor</h3>
+                <p class="light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                 quis proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <a href="#"  class="btn btn-sm">Contactar</a>
+                <a href="#"  class="btn btn-sm"><h5 class="light">Contactar</h5></a>
               </div>
             </div>
           </li>
           <li>
-            <%=image_tag('bg-kmimos.jpg') %>
-            <div class="carousel-caption">
-              <div class="row text-center"><h3>Lorem ipsum dolor sit amet, consectetur.</h3></div>
-              <div class="col-md-4 m-21">
-                <%=image_tag('kmimos-3.jpg', class: "img-circle") %>
+            <%=image_tag('bg-kmimos.jpg', class: "img-responsive") %>
+            <div class="carousel-caption col-xs-8">
+              <div class="row text-center"><div class="col-md-12 col-xs-6"><h3 class="light">Lorem ipsum dolor sit amet, consectetur.</h3></div></div>
+              <div class="col-md-4 col-xs-5 m-21">
+                <%=image_tag('kmimos-3.jpg', class: "img-circle img-responsive") %>
               </div>
-              <div class="col-md-6 text-justify m-21">
-                <h3 id="text-yellow">Lorem ipsum dolor</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              <div class="col-md-6 col-xd-4 text-justify m-21">
+                <h3 id="text-yellow" class="light">Lorem ipsum dolor</h3>
+                <p class="light">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                 quis proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <a href="#" class="btn btn-sm">Contactar</a>
+                <a href="#"  class="btn btn-sm"><h5 class="light">Contactar</h5></a>
               </div>
             </div>
           </li>
@@ -201,12 +185,12 @@
   </div>
 </section>
 
-<section id="listo" class="mt-70 mb-70">
-  <div class="container mb-77 mt-77">
+<section id="listo" class="mt-7 mb-21">
+  <div class="container mb-21 mt-21">
     <div class="row">
       <div class="col-md-2"></div>
       <div class="col-md-8 m-28">
-        <h3 class="text-secondary text-center mt-7">¿Listo para conseguir quien te ayude consentir a tu perro?</h3>
+        <h3 class="text-secondary text-center mt-7 light">¿Que esperas para consentir a tu mascota?</h3>
         <div class="row text-center">
           <nav>
             <% unless current_provider %>

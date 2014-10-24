@@ -1,8 +1,22 @@
 .container-fluid {
 	padding-right: 15px;
-    padding-left: 0px;
-    margin-right: auto;
-    margin-left: auto;
+  padding-left: 0px;
+  margin-right: auto;
+  margin-left: auto;
+	.header-navbar {
+		background: #ff9528;
+		.col-md-6 {
+			.navbar-collapse {
+				ul {
+					li {
+						a {
+						color: white;							
+						}
+					}
+				}
+			}
+		}
+	}
 	.row {
 		form {
 			background: #efce5a;
@@ -10,6 +24,7 @@
 			margin-top: 52px;
 			padding: 10px;
 			color: white;
+			margin: 0;
 			.form-location-nav {
 				border-radius: 11px;
 				padding: 7px;
@@ -29,7 +44,7 @@
 				color: gray;
 			}
 			.form-search:hover {
-				background: #2ad1e1;
+				background: #f08622;
 				color: white;
 			}
 		}
@@ -40,15 +55,24 @@
 		.col-md-12 {
 			.row{
 				.col-md-8 {
-					border-left: 11px solid #2AD1E1;
+					border-left: 11px solid #f08622;
 					box-shadow: 1px 3px 25px -5px #BFBCAA;
 					i {
-						color: #2ad1e1;
+						color: #f08622;
 					}
 					.col-md-3 {
 						img {
 						width: 150px;
-						border: 3px solid #2ad1e1;
+						border: 3px solid #f08622;
+						}
+					}
+					.btn-contratar {
+						color: #fff;
+						background-color: #f08622;
+						border-color: #f08622;
+						&:hover {
+							background: #EABD00;
+							border: 1px solid #EABD00;
 						}
 					}
 					.col-md-4 {
