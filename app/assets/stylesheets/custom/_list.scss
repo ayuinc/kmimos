@@ -12,6 +12,16 @@
 						a {
 						color: white;							
 						}
+						.dropdown-menu {
+							background: rgba(255,255,255,0.4);
+							color: gray;
+							border-radius: 4px;
+							li {
+								a {
+									color: gray;
+								}
+							}
+						}
 					}
 				}
 			}
@@ -94,4 +104,14 @@
 
 .fa-check {
 	margin-left: -0.2em;
+}
+
+#dropdown-menu {
+	background: rgba(255,255,255,0.4);
+	border-radius: 4px;
+	li {
+		a {
+			border: none;
+		}
+	}
 }
