@@ -11,7 +11,7 @@ class ProvidersSessionsController < ApplicationController
       session[:provider_id] = @provider.id
       redirect_to root_url
     else
-      flash.now[:error] = "Correo electrónico o contraseña inválidos."
+      flash.now[:error] = "Correo electrónico o IFE inválidos."
       render 'new'
     end
   end
