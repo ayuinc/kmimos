@@ -24,6 +24,8 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
 
 gem 'ransack'
+gem 'unicorn'
+
 
 gem 'carrierwave'
 gem 'rmagick', '2.13.3', :require => 'RMagick'
