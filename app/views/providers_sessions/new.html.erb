@@ -8,8 +8,8 @@
         <div class="panel-body">
           <%= form_tag providers_sessions_path do %>
             <div class="form-group">
-              <%= label_tag :email, "Correo electrónico" %>
-              <%= email_field_tag :email, params[:email], :autofocus => true, class: "form-control", id: "provider_login_email" %>
+              <%= label_tag :dni, "IFE" %>
+              <%= text_field :dni, params[:dni], :autofocus => true, class: "form-control", id: "provider_login_email" %>
             </div>
 
             <div class="form-group">

@@ -6,12 +6,12 @@ class ProvidersSessionsController < ApplicationController
   end
 
   def create
-    @provider = Provider.find_by_email(params[:email])
+    @provider = Provider.find_by_dni(params[:dni])
     if @provider && @provider.authenticate(params[:password])
       session[:provider_id] = @provider.id
       redirect_to root_url
     else
-      flash.now[:error] = "Correo electrónico o contraseña inválidos."
+      flash.now[:error] = "Correo electrónico o IFE inválidos."
       render 'new'
     end
   end

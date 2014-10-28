@@ -9,20 +9,6 @@
       <%= f.submit "Buscar", class:"ml-14 mt-7 borderless form-search" %>
     <% end %>
   </div>  <!-- row --> 
-  <div class="row"> <!-- Mensaje relacionado a resultados de búsqueda. --> 
-    <div class="col-md-3"></div>
-    <div class="col-md-8 ml-14">
-    <% if !@providers.blank? %>
-      <% if !params[:q].nil? && !params[:q][:category_id_eq].nil? && !params[:q][:locations_id_eq].nil? %>
-        <p class="mt-49 mb-7 text-left">Mostrando proveedores de la categoría <span class="medium"><%= Category.find(params[:q][:category_id_eq].to_i).name %></span> para el municipio de <span><%= Location.find(params[:q][:locations_id_eq].to_i).name %>:</span></p>
-      <% elsif !params[:q].nil? && !params[:q][:category_id_eq].nil? && params[:q][:locations_id_eq].nil? %>
-        <p class="mt-49 mb-7 text-left">Mostrando proveedores de la categoría <span class="medium"><%= Category.find(params[:q][:category_id_eq].to_i).name %>:</span></p>
-      <% end %>    
-    <% else %>
-      <p class="pt-35">Por favor intenta otra búsqueda.</p>  
-    </div>  
-  <% end %>  
-  </div> <!-- row - Mensaje relacionado a resultados de búsqueda. --> 
 </div>
   <% @providers.each do |provider| %>
 <div class="container pb-14">
