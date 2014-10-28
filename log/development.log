@@ -85357,3 +85357,204 @@ ActionView::Template::Error (undefined method `picture' for #<Provider:0xc7579a0
   Rendered /home.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (7.1ms)
   Rendered /home.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.9ms)
   Rendered /home.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (48.1ms)
+
+
+Started GET "/categories/7" for 10.0.2.2 at 2014-10-24 18:54:16 +0000
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mCategory Load (4.8ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", "7"]]
+  [1m[36mLocation Load (4.0ms)[0m  [1mSELECT "locations".* FROM "locations" ORDER BY "locations"."name" ASC[0m
+  [1m[35mCategory Load (3.1ms)[0m  SELECT "categories".* FROM "categories" ORDER BY "categories"."name" ASC
+  [1m[36mProvider Load (3.0ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."category_id" = ?[0m  [["category_id", 7]]
+  Rendered categories/show.html.erb within layouts/application (92.9ms)
+Completed 500 Internal Server Error in 218ms
+
+ActionView::Template::Error (undefined method `picture' for #<Provider:0xc2c7f98>):
+    18:       <div class="row">
+    19:         <div class="col-md-8  p-0 list-profiles">
+    20:           <div class="col-md-3 text-center p-14">
+    21:             <% if provider.picture.present? %>
+    22:               <%= image_tag(provider.picture_url, :class => "img-circle" ) %>
+    23:             <% else %>  
+    24:               <%= image_tag('server_carnet.png', :class => "img-circle" ) %>
+  app/views/categories/show.html.erb:21:in `block in _app_views_categories_show_html_erb___216811240_107952010'
+  app/views/categories/show.html.erb:13:in `_app_views_categories_show_html_erb___216811240_107952010'
+
+
+  Rendered /home.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.9ms)
+  Rendered /home.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.3ms)
+  Rendered /home.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (51.1ms)
+
+
+Started GET "/images/site-kmimos-15.png" for 10.0.2.2 at 2014-10-24 18:54:24 +0000
+
+ActionController::RoutingError (No route matches [GET] "/images/site-kmimos-15.png"):
+  /home.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/railties-4.0.2/lib/rails/rack/logger.rb:38:in `call_app'
+  /home.rvm/gems/ruby-2.1.1/gems/railties-4.0.2/lib/rails/rack/logger.rb:20:in `block in call'
+  /home.rvm/gems/ruby-2.1.1/gems/activesupport-4.0.2/lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  /home.rvm/gems/ruby-2.1.1/gems/activesupport-4.0.2/lib/active_support/tagged_logging.rb:25:in `tagged'
+  /home.rvm/gems/ruby-2.1.1/gems/activesupport-4.0.2/lib/active_support/tagged_logging.rb:67:in `tagged'
+  /home.rvm/gems/ruby-2.1.1/gems/railties-4.0.2/lib/rails/rack/logger.rb:20:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/activesupport-4.0.2/lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/static.rb:64:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/railties-4.0.2/lib/rails/engine.rb:511:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/railties-4.0.2/lib/rails/application.rb:97:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+  /home.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.3ms)
+  Rendered /home.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.8ms)
+  Rendered /home.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (28.9ms)
+  Rendered /home.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (125.2ms)
+
+
+Started DELETE "/salir" for 10.0.2.2 at 2014-10-24 18:54:25 +0000
+Processing by ProvidersSessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"4CTthu/tFDBdi/Yx1K5piMKgcV4r5t3Uvt3r7PuwY7U="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.0.2.2 at 2014-10-24 18:54:26 +0000
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (3.7ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mCategory Load (18.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Veterinario' LIMIT 1[0m
+  [1m[35mCategory Load (4.6ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Paseador' LIMIT 1
+  [1m[36mCategory Load (2.9ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Hotel' LIMIT 1[0m
+  [1m[35mCategory Load (2.7ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Entrenador' LIMIT 1
+  Rendered providers/home.html.erb within layouts/application (179.9ms)
+  Rendered layouts/_footer.html.erb (2.0ms)
+Completed 200 OK in 1850ms (Views: 1790.0ms | ActiveRecord: 32.3ms)
+
+
+Started GET "/assets/servihogar.css?body=1" for 10.0.2.2 at 2014-10-24 18:54:28 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 10.0.2.2 at 2014-10-24 18:54:29 +0000
+
+
+Started GET "/assets/application.css?body=1" for 10.0.2.2 at 2014-10-24 18:54:29 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 10.0.2.2 at 2014-10-24 18:54:30 +0000
+
+
+Started GET "/assets/jquery.flexslider-min.js?body=1" for 10.0.2.2 at 2014-10-24 18:54:30 +0000
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 10.0.2.2 at 2014-10-24 18:54:31 +0000
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 10.0.2.2 at 2014-10-24 18:54:31 +0000
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 10.0.2.2 at 2014-10-24 18:54:32 +0000
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 10.0.2.2 at 2014-10-24 18:54:32 +0000
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 10.0.2.2 at 2014-10-24 18:54:33 +0000
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 10.0.2.2 at 2014-10-24 18:54:33 +0000
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 10.0.2.2 at 2014-10-24 18:54:34 +0000
+
+
+Started GET "/assets/easing.js?body=1" for 10.0.2.2 at 2014-10-24 18:54:34 +0000
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 10.0.2.2 at 2014-10-24 18:54:35 +0000
+
+
+Started GET "/assets/application.js?body=1" for 10.0.2.2 at 2014-10-24 18:54:35 +0000
+
+
+Started GET "/assets/site-kmimos-12.png" for 10.0.2.2 at 2014-10-24 18:54:36 +0000
+
+
+Started GET "/assets/site-kmimos-05.png" for 10.0.2.2 at 2014-10-24 18:54:37 +0000
+
+
+Started GET "/assets/site-kmimos-07.png" for 10.0.2.2 at 2014-10-24 18:54:37 +0000
+
+
+Started GET "/assets/site-kmimos-06.png" for 10.0.2.2 at 2014-10-24 18:54:38 +0000
+
+
+Started GET "/assets/site-kmimos-08.png" for 10.0.2.2 at 2014-10-24 18:54:38 +0000
+
+
+Started GET "/assets/site-kmimos-09.png" for 10.0.2.2 at 2014-10-24 18:54:39 +0000
+
+
+Started GET "/assets/Graphie-Book.woff" for 10.0.2.2 at 2014-10-24 18:54:39 +0000
+
+
+Started GET "/assets/Graphie-Light.woff" for 10.0.2.2 at 2014-10-24 18:54:40 +0000
+
+
+Started GET "/assets/site-kmimos-10.png" for 10.0.2.2 at 2014-10-24 18:54:40 +0000
+
+
+Started GET "/assets/site-kmimos-11.png" for 10.0.2.2 at 2014-10-24 18:54:40 +0000
+
+
+Started GET "/assets/bg-kmimos.jpg" for 10.0.2.2 at 2014-10-24 18:54:41 +0000
+
+
+Started GET "/assets/kmimos-1.jpg" for 10.0.2.2 at 2014-10-24 18:54:41 +0000
+
+
+Started GET "/assets/kmimos-2.jpg" for 10.0.2.2 at 2014-10-24 18:54:42 +0000
+
+
+Started GET "/assets/kmimos-3.jpg" for 10.0.2.2 at 2014-10-24 18:54:42 +0000
+
+
+Started GET "/images/site-kmimos-15.png" for 10.0.2.2 at 2014-10-24 19:08:33 +0000
+
+ActionController::RoutingError (No route matches [GET] "/images/site-kmimos-15.png"):
+  /home.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/railties-4.0.2/lib/rails/rack/logger.rb:38:in `call_app'
+  /home.rvm/gems/ruby-2.1.1/gems/railties-4.0.2/lib/rails/rack/logger.rb:20:in `block in call'
+  /home.rvm/gems/ruby-2.1.1/gems/activesupport-4.0.2/lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  /home.rvm/gems/ruby-2.1.1/gems/activesupport-4.0.2/lib/active_support/tagged_logging.rb:25:in `tagged'
+  /home.rvm/gems/ruby-2.1.1/gems/activesupport-4.0.2/lib/active_support/tagged_logging.rb:67:in `tagged'
+  /home.rvm/gems/ruby-2.1.1/gems/railties-4.0.2/lib/rails/rack/logger.rb:20:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/activesupport-4.0.2/lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/static.rb:64:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/railties-4.0.2/lib/rails/engine.rb:511:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/railties-4.0.2/lib/rails/application.rb:97:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+  /home.rvm/gems/ruby-2.1.1/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+  /home.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /home.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.6ms)
+  Rendered /home.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.5ms)
+  Rendered /home.rvm/gems/ruby-2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (62.0ms)
