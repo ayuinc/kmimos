@@ -9,20 +9,6 @@
       <%= f.submit "Buscar", class:"ml-14 mt-7 borderless form-search" %>
     <% end %>
   </div>  <!-- row --> 
-  <div class="row"> <!-- Mensaje relacionado a resultados de búsqueda. --> 
-    <div class="col-md-3"></div>
-    <div class="col-md-8 ml-14">
-    <% if !@providers.blank? %>
-      <% if !params[:q].empty? && !params[:q][:category_id_eq].empty? && !params[:q][:locations_id_eq].empty? %>
-        <p class="mt-49 mb-7 text-left">Mostrando proveedores de la categoría <span class="medium"><%= Category.find(params[:q][:category_id_eq].to_i).name %></span> para el municipio de <span><%= Location.find(params[:q][:locations_id_eq].to_i).name %>:</span></p>
-      <% elsif !params[:q].empty? && !params[:q][:category_id_eq].empty? && params[:q][:locations_id_eq].empty? %>
-        <p class="mt-49 mb-7 text-left">Mostrando proveedores de la categoría <span class="medium"><%= Category.find(params[:q][:category_id_eq].to_i).name %>:</span></p>
-      <% end %>    
-    <% else %>
-      <p class="pt-35">Por favor intenta otra búsqueda.</p>  
-    </div>  
-  <% end %>  
-  </div> <!-- row - Mensaje relacionado a resultados de búsqueda. --> 
 </div>
   <% @providers.each do |provider| %>
 <div class="container pb-14">
@@ -43,7 +29,7 @@
             <ul class="list-unstyled">
               <li><span><i class="fa-check"></i>&nbsp;Categoría:&nbsp;</span><%= provider.category.name %></li>
               <li><span><i class="fa-map-marker"></i>&nbsp;&nbsp;Municipios:&nbsp;</span><%= provider.prov_locations %></li>
-              <li><span><i class="fa-star"></i>&nbsp;Calificación promedio:&nbsp;</span> <%= provider.avg_rating %><strong>/5</strong></li>
+              <li><span><i class="fa-star"></i>&nbsp;Calificación promedio:&nbsp;</span> <%= provider.avg_rating %><strong class="Graphie-Book">5/5</strong></li>
             </ul>
 
           </div>
