@@ -3,6 +3,7 @@ class Provider < ActiveRecord::Base
   has_secure_password
   has_many :pictures, as: :imageable
   accepts_nested_attributes_for :pictures 
+  mount_uploader :avatar, AvatarUploader
   validates_presence_of :email, :category_id, :name, :last_name_1, :last_name_2, :phone, :dni
   validates_format_of :email, with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates_uniqueness_of :dni

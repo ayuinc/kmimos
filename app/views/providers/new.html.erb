@@ -2,11 +2,11 @@
   <div class="row mt-63">
     <div class="col-md-2"></div>
     <div class="col-md-8 mt-49">
-    <p>Si quieres registrarte como proveedor de Servihogar, llena este formulario y nos pondremos en contacto contigo.</p>
+    <p>Si quieres registrarte como proveedor de kmimos, llena este formulario y nos pondremos en contacto contigo.</p>
       <div class="panel panel-primary">
-          <div class="panel-heading">Regístrate en Servihogar</div>
+          <div class="panel-heading">Regístrate en kmimos</div>
           <div class="panel-body">
-          <%= form_for(@provider) do |f| %>
+          <%= form_for @provider, :html => {:multipart => true}  do |f| %>
             <%= render "providers/error_messages" %>
             <div class="form-group row">
               <div class="col-md-4">
@@ -45,19 +45,18 @@
                 <%= f.text_field :phone, class: "form-control" %>
               </div>
               <div class="col-md-4">
-              <!-- builder  --> 
-               <%= f.fields_for :pictures, Picture.new do |p| %>
-              <label>Imagen de perfil:</label>
-                   <%= p.hidden_field :id %>
-                   <%= p.hidden_field :imageable_id %>
-                   <%= p.hidden_field :imageable_type %>
-                   <%= p.file_field :image %>
-              <% end %>
-              <div class="input-append">
+                  <%= f.label :avatar do %>
+                  <%= f.file_field :avatar  %>
+                  <%= f.hidden_field :avatar_cache  %>
+                <% end %>
+                <div class="input-append">
                 <a id="upload-btn" class="btn btn-primary"><i class="icon-upload-alt"></i> Elegir foto</a><br>
                 <input id="file-display" class="input-large uneditable-input" type="text">
-              </div>
-              <!-- builder -->
+                </div>
+                <% unless @provider.avatar_cache.nil? %>
+                  <div id="archivo-elegido">Archivo elegido: <%= @provider.avatar_cache.slice(@provider.avatar_cache.index("/")+1,@provider.avatar_cache.length-@provider.avatar_cache.index("/")) %>
+                  </div>
+                <% end %>
               </div>
             </div>
 

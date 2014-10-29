@@ -3,7 +3,7 @@
   color: red;
 }
 
-#provider_pictures_attributes_0_image {
+#provider_avatar {
   display: none;
 }
 
@@ -11,8 +11,8 @@
   border: none;
 }
 
-#file-display {
-  font-size: 10px;
+#file-display, #archivo-elegido {
+  font-size: 11px;
   width: 100%;
 }
 // new - ends
@@ -28,13 +28,6 @@
 
 .proveedor-profile-body {
   background: lighten($gray-lighter, 5%);
-}
-
-.event-color {
-  background: $brand-primary !important;
-  color: $gray-darker !important;
-  border: white !important;
-  opacity: 1 !important;
 }
 
 .proveedores-create-account {

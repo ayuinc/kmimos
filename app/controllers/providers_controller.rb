@@ -28,12 +28,14 @@ class ProvidersController < ApplicationController
   # GET /providers/new
   def new
     @provider = Provider.new
-    @provider.pictures.build
+    # @provider.pictures.new
+    # @provider.pictures.build
+    @avatar = @provider.avatar_cache
   end
 
   # GET /providers/1/edit
   def edit
-    @provider.pictures.build
+    # @provider.pictures.build
   end
 
   # POST /providers
@@ -45,6 +47,7 @@ class ProvidersController < ApplicationController
         flash.now[:success] = "Hola #{@provider.name}, bienvenido a Servihogar."
         redirect_to root_path
       else
+       # fail
        render "new"
        #redirect_to new_provider_path
       end
@@ -83,7 +86,7 @@ class ProvidersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def provider_params
-      params.require(:provider).permit(:name, :last_name_1, :last_name_2, :dni, :email, :email_c, :phone, :avg_rating, :category_id, :password, :password_confirmation, locations_attributes: [:id], location_ids: [], pictures_attributes:[:image,  :id, :imageable_id, :imageable_type])
+      params.require(:provider).permit(:name, :last_name_1, :last_name_2, :dni, :avatar, :avatar_cache, :description, :email, :email_c, :phone, :avg_rating, :category_id, :password, :password_confirmation, locations_attributes: [:id], location_ids: [])
     end
 
     def get_ranges
