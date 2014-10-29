@@ -241,6 +241,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.1.1)
       json (~> 1.4)
+    rmagick (2.13.3)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -340,6 +341,7 @@ DEPENDENCIES
   rails (= 4.0.2)
   ransack
   rb-fsevent
+  rmagick (= 2.13.3)
   rspec-rails
   sass-rails (~> 4.0.0)
   sdoc

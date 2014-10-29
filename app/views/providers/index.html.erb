@@ -18,10 +18,10 @@
       <div class="row">
         <div class="col-md-8  p-0 list-profiles">
           <div class="col-md-3 text-center p-14">
-            <% if provider.pictures.empty? %>
+            <% if provider.avatar? %>
+              <%= image_tag(provider.avatar_url(:thumb), :class => "img-circle") %>
+            <% else %>  
               <%= image_tag('server_carnet.png', :class => "img-circle" ) %>
-            <% else %>
-              <%= image_tag(provider.pictures.last.image_url(:thumb), :class => "img-circle") %>
             <% end %>
           </div>
           <div class="col-md-6 pt-14">
