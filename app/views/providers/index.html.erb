@@ -21,7 +21,7 @@
             <% if provider.avatar? %>
               <%= image_tag(provider.avatar_url(:thumb), :class => "img-circle") %>
             <% elsif !provider.pictures.empty? %>  
-              <%= image_tag('server_carnet.png', :class => "img-circle" ) %>
+              <%= image_tag(provider.pictures.last.image_url(:thumb), :class => "img-circle") %>
             <% else %>
               <%= image_tag('server_carnet.png', :class => "img-circle" ) %>
             <% end %>
