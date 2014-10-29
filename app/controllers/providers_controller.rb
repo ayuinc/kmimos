@@ -30,7 +30,7 @@ class ProvidersController < ApplicationController
     @provider = Provider.new
     # @provider.pictures.new
     # @provider.pictures.build
-    @avatar = @provider.avatar_cache
+    # @avatar = @provider.avatar_cache
   end
 
   # GET /providers/1/edit
