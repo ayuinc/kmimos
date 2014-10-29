@@ -2,9 +2,9 @@
   <div class="row mt-63">
     <div class="col-md-2"></div>
     <div class="col-md-8 mt-49">
-    <p>Si quieres registrarte como proveedor de Servihogar, llena este formulario y nos pondremos en contacto contigo.</p>
+    <p>Si quieres registrarte como proveedor de kmimos, llena este formulario y nos pondremos en contacto contigo.</p>
       <div class="panel panel-primary">
-          <div class="panel-heading">Regístrate en Servihogar</div>
+          <div class="panel-heading">Regístrate en kmimos</div>
           <div class="panel-body">
           <%= form_for @provider, :html => {:multipart => true}  do |f| %>
             <%= render "providers/error_messages" %>
@@ -54,7 +54,7 @@
                 <input id="file-display" class="input-large uneditable-input" type="text">
                 </div>
                 <% unless @provider.avatar_cache.nil? %>
-                  <div id="archivo-elegido">Archivo elegidoA: <%= @provider.avatar_cache.slice(@provider.avatar_cache.index("/")+1,@provider.avatar_cache.length-@provider.avatar_cache.index("/")) %>
+                  <div id="archivo-elegido">Archivo elegido: <%= @provider.avatar_cache.slice(@provider.avatar_cache.index("/")+1,@provider.avatar_cache.length-@provider.avatar_cache.index("/")) %>
                   </div>
                 <% end %>
               </div>
