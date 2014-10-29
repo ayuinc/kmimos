@@ -6404,7 +6404,7 @@ html[xmlns] .slides {
   top: 50%;
   z-index: 10;
   overflow: hidden;
-  opacity: 0;
+  opacity: 1;
   cursor: pointer;
   color: rgba(0, 0, 0, 0.8);
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
@@ -6413,7 +6413,7 @@ html[xmlns] .slides {
   transition: all .3s ease; }
 
 .flex-direction-nav .flex-prev {
-  left: -50px; }
+  left: 30px; }
 
 .flex-direction-nav .flex-next {
   right: 0; }
