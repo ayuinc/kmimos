@@ -140,7 +140,7 @@
               <div class="col-md-6 col-md-4 text-justify m-21">
                 <h3 id="text-yellow" class="light">Gabriel Garduño </h3>
                 <p class="light">Entrenador profesional, ofrezco hospedaje para tus mascotas, las paseamos las buscamos en tu domicilio para que se diviertan !!  ATIENDO EN TODO EL DF</p>
-                <a href="#"  class="btn btn-sm"><h5 class="light">Contactar</h5></a>
+                <%= link_to "Contactar".html_safe, @provider_a, remote: true, :class => "btn btn-sm h5", :onclick=>"ga('send', 'event', 'contactar', #{@provider_a.id}');" %>
               </div>
             </div>
           </li>
@@ -154,7 +154,7 @@
               <div class="col-md-6 col-md-4 text-justify m-21">
                 <h3 id="text-yellow" class="light">Juan Camacho</h3>
                 <p class="light">Consentimos y cuaidamos a tus mascotas en: Hospedaje y pension campestre;  Hotel citadino; Hotel hogareño.   Entrenamos a tus mascotas, básico, avanzado y corrección de malos hábitos.  Tenemos estética, y buscamos a tus mascotas en todo el DF y EDO de MEXICO.</p>
-                <a href="#"  class="btn btn-sm"><h5 class="light">Contactar</h5></a>
+                <%= link_to "Contactar".html_safe, @provider_b, remote: true, :class => "btn btn-sm h5", :onclick=>"ga('send', 'event', 'contactar', #{@provider_b.id}');" %>
               </div>
             </div>
           </li>
@@ -167,7 +167,7 @@
               </div>
               <div class="col-md-6 col-md-4 text-justify m-21">
                 <h3 id="text-yellow" class="light">Jorge Bello</h3>                <p class="light">Nos encanta consentir a tus mascotas, las buscamos en tu casa, paseamos,entrenamos y si quieres un hospedaje con mucho cariño búscame para hacerlas sentir como en casa.  ATIENDO EN TODO EL DF</p>
-                <a href="#"  class="btn btn-sm"><h5 class="light">Contactar</h5></a>
+                <%= link_to "Contactar".html_safe, @provider_c, remote: true, :class => "btn btn-sm h5", :onclick=>"ga('send', 'event', 'contactar', #{@provider_c.id}');" %>
               </div>
             </div>
           </li>
@@ -195,3 +195,5 @@
     </div>
   </div>
 </section>
+
+<%= render "layouts/modal" %>
