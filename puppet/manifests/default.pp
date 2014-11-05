@@ -150,7 +150,7 @@ exec { "${as_vagrant} 'gem install bundler --no-rdoc --no-ri'":
   require => Exec['install_ruby']
 }
 
-exec { "${as_vagrant} 'gem install rails --version=4.0.2 --no-rdoc --no-ri'":
+exec { "${as_vagrant} 'gem install rails --version=4.1.0 --no-rdoc --no-ri'":
   require => Exec['install_ruby']
 }
 
