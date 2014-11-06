@@ -6509,29 +6509,6 @@ button span {
 #pasos {
   padding-left: 90px; }
 
-#hexagon {
-  width: 80px;
-  height: 120px;
-  background: #F39442;
-  position: absolute; }
-  #hexagon:before {
-    content: "";
-    left: -80px;
-    display: block;
-    position: relative;
-    border-right: 30px solid #F39442;
-    border-top: 60px solid transparent;
-    border-bottom: 60px solid transparent; }
-  #hexagon:after {
-    content: "";
-    right: -80px;
-    top: -120px;
-    position: relative;
-    display: block;
-    border-left: 30px solid #F39442;
-    border-top: 60px solid transparent;
-    border-bottom: 60px solid transparent; }
-
 .demo {
   padding-left: 42%;
   padding-top: 5%; }
@@ -6555,9 +6532,6 @@ button span {
   margin-left: 12px;
   margin-top: 10px; }
 
-@media only screen and (max-width: 1200px) {
-  .container-fluid .flexslider .slides li.server-1 {
-    padding-top: 21px; } }
 .container-fluid .flexslider .slides li .carousel-caption {
   padding: 23px;
   margin-bottom: 70px;
@@ -6575,7 +6549,10 @@ button span {
     color: black; }
 .container-fluid .flexslider .flex-control-nav {
   bottom: 54px;
-  z-index: 1000000; }
+  z-index: 1000; }
+  @media only screen and (max-width: 1200px) {
+    .container-fluid .flexslider .flex-control-nav {
+      bottom: 9px !important; } }
 
 #text-yellow {
   color: #F9F42F; }

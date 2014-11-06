@@ -143,33 +143,6 @@
 #pasos {
   padding-left: 90px;
 }
-#hexagon {
-  width: 80px;
-  height: 120px;
-  background: #F39442;
-  position: absolute;
-
-  &:before {
-    content: "";
-    left:-80px;
-    display:block;
-    position: relative;
-    border-right: 30px solid #F39442;
-    border-top: 60px solid transparent;
-    border-bottom: 60px solid transparent;
-  }
-
-  &:after {
-    content: "";
-    right:-80px;
-    top:-120px;
-    position: relative;
-    display:block;
-    border-left: 30px solid #F39442;
-    border-top: 60px solid transparent;
-    border-bottom: 60px solid transparent;
-  }
-}
 
 .demo {
   padding-left: 42%;
@@ -204,11 +177,6 @@
   .flexslider {
     .slides {
       li {
-        &.server-1 {
-          @media #{$lg-down} {
-            padding-top: 21px;
-          }
-        }
         .carousel-caption {
           padding: 23px;
           margin-bottom: 70px;
@@ -231,7 +199,10 @@
     }
     .flex-control-nav {
       bottom: 54px;
-      z-index: 1000000;
+      z-index: 1000;
+      @media #{$lg-down} {
+        bottom: 9px !important;
+      }
     }
   }
 }    
