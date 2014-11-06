@@ -6442,10 +6442,13 @@ button span {
           background-image: url(../images/site-kmimos-15.png); }
           #home-filters ul li a:hover .overlay {
             display: block; }
-  #home-filters .opciones {
+  @media only screen and (max-width: 1200px) {
+    #home-filters .container-fluid .row .col-md-3.ipad {
+      width: 33.3% !important; } }
+  #home-filters .container-fluid .row .col-md-3.ipad .opciones {
     background: rgba(255, 255, 255, 0.7);
     border-radius: 17px; }
-    #home-filters .opciones .servicios img {
+    #home-filters .container-fluid .row .col-md-3.ipad .opciones .servicios img {
       width: 120px; }
 
 #home-profiles .profile img {
@@ -6529,41 +6532,6 @@ button span {
     border-top: 60px solid transparent;
     border-bottom: 60px solid transparent; }
 
-.hex-over {
-  z-index: 5;
-  position: relative;
-  width: 66px;
-  text-align: center;
-  color: #fdfdfd;
-  font-size: 58px;
-  padding: 10px 2px 10px 2px;
-  font-weight: bold;
-  letter-spacing: 2px; }
-
-.rotate {
- /*
--webkit-transform: rotate(-27deg);
--moz-transform: rotate(-27deg);
--o-transform: rotate(-27deg);
--ms-transform: rotate(-27deg);
-transform: rotate(-27deg);*/
-  color: #fff;
-  font-size: 49px;
-  font-weight: 800;
-  position: relative;
-  left: -10px;
-  top: -8px;
-  z-index: 4; }
-
-.rotate1 {
-  color: rgba(255, 150, 20, 0.9);
-  font-size: 49px;
-  font-weight: 800;
-  position: relative;
-  left: 12px;
-  top: -78px;
-  z-index: 5; }
-
 .demo {
   padding-left: 42%;
   padding-top: 5%; }
@@ -6587,6 +6555,9 @@ transform: rotate(-27deg);*/
   margin-left: 12px;
   margin-top: 10px; }
 
+@media only screen and (max-width: 1200px) {
+  .container-fluid .flexslider .slides li.server-1 {
+    padding-top: 21px; } }
 .container-fluid .flexslider .slides li .carousel-caption {
   padding: 23px;
   margin-bottom: 70px;

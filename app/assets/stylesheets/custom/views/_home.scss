@@ -53,13 +53,24 @@
       }
     }
   }
-  .opciones {
-    background: rgba(255,255,255,0.7);
-    border-radius: 17px;
-    .servicios {
-      img {
-        width: 120px;
-      }
+  .container-fluid {
+    .row {
+      .col-md-3 {
+        &.ipad {
+          @media #{$lg-down} {
+            width: 33.3% !important;
+          }
+        .opciones {
+          background: rgba(255,255,255,0.7);
+          border-radius: 17px;
+          .servicios {
+            img {
+              width: 120px;
+            }
+          }
+        }
+      } 
+     }
     }
   }
 }
@@ -160,45 +171,6 @@
   }
 }
 
-
-.hex-over {
-  z-index:5;
-  position:relative;
-  width:66px;
-  text-align:center;
-  color:#fdfdfd;
-  font-size:58px;
-  padding:10px 2px 10px 2px;
-  font-weight:bold;
-  letter-spacing:2px;
-}
-  
-.rotate {
-  /*
- -webkit-transform: rotate(-27deg);
- -moz-transform: rotate(-27deg);
- -o-transform: rotate(-27deg);
- -ms-transform: rotate(-27deg);
- transform: rotate(-27deg);*/
- color:#fff;
- font-size:49px;
- font-weight:800;
- position: relative;
- left:-10px;
- top:-8px;
- z-index:4;
-}
-  
-.rotate1 {
- color:rgba(255,150,20,0.9);
- font-size:49px;
- font-weight:800;
- position: relative;
- left:12px;
- top:-78px;
- z-index:5;
-}
-
 .demo {
   padding-left: 42%;
   padding-top: 5%;
@@ -232,6 +204,11 @@
   .flexslider {
     .slides {
       li {
+        &.server-1 {
+          @media #{$lg-down} {
+            padding-top: 21px;
+          }
+        }
         .carousel-caption {
           padding: 23px;
           margin-bottom: 70px;
