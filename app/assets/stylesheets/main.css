@@ -6532,21 +6532,25 @@ button span {
   margin-left: 12px;
   margin-top: 10px; }
 
-.container-fluid .flexslider .slides li .carousel-caption {
-  padding: 23px;
-  margin-bottom: 70px;
-  color: white;
-  text-shadow: none;
-  text-align: justify; }
-  .container-fluid .flexslider .slides li .carousel-caption img {
-    border: 2px solid white;
-    padding: 10px; }
-  .container-fluid .flexslider .slides li .carousel-caption a {
-    border-radius: 21px;
-    background-color: #F9F936;
-    padding: 1px 28px;
-    border: 2px solid white;
-    color: black; }
+.container-fluid.pasador {
+  background-color: #f39b48; }
+.container-fluid .flexslider .slides {
+  background-color: #f39b48; }
+  .container-fluid .flexslider .slides li .server-desc {
+    padding: 23px;
+    margin-bottom: 70px;
+    color: white;
+    text-shadow: none;
+    text-align: justify; }
+    .container-fluid .flexslider .slides li .server-desc img {
+      border: 2px solid white;
+      padding: 10px; }
+    .container-fluid .flexslider .slides li .server-desc a {
+      border-radius: 21px;
+      background-color: #F9F936;
+      padding: 1px 28px;
+      border: 2px solid white;
+      color: black; }
 .container-fluid .flexslider .flex-control-nav {
   bottom: 54px;
   z-index: 1000; }

@@ -174,10 +174,14 @@
 }
 
 .container-fluid {
+  &.pasador {
+    background-color: $brand-secondary;
+  }
   .flexslider {
     .slides {
+      background-color: $brand-secondary;
       li {
-        .carousel-caption {
+        .server-desc {
           padding: 23px;
           margin-bottom: 70px;
           color: white;
