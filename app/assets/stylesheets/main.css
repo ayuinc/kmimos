@@ -6442,7 +6442,7 @@ button span {
           background-image: url(../images/site-kmimos-15.png); }
           #home-filters ul li a:hover .overlay {
             display: block; }
-  @media only screen and (min-width: 768px) and (max-width: 992px) {
+  @media only screen and (min-width: 992px) and (max-width: 1200px) {
     #home-filters .container-fluid .row .col-md-3.ipad {
       width: 30% !important; } }
   #home-filters .container-fluid .row .col-md-3.ipad .opciones {

@@ -57,7 +57,7 @@
     .row {
       .col-md-3 {
         &.ipad {
-          @media #{$md-only} {
+          @media #{$lg-only} {
             width: 30% !important;
           }
         .opciones {
