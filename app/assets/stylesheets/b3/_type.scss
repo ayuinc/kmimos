@@ -3,157 +3,6 @@
 // --------------------------------------------------
 
 
-// Body text
-// -------------------------
-
-p {
-  margin: 0 0 ($line-height-computed / 2);
-}
-.lead {
-  margin-bottom: $line-height-computed;
-  font-size: floor($font-size-base * 1.15);
-  font-weight: 200;
-  line-height: 1.4;
-
-  @media (min-width: $screen-sm-min) {
-    font-size: ($font-size-base * 1.5);
-  }
-}
-
-
-// Emphasis & misc
-// -------------------------
-
-// Ex: 14px base font * 85% = about 12px
-small,
-.small  { font-size: 85%; }
-
-// Undo browser default styling
-cite    { font-style: normal; }
-
-// Contextual emphasis
-.text-muted {
-  a {
-    color: $text-muted!important;
-    &:hover {
-      color: darken($text-muted, 21%);
-    }
-  }
-  color: $text-muted!important;
-}
-.text-gray {
-  a {
-    color: $gray!important;
-    &:hover {
-      color: darken($gray, 21%);
-    }
-  }
-  color: $gray!important;
-}
-.text-gray-light {
-  a {
-    color: $gray-light!important;
-    &:hover {
-      color: darken($gray-light, 21%);
-    }
-  }
-  color: $gray-light!important;
-}
-.text-gray-dark {
-  a {
-    color: $gray-dark!important;
-    &:hover {
-      color: darken($gray-dark, 21%);
-    }
-  }
-  color: $gray-dark!important;
-}
-.text-gray-darker {
-  a {
-    color: $gray-darker!important;
-    &:hover {
-      color: darken($gray-darker, 21%);
-    }
-  }
-  color: $gray-darker!important;
-}
-.text-primary {
-  a {
-    color: $brand-primary!important;
-    &:hover {
-      color: darken($brand-primary, 21%);
-    }
-  }
-  color: $brand-primary!important;
-}
-
-.text-secondary {
-  a {
-    color: $brand-secondary!important;
-    &:hover {
-      color: darken($brand-secondary, 21%);
-    }
-  }
-  color: $brand-secondary!important;
-}
-
-.text-warning {
-  a {
-    color: $state-warning-text!important;
-    &:hover {
-      color: darken($state-warning-text, 21%);
-    }
-  }
-  color: $state-warning-text!important;
-}
-.text-danger {
-  a {
-    color: $state-danger-text!important;
-    &:hover {
-      color: darken($state-danger-text, 21%);
-    }
-  }
-  color: $state-danger-text!important;
-}
-.text-success {
-  a {
-    color: $state-success-text!important;
-    &:hover {
-      color: darken($state-success-text, 21%);
-    }
-  }
-  color: $state-success-text!important;
-}
-.text-info {
-  a {
-    color: $state-info-text!important;
-    &:hover {
-      color: darken($state-info-text, 21%);
-    }
-  }
-  color: $state-info-text!important;
-}
-
-// Alignment
-.text-left {
-  text-align: left; 
-  @media only screen and (max-width: $screen-phone) and (max-width: $screen-tablet) {
-    text-align: center;
-  }
-}
-.text-right {
-  text-align: right; 
-  @media only screen and (max-width: $screen-phone) and (max-width: $screen-tablet) {
-    text-align: center;
-  }
-}
-.text-center { text-align: center; }
-
-strong {
-  font-family: $font-family-sans-serif-bold;
-}
-
-
 // Headings
 // -------------------------
 
@@ -172,9 +21,9 @@ h1, h2, h3, h4, h5, h6,
   }
 }
 
-h1,
-h2,
-h3 {
+h1, .h1,
+h2, .h2,
+h3, .h3 {
   margin-top: $line-height-computed;
   margin-bottom: ($line-height-computed / 2);
 
@@ -183,9 +32,9 @@ h3 {
     font-size: 65%;
   }
 }
-h4,
-h5,
-h6 {
+h4, .h4,
+h5, .h5,
+h6, .h6 {
   margin-top: ($line-height-computed / 2);
   margin-bottom: ($line-height-computed / 2);
 
@@ -203,6 +52,101 @@ h5, .h5 { font-size: $font-size-h5; }
 h6, .h6 { font-size: $font-size-h6; }
 
 
+// Body text
+// -------------------------
+
+p {
+  margin: 0 0 ($line-height-computed / 2);
+}
+
+.lead {
+  margin-bottom: $line-height-computed;
+  font-size: floor(($font-size-base * 1.15));
+  font-weight: 300;
+  line-height: 1.4;
+
+  @media (min-width: $screen-sm-min) {
+    font-size: ($font-size-base * 1.5);
+  }
+}
+
+
+// Emphasis & misc
+// -------------------------
+
+// Ex: (12px small font / 14px base font) * 100% = about 85%
+small,
+.small {
+  font-size: floor((100% * $font-size-small / $font-size-base));
+}
+
+// Undo browser default styling
+cite {
+  font-style: normal;
+}
+
+mark,
+.mark {
+  background-color: $state-warning-bg;
+  padding: .2em;
+}
+
+// Alignment
+.text-left           { text-align: left; }
+.text-right          { text-align: right; }
+.text-center         { text-align: center; }
+.text-justify        { text-align: justify; }
+.text-nowrap         { white-space: nowrap; }
+
+// Transformation
+.text-lowercase      { text-transform: lowercase; }
+.text-uppercase      { text-transform: uppercase; }
+.text-capitalize     { text-transform: capitalize; }
+
+// Contextual colors
+.text-muted {
+  color: $text-muted;
+}
+
+.text-secondary {
+  a {
+    color: $brand-secondary!important;
+    &:hover {
+      color: darken($brand-secondary, 21%);
+    }
+  }
+  color: $brand-secondary!important;
+}
+
+@include text-emphasis-variant('.text-primary', $brand-primary);
+
+@include text-emphasis-variant('.text-success', $state-success-text);
+
+@include text-emphasis-variant('.text-info', $state-info-text);
+
+@include text-emphasis-variant('.text-warning', $state-warning-text);
+
+@include text-emphasis-variant('.text-danger', $state-danger-text);
+
+// Contextual backgrounds
+// For now we'll leave these alongside the text classes until v4 when we can
+// safely shift things around (per SemVer rules).
+.bg-primary {
+  // Given the contrast here, this is the only class to have its color inverted
+  // automatically.
+  color: #fff;
+}
+@include bg-variant('.bg-primary', $brand-primary);
+
+@include bg-variant('.bg-success', $state-success-bg);
+
+@include bg-variant('.bg-info', $state-info-bg);
+
+@include bg-variant('.bg-warning', $state-warning-bg);
+
+@include bg-variant('.bg-danger', $state-danger-bg);
+
+
 // Page header
 // -------------------------
 
@@ -213,9 +157,8 @@ h6, .h6 { font-size: $font-size-h6; }
 }
 
 
-
 // Lists
-// --------------------------------------------------
+// -------------------------
 
 // Unordered and Ordered lists
 ul,
@@ -239,20 +182,18 @@ ol {
 // Inline turns list items into inline-block
 .list-inline {
   @extend .list-unstyled;
+  margin-left: -5px;
 
   > li {
     display: inline-block;
     padding-left: 5px;
     padding-right: 5px;
-
-    &:first-child {
-      padding-left: 0;
-    }
   }
 }
 
 // Description Lists
 dl {
+  margin-top: 0; // Remove browser default
   margin-bottom: $line-height-computed;
 }
 dt,
@@ -271,24 +212,28 @@ dd {
 // Defaults to being stacked without any of the below styles applied, until the
 // grid breakpoint is reached (default of ~768px).
 
-@media (min-width: $grid-float-breakpoint) {
-  .dl-horizontal {
+.dl-horizontal {
+  dd {
+    @include clearfix(); // Clear the floated `dt` if an empty `dd` is present
+  }
+
+  @media (min-width: $grid-float-breakpoint) {
     dt {
       float: left;
-      width: ($component-offset-horizontal - 20);
+      width: ($dl-horizontal-offset - 20);
       clear: left;
       text-align: right;
       @include text-overflow();
     }
     dd {
-      margin-left: $component-offset-horizontal;
-      @include clearfix(); // Clear the floated `dt` if an empty `dd` is present
+      margin-left: $dl-horizontal-offset;
     }
   }
 }
 
-// MISC
-// ----
+
+// Misc
+// -------------------------
 
 // Abbreviations and acronyms
 abbr[title],
@@ -297,7 +242,7 @@ abbr[data-original-title] {
   cursor: help;
   border-bottom: 1px dotted $abbr-border-color;
 }
-abbr.initialism {
+.initialism {
   font-size: 90%;
   text-transform: uppercase;
 }
@@ -306,43 +251,51 @@ abbr.initialism {
 blockquote {
   padding: ($line-height-computed / 2) $line-height-computed;
   margin: 0 0 $line-height-computed;
+  font-size: $blockquote-font-size;
   border-left: 5px solid $blockquote-border-color;
-  p {
-    font-size: ($font-size-base * 1.25);
-    font-weight: 300;
-    line-height: 1.25;
-  }
-  p:last-child {
-    margin-bottom: 0;
-  }
-  small {
-    display: block;
-    line-height: $line-height-base;
-    color: $blockquote-small-color;
-    &:before {
-      content: '\2014 \00A0'; // EM DASH, NBSP
+
+  p,
+  ul,
+  ol {
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 
-  // Float right with text-align: right
-  &.pull-right {
-    padding-right: 15px;
-    padding-left: 0;
-    border-right: 5px solid $blockquote-border-color;
-    border-left: 0;
-    p,
-    small,
-    .small {
-      text-align: right;
+  // Note: Deprecated small and .small as of v3.1.0
+  // Context: https://github.com/twbs/bootstrap/issues/11660
+  footer,
+  small,
+  .small {
+    display: block;
+    font-size: 80%; // back to default font-size
+    line-height: $line-height-base;
+    color: $blockquote-small-color;
+
+    &:before {
+      content: '\2014 \00A0'; // em dash, nbsp
     }
-    small,
-    .small {
-      &:before {
-        content: '';
-      }
-      &:after {
-        content: '\00A0 \2014'; // NBSP, EM DASH
-      }
+  }
+}
+
+// Opposite alignment of blockquote
+//
+// Heads up: `blockquote.pull-right` has been deprecated as of v3.1.0.
+.blockquote-reverse,
+blockquote.pull-right {
+  padding-right: 15px;
+  padding-left: 0;
+  border-right: 5px solid $blockquote-border-color;
+  border-left: 0;
+  text-align: right;
+
+  // Account for citation
+  footer,
+  small,
+  .small {
+    &:before { content: ''; }
+    &:after {
+      content: '\00A0 \2014'; // nbsp, em dash
     }
   }
 }
@@ -359,153 +312,3 @@ address {
   font-style: normal;
   line-height: $line-height-base;
 }
-
-// Links
-a.text-muted {
-  color: $text-muted;
-  &:hover {
-    color: $text-muted;
-  }
-}
-
-a.gray {
-  color: $gray;
-  &:hover {
-    color: $gray-dark;
-  }
-}
-
-a.small {
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-a.not-underline {
-  &:hover {
-    text-decoration: none!important;
-  }
-}
-
-a.active {
-  font-family: $font-family-sans-serif-medium;
-  color: $link-hover-color;
-}
-
-// Project Specifics
-@mixin thin {
-  font-family: $font-family-base !important;
-  font-weight: 100;
-}
-
-@mixin light {
-  font-family: $font-family-base !important;
-  font-weight: 300;
-}
-
-@mixin book {
-  font-family: $font-family-base !important;
-  font-weight: 400;
-}
-
-@mixin medium {
-  font-family: $font-family-base !important;
-  font-weight: 600;
-}
-
-@mixin bold {
-  font-family: $font-family-base !important;
-  font-weight: 700;
-}
-
-.thin {
-  @include thin;
-}
-
-.light {
-  @include light;
-}
-
-.book {
-  @include book;
-}
-
-.medium {
-  @include medium;
-}
-
-.bold {
-  @include bold;
-}
-
-.uppercase {
-  text-transform: uppercase;
-}
-
-.underline {
-  text-decoration: underline!important;
-}
-
-.h1 {
-  font-size: em(67)!important;
-}
-
-.h2 {
-  font-size: em(50)!important;
-}
-
-.h3 {
-  font-size: em(37)!important;
-}
-
-.h4 {
-  font-size: em(28)!important;
-}
-
-.h5 {
-  font-size: em(21)!important;
-}
-
-.p {
-  font-size: em(16)!important;
-}
-
-.small {
-  font-size: em(12)!important;
-}
-
-.smaller {
-  font-size: em(9)!important;
-} 
-
-.lh-15 {
-  line-height: em(15);
-}
-
-.lh-19 {
-  line-height: em(19);
-}
-
-.lh-21 {
-  line-height: em(21);
-}
-
-.lh-29 {
-  line-height: em(29);
-}
-
-.lh-37 {
-  line-height: em(37);
-}
-
-@mixin text-shadow($shadow) {
-  @include prefixer(text-shadow, $shadow, webkit moz spec o);
-}
-
-.text-shadow {
-  @include text-shadow(-1px -1px 0px rgba(0,0,0,0.4));
-}
-
-
-
-

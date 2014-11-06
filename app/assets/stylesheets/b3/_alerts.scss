@@ -33,12 +33,13 @@
   }
 }
 
-// Dismissable alerts
+// Dismissible alerts
 //
 // Expand the right padding and account for the close button's positioning.
 
-.alert-dismissable {
- padding-right: ($alert-padding + 20);
+.alert-dismissable, // The misspelled .alert-dismissable was deprecated in 3.2.0.
+.alert-dismissible {
+  padding-right: ($alert-padding + 20);
 
   // Adjust close link position
   .close {
@@ -64,20 +65,4 @@
 }
 .alert-danger {
   @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
-}
-
-.alert-success-grad {
-  @include alert-grad($alert-success-bg, $alert-success-border, $alert-success-text);
-}
-
-.alert-info-grad {
-  @include alert-grad($alert-info-bg, $alert-info-border, $alert-info-text);
-}
-
-.alert-warning-grad {
-  @include alert-grad($alert-warning-bg, $alert-warning-border, $alert-warning-text);
-}
-
-.alert-danger-grad {
-  @include alert-grad($alert-danger-bg, $alert-danger-border, $alert-danger-text);
 }

@@ -6,7 +6,6 @@
 // Base styles
 // --------------------------------------------------
 
-// Core styles
 .btn {
   display: inline-block;
   margin-bottom: 0; // For input.btn
@@ -20,8 +19,12 @@
   @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
   @include user-select(none);
 
-  &:focus {
-    @include tab-focus();
+  &,
+  &:active,
+  &.active {
+    &:focus {
+      @include tab-focus();
+    }
   }
 
   &:hover,
@@ -45,7 +48,6 @@
     @include opacity(.65);
     @include box-shadow(none);
   }
-
 }
 
 
@@ -58,18 +60,6 @@
 .btn-primary {
   @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
 }
-
-.btn-secondary {
-  @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
-}
-// Warning appears as orange
-.btn-warning {
-  @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
-}
-// Danger and error appear as red
-.btn-danger {
-  @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
-}
 // Success appears as green
 .btn-success {
   @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
@@ -79,28 +69,13 @@
   @include button-variant($btn-info-color, $btn-info-bg, $btn-info-border);
 }
 
-.btn-default-grad {
-  @include button-grad($btn-default-color, $btn-default-bg, $btn-default-border);
+// Warning appears as orange
+.btn-warning {
+  @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
 }
-
-.btn-primary-grad {
-  @include button-grad($btn-primary-color, $btn-primary-bg, $btn-primary-border);
-}
-
-.btn-warning-grad {
-  @include button-grad($btn-warning-color, $btn-warning-bg, $btn-warning-border);
-}
-
-.btn-danger-grad {
-  @include button-grad($btn-danger-color, $btn-danger-bg, $btn-danger-border);
-}
-
-.btn-success-grad {
-  @include button-grad($btn-success-color, $btn-success-bg, $btn-success-border);
-}
-
-.btn-info-grad {
-  @include button-grad($btn-info-color, $btn-info-bg, $btn-info-border);
+// Danger and error appear as red
+.btn-danger {
+  @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
 }
 
 
@@ -149,15 +124,14 @@
 
 .btn-lg {
   // line-height: ensure even-numbered height of button next to large input
-  @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-small);
+  @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
 }
-.btn-sm,
-.btn-xs {
+.btn-sm {
   // line-height: ensure proper height of button next to small input
   @include button-size($padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
 }
 .btn-xs {
-  padding: 1px 5px;
+  @include button-size($padding-xs-vertical, $padding-xs-horizontal, $font-size-small, $line-height-small, $border-radius-small);
 }
 
 
@@ -167,8 +141,6 @@
 .btn-block {
   display: block;
   width: 100%;
-  padding-left: 0;
-  padding-right: 0;
 }
 
 // Vertically space out multiple block buttons
