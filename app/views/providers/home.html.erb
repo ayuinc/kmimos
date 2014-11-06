@@ -54,8 +54,8 @@
       <!--/.nav-collapse -->
     </div>
     <div class="row">
-      <div class="col-md-8"></div>
-      <div class="col-md-3 ipad">
+      <div class="col-md-8 col-xs-1"></div>
+      <div class="col-md-3 ipad col-xs-11 ">
         <div class="opciones mt-7 mb-42 p-21">
           <div class="row">
             <div class="text col-md-12 text-center">
@@ -126,14 +126,14 @@
 
 <section>
   <!-- Place somewhere in the <body> of your page -->
-  <div class="container-fluid hidden-xs pasador hidden-sm">
+  <div class="container-fluid hidden-xs pasador pb-21 hidden-sm">
     <div class="row">
       <h3 class="text-center text-muted light">Nuestros servers destacados.</h3>
       <div class="flexslider m-0">
         <ul class="slides">
           <li class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-4 m-21">
+            <div class="col-md-4 server-pic m-21">
               <%=image_tag('gabriel_garduno.jpg', class: "img-circle img-responsive") %>
             </div>
             <div class="col-md-4 server-desc text-justify m-21">
@@ -145,7 +145,7 @@
           </li>
           <li class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-4 m-21">
+            <div class="col-md-4 server-pic m-21">
               <%=image_tag('juan-camacho.jpg', class: "img-circle img-responsive") %>
             </div>
             <div class="col-md-4 server-desc text-justify m-21">
@@ -157,7 +157,7 @@
           </li>
           <li class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-4 server-desc m-21">
+            <div class="col-md-4 server-pic m-21">
               <%=image_tag('jorge-morales.jpg', class: "img-circle img-responsive") %>
             </div>
             <div class="col-md-4 server-desc text-justify m-21">
@@ -181,7 +181,7 @@
         <div class="row text-center">
           <nav>
             <% unless current_provider %>
-             <%= link_to 'buscar aquí', providers_path, :class => "btn btn-lg btn-secondary", :id => "btn-search" %>
+             <%= link_to 'buscar aquí', providers_path, :class => "btn btn-lg text-muted", :id => "btn-search" %>
             <% end %>  
           </nav>
         </div>  
