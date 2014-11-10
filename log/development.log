@@ -40053,3 +40053,1727 @@ ActiveRecord::RecordNotFound - Couldn't find Provider with id=19:
 
 
 Started POST "/__better_errors/c784a279696be2f4/variables" for 127.0.0.1 at 2014-11-10 16:37:17 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-10 17:17:53 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (18.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (0.6ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mProvider Load (24.5ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+ERROR: compiling _app_views_providers_home_html_erb___3169706680047495147_70123635449260 RAISED /Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:142: syntax error, unexpected '>'
+...put_buffer.safe_append=']);" %>
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:144: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:145: syntax error, unexpected '<'
+          </li>
+           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:147: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:148: syntax error, unexpected '<'
+            <div class="col-md-4 server-pic m-21">
+             ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:149: syntax error, unexpected tIDENTIFIER, expecting ')'
+..._buffer.append=(image_tag('juan-camacho.jpg', class: "img-ci...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:149: syntax error, unexpected tSTRING_BEG, expecting ')'
+...d=(image_tag('juan-camacho.jpg', class: "img-circle img-resp...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:152: unknown regexp option - h
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:152: syntax error, unexpected tINTEGER, expecting ')'
+              <h3 id="text-yellow" class="light">Juan Camacho</h3>
+                                                                 ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:153: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...text-muted light">Consentimos y cuaidamos a tus mascotas en:...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:153: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+... a tus mascotas en: Hospedaje y pension campestre;  Hotel ci...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:153: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...s mascotas, básico, avanzado y corrección de malos hábito...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:153: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+.... Tenemos estética, y buscamos a tus mascotas en todo el DF...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:154: syntax error, unexpected tIDENTIFIER, expecting ')'
+...btn-sm h5", :onclick=>"ga('send', 'event', 'contactar', #{@p...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:154: syntax error, unexpected tIDENTIFIER, expecting ')'
+...", :onclick=>"ga('send', 'event', 'contactar', #{@provider_b...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:154: syntax error, unexpected tIDENTIFIER, expecting ')'
+..."ga('send', 'event', 'contactar', #{@provider_b.id.to_i}');"...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:156: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            <div class="col-md-2"></div>
+                           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:156: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+            <div class="col-md-2"></div>
+                                 ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:158: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+          <li class="row">
+                        ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:159: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            <div class="col-md-2"></div>
+                           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:159: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+            <div class="col-md-2"></div>
+                                 ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:160: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            <div class="col-md-4 server-pic m-21">
+                           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:160: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            <div class="col-md-4 server-pic m-21">
+                                       ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:160: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+            <div class="col-md-4 server-pic m-21">
+                                             ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:160: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+            <div class="col-md-4 server-pic m-21">
+                                                 ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:161: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...jorge-morales.jpg', class: "img-circle img-responsive") );@o...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:161: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...es.jpg', class: "img-circle img-responsive") );@output_buffe...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:161: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...ss: "img-circle img-responsive") );@output_buffer.safe_appen...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:163: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            <div class="col-md-4 server-desc text-justify m-21">
+                           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:163: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            <div class="col-md-4 server-desc text-justify m-21">
+                                       ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:163: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+            <div class="col-md-4 server-desc text-justify m-21">
+                                                 ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:163: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+            <div class="col-md-4 server-desc text-justify m-21">
+                                                           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:163: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+            <div class="col-md-4 server-desc text-justify m-21">
+                                                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:164: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+              <h3 id="text-yellow" class="light">Jorge ...
+                          ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:164: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...           <h3 id="text-yellow" class="light">Jorge Bello</h...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:164: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...3 id="text-yellow" class="light">Jorge Bello</h3><p class="t...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:164: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...>Jorge Bello</h3><p class="text-muted light">Nos encanta con...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:164: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...</h3><p class="text-muted light">Nos encanta consentir a tus...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:165: syntax error, unexpected tCONSTANT, expecting keyword_end
+...fer.append=( link_to "Contactar".html_safe, @provider_c, rem...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:165: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...c, remote: true, :class => "btn btn-sm h5", :onclick=>"ga('s...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:165: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+... true, :class => "btn btn-sm h5", :onclick=>"ga('send', 'eve...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:165: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+... "btn btn-sm h5", :onclick=>"ga('send', 'event', 'contactar'...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:167: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:168: syntax error, unexpected '<'
+          </li>
+           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:169: unknown regexp option - l
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:170: syntax error, unexpected '<'
+      </div>   
+       ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:171: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:172: syntax error, unexpected '<'
+  </div>
+   ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:173: unknown regexp options - ct
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:175: syntax error, unexpected '<'
+<section id="listo" class="mt-7 mb-21">
+ ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:175: syntax error, unexpected keyword_class, expecting keyword_end
+<section id="listo" class="mt-7 mb-21">
+                         ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:176: syntax error, unexpected '<'
+  <div class="container mb-21 mt-21">
+   ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:177: syntax error, unexpected '<'
+    <div class="row">
+     ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:178: syntax error, unexpected '<'
+      <div class="col-md-2"></div>
+       ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:178: syntax error, unexpected '<'
+      <div class="col-md-2"></div>
+                             ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:180: unknown regexp option - h
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:180: syntax error, unexpected tINTEGER, expecting keyword_end
+...ara consentir a tu mascota?</h3>
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:182: syntax error, unexpected '<'
+          <nav>
+           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:184: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...buffer.append=( link_to 'buscar aquí', providers_path, :cla...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:187: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:188: syntax error, unexpected '<'
+      </div>
+       ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:189: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:190: syntax error, unexpected '<'
+    </div>
+     ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:191: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:192: syntax error, unexpected '<'
+</section>
+ ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:194: unknown regexp options - dal
+end pattern with unmatched parenthesis: /section>
+
+';@output_buffer.append=( render "layouts/m
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:194: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+';@output_buffer.append=( render "layouts/modal" );@output_buffer.to_s
+                                                ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:194: unterminated string meets end of file
+Function body:           def _app_views_providers_home_html_erb___3169706680047495147_70123635449260(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "providers/home";_old_output_buffer = @output_buffer;;@output_buffer = output_buffer || ActionView::OutputBuffer.new;@output_buffer.safe_append='<section id="home-filters"> 
+  <div class="container-fluid p-14">
+   <div class="navbar p-7">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class=" p-7 hidden-xs hidden-sm col-xs-4">
+          ';@output_buffer.append=( link_to image_tag('site-kmimos-12.png', class: "mt--14"), root_url );@output_buffer.safe_append='
+';@output_buffer.safe_append='        </div>
+        <div class=" p-7 hidden-md hidden-lg col-xs-4">
+          ';@output_buffer.append=( link_to image_tag('site-kmimos-12.png', class: "mt-0"), root_url );@output_buffer.safe_append='
+';@output_buffer.safe_append='        </div>
+      </div>
+      <div class="collapse navbar-collapse pr-63 mr-42">
+        <ul class="nav navbar-nav pull-right">
+';           if current_provider 
+@output_buffer.safe_append='            <li class="dropdown mt-7">
+              <a href="#" class="dropdown-toggle text-muted" data-toggle="dropdown">Hola, ';@output_buffer.append=( current_provider.name );@output_buffer.safe_append=' <i class="fa-caret-down"></i></a>
+              <ul class="dropdown-menu" id="dropdown-menu">
+                <li>';@output_buffer.append=( link_to '<i class="fa-edit"></i> Actualizar mi perfil'.html_safe, edit_provider_path(current_provider), class: "text-danger" );@output_buffer.safe_append='</li>
+                <li>';@output_buffer.append=( link_to '<i class="fa-power-off"></i> Salir'.html_safe, salir_path, :method => :delete, class: "text-danger" );@output_buffer.safe_append='</li>
+              </ul>
+            </li>
+            <li class="hidden-lg hidden-md">
+              <ul class="list-group m-0 pt-7">
+                <li class="list-group-item">';@output_buffer.append=( link_to '<i class="fa-edit"></i> Actualizar mi perfil'.html_safe, edit_provider_path(current_provider) );@output_buffer.safe_append='</li>
+                <li class="list-group-item">';@output_buffer.append=( link_to '<i class="fa-power-off"></i> Salir'.html_safe, salir_path, :method => :delete, class: "text-danger" );@output_buffer.safe_append='</li>
+              </ul>
+            </li>
+';           else     
+@output_buffer.safe_append='          <li class="active hidden-sm hidden-xs mt-28">
+           ';@output_buffer.append=( link_to 'Ingresa a tu cuenta'.html_safe, new_providers_session_path, class: "not-underline" );@output_buffer.safe_append='
+';@output_buffer.safe_append='          </li>
+          <li class="hidden-lg hidden-md">
+            ';@output_buffer.append=  form_tag providers_sessions_path, :class => "form-inline mb-0 user-login-header-form" do @output_buffer.safe_append='
+';@output_buffer.safe_append='            <div class="form-group mr-7">
+              <label class="hidden-lg hidden-md hidden-sm text-muted">Ingreso de proveedores</label>
+              ';@output_buffer.append=( email_field_tag :email, params[:email], :autofocus => true, :class => "form-control input-sm", :placeholder => "Correo electrónico" );@output_buffer.safe_append='
+';@output_buffer.safe_append='            </div>
+            <div class="form-group mr-7">
+              ';@output_buffer.append=( password_field_tag :password, nil, class: "form-control input-sm", :placeholder => "Contraseña" );@output_buffer.safe_append='
+';@output_buffer.safe_append='            </div>
+            <div class="form-group text-center">
+              ';@output_buffer.append=( submit_tag "Ingresa", id: "user_login_button", class: "btn btn-info btn-sm" );@output_buffer.safe_append='
+';@output_buffer.safe_append='            </div>
+';           end 
+@output_buffer.safe_append='          </li>
+';           end    
+@output_buffer.safe_append='        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-xs-1"></div>
+      <div class="col-md-3 ipad col-xs-11 mt-14">
+        <div class="opciones mt-7 mb-42 p-21">
+          <div class="row">
+            <div class="text col-md-12 text-center">
+              <h3 class="light hidden-sm hidden-xs mt-7">Consiente a tu mascota</h3>
+              <h3 class="light hidden-md hidden-lg mt-7">Consiente a tu mascota</h3>
+              <h5 class="text-gray pb-14 light">Conéctate con gente de confianza para consentir a tu mascota como se merece.</h5>
+            </div>
+          </div>
+          <div class="servicios row text-center">
+            <div class="col-md-6 p-0">
+              ';@output_buffer.append=  link_to(category_path(Category.find_by(name: "Veterinario"))) do @output_buffer.safe_append='
+';@output_buffer.safe_append='                ';@output_buffer.append=( image_tag("site-kmimos-05.png", :class => "" ) );@output_buffer.safe_append='
+';@output_buffer.safe_append='                <div class="overlay">
+                </div>
+';               end 
+@output_buffer.safe_append='            </div>
+            <div class="col-md-6 p-0">
+              ';@output_buffer.append=  link_to(category_path(Category.find_by(name: "Paseador"))) do @output_buffer.safe_append='
+';@output_buffer.safe_append='                ';@output_buffer.append=( image_tag("site-kmimos-07.png", :class => "" ) );@output_buffer.safe_append='
+';@output_buffer.safe_append='                <div class="overlay">
+                </div>
+';               end 
+@output_buffer.safe_append='            </div>
+          </div>
+          <div class="servicios row text-center mt-14">
+            <div class="col-md-6 p-0">
+              ';@output_buffer.append=  link_to(category_path(Category.find_by(name: "Hotel"))) do @output_buffer.safe_append='
+';@output_buffer.safe_append='                ';@output_buffer.append=( image_tag("site-kmimos-06.png", :class => "" ) );@output_buffer.safe_append='
+';@output_buffer.safe_append='                <div class="overlay">
+                </div>
+';               end 
+@output_buffer.safe_append='            </div>
+            <div class="col-md-6 p-0">
+              ';@output_buffer.append=  link_to(category_path(Category.find_by(name: "Entrenador"))) do @output_buffer.safe_append='
+';@output_buffer.safe_append='                ';@output_buffer.append=( image_tag("site-kmimos-08.png", :class => "" ) );@output_buffer.safe_append='
+';@output_buffer.safe_append='                <div class="overlay">
+                </div>
+';               end 
+@output_buffer.safe_append='            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="home-pasos" class="text-center bg-muted">
+  <div class="container text-center">
+    <div class="row text-center text-primary p-28"><h2 class="light">¿Cómo funciona?</h2></div>
+    <div class="row mb-35">
+      <div class="col-md-4 text-center">
+        ';@output_buffer.append=(image_tag('site-kmimos-09.png', class: "mt--14") );@output_buffer.safe_append='
+';@output_buffer.safe_append='        <h3 class="mt-35 light text-gray">1. Elige</h3>
+        <h5 id="text-gray" class="p-21 light  ">Selecciona el servicio que necesitas y elige entre la lista de proveedores calificados.</h5>
+      </div>
+      <div class="col-md-4 text-center">
+        ';@output_buffer.append=(image_tag('site-kmimos-10.png', class: "mt--14") );@output_buffer.safe_append='
+';@output_buffer.safe_append='        <h3 class="mt-35 light text-gray">2. Contrata</h3>
+        <h5 id="text-gray" class="p-21 light ">Contrata al proveedor <br> que más se ajusta a tus necesidades.</h5>
+      </div>
+      <div class="col-md-4 text-center">
+        ';@output_buffer.append=(image_tag('site-kmimos-11.png', class: "mt--14") );@output_buffer.safe_append='
+';@output_buffer.safe_append='        <h3 class="mt-35 light text-gray">3. Evalúa</h3>
+        <h5 id="text-gray" class="p-21 light">Asígnale un puntaje al proveedor de acuerdo a la calidad del servicio brindado.</h5>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <!-- Place somewhere in the <body> of your page -->
+  <div class="container-fluid hidden-xs pasador pb-21 hidden-sm">
+    <div class="row">
+      <h3 class="text-center text-muted light">Nuestros servers destacados.</h3>
+      <div class="flexslider m-0">
+        <ul class="slides">
+          <li class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4 server-pic m-21">
+              ';@output_buffer.append=(image_tag('gabriel_garduno.jpg', class: "img-circle img-responsive") );@output_buffer.safe_append='
+';@output_buffer.safe_append='            </div>
+            <div class="col-md-4 server-desc text-justify m-21">
+              <h3 id="text-yellow" class="light">Gabriel Garduño </h3>
+              <p class="text-muted light">Entrenador profesional, ofrezco hospedaje para tus mascotas, las paseamos las buscamos en tu domicilio para que se diviertan !!  ATIENDO EN TODO EL DF</p>
+              ';@output_buffer.append=( link_to "Contactar".html_safe, @provider_a, remote: true, :class => "btn btn-sm h5", :onclick=>"_gaq.push(['_trackEvent', 'General', 'ContactarCarousel', '<%= @provider_a.name );@output_buffer.safe_append='\', ';@output_buffer.append=( @provider_a.id.to_f );@output_buffer.safe_append=']);" %>
+            </div>
+            <div class="col-md-2"></div>
+          </li>
+          <li class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4 server-pic m-21">
+              ';@output_buffer.append=(image_tag('juan-camacho.jpg', class: "img-circle img-responsive") );@output_buffer.safe_append='
+';@output_buffer.safe_append='            </div>
+            <div class="col-md-4 server-desc text-justify m-21">
+              <h3 id="text-yellow" class="light">Juan Camacho</h3>
+              <p class="text-muted light">Consentimos y cuaidamos a tus mascotas en: Hospedaje y pension campestre;  Hotel citadino; Hotel hogareño. Entrenamos a tus mascotas, básico, avanzado y corrección de malos hábitos. Tenemos estética, y buscamos a tus mascotas en todo el DF y EDO de MEXICO.</p>
+              ';@output_buffer.append=( link_to "Contactar".html_safe, @provider_b, remote: true, :class => "btn btn-sm h5", :onclick=>"ga('send', 'event', 'contactar', #{@provider_b.id.to_i}');" );@output_buffer.safe_append='
+';@output_buffer.safe_append='            </div>
+            <div class="col-md-2"></div>
+          </li>
+          <li class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4 server-pic m-21">
+              ';@output_buffer.append=(image_tag('jorge-morales.jpg', class: "img-circle img-responsive") );@output_buffer.safe_append='
+';@output_buffer.safe_append='            </div>
+            <div class="col-md-4 server-desc text-justify m-21">
+              <h3 id="text-yellow" class="light">Jorge Bello</h3><p class="text-muted light">Nos encanta consentir a tus mascotas, las buscamos en tu casa, paseamos,entrenamos y si quieres un hospedaje con mucho cariño búscame para hacerlas sentir como en casa.  ATIENDO EN TODO EL DF</p>
+              ';@output_buffer.append=( link_to "Contactar".html_safe, @provider_c, remote: true, :class => "btn btn-sm h5", :onclick=>"ga('send', 'event', 'contactar', #{@provider_c.id.to_i}');" );@output_buffer.safe_append='
+';@output_buffer.safe_append='            </div>
+            <div class="col-md-2"></div>
+          </li>
+        </ul>
+      </div>   
+    </div>
+  </div>
+</section>
+
+<section id="listo" class="mt-7 mb-21">
+  <div class="container mb-21 mt-21">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8 m-28">
+        <h3 class="text-secondary text-center mt-7 light">¿Que esperas para consentir a tu mascota?</h3>
+        <div class="row text-center">
+          <nav>
+';             unless current_provider 
+@output_buffer.safe_append='             ';@output_buffer.append=( link_to 'buscar aquí', providers_path, :class => "btn btn-lg text-muted", :id => "btn-search" );@output_buffer.safe_append='
+';             end   
+@output_buffer.safe_append='          </nav>
+        </div>  
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+</section>
+
+';@output_buffer.append=( render "layouts/modal" );@output_buffer.to_s
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+
+Backtrace: /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/template.rb:299:in `module_eval'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/template.rb:299:in `compile'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/template.rb:248:in `block in compile!'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/template.rb:236:in `synchronize'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/template.rb:236:in `compile!'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/template.rb:142:in `block in render'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/notifications.rb:161:in `instrument'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/template.rb:141:in `render'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/notifications.rb:159:in `block in instrument'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/notifications.rb:159:in `instrument'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:17:in `render'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/renderer.rb:42:in `render_template'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/renderer.rb:23:in `render'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/abstract_controller/rendering.rb:127:in `_render_template'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/abstract_controller/rendering.rb:97:in `render'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/rendering.rb:16:in `render'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activerecord-4.0.2/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/abstract_controller/base.rb:189:in `process_action'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/callbacks.rb:423:in `_run__3965348618011122467__process_action__callbacks'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/notifications.rb:159:in `block in instrument'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/notifications.rb:159:in `instrument'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activerecord-4.0.2/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/abstract_controller/base.rb:136:in `process'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/abstract_controller/rendering.rb:44:in `process'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal.rb:195:in `dispatch'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal.rb:231:in `block in action'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/routing/route_set.rb:80:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/routing/route_set.rb:48:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/journey/router.rb:71:in `block in call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/journey/router.rb:59:in `each'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/journey/router.rb:59:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/routing/route_set.rb:680:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/meta_request-0.3.4/lib/meta_request/middlewares/app_request_handler.rb:13:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/meta_request-0.3.4/lib/meta_request/middlewares/meta_request_handler.rb:13:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/bullet-4.13.1/lib/bullet/rack.rb:10:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/etag.rb:23:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/conditionalget.rb:25:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/head.rb:11:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/flash.rb:241:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:225:in `context'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:220:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/cookies.rb:486:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activerecord-4.0.2/lib/active_record/query_cache.rb:36:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activerecord-4.0.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activerecord-4.0.2/lib/active_record/migration.rb:369:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/callbacks.rb:373:in `_run__569992767720884734__call__callbacks'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/reloader.rb:64:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/better_errors-2.0.0/lib/better_errors/middleware.rb:84:in `protected_app_call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/better_errors-2.0.0/lib/better_errors/middleware.rb:79:in `better_errors_call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/better_errors-2.0.0/lib/better_errors/middleware.rb:57:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-contrib-1.1.0/lib/rack/contrib/response_headers.rb:17:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/meta_request-0.3.4/lib/meta_request/middlewares/headers.rb:16:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/railties-4.0.2/lib/rails/rack/logger.rb:38:in `call_app'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/railties-4.0.2/lib/rails/rack/logger.rb:20:in `block in call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/tagged_logging.rb:67:in `block in tagged'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/tagged_logging.rb:25:in `tagged'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/tagged_logging.rb:67:in `tagged'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/railties-4.0.2/lib/rails/rack/logger.rb:20:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/static.rb:64:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/railties-4.0.2/lib/rails/engine.rb:511:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/railties-4.0.2/lib/rails/application.rb:97:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+  Rendered providers/home.html.erb within layouts/application (83.2ms)
+Completed 500 Internal Server Error in 270ms
+
+SyntaxError - syntax error, unexpected '>'
+...put_buffer.safe_append=']);" %>
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:144: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:145: syntax error, unexpected '<'
+          </li>
+           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:147: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:148: syntax error, unexpected '<'
+            <div class="col-md-4 server-pic m-21">
+             ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:149: syntax error, unexpected tIDENTIFIER, expecting ')'
+..._buffer.append=(image_tag('juan-camacho.jpg', class: "img-ci...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:149: syntax error, unexpected tSTRING_BEG, expecting ')'
+...d=(image_tag('juan-camacho.jpg', class: "img-circle img-resp...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:152: unknown regexp option - h
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:152: syntax error, unexpected tINTEGER, expecting ')'
+              <h3 id="text-yellow" class="light">Juan Camacho</h3>
+                                                                 ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:153: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...text-muted light">Consentimos y cuaidamos a tus mascotas en:...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:153: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+... a tus mascotas en: Hospedaje y pension campestre;  Hotel ci...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:153: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...s mascotas, básico, avanzado y corrección de malos hábito...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:153: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+.... Tenemos estética, y buscamos a tus mascotas en todo el DF...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:154: syntax error, unexpected tIDENTIFIER, expecting ')'
+...btn-sm h5", :onclick=>"ga('send', 'event', 'contactar', #{@p...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:154: syntax error, unexpected tIDENTIFIER, expecting ')'
+...", :onclick=>"ga('send', 'event', 'contactar', #{@provider_b...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:154: syntax error, unexpected tIDENTIFIER, expecting ')'
+..."ga('send', 'event', 'contactar', #{@provider_b.id.to_i}');"...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:156: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            <div class="col-md-2"></div>
+                           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:156: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+            <div class="col-md-2"></div>
+                                 ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:158: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+          <li class="row">
+                        ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:159: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            <div class="col-md-2"></div>
+                           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:159: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+            <div class="col-md-2"></div>
+                                 ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:160: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            <div class="col-md-4 server-pic m-21">
+                           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:160: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            <div class="col-md-4 server-pic m-21">
+                                       ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:160: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+            <div class="col-md-4 server-pic m-21">
+                                             ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:160: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+            <div class="col-md-4 server-pic m-21">
+                                                 ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:161: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...jorge-morales.jpg', class: "img-circle img-responsive") );@o...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:161: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...es.jpg', class: "img-circle img-responsive") );@output_buffe...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:161: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...ss: "img-circle img-responsive") );@output_buffer.safe_appen...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:163: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            <div class="col-md-4 server-desc text-justify m-21">
+                           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:163: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            <div class="col-md-4 server-desc text-justify m-21">
+                                       ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:163: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+            <div class="col-md-4 server-desc text-justify m-21">
+                                                 ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:163: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+            <div class="col-md-4 server-desc text-justify m-21">
+                                                           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:163: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+            <div class="col-md-4 server-desc text-justify m-21">
+                                                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:164: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+              <h3 id="text-yellow" class="light">Jorge ...
+                          ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:164: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...           <h3 id="text-yellow" class="light">Jorge Bello</h...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:164: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...3 id="text-yellow" class="light">Jorge Bello</h3><p class="t...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:164: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...>Jorge Bello</h3><p class="text-muted light">Nos encanta con...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:164: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...</h3><p class="text-muted light">Nos encanta consentir a tus...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:165: syntax error, unexpected tCONSTANT, expecting keyword_end
+...fer.append=( link_to "Contactar".html_safe, @provider_c, rem...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:165: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...c, remote: true, :class => "btn btn-sm h5", :onclick=>"ga('s...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:165: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+... true, :class => "btn btn-sm h5", :onclick=>"ga('send', 'eve...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:165: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+... "btn btn-sm h5", :onclick=>"ga('send', 'event', 'contactar'...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:167: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:168: syntax error, unexpected '<'
+          </li>
+           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:169: unknown regexp option - l
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:170: syntax error, unexpected '<'
+      </div>   
+       ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:171: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:172: syntax error, unexpected '<'
+  </div>
+   ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:173: unknown regexp options - ct
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:175: syntax error, unexpected '<'
+<section id="listo" class="mt-7 mb-21">
+ ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:175: syntax error, unexpected keyword_class, expecting keyword_end
+<section id="listo" class="mt-7 mb-21">
+                         ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:176: syntax error, unexpected '<'
+  <div class="container mb-21 mt-21">
+   ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:177: syntax error, unexpected '<'
+    <div class="row">
+     ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:178: syntax error, unexpected '<'
+      <div class="col-md-2"></div>
+       ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:178: syntax error, unexpected '<'
+      <div class="col-md-2"></div>
+                             ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:180: unknown regexp option - h
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:180: syntax error, unexpected tINTEGER, expecting keyword_end
+...ara consentir a tu mascota?</h3>
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:182: syntax error, unexpected '<'
+          <nav>
+           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:184: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...buffer.append=( link_to 'buscar aquí', providers_path, :cla...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:187: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:188: syntax error, unexpected '<'
+      </div>
+       ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:189: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:190: syntax error, unexpected '<'
+    </div>
+     ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:191: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:192: syntax error, unexpected '<'
+</section>
+ ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:194: unknown regexp options - dal
+end pattern with unmatched parenthesis: /section>
+
+';@output_buffer.append=( render "layouts/m
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:194: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+';@output_buffer.append=( render "layouts/modal" );@output_buffer.to_s
+                                                ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:194: unterminated string meets end of file:
+  app/views/providers/home.html.erb:142:in `'
+  actionpack (4.0.2) lib/action_view/template.rb:299:in `compile'
+  actionpack (4.0.2) lib/action_view/template.rb:248:in `block in compile!'
+  actionpack (4.0.2) lib/action_view/template.rb:236:in `compile!'
+  actionpack (4.0.2) lib/action_view/template.rb:142:in `block in render'
+  activesupport (4.0.2) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.2) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.2) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:423:in `_run__3965348618011122467__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/app_request_handler.rb:13:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/meta_request_handler.rb:13:in `call'
+  bullet (4.13.1) lib/bullet/rack.rb:10:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__569992767720884734__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call'
+  rack-contrib (1.1.0) lib/rack/contrib/response_headers.rb:17:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/headers.rb:16:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/214da1ef2498b0da/variables" for 127.0.0.1 at 2014-11-10 17:17:53 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-10 17:20:21 -0500
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (1.1ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mProvider Load (0.8ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+ERROR: compiling _app_views_providers_home_html_erb___3169706680047495147_70123642923300 RAISED /Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:142: syntax error, unexpected '>'
+...put_buffer.safe_append=']);" %>
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:144: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:145: syntax error, unexpected '<'
+          </li>
+           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:147: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:148: syntax error, unexpected '<'
+            <div class="col-md-4 server-pic m-21">
+             ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:149: syntax error, unexpected tIDENTIFIER, expecting ')'
+..._buffer.append=(image_tag('juan-camacho.jpg', class: "img-ci...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:149: syntax error, unexpected tSTRING_BEG, expecting ')'
+...d=(image_tag('juan-camacho.jpg', class: "img-circle img-resp...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:152: unknown regexp option - h
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:152: syntax error, unexpected tINTEGER, expecting ')'
+              <h3 id="text-yellow" class="light">Juan Camacho</h3>
+                                                                 ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:153: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...text-muted light">Consentimos y cuaidamos a tus mascotas en:...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:153: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+... a tus mascotas en: Hospedaje y pension campestre;  Hotel ci...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:153: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...s mascotas, básico, avanzado y corrección de malos hábito...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:153: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+.... Tenemos estética, y buscamos a tus mascotas en todo el DF...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:154: syntax error, unexpected tIDENTIFIER, expecting ')'
+...btn-sm h5", :onclick=>"ga('send', 'event', 'contactar', #{@p...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:154: syntax error, unexpected tIDENTIFIER, expecting ')'
+...", :onclick=>"ga('send', 'event', 'contactar', #{@provider_b...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:154: syntax error, unexpected tIDENTIFIER, expecting ')'
+..."ga('send', 'event', 'contactar', #{@provider_b.id.to_i}');"...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:156: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            <div class="col-md-2"></div>
+                           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:156: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+            <div class="col-md-2"></div>
+                                 ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:158: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+          <li class="row">
+                        ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:159: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            <div class="col-md-2"></div>
+                           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:159: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+            <div class="col-md-2"></div>
+                                 ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:160: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            <div class="col-md-4 server-pic m-21">
+                           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:160: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            <div class="col-md-4 server-pic m-21">
+                                       ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:160: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+            <div class="col-md-4 server-pic m-21">
+                                             ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:160: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+            <div class="col-md-4 server-pic m-21">
+                                                 ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:161: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...jorge-morales.jpg', class: "img-circle img-responsive") );@o...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:161: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...es.jpg', class: "img-circle img-responsive") );@output_buffe...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:161: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...ss: "img-circle img-responsive") );@output_buffer.safe_appen...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:163: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            <div class="col-md-4 server-desc text-justify m-21">
+                           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:163: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            <div class="col-md-4 server-desc text-justify m-21">
+                                       ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:163: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+            <div class="col-md-4 server-desc text-justify m-21">
+                                                 ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:163: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+            <div class="col-md-4 server-desc text-justify m-21">
+                                                           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:163: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+            <div class="col-md-4 server-desc text-justify m-21">
+                                                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:164: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+              <h3 id="text-yellow" class="light">Jorge ...
+                          ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:164: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...           <h3 id="text-yellow" class="light">Jorge Bello</h...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:164: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...3 id="text-yellow" class="light">Jorge Bello</h3><p class="t...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:164: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...>Jorge Bello</h3><p class="text-muted light">Nos encanta con...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:164: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...</h3><p class="text-muted light">Nos encanta consentir a tus...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:165: syntax error, unexpected tCONSTANT, expecting keyword_end
+...fer.append=( link_to "Contactar".html_safe, @provider_c, rem...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:165: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...c, remote: true, :class => "btn btn-sm h5", :onclick=>"ga('s...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:165: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+... true, :class => "btn btn-sm h5", :onclick=>"ga('send', 'eve...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:165: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+... "btn btn-sm h5", :onclick=>"ga('send', 'event', 'contactar'...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:167: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:168: syntax error, unexpected '<'
+          </li>
+           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:169: unknown regexp option - l
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:170: syntax error, unexpected '<'
+      </div>   
+       ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:171: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:172: syntax error, unexpected '<'
+  </div>
+   ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:173: unknown regexp options - ct
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:175: syntax error, unexpected '<'
+<section id="listo" class="mt-7 mb-21">
+ ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:175: syntax error, unexpected keyword_class, expecting keyword_end
+<section id="listo" class="mt-7 mb-21">
+                         ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:176: syntax error, unexpected '<'
+  <div class="container mb-21 mt-21">
+   ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:177: syntax error, unexpected '<'
+    <div class="row">
+     ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:178: syntax error, unexpected '<'
+      <div class="col-md-2"></div>
+       ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:178: syntax error, unexpected '<'
+      <div class="col-md-2"></div>
+                             ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:180: unknown regexp option - h
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:180: syntax error, unexpected tINTEGER, expecting keyword_end
+...ara consentir a tu mascota?</h3>
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:182: syntax error, unexpected '<'
+          <nav>
+           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:184: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...buffer.append=( link_to 'buscar aquí', providers_path, :cla...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:187: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:188: syntax error, unexpected '<'
+      </div>
+       ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:189: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:190: syntax error, unexpected '<'
+    </div>
+     ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:191: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:192: syntax error, unexpected '<'
+</section>
+ ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:194: unknown regexp options - dal
+end pattern with unmatched parenthesis: /section>
+
+';@output_buffer.append=( render "layouts/m
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:194: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+';@output_buffer.append=( render "layouts/modal" );@output_buffer.to_s
+                                                ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:194: unterminated string meets end of file
+Function body:           def _app_views_providers_home_html_erb___3169706680047495147_70123642923300(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "providers/home";_old_output_buffer = @output_buffer;;@output_buffer = output_buffer || ActionView::OutputBuffer.new;@output_buffer.safe_append='<section id="home-filters"> 
+  <div class="container-fluid p-14">
+   <div class="navbar p-7">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class=" p-7 hidden-xs hidden-sm col-xs-4">
+          ';@output_buffer.append=( link_to image_tag('site-kmimos-12.png', class: "mt--14"), root_url );@output_buffer.safe_append='
+';@output_buffer.safe_append='        </div>
+        <div class=" p-7 hidden-md hidden-lg col-xs-4">
+          ';@output_buffer.append=( link_to image_tag('site-kmimos-12.png', class: "mt-0"), root_url );@output_buffer.safe_append='
+';@output_buffer.safe_append='        </div>
+      </div>
+      <div class="collapse navbar-collapse pr-63 mr-42">
+        <ul class="nav navbar-nav pull-right">
+';           if current_provider 
+@output_buffer.safe_append='            <li class="dropdown mt-7">
+              <a href="#" class="dropdown-toggle text-muted" data-toggle="dropdown">Hola, ';@output_buffer.append=( current_provider.name );@output_buffer.safe_append=' <i class="fa-caret-down"></i></a>
+              <ul class="dropdown-menu" id="dropdown-menu">
+                <li>';@output_buffer.append=( link_to '<i class="fa-edit"></i> Actualizar mi perfil'.html_safe, edit_provider_path(current_provider), class: "text-danger" );@output_buffer.safe_append='</li>
+                <li>';@output_buffer.append=( link_to '<i class="fa-power-off"></i> Salir'.html_safe, salir_path, :method => :delete, class: "text-danger" );@output_buffer.safe_append='</li>
+              </ul>
+            </li>
+            <li class="hidden-lg hidden-md">
+              <ul class="list-group m-0 pt-7">
+                <li class="list-group-item">';@output_buffer.append=( link_to '<i class="fa-edit"></i> Actualizar mi perfil'.html_safe, edit_provider_path(current_provider) );@output_buffer.safe_append='</li>
+                <li class="list-group-item">';@output_buffer.append=( link_to '<i class="fa-power-off"></i> Salir'.html_safe, salir_path, :method => :delete, class: "text-danger" );@output_buffer.safe_append='</li>
+              </ul>
+            </li>
+';           else     
+@output_buffer.safe_append='          <li class="active hidden-sm hidden-xs mt-28">
+           ';@output_buffer.append=( link_to 'Ingresa a tu cuenta'.html_safe, new_providers_session_path, class: "not-underline" );@output_buffer.safe_append='
+';@output_buffer.safe_append='          </li>
+          <li class="hidden-lg hidden-md">
+            ';@output_buffer.append=  form_tag providers_sessions_path, :class => "form-inline mb-0 user-login-header-form" do @output_buffer.safe_append='
+';@output_buffer.safe_append='            <div class="form-group mr-7">
+              <label class="hidden-lg hidden-md hidden-sm text-muted">Ingreso de proveedores</label>
+              ';@output_buffer.append=( email_field_tag :email, params[:email], :autofocus => true, :class => "form-control input-sm", :placeholder => "Correo electrónico" );@output_buffer.safe_append='
+';@output_buffer.safe_append='            </div>
+            <div class="form-group mr-7">
+              ';@output_buffer.append=( password_field_tag :password, nil, class: "form-control input-sm", :placeholder => "Contraseña" );@output_buffer.safe_append='
+';@output_buffer.safe_append='            </div>
+            <div class="form-group text-center">
+              ';@output_buffer.append=( submit_tag "Ingresa", id: "user_login_button", class: "btn btn-info btn-sm" );@output_buffer.safe_append='
+';@output_buffer.safe_append='            </div>
+';           end 
+@output_buffer.safe_append='          </li>
+';           end    
+@output_buffer.safe_append='        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-xs-1"></div>
+      <div class="col-md-3 ipad col-xs-11 mt-14">
+        <div class="opciones mt-7 mb-42 p-21">
+          <div class="row">
+            <div class="text col-md-12 text-center">
+              <h3 class="light hidden-sm hidden-xs mt-7">Consiente a tu mascota</h3>
+              <h3 class="light hidden-md hidden-lg mt-7">Consiente a tu mascota</h3>
+              <h5 class="text-gray pb-14 light">Conéctate con gente de confianza para consentir a tu mascota como se merece.</h5>
+            </div>
+          </div>
+          <div class="servicios row text-center">
+            <div class="col-md-6 p-0">
+              ';@output_buffer.append=  link_to(category_path(Category.find_by(name: "Veterinario"))) do @output_buffer.safe_append='
+';@output_buffer.safe_append='                ';@output_buffer.append=( image_tag("site-kmimos-05.png", :class => "" ) );@output_buffer.safe_append='
+';@output_buffer.safe_append='                <div class="overlay">
+                </div>
+';               end 
+@output_buffer.safe_append='            </div>
+            <div class="col-md-6 p-0">
+              ';@output_buffer.append=  link_to(category_path(Category.find_by(name: "Paseador"))) do @output_buffer.safe_append='
+';@output_buffer.safe_append='                ';@output_buffer.append=( image_tag("site-kmimos-07.png", :class => "" ) );@output_buffer.safe_append='
+';@output_buffer.safe_append='                <div class="overlay">
+                </div>
+';               end 
+@output_buffer.safe_append='            </div>
+          </div>
+          <div class="servicios row text-center mt-14">
+            <div class="col-md-6 p-0">
+              ';@output_buffer.append=  link_to(category_path(Category.find_by(name: "Hotel"))) do @output_buffer.safe_append='
+';@output_buffer.safe_append='                ';@output_buffer.append=( image_tag("site-kmimos-06.png", :class => "" ) );@output_buffer.safe_append='
+';@output_buffer.safe_append='                <div class="overlay">
+                </div>
+';               end 
+@output_buffer.safe_append='            </div>
+            <div class="col-md-6 p-0">
+              ';@output_buffer.append=  link_to(category_path(Category.find_by(name: "Entrenador"))) do @output_buffer.safe_append='
+';@output_buffer.safe_append='                ';@output_buffer.append=( image_tag("site-kmimos-08.png", :class => "" ) );@output_buffer.safe_append='
+';@output_buffer.safe_append='                <div class="overlay">
+                </div>
+';               end 
+@output_buffer.safe_append='            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="home-pasos" class="text-center bg-muted">
+  <div class="container text-center">
+    <div class="row text-center text-primary p-28"><h2 class="light">¿Cómo funciona?</h2></div>
+    <div class="row mb-35">
+      <div class="col-md-4 text-center">
+        ';@output_buffer.append=(image_tag('site-kmimos-09.png', class: "mt--14") );@output_buffer.safe_append='
+';@output_buffer.safe_append='        <h3 class="mt-35 light text-gray">1. Elige</h3>
+        <h5 id="text-gray" class="p-21 light  ">Selecciona el servicio que necesitas y elige entre la lista de proveedores calificados.</h5>
+      </div>
+      <div class="col-md-4 text-center">
+        ';@output_buffer.append=(image_tag('site-kmimos-10.png', class: "mt--14") );@output_buffer.safe_append='
+';@output_buffer.safe_append='        <h3 class="mt-35 light text-gray">2. Contrata</h3>
+        <h5 id="text-gray" class="p-21 light ">Contrata al proveedor <br> que más se ajusta a tus necesidades.</h5>
+      </div>
+      <div class="col-md-4 text-center">
+        ';@output_buffer.append=(image_tag('site-kmimos-11.png', class: "mt--14") );@output_buffer.safe_append='
+';@output_buffer.safe_append='        <h3 class="mt-35 light text-gray">3. Evalúa</h3>
+        <h5 id="text-gray" class="p-21 light">Asígnale un puntaje al proveedor de acuerdo a la calidad del servicio brindado.</h5>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <!-- Place somewhere in the <body> of your page -->
+  <div class="container-fluid hidden-xs pasador pb-21 hidden-sm">
+    <div class="row">
+      <h3 class="text-center text-muted light">Nuestros servers destacados.</h3>
+      <div class="flexslider m-0">
+        <ul class="slides">
+          <li class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4 server-pic m-21">
+              ';@output_buffer.append=(image_tag('gabriel_garduno.jpg', class: "img-circle img-responsive") );@output_buffer.safe_append='
+';@output_buffer.safe_append='            </div>
+            <div class="col-md-4 server-desc text-justify m-21">
+              <h3 id="text-yellow" class="light">Gabriel Garduño </h3>
+              <p class="text-muted light">Entrenador profesional, ofrezco hospedaje para tus mascotas, las paseamos las buscamos en tu domicilio para que se diviertan !!  ATIENDO EN TODO EL DF</p>
+              ';@output_buffer.append=( link_to "Contactar".html_safe, @provider_a, remote: true, :class => "btn btn-sm h5", :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'ContactarCarousel', <%= @provider_a.id.to_f );@output_buffer.safe_append=']);" %>
+            </div>
+            <div class="col-md-2"></div>
+          </li>
+          <li class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4 server-pic m-21">
+              ';@output_buffer.append=(image_tag('juan-camacho.jpg', class: "img-circle img-responsive") );@output_buffer.safe_append='
+';@output_buffer.safe_append='            </div>
+            <div class="col-md-4 server-desc text-justify m-21">
+              <h3 id="text-yellow" class="light">Juan Camacho</h3>
+              <p class="text-muted light">Consentimos y cuaidamos a tus mascotas en: Hospedaje y pension campestre;  Hotel citadino; Hotel hogareño. Entrenamos a tus mascotas, básico, avanzado y corrección de malos hábitos. Tenemos estética, y buscamos a tus mascotas en todo el DF y EDO de MEXICO.</p>
+              ';@output_buffer.append=( link_to "Contactar".html_safe, @provider_b, remote: true, :class => "btn btn-sm h5", :onclick=>"ga('send', 'event', 'contactar', #{@provider_b.id.to_i}');" );@output_buffer.safe_append='
+';@output_buffer.safe_append='            </div>
+            <div class="col-md-2"></div>
+          </li>
+          <li class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4 server-pic m-21">
+              ';@output_buffer.append=(image_tag('jorge-morales.jpg', class: "img-circle img-responsive") );@output_buffer.safe_append='
+';@output_buffer.safe_append='            </div>
+            <div class="col-md-4 server-desc text-justify m-21">
+              <h3 id="text-yellow" class="light">Jorge Bello</h3><p class="text-muted light">Nos encanta consentir a tus mascotas, las buscamos en tu casa, paseamos,entrenamos y si quieres un hospedaje con mucho cariño búscame para hacerlas sentir como en casa.  ATIENDO EN TODO EL DF</p>
+              ';@output_buffer.append=( link_to "Contactar".html_safe, @provider_c, remote: true, :class => "btn btn-sm h5", :onclick=>"ga('send', 'event', 'contactar', #{@provider_c.id.to_i}');" );@output_buffer.safe_append='
+';@output_buffer.safe_append='            </div>
+            <div class="col-md-2"></div>
+          </li>
+        </ul>
+      </div>   
+    </div>
+  </div>
+</section>
+
+<section id="listo" class="mt-7 mb-21">
+  <div class="container mb-21 mt-21">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8 m-28">
+        <h3 class="text-secondary text-center mt-7 light">¿Que esperas para consentir a tu mascota?</h3>
+        <div class="row text-center">
+          <nav>
+';             unless current_provider 
+@output_buffer.safe_append='             ';@output_buffer.append=( link_to 'buscar aquí', providers_path, :class => "btn btn-lg text-muted", :id => "btn-search" );@output_buffer.safe_append='
+';             end   
+@output_buffer.safe_append='          </nav>
+        </div>  
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+</section>
+
+';@output_buffer.append=( render "layouts/modal" );@output_buffer.to_s
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+
+Backtrace: /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/template.rb:299:in `module_eval'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/template.rb:299:in `compile'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/template.rb:248:in `block in compile!'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/template.rb:236:in `synchronize'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/template.rb:236:in `compile!'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/template.rb:142:in `block in render'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/notifications.rb:161:in `instrument'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/template.rb:141:in `render'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/notifications.rb:159:in `block in instrument'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/notifications.rb:159:in `instrument'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:17:in `render'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/renderer.rb:42:in `render_template'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_view/renderer/renderer.rb:23:in `render'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/abstract_controller/rendering.rb:127:in `_render_template'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/abstract_controller/rendering.rb:97:in `render'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/rendering.rb:16:in `render'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activerecord-4.0.2/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/abstract_controller/base.rb:189:in `process_action'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/callbacks.rb:423:in `_run__3965348618011122467__process_action__callbacks'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/notifications.rb:159:in `block in instrument'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/notifications.rb:159:in `instrument'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activerecord-4.0.2/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/abstract_controller/base.rb:136:in `process'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/abstract_controller/rendering.rb:44:in `process'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal.rb:195:in `dispatch'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_controller/metal.rb:231:in `block in action'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/routing/route_set.rb:80:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/routing/route_set.rb:48:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/journey/router.rb:71:in `block in call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/journey/router.rb:59:in `each'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/journey/router.rb:59:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/routing/route_set.rb:680:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/meta_request-0.3.4/lib/meta_request/middlewares/app_request_handler.rb:13:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/meta_request-0.3.4/lib/meta_request/middlewares/meta_request_handler.rb:13:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/bullet-4.13.1/lib/bullet/rack.rb:10:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/etag.rb:23:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/conditionalget.rb:25:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/head.rb:11:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/flash.rb:241:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:225:in `context'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:220:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/cookies.rb:486:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activerecord-4.0.2/lib/active_record/query_cache.rb:36:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activerecord-4.0.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activerecord-4.0.2/lib/active_record/migration.rb:369:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/callbacks.rb:373:in `_run__569992767720884734__call__callbacks'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/reloader.rb:64:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/better_errors-2.0.0/lib/better_errors/middleware.rb:84:in `protected_app_call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/better_errors-2.0.0/lib/better_errors/middleware.rb:79:in `better_errors_call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/better_errors-2.0.0/lib/better_errors/middleware.rb:57:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-contrib-1.1.0/lib/rack/contrib/response_headers.rb:17:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/meta_request-0.3.4/lib/meta_request/middlewares/headers.rb:16:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/railties-4.0.2/lib/rails/rack/logger.rb:38:in `call_app'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/railties-4.0.2/lib/rails/rack/logger.rb:20:in `block in call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/tagged_logging.rb:67:in `block in tagged'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/tagged_logging.rb:25:in `tagged'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/tagged_logging.rb:67:in `tagged'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/railties-4.0.2/lib/rails/rack/logger.rb:20:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/activesupport-4.0.2/lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/actionpack-4.0.2/lib/action_dispatch/middleware/static.rb:64:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/railties-4.0.2/lib/rails/engine.rb:511:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/railties-4.0.2/lib/rails/application.rb:97:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+/Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+  Rendered providers/home.html.erb within layouts/application (14.5ms)
+Completed 500 Internal Server Error in 30ms
+
+SyntaxError - syntax error, unexpected '>'
+...put_buffer.safe_append=']);" %>
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:144: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:145: syntax error, unexpected '<'
+          </li>
+           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:147: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:148: syntax error, unexpected '<'
+            <div class="col-md-4 server-pic m-21">
+             ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:149: syntax error, unexpected tIDENTIFIER, expecting ')'
+..._buffer.append=(image_tag('juan-camacho.jpg', class: "img-ci...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:149: syntax error, unexpected tSTRING_BEG, expecting ')'
+...d=(image_tag('juan-camacho.jpg', class: "img-circle img-resp...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:152: unknown regexp option - h
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:152: syntax error, unexpected tINTEGER, expecting ')'
+              <h3 id="text-yellow" class="light">Juan Camacho</h3>
+                                                                 ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:153: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...text-muted light">Consentimos y cuaidamos a tus mascotas en:...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:153: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+... a tus mascotas en: Hospedaje y pension campestre;  Hotel ci...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:153: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...s mascotas, básico, avanzado y corrección de malos hábito...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:153: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+.... Tenemos estética, y buscamos a tus mascotas en todo el DF...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:154: syntax error, unexpected tIDENTIFIER, expecting ')'
+...btn-sm h5", :onclick=>"ga('send', 'event', 'contactar', #{@p...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:154: syntax error, unexpected tIDENTIFIER, expecting ')'
+...", :onclick=>"ga('send', 'event', 'contactar', #{@provider_b...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:154: syntax error, unexpected tIDENTIFIER, expecting ')'
+..."ga('send', 'event', 'contactar', #{@provider_b.id.to_i}');"...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:156: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            <div class="col-md-2"></div>
+                           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:156: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+            <div class="col-md-2"></div>
+                                 ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:158: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+          <li class="row">
+                        ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:159: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            <div class="col-md-2"></div>
+                           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:159: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+            <div class="col-md-2"></div>
+                                 ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:160: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            <div class="col-md-4 server-pic m-21">
+                           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:160: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            <div class="col-md-4 server-pic m-21">
+                                       ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:160: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+            <div class="col-md-4 server-pic m-21">
+                                             ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:160: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+            <div class="col-md-4 server-pic m-21">
+                                                 ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:161: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...jorge-morales.jpg', class: "img-circle img-responsive") );@o...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:161: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...es.jpg', class: "img-circle img-responsive") );@output_buffe...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:161: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...ss: "img-circle img-responsive") );@output_buffer.safe_appen...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:163: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            <div class="col-md-4 server-desc text-justify m-21">
+                           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:163: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+            <div class="col-md-4 server-desc text-justify m-21">
+                                       ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:163: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+            <div class="col-md-4 server-desc text-justify m-21">
+                                                 ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:163: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+            <div class="col-md-4 server-desc text-justify m-21">
+                                                           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:163: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+            <div class="col-md-4 server-desc text-justify m-21">
+                                                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:164: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+              <h3 id="text-yellow" class="light">Jorge ...
+                          ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:164: syntax error, unexpected tSTRING_BEG, expecting keyword_do or '{' or '('
+...           <h3 id="text-yellow" class="light">Jorge Bello</h...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:164: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...3 id="text-yellow" class="light">Jorge Bello</h3><p class="t...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:164: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...>Jorge Bello</h3><p class="text-muted light">Nos encanta con...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:164: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+...</h3><p class="text-muted light">Nos encanta consentir a tus...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:165: syntax error, unexpected tCONSTANT, expecting keyword_end
+...fer.append=( link_to "Contactar".html_safe, @provider_c, rem...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:165: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...c, remote: true, :class => "btn btn-sm h5", :onclick=>"ga('s...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:165: syntax error, unexpected tIDENTIFIER, expecting keyword_do or '{' or '('
+... true, :class => "btn btn-sm h5", :onclick=>"ga('send', 'eve...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:165: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+... "btn btn-sm h5", :onclick=>"ga('send', 'event', 'contactar'...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:167: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:168: syntax error, unexpected '<'
+          </li>
+           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:169: unknown regexp option - l
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:170: syntax error, unexpected '<'
+      </div>   
+       ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:171: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:172: syntax error, unexpected '<'
+  </div>
+   ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:173: unknown regexp options - ct
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:175: syntax error, unexpected '<'
+<section id="listo" class="mt-7 mb-21">
+ ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:175: syntax error, unexpected keyword_class, expecting keyword_end
+<section id="listo" class="mt-7 mb-21">
+                         ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:176: syntax error, unexpected '<'
+  <div class="container mb-21 mt-21">
+   ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:177: syntax error, unexpected '<'
+    <div class="row">
+     ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:178: syntax error, unexpected '<'
+      <div class="col-md-2"></div>
+       ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:178: syntax error, unexpected '<'
+      <div class="col-md-2"></div>
+                             ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:180: unknown regexp option - h
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:180: syntax error, unexpected tINTEGER, expecting keyword_end
+...ara consentir a tu mascota?</h3>
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:182: syntax error, unexpected '<'
+          <nav>
+           ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:184: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+...buffer.append=( link_to 'buscar aquí', providers_path, :cla...
+...                               ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:187: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:188: syntax error, unexpected '<'
+      </div>
+       ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:189: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:190: syntax error, unexpected '<'
+    </div>
+     ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:191: unknown regexp options - dv
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:192: syntax error, unexpected '<'
+</section>
+ ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:194: unknown regexp options - dal
+end pattern with unmatched parenthesis: /section>
+
+';@output_buffer.append=( render "layouts/m
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:194: syntax error, unexpected tSTRING_BEG, expecting keyword_end
+';@output_buffer.append=( render "layouts/modal" );@output_buffer.to_s
+                                                ^
+/Users/andreadelrio/ayu/kmimos/app/views/providers/home.html.erb:194: unterminated string meets end of file:
+  app/views/providers/home.html.erb:142:in `'
+  actionpack (4.0.2) lib/action_view/template.rb:299:in `compile'
+  actionpack (4.0.2) lib/action_view/template.rb:248:in `block in compile!'
+  actionpack (4.0.2) lib/action_view/template.rb:236:in `compile!'
+  actionpack (4.0.2) lib/action_view/template.rb:142:in `block in render'
+  activesupport (4.0.2) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.2) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.2) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:423:in `_run__3965348618011122467__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/app_request_handler.rb:13:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/meta_request_handler.rb:13:in `call'
+  bullet (4.13.1) lib/bullet/rack.rb:10:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__569992767720884734__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:57:in `call'
+  rack-contrib (1.1.0) lib/rack/contrib/response_headers.rb:17:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/headers.rb:16:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/andreadelrio/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+
+Started POST "/__better_errors/d21dd02e52d70c14/variables" for 127.0.0.1 at 2014-11-10 17:20:22 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-10 17:21:28 -0500
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (0.5ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mProvider Load (0.6ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (19.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Veterinario' LIMIT 1
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Paseador' LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Hotel' LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Entrenador' LIMIT 1[0m
+  Rendered layouts/_modal.html.erb (1.2ms)
+  Rendered providers/home.html.erb within layouts/application (83.6ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 369ms (Views: 335.6ms | ActiveRecord: 24.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/ebm.css?body=1" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/jquery.flexslider-min.js?body=1" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/site-kmimos-12.png" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/site-kmimos-05.png" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/site-kmimos-07.png" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/site-kmimos-06.png" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/site-kmimos-08.png" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/site-kmimos-09.png" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/site-kmimos-10.png" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/site-kmimos-11.png" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/gabriel_garduno.jpg" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/juan-camacho.jpg" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/jorge-morales.jpg" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/site-kmimos-06.png" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/site-kmimos-09.png" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/site-kmimos-08.png" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/juan-camacho.jpg" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/site-kmimos-10.png" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/gabriel_garduno.jpg" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/Graphie-Book.woff" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/Graphie-Light.woff" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/jorge-morales.jpg" for 127.0.0.1 at 2014-11-10 17:21:29 -0500
+
+
+Started GET "/assets/ebm.css?body=1" for 127.0.0.1 at 2014-11-10 17:21:38 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-10 17:21:38 -0500
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2014-11-10 17:21:38 -0500
