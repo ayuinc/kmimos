@@ -139,7 +139,7 @@
             <div class="col-md-4 server-desc text-justify m-21">
               <h3 id="text-yellow" class="light">Gabriel Garduño </h3>
               <p class="text-muted light">Entrenador profesional, ofrezco hospedaje para tus mascotas, las paseamos las buscamos en tu domicilio para que se diviertan !!  ATIENDO EN TODO EL DF</p>
-              <%= link_to "Contactar".html_safe, @provider_a, remote: true, :class => "btn btn-sm h5", :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'ContactarCarousel', #{@provider_a.id.to_i}]);" %>
+              <%= link_to "Contactar".html_safe, @provider_a, remote: true, :class => "btn btn-sm h5", :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'ContactarCarousel', #{@provider_a.id}]);" %>
             </div>
             <div class="col-md-2"></div>
           </li>
