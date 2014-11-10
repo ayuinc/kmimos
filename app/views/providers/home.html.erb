@@ -151,7 +151,7 @@
             <div class="col-md-4 server-desc text-justify m-21">
               <h3 id="text-yellow" class="light">Juan Camacho</h3>
               <p class="text-muted light">Consentimos y cuaidamos a tus mascotas en: Hospedaje y pension campestre;  Hotel citadino; Hotel hogareño. Entrenamos a tus mascotas, básico, avanzado y corrección de malos hábitos. Tenemos estética, y buscamos a tus mascotas en todo el DF y EDO de MEXICO.</p>
-              <%= link_to "Contactar".html_safe, @provider_b, remote: true, :class => "btn btn-sm h5", :onclick=>"ga('send', 'event', 'contactar', #{@provider_b.id.to_i}');" %>
+              <%= link_to "Contactar".html_safe, @provider_b, remote: true, :class => "btn btn-sm h5", :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'ContactarCarousel', 'provider_#{@provider_b.id.to_s}']);" %>
             </div>
             <div class="col-md-2"></div>
           </li>
@@ -162,7 +162,7 @@
             </div>
             <div class="col-md-4 server-desc text-justify m-21">
               <h3 id="text-yellow" class="light">Jorge Bello</h3><p class="text-muted light">Nos encanta consentir a tus mascotas, las buscamos en tu casa, paseamos,entrenamos y si quieres un hospedaje con mucho cariño búscame para hacerlas sentir como en casa.  ATIENDO EN TODO EL DF</p>
-              <%= link_to "Contactar".html_safe, @provider_c, remote: true, :class => "btn btn-sm h5", :onclick=>"ga('send', 'event', 'contactar', #{@provider_c.id}');" %>
+              <%= link_to "Contactar".html_safe, @provider_c, remote: true, :class => "btn btn-sm h5", :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'ContactarCarousel', 'provider_#{@provider_c.id.to_s}']);" %>
             </div>
             <div class="col-md-2"></div>
           </li>

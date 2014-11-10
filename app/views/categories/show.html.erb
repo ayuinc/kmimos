@@ -36,7 +36,7 @@
 
           </div>
           <div class="col-md-3 text-center">
-            <%= link_to "Contrátame".html_safe, provider, remote: true, :class => "mt-56 btn btn-contratar", :onclick=>"ga('send', 'event', 'contratame', #{provider.id.to_i}');" %>
+            <%= link_to "Contactar".html_safe, provider, remote: true, :class => "btn btn-sm h5", :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Contratame', 'provider_#{provider.id.to_s}']);" %>
           </div>
           </div>       
         </div>
