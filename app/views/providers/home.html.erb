@@ -181,7 +181,7 @@
         <div class="row text-center">
           <nav>
             <% unless current_provider %>
-             <%= link_to 'buscar aquí', providers_path, :class => "btn btn-lg text-muted", :id => "btn-search" %>
+             <%= link_to 'buscar aquí', providers_path, :class => "btn btn-lg text-muted", :id => "btn-search", :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Home', 'BuscarAqui']);" %>
             <% end %>  
           </nav>
         </div>  
