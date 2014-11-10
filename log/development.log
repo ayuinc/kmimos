@@ -41880,3 +41880,106 @@ Started GET "/assets/Graphie-Book.woff" for 127.0.0.1 at 2014-11-10 17:48:52 -05
 
 
 Started GET "/assets/Graphie-Light.woff" for 127.0.0.1 at 2014-11-10 17:48:52 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-10 17:52:04 -0500
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (1.1ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mProvider Load (0.7ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Veterinario' LIMIT 1
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Paseador' LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Hotel' LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Entrenador' LIMIT 1[0m
+  Rendered layouts/_modal.html.erb (0.7ms)
+  Rendered providers/home.html.erb within layouts/application (199.1ms)
+  Rendered layouts/_footer.html.erb (1.1ms)
+Completed 200 OK in 296ms (Views: 209.6ms | ActiveRecord: 13.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/ebm.css?body=1" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/main.css?body=1" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/jquery.flexslider-min.js?body=1" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/easing.js?body=1" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/site-kmimos-06.png" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/site-kmimos-08.png" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/site-kmimos-12.png" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/site-kmimos-05.png" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/site-kmimos-07.png" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/site-kmimos-09.png" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/site-kmimos-10.png" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/site-kmimos-11.png" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/gabriel_garduno.jpg" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/juan-camacho.jpg" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/jorge-morales.jpg" for 127.0.0.1 at 2014-11-10 17:52:05 -0500
+
+
+Started GET "/assets/Graphie-Book.woff" for 127.0.0.1 at 2014-11-10 17:52:06 -0500
+
+
+Started GET "/assets/Graphie-Light.woff" for 127.0.0.1 at 2014-11-10 17:52:06 -0500
