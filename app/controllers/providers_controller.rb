@@ -9,7 +9,7 @@ class ProvidersController < ApplicationController
   # GET /providers.json
   def index
     @search = Provider.search(params[:q])
-    @providers = @search.result
+    @providers = @search.result.order( "created_at DESC")
   end
 
   def home
