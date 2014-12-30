@@ -66,10 +66,10 @@ $link-hover-color:      darken($link-color, 15%) !default;
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-$font-family-sans-serif:  "Graphie Book", Helvetica, Arial, sans-serif !default;
-$font-family-sans-serif-medium:  "Graphie Book", Helvetica, Arial, sans-serif;
-$font-family-sans-serif-bold: "Graphie Book", Helvetica, Arial, sans-serif;
-$font-family-serif:       "Graphie Book", "Times New Roman", Times, serif !default;
+$font-family-sans-serif:  "proxima-nova", Helvetica, Arial, sans-serif !default;
+$font-family-sans-serif-medium:  "proxima-nova", Helvetica, Arial, sans-serif;
+$font-family-sans-serif-bold: "proxima-nova", Helvetica, Arial, sans-serif;
+$font-family-serif:       "proxima-nova", "Times New Roman", Times, serif !default;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
 $font-family-base:        $font-family-sans-serif !default;
