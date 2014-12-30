@@ -13,9 +13,9 @@ class ProvidersController < ApplicationController
   end
 
   def home
-    @provider_a = Provider.find(19) #19
-    @provider_b = Provider.find(15) #15
-    @provider_c = Provider.find(8) #8
+#     @provider_a = Provider.find(1) #19
+#     @provider_b = Provider.find(1) #15
+#     @provider_c = Provider.find(1) #8
   end  
 
   # GET /providers/1
