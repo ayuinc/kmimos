@@ -1,15 +1,6 @@
-// @media #{$md-down} {
-//   @for $i from 1 through 10 {
-//     .mhp-#{$i*10} {
-//       padding-top: $grid-gutter-width !important;
-//       padding-bottom: $grid-gutter-width !important;
-//     }
-//   }
-// }
-
 // Min-Heights
 @for $i from 1 through 10 {
-  .mh-#{($i*$times)*10} {
+  .minh-#{($i*$times)*10} {
     min-height: (($i*$times)*10) + px !important;
     @if $px-to-rems == true {
       min-height: rem(($i*$times)*10)!important;
@@ -17,7 +8,7 @@
   }
   @for $k from 1 through length($breakpoints-sufix-list) {
     @media #{nth($media-control-list, $k)} {
-      .mh-#{($i*$times)*10}-#{nth($breakpoints-sufix-list, $k)} {          
+      .minh-#{($i*$times)*10}-#{nth($breakpoints-sufix-list, $k)} {          
         min-height: (($i*$times)*10) + px !important;
         @if $px-to-rems == true {
           min-height: rem(($i*$times)*10)!important;
@@ -27,14 +18,14 @@
   }
 }
 
-// Min-Heights
+// Min-Heights Percentage
 @for $i from 1 through 10 {
-  .mhp-#{$i*10} {
+  .minhp-#{$i*10} {
     min-height: percentage($i*0.1) !important;
   }
   @for $k from 1 through length($breakpoints-sufix-list) {
     @media #{nth($media-control-list, $k)} {
-      .mhp-#{$i*10}-#{nth($breakpoints-sufix-list, $k)} {          
+      .minhp-#{$i*10}-#{nth($breakpoints-sufix-list, $k)} {          
         // For <IE8
         min-height: percentage($i*0.1) !important;
       }

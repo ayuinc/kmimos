@@ -43730,6 +43730,7 @@ Processing by ProvidersController#show as JS
   Rendered providers/_provider.html.erb (11.9ms)
   Rendered providers/show.js.erb (12.8ms)
 Completed 200 OK in 17ms (Views: 13.7ms | ActiveRecord: 1.5ms)
+<<<<<<< HEAD
 
 
 Started GET "/" for 190.42.12.130 at 2014-12-30 17:29:51 +0000
@@ -43738,11 +43739,178 @@ Processing by ProvidersController#home as HTML
   [1m[35mLocation Load (1.9ms)[0m  SELECT "locations".* FROM "locations"
   [1m[36mProvider Load (16.9ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 19]]
 Completed 404 Not Found in 216ms
+=======
+  [1m[36m (28.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (25.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateProviders (20140902152307)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (27.6ms)[0m  [1mCREATE TABLE "providers" ("id" serial primary key, "name" character varying(255), "last_name_1" character varying(255), "last_name_2" character varying(255), "dni" character varying(255), "email" character varying(255), "category_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (9.5ms)[0m  CREATE INDEX "index_providers_on_category_id" ON "providers" ("category_id")
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140902152307"]]
+  [1m[35m (4.3ms)[0m  COMMIT
+Migrating to AddPasswordDigestToProviders (20140902152803)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "providers" ADD COLUMN "password_digest" character varying(255)
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140902152803"]]
+  [1m[35m (3.9ms)[0m  COMMIT
+Migrating to CreateLocations (20140902210537)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (24.8ms)[0m  CREATE TABLE "locations" ("id" serial primary key, "name" character varying(255)) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140902210537"]]
+  [1m[35m (5.1ms)[0m  COMMIT
+Migrating to CreateLocalizations (20140902212603)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (10.3ms)[0m  CREATE TABLE "localizations" ("id" serial primary key, "provider_id" integer, "location_id" integer) 
+  [1m[36m (11.4ms)[0m  [1mCREATE INDEX "index_localizations_on_provider_id" ON "localizations" ("provider_id")[0m
+  [1m[35m (11.5ms)[0m  CREATE INDEX "index_localizations_on_location_id" ON "localizations" ("location_id")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140902212603"]]
+  [1m[35m (4.0ms)[0m  COMMIT
+Migrating to CreateCategories (20140902231431)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (15.5ms)[0m  CREATE TABLE "categories" ("id" serial primary key, "name" character varying(255)) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20140902231431"]]
+  [1m[35m (8.8ms)[0m  COMMIT
+Migrating to AddRatingToProviders (20140910163216)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "providers" ADD COLUMN "avg_rating" float
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "providers" ADD COLUMN "picture_url" character varying(255)[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "providers" ADD COLUMN "phone" character varying(255)
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "providers" ADD COLUMN "price" float[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140910163216"]]
+  [1m[36m (2.6ms)[0m  [1mCOMMIT[0m
+Migrating to AddDescriptionToProviders (20141007225812)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "providers" ADD COLUMN "description" text[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "providers" DROP "price"
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20141007225812"]]
+  [1m[35m (2.4ms)[0m  COMMIT
+Migrating to CreatePictures (20141009172639)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (28.4ms)[0m  CREATE TABLE "pictures" ("id" serial primary key, "image" character varying(255), "imageable_id" integer, "imageable_type" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (9.6ms)[0m  [1mCREATE INDEX "index_pictures_on_imageable_id_and_imageable_type" ON "pictures" ("imageable_id", "imageable_type")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141009172639"]]
+  [1m[36m (9.0ms)[0m  [1mCOMMIT[0m
+Migrating to RemovePictureUrlFromProviders (20141009184742)
+  [1m[35m (2.1ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "providers" DROP "picture_url"[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141009184742"]]
+  [1m[36m (3.1ms)[0m  [1mCOMMIT[0m
+Migrating to AddEmailcToProviders (20141009192426)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "providers" ADD COLUMN "email_c" character varying(255)[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141009192426"]]
+  [1m[36m (3.0ms)[0m  [1mCOMMIT[0m
+Migrating to AddAvatarToProviders (20141029172124)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "providers" ADD COLUMN "avatar" character varying(255)[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141029172124"]]
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mLocation Load (0.8ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Alvaro Obregón' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"  [["name", "Alvaro Obregón"]]
+  [1m[36m (35.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mLocation Load (0.4ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Azcapotzalco' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"  [["name", "Azcapotzalco"]]
+  [1m[36m (2.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Benito Juárez' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"  [["name", "Benito Juárez"]]
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Coyoacán' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"  [["name", "Coyoacán"]]
+  [1m[36m (7.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Cuajimalpa de Morelos' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"  [["name", "Cuajimalpa de Morelos"]]
+  [1m[36m (2.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Cuauhtémoc' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"  [["name", "Cuauhtémoc"]]
+  [1m[36m (2.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Estado de Mexico' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"  [["name", "Estado de Mexico"]]
+  [1m[36m (2.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Gustavo A. Madero' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"  [["name", "Gustavo A. Madero"]]
+  [1m[36m (2.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Iztacalco' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"  [["name", "Iztacalco"]]
+  [1m[36m (5.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Iztapalapa' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"  [["name", "Iztapalapa"]]
+  [1m[36m (3.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mLocation Load (0.4ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'La Magdalena Contreras' LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"  [["name", "La Magdalena Contreras"]]
+  [1m[36m (2.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Miguel Hidalgo' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"  [["name", "Miguel Hidalgo"]]
+  [1m[36m (17.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mLocation Load (0.4ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Milpa Alta' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"  [["name", "Milpa Alta"]]
+  [1m[36m (6.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Querétaro' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"  [["name", "Querétaro"]]
+  [1m[36m (2.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Tlalpan' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"  [["name", "Tlalpan"]]
+  [1m[36m (3.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Tláhuac' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"  [["name", "Tláhuac"]]
+  [1m[36m (3.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mLocation Load (1.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Venustiano Carranza' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"  [["name", "Venustiano Carranza"]]
+  [1m[36m (2.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Xochimilco' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"  [["name", "Xochimilco"]]
+  [1m[36m (3.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Entrenador' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "categories" ("name") VALUES ($1) RETURNING "id"  [["name", "Entrenador"]]
+  [1m[36m (2.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Hotel' LIMIT 1
+  [1m[36m (7.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("name") VALUES ($1) RETURNING "id"  [["name", "Hotel"]]
+  [1m[36m (18.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Paseador' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("name") VALUES ($1) RETURNING "id"  [["name", "Paseador"]]
+  [1m[36m (13.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Veterinario' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name") VALUES ($1) RETURNING "id"  [["name", "Veterinario"]]
+  [1m[36m (6.8ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/" for 190.42.12.130 at 2014-12-30 16:15:06 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (12.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (16.5ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mProvider Load (26.9ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 19]]
+Completed 404 Not Found in 236ms
+>>>>>>> f894f6e5997d1ae70ad6030080bedaaf26abe57e
 
 ActiveRecord::RecordNotFound (Couldn't find Provider with id=19):
   app/controllers/providers_controller.rb:16:in `home'
 
 
+<<<<<<< HEAD
   Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.2ms)
   Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.5ms)
   Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (69.1ms)
@@ -46814,3 +46982,207 @@ ActionController::RoutingError (No route matches [GET] "/images/site-kmimos-15.p
   Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.9ms)
   Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
   Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (31.0ms)
+=======
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.8ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (9.5ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (70.9ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (182.6ms)
+
+
+Started GET "/" for 190.42.12.130 at 2014-12-30 16:15:27 +0000
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (0.7ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mProvider Load (0.7ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 404 Not Found in 162ms
+
+ActiveRecord::RecordNotFound (Couldn't find Provider with id=1):
+  app/controllers/providers_controller.rb:16:in `home'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.9ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.6ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.6ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (52.2ms)
+
+
+Started GET "/" for 190.42.12.130 at 2014-12-30 16:15:30 +0000
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (1.7ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mProvider Load (0.4ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 404 Not Found in 37ms
+
+ActiveRecord::RecordNotFound (Couldn't find Provider with id=1):
+  app/controllers/providers_controller.rb:16:in `home'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.8ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.9ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (68.4ms)
+
+
+Started GET "/" for 190.42.12.130 at 2014-12-30 16:15:33 +0000
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (0.5ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mProvider Load (1.0ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 404 Not Found in 26ms
+
+ActiveRecord::RecordNotFound (Couldn't find Provider with id=1):
+  app/controllers/providers_controller.rb:16:in `home'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.1ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (12.9ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (87.3ms)
+
+
+Started GET "/" for 190.42.12.130 at 2014-12-30 16:15:46 +0000
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (0.5ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mCategory Load (18.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Veterinario' LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Paseador' LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Hotel' LIMIT 1[0m
+  [1m[35mCategory Load (1.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Entrenador' LIMIT 1
+  Rendered providers/home.html.erb within layouts/application (152.6ms)
+Completed 500 Internal Server Error in 244ms
+
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    139:             <div class="col-md-4 server-desc text-justify m-21">
+    140:               <h3 id="text-yellow" class="light">Gabriel Garduño </h3>
+    141:               <p class="text-muted light">Entrenador profesional, ofrezco hospedaje para tus mascotas, las paseamos las buscamos en tu domicilio para que se diviertan !!  ATIENDO EN TODO EL DF</p>
+    142:               <%= link_to "Contactar".html_safe, @provider_a, remote: true, :class => "btn btn-sm h5", :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'ContactarCarousel', 'provider_#{@provider_a.id.to_s}']);" %>
+    143:             </div>
+    144:             <div class="col-md-2"></div>
+    145:           </li>
+  app/views/providers/home.html.erb:142:in `_app_views_providers_home_html_erb__4459542627593862990_70267510011420'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (9.7ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (152.2ms)
+
+
+Started GET "/providers/new" for 190.42.12.130 at 2014-12-30 16:16:19 +0000
+Processing by ProvidersController#new as HTML
+  [1m[36mLocation Load (4.7ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  Rendered providers/_error_messages.html.erb (10.4ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered providers/new.html.erb within layouts/application (234.7ms)
+  Rendered layouts/_header.html.erb (7.4ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 1145ms (Views: 1095.4ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/assets/ebm.css?body=1" for 190.42.12.130 at 2014-12-30 16:16:21 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 190.42.12.130 at 2014-12-30 16:16:21 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 190.42.12.130 at 2014-12-30 16:16:21 +0000
+
+
+Started GET "/assets/application.css?body=1" for 190.42.12.130 at 2014-12-30 16:16:21 +0000
+
+
+Started GET "/assets/main.css?body=1" for 190.42.12.130 at 2014-12-30 16:16:21 +0000
+
+
+Started GET "/assets/jquery.flexslider-min.js?body=1" for 190.42.12.130 at 2014-12-30 16:16:21 +0000
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 190.42.12.130 at 2014-12-30 16:16:21 +0000
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 190.42.12.130 at 2014-12-30 16:16:22 +0000
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 190.42.12.130 at 2014-12-30 16:16:22 +0000
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 190.42.12.130 at 2014-12-30 16:16:22 +0000
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 190.42.12.130 at 2014-12-30 16:16:22 +0000
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 190.42.12.130 at 2014-12-30 16:16:22 +0000
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 190.42.12.130 at 2014-12-30 16:16:22 +0000
+
+
+Started GET "/assets/easing.js?body=1" for 190.42.12.130 at 2014-12-30 16:16:22 +0000
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 190.42.12.130 at 2014-12-30 16:16:22 +0000
+
+
+Started GET "/assets/logo_kmimos_blanco-04.png" for 190.42.12.130 at 2014-12-30 16:16:22 +0000
+
+
+Started GET "/assets/application.js?body=1" for 190.42.12.130 at 2014-12-30 16:16:22 +0000
+
+
+Started GET "/providers/new" for 190.42.12.130 at 2014-12-30 16:17:14 +0000
+Processing by ProvidersController#new as HTML
+  [1m[36mLocation Load (0.5ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  Rendered providers/_error_messages.html.erb (0.1ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories"
+  Rendered providers/new.html.erb within layouts/application (56.9ms)
+  Rendered layouts/_header.html.erb (13.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 315ms (Views: 303.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 190.42.12.130 at 2014-12-30 16:17:15 +0000
+
+
+Started GET "/assets/jquery.flexslider-min.js?body=1" for 190.42.12.130 at 2014-12-30 16:17:16 +0000
+
+
+Started GET "/assets/main.css?body=1" for 190.42.12.130 at 2014-12-30 16:17:16 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 190.42.12.130 at 2014-12-30 16:17:16 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 190.42.12.130 at 2014-12-30 16:17:16 +0000
+
+
+Started GET "/assets/ebm.css?body=1" for 190.42.12.130 at 2014-12-30 16:17:16 +0000
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 190.42.12.130 at 2014-12-30 16:17:16 +0000
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 190.42.12.130 at 2014-12-30 16:17:16 +0000
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 190.42.12.130 at 2014-12-30 16:17:17 +0000
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 190.42.12.130 at 2014-12-30 16:17:17 +0000
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 190.42.12.130 at 2014-12-30 16:17:17 +0000
+
+
+Started GET "/assets/easing.js?body=1" for 190.42.12.130 at 2014-12-30 16:17:17 +0000
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 190.42.12.130 at 2014-12-30 16:17:17 +0000
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 190.42.12.130 at 2014-12-30 16:17:17 +0000
+
+
+Started GET "/assets/application.js?body=1" for 190.42.12.130 at 2014-12-30 16:17:17 +0000
+
+
+Started GET "/assets/typeahead.min.js?body=1" for 190.42.12.130 at 2014-12-30 16:17:17 +0000
+
+
+Started GET "/assets/logo_kmimos_blanco-04.png" for 190.42.12.130 at 2014-12-30 16:17:17 +0000
+>>>>>>> f894f6e5997d1ae70ad6030080bedaaf26abe57e

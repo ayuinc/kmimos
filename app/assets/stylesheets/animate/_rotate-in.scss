@@ -1,63 +1,60 @@
-// Rotate In
+
+
 @-webkit-keyframes rotateIn {
   0% {
-    -webkit-transform-origin: center center;
-    transform-origin: center center;
-    -webkit-transform: rotate(-200deg);
-    transform: rotate(-200deg);
+    -webkit-transform-origin: center;
+            transform-origin: center;
+    -webkit-transform: rotate3d(0, 0, 1, -200deg);
+            transform: rotate3d(0, 0, 1, -200deg);
     opacity: 0;
   }
 
   100% {
-    -webkit-transform-origin: center center;
-    transform-origin: center center;
-    -webkit-transform: rotate(0);
-    transform: rotate(0);
+    -webkit-transform-origin: center;
+            transform-origin: center;
+    -webkit-transform: none;
+            transform: none;
     opacity: 1;
   }
 }
 
 @keyframes rotateIn {
   0% {
-    -webkit-transform-origin: center center;
-    -ms-transform-origin: center center;
-    transform-origin: center center;
-    -webkit-transform: rotate(-200deg);
-    -ms-transform: rotate(-200deg);
-    transform: rotate(-200deg);
+    -webkit-transform-origin: center;
+            transform-origin: center;
+    -webkit-transform: rotate3d(0, 0, 1, -200deg);
+            transform: rotate3d(0, 0, 1, -200deg);
     opacity: 0;
   }
 
   100% {
-    -webkit-transform-origin: center center;
-    -ms-transform-origin: center center;
-    transform-origin: center center;
-    -webkit-transform: rotate(0);
-    -ms-transform: rotate(0);
-    transform: rotate(0);
+    -webkit-transform-origin: center;
+            transform-origin: center;
+    -webkit-transform: none;
+            transform: none;
     opacity: 1;
   }
 }
 
 .rotateIn {
   -webkit-animation-name: rotateIn;
-  animation-name: rotateIn;
+          animation-name: rotateIn;
 }
 
 @-webkit-keyframes rotateInDownLeft {
   0% {
     -webkit-transform-origin: left bottom;
-    transform-origin: left bottom;
-    -webkit-transform: rotate(-90deg);
-    transform: rotate(-90deg);
+            transform-origin: left bottom;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+            transform: rotate3d(0, 0, 1, -45deg);
     opacity: 0;
   }
 
   100% {
     -webkit-transform-origin: left bottom;
-    transform-origin: left bottom;
-    -webkit-transform: rotate(0);
-    transform: rotate(0);
+            transform-origin: left bottom;
+    -webkit-transform: none;
+            transform: none;
     opacity: 1;
   }
 }
@@ -65,44 +62,40 @@
 @keyframes rotateInDownLeft {
   0% {
     -webkit-transform-origin: left bottom;
-    -ms-transform-origin: left bottom;
-    transform-origin: left bottom;
-    -webkit-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    transform: rotate(-90deg);
+            transform-origin: left bottom;
+    -webkit-transform: rotate3d(0, 0, 1, -45deg);
+            transform: rotate3d(0, 0, 1, -45deg);
     opacity: 0;
   }
 
   100% {
     -webkit-transform-origin: left bottom;
-    -ms-transform-origin: left bottom;
-    transform-origin: left bottom;
-    -webkit-transform: rotate(0);
-    -ms-transform: rotate(0);
-    transform: rotate(0);
+            transform-origin: left bottom;
+    -webkit-transform: none;
+            transform: none;
     opacity: 1;
   }
 }
 
 .rotateInDownLeft {
   -webkit-animation-name: rotateInDownLeft;
-  animation-name: rotateInDownLeft;
+          animation-name: rotateInDownLeft;
 }
 
 @-webkit-keyframes rotateInDownRight {
   0% {
     -webkit-transform-origin: right bottom;
-    transform-origin: right bottom;
-    -webkit-transform: rotate(90deg);
-    transform: rotate(90deg);
+            transform-origin: right bottom;
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+            transform: rotate3d(0, 0, 1, 45deg);
     opacity: 0;
   }
 
   100% {
     -webkit-transform-origin: right bottom;
-    transform-origin: right bottom;
-    -webkit-transform: rotate(0);
-    transform: rotate(0);
+            transform-origin: right bottom;
+    -webkit-transform: none;
+            transform: none;
     opacity: 1;
   }
 }
@@ -110,44 +103,40 @@
 @keyframes rotateInDownRight {
   0% {
     -webkit-transform-origin: right bottom;
-    -ms-transform-origin: right bottom;
-    transform-origin: right bottom;
-    -webkit-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
+            transform-origin: right bottom;
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+            transform: rotate3d(0, 0, 1, 45deg);
     opacity: 0;
   }
 
   100% {
     -webkit-transform-origin: right bottom;
-    -ms-transform-origin: right bottom;
-    transform-origin: right bottom;
-    -webkit-transform: rotate(0);
-    -ms-transform: rotate(0);
-    transform: rotate(0);
+            transform-origin: right bottom;
+    -webkit-transform: none;
+            transform: none;
     opacity: 1;
   }
 }
 
 .rotateInDownRight {
   -webkit-animation-name: rotateInDownRight;
-  animation-name: rotateInDownRight;
+          animation-name: rotateInDownRight;
 }
 
 @-webkit-keyframes rotateInUpLeft {
   0% {
     -webkit-transform-origin: left bottom;
-    transform-origin: left bottom;
-    -webkit-transform: rotate(90deg);
-    transform: rotate(90deg);
+            transform-origin: left bottom;
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+            transform: rotate3d(0, 0, 1, 45deg);
     opacity: 0;
   }
 
   100% {
     -webkit-transform-origin: left bottom;
-    transform-origin: left bottom;
-    -webkit-transform: rotate(0);
-    transform: rotate(0);
+            transform-origin: left bottom;
+    -webkit-transform: none;
+            transform: none;
     opacity: 1;
   }
 }
@@ -155,44 +144,40 @@
 @keyframes rotateInUpLeft {
   0% {
     -webkit-transform-origin: left bottom;
-    -ms-transform-origin: left bottom;
-    transform-origin: left bottom;
-    -webkit-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    transform: rotate(90deg);
+            transform-origin: left bottom;
+    -webkit-transform: rotate3d(0, 0, 1, 45deg);
+            transform: rotate3d(0, 0, 1, 45deg);
     opacity: 0;
   }
 
   100% {
     -webkit-transform-origin: left bottom;
-    -ms-transform-origin: left bottom;
-    transform-origin: left bottom;
-    -webkit-transform: rotate(0);
-    -ms-transform: rotate(0);
-    transform: rotate(0);
+            transform-origin: left bottom;
+    -webkit-transform: none;
+            transform: none;
     opacity: 1;
   }
 }
 
 .rotateInUpLeft {
   -webkit-animation-name: rotateInUpLeft;
-  animation-name: rotateInUpLeft;
+          animation-name: rotateInUpLeft;
 }
 
 @-webkit-keyframes rotateInUpRight {
   0% {
     -webkit-transform-origin: right bottom;
-    transform-origin: right bottom;
-    -webkit-transform: rotate(-90deg);
-    transform: rotate(-90deg);
+            transform-origin: right bottom;
+    -webkit-transform: rotate3d(0, 0, 1, -90deg);
+            transform: rotate3d(0, 0, 1, -90deg);
     opacity: 0;
   }
 
   100% {
     -webkit-transform-origin: right bottom;
-    transform-origin: right bottom;
-    -webkit-transform: rotate(0);
-    transform: rotate(0);
+            transform-origin: right bottom;
+    -webkit-transform: none;
+            transform: none;
     opacity: 1;
   }
 }
@@ -200,26 +185,22 @@
 @keyframes rotateInUpRight {
   0% {
     -webkit-transform-origin: right bottom;
-    -ms-transform-origin: right bottom;
-    transform-origin: right bottom;
-    -webkit-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    transform: rotate(-90deg);
+            transform-origin: right bottom;
+    -webkit-transform: rotate3d(0, 0, 1, -90deg);
+            transform: rotate3d(0, 0, 1, -90deg);
     opacity: 0;
   }
 
   100% {
     -webkit-transform-origin: right bottom;
-    -ms-transform-origin: right bottom;
-    transform-origin: right bottom;
-    -webkit-transform: rotate(0);
-    -ms-transform: rotate(0);
-    transform: rotate(0);
+            transform-origin: right bottom;
+    -webkit-transform: none;
+            transform: none;
     opacity: 1;
   }
 }
 
 .rotateInUpRight {
   -webkit-animation-name: rotateInUpRight;
-  animation-name: rotateInUpRight;
+          animation-name: rotateInUpRight;
 }

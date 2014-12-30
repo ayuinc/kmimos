@@ -2,7 +2,7 @@
 /*
 
   Ayu Consulting Frontend Boilerplate - @MadeByGus
-  ultima actualizacion: 26 de Septiembre 2014
+  ultima actualizacion: 12 de Noviembre 2014
   Author: @MadeByGus - G. Andres Ibarra yo@soygus.com
   Desde la consola navega hasta el directorio "stylesheets" y ejecuta: 
 
@@ -17,6 +17,9 @@
 
 
 @import "b3/b3";
+
+// Override some default variables:
+@import "app/settings";
 
 
 /*========================================
@@ -56,5 +59,9 @@
 ========================================*/
 
 
+<<<<<<< HEAD
 /* @import "app/app"; */
 @import "custom/custom";
+=======
+@import "app/app";
+>>>>>>> f894f6e5997d1ae70ad6030080bedaaf26abe57e

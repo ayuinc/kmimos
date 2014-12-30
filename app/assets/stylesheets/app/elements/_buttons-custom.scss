@@ -9,6 +9,20 @@ input[type="submit"].btn {
 	&.borderless {
 		border-radius: 0 !important;
 	}
+	&.btn-xl {
+		font-size: $font-size-h3;
+		padding: 12px 21px;
+		padding: rem(12px) rem(21px);
+	}
+	@for $i from 1 through length($social-colors-list) {
+		&.btn-#{nth($social-colors-sufix-list, $i)} {
+			background: #{nth($social-colors-list, $i)};
+			color: white;
+			&:hover {
+				background: #{darken(nth($social-colors-list, $i), 14%)};
+			}
+		}
+	}
 }
 a.btn,
 button.btn,

@@ -1,27 +1,16 @@
-// RESPONSIVE FONT RESIZE
-html {
-  font-size: $font-size-base;
-  @media #{$sm-only} {
-    font-size: $font-size-base - 2;
-  }
-  @media #{$xs-only} {
-    font-size: $font-size-base - 2;
-  }
-}
-
 // MAIN TEXT
 html {
   -webkit-font-smoothing: antialiased;
 }
 
-// TEXT IN REMS
-h1, .h1 { font-size: rem($font-size-h1); }
-h2, .h2 { font-size: rem($font-size-h2); }
-h3, .h3 { font-size: rem($font-size-h3); }
-h4, .h4 { font-size: rem($font-size-h4); }
-h5, .h5 { font-size: rem($font-size-h5); }
-h6, .h6 { font-size: rem($font-size-h6); }
-p, .p, ul { font-size: rem($font-size-base); }
+// DISABLE ANCHOR UNDERLINE ON HOVER
+// a {
+//   &:hover,
+//   &:focus,
+//   &:active {
+//     text-decoration: none !important;
+//   }
+// }
 
 // .lead utility class to increase text for emphasis
 h1, .h1 { &.lead {font-size: rem($font-size-h1 + 14) !important;} }
@@ -31,67 +20,27 @@ h4, .h4 { &.lead {font-size: rem($font-size-h4 + 14) !important;} }
 h5, .h5 { &.lead {font-size: rem($font-size-h5 + 14) !important;} }
 h6, .h6 { &.lead {font-size: rem($font-size-h6 + 14) !important;} }
 
+.lead-ch {
+  h1, .h1 { font-size: rem($font-size-h1 + 14) !important;}
+  h2, .h2 { font-size: rem($font-size-h2 + 14) !important;}
+  h3, .h3 { font-size: rem($font-size-h3 + 14) !important;}
+  h4, .h4 { font-size: rem($font-size-h4 + 14) !important;}
+  h5, .h5 { font-size: rem($font-size-h5 + 14) !important;}
+  h6, .h6 { font-size: rem($font-size-h6 + 14) !important;}
+  p, li   { font-size: rem($font-size-base + 14) !important;}
+}
+
 // REMOVE DEFAULT MARGINS MIXIN
-@mixin remove-text-margin {
+@mixin normalize-text {
   h1, h2, h3, h4, h5, h6,
   .h1, .h2, .h3, .h4, .h5, .h6, 
   p, .p {
     margin: 0;
   }
 }
-
-// Contextual emphasis
-@for $i from 1 through length($brand-colors-list) {
-  .text-#{nth($brand-colors-sufix-list, $i)} {
-    a {
-      color: #{nth($brand-colors-list, $i)} !important;
-      &:hover {
-        color: #{darken(nth($brand-colors-list, $i), 21%)};
-      }
-    }
-    color: #{nth($brand-colors-list, $i)} !important;
-  }
+.normalize-text {
+  @include normalize-text;
 }
-
-@for $i from 1 through length($grayscale-list) {
-  .text-#{nth($grayscale-sufix-list, $i)} {
-    a {
-      color: #{nth($grayscale-list, $i)} !important;
-      &:hover {
-        color: #{darken(nth($grayscale-list, $i), 21%)};
-      }
-    }
-    color: #{nth($grayscale-list, $i)} !important;
-  }
-}
-
-// Contextual emphasis hover
-@for $i from 1 through length($brand-colors-list) {
-  .hover-#{nth($brand-colors-sufix-list, $i)} {
-    &:hover {
-      color: #{darken(nth($brand-colors-list, $i), 12%)};
-    }
-    a {
-      &:hover {
-        color: #{darken(nth($brand-colors-list, $i), 12%)};
-      }
-    }
-  }
-}
-
-@for $i from 1 through length($grayscale-list) {
-  .hover-#{nth($grayscale-sufix-list, $i)} {
-    &:hover {
-      color: #{darken(nth($grayscale-list, $i), 12%)};
-    }
-    a {
-      &:hover {
-        color: #{darken(nth($grayscale-list, $i), 12%)};
-      }
-    }
-  }
-}
-
 
 // Alignment
 .text-left {

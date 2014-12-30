@@ -1,23 +1,91 @@
-// Brand Colors Schema
+//
+// Variables
+// --------------------------------------------------
+
+
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
+// EBM:REF
 $gray-base: #262624;
 
-$gray-darker:            lighten($gray-base, 0%); 
-$gray-dark:              lighten($gray-base, 21%);   
-$gray:                   lighten($gray-base, 35%); 
-$gray-light:             lighten($gray-base, 63%);   
-$gray-lighter:           lighten($gray-base, 77%); 
-// Brand colors (format taken from Twitter Bootstrap):
-$brand-primary:         #428bca;
-$brand-success:         #5cb85c;
-$brand-info:            #5bc0de;
-$brand-warning:         #f0ad4e;
-$brand-danger:          #d9534f;
+$gray-darker:            lighten($gray-base, 0%) !default; // #222
+$gray-dark:              lighten($gray-base, 21%) !default;   // #333
+$gray:                   lighten($gray-base, 35%) !default; // #555
+$gray-light:             lighten($gray-base, 63%) !default;   // #999
+$gray-lighter:           lighten($gray-base, 77%) !default; // #eee
 
-$grayscale-list: $gray-darker, $gray-dark, $gray, $gray-light, $gray-lighter, #fff;
-$brand-colors-list: $brand-primary, $brand-success, $brand-info, $brand-warning, $brand-danger;
+$brand-primary:         #428bca !default;
+$brand-success:         #5cb85c !default;
+$brand-info:            #5bc0de !default;
+$brand-warning:         #f0ad4e !default;
+$brand-danger:          #d9534f !default;
 
-$grayscale-sufix-list: gray-darker, gray-dark, gray, gray-light, gray-lighter, white;
-$brand-colors-sufix-list: primary, success, info, warning, danger;
+// EBM:REF
+$brand-inverse: 				#081A26 !default;
+
+// EBM:REF
+// SOCIAL COLORS
+$color-facebook: 		#3B5998 !default;
+$color-twitter: 		#34CCFE !default;
+$color-pinterest: 	#D02420 !default;
+$color-google-plus: #DC4335 !default;
+$color-linkedin: 		#1C87BD !default;
+$color-youtube: 		#F23030 !default;
+$color-instagram: 	#4187FB !default;
+
+// COLOR LISTS
+// EBM:REF
+$grayscale-list: 
+	$gray-darker, 
+	$gray-dark, 
+	$gray, 
+	$gray-light, 
+	$gray-lighter, 
+	#fff;
+
+$brand-colors-list: 
+	$brand-primary, 
+	$brand-success, 
+	$brand-info, 
+	$brand-warning, 
+	$brand-danger;
+
+$social-colors-list: 
+	$color-facebook,
+	$color-twitter, 	
+	$color-pinterest, 
+	$color-google-plus,
+	$color-youtube,
+	$color-instagram,
+	$color-linkedin; 	
+
+// COLOR SUFIX's
+// EBM:REF
+$grayscale-sufix-list: 
+	'gray-darker', 
+	'gray-dark', 
+	'gray', 
+	'gray-light', 
+	'gray-lighter', 
+	'white';
+
+$brand-colors-sufix-list: 
+	'primary', 
+	'success', 
+	'info', 
+	'warning', 
+	'danger';
+
+$social-colors-sufix-list: 
+	'facebook',
+	'twitter',	
+	'pinterest',
+	'google-plus',
+	'youtube',
+	'instagram',
+	'linkedin';
 
 // Border radius
 $border-radius-base:        3px !default;
