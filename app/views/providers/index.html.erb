@@ -1,4 +1,5 @@
 <div class="container-fluid">
+<%= render "layouts/flash_alerts" %>
   <div class="row text-center">
     <%= search_form_for @search do |f| %>
       <%= f.label :locations_id_eq, "Municipio:" %>
@@ -10,6 +11,9 @@
     <% end %>
   </div>  <!-- row --> 
 </div>
+  <h3>Check-in:<%= params[:start_date] %></h3>
+  <h3>Check-in @start_date:<%= @start_date %></h3>
+  <h3>Check-out:<%= params[:end_date] %></h3>
   <% @providers.each do |provider| %>
 <div class="container pb-14">
   <div class="row mt-14 mb-14">
@@ -36,7 +40,7 @@
 
           </div>
           <div class="col-md-3 text-center">
-             <%= link_to "Contactar".html_safe, provider, remote: true, :class => "mt-56 btn btn-contratar", :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Contratame', 'provider_#{provider.id.to_s}']);" %>
+           <%= link_to "Contactar".html_safe, new_booking_path(:provider_id => provider.id, :start_date => @start_date, :end_date => @end_date), :class => "mt-56 btn btn-contratar" %>
           </div>
           </div>       
         </div>

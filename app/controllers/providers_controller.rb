@@ -3,6 +3,7 @@ class ProvidersController < ApplicationController
   before_action :require_current_provider, only: [:edit]
   before_action :get_ranges, except: [:show]
   before_action :require_unlogged_provider, only: [:new]
+  before_action :get_dates, only: [:index]
 
 
   # GET /providers
@@ -13,15 +14,9 @@ class ProvidersController < ApplicationController
   end
 
   def home
-<<<<<<< HEAD
     @provider_a = Provider.find(1) #19
     @provider_b = Provider.find(1) #15
     @provider_c = Provider.find(1) #8
-=======
-#     @provider_a = Provider.find(1) #19
-#     @provider_b = Provider.find(1) #15
-#     @provider_c = Provider.find(1) #8
->>>>>>> f894f6e5997d1ae70ad6030080bedaaf26abe57e
   end  
 
   # GET /providers/1
@@ -103,5 +98,10 @@ class ProvidersController < ApplicationController
       @locations_set_1 = sets[0]
       @locations_set_2 = sets[1]
       @locations_set_3 = sets[2]
+    end
+
+    def get_dates
+      session[:start_date] = Date.strptime(params[:start_date],'%m/%d/%Y')
+      session[:end_date] = Date.strptime(params[:end_date],'%m/%d/%Y')
     end
 end

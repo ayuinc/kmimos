@@ -1,0 +1,31 @@
+<div class="container content mh-630">
+  <div class="row mt-63">
+    <div class="col-md-2"></div>
+    <div class="col-md-8 mt-49">
+      <p>Lorem ipsum.</p>
+      <h3>Check-in1:<%= session[:start_date] %></h3>
+      <h3>Check-out1:<%= session[:end_date] %></h3>
+        <div class="panel panel-primary">
+            <div class="panel-heading">Reserva aqui</div>
+            <div class="panel-body">
+            <%= form_for(@booking)  do |f| %>
+              <div class="form-group row">
+                <div class="col-md-4">
+                  <%= f.label :user_last_name, "Apellido materno:" %><br>
+                  <%= f.text_field :user_last_name, class: "form-control" %>
+                  <%= f.hidden_field :start_date, :value => session[:start_date] %>
+                  <%= f.hidden_field :end_date, :value => session[:end_date] %>
+                  <%= f.hidden_field :provider_id, :value => params[:provider_id] %>
+                </div>
+              </div>  
+
+
+            <div class="col-md-6">
+               <%= f.submit "Confirmar", id: "reservar", class: "btn btn-primary form-control" %>
+            </div>
+          <% end %>
+            </div> <!-- panel-body -->
+        </div> <!-- panel-default -->
+    </div> <!-- col-md-8 -->
+  </div> <!-- row -->
+</div>

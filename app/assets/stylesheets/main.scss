@@ -18,9 +18,6 @@
 
 @import "b3/b3";
 
-// Override some default variables:
-@import "app/settings";
-
 
 /*========================================
 =                  BOURBON               =
@@ -59,9 +56,6 @@
 ========================================*/
 
 
-<<<<<<< HEAD
 /* @import "app/app"; */
 @import "custom/custom";
-=======
-@import "app/app";
->>>>>>> f894f6e5997d1ae70ad6030080bedaaf26abe57e
+// @import "app/app";

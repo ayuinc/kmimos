@@ -4,6 +4,8 @@ ServihogarRails::Application.routes.draw do
 
   resources :providers
 
+  resources :bookings
+
   resources :providers_sessions, only: [:new, :create, :destroy]
 
   match '/salir', 

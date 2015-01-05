@@ -10,7 +10,7 @@
 //= require bootstrap/modal
 //= require bootstrap/tab
 //= require easing
-//= require typeahead.min
+//= require bootstrap-datepicker
 //= require_self
 //= require_tree .
 
@@ -27,6 +27,9 @@ $(document).ready(function() {
   // var realInputField = $('#provider_pictures_attributes_0_image');
   var realInputField = $('#provider_avatar');
   var picCache = $("#provider_avatar_cache")
+
+  // initialize bootstrap-datepicker
+  $('.datepicker').datepicker();
 
   // drop just the filename in the display field
   realInputField.change(function() {
