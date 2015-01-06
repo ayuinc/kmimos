@@ -58,19 +58,12 @@
       <div class="row text-center text-white mt-42">
         <h1>Deja a tu mascota en buenas manos</h1>
         <h4 class="">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit dolorem ipsum</h4>
-        <%= form_tag("/providers", method: "get") do %>
-          Form contents
-          <div class="row">
-            <div class="col-sm-6">
-              check-in:
-              <%= text_field_tag(:start_date, nil, class: 'datepicker form-control', placeholder: 'DD/MM/AAAA') %>
-            </div>
-            <div class="col-sm-6">
-              check-out:
-              <%= text_field_tag(:end_date, nil, class: 'datepicker form-control', placeholder: 'DD/MM/AAAA') %>
-            </div>
-            <%= submit_tag("Search") %>
-          </div>
+        <%= search_form_for @search do |f| %>
+          <%= f.label :locations_id_eq, "Municipio:" %>
+          <%= f.collection_select :locations_id_eq, Location.order(:name), :id, :name, {include_blank: "Todos"}, {class:"borderless form-location-nav"} %> 
+          <%= f.submit "Buscar", class:"ml-14 mt-7 borderless form-search" %>
+          <%= text_field_tag(:start_date, nil, class: 'datepicker form-control', placeholder: 'DD/MM/AAAA') %>
+          <%= text_field_tag(:end_date, nil, class: 'datepicker form-control', placeholder: 'DD/MM/AAAA') %>
         <% end %>
       </div>
     </div>
