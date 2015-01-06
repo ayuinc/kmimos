@@ -36,14 +36,4 @@ class BookingsController < ApplicationController
 	  params.require(:booking).permit(:start_date, :end_date, :user_first_name, :provider_id)
 	end
 
-	# def get_dates
-	#   # @start_date = Date.strptime(params[:start_date],'%m/%d/%Y')
-	#   # @end_date = Date.strptime(params[:end_date],'%m/%d/%Y')
-	# end
-
-	# def assign_dates
-	# 	@booking.start_date = Date.strptime('04/30/2013','%m/%d/%Y')
-	# 	@booking.end_date = Date.strptime('04/30/2014','%m/%d/%Y')
-	# end
-
 end

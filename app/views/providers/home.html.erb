@@ -75,9 +75,16 @@
             <div class="col-sm-3">
               <%= text_field_tag(:end_date, nil, class: 'datepicker form-control form-check', placeholder: 'DD/MM/AAAA') %>
             </div>
-            <%= submit_tag("Search") %>
+            <div class="col-sm-3">
+              <%= search_form_for @search do |f| %>
+                <%= f.label :locations_id_eq, "Municipio:" %>
+                <%= f.collection_select :locations_id_eq, Location.order(:name), :id, :name, {include_blank: "Todos"}, {class:"borderless form-location-nav"} %> 
+                <%= f.submit "Buscar", class:"ml-14 mt-7 borderless form-search" %>
+                <%= text_field_tag(:start_date, nil, class: 'datepicker form-control', placeholder: 'DD/MM/AAAA') %>
+                <%= text_field_tag(:end_date, nil, class: 'datepicker form-control', placeholder: 'DD/MM/AAAA') %>
+              <% end %>
+            </div>
           </div>
-        <% end %>
         </div>
         <div class="col-sm-1"></div>
       </div>

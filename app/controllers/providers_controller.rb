@@ -17,6 +17,7 @@ class ProvidersController < ApplicationController
     @provider_a = Provider.find(1) #19
     @provider_b = Provider.find(1) #15
     @provider_c = Provider.find(1) #8
+    @search = Provider.search(params[:q])
   end  
 
   # GET /providers/1
@@ -101,7 +102,11 @@ class ProvidersController < ApplicationController
     end
 
     def get_dates
-      session[:start_date] = Date.strptime(params[:start_date],'%m/%d/%Y')
-      session[:end_date] = Date.strptime(params[:end_date],'%m/%d/%Y')
+      unless params[:start_date].nil? || params[:start_date].empty?
+        session[:start_date] ||= Date.strptime(params[:start_date],'%m/%d/%Y')
+      end
+      unless params[:start_date].nil? || params[:start_date].empty?
+        session[:end_date] ||= Date.strptime(params[:end_date],'%m/%d/%Y')
+      end
     end
 end
