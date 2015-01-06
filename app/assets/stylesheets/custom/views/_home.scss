@@ -1,7 +1,7 @@
 #home-filters {
   // background: url(http://s3.postimg.org/9z6tol4jn/casa.jpg) no-repeat;
-  background-image: url(http://s3.postimg.org/gd90ak5jn/Untitled_2_02.png);
-  min-height: 600px;
+  background-image: url(http://s9.postimg.org/y5f8sf1zj/foto_modificada_05.png);
+  min-height: 640px;
   background-size: cover;
   background-repeat: no-repeat;
   .text-fold {
@@ -158,8 +158,10 @@
   height: auto;
 }
 
-#listo {
-  height: auto;
+#recomendar {
+  background-image: url(http://s15.postimg.org/nx9tucr0r/Untitled_2_03.png);
+  background-size: cover;
+  min-height: 640px;
 }
 
 .server-des {
@@ -175,25 +177,23 @@
 
 .container-fluid {
   &.pasador {
-    background-color: $brand-secondary;
+    background-color: #6cba9b;
   }
   .flexslider {
     .slides {
-      background-color: $brand-secondary;
+      background-color: #6cba9b;
       li {
         .server-pic {
+          text-align: center;
+          padding-left: 100px;
           img {
-            border: 2px solid white;
-            padding: 10px;
-            width: 300px;
+            width: 200px;
           }
         }
         .server-desc {
-          padding: 23px;
           margin-bottom: 70px;
           color: white;
           text-shadow: none;
-          text-align: justify;
           a {
             border-radius: 21px;
             background-color: #F9F936;
@@ -236,3 +236,29 @@
   color: black;
 }
 
+.text-center {
+  text-align: center;  
+}
+
+.log-in {
+  background: rgba(234,200,54,0.8) !important; 
+}
+
+.text-h1 {
+  font-size: 47px !important;
+}
+
+.text-h3 {
+  font-size: 24px !important;
+}
+
+.bg-check {
+  background: rgba(0,0,0,0.4);
+  padding: 21px;
+  margin-top: 190px;
+}
+
+.form-check {
+  height: 49px !important;
+  border-radius: 6px !important;
+}
