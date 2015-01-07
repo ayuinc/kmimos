@@ -67,23 +67,19 @@
       <div class="row bg-check">
         <div class="col-sm-1"></div>
         <div class="col-sm-10">
-          <%= form_tag("/providers", method: "get") do %>
-          <div class="row">
+          <%= search_form_for @search do |f| %>
+          <div class="row header-form">
+            <%= f.collection_select :locations_id_eq, Location.order(:name), :id, :name,{include_blank:"Elegir Municipio"}, {class:"borderless form-location-nav"} %> 
+     
+            
             <div class="col-sm-3">
               <%= text_field_tag(:start_date, nil, class: 'datepicker form-control form-check', placeholder: 'DD/MM/AAAA') %>
             </div>
             <div class="col-sm-3">
               <%= text_field_tag(:end_date, nil, class: 'datepicker form-control form-check', placeholder: 'DD/MM/AAAA') %>
             </div>
-            <div class="col-sm-3">
-              <%= search_form_for @search do |f| %>
-                <%= f.label :locations_id_eq, "Municipio:" %>
-                <%= f.collection_select :locations_id_eq, Location.order(:name), :id, :name, {include_blank: "Todos"}, {class:"borderless form-location-nav"} %> 
-                <%= f.submit "Buscar", class:"ml-14 mt-7 borderless form-search" %>
-                <%= text_field_tag(:start_date, nil, class: 'datepicker form-control', placeholder: 'DD/MM/AAAA') %>
-                <%= text_field_tag(:end_date, nil, class: 'datepicker form-control', placeholder: 'DD/MM/AAAA') %>
-              <% end %>
-            </div>
+            <%= f.submit "Buscar", class:"ml-7 lead borderless form-search" %>
+            <% end %>
           </div>
         </div>
         <div class="col-sm-1"></div>
@@ -121,62 +117,76 @@
 
 <section>
   <!-- Place somewhere in the <body> of your page -->
-  <div class="container-fluid hidden-xs pasador pb-21 hidden-sm">
+  <div class="container-fluid hidden-xs pasador pb-56 hidden-sm">
     <div class="row">
       <div class="flexslider m-0">
         <ul class="slides">
           <li>
-            <div class="row">
+            <div class="row ml-0 mr-0">
                <div class="col-md-4"></div>
-               <div class="col-md-4 server-pic m-21">
-                <%=image_tag('gabriel_garduno.jpg', class: "img-circle img-responsive") %>
+               <div class="col-md-4 server-pic mt-56 mb-21">
+                 <%=image_tag('dog-lover1.jpg', class: "img-circle img-responsive") %>
                </div>
                <div class="col-md-4"></div>
             </div>
-            <div class="row">
-              <div class="col-md-4"></div>
-              <div class="col-md-4 server-desc text-center"><hr>
-                <p class="text-muted light lead">Entrenador profesional, ofrezco hospedaje para tus mascotas, las paseamos las buscamos en tu domicilio para que se diviertan !!  ATIENDO EN TODO EL DF</p>
-                <h3 id="text-yellow" class="light">Gabriel Garduño </h3>
+            <div class="row ml-0 mr-0">
+              <div class="col-md-3">
+                <%=image_tag('site_kmimos-13.png', class: "img-comillas-1") %>
+              </div>
+              <div class="col-md-6 server-desc text-center"><hr>
+                <p class="text-muted light lead">
+                  In convallis fringilla urna vel tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia vitae elementum tortor, laoreet lacinia augue aptent taciti sociosqu lorem.</p>
+                <h3 id="text-white"id="text-yellow" class="light">Antonio Cáceres</h3>
                 <hr>
               </div>
-              <div class="col-md-4"></div>
+              <div class="col-md-3">
+                <%=image_tag('site_kmimos-14.png', class: "img-comillas-2") %>
+              </div>
             </div>
           </li>
           <li>
-            <div class="row">
+            <div class="row ml-0 mr-0">
                <div class="col-md-4"></div>
-               <div class="col-md-4 server-pic m-21">
-                <%=image_tag('gabriel_garduno.jpg', class: "img-circle img-responsive") %>
+               <div class="col-md-4 server-pic mt-56 mb-21">
+                 <%=image_tag('dog-lover2.jpg', class: "img-circle img-responsive") %>
                </div>
                <div class="col-md-4"></div>
             </div>
-            <div class="row">
-              <div class="col-md-4"></div>
-              <div class="col-md-4 server-desc text-center"><hr>
-                <p class="text-muted light lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae mauris diam. Fusce auctor risus non eros facilisis mollis. Suspendisse potenti. Suspendisse a felis non est fringilla porttitor in a</p>
-                <h3 id="text-white" class="light">Gabriel Garduño </h3>
+            <div class="row ml-0 mr-0">
+              <div class="col-md-3">
+                <%=image_tag('site_kmimos-13.png', class: "img-comillas-1") %>
+              </div>
+              <div class="col-md-6 server-desc text-center"><hr>
+                <p class="text-muted light lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae mauris diam. Fusce auctor risus mollis. Suspendisse a felis non est fringilla porttitor in a aptent taciti sociosqu.</p>
+                <h3 id="text-white" class="light">Cesar Mejía</h3>
                 <hr>
               </div>
-              <div class="col-md-4"></div>
+              <div class="col-md-3">
+                <%=image_tag('site_kmimos-14.png', class: "img-comillas-2") %>
+              </div>
             </div>
           </li>
           <li>
-            <div class="row">
+            <div class="row ml-0 mr-0">
                <div class="col-md-4"></div>
-               <div class="col-md-4 server-pic m-21">
-                <%=image_tag('gabriel_garduno.jpg', class: "img-circle img-responsive") %>
+               <div class="col-md-4 server-pic mt-56 mb-21">
+                 <%=image_tag('dog_lover3.jpg', class: "img-circle img-responsive") %>
                </div>
                <div class="col-md-4"></div>
             </div>
-            <div class="row">
-              <div class="col-md-4"></div>
-              <div class="col-md-4 server-desc text-center"><hr>
-                <p class="text-muted light lead">Entrenador profesional, ofrezco hospedaje para tus mascotas, las paseamos las buscamos en tu domicilio para que se diviertan !!  ATIENDO EN TODO EL DF</p>
-                <h3 id="text-yellow" class="light">Gabriel Garduño </h3>
+            <div class="row ml-0 mr-0">
+              <div class="col-md-3">
+                <%=image_tag('site_kmimos-13.png', class: "img-comillas-1") %>
+
+              </div>
+              <div class="col-md-6 server-desc text-center"><hr>
+                <p class="text-muted light lead">Nulla sed pellentesque felis. Etiam in est dolor. Nunc malesuada, risus in tincidunt dictum, ligula nibh aliquet justo, eu eleifend dolor sapien at turpis aptent taciti sociosqu.</p>
+                <h3 id="text-white" class="light">Martha López</h3>
                 <hr>
               </div>
-              <div class="col-md-4"></div>
+              <div class="col-md-3">
+                <%=image_tag('site_kmimos-14.png', class: "img-comillas-2") %>
+              </div>
             </div>
           </li>
         </ul>
@@ -188,18 +198,23 @@
 <section id="recomendar" class="">
   <div class="container">
     <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-8 m-28">
-        <h3 class="text-secondary text-center mt-7 light">¿Que esperas para consentir a tu mascota?</h3>
-        <div class="row text-center">
+      <div class="col-md-12 m-28">
+        <div class="text-white text-right dsct mt-56 mr-70">
+          <h2 class="text-white mt-7 fz-50 mb-0">Recomiéndanos</h2>
+          <h4 class="light mb-0 fz-30 mt-0">y tendrás</h4>
+          <h1 class="dsct-10 mb-0 mt-0">10%</h1>
+          <h3 class="thin mt-0 fz-40"><u>descuento</u></h3>
+          <h4 class="light fz-30">en tu siguiente reserva</h4>
+        </div>
+        
+        <div class="row text-right mr-70">
           <nav>
             <% unless current_provider %>
-             <%= link_to 'buscar aquí', providers_path, :class => "btn btn-lg text-muted", :id => "btn-search", :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Home', 'BuscarAqui']);" %>
+            <%= link_to 'RECOMENDAR', providers_path, :class => "mt-28 btn btn-lg text-white light", :id => "btn-recomendar", :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Home', 'BuscarAqui']);" %>
             <% end %>  
           </nav>
         </div>  
       </div>
-      <div class="col-md-2"></div>
     </div>
   </div>
 </section>

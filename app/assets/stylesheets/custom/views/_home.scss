@@ -218,10 +218,10 @@
   color: #F9F42F;
 }
 
-#btn-search {
-  border-radius: 27px;
-  padding: 12px 45px;
-  background-color: $brand-secondary;
+#btn-recomendar {
+  border-radius: 5px;
+  padding: 12px 25px;
+  background-color: #6cba9b;
 }
 
 #text-gray {
@@ -261,4 +261,35 @@
 .form-check {
   height: 49px !important;
   border-radius: 6px !important;
+}
+
+
+.img-comillas-1 {
+  width: 56px !important;
+  left: 87%;
+  position: relative;
+  top: 25px;
+}
+
+.img-comillas-2 {
+  width: 30px !important;
+  position: relative;
+  top: 126px;
+  right: 20%;
+}
+
+.fz-30 {
+  font-size: 30px !important;
+}
+
+.fz-40 {
+  font-size: 40px !important;
+}
+
+.fz-50 {
+  font-size: 50px !important;
+}
+
+.dsct-10 {
+  font-size: 110px !important;
 }

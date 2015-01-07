@@ -47,10 +47,10 @@
 				color: gray;
 			}
 			.form-search {
-				border-radius: 4px;
-				padding: 7px 21px;
-				background: white;
-				color: gray;
+				border-radius: 5px;
+        padding: 9px 23px;
+        background: #6cba9b;
+        color: white;
 			}
 			.form-search:hover {
 				background: #f08622;
@@ -113,4 +113,13 @@
 			border: none;
 		}
 	}
+}
+
+.header-form {
+    .form-location-nav {
+    min-width: 320px;
+    border-radius: 6px !important;
+    padding: 15px !important;
+    margin: 0 !important;
+  }
 }
