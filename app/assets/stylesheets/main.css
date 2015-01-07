@@ -4211,7 +4211,7 @@ button span {
 
 #home-filters {
   background-image: url(http://s9.postimg.org/y5f8sf1zj/foto_modificada_05.png);
-  min-height: 640px;
+  min-height: 600px;
   background-size: cover;
   background-repeat: no-repeat; }
   #home-filters .text-fold {
@@ -4398,11 +4398,15 @@ button span {
 .bg-check {
   background: rgba(0, 0, 0, 0.4);
   padding: 21px;
-  margin-top: 190px; }
+  margin-top: 127px; }
 
 .form-check {
   height: 49px !important;
-  border-radius: 6px !important; }
+  border-radius: 6px !important;
+  background: url(http://s11.postimg.org/3yekqnerz/calendario_05.png) !important;
+  background-position: right !important;
+  background-repeat: no-repeat !important;
+  background-color: white !important; }
 
 .img-comillas-1 {
   width: 56px !important;
@@ -4465,8 +4469,8 @@ button span {
       background: #6cba9b;
       color: white; }
     .container-fluid .row form .form-search:hover {
-      background: #f08622;
-      color: white; }
+      color: white;
+      opacity: 0.9; }
 
 .container .row .col-md-12 .row .col-md-8 {
   border-left: 11px solid #f08622;

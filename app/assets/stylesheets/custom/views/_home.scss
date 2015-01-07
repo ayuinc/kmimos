@@ -1,7 +1,7 @@
 #home-filters {
   // background: url(http://s3.postimg.org/9z6tol4jn/casa.jpg) no-repeat;
   background-image: url(http://s9.postimg.org/y5f8sf1zj/foto_modificada_05.png);
-  min-height: 640px;
+  min-height: 600px;
   background-size: cover;
   background-repeat: no-repeat;
   .text-fold {
@@ -255,12 +255,16 @@
 .bg-check {
   background: rgba(0,0,0,0.4);
   padding: 21px;
-  margin-top: 190px;
+  margin-top: 127px;
 }
 
 .form-check {
   height: 49px !important;
   border-radius: 6px !important;
+  background: url(http://s11.postimg.org/3yekqnerz/calendario_05.png) !important;
+  background-position: right !important;
+  background-repeat: no-repeat !important;
+  background-color: white !important; 
 }
 
 
