@@ -4211,7 +4211,7 @@ button span {
 
 #home-filters {
   background-image: url(http://s9.postimg.org/y5f8sf1zj/foto_modificada_05.png);
-  min-height: 600px;
+  min-height: 640px;
   background-size: cover;
   background-repeat: no-repeat; }
   #home-filters .text-fold {
@@ -4398,7 +4398,7 @@ button span {
 .bg-check {
   background: rgba(0, 0, 0, 0.4);
   padding: 21px;
-  margin-top: 127px; }
+  margin-top: 118px; }
 
 .form-check {
   height: 49px !important;
