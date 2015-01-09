@@ -2,12 +2,15 @@ class BookingsController < ApplicationController
 	# before_action :get_dates, only: [:new, :create]
 
 	def new
+		session[:provider_id] = params[:provider_id]
 	  @booking = Booking.new
+	  # @chosen_provider = Provider.find(params[:provider_id])
 	end
 
 	def create 
 		@booking = Booking.new(booking_params)
 	  if @booking.save
+    	BookingConfirmationMailer.new_booking_notification(@booking).deliver
     	flash[:success] = 'Reserva realizada. Te hemos enviado un correo de confirmación.'
 	    session[:start_date] = nil
 	    session[:end_date] = nil

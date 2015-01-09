@@ -241,6 +241,11 @@ es:
             phone: "Teléfono"
             dni: "IFE"
             category_id: "Categoría"
+        booking:
+            user_email: "Correo electrónico"
+            user_first_name: "Nombre"
+            user_last_name: "Apellido"
+            user_phone: "Teléfono"
         category:
             name: "Categoría"    
                 

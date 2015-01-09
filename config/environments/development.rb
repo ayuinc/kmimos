@@ -5,6 +5,16 @@ ServihogarRails::Application.configure do
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
+  # mailgun
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => "sandboxaffb27ef1d13482ab515e43885cd8c54.mailgun.org",
+    :user_name => "postmaster@sandboxaffb27ef1d13482ab515e43885cd8c54.mailgun.org",
+    :password => "ca7d21879592ea267c667dbcda347d1f"
+  }  
 
   # Do not eager load code on boot.
   config.eager_load = false
