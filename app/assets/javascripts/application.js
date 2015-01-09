@@ -114,7 +114,10 @@ function allLabel() {
 
   $.fn.modal_success = function(){
     // close modal
-    this.modal('hide');
+    // this.modal('hide');
+    this.find('.modal-title').html("Código de referencia");
+    this.find('.modal-body').html("Cuerpo");
+    this.find('.modal-footer').html(gon.code);
 
     // clear form input elements
     // todo/note: handle textarea, select, etc

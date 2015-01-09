@@ -28,15 +28,9 @@ class ReferralsController < ApplicationController
 
     respond_to do |format|
       if @referral.save
-        format.html { redirect_to @referral, notice: 'Referral was successfully created.' }
         format.json { render action: 'show', status: :created, location: @referral }
-        # added:
-        format.js   { render action: 'show', status: :created, location: @referral }
       else
-        format.html { render action: 'new' }
         format.json { render json: @referral.errors, status: :unprocessable_entity }
-        # added:
-        format.js   { render json: @referral.errors, status: :unprocessable_entity }
       end
     end
   end
