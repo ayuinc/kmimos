@@ -1,0 +1,37 @@
+<%# Conditionally set remote: true. Also, passing model name as data attribute %>
+<% modal ||= false %>
+<% remote = modal ? true : false %>
+<%= form_for(@referral, remote: remote, html: {role: :form, 'data-model' => 'referral'}) do |f| %>
+
+  <% if @referral.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@referral.errors.count, "error") %> prohibited this referral from being saved:</h2>
+
+      <ul>
+      <% @referral.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%# Added Bootstrap classes, and help-block container for error messages %>
+  <div class="form-group">
+    <%= f.label :referrer_name, class: 'control-label' %><br>
+    <%= f.text_field :referrer_name, class: 'form-control' %>
+    <span class="help-block"></span>
+  </div>
+
+  <%# Added Bootstrap classes, and help-block container for error messages %>
+  <div class="form-group">
+    <%= f.label :referrer_email, class: 'control-label' %><br>
+    <%= f.text_field :referrer_email, class: 'form-control' %>
+    <span class="help-block"></span>
+  </div>
+
+  <%# Added Bootstrap classes %>
+  <div class="actions">
+    <%= f.submit 'Submit', class: 'btn btn-default' %>
+  </div>
+
+<% end %>
