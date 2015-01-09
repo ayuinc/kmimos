@@ -29,7 +29,9 @@ $(document).ready(function() {
   var picCache = $("#provider_avatar_cache")
 
   // initialize bootstrap-datepicker
-  $('.datepicker').datepicker();
+  $('.datepicker').datepicker({
+  	format: 'dd/mm/yyyy',
+  });
 
   // drop just the filename in the display field
   realInputField.change(function() {

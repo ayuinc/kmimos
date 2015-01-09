@@ -10,10 +10,38 @@
       <%= f.submit "Buscar", class:"ml-14 mt-7 borderless form-search" %>
     <% end %>
   </div>  <!-- row --> 
+  <!-- new booking row -->
+  <div class="row bg-check pb-0">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+      <%= search_form_for @search do |f| %>
+      <div class="row header-form">
+        <%= f.collection_select :locations_id_eq, Location.order(:name), :id, :name,{include_blank:"Elegir Municipio"}, {class:"borderless form-location-nav"} %> 
+  
+        
+        <div class="col-sm-3">
+          <% if session[:start_date].nil? %>
+            <%= text_field_tag(:start_date, nil, class: 'datepicker form-control form-check', placeholder: 'DD/MM/AAAA') %>
+          <% else %>
+            <%= text_field_tag(:start_date, session[:start_date].strftime("%d/%m/%Y"), class: 'datepicker form-control form-check', placeholder: 'DD/MM/AAAA') %>
+          <% end %>
+        </div>
+        <div class="col-sm-3">
+          <% if session[:end_date].nil? %>
+            <%= text_field_tag(:end_date, nil, class: 'datepicker form-control form-check', placeholder: 'DD/MM/AAAA') %>
+          <% else %>
+            <%= text_field_tag(:end_date, session[:end_date].strftime("%d/%m/%Y"), class: 'datepicker form-control form-check', placeholder: 'DD/MM/AAAA') %>
+          <% end %>
+        </div>
+        <%= f.submit "Buscar", class:"ml-7 lead borderless form-search" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+  <!-- new booking row ends -->
 </div>
-  <h3>Check-in:<%= session[:start_date] %></h3>
-  <h3>Check-out:<%= session[:end_date] %></h3>
-  <% @providers.each do |provider| %>
+<% @providers.each do |provider| %>
 <div class="container pb-14">
   <div class="row mt-14 mb-14">
     <div class="col-md-12">

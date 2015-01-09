@@ -2,17 +2,28 @@
   <div class="row mt-63">
     <div class="col-md-2"></div>
     <div class="col-md-8 mt-49">
-      <p>Lorem ipsum.</p>
-      <h3>Check-in1:<%= session[:start_date] %></h3>
-      <h3>Check-out1:<%= session[:end_date] %></h3>
+      <p>Detalle de tu reserva.</p>
+      <h3>Check-in: <%= session[:start_date].strftime("%d/%m/%Y") %></h3>
+      <h3>Check-out: <%= session[:end_date].strftime("%d/%m/%Y") %></h3>
         <div class="panel panel-primary">
-            <div class="panel-heading">Reserva aqui</div>
+            <div class="panel-heading"><h3>Completa tus datos:</h3></div>
             <div class="panel-body">
             <%= form_for(@booking)  do |f| %>
+              <%= render "bookings/error_messages" %>
               <div class="form-group row">
                 <div class="col-md-4">
-                  <%= f.label :user_last_name, "Apellido materno:" %><br>
+                  <%= f.label :user_first_name, "Nombre:" %><br>
+                  <%= f.text_field :user_first_name, class: "form-control" %>
+                  <%= f.label :user_last_name, "Apellido:" %><br>
                   <%= f.text_field :user_last_name, class: "form-control" %>
+                  <%= f.label :user_email, "E-mail:" %><br>
+                  <%= f.text_field :user_email, class: "form-control" %>
+                  <%= f.label :user_phone, "Teléfono:" %><br>
+                  <%= f.text_field :user_phone, class: "form-control" %>
+                  <%= f.label :user_message, "Mensaje:" %><br>
+                  <%= f.text_field :user_message, class: "form-control" %>
+                  <%= f.label :ref_code, "Código de descuento:" %><br>
+                  <%= f.text_field :ref_code, class: "form-control" %>
                   <%= f.hidden_field :start_date, :value => session[:start_date] %>
                   <%= f.hidden_field :end_date, :value => session[:end_date] %>
                   <%= f.hidden_field :provider_id, :value => params[:provider_id] %>

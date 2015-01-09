@@ -103,10 +103,10 @@ class ProvidersController < ApplicationController
 
     def get_dates
       unless params[:start_date].nil? || params[:start_date].empty?
-        session[:start_date] ||= Date.strptime(params[:start_date],'%m/%d/%Y')
+        session[:start_date] = Date.strptime(params[:start_date],'%d/%m/%Y')
       end
       unless params[:start_date].nil? || params[:start_date].empty?
-        session[:end_date] ||= Date.strptime(params[:end_date],'%m/%d/%Y')
+        session[:end_date] = Date.strptime(params[:end_date],'%d/%m/%Y')
       end
     end
 end
