@@ -24,7 +24,7 @@ module ApplicationHelper
   end
 
   def home?
-(params[:action] == "home" && params[:controller] == "providers")
+    (params[:action] == "home" && params[:controller] == "providers")
   end
 
 

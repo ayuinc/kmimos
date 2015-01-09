@@ -27,7 +27,7 @@
                   <%= f.text_field :ref_code, class: "form-control" %>
                   <%= f.hidden_field :start_date, :value => session[:start_date] %>
                   <%= f.hidden_field :end_date, :value => session[:end_date] %>
-                  <%= f.hidden_field :provider_id, :value => session[:provider_id] %>
+                  <%= f.hidden_field :provider_id, :value => session[:chosen_provider_id] %>
                 </div>
               </div>  
 

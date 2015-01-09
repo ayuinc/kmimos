@@ -1,8 +1,9 @@
 class BookingsController < ApplicationController
 	# before_action :get_dates, only: [:new, :create]
+	before_action :check_booking_params, only: [:new]
 
 	def new
-		session[:provider_id] = params[:provider_id]
+		session[:chosen_provider_id] = params[:provider_id]
 	  @booking = Booking.new
 	  # @chosen_provider = Provider.find(params[:provider_id])
 	end

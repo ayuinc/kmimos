@@ -5389,3 +5389,54 @@ Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.4ms)
   [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "bookings" ("created_at", "end_date", "provider_id", "ref_code", "start_date", "updated_at", "user_email", "user_first_name", "user_last_name", "user_message", "user_phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["created_at", Fri, 09 Jan 2015 03:33:56 UTC +00:00], ["end_date", Sun, 11 Jan 2015], ["provider_id", 66], ["ref_code", "XCZ07"], ["start_date", Thu, 08 Jan 2015], ["updated_at", Fri, 09 Jan 2015 03:33:56 UTC +00:00], ["user_email", "user14@example.com"], ["user_first_name", "First-name14"], ["user_last_name", "Last-name14"], ["user_message", "lo que quiero"], ["user_phone", "2141212421"]]
   [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
   [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (7.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+Processing by ProvidersController#new as HTML
+  [1m[36mLocation Load (7.2ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  Rendered providers/new.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 35ms (Views: 22.6ms | ActiveRecord: 7.2ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+Processing by ProvidersController#new as HTML
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations"
+Completed 200 OK in 5ms (Views: 0.8ms | ActiveRecord: 1.7ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "categories" ("name") VALUES ($1) RETURNING "id"  [["name", "Categoria_1"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.7ms)[0m  [1mINSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Distrito1"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProvider Exists (1.0ms)[0m  SELECT 1 AS one FROM "providers" WHERE "providers"."dni" = '0123456789123' LIMIT 1
+  [1m[36mSQL (6.1ms)[0m  [1mINSERT INTO "providers" ("category_id", "created_at", "description", "dni", "email", "email_c", "last_name_1", "last_name_2", "name", "password_digest", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["category_id", 108], ["created_at", Fri, 09 Jan 2015 17:27:29 UTC +00:00], ["description", "lo que hago"], ["dni", "0123456789123"], ["email", "provider1@example.com"], ["email_c", "provider1@example.com"], ["last_name_1", "Last-name1"], ["last_name_2", "Last-name1"], ["name", "First-name1"], ["password_digest", "$2a$04$KVcAPR8TOdHX27phgX4NMeHnHPUU7Hp0noRvh/xaOxtBik6nSNba."], ["phone", "5342352"], ["updated_at", Fri, 09 Jan 2015 17:27:29 UTC +00:00]]
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"  [["location_id", 108], ["provider_id", 67]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by ProvidersController#index as HTML
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations"
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+  [1m[36mProvider Load (12.5ms)[0m  [1mSELECT "providers".* FROM "providers" ORDER BY created_at DESC[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+Processing by ProvidersController#index as HTML
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations"
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"  [["name", "Distrito2"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Categoria_2"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProvider Exists (0.2ms)[0m  SELECT 1 AS one FROM "providers" WHERE "providers"."dni" = '0123456789123' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "providers" ("category_id", "created_at", "description", "dni", "email", "email_c", "last_name_1", "last_name_2", "name", "password_digest", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["category_id", 109], ["created_at", Fri, 09 Jan 2015 17:27:29 UTC +00:00], ["description", "lo que hago"], ["dni", "0123456789123"], ["email", "provider2@example.com"], ["email_c", "provider2@example.com"], ["last_name_1", "Last-name2"], ["last_name_2", "Last-name2"], ["name", "First-name2"], ["password_digest", "$2a$04$7fzdQs5gu4Lj8nYj701IYewj7V94VkrL8JJh0dpCLLauOukwHq87W"], ["phone", "5342352"], ["updated_at", Fri, 09 Jan 2015 17:27:29 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"  [["location_id", 109], ["provider_id", 68]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by ProvidersController#show as HTML
+  Parameters: {"id"=>"68"}
+  [1m[35mProvider Load (0.5ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", "68"]]
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.5ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
