@@ -5440,3 +5440,228 @@ Processing by ProvidersController#show as HTML
   [1m[35mProvider Load (0.5ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", "68"]]
 Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.5ms)
   [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (7.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (29.2ms)[0m  INSERT INTO "categories" ("name") VALUES ($1) RETURNING "id"  [["name", "Categoria_1"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Distrito1"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProvider Exists (7.0ms)[0m  SELECT 1 AS one FROM "providers" WHERE "providers"."dni" = '0123456789123' LIMIT 1
+  [1m[36mSQL (14.3ms)[0m  [1mINSERT INTO "providers" ("category_id", "created_at", "description", "dni", "email", "email_c", "last_name_1", "last_name_2", "name", "password_digest", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["category_id", 110], ["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["description", "lo que hago"], ["dni", "0123456789123"], ["email", "provider1@example.com"], ["email_c", "provider1@example.com"], ["last_name_1", "Last-name1"], ["last_name_2", "Last-name1"], ["name", "First-name1"], ["password_digest", "$2a$04$nkbvOUvBE459b5wAZBK4VelPxH1KrpCLPAE0Ejwxf4HRY3eSTwrSK"], ["phone", "5342352"], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00]]
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"  [["location_id", 110], ["provider_id", 69]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (2.5ms)[0m  [1mINSERT INTO "bookings" ("created_at", "end_date", "provider_id", "ref_code", "start_date", "updated_at", "user_email", "user_first_name", "user_last_name", "user_message", "user_phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["end_date", Mon, 12 Jan 2015], ["provider_id", 69], ["ref_code", "XCZ07"], ["start_date", Fri, 09 Jan 2015], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["user_email", "user1@example.com"], ["user_first_name", "First-name1"], ["user_last_name", "Last-name1"], ["user_message", "lo que quiero"], ["user_phone", "2141212421"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("name") VALUES ($1) RETURNING "id"  [["name", "Categoria_2"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Distrito2"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProvider Exists (0.3ms)[0m  SELECT 1 AS one FROM "providers" WHERE "providers"."dni" = '0123456789123' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "providers" ("category_id", "created_at", "description", "dni", "email", "email_c", "last_name_1", "last_name_2", "name", "password_digest", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["category_id", 111], ["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["description", "lo que hago"], ["dni", "0123456789123"], ["email", "provider2@example.com"], ["email_c", "provider2@example.com"], ["last_name_1", "Last-name2"], ["last_name_2", "Last-name2"], ["name", "First-name2"], ["password_digest", "$2a$04$rBBG16hUbINqFaubTGisn.F4ZEXPJ6j52QB4xfGDUCgZTlORiQr2q"], ["phone", "5342352"], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"  [["location_id", 111], ["provider_id", 70]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "bookings" ("created_at", "end_date", "provider_id", "ref_code", "start_date", "updated_at", "user_email", "user_first_name", "user_last_name", "user_message", "user_phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["end_date", Mon, 12 Jan 2015], ["provider_id", 70], ["ref_code", "XCZ07"], ["start_date", Fri, 09 Jan 2015], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["user_email", "user2@example.com"], ["user_first_name", "First-name2"], ["user_last_name", "Last-name2"], ["user_message", "lo que quiero"], ["user_phone", "2141212421"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name") VALUES ($1) RETURNING "id"  [["name", "Categoria_3"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Distrito3"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProvider Exists (0.2ms)[0m  SELECT 1 AS one FROM "providers" WHERE "providers"."dni" = '0123456789123' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "providers" ("category_id", "created_at", "description", "dni", "email", "email_c", "last_name_1", "last_name_2", "name", "password_digest", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["category_id", 112], ["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["description", "lo que hago"], ["dni", "0123456789123"], ["email", "provider3@example.com"], ["email_c", "provider3@example.com"], ["last_name_1", "Last-name3"], ["last_name_2", "Last-name3"], ["name", "First-name3"], ["password_digest", "$2a$04$rFxqufM1/Hiq4uHWYfTtjeeMjtoWWz1wlqdQut/6G9WvG10j72JAG"], ["phone", "5342352"], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"  [["location_id", 112], ["provider_id", 71]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "bookings" ("created_at", "end_date", "provider_id", "ref_code", "start_date", "updated_at", "user_email", "user_first_name", "user_last_name", "user_message", "user_phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["end_date", Mon, 12 Jan 2015], ["provider_id", 71], ["ref_code", "XCZ07"], ["start_date", Fri, 09 Jan 2015], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["user_email", "user3@example.com"], ["user_first_name", "First-name3"], ["user_last_name", "Last-name3"], ["user_message", "lo que quiero"], ["user_phone", "2141212421"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name") VALUES ($1) RETURNING "id"  [["name", "Categoria_4"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Distrito4"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProvider Exists (0.2ms)[0m  SELECT 1 AS one FROM "providers" WHERE "providers"."dni" = '0123456789123' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "providers" ("category_id", "created_at", "description", "dni", "email", "email_c", "last_name_1", "last_name_2", "name", "password_digest", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["category_id", 113], ["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["description", "lo que hago"], ["dni", "0123456789123"], ["email", "provider4@example.com"], ["email_c", "provider4@example.com"], ["last_name_1", "Last-name4"], ["last_name_2", "Last-name4"], ["name", "First-name4"], ["password_digest", "$2a$04$HM.lo5vd5/54Es8oOj50ju6cGtZbhHQ2uxsPXm0BXJ7BGohLNpdGi"], ["phone", "5342352"], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"  [["location_id", 113], ["provider_id", 72]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "bookings" ("created_at", "end_date", "provider_id", "ref_code", "start_date", "updated_at", "user_email", "user_first_name", "user_last_name", "user_message", "user_phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["end_date", Mon, 12 Jan 2015], ["provider_id", 72], ["ref_code", "XCZ07"], ["start_date", Fri, 09 Jan 2015], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["user_email", "user4@example.com"], ["user_first_name", "First-name4"], ["user_last_name", "Last-name4"], ["user_message", "lo que quiero"], ["user_phone", "2141212421"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("name") VALUES ($1) RETURNING "id"  [["name", "Categoria_5"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Distrito5"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProvider Exists (0.4ms)[0m  SELECT 1 AS one FROM "providers" WHERE "providers"."dni" = '0123456789123' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "providers" ("category_id", "created_at", "description", "dni", "email", "email_c", "last_name_1", "last_name_2", "name", "password_digest", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["category_id", 114], ["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["description", "lo que hago"], ["dni", "0123456789123"], ["email", "provider5@example.com"], ["email_c", "provider5@example.com"], ["last_name_1", "Last-name5"], ["last_name_2", "Last-name5"], ["name", "First-name5"], ["password_digest", "$2a$04$t61s5wek9tFv3pM7xhSgJ.c6AdbQC0873lRO.FRSGlujHxJwncnvO"], ["phone", "5342352"], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"  [["location_id", 114], ["provider_id", 73]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "bookings" ("created_at", "end_date", "provider_id", "ref_code", "start_date", "updated_at", "user_email", "user_first_name", "user_last_name", "user_message", "user_phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["end_date", Mon, 12 Jan 2015], ["provider_id", 73], ["ref_code", "XCZ07"], ["start_date", Fri, 09 Jan 2015], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["user_email", "user5@example.com"], ["user_first_name", "First-name5"], ["user_last_name", "Last-name5"], ["user_message", "lo que quiero"], ["user_phone", "2141212421"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name") VALUES ($1) RETURNING "id"  [["name", "Categoria_6"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Distrito6"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProvider Exists (0.4ms)[0m  SELECT 1 AS one FROM "providers" WHERE "providers"."dni" = '0123456789123' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "providers" ("category_id", "created_at", "description", "dni", "email", "email_c", "last_name_1", "last_name_2", "name", "password_digest", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["category_id", 115], ["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["description", "lo que hago"], ["dni", "0123456789123"], ["email", "provider6@example.com"], ["email_c", "provider6@example.com"], ["last_name_1", "Last-name6"], ["last_name_2", "Last-name6"], ["name", "First-name6"], ["password_digest", "$2a$04$uIHSrumS8JdXZgY04KJHWu6K.2/Mq97WDc9MKfhZRjZa1NDZTelRy"], ["phone", "5342352"], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"  [["location_id", 115], ["provider_id", 74]]
+  [1m[36m (0.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "bookings" ("created_at", "end_date", "provider_id", "ref_code", "start_date", "updated_at", "user_email", "user_first_name", "user_last_name", "user_message", "user_phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["end_date", Mon, 12 Jan 2015], ["provider_id", 74], ["ref_code", "XCZ07"], ["start_date", Fri, 09 Jan 2015], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["user_email", "user6@example.com"], ["user_first_name", "First-name6"], ["user_last_name", "Last-name6"], ["user_message", "lo que quiero"], ["user_phone", "2141212421"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name") VALUES ($1) RETURNING "id"  [["name", "Categoria_7"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Distrito7"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProvider Exists (0.3ms)[0m  SELECT 1 AS one FROM "providers" WHERE "providers"."dni" = '0123456789123' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "providers" ("category_id", "created_at", "description", "dni", "email", "email_c", "last_name_1", "last_name_2", "name", "password_digest", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["category_id", 116], ["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["description", "lo que hago"], ["dni", "0123456789123"], ["email", "provider7@example.com"], ["email_c", "provider7@example.com"], ["last_name_1", "Last-name7"], ["last_name_2", "Last-name7"], ["name", "First-name7"], ["password_digest", "$2a$04$X39fXtYgG1gcdGDaHAzhdedXbWmbQZl2nS.HgbNOs534zmviCXgtG"], ["phone", "5342352"], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"  [["location_id", 116], ["provider_id", 75]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "bookings" ("created_at", "end_date", "provider_id", "ref_code", "start_date", "updated_at", "user_email", "user_first_name", "user_last_name", "user_message", "user_phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["end_date", Mon, 12 Jan 2015], ["provider_id", 75], ["ref_code", "XCZ07"], ["start_date", Fri, 09 Jan 2015], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["user_email", "user7@example.com"], ["user_first_name", "First-name7"], ["user_last_name", "Last-name7"], ["user_message", "lo que quiero"], ["user_phone", "2141212421"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name") VALUES ($1) RETURNING "id"  [["name", "Categoria_8"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Distrito8"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProvider Exists (0.2ms)[0m  SELECT 1 AS one FROM "providers" WHERE "providers"."dni" = '0123456789123' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "providers" ("category_id", "created_at", "description", "dni", "email", "email_c", "last_name_1", "last_name_2", "name", "password_digest", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["category_id", 117], ["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["description", "lo que hago"], ["dni", "0123456789123"], ["email", "provider8@example.com"], ["email_c", "provider8@example.com"], ["last_name_1", "Last-name8"], ["last_name_2", "Last-name8"], ["name", "First-name8"], ["password_digest", "$2a$04$X9szbUkFk0MpTVyjhKEL0OYjGE602rV6W2E4tT2FIa8H6h5gWOx5u"], ["phone", "5342352"], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"  [["location_id", 117], ["provider_id", 76]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "bookings" ("created_at", "end_date", "provider_id", "ref_code", "start_date", "updated_at", "user_email", "user_first_name", "user_last_name", "user_message", "user_phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["end_date", Mon, 12 Jan 2015], ["provider_id", 76], ["ref_code", "XCZ07"], ["start_date", Fri, 09 Jan 2015], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["user_email", "user8@example.com"], ["user_first_name", "First-name8"], ["user_last_name", "Last-name8"], ["user_message", "lo que quiero"], ["user_phone", "2141212421"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name") VALUES ($1) RETURNING "id"  [["name", "Categoria_9"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Distrito9"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProvider Exists (0.2ms)[0m  SELECT 1 AS one FROM "providers" WHERE "providers"."dni" = '0123456789123' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "providers" ("category_id", "created_at", "description", "dni", "email", "email_c", "last_name_1", "last_name_2", "name", "password_digest", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["category_id", 118], ["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["description", "lo que hago"], ["dni", "0123456789123"], ["email", "provider9@example.com"], ["email_c", "provider9@example.com"], ["last_name_1", "Last-name9"], ["last_name_2", "Last-name9"], ["name", "First-name9"], ["password_digest", "$2a$04$l13isbdJ4LJlyMKv6lvQn.OUW0.7ASNLoeHSPbZnXFphNpxvL2yzG"], ["phone", "5342352"], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"  [["location_id", 118], ["provider_id", 77]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "bookings" ("created_at", "end_date", "provider_id", "ref_code", "start_date", "updated_at", "user_email", "user_first_name", "user_last_name", "user_message", "user_phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["end_date", Mon, 12 Jan 2015], ["provider_id", 77], ["ref_code", "XCZ07"], ["start_date", Fri, 09 Jan 2015], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["user_email", "user9@example.com"], ["user_first_name", "First-name9"], ["user_last_name", "Last-name9"], ["user_message", "lo que quiero"], ["user_phone", "2141212421"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name") VALUES ($1) RETURNING "id"  [["name", "Categoria_10"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Distrito10"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProvider Exists (0.2ms)[0m  SELECT 1 AS one FROM "providers" WHERE "providers"."dni" = '0123456789123' LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "providers" ("category_id", "created_at", "description", "dni", "email", "email_c", "last_name_1", "last_name_2", "name", "password_digest", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["category_id", 119], ["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["description", "lo que hago"], ["dni", "0123456789123"], ["email", "provider10@example.com"], ["email_c", "provider10@example.com"], ["last_name_1", "Last-name10"], ["last_name_2", "Last-name10"], ["name", "First-name10"], ["password_digest", "$2a$04$O9OjLQOfek.erKcG7V5Cbu6kMTgWrRF86UafBzawZNE9NEboRKy4i"], ["phone", "5342352"], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"  [["location_id", 119], ["provider_id", 78]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "bookings" ("created_at", "end_date", "provider_id", "ref_code", "start_date", "updated_at", "user_email", "user_first_name", "user_last_name", "user_message", "user_phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["end_date", Mon, 12 Jan 2015], ["provider_id", 78], ["ref_code", "XCZ07"], ["start_date", Fri, 09 Jan 2015], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["user_email", "user10@example.com"], ["user_first_name", "First-name10"], ["user_last_name", "Last-name10"], ["user_message", "lo que quiero"], ["user_phone", "2141212421"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name") VALUES ($1) RETURNING "id"  [["name", "Categoria_11"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Distrito11"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProvider Exists (0.2ms)[0m  SELECT 1 AS one FROM "providers" WHERE "providers"."dni" = '0123456789123' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "providers" ("category_id", "created_at", "description", "dni", "email", "email_c", "last_name_1", "last_name_2", "name", "password_digest", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["category_id", 120], ["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["description", "lo que hago"], ["dni", "0123456789123"], ["email", "provider11@example.com"], ["email_c", "provider11@example.com"], ["last_name_1", "Last-name11"], ["last_name_2", "Last-name11"], ["name", "First-name11"], ["password_digest", "$2a$04$RwEdS9AnCmZMaNsyz8P7l.NSS5PGHRkKFXJavGRYmt8Alulq0AKwy"], ["phone", "5342352"], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"  [["location_id", 120], ["provider_id", 79]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "bookings" ("created_at", "end_date", "provider_id", "ref_code", "start_date", "updated_at", "user_email", "user_first_name", "user_last_name", "user_message", "user_phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["end_date", Mon, 12 Jan 2015], ["provider_id", 79], ["ref_code", "XCZ07"], ["start_date", Fri, 09 Jan 2015], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["user_email", "user11@example.com"], ["user_first_name", "First-name11"], ["user_last_name", "Last-name11"], ["user_message", "lo que quiero"], ["user_phone", "2141212421"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name") VALUES ($1) RETURNING "id"  [["name", "Categoria_12"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Distrito12"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProvider Exists (0.2ms)[0m  SELECT 1 AS one FROM "providers" WHERE "providers"."dni" = '0123456789123' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "providers" ("category_id", "created_at", "description", "dni", "email", "email_c", "last_name_1", "last_name_2", "name", "password_digest", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["category_id", 121], ["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["description", "lo que hago"], ["dni", "0123456789123"], ["email", "provider12@example.com"], ["email_c", "provider12@example.com"], ["last_name_1", "Last-name12"], ["last_name_2", "Last-name12"], ["name", "First-name12"], ["password_digest", "$2a$04$w5WEoXjepnA/.17Sb5aaROp9AhErYcjV9BwoiF5jay5BPgMjuMjVe"], ["phone", "5342352"], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"  [["location_id", 121], ["provider_id", 80]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "bookings" ("created_at", "end_date", "provider_id", "ref_code", "start_date", "updated_at", "user_email", "user_first_name", "user_last_name", "user_message", "user_phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["end_date", Mon, 12 Jan 2015], ["provider_id", 80], ["ref_code", "XCZ07"], ["start_date", Fri, 09 Jan 2015], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["user_email", "user12@example.com"], ["user_first_name", "First-name12"], ["user_last_name", "Last-name12"], ["user_message", "lo que quiero"], ["user_phone", "2141212421"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name") VALUES ($1) RETURNING "id"  [["name", "Categoria_13"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Distrito13"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProvider Exists (0.3ms)[0m  SELECT 1 AS one FROM "providers" WHERE "providers"."dni" = '0123456789123' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "providers" ("category_id", "created_at", "description", "dni", "email", "email_c", "last_name_1", "last_name_2", "name", "password_digest", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["category_id", 122], ["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["description", "lo que hago"], ["dni", "0123456789123"], ["email", "provider13@example.com"], ["email_c", "provider13@example.com"], ["last_name_1", "Last-name13"], ["last_name_2", "Last-name13"], ["name", "First-name13"], ["password_digest", "$2a$04$9dqdR4H9HmqXrVfN0LOxbuK1G1v3KmSHrHFqSQZKmltusGjuuuiQW"], ["phone", "5342352"], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"  [["location_id", 122], ["provider_id", 81]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "bookings" ("created_at", "end_date", "provider_id", "ref_code", "start_date", "updated_at", "user_email", "user_first_name", "user_last_name", "user_message", "user_phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["end_date", Mon, 12 Jan 2015], ["provider_id", 81], ["ref_code", "XCZ07"], ["start_date", Fri, 09 Jan 2015], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["user_email", "user13@example.com"], ["user_first_name", "First-name13"], ["user_last_name", "Last-name13"], ["user_message", "lo que quiero"], ["user_phone", "2141212421"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "categories" ("name") VALUES ($1) RETURNING "id"  [["name", "Categoria_14"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "locations" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Distrito14"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mProvider Exists (0.2ms)[0m  SELECT 1 AS one FROM "providers" WHERE "providers"."dni" = '0123456789123' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "providers" ("category_id", "created_at", "description", "dni", "email", "email_c", "last_name_1", "last_name_2", "name", "password_digest", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["category_id", 123], ["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["description", "lo que hago"], ["dni", "0123456789123"], ["email", "provider14@example.com"], ["email_c", "provider14@example.com"], ["last_name_1", "Last-name14"], ["last_name_2", "Last-name14"], ["name", "First-name14"], ["password_digest", "$2a$04$2jQAmC2EKBwxrrv3gV/Ng.mij55EZsfJQ8l1ajvnBaEGyJOWn.FF2"], ["phone", "5342352"], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"  [["location_id", 123], ["provider_id", 82]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "bookings" ("created_at", "end_date", "provider_id", "ref_code", "start_date", "updated_at", "user_email", "user_first_name", "user_last_name", "user_message", "user_phone") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["created_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["end_date", Mon, 12 Jan 2015], ["provider_id", 82], ["ref_code", "XCZ07"], ["start_date", Fri, 09 Jan 2015], ["updated_at", Fri, 09 Jan 2015 18:10:22 UTC +00:00], ["user_email", "user14@example.com"], ["user_first_name", "First-name14"], ["user_last_name", "Last-name14"], ["user_message", "lo que quiero"], ["user_phone", "2141212421"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m

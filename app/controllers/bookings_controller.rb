@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
-	# before_action :get_dates, only: [:new, :create]
-	before_action :check_booking_params, only: [:new]
+	# before_action :get_dates, only: [:new]
+	# before_action :check_booking_params, only: [:new]
 
 	def new
 		session[:chosen_provider_id] = params[:provider_id]
@@ -38,6 +38,15 @@ class BookingsController < ApplicationController
 
 	def booking_params
 	  params.require(:booking).permit(:start_date, :end_date, :user_first_name, :user_last_name, :provider_id, :user_phone, :user_email, :ref_code, :user_message)
+	end
+
+	def get_dates
+	  unless params[:start_date].nil? || params[:start_date].empty?
+	    session[:start_date] = Date.strptime(params[:start_date],'%d/%m/%Y')
+	  end
+	  unless params[:start_date].nil? || params[:start_date].empty?
+	    session[:end_date] = Date.strptime(params[:end_date],'%d/%m/%Y')
+	  end
 	end
 
 end
