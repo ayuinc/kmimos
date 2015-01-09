@@ -206,26 +206,6 @@
 <section id="recomendar" class="">
   <div class="container">
     <div class="row">
-      <table class='table' id='referrals_table'>
-        <thead>
-          <tr>
-            <th>First name</th>
-            <th>Last name</th>
-            <th></th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @referrals.each do |referral| %>
-            <%# Render table row partial for each referral object %>
-            <%= render partial: 'referrals/table_row', locals: {referral: referral} %>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-    <div class="row">
       <div class="col-md-12 m-28">
         <div class="text-white text-right dsct mt-56 mr-70">
           <h2 class="text-white mt-7 fz-50 mb-0">Recomiéndanos</h2>
