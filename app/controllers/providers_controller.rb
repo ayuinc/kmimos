@@ -18,6 +18,8 @@ class ProvidersController < ApplicationController
     @provider_b = Provider.find(1) #15
     @provider_c = Provider.find(1) #8
     @search = Provider.search(params[:q])
+    @referral = Referral.new
+    @referrals = Referral.all
   end  
 
   # GET /providers/1

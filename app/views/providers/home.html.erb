@@ -1,5 +1,5 @@
 <section id="home-filters"> 
-  <div class="container-fluid p-14">
+  <div class="container-fluid pr-0">
    <div class="navbar p-7">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -56,7 +56,7 @@
       </div>
       <!--/.nav-collapse -->
     </div>
-    <%= render "layouts/flash_alerts" %>
+   
     <div class="container-sm">
       <div class="row text-center text-white mt-70 pt-70">
         <h1 class="text-h1 mb-0">Deja a tu mascota en buenas manos</h1>
@@ -216,6 +216,26 @@
         </div>
         
         <div class="row text-right mr-70">
+          <%# Added Bootstrap data modal attribute %>
+          <%= link_to 'New Code', '#new_code_modal', 'data-toggle' => 'modal' %>
+          <%# Bootstrap modal markup. @see: http://getbootstrap.com/javascript/#modals %>
+          <div class="modal fade" id="new_code_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title" id="myModalLabel">Create new code</h4>
+                </div>
+                <div class="modal-body">
+                  <%# Render the new person form (passing modal => true to enable remote => true) %>
+                  <%= render 'referrals/form', modal: true %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
           <nav>
             <% unless current_provider %>
             <%= link_to 'RECOMENDAR', providers_path, :class => "mt-28 btn btn-lg text-white light", :id => "btn-recomendar", :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Home', 'BuscarAqui']);" %>
@@ -226,5 +246,3 @@
     </div>
   </div>
 </section>
-
-<%= render "layouts/modal" %>

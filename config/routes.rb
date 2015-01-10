@@ -1,5 +1,7 @@
 ServihogarRails::Application.routes.draw do
 	
+  resources :referrals
+
   root 'providers#home'
 
   resources :providers
