@@ -1,3 +1,4 @@
+<%= include_gon %>
 <section id="home-filters"> 
   <div class="container-fluid p-14">
    <div class="navbar p-7">
@@ -206,24 +207,7 @@
 <section id="recomendar" class="">
   <div class="container">
     <div class="row">
-      <table class='table' id='referrals_table'>
-        <thead>
-          <tr>
-            <th>First name</th>
-            <th>Last name</th>
-            <th></th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
 
-        <tbody>
-          <% @referrals.each do |referral| %>
-            <%# Render table row partial for each referral object %>
-            <%= render partial: 'referrals/table_row', locals: {referral: referral} %>
-          <% end %>
-        </tbody>
-      </table>
     </div>
     <div class="row">
       <div class="col-md-12 m-28">
@@ -249,6 +233,26 @@
                 <div class="modal-body">
                   <%# Render the new person form (passing modal => true to enable remote => true) %>
                   <%= render 'referrals/form', modal: true %>
+                </div>
+                <div id="test">
+                  <table class='table' id='referrals_table'>
+                    <thead>
+                      <tr>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <% @referrals.each do |referral| %>
+                        <%# Render table row partial for each referral object %>
+                        <%= render partial: 'referrals/table_row', locals: {referral: referral} %>
+                      <% end %>
+                    </tbody>
+                  </table>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

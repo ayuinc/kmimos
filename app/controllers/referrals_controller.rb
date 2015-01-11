@@ -28,6 +28,7 @@ class ReferralsController < ApplicationController
 
     respond_to do |format|
       if @referral.save
+        gon.code = "andrea"
         format.html { redirect_to @referral, notice: 'Referral was successfully created.' }
         format.json { render action: 'show', status: :created, location: @referral }
         # added:
