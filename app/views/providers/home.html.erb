@@ -230,8 +230,14 @@
                   <%# Render the new person form (passing modal => true to enable remote => true) %>
                   <%= render 'referrals/form', modal: true %>
                 </div>
+                <div id="referrals_table">
+
+                      <%# Render table row partial for each referral object %>
+                      <%= render partial: 'referrals/table_row', locals: {referral: @referral} %>
+
+                </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 </div>
               </div>
             </div>

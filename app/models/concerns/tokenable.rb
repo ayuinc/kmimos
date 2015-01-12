@@ -8,6 +8,6 @@ module Tokenable
   protected
 
   def generate_token
-    self.code_value = SecureRandom.urlsafe_base64(8, false)
+    self.code_value = SecureRandom.hex(3).upcase
   end
 end

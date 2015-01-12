@@ -115,9 +115,9 @@ function allLabel() {
   $.fn.modal_success = function(){
     // close modal
     // this.modal('hide');
+    // this.removeClass('hidden');
     this.find('.modal-title').html("Código de referencia");
-    this.find('.modal-body').html("Cuerpo");
-    this.find('.modal-footer').html(gon.code);
+    this.find('.modal-body').hide();
 
     // clear form input elements
     // todo/note: handle textarea, select, etc
@@ -149,6 +149,8 @@ function allLabel() {
   }
 
 }(jQuery));
+
+
 
 
 
