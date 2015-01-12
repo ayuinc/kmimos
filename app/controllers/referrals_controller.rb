@@ -28,16 +28,14 @@ class ReferralsController < ApplicationController
 
     respond_to do |format|
       if @referral.save
-        gon.code = "andrea"
-        format.html { redirect_to @referral, notice: 'Referral was successfully created.' }
+        session[:code_id] = @referral.id
+        format.html { redirect_to @referral, notice: 'Person was successfully created.' }
         format.json { render action: 'show', status: :created, location: @referral }
-        # added:
-        format.js   { render action: 'show', status: :created, location: @referral }
+        format.js { render action: 'show', status: :created, location: @referral }
       else
         format.html { render action: 'new' }
         format.json { render json: @referral.errors, status: :unprocessable_entity }
-        # added:
-        format.js   { render json: @referral.errors, status: :unprocessable_entity }
+        format.js { render json: @referral.errors, status: :unprocessable_entity }
       end
     end
   end

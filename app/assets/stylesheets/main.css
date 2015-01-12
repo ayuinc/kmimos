@@ -4377,6 +4377,12 @@ button span {
 #text-gray {
   color: #939191; }
 
+.text-graylight {
+  color: #939191; }
+
+.text-gray {
+  color: gray; }
+
 .text-white {
   color: white; }
 
@@ -4398,7 +4404,7 @@ button span {
 .bg-check {
   background: rgba(0, 0, 0, 0.4);
   padding: 21px;
-  margin-top: 118px; }
+  margin-top: 142px; }
 
 .form-check {
   height: 49px !important;
@@ -4438,7 +4444,7 @@ button span {
   margin-right: auto;
   margin-left: auto; }
   .container-fluid .header-navbar {
-    background: #ff9528; }
+    /* 		background: #ff9528; */ }
     .container-fluid .header-navbar .col-md-6 .navbar-collapse ul li a {
       color: white; }
     .container-fluid .header-navbar .col-md-6 .navbar-collapse ul li .dropdown-menu {
@@ -4467,31 +4473,24 @@ button span {
       border-radius: 5px;
       padding: 9px 23px;
       background: #6cba9b;
-      color: white; }
+      color: white;
+      margin-bottom: 0px !important; }
     .container-fluid .row form .form-search:hover {
       color: white;
       opacity: 0.9; }
 
-.container .row .col-md-12 .row .col-md-8 {
-  border-left: 11px solid #f08622;
-  box-shadow: 1px 3px 25px -5px #BFBCAA; }
-  .container .row .col-md-12 .row .col-md-8 i {
-    color: #f08622; }
-  .container .row .col-md-12 .row .col-md-8 .col-md-3 img {
-    width: 150px;
-    border: 3px solid #f08622; }
-  .container .row .col-md-12 .row .col-md-8 .btn-contratar {
-    color: #fff;
-    background-color: #f08622;
-    border-color: #f08622; }
-    .container .row .col-md-12 .row .col-md-8 .btn-contratar:hover {
-      background: #EABD00;
-      border: 1px solid #EABD00; }
-  .container .row .col-md-12 .row .col-md-8 .col-md-4 {
-    padding: 63px 0; }
-    .container .row .col-md-12 .row .col-md-8 .col-md-4 .btn {
-      padding: 3px 45px;
-      margin-left: 14px; }
+.container-fluid .row .col-md-8 .col-md-3 img {
+  width: 150px; }
+.container-fluid .row .col-md-8 .btn-reservar {
+  color: #fff;
+  padding: 9px 35px; }
+  .container-fluid .row .col-md-8 .btn-reservar:hover {
+    opacity: 0.8; }
+.container-fluid .row .col-md-8 .col-md-4 {
+  padding: 63px 0; }
+  .container-fluid .row .col-md-8 .col-md-4 .btn {
+    padding: 3px 45px;
+    margin-left: 14px; }
 
 .fa-star {
   margin-left: -0.2em; }
@@ -4510,6 +4509,16 @@ button span {
   border-radius: 6px !important;
   padding: 15px !important;
   margin: 0 !important; }
+
+.bg-navbar {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 5px; }
+
+.list-profiles {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-bottom: 1px solid #bbb; }
 
 #error_explanation {
   color: red; }

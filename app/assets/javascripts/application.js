@@ -115,6 +115,7 @@ function allLabel() {
   $.fn.modal_success = function(){
     // close modal
     // this.modal('hide');
+    // this.removeClass('hidden');
     this.find('.modal-title').html("Código de referencia");
     this.find('.modal-body').hide();
 
@@ -148,6 +149,8 @@ function allLabel() {
   }
 
 }(jQuery));
+
+
 
 
 

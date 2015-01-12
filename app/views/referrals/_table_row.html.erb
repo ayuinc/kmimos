@@ -1,6 +1,5 @@
-<tr>
-  <td><%= referral.referrer_name %></td>
-  <td><%= referral.referrer_email %></td>
-  <td><%= link_to 'Show', referral %></td>
-  <td><%= link_to 'Edit', edit_referral_path(referral) %></td>
-</tr>
+<div class="row p-14">
+  <div class="col-sm-2"><%= referral.code_value %></div>
+  <div class="col-sm-2"><%= referral.referrer_name %></div>
+  <div class="col-sm-2"><%= referral.referrer_email %></div>
+</div>
