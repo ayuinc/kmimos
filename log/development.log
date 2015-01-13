@@ -1,0 +1,1717 @@
+
+
+Started GET "/providers?utf8=%E2%9C%93&q%5Blocations_id_eq%5D=&start_date=01%2F01%2F2015&end_date=22%2F01%2F2015&commit=Buscar" for 181.66.228.33 at 2015-01-12 17:12:59 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProvidersController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"locations_id_eq"=>""}, "start_date"=>"01/01/2015", "end_date"=>"22/01/2015", "commit"=>"Buscar"}
+  [1m[35mLocation Load (0.7ms)[0m  SELECT "locations".* FROM "locations"
+  Rendered layouts/_flash_alerts.html.erb (0.5ms)
+  [1m[36mLocation Load (0.7ms)[0m  [1mSELECT "locations".* FROM "locations" ORDER BY "locations"."name" ASC[0m
+  [1m[35mProvider Load (0.8ms)[0m  SELECT "providers".* FROM "providers" ORDER BY created_at DESC
+  [1m[36mCategory Load (7.7ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 ORDER BY "categories"."id" ASC LIMIT 1[0m  [["id", 2]]
+  [1m[35mPicture Exists (0.8ms)[0m  SELECT 1 AS one FROM "pictures" WHERE "pictures"."imageable_id" = $1 AND "pictures"."imageable_type" = $2 LIMIT 1  [["imageable_id", 1], ["imageable_type", "Provider"]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 ORDER BY "categories"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_modal.html.erb (0.8ms)
+  Rendered providers/index.html.erb within layouts/application (141.5ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 1310ms (Views: 1042.5ms | ActiveRecord: 18.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 181.66.228.33 at 2015-01-12 17:13:02 +0000
+
+
+Started GET "/assets/jquery.flexslider-min.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:02 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:02 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:02 +0000
+
+
+Started GET "/assets/main.css?body=1" for 181.66.228.33 at 2015-01-12 17:13:02 +0000
+
+
+Started GET "/assets/bootstrap-datepicker3.css?body=1" for 181.66.228.33 at 2015-01-12 17:13:02 +0000
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:02 +0000
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:02 +0000
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:02 +0000
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:02 +0000
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:02 +0000
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:02 +0000
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:02 +0000
+
+
+Started GET "/assets/easing.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:03 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/core.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:03 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ar.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:03 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.bs.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:03 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.az.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:03 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.bg.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:03 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ca.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:03 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.cy.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:03 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.cs.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:03 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.da.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:04 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.el.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:04 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.de.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:04 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.en-GB.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:04 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.es.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:04 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.et.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:04 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.eu.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:04 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.fi.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:04 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.fa.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:04 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.fo.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:05 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.fr-CH.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:05 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.fr.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:05 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.hr.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:05 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.he.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:05 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.gl.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:05 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.is.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:05 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.hu.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:05 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.hy.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:05 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.id.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:05 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.it-CH.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:06 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ja.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:06 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.it.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:06 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ka.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:06 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.kk.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:06 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.kh.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:06 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.kr.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:06 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.lt.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:06 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.lv.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:06 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.mk.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:07 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ms.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:07 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.nb.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:07 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.nl-BE.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:07 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.no.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:07 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.nl.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:07 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ro.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:07 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.rs-latin.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:07 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.rs.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:07 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.pt.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:07 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:08 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.pl.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:08 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ru.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:08 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sk.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:08 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sl.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:08 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sq.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:08 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sr-latin.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:08 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sr.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:08 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sv.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:08 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sw.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:08 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.th.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:08 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.tr.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:09 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ua.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:09 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.uk.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:09 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.vi.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:09 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:09 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-TW.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:09 +0000
+
+
+Started GET "/assets/logo-kmimos-blanco-04.png" for 181.66.228.33 at 2015-01-12 17:13:09 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/index.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:09 +0000
+
+
+Started GET "/assets/application.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:09 +0000
+
+
+Started GET "/assets/referrals.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:09 +0000
+
+
+Started GET "/assets/server_carnet.png" for 181.66.228.33 at 2015-01-12 17:13:10 +0000
+
+
+Started GET "/assets/site-kmimos-12.png" for 181.66.228.33 at 2015-01-12 17:13:10 +0000
+
+
+Started GET "/" for 181.66.228.33 at 2015-01-12 17:13:20 +0000
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (0.6ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mProvider Load (0.7ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mLocation Load (0.5ms)[0m  SELECT "locations".* FROM "locations" ORDER BY "locations"."name" ASC
+  Rendered referrals/_form.html.erb (1847.1ms)
+  Rendered referrals/_table_row.html.erb (23.5ms)
+  Rendered providers/home.html.erb within layouts/application (1929.1ms)
+Completed 500 Internal Server Error in 2035ms
+
+ActionView::Template::Error (undefined method `code_value' for #<Referral:0x007fe769a1d940>):
+    1: <div class="row p-14">
+    2:   <div class="col-sm-2"><%= referral.code_value %></div>
+    3:   <div class="col-sm-2"><%= referral.referrer_name %></div>
+    4:   <div class="col-sm-2"><%= referral.referrer_email %></div>
+    5: </div>
+  app/views/referrals/_table_row.html.erb:2:in `_app_views_referrals__table_row_html_erb__4165331978758188086_70315965151400'
+  app/views/providers/home.html.erb:236:in `_app_views_providers_home_html_erb__4216612398482888411_70315942667840'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.3ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (82.1ms)
+
+
+Started GET "/providers?utf8=%E2%9C%93&q%5Blocations_id_eq%5D=&start_date=01%2F01%2F2015&end_date=22%2F01%2F2015&commit=Buscar" for 181.66.228.33 at 2015-01-12 17:13:33 +0000
+Processing by ProvidersController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"locations_id_eq"=>""}, "start_date"=>"01/01/2015", "end_date"=>"22/01/2015", "commit"=>"Buscar"}
+  [1m[36mLocation Load (0.5ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  Rendered layouts/_flash_alerts.html.erb (0.1ms)
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations" ORDER BY "locations"."name" ASC
+  [1m[36mProvider Load (0.4ms)[0m  [1mSELECT "providers".* FROM "providers" ORDER BY created_at DESC[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 ORDER BY "categories"."id" ASC LIMIT 1  [["id", 2]]
+  [1m[36mPicture Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "pictures" WHERE "pictures"."imageable_id" = $1 AND "pictures"."imageable_type" = $2 LIMIT 1[0m  [["imageable_id", 1], ["imageable_type", "Provider"]]
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."id" = $1 ORDER BY "categories"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered layouts/_modal.html.erb (0.5ms)
+  Rendered providers/index.html.erb within layouts/application (64.6ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 177ms (Views: 162.6ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 181.66.228.33 at 2015-01-12 17:13:34 +0000
+
+
+Started GET "/assets/bootstrap-datepicker3.css?body=1" for 181.66.228.33 at 2015-01-12 17:13:34 +0000
+
+
+Started GET "/assets/main.css?body=1" for 181.66.228.33 at 2015-01-12 17:13:35 +0000
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:35 +0000
+
+
+Started GET "/assets/jquery.flexslider-min.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:35 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:35 +0000
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:35 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:35 +0000
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:36 +0000
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:36 +0000
+
+
+Started GET "/assets/easing.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:36 +0000
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:37 +0000
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:37 +0000
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:37 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/core.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:37 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ar.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:37 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.az.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:37 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.bs.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:37 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ca.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:37 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.cs.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:37 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.bg.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:37 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.el.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:39 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.en-GB.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:39 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.cy.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:39 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.es.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:39 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.eu.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:40 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.fi.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:40 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.fa.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:40 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.et.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:40 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.de.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:40 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.da.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:40 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.fo.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:40 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.fr.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:40 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.fr-CH.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:40 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.he.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:40 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.hr.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:40 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.gl.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:40 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.hy.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:44 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.it-CH.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:44 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.it.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:44 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.hu.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:44 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.id.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:44 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.is.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:44 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ja.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:45 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ka.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:45 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.kh.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:45 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.kk.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:45 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.lt.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:45 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.kr.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:45 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.lv.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:46 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ms.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:46 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.mk.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:46 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.nb.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:46 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.nl-BE.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:46 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:46 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.pl.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:46 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.nl.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:46 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.no.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:46 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.pt.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:47 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ro.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:47 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sl.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:47 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sq.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:47 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.rs-latin.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:47 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sk.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:47 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.rs.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:47 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ru.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:47 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sr-latin.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:47 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sr.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:47 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.tr.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:48 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.th.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:48 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sw.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:48 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sv.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:48 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ua.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:48 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.uk.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:48 +0000
+
+
+Started GET "/assets/application.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:48 +0000
+
+
+Started GET "/assets/referrals.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:48 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.vi.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:48 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/index.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:48 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-TW.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:48 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.js?body=1" for 181.66.228.33 at 2015-01-12 17:13:48 +0000
+
+
+Started GET "/assets/logo-kmimos-blanco-04.png" for 181.66.228.33 at 2015-01-12 17:13:49 +0000
+
+
+Started GET "/assets/server_carnet.png" for 181.66.228.33 at 2015-01-12 17:13:49 +0000
+
+
+Started GET "/assets/site-kmimos-12.png" for 181.66.228.33 at 2015-01-12 17:13:49 +0000
+
+
+Started GET "/" for 181.66.228.33 at 2015-01-12 17:13:57 +0000
+Processing by ProvidersController#home as HTML
+  [1m[36mLocation Load (0.5ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35mProvider Load (0.5ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mLocation Load (0.4ms)[0m  [1mSELECT "locations".* FROM "locations" ORDER BY "locations"."name" ASC[0m
+  Rendered referrals/_form.html.erb (9.8ms)
+  Rendered referrals/_table_row.html.erb (2.1ms)
+  Rendered providers/home.html.erb within layouts/application (35.0ms)
+Completed 500 Internal Server Error in 57ms
+
+ActionView::Template::Error (undefined method `code_value' for #<Referral:0x007fe76dc22b60>):
+    1: <div class="row p-14">
+    2:   <div class="col-sm-2"><%= referral.code_value %></div>
+    3:   <div class="col-sm-2"><%= referral.referrer_name %></div>
+    4:   <div class="col-sm-2"><%= referral.referrer_email %></div>
+    5: </div>
+  app/views/referrals/_table_row.html.erb:2:in `_app_views_referrals__table_row_html_erb__4165331978758188086_70315965151400'
+  app/views/providers/home.html.erb:236:in `_app_views_providers_home_html_erb__4216612398482888411_70315942667840'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (14.1ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (65.5ms)
+
+
+Started GET "/bookings/new?provider_id=2" for 181.66.228.33 at 2015-01-12 17:14:52 +0000
+Processing by BookingsController#new as HTML
+  Parameters: {"provider_id"=>"2"}
+  [1m[35mProvider Load (1.0ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", "2"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", "2"]]
+  Rendered bookings/_error_messages.html.erb (0.6ms)
+  Rendered bookings/new.html.erb within layouts/application (54.2ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 158ms (Views: 143.7ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 181.66.228.33 at 2015-01-12 17:14:53 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.bs.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:53 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ar.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:53 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.bg.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:53 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ca.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:53 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.az.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:54 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.cs.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:54 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.cy.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:54 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.es.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:55 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.et.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:55 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.da.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:55 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.de.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:55 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.en-GB.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:55 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.el.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:55 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.fi.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:55 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.eu.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:55 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.fa.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:56 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.fr.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:56 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.fo.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:56 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.fr-CH.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:56 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.gl.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:56 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.he.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:56 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.hr.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:57 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.id.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:57 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.hy.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:57 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.hu.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:57 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.is.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:57 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.it-CH.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:57 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.it.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:58 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ja.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:58 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.kk.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:58 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.lv.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:58 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.lt.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:58 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.mk.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:58 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.kr.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:59 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.nb.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:59 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ms.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:59 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.pt.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:59 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:59 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.nl-BE.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:59 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.no.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:59 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.pl.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:59 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.nl.js?body=1" for 181.66.228.33 at 2015-01-12 17:14:59 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ro.js?body=1" for 181.66.228.33 at 2015-01-12 17:15:00 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.rs-latin.js?body=1" for 181.66.228.33 at 2015-01-12 17:15:00 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sq.js?body=1" for 181.66.228.33 at 2015-01-12 17:15:00 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sr-latin.js?body=1" for 181.66.228.33 at 2015-01-12 17:15:00 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sl.js?body=1" for 181.66.228.33 at 2015-01-12 17:15:00 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sk.js?body=1" for 181.66.228.33 at 2015-01-12 17:15:00 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.rs.js?body=1" for 181.66.228.33 at 2015-01-12 17:15:00 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ru.js?body=1" for 181.66.228.33 at 2015-01-12 17:15:00 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sr.js?body=1" for 181.66.228.33 at 2015-01-12 17:15:01 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sv.js?body=1" for 181.66.228.33 at 2015-01-12 17:15:01 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.js?body=1" for 181.66.228.33 at 2015-01-12 17:15:01 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.vi.js?body=1" for 181.66.228.33 at 2015-01-12 17:15:01 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sw.js?body=1" for 181.66.228.33 at 2015-01-12 17:15:01 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.tr.js?body=1" for 181.66.228.33 at 2015-01-12 17:15:01 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.uk.js?body=1" for 181.66.228.33 at 2015-01-12 17:15:01 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ua.js?body=1" for 181.66.228.33 at 2015-01-12 17:15:01 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-TW.js?body=1" for 181.66.228.33 at 2015-01-12 17:15:01 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/index.js?body=1" for 181.66.228.33 at 2015-01-12 17:15:01 +0000
+
+
+Started GET "/assets/referrals.js?body=1" for 181.66.228.33 at 2015-01-12 17:15:02 +0000
+
+
+Started GET "/assets/logo-kmimos-blanco-04.png" for 181.66.228.33 at 2015-01-12 17:15:02 +0000
+
+
+Started GET "/assets/application.css?body=1" for 181.66.228.33 at 2015-01-12 17:16:31 +0000
+
+
+Started GET "/bookings/new?provider_id=2" for 181.66.228.33 at 2015-01-12 17:18:14 +0000
+Processing by BookingsController#new as HTML
+  Parameters: {"provider_id"=>"2"}
+ERROR: compiling _app_views_bookings_new_html_erb___1142700896525256359_70315964715560 RAISED /home/action/workspace/kmimos/app/views/bookings/new.html.erb:23: syntax error, unexpected ')', expecting =>
+...:"light text-gray", "Nombre:" );@output_buffer.safe_append='...
+...                               ^
+/home/action/workspace/kmimos/app/views/bookings/new.html.erb:56: syntax error, unexpected keyword_end, expecting ')'
+';           end 
+                ^
+/home/action/workspace/kmimos/app/views/bookings/new.html.erb:63: syntax error, unexpected keyword_ensure, expecting ')'
+/home/action/workspace/kmimos/app/views/bookings/new.html.erb:65: syntax error, unexpected keyword_end, expecting ')'
+Function body:           def _app_views_bookings_new_html_erb___1142700896525256359_70315964715560(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "bookings/new";_old_output_buffer = @output_buffer;;@output_buffer = output_buffer || ActionView::OutputBuffer.new;@output_buffer.safe_append='<div class="container content mh-630">
+  <div class="row">
+    <h2 class="text-center">Confirma tu reserva</h2>
+    <div class="col-md-2"></div>
+    <div class="col-md-8 mt-21">
+      <h3 class="text-gray">Detalle de tu reserva:</h3>
+';         if !session[:start_date].nil? 
+@output_buffer.safe_append='          <h4 class="text-gray"><small class="text-black">Check-in:</small> ';@output_buffer.append=( session[:start_date].strftime("%d/%m/%Y") );@output_buffer.safe_append='</h3>
+';@output_buffer.safe_append='        '; end ;@output_buffer.safe_append='</h4>
+';         if !session[:end_date].nil? 
+@output_buffer.safe_append='          <h4 class="text-gray"><small class="text-black">Check-out:</small> ';@output_buffer.append=( session[:end_date].strftime("%d/%m/%Y") );@output_buffer.safe_append='</h4>
+';         end 
+@output_buffer.safe_append='    </h4>
+      <h4 class="text-gray"><small class="text-black">Cuidador:</small> ';@output_buffer.append=( Provider.find(session[:chosen_provider_id]).name );@output_buffer.safe_append=' ';@output_buffer.append=( Provider.find(session[:chosen_provider_id]).last_name_1 );@output_buffer.safe_append=' ';@output_buffer.append=( Provider.find(session[:chosen_provider_id]).last_name_2 );@output_buffer.safe_append='</h4>
+      <hr>
+        <div class="panel panel-primary">
+            <div class="panel-heading"><h3>Completa tus datos:</h3></div>
+            <div class="panel-body">
+            ';@output_buffer.append=  form_for(@booking)  do |f| @output_buffer.safe_append='
+              ';@output_buffer.append=( render "bookings/error_messages" );@output_buffer.safe_append='
+              <div class="form-group row">
+                <div class="col-md-6">
+                  ';@output_buffer.append=( f.label :user_first_name, class:"light text-gray", "Nombre:" );@output_buffer.safe_append='<br>
+                  ';@output_buffer.append=( f.text_field :user_first_name, class: "form-control" );@output_buffer.safe_append='
+                  ';@output_buffer.append=( f.label :user_phone, "Teléfono:" );@output_buffer.safe_append='<br>
+                  ';@output_buffer.append=( f.text_field :user_phone, class: "form-control" );@output_buffer.safe_append='
+                  
+                </div>
+                <div class="col-md-6 pl-0">
+                  ';@output_buffer.append=( f.label :user_last_name, "Apellido:" );@output_buffer.safe_append='<br>
+                  ';@output_buffer.append=( f.text_field :user_last_name, class: "form-control" );@output_buffer.safe_append='
+                  ';@output_buffer.append=( f.label :user_email, "E-mail:" );@output_buffer.safe_append='<br>
+                  ';@output_buffer.append=( f.text_field :user_email, class: "form-control" );@output_buffer.safe_append='
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-12">
+                  ';@output_buffer.append=( f.label :user_message, "Mensaje:" );@output_buffer.safe_append='<br>
+                  ';@output_buffer.append=( f.text_area :user_message, class: "form-control" );@output_buffer.safe_append='
+<!--                   ';@output_buffer.append=( f.label :ref_code, "Código de descuento:" );@output_buffer.safe_append='<br> -->
+<!--                   ';@output_buffer.append=( f.text_field :ref_code, class: "form-control" );@output_buffer.safe_append=' -->
+';                   if !session[:start_date].nil? 
+@output_buffer.safe_append='                    ';@output_buffer.append=( f.hidden_field :start_date, :value => session[:start_date] );@output_buffer.safe_append=' 
+';                   end 
+                   if !session[:end_date].nil? 
+@output_buffer.safe_append='                    ';@output_buffer.append=( f.hidden_field :end_date, :value => session[:end_date] );@output_buffer.safe_append='
+';                   end 
+@output_buffer.safe_append='                  ';@output_buffer.append=( f.hidden_field :provider_id, :value => session[:chosen_provider_id] );@output_buffer.safe_append='
+                </div>
+              </div> 
+
+
+            <div class="col-md-6 pl-0">
+               ';@output_buffer.append=( f.submit "Confirmar", id: "reservar", class: "btn btn-primary form-control" );@output_buffer.safe_append='
+            </div>
+';           end 
+@output_buffer.safe_append='            </div> <!-- panel-body -->
+        </div> <!-- panel-default -->
+    </div> <!-- col-md-8 -->
+  </div> <!-- row -->
+</div>
+';@output_buffer.to_s
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+
+Backtrace: /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/template.rb:299:in `module_eval'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/template.rb:299:in `compile'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/template.rb:248:in `block in compile!'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/template.rb:236:in `synchronize'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/template.rb:236:in `compile!'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/template.rb:142:in `block in render'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/notifications.rb:161:in `instrument'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/template.rb:141:in `render'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/notifications.rb:159:in `block in instrument'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/notifications.rb:159:in `instrument'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:17:in `render'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/renderer/renderer.rb:42:in `render_template'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/renderer/renderer.rb:23:in `render'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/abstract_controller/rendering.rb:127:in `_render_template'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/abstract_controller/rendering.rb:97:in `render'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/rendering.rb:16:in `render'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+/home/action/.gem/ruby/2.1.1/gems/activerecord-4.0.2/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/abstract_controller/base.rb:189:in `process_action'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/callbacks.rb:383:in `_run__1936350472566912212__process_action__callbacks'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/notifications.rb:159:in `block in instrument'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/notifications.rb:159:in `instrument'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+/home/action/.gem/ruby/2.1.1/gems/activerecord-4.0.2/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/abstract_controller/base.rb:136:in `process'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/abstract_controller/rendering.rb:44:in `process'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal.rb:195:in `dispatch'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal.rb:231:in `block in action'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/routing/route_set.rb:80:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/routing/route_set.rb:48:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/journey/router.rb:71:in `block in call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/journey/router.rb:59:in `each'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/journey/router.rb:59:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/routing/route_set.rb:680:in `call'
+/home/action/.gem/ruby/2.1.1/gems/meta_request-0.3.4/lib/meta_request/middlewares/app_request_handler.rb:13:in `call'
+/home/action/.gem/ruby/2.1.1/gems/meta_request-0.3.4/lib/meta_request/middlewares/meta_request_handler.rb:13:in `call'
+/home/action/.gem/ruby/2.1.1/gems/bullet-4.13.1/lib/bullet/rack.rb:10:in `call'
+/home/action/.gem/ruby/2.1.1/gems/rack-1.5.2/lib/rack/etag.rb:23:in `call'
+/home/action/.gem/ruby/2.1.1/gems/rack-1.5.2/lib/rack/conditionalget.rb:25:in `call'
+/home/action/.gem/ruby/2.1.1/gems/rack-1.5.2/lib/rack/head.rb:11:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/flash.rb:241:in `call'
+/home/action/.gem/ruby/2.1.1/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:225:in `context'
+/home/action/.gem/ruby/2.1.1/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:220:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/cookies.rb:486:in `call'
+/home/action/.gem/ruby/2.1.1/gems/activerecord-4.0.2/lib/active_record/query_cache.rb:36:in `call'
+/home/action/.gem/ruby/2.1.1/gems/activerecord-4.0.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+/home/action/.gem/ruby/2.1.1/gems/activerecord-4.0.2/lib/active_record/migration.rb:369:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/callbacks.rb:373:in `_run__2307898090980090692__call__callbacks'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/reloader.rb:64:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+/home/action/.gem/ruby/2.1.1/gems/better_errors-2.0.0/lib/better_errors/middleware.rb:59:in `call'
+/home/action/.gem/ruby/2.1.1/gems/rack-contrib-1.1.0/lib/rack/contrib/response_headers.rb:17:in `call'
+/home/action/.gem/ruby/2.1.1/gems/meta_request-0.3.4/lib/meta_request/middlewares/headers.rb:16:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+/home/action/.gem/ruby/2.1.1/gems/railties-4.0.2/lib/rails/rack/logger.rb:38:in `call_app'
+/home/action/.gem/ruby/2.1.1/gems/railties-4.0.2/lib/rails/rack/logger.rb:20:in `block in call'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/tagged_logging.rb:67:in `block in tagged'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/tagged_logging.rb:25:in `tagged'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/tagged_logging.rb:67:in `tagged'
+/home/action/.gem/ruby/2.1.1/gems/railties-4.0.2/lib/rails/rack/logger.rb:20:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+/home/action/.gem/ruby/2.1.1/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+/home/action/.gem/ruby/2.1.1/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+/home/action/.gem/ruby/2.1.1/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/static.rb:64:in `call'
+/home/action/.gem/ruby/2.1.1/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+/home/action/.gem/ruby/2.1.1/gems/railties-4.0.2/lib/rails/engine.rb:511:in `call'
+/home/action/.gem/ruby/2.1.1/gems/railties-4.0.2/lib/rails/application.rb:97:in `call'
+/home/action/.gem/ruby/2.1.1/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/home/action/.gem/ruby/2.1.1/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+/home/action/.gem/ruby/2.1.1/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+/home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+/home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+/home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+  Rendered bookings/new.html.erb within layouts/application (21.4ms)
+Completed 500 Internal Server Error in 26ms
+
+ActionView::Template::Error (/home/action/workspace/kmimos/app/views/bookings/new.html.erb:23: syntax error, unexpected ')', expecting =>
+...:"light text-gray", "Nombre:" );@output_buffer.safe_append='...
+...                               ^
+/home/action/workspace/kmimos/app/views/bookings/new.html.erb:56: syntax error, unexpected keyword_end, expecting ')'
+';           end 
+                ^
+/home/action/workspace/kmimos/app/views/bookings/new.html.erb:63: syntax error, unexpected keyword_ensure, expecting ')'
+/home/action/workspace/kmimos/app/views/bookings/new.html.erb:65: syntax error, unexpected keyword_end, expecting ')'):
+    20:               <%= render "bookings/error_messages" %>
+    21:               <div class="form-group row">
+    22:                 <div class="col-md-6">
+    23:                   <%= f.label :user_first_name, class:"light text-gray", "Nombre:" %><br>
+    24:                   <%= f.text_field :user_first_name, class: "form-control" %>
+    25:                   <%= f.label :user_phone, "Teléfono:" %><br>
+    26:                   <%= f.text_field :user_phone, class: "form-control" %>
+  actionpack (4.0.2) lib/action_view/template.rb:299:in `module_eval'
+  actionpack (4.0.2) lib/action_view/template.rb:299:in `compile'
+  actionpack (4.0.2) lib/action_view/template.rb:248:in `block in compile!'
+  actionpack (4.0.2) lib/action_view/template.rb:236:in `synchronize'
+  actionpack (4.0.2) lib/action_view/template.rb:236:in `compile!'
+  actionpack (4.0.2) lib/action_view/template.rb:142:in `block in render'
+  activesupport (4.0.2) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.2) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.2) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:383:in `_run__1936350472566912212__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/app_request_handler.rb:13:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/meta_request_handler.rb:13:in `call'
+  bullet (4.13.1) lib/bullet/rack.rb:10:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__2307898090980090692__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:59:in `call'
+  rack-contrib (1.1.0) lib/rack/contrib/response_headers.rb:17:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/headers.rb:16:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.9ms)
+
+
+Started GET "/bookings/new?provider_id=2" for 181.66.228.33 at 2015-01-12 17:18:17 +0000
+Processing by BookingsController#new as HTML
+  Parameters: {"provider_id"=>"2"}
+ERROR: compiling _app_views_bookings_new_html_erb___1142700896525256359_70315964715560 RAISED /home/action/workspace/kmimos/app/views/bookings/new.html.erb:23: syntax error, unexpected ')', expecting =>
+...:"light text-gray", "Nombre:" );@output_buffer.safe_append='...
+...                               ^
+/home/action/workspace/kmimos/app/views/bookings/new.html.erb:56: syntax error, unexpected keyword_end, expecting ')'
+';           end 
+                ^
+/home/action/workspace/kmimos/app/views/bookings/new.html.erb:63: syntax error, unexpected keyword_ensure, expecting ')'
+/home/action/workspace/kmimos/app/views/bookings/new.html.erb:65: syntax error, unexpected keyword_end, expecting ')'
+Function body:           def _app_views_bookings_new_html_erb___1142700896525256359_70315964715560(local_assigns, output_buffer)
+            _old_virtual_path, @virtual_path = @virtual_path, "bookings/new";_old_output_buffer = @output_buffer;;@output_buffer = output_buffer || ActionView::OutputBuffer.new;@output_buffer.safe_append='<div class="container content mh-630">
+  <div class="row">
+    <h2 class="text-center">Confirma tu reserva</h2>
+    <div class="col-md-2"></div>
+    <div class="col-md-8 mt-21">
+      <h3 class="text-gray">Detalle de tu reserva:</h3>
+';         if !session[:start_date].nil? 
+@output_buffer.safe_append='          <h4 class="text-gray"><small class="text-black">Check-in:</small> ';@output_buffer.append=( session[:start_date].strftime("%d/%m/%Y") );@output_buffer.safe_append='</h3>
+';@output_buffer.safe_append='        '; end ;@output_buffer.safe_append='</h4>
+';         if !session[:end_date].nil? 
+@output_buffer.safe_append='          <h4 class="text-gray"><small class="text-black">Check-out:</small> ';@output_buffer.append=( session[:end_date].strftime("%d/%m/%Y") );@output_buffer.safe_append='</h4>
+';         end 
+@output_buffer.safe_append='    </h4>
+      <h4 class="text-gray"><small class="text-black">Cuidador:</small> ';@output_buffer.append=( Provider.find(session[:chosen_provider_id]).name );@output_buffer.safe_append=' ';@output_buffer.append=( Provider.find(session[:chosen_provider_id]).last_name_1 );@output_buffer.safe_append=' ';@output_buffer.append=( Provider.find(session[:chosen_provider_id]).last_name_2 );@output_buffer.safe_append='</h4>
+      <hr>
+        <div class="panel panel-primary">
+            <div class="panel-heading"><h3>Completa tus datos:</h3></div>
+            <div class="panel-body">
+            ';@output_buffer.append=  form_for(@booking)  do |f| @output_buffer.safe_append='
+              ';@output_buffer.append=( render "bookings/error_messages" );@output_buffer.safe_append='
+              <div class="form-group row">
+                <div class="col-md-6">
+                  ';@output_buffer.append=( f.label :user_first_name, class:"light text-gray", "Nombre:" );@output_buffer.safe_append='<br>
+                  ';@output_buffer.append=( f.text_field :user_first_name, class: "form-control" );@output_buffer.safe_append='
+                  ';@output_buffer.append=( f.label :user_phone, "Teléfono:" );@output_buffer.safe_append='<br>
+                  ';@output_buffer.append=( f.text_field :user_phone, class: "form-control" );@output_buffer.safe_append='
+                  
+                </div>
+                <div class="col-md-6 pl-0">
+                  ';@output_buffer.append=( f.label :user_last_name, "Apellido:" );@output_buffer.safe_append='<br>
+                  ';@output_buffer.append=( f.text_field :user_last_name, class: "form-control" );@output_buffer.safe_append='
+                  ';@output_buffer.append=( f.label :user_email, "E-mail:" );@output_buffer.safe_append='<br>
+                  ';@output_buffer.append=( f.text_field :user_email, class: "form-control" );@output_buffer.safe_append='
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-12">
+                  ';@output_buffer.append=( f.label :user_message, "Mensaje:" );@output_buffer.safe_append='<br>
+                  ';@output_buffer.append=( f.text_area :user_message, class: "form-control" );@output_buffer.safe_append='
+<!--                   ';@output_buffer.append=( f.label :ref_code, "Código de descuento:" );@output_buffer.safe_append='<br> -->
+<!--                   ';@output_buffer.append=( f.text_field :ref_code, class: "form-control" );@output_buffer.safe_append=' -->
+';                   if !session[:start_date].nil? 
+@output_buffer.safe_append='                    ';@output_buffer.append=( f.hidden_field :start_date, :value => session[:start_date] );@output_buffer.safe_append=' 
+';                   end 
+                   if !session[:end_date].nil? 
+@output_buffer.safe_append='                    ';@output_buffer.append=( f.hidden_field :end_date, :value => session[:end_date] );@output_buffer.safe_append='
+';                   end 
+@output_buffer.safe_append='                  ';@output_buffer.append=( f.hidden_field :provider_id, :value => session[:chosen_provider_id] );@output_buffer.safe_append='
+                </div>
+              </div> 
+
+
+            <div class="col-md-6 pl-0">
+               ';@output_buffer.append=( f.submit "Confirmar", id: "reservar", class: "btn btn-primary form-control" );@output_buffer.safe_append='
+            </div>
+';           end 
+@output_buffer.safe_append='            </div> <!-- panel-body -->
+        </div> <!-- panel-default -->
+    </div> <!-- col-md-8 -->
+  </div> <!-- row -->
+</div>
+';@output_buffer.to_s
+          ensure
+            @virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+
+Backtrace: /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/template.rb:299:in `module_eval'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/template.rb:299:in `compile'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/template.rb:248:in `block in compile!'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/template.rb:236:in `synchronize'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/template.rb:236:in `compile!'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/template.rb:142:in `block in render'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/notifications.rb:161:in `instrument'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/template.rb:141:in `render'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/notifications.rb:159:in `block in instrument'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/notifications.rb:159:in `instrument'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/renderer/template_renderer.rb:17:in `render'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/renderer/renderer.rb:42:in `render_template'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_view/renderer/renderer.rb:23:in `render'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/abstract_controller/rendering.rb:127:in `_render_template'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/streaming.rb:219:in `_render_template'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/abstract_controller/rendering.rb:120:in `render_to_body'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/abstract_controller/rendering.rb:97:in `render'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/rendering.rb:16:in `render'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+/home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/core_ext/benchmark.rb:12:in `ms'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+/home/action/.gem/ruby/2.1.1/gems/activerecord-4.0.2/lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/abstract_controller/base.rb:189:in `process_action'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/rendering.rb:10:in `process_action'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/callbacks.rb:383:in `_run__1936350472566912212__process_action__callbacks'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/rescue.rb:29:in `process_action'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/notifications.rb:159:in `block in instrument'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/notifications.rb:159:in `instrument'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+/home/action/.gem/ruby/2.1.1/gems/activerecord-4.0.2/lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/abstract_controller/base.rb:136:in `process'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/abstract_controller/rendering.rb:44:in `process'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal.rb:195:in `dispatch'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_controller/metal.rb:231:in `block in action'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/routing/route_set.rb:80:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/routing/route_set.rb:48:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/journey/router.rb:71:in `block in call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/journey/router.rb:59:in `each'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/journey/router.rb:59:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/routing/route_set.rb:680:in `call'
+/home/action/.gem/ruby/2.1.1/gems/meta_request-0.3.4/lib/meta_request/middlewares/app_request_handler.rb:13:in `call'
+/home/action/.gem/ruby/2.1.1/gems/meta_request-0.3.4/lib/meta_request/middlewares/meta_request_handler.rb:13:in `call'
+/home/action/.gem/ruby/2.1.1/gems/bullet-4.13.1/lib/bullet/rack.rb:10:in `call'
+/home/action/.gem/ruby/2.1.1/gems/rack-1.5.2/lib/rack/etag.rb:23:in `call'
+/home/action/.gem/ruby/2.1.1/gems/rack-1.5.2/lib/rack/conditionalget.rb:25:in `call'
+/home/action/.gem/ruby/2.1.1/gems/rack-1.5.2/lib/rack/head.rb:11:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/flash.rb:241:in `call'
+/home/action/.gem/ruby/2.1.1/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:225:in `context'
+/home/action/.gem/ruby/2.1.1/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:220:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/cookies.rb:486:in `call'
+/home/action/.gem/ruby/2.1.1/gems/activerecord-4.0.2/lib/active_record/query_cache.rb:36:in `call'
+/home/action/.gem/ruby/2.1.1/gems/activerecord-4.0.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+/home/action/.gem/ruby/2.1.1/gems/activerecord-4.0.2/lib/active_record/migration.rb:369:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/callbacks.rb:373:in `_run__2307898090980090692__call__callbacks'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/callbacks.rb:80:in `run_callbacks'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/reloader.rb:64:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+/home/action/.gem/ruby/2.1.1/gems/better_errors-2.0.0/lib/better_errors/middleware.rb:59:in `call'
+/home/action/.gem/ruby/2.1.1/gems/rack-contrib-1.1.0/lib/rack/contrib/response_headers.rb:17:in `call'
+/home/action/.gem/ruby/2.1.1/gems/meta_request-0.3.4/lib/meta_request/middlewares/headers.rb:16:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+/home/action/.gem/ruby/2.1.1/gems/railties-4.0.2/lib/rails/rack/logger.rb:38:in `call_app'
+/home/action/.gem/ruby/2.1.1/gems/railties-4.0.2/lib/rails/rack/logger.rb:20:in `block in call'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/tagged_logging.rb:67:in `block in tagged'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/tagged_logging.rb:25:in `tagged'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/tagged_logging.rb:67:in `tagged'
+/home/action/.gem/ruby/2.1.1/gems/railties-4.0.2/lib/rails/rack/logger.rb:20:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/request_id.rb:21:in `call'
+/home/action/.gem/ruby/2.1.1/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
+/home/action/.gem/ruby/2.1.1/gems/rack-1.5.2/lib/rack/runtime.rb:17:in `call'
+/home/action/.gem/ruby/2.1.1/gems/activesupport-4.0.2/lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+/home/action/.gem/ruby/2.1.1/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/static.rb:64:in `call'
+/home/action/.gem/ruby/2.1.1/gems/rack-1.5.2/lib/rack/sendfile.rb:112:in `call'
+/home/action/.gem/ruby/2.1.1/gems/railties-4.0.2/lib/rails/engine.rb:511:in `call'
+/home/action/.gem/ruby/2.1.1/gems/railties-4.0.2/lib/rails/application.rb:97:in `call'
+/home/action/.gem/ruby/2.1.1/gems/rack-1.5.2/lib/rack/lock.rb:17:in `call'
+/home/action/.gem/ruby/2.1.1/gems/rack-1.5.2/lib/rack/content_length.rb:14:in `call'
+/home/action/.gem/ruby/2.1.1/gems/rack-1.5.2/lib/rack/handler/webrick.rb:60:in `service'
+/home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+/home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+/home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+  Rendered bookings/new.html.erb within layouts/application (28.9ms)
+Completed 500 Internal Server Error in 33ms
+
+ActionView::Template::Error (/home/action/workspace/kmimos/app/views/bookings/new.html.erb:23: syntax error, unexpected ')', expecting =>
+...:"light text-gray", "Nombre:" );@output_buffer.safe_append='...
+...                               ^
+/home/action/workspace/kmimos/app/views/bookings/new.html.erb:56: syntax error, unexpected keyword_end, expecting ')'
+';           end 
+                ^
+/home/action/workspace/kmimos/app/views/bookings/new.html.erb:63: syntax error, unexpected keyword_ensure, expecting ')'
+/home/action/workspace/kmimos/app/views/bookings/new.html.erb:65: syntax error, unexpected keyword_end, expecting ')'):
+    20:               <%= render "bookings/error_messages" %>
+    21:               <div class="form-group row">
+    22:                 <div class="col-md-6">
+    23:                   <%= f.label :user_first_name, class:"light text-gray", "Nombre:" %><br>
+    24:                   <%= f.text_field :user_first_name, class: "form-control" %>
+    25:                   <%= f.label :user_phone, "Teléfono:" %><br>
+    26:                   <%= f.text_field :user_phone, class: "form-control" %>
+  actionpack (4.0.2) lib/action_view/template.rb:299:in `module_eval'
+  actionpack (4.0.2) lib/action_view/template.rb:299:in `compile'
+  actionpack (4.0.2) lib/action_view/template.rb:248:in `block in compile!'
+  actionpack (4.0.2) lib/action_view/template.rb:236:in `synchronize'
+  actionpack (4.0.2) lib/action_view/template.rb:236:in `compile!'
+  actionpack (4.0.2) lib/action_view/template.rb:142:in `block in render'
+  activesupport (4.0.2) lib/active_support/notifications.rb:161:in `instrument'
+  actionpack (4.0.2) lib/action_view/template.rb:141:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:49:in `block (2 levels) in render_template'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:38:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_view/renderer/abstract_renderer.rb:38:in `instrument'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:48:in `block in render_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:56:in `render_with_layout'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:47:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/template_renderer.rb:17:in `render'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionpack (4.0.2) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:127:in `_render_template'
+  actionpack (4.0.2) lib/action_controller/metal/streaming.rb:219:in `_render_template'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:120:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:33:in `render_to_body'
+  actionpack (4.0.2) lib/action_controller/metal/renderers.rb:26:in `render_to_body'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:97:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/benchmark.rb:294:in `realtime'
+  activesupport (4.0.2) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.0.2) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:189:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:383:in `_run__1936350472566912212__process_action__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/abstract_controller/callbacks.rb:17:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `block in instrument'
+  activesupport (4.0.2) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.0.2) lib/active_support/notifications.rb:159:in `instrument'
+  actionpack (4.0.2) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.0.2) lib/action_controller/metal/params_wrapper.rb:245:in `process_action'
+  activerecord (4.0.2) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.0.2) lib/abstract_controller/base.rb:136:in `process'
+  actionpack (4.0.2) lib/abstract_controller/rendering.rb:44:in `process'
+  actionpack (4.0.2) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.0.2) lib/action_controller/metal.rb:231:in `block in action'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:80:in `dispatch'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:48:in `call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:71:in `block in call'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `each'
+  actionpack (4.0.2) lib/action_dispatch/journey/router.rb:59:in `call'
+  actionpack (4.0.2) lib/action_dispatch/routing/route_set.rb:680:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/app_request_handler.rb:13:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/meta_request_handler.rb:13:in `call'
+  bullet (4.13.1) lib/bullet/rack.rb:10:in `call'
+  rack (1.5.2) lib/rack/etag.rb:23:in `call'
+  rack (1.5.2) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.5.2) lib/rack/head.rb:11:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/flash.rb:241:in `call'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.5.2) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/cookies.rb:486:in `call'
+  activerecord (4.0.2) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.0.2) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  activerecord (4.0.2) lib/active_record/migration.rb:369:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__2307898090980090692__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:59:in `call'
+  rack-contrib (1.1.0) lib/rack/contrib/response_headers.rb:17:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/headers.rb:16:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (35.4ms)
+
+
+Started GET "/bookings/new?provider_id=2" for 181.66.228.33 at 2015-01-12 17:18:31 +0000
+Processing by BookingsController#new as HTML
+  Parameters: {"provider_id"=>"2"}
+  [1m[36mProvider Load (2.0ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", "2"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", "2"]]
+  Rendered bookings/_error_messages.html.erb (0.1ms)
+  Rendered bookings/new.html.erb within layouts/application (20.7ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 71ms (Views: 67.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/bootstrap-datepicker3.css?body=1" for 181.66.228.33 at 2015-01-12 17:18:32 +0000
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:32 +0000
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:32 +0000
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:33 +0000
+
+
+Started GET "/assets/jquery.flexslider-min.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:33 +0000
+
+
+Started GET "/assets/application.css?body=1" for 181.66.228.33 at 2015-01-12 17:18:33 +0000
+
+
+Started GET "/assets/main.css?body=1" for 181.66.228.33 at 2015-01-12 17:18:33 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:33 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:33 +0000
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:33 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ar.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:34 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.az.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:34 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.bg.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:35 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.bs.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:35 +0000
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:36 +0000
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:36 +0000
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:36 +0000
+
+
+Started GET "/assets/easing.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:36 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/core.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:36 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ca.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:36 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.en-GB.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:36 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.es.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:37 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.da.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:37 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.cs.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:37 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.el.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:37 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.de.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:37 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.cy.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:37 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.et.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:37 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.fr.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:37 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.gl.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:38 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.he.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:38 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.hr.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:38 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.eu.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:39 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.hu.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:39 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.fr-CH.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:39 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.fo.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:40 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.fa.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:40 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.fi.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:40 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.hy.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:40 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.is.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:40 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.id.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:40 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ja.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:40 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.kh.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:41 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.it.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:41 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.it-CH.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:41 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ka.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:41 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.kk.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:41 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.mk.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:41 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ms.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:42 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.nl.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:42 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.kr.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:43 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.lv.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:43 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.nb.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:43 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.nl-BE.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:43 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.lt.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:43 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.no.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:43 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.pt.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:44 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.pl.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:45 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:45 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.rs-latin.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:45 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ro.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:45 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.rs.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:45 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ru.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:45 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sr-latin.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:46 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sk.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:46 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sv.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:46 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sl.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:46 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sq.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:46 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sr.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:46 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.sw.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:47 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.th.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:47 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.tr.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:47 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.vi.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:48 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.uk.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:48 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.ua.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:48 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:48 +0000
+
+
+Started GET "/assets/referrals.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:48 +0000
+
+
+Started GET "/assets/application.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:48 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/index.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:49 +0000
+
+
+Started GET "/assets/bootstrap-datepicker/locales/bootstrap-datepicker.zh-TW.js?body=1" for 181.66.228.33 at 2015-01-12 17:18:49 +0000
+
+
+Started GET "/assets/logo-kmimos-blanco-04.png" for 181.66.228.33 at 2015-01-12 17:18:49 +0000
+
+
+Started GET "/" for 181.66.228.33 at 2015-01-12 18:01:35 +0000
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (0.5ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mProvider Load (0.5ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations" ORDER BY "locations"."name" ASC
+  Rendered referrals/_form.html.erb (1.8ms)
+  Rendered referrals/_table_row.html.erb (2.2ms)
+  Rendered providers/home.html.erb within layouts/application (16.0ms)
+Completed 500 Internal Server Error in 34ms
+
+ActionView::Template::Error (undefined method `code_value' for #<Referral:0x007fe7695abcb8>):
+    1: <div class="row p-14">
+    2:   <div class="col-sm-2"><%= referral.code_value %></div>
+    3:   <div class="col-sm-2"><%= referral.referrer_name %></div>
+    4:   <div class="col-sm-2"><%= referral.referrer_email %></div>
+    5: </div>
+  app/views/referrals/_table_row.html.erb:2:in `_app_views_referrals__table_row_html_erb__4165331978758188086_70315965151400'
+  app/views/providers/home.html.erb:236:in `_app_views_providers_home_html_erb__4216612398482888411_70315942667840'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (17.5ms)
