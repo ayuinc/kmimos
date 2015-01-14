@@ -6,7 +6,7 @@
     <div class="col-sm-10">
       <%= search_form_for @search do |f| %>
       <div class="row header-form">
-        <%= f.collection_select :locations_id_eq, Location.order(:name), :id, :name,{include_blank:"Elegir Municipihho"}, {class:"borderless form-location-nav"} %> 
+        <%= f.collection_select :locations_id_eq, Location.order(:name), :id, :name,{include_blank:"Elegir Municipio"}, {class:"borderless form-location-nav"} %> 
   
         
         <div class="col-sm-3">

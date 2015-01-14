@@ -3945,7 +3945,7 @@ html[xmlns] .slides {
   text-decoration: none;
   display: block;
   width: 40px;
-  height: 40px;
+  height: 60px;
   margin: -20px 0 0;
   position: absolute;
   top: 50%;
@@ -3960,10 +3960,10 @@ html[xmlns] .slides {
   transition: all .3s ease; }
 
 .flex-direction-nav .flex-prev {
-  left: 30px; }
+  left: 141px; }
 
 .flex-direction-nav .flex-next {
-  right: 0; }
+  right: 141px; }
 
 .flex-prev {
   opacity: 0.7;
@@ -3983,11 +3983,11 @@ html[xmlns] .slides {
 .flex-direction-nav a:before {
   line-height: 1;
   display: inline-block;
-  content: url(http://s15.postimg.org/u1hhr9tfb/flecha_slide_01.png);
+  content: url(http://s17.postimg.org/aw0yj31gb/flechas_15.png);
   opacity: 1 !important; }
 
 .flex-direction-nav a.flex-next:before {
-  content: url(http://s12.postimg.org/tyrypjj2h/flecha_slide_02.png); }
+  content: url(http://s28.postimg.org/ytvmpi7bt/flechas_16.png); }
 
 /* Pause/Play */
 .flex-pauseplay a {
@@ -4211,7 +4211,7 @@ button span {
 
 #home-filters {
   background-image: url(http://s9.postimg.org/y5f8sf1zj/foto_modificada_05.png);
-  min-height: 640px;
+  min-height: 638px;
   background-size: cover;
   background-repeat: no-repeat; }
   #home-filters .text-fold {
@@ -4327,7 +4327,7 @@ button span {
   height: auto; }
 
 #recomendar {
-  background-image: url(http://s15.postimg.org/nx9tucr0r/Untitled_2_03.png);
+  background-image: url(http://s2.postimg.org/r3hnkchc9/foto_descuento_01.png);
   background-size: cover;
   min-height: 640px; }
 
@@ -4396,7 +4396,7 @@ button span {
   background: rgba(234, 200, 54, 0.8) !important; }
 
 .text-h1 {
-  font-size: 47px !important; }
+  font-size: 75px !important; }
 
 .text-h3 {
   font-size: 24px !important; }
@@ -4404,7 +4404,7 @@ button span {
 .bg-check {
   background: rgba(0, 0, 0, 0.4);
   padding: 21px;
-  margin-top: 142px; }
+  margin-top: 108px; }
 
 .form-check {
   height: 49px !important;

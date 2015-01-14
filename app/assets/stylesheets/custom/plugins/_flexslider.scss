@@ -65,10 +65,10 @@ html[xmlns] .slides {display: block;}
 
 /* Direction Nav */
 .flex-direction-nav {*height: 0;}
-.flex-direction-nav a  { text-decoration:none; display: block; width: 40px; height: 40px; margin: -20px 0 0; position: absolute; top: 50%; z-index: 10; overflow: hidden; opacity: 1 !important; cursor: pointer; color: rgba(0,0,0,0.8); text-shadow: 1px 1px 0 rgba(255,255,255,0.3); -webkit-transition: all .3s ease; -moz-transition: all .3s ease; transition: all .3s ease; }
-.flex-direction-nav .flex-prev { left: 30px; }
+.flex-direction-nav a  { text-decoration:none; display: block; width: 40px; height: 60px; margin: -20px 0 0; position: absolute; top: 50%; z-index: 10; overflow: hidden; opacity: 1 !important; cursor: pointer; color: rgba(0,0,0,0.8); text-shadow: 1px 1px 0 rgba(255,255,255,0.3); -webkit-transition: all .3s ease; -moz-transition: all .3s ease; transition: all .3s ease; }
+.flex-direction-nav .flex-prev { left: 141px; }
 .flex-direction-nav .flex-next { 
-	right: 0; 
+	right: 141px; 
 }
  .flex-prev { opacity: 0.7; left: 10px; position: absolute;}
  .flex-next { opacity: 0.7; right: 10px; position: absolute;}
@@ -79,12 +79,12 @@ html[xmlns] .slides {display: block;}
 	// font-size: 40px;
 	line-height: 1;
   display: inline-block;
-  content: url(http://s15.postimg.org/u1hhr9tfb/flecha_slide_01.png);
+  content: url(http://s17.postimg.org/aw0yj31gb/flechas_15.png);
   opacity: 1 !important;
 // 	display: inline-block; content: '\f001'; 
 }
 .flex-direction-nav a.flex-next:before  { 
-	 content: url(http://s12.postimg.org/tyrypjj2h/flecha_slide_02.png);
+	 content: url(http://s28.postimg.org/ytvmpi7bt/flechas_16.png);
 }
 
 /* Pause/Play */

@@ -59,12 +59,12 @@
    
     <div class="container-sm">
       <div class="row text-center text-white mt-70 pt-70">
-        <h1 class="text-h1 mb-0">Deja a tu mascota en buenas manos</h1>
-        <h4 class="text-h3 lead mt-0">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit dolorem ipsum</h4>
+        <h1 class="text-h1 mb-0 light">Deja a tu mascota en<br> buenas manos</h1>
       </div>
     </div>
     <div class="container-fluid">
-      <div class="row bg-check">
+      <div class="row bg-check pb-7 pt-7">
+        <h4 class="text-h3 lead mt-0 text-center text-white mb-0">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.</h4>
         <div class="col-sm-1"></div>
         <div class="col-sm-10">
           <%= search_form_for @search do |f| %>
@@ -74,14 +74,14 @@
             
             <div class="col-sm-3">
               <% if session[:start_date].nil? %>
-                <%= text_field_tag(:start_date, nil, class: 'datepicker form-control form-check', placeholder: 'DD/MM/AAAA') %>
+                <%= text_field_tag(:start_date, nil, class: 'form-control form-check', placeholder: 'DD/MM/AAAA') %>
               <% else %>
                 <%= text_field_tag(:start_date, session[:start_date].strftime("%d/%m/%Y"), class: 'datepicker form-control form-check', placeholder: 'DD/MM/AAAA') %>
               <% end %>
             </div>
             <div class="col-sm-3">
               <% if session[:end_date].nil? %>
-                <%= text_field_tag(:end_date, nil, class: 'datepicker form-control form-check', placeholder: 'DD/MM/AAAA') %>
+                <%= text_field_tag(:end_date, nil, class: 'form-control form-check', placeholder: 'DD/MM/AAAA') %>
               <% else %>
                 <%= text_field_tag(:end_date, session[:end_date].strftime("%d/%m/%Y"), class: 'datepicker form-control form-check', placeholder: 'DD/MM/AAAA') %>
               <% end %>
@@ -97,7 +97,7 @@
 </section>
 <section id="home-pasos" class="text-center bg-muted">
   <div class="container text-center">
-    <div class="row text-center p-28"><h1 class="light text-h1" id="text-gray">Beneficios</h1></div>
+    <div class="row text-center p-28"><h1 class="light" id="text-gray">Beneficios</h1></div>
     <div class="row mb-35">
       <div class="col-md-3 text-center">
         <%=image_tag('site-kmimos-flat-11.png', class: "mt--14") %>
@@ -144,7 +144,7 @@
               <div class="col-md-6 server-desc text-center"><hr>
                 <p class="text-muted light lead">
                   In convallis fringilla urna vel tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia vitae elementum tortor, laoreet lacinia augue aptent taciti sociosqu lorem.</p>
-                <h3 id="text-white"id="text-yellow" class="light">Antonio Cáceres</h3>
+                <h3 id="text-white"id="text-yellow" class="light">Daniel Cáceres</h3>
                 <hr>
               </div>
               <div class="col-md-3">

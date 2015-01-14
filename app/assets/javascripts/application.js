@@ -9,8 +9,8 @@
 //= require bootstrap/z_popover
 //= require bootstrap/modal
 //= require bootstrap/tab
+//= require jquery-ui
 //= require easing
-//= require bootstrap-datepicker
 //= require_self
 //= require_tree .
 
@@ -36,10 +36,28 @@ $(document).ready(function() {
   var realInputField = $('#provider_avatar');
   var picCache = $("#provider_avatar_cache")
 
-  // initialize bootstrap-datepicker
-  $('.datepicker').datepicker({
-  	format: 'dd/mm/yyyy',
-  });
+  // initialize jquery-ui datepicker
+  $('#start_date').datepicker({
+  	  minDate: new Date(),
+      dateFormat: 'dd/mm/yy',
+      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 1,
+      onClose: function( selectedDate ) {
+        $( "#end_date" ).datepicker( "option", "minDate", selectedDate );
+      }
+    });
+  
+  $('#end_date').datepicker({
+  	  minDate: new Date(),
+      dateFormat: 'dd/mm/yy',
+      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 1,
+      onClose: function( selectedDate ) {
+        $( "#end_date" ).datepicker( "option", "minDate", selectedDate );
+      }
+    });
 
   // drop just the filename in the display field
   realInputField.change(function() {
