@@ -22,21 +22,8 @@
         height: 100%;
         min-height: 100%;
         display: block;
-        .overlay {
-          position: absolute;
-          z-index: 30;
-          font-size: 21px;
-          width: 100%;
-          background: rgba(0,0,0,0.8);
-          height: 100%;
-          top: 0;
-          border-radius: 50%;
-          padding-top: 56px;
-          display: none;
-
-          span {
-            color: white;
-          }
+        &:hover {
+          opacity: 0.8;
         }
 
         img{
@@ -222,6 +209,11 @@
   border-radius: 5px;
   padding: 12px 25px;
   background-color: #6cba9b;
+  border: 1px solid white;
+  &:hover {
+    opacity: 0.8;
+    color: white;
+  }
 }
 
 #text-gray {
@@ -248,10 +240,14 @@
   text-align: center;  
 }
 
-.log-in {
-  background: rgba(234,200,54,0.8) !important; 
+.sign-up {
+  background: #FFDB00 !important; 
+  color: black !important;
 }
 
+.log-in {
+  background: none !important;
+}
 .text-h1 {
   font-size: 75px !important;
 }
@@ -304,4 +300,8 @@
 
 .dsct-10 {
   font-size: 110px !important;
+}
+
+.text-description {
+  line-height: 1.5 !important;
 }

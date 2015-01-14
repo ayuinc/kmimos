@@ -5,11 +5,11 @@
 // .thin {@include thin;}
 // @mixin extra-light { font-family: $font-family-base !important; font-weight: 200; font-style: normal;}
 // .extra-light {@include extra-light;}
-@mixin light { font-family: "Graphie Light" !important; font-weight: 300; font-style: normal;}
+@mixin light { font-family: $font-family-base !important; font-weight: 300; font-style: normal;}
 .light {@include light;}
 // @mixin light-italic { font-family: $font-family-base !important; font-weight: 300; font-style: italic;}
 // .light-italic {@include light-italic;}
-@mixin book { font-family: "Graphie Book" !important; font-weight: 400; font-style: normal;}
+@mixin book { font-family: $font-family-base !important; font-weight: 400; font-style: normal;}
 .book {@include book;}
 // @mixin book-italic { font-family: $font-family-base !important; font-weight: 400; font-style: italic;}
 // .book-italic {@include book-italic;}

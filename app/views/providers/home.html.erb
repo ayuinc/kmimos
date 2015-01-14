@@ -32,10 +32,10 @@
             </li>
           <% else %>    
           <li class="active hidden-sm hidden-xs mr-7">
-           <%= link_to 'INICIAR SESIÓN', new_providers_session_path, class: "not-underline log-in" %>
+            <%= link_to 'Iniciar sesión', new_providers_session_path, class: "not-underline log-in" %>
           </li>
           <li class="active hidden-sm hidden-xs">
-           <%= link_to 'SER CUIDADOR', new_provider_path, class: "not-underline" %>
+            <%= link_to 'Ser cuidador', new_provider_path, class: "not-underline sign-up" %>
           </li>
           <li class="hidden-lg hidden-md">
             <%= form_tag providers_sessions_path, :class => "form-inline mb-0 user-login-header-form" do %>
@@ -244,7 +244,7 @@
           </div>
           <nav>
             <% unless current_provider %>
-            <%= link_to 'RECOMENDAR', providers_path, :class => "mt-28 btn btn-lg text-white light", :id => "btn-recomendar", :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Home', 'BuscarAqui']);" %>
+            <%= link_to 'Recomendar', providers_path, :class => "mt-28 btn btn-lg text-white light", :id => "btn-recomendar", :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Home', 'BuscarAqui']);" %>
             <% end %>  
           </nav>
         </div>  
