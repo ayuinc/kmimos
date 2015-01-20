@@ -23919,3 +23919,791 @@ Started GET "/assets/dog-lover2.jpg" for 181.66.228.33 at 2015-01-14 20:31:49 +0
 
 
 Started GET "/assets/Graphie-Light.woff" for 181.66.228.33 at 2015-01-14 20:31:52 +0000
+
+
+Started GET "/" for 181.66.228.33 at 2015-01-19 23:11:53 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (17.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (Migrations are pending; run 'bin/rake db:migrate RAILS_ENV=development' to resolve this issue.):
+  activerecord (4.0.2) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.2) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:373:in `_run__4285996803407374651__call__callbacks'
+  activesupport (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  better_errors (2.0.0) lib/better_errors/middleware.rb:59:in `call'
+  rack-contrib (1.1.0) lib/rack/contrib/response_headers.rb:17:in `call'
+  meta_request (0.3.4) lib/meta_request/middlewares/headers.rb:16:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (34.7ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateBookings (20150101184602)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (285.5ms)[0m  [1mCREATE TABLE "bookings" ("id" serial primary key, "start_date" date, "end_date" date, "provider_id" integer, "user_first_name" character varying(255), "user_last_name" character varying(255), "user_phone" character varying(255), "user_email" character varying(255), "user_message" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (9.9ms)[0m  CREATE INDEX "index_bookings_on_provider_id" ON "bookings" ("provider_id")
+  [1m[36mSQL (8.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150101184602"]]
+  [1m[35m (10.7ms)[0m  COMMIT
+Migrating to AddCodigoToBookings (20150109011531)
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "bookings" ADD COLUMN "ref_code" character varying(255)
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150109011531"]]
+  [1m[35m (2.8ms)[0m  COMMIT
+Migrating to CreateReferrals (20150110001414)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (24.8ms)[0m  CREATE TABLE "referrals" ("id" serial primary key, "code_value" character varying(255), "referrer_name" character varying(255), "referrer_email" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150110001414"]]
+  [1m[35m (5.4ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mLocation Load (38.7ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Alvaro Obregón' LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Azcapotzalco' LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Benito Juárez' LIMIT 1
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Coyoacán' LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Cuajimalpa de Morelos' LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Cuauhtémoc' LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Estado de Mexico' LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Gustavo A. Madero' LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Iztacalco' LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Iztapalapa' LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'La Magdalena Contreras' LIMIT 1
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Miguel Hidalgo' LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Milpa Alta' LIMIT 1
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Querétaro' LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Tlalpan' LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Tláhuac' LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Venustiano Carranza' LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Xochimilco' LIMIT 1[0m
+  [1m[35mCategory Load (13.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Entrenador' LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Hotel' LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Paseador' LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Veterinario' LIMIT 1[0m
+
+
+Started GET "/" for 181.66.228.33 at 2015-01-19 23:12:44 +0000
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by ProvidersController#home as HTML
+  [1m[36mLocation Load (0.6ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35mProvider Load (39.3ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mLocation Load (0.7ms)[0m  [1mSELECT "locations".* FROM "locations" ORDER BY "locations"."name" ASC[0m
+  Rendered referrals/_form.html.erb (630.3ms)
+  Rendered referrals/_table_row.html.erb (2.6ms)
+  Rendered providers/home.html.erb within layouts/application (707.4ms)
+Completed 500 Internal Server Error in 932ms
+
+ActionView::Template::Error (undefined method `code' for #<Referral:0x007fbc3931cf98>):
+    1: <div class="row p-14">
+    2:   <div class="col-sm-2"><%= referral.code %></div>
+    3:   <div class="col-sm-2"><%= referral.referrer_name %></div>
+    4:   <div class="col-sm-2"><%= referral.referrer_email %></div>
+    5: </div>
+  app/views/referrals/_table_row.html.erb:2:in `_app_views_referrals__table_row_html_erb___4039230353480334700_70223192400840'
+  app/views/providers/home.html.erb:236:in `_app_views_providers_home_html_erb__3682506923836615077_70223198850460'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.7ms)
+
+
+Started GET "/" for 181.66.228.33 at 2015-01-19 23:14:16 +0000
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (3.4ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mProvider Load (0.5ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mLocation Load (0.5ms)[0m  SELECT "locations".* FROM "locations" ORDER BY "locations"."name" ASC
+  Rendered referrals/_form.html.erb (1.7ms)
+  Rendered referrals/_table_row.html.erb (4.2ms)
+  Rendered providers/home.html.erb within layouts/application (18.8ms)
+Completed 500 Internal Server Error in 42ms
+
+ActionView::Template::Error (undefined method `code_name' for #<Referral:0x007fbc380f5338>):
+    1: <div class="row p-14">
+    2:   <div class="col-sm-2"><%= referral.code_name %></div>
+    3:   <div class="col-sm-2"><%= referral.referrer_name %></div>
+    4:   <div class="col-sm-2"><%= referral.referrer_email %></div>
+    5: </div>
+  app/views/referrals/_table_row.html.erb:2:in `_app_views_referrals__table_row_html_erb___4039230353480334700_70223200352700'
+  app/views/providers/home.html.erb:236:in `_app_views_providers_home_html_erb__3682506923836615077_70223198850460'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (18.1ms)
+
+
+Started GET "/" for 181.66.228.33 at 2015-01-19 23:14:39 +0000
+Processing by ProvidersController#home as HTML
+  [1m[36mLocation Load (0.5ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35mProvider Load (0.4ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations" ORDER BY "locations"."name" ASC[0m
+  Rendered referrals/_form.html.erb (1.6ms)
+  Rendered referrals/_table_row.html.erb (0.7ms)
+  Rendered providers/home.html.erb within layouts/application (13.9ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 3249ms (Views: 3228.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 181.66.228.33 at 2015-01-19 23:14:43 +0000
+
+
+Started GET "/assets/jquery-ui/theme.css?body=1" for 181.66.228.33 at 2015-01-19 23:14:44 +0000
+
+
+Started GET "/assets/jquery-ui/autocomplete.css?body=1" for 181.66.228.33 at 2015-01-19 23:14:44 +0000
+
+
+Started GET "/assets/jquery-ui/menu.css?body=1" for 181.66.228.33 at 2015-01-19 23:14:44 +0000
+
+
+Started GET "/assets/jquery-ui/accordion.css?body=1" for 181.66.228.33 at 2015-01-19 23:14:44 +0000
+
+
+Started GET "/assets/jquery-ui/core.css?body=1" for 181.66.228.33 at 2015-01-19 23:14:44 +0000
+
+
+Started GET "/assets/jquery-ui/button.css?body=1" for 181.66.228.33 at 2015-01-19 23:14:44 +0000
+
+
+Started GET "/assets/jquery-ui/resizable.css?body=1" for 181.66.228.33 at 2015-01-19 23:14:44 +0000
+
+
+Started GET "/assets/jquery-ui/datepicker.css?body=1" for 181.66.228.33 at 2015-01-19 23:14:44 +0000
+
+
+Started GET "/assets/jquery-ui/draggable.css?body=1" for 181.66.228.33 at 2015-01-19 23:14:44 +0000
+
+
+Started GET "/assets/jquery-ui/dialog.css?body=1" for 181.66.228.33 at 2015-01-19 23:14:45 +0000
+
+
+Started GET "/assets/jquery-ui/progressbar.css?body=1" for 181.66.228.33 at 2015-01-19 23:14:45 +0000
+
+
+Started GET "/assets/jquery-ui/selectable.css?body=1" for 181.66.228.33 at 2015-01-19 23:14:45 +0000
+
+
+Started GET "/assets/jquery-ui/selectmenu.css?body=1" for 181.66.228.33 at 2015-01-19 23:14:45 +0000
+
+
+Started GET "/assets/jquery-ui/sortable.css?body=1" for 181.66.228.33 at 2015-01-19 23:14:45 +0000
+
+
+Started GET "/assets/jquery-ui/slider.css?body=1" for 181.66.228.33 at 2015-01-19 23:14:45 +0000
+
+
+Started GET "/assets/jquery-ui/spinner.css?body=1" for 181.66.228.33 at 2015-01-19 23:14:45 +0000
+
+
+Started GET "/assets/jquery-ui/tabs.css?body=1" for 181.66.228.33 at 2015-01-19 23:14:45 +0000
+
+
+Started GET "/assets/jquery-ui/tooltip.css?body=1" for 181.66.228.33 at 2015-01-19 23:14:45 +0000
+
+
+Started GET "/assets/jquery-ui/all.css?body=1" for 181.66.228.33 at 2015-01-19 23:14:46 +0000
+
+
+Started GET "/assets/jquery-ui/base.css?body=1" for 181.66.228.33 at 2015-01-19 23:14:46 +0000
+
+
+Started GET "/assets/jquery-ui.css?body=1" for 181.66.228.33 at 2015-01-19 23:14:46 +0000
+
+
+Started GET "/assets/main.css?body=1" for 181.66.228.33 at 2015-01-19 23:14:46 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:46 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:46 +0000
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:47 +0000
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:47 +0000
+
+
+Started GET "/assets/jquery.flexslider-min.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:47 +0000
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:47 +0000
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:47 +0000
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:47 +0000
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:47 +0000
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:47 +0000
+
+
+Started GET "/assets/jquery-ui/core.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:47 +0000
+
+
+Started GET "/assets/jquery-ui/widget.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:48 +0000
+
+
+Started GET "/assets/jquery-ui/position.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:48 +0000
+
+
+Started GET "/assets/jquery-ui/accordion.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:48 +0000
+
+
+Started GET "/assets/jquery-ui/autocomplete.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:48 +0000
+
+
+Started GET "/assets/jquery-ui/button.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:48 +0000
+
+
+Started GET "/assets/jquery-ui/menu.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:48 +0000
+
+
+Started GET "/assets/jquery-ui/datepicker.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:49 +0000
+
+
+Started GET "/assets/jquery-ui/draggable.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:49 +0000
+
+
+Started GET "/assets/jquery-ui/mouse.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:49 +0000
+
+
+Started GET "/assets/jquery-ui/resizable.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:49 +0000
+
+
+Started GET "/assets/jquery-ui/dialog.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:49 +0000
+
+
+Started GET "/assets/jquery-ui/droppable.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:49 +0000
+
+
+Started GET "/assets/jquery-ui/effect.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:49 +0000
+
+
+Started GET "/assets/jquery-ui/effect-bounce.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:49 +0000
+
+
+Started GET "/assets/jquery-ui/effect-blind.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:49 +0000
+
+
+Started GET "/assets/jquery-ui/effect-clip.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:50 +0000
+
+
+Started GET "/assets/jquery-ui/effect-drop.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:50 +0000
+
+
+Started GET "/assets/jquery-ui/effect-explode.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:50 +0000
+
+
+Started GET "/assets/jquery-ui/effect-fold.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:50 +0000
+
+
+Started GET "/assets/jquery-ui/effect-fade.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:50 +0000
+
+
+Started GET "/assets/jquery-ui/effect-highlight.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:50 +0000
+
+
+Started GET "/assets/jquery-ui/effect-size.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:50 +0000
+
+
+Started GET "/assets/jquery-ui/effect-pulsate.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:50 +0000
+
+
+Started GET "/assets/jquery-ui/effect-slide.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:50 +0000
+
+
+Started GET "/assets/jquery-ui/effect-shake.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:50 +0000
+
+
+Started GET "/assets/jquery-ui/effect-scale.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:50 +0000
+
+
+Started GET "/assets/jquery-ui/effect-transfer.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:51 +0000
+
+
+Started GET "/assets/jquery-ui/effect-puff.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:51 +0000
+
+
+Started GET "/assets/jquery-ui/selectable.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:51 +0000
+
+
+Started GET "/assets/jquery-ui/progressbar.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:51 +0000
+
+
+Started GET "/assets/jquery-ui/spinner.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:51 +0000
+
+
+Started GET "/assets/jquery-ui/slider.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:51 +0000
+
+
+Started GET "/assets/jquery-ui/selectmenu.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:51 +0000
+
+
+Started GET "/assets/jquery-ui/sortable.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:51 +0000
+
+
+Started GET "/assets/jquery-ui/tabs.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:52 +0000
+
+
+Started GET "/assets/jquery-ui/tooltip.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:52 +0000
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:52 +0000
+
+
+Started GET "/assets/logo-kmimos-blanco-04.png" for 181.66.228.33 at 2015-01-19 23:14:52 +0000
+
+
+Started GET "/assets/easing.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:52 +0000
+
+
+Started GET "/assets/application.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:52 +0000
+
+
+Started GET "/assets/referrals.js?body=1" for 181.66.228.33 at 2015-01-19 23:14:52 +0000
+
+
+Started GET "/assets/site-kmimos-flat-11.png" for 181.66.228.33 at 2015-01-19 23:14:52 +0000
+
+
+Started GET "/assets/site_kmimos-14.png" for 181.66.228.33 at 2015-01-19 23:14:53 +0000
+
+
+Started GET "/assets/site_kmimos-13.png" for 181.66.228.33 at 2015-01-19 23:14:53 +0000
+
+
+Started GET "/assets/dog-lover1.jpg" for 181.66.228.33 at 2015-01-19 23:14:53 +0000
+
+
+Started GET "/assets/site-kmimos-flat-14.png" for 181.66.228.33 at 2015-01-19 23:14:53 +0000
+
+
+Started GET "/assets/site-kmimos-flat-12.png" for 181.66.228.33 at 2015-01-19 23:14:53 +0000
+
+
+Started GET "/assets/site-kmimos-flat-13.png" for 181.66.228.33 at 2015-01-19 23:14:53 +0000
+
+
+Started GET "/assets/jquery-ui/ui-bg_flat_75_ffffff_40x100.png" for 181.66.228.33 at 2015-01-19 23:14:53 +0000
+
+
+Started GET "/assets/dog-lover2.jpg" for 181.66.228.33 at 2015-01-19 23:14:53 +0000
+
+
+Started GET "/assets/dog_lover3.jpg" for 181.66.228.33 at 2015-01-19 23:14:54 +0000
+
+
+Started GET "/providers/new" for 181.66.228.33 at 2015-01-19 23:14:56 +0000
+Processing by ProvidersController#new as HTML
+  [1m[35mLocation Load (0.5ms)[0m  SELECT "locations".* FROM "locations"
+  Rendered providers/_error_messages.html.erb (0.5ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories"[0m
+  Rendered providers/new.html.erb within layouts/application (127.7ms)
+  Rendered layouts/_header.html.erb (9.4ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 184ms (Views: 175.1ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/logo-kmimos-blanco-02.png" for 181.66.228.33 at 2015-01-19 23:14:56 +0000
+
+
+Started POST "/providers" for 181.66.228.33 at 2015-01-19 23:15:31 +0000
+Processing by ProvidersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ushtIAniFyvsdjZUaFznSdBICSRPa0QIl33DiHtW+os=", "provider"=>{"name"=>"andrea", "last_name_1"=>"del rio", "last_name_2"=>"lazo", "email"=>"user2@mail.com", "email_c"=>"user2@mail.com", "dni"=>"0123456789124", "phone"=>"1242141", "avatar_cache"=>"", "category_id"=>"2", "description"=>"", "location_ids"=>["", "1", "", ""], "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Regístrate"}
+  [1m[35mLocation Load (1.0ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mLocation Load (21.5ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mProvider Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "providers" WHERE "providers"."dni" = '0123456789124' LIMIT 1[0m
+  [1m[35mSQL (58.9ms)[0m  INSERT INTO "providers" ("category_id", "created_at", "description", "dni", "email", "email_c", "last_name_1", "last_name_2", "name", "password_digest", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"  [["category_id", 2], ["created_at", Mon, 19 Jan 2015 23:15:32 UTC +00:00], ["description", ""], ["dni", "0123456789124"], ["email", "user2@mail.com"], ["email_c", "user2@mail.com"], ["last_name_1", "del rio"], ["last_name_2", "lazo"], ["name", "andrea"], ["password_digest", "$2a$10$pFXv5JuXBUQ/V3A29MYxS.QyBech12zuf2E0oBCbRTcrlxLb/4TCy"], ["phone", "1242141"], ["updated_at", Mon, 19 Jan 2015 23:15:32 UTC +00:00]]
+  [1m[36mSQL (25.5ms)[0m  [1mINSERT INTO "localizations" ("location_id", "provider_id") VALUES ($1, $2) RETURNING "id"[0m  [["location_id", 1], ["provider_id", 2]]
+  [1m[35m (7.3ms)[0m  COMMIT
+Redirected to http://fierce-warrior-99-175678.sae1.nitrousbox.com/
+Completed 302 Found in 360ms (ActiveRecord: 115.8ms)
+
+
+Started GET "/" for 181.66.228.33 at 2015-01-19 23:15:32 +0000
+Processing by ProvidersController#home as HTML
+  [1m[36mLocation Load (0.6ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35mProvider Load (0.5ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mProvider Load (0.3ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations" ORDER BY "locations"."name" ASC
+  Rendered referrals/_form.html.erb (2.1ms)
+  Rendered referrals/_table_row.html.erb (0.1ms)
+  Rendered providers/home.html.erb within layouts/application (19.0ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 77ms (Views: 62.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/jquery-ui/core.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:33 +0000
+
+
+Started GET "/assets/jquery-ui/button.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:33 +0000
+
+
+Started GET "/assets/jquery-ui/accordion.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:33 +0000
+
+
+Started GET "/assets/jquery-ui/theme.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:33 +0000
+
+
+Started GET "/assets/jquery-ui/autocomplete.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:33 +0000
+
+
+Started GET "/assets/jquery-ui/menu.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:33 +0000
+
+
+Started GET "/assets/jquery-ui/datepicker.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:33 +0000
+
+
+Started GET "/assets/jquery-ui/progressbar.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:34 +0000
+
+
+Started GET "/assets/jquery-ui/sortable.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:34 +0000
+
+
+Started GET "/assets/jquery-ui/dialog.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:34 +0000
+
+
+Started GET "/assets/jquery-ui/draggable.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:34 +0000
+
+
+Started GET "/assets/jquery-ui/selectable.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:34 +0000
+
+
+Started GET "/assets/jquery-ui/selectmenu.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:34 +0000
+
+
+Started GET "/assets/jquery-ui/resizable.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:34 +0000
+
+
+Started GET "/assets/jquery-ui/slider.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:34 +0000
+
+
+Started GET "/assets/jquery-ui.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:34 +0000
+
+
+Started GET "/assets/main.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:35 +0000
+
+
+Started GET "/assets/jquery-ui/spinner.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:35 +0000
+
+
+Started GET "/assets/jquery-ui/tabs.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:35 +0000
+
+
+Started GET "/assets/jquery-ui/tooltip.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:35 +0000
+
+
+Started GET "/assets/jquery-ui/base.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:35 +0000
+
+
+Started GET "/assets/jquery-ui/all.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:35 +0000
+
+
+Started GET "/assets/jquery-ui/core.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:35 +0000
+
+
+Started GET "/assets/jquery-ui/position.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:35 +0000
+
+
+Started GET "/assets/jquery-ui/datepicker.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:36 +0000
+
+
+Started GET "/assets/jquery-ui/widget.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:36 +0000
+
+
+Started GET "/assets/jquery-ui/autocomplete.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:36 +0000
+
+
+Started GET "/assets/jquery-ui/menu.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:36 +0000
+
+
+Started GET "/assets/jquery-ui/button.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:36 +0000
+
+
+Started GET "/assets/jquery-ui/accordion.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:36 +0000
+
+
+Started GET "/assets/jquery-ui/mouse.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:36 +0000
+
+
+Started GET "/assets/jquery-ui/effect-blind.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:36 +0000
+
+
+Started GET "/assets/jquery-ui/effect.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:37 +0000
+
+
+Started GET "/assets/jquery-ui/droppable.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:37 +0000
+
+
+Started GET "/assets/jquery-ui/dialog.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:37 +0000
+
+
+Started GET "/assets/jquery-ui/resizable.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:37 +0000
+
+
+Started GET "/assets/jquery-ui/draggable.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:37 +0000
+
+
+Started GET "/assets/jquery-ui/effect-bounce.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:37 +0000
+
+
+Started GET "/assets/jquery-ui/effect-highlight.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:37 +0000
+
+
+Started GET "/assets/jquery-ui/effect-size.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:38 +0000
+
+
+Started GET "/assets/jquery-ui/effect-explode.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:38 +0000
+
+
+Started GET "/assets/jquery-ui/effect-drop.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:38 +0000
+
+
+Started GET "/assets/jquery-ui/effect-clip.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:38 +0000
+
+
+Started GET "/assets/jquery-ui/effect-fade.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:38 +0000
+
+
+Started GET "/assets/jquery-ui/effect-fold.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:38 +0000
+
+
+Started GET "/assets/jquery-ui/effect-scale.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:38 +0000
+
+
+Started GET "/assets/jquery-ui/effect-slide.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:38 +0000
+
+
+Started GET "/assets/jquery-ui/progressbar.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:38 +0000
+
+
+Started GET "/assets/jquery-ui/effect-puff.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:39 +0000
+
+
+Started GET "/assets/jquery-ui/effect-pulsate.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:39 +0000
+
+
+Started GET "/assets/jquery-ui/effect-shake.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:39 +0000
+
+
+Started GET "/assets/jquery-ui/selectable.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:39 +0000
+
+
+Started GET "/assets/jquery-ui/effect-transfer.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:39 +0000
+
+
+Started GET "/assets/jquery-ui/selectmenu.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:39 +0000
+
+
+Started GET "/assets/jquery-ui/tooltip.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:39 +0000
+
+
+Started GET "/assets/application.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:39 +0000
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:40 +0000
+
+
+Started GET "/assets/jquery-ui/spinner.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:40 +0000
+
+
+Started GET "/assets/jquery-ui/tabs.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:40 +0000
+
+
+Started GET "/assets/jquery-ui/sortable.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:40 +0000
+
+
+Started GET "/assets/jquery-ui/slider.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:40 +0000
+
+
+Started GET "/assets/referrals.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:40 +0000
+
+
+Started GET "/assets/site-kmimos-flat-11.png" for 181.66.228.33 at 2015-01-19 23:15:40 +0000
+
+
+Started GET "/assets/site_kmimos-13.png" for 181.66.228.33 at 2015-01-19 23:15:40 +0000
+
+
+Started GET "/assets/logo-kmimos-blanco-04.png" for 181.66.228.33 at 2015-01-19 23:15:40 +0000
+
+
+Started GET "/assets/site-kmimos-flat-14.png" for 181.66.228.33 at 2015-01-19 23:15:40 +0000
+
+
+Started GET "/assets/dog-lover1.jpg" for 181.66.228.33 at 2015-01-19 23:15:40 +0000
+
+
+Started GET "/assets/site-kmimos-flat-12.png" for 181.66.228.33 at 2015-01-19 23:15:40 +0000
+
+
+Started GET "/assets/site-kmimos-flat-13.png" for 181.66.228.33 at 2015-01-19 23:15:40 +0000
+
+
+Started GET "/assets/site_kmimos-14.png" for 181.66.228.33 at 2015-01-19 23:15:41 +0000
+
+
+Started GET "/assets/dog-lover2.jpg" for 181.66.228.33 at 2015-01-19 23:15:41 +0000
+
+
+Started GET "/assets/dog_lover3.jpg" for 181.66.228.33 at 2015-01-19 23:15:41 +0000
+
+
+Started GET "/images/site-kmimos-15.png" for 181.66.228.33 at 2015-01-19 23:15:46 +0000
+
+ActionController::RoutingError (No route matches [GET] "/images/site-kmimos-15.png"):
+  actionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.2) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.2) lib/rails/engine.rb:511:in `call'
+  railties (4.0.2) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/action/.parts/packages/ruby2.1/2.1.1/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.8ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/routes/_table.html.erb (21.0ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (133.2ms)
+
+
+Started DELETE "/salir" for 181.66.228.33 at 2015-01-19 23:15:49 +0000
+Processing by ProvidersSessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ushtIAniFyvsdjZUaFznSdBICSRPa0QIl33DiHtW+os="}
+Redirected to http://fierce-warrior-99-175678.sae1.nitrousbox.com/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 181.66.228.33 at 2015-01-19 23:15:49 +0000
+Processing by ProvidersController#home as HTML
+  [1m[36mLocation Load (0.6ms)[0m  [1mSELECT "locations".* FROM "locations"[0m
+  [1m[35mProvider Load (0.4ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations" ORDER BY "locations"."name" ASC[0m
+  Rendered referrals/_form.html.erb (1.7ms)
+  Rendered referrals/_table_row.html.erb (0.1ms)
+  Rendered providers/home.html.erb within layouts/application (12.8ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 64ms (Views: 50.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/jquery-ui/accordion.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:49 +0000
+
+
+Started GET "/assets/jquery-ui/autocomplete.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:50 +0000
+
+
+Started GET "/assets/jquery-ui/draggable.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:50 +0000
+
+
+Started GET "/assets/jquery-ui/selectable.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:50 +0000
+
+
+Started GET "/assets/jquery-ui/sortable.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:50 +0000
+
+
+Started GET "/assets/jquery-ui/tooltip.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:50 +0000
+
+
+Started GET "/assets/jquery-ui/base.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:50 +0000
+
+
+Started GET "/assets/jquery-ui/all.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:51 +0000
+
+
+Started GET "/assets/jquery-ui.css?body=1" for 181.66.228.33 at 2015-01-19 23:15:51 +0000
+
+
+Started GET "/assets/jquery-ui/effect-fade.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:51 +0000
+
+
+Started GET "/assets/logo-kmimos-blanco-04.png" for 181.66.228.33 at 2015-01-19 23:15:51 +0000
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:51 +0000
+
+
+Started GET "/assets/referrals.js?body=1" for 181.66.228.33 at 2015-01-19 23:15:51 +0000
+
+
+Started GET "/assets/site-kmimos-flat-14.png" for 181.66.228.33 at 2015-01-19 23:15:52 +0000
+
+
+Started GET "/assets/site-kmimos-flat-11.png" for 181.66.228.33 at 2015-01-19 23:15:52 +0000
+
+
+Started GET "/assets/site-kmimos-flat-12.png" for 181.66.228.33 at 2015-01-19 23:15:52 +0000
+
+
+Started GET "/assets/site-kmimos-flat-13.png" for 181.66.228.33 at 2015-01-19 23:15:52 +0000
+
+
+Started GET "/assets/site_kmimos-13.png" for 181.66.228.33 at 2015-01-19 23:15:52 +0000
+
+
+Started GET "/assets/dog-lover1.jpg" for 181.66.228.33 at 2015-01-19 23:15:52 +0000
+
+
+Started GET "/assets/dog-lover2.jpg" for 181.66.228.33 at 2015-01-19 23:15:52 +0000
+
+
+Started GET "/assets/dog_lover3.jpg" for 181.66.228.33 at 2015-01-19 23:15:53 +0000
