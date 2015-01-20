@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20150110001414) do
   add_index "providers", ["category_id"], name: "index_providers_on_category_id", using: :btree
 
   create_table "referrals", force: true do |t|
-    t.string   "code"
+    t.string   "code_value"
     t.string   "referrer_name"
     t.string   "referrer_email"
     t.datetime "created_at"
