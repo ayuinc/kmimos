@@ -17,21 +17,21 @@
 
   <%# Added Bootstrap classes, and help-block container for error messages %>
   <div class="form-group">
-    <%= f.label :referrer_name, class: 'control-label' %><br>
+      <%= f.label :Nombre, class: 'control-label light' %><br>
     <%= f.text_field :referrer_name, class: 'form-control' %>
     <span class="help-block"></span>
   </div>
 
   <%# Added Bootstrap classes, and help-block container for error messages %>
   <div class="form-group">
-    <%= f.label :referrer_email, class: 'control-label' %><br>
+      <%= f.label :Correo, class: 'control-label light' %><br>
     <%= f.text_field :referrer_email, class: 'form-control' %>
     <span class="help-block"></span>
   </div>
 
   <%# Added Bootstrap classes %>
   <div class="actions">
-    <%= f.submit 'General código', class: 'btn btn-default' %>
+    <%= f.submit 'General código', :id => "btn-recomendar" , class: 'btn btn-default'  %>
   </div>
 
 <% end %>

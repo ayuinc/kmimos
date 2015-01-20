@@ -102,22 +102,22 @@
       <div class="col-md-3 text-center">
         <%=image_tag('site-kmimos-flat-11.png', class: "mt--14") %>
         <h2 class="mt-35 light text-gray">Seguro</h2>
-        <h4 id="text-gray" class="p-21 light">Selecciona el servicio que necesitas y elige entre la lista de proveedores calificados.</h4>
+        <h4 id="text-gray" class="p-21 light">Tu mascota contará con un seguro de salud durante toda su estadía.</h4>
       </div>
       <div class="col-md-3 text-center">
         <%=image_tag('site-kmimos-flat-12.png', class: "mt--14") %>
-        <h2 class="mt-35 light text-gray">Revisión</h2>
-        <h4 id="text-gray" class="p-21 light">Contrata al proveedor <br> que más se ajusta a tus necesidades.</h4>
+        <h2 class="mt-35 light text-gray">Calidad</h2>
+        <h4 id="text-gray" class="p-21 light">Todos nuestros proveedores han sido previamente evaluados.</h4>
       </div>
       <div class="col-md-3 text-center">
         <%=image_tag('site-kmimos-flat-13.png', class: "mt--14") %>
         <h2 class="mt-35 light text-gray">Fotos</h2>
-        <h4 id="text-gray" class="p-21 light">Asígnale un puntaje al proveedor de acuerdo a la calidad del servicio brindado.</h4>
+        <h4 id="text-gray" class="p-21 light">Recibe fotos diarias de tu mascota para mantenerte cerca e informado.</h4>
       </div>
       <div class="col-md-3 text-center">
         <%=image_tag('site-kmimos-flat-14.png', class: "mt--14") %>
-        <h2 class="mt-35 light text-gray">Atención 24/7</h2>
-        <h4 id="text-gray" class="p-21 light">Asígnale un puntaje al proveedor de acuerdo a la calidad del servicio brindado.</h4>
+        <h2 class="mt-35 light text-gray">Atención</h2>
+        <h4 id="text-gray" class="p-21 light">Ofrecemos atención 24/7 para atender a tu mascota a cualquier hora mientras tu estas fuera.</h4>
       </div>
     </div>
   </div>
@@ -217,14 +217,13 @@
         
         <div class="row text-right mr-70">
           <%# Added Bootstrap data modal attribute %>
-          <%= link_to 'New Code', '#new_code_modal', 'data-toggle' => 'modal' %>
           <%# Bootstrap modal markup. @see: http://getbootstrap.com/javascript/#modals %>
           <div class="modal fade" id="new_code_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                  <h4 class="modal-title" id="myModalLabel">Create new code</h4>
+                      <h4 class="modal-title text-left" id="myModalLabel">Crear nuevo codigo</h4>
                 </div>
                 <div class="modal-body">
                   <%# Render the new person form (passing modal => true to enable remote => true) %>
@@ -243,9 +242,8 @@
             </div>
           </div>
           <nav>
-            <% unless current_provider %>
-            <%= link_to 'Recomendar', providers_path, :class => "mt-28 btn btn-lg text-white light", :id => "btn-recomendar", :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Home', 'BuscarAqui']);" %>
-            <% end %>  
+           
+            <%= link_to 'Recomendar', '#new_code_modal', 'data-toggle' => 'modal', :class => "mt-28 btn btn-lg text-white light", :id => "btn-recomendar" %>
           </nav>
         </div>  
       </div>
