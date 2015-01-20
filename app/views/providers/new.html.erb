@@ -1,10 +1,10 @@
 <div class="container content mh-630">
-  <div class="row mt-63">
+  <div class="row mt-35">
     <div class="col-md-2"></div>
-    <div class="col-md-8 mt-49">
-    <p>Si quieres registrarte como proveedor de kmimos, llena este formulario y nos pondremos en contacto contigo.</p>
+    <div class="col-md-8">
+    <h3>Regístrate en kmimos</h3>
       <div class="panel panel-primary">
-          <div class="panel-heading">Regístrate en kmimos</div>
+          <div class="panel-heading mb-21 text-gray">Si quieres registrarte como proveedor de kmimos, llena este formulario y nos pondremos en contacto contigo.</div>
           <div class="panel-body">
           <%= form_for @provider, :html => {:multipart => true}  do |f| %>
             <%= render "providers/error_messages" %>
@@ -112,7 +112,7 @@
               </div>
             </div>
 
-          <div class="col-md-6">
+          <div class="col-md-3 pl-0 mb-42">
              <%= f.submit "Regístrate", id: "submit", class: "btn btn-primary form-control" %>
           </div>
         <% end %>

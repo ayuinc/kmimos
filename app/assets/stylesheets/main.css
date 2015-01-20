@@ -4360,6 +4360,7 @@ button span {
 
 #btn-recomendar {
   border-radius: 5px;
+  color: white !important;
   padding: 12px 25px;
   background-color: #6cba9b;
   border: 1px solid white; }
@@ -4393,7 +4394,8 @@ button span {
   background: none !important; }
 
 .text-h1 {
-  font-size: 75px !important; }
+  font-size: 70px !important;
+  font-weight: 100 !important; }
 
 .text-h3 {
   font-size: 24px !important; }
@@ -4401,10 +4403,10 @@ button span {
 .bg-check {
   background: rgba(0, 0, 0, 0.4);
   padding: 21px;
-  margin-top: 108px; }
+  margin-top: 134px; }
 
 .form-check {
-  height: 49px !important;
+  height: 40px !important;
   border-radius: 6px !important;
   background: url(http://s11.postimg.org/3yekqnerz/calendario_05.png) !important;
   background-position: right !important;
@@ -4436,6 +4438,23 @@ button span {
   font-size: 110px !important; }
 
 .text-description {
+  line-height: 1.5 !important; }
+
+.img-logo {
+  width: 200px !important; }
+
+.separator-lg {
+  width: 163px !important;
+  width: 18rem !important; }
+
+.separator-gray {
+  border-top: 2px solid white !important;
+  width: 28px;
+  width: 2rem;
+  height: 4px;
+  height: 0.28571rem; }
+
+.line-5 {
   line-height: 1.5 !important; }
 
 .container-fluid {
@@ -4507,7 +4526,7 @@ button span {
 .header-form .form-location-nav {
   min-width: 320px;
   border-radius: 6px !important;
-  padding: 15px !important;
+  padding: 10px !important;
   margin: 0 !important; }
 
 .bg-navbar {
