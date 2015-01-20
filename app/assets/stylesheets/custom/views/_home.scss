@@ -325,6 +325,12 @@
   height: 0.28571rem;
 }
 
+.btn-login {
+  &:hover {
+    background: none !important;
+  }
+}
+
 .line-5 {
   line-height: 1.5 !important;
 }
