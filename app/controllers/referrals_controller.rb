@@ -72,6 +72,6 @@ class ReferralsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def referral_params
-      params.require(:referral).permit(:code, :referrer_name, :referrer_email)
+      params.require(:referral).permit(:code_value, :referrer_name, :referrer_email)
     end
 end

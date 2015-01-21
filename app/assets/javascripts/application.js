@@ -134,7 +134,7 @@ function allLabel() {
     // close modal
     // this.modal('hide');
     // this.removeClass('hidden');
-    this.find('.modal-title').html("Código de referencia");
+    this.find('.modal-title').html("Este es tu código de descuento. Cuando realices tu próxima reserva, utiliza este código y obtén 10% de descuento.");
     this.find('.modal-body').hide();
 
     // clear form input elements
