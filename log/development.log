@@ -40317,3 +40317,11 @@ Started GET "/assets/server_carnet.png" for 181.66.228.33 at 2015-01-21 21:52:07
 
 Started GET "/assets/site-kmimos-12.png" for 181.66.228.33 at 2015-01-21 21:52:07 +0000
 >>>>>>> 34ceff891308cec7ce705cbeba704f6d14e97de6
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeleteReferrals (20150121213023)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (82.9ms)[0m  [1mDROP TABLE "referrals"[0m
+  [1m[35m (275.9ms)[0m  CREATE TABLE "referrals" ("id" serial primary key, "code_value" character varying(255), "referrer_name" character varying(255), "referrer_email" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (2.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150121213023"]]
+  [1m[35m (20.8ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
