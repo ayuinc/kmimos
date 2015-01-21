@@ -3,30 +3,30 @@
   <!-- new booking row -->
   <div class="row bg-navbar">
     <div class="col-sm-1"></div>
-    <div class="col-sm-10 pl-70">
-      <%= search_form_for @search do |f| %>
-      <div class="row header-form">
-        <%= f.collection_select :locations_id_eq, Location.order(:name), :id, :name,{include_blank:"Elegir Municipio"}, {class:"borderless form-location-nav"} %> 
-  
-        
-        <div class="col-sm-3">
-          <% if session[:start_date].nil? %>
-            <%= text_field_tag(:start_date, nil, class: 'datepicker form-control form-check', placeholder: 'DD/MM/AAAA') %>
-          <% else %>
-            <%= text_field_tag(:start_date, session[:start_date].strftime("%d/%m/%Y"), class: 'datepicker form-control form-check', placeholder: 'DD/MM/AAAA') %>
-          <% end %>
+    <div class="col-sm-10 pl-70 col-xs-10">
+          <%= search_form_for @search do |f| %>
+          <div class="row header-form">
+            <%= f.collection_select :locations_id_eq, Location.order(:name), :id, :name,{include_blank:"Elegir Municipio"}, {class:"borderless form-location-nav"} %> 
+     
+            
+            <div class="col-sm-3 col-xs-in">
+              <% if session[:start_date].nil? %>
+                <%= text_field_tag(:start_date, nil, class: 'form-control form-check', placeholder: 'DD/MM/AAAA') %>
+              <% else %>
+                <%= text_field_tag(:start_date, session[:start_date].strftime("%d/%m/%Y"), class: 'datepicker form-control form-check', placeholder: 'DD/MM/AAAA') %>
+              <% end %>
+            </div>
+            <div class="col-sm-3 col-xs-out">
+              <% if session[:end_date].nil? %>
+                <%= text_field_tag(:end_date, nil, class: 'form-control form-check', placeholder: 'DD/MM/AAAA') %>
+              <% else %>
+                <%= text_field_tag(:end_date, session[:end_date].strftime("%d/%m/%Y"), class: 'datepicker form-control form-check', placeholder: 'DD/MM/AAAA') %>
+              <% end %>
+            </div>
+            <%= f.submit "Buscar", class:"ml-7 borderless form-search" %>
+            <% end %>
+          </div>
         </div>
-        <div class="col-sm-3">
-          <% if session[:end_date].nil? %>
-            <%= text_field_tag(:end_date, nil, class: 'datepicker form-control form-check', placeholder: 'DD/MM/AAAA') %>
-          <% else %>
-            <%= text_field_tag(:end_date, session[:end_date].strftime("%d/%m/%Y"), class: 'datepicker form-control form-check', placeholder: 'DD/MM/AAAA') %>
-          <% end %>
-        </div>
-        <%= f.submit "Buscar", class:"ml-7 borderless form-search" %>
-        <% end %>
-      </div>
-    </div>
     <div class="col-sm-1"></div>
   </div>
   <!-- new booking row ends -->
@@ -38,7 +38,7 @@
   <% @providers.each do |provider| %>
   <div class="row mt-14 mb-14">
     <div class="col-md-2"></div>   
-    <div class="col-md-8 p-0 list-profiles">
+    <div class="col-md-8 list-profiles">
       <div class="col-md-3 text-center p-14">
         <% if provider.avatar? %>
         <%= image_tag(provider.avatar_url(:thumb), :class => "img-circle") %>
@@ -48,27 +48,31 @@
         <%= image_tag('server_carnet.png', :class => "img-circle" ) %>
         <% end %>
          <div class="row mt-7 ">
-           <h4 class="light mb-14">Mex $<%= provider.price %> / noche</h4>
-           <div class="col-md-1"></div>
-           <div class="col-md-2 pl-0 pr-7 col-xs-2">
-             <%= image_tag('huellitas-amarillas.png', :class => "img-responsive huellas-img" ) %>
+           <div class="col-xs-1 hidden-lg"></div>
+           <div class="col-xs-10 col-md-12">
+             <h4 class="light mb-14">Mex $<%= provider.price %> / noche</h4>
+             <div class="col-md-1 col-xs-1"></div>
+             <div class="col-md-2 pl-0 pr-7 col-xs-2">
+               <%= image_tag('huellitas-amarillas.png', :class => "img-responsive huellas-img" ) %>
+             </div>
+             <div class="col-md-2 pl-0 pr-7 col-xs-2">
+               <%= image_tag('huellitas-amarillas.png', :class => "img-responsive huellas-img" ) %>
+             </div>
+             <div class="col-md-2 pl-0 pr-7 col-xs-2">
+               <%= image_tag('huellitas-amarillas.png', :class => "img-responsive huellas-img" ) %>
+             </div>
+             <div class="col-md-2 pl-0 pr-7 col-xs-2">
+               <%= image_tag('huellitas-amarillas.png', :class => "img-responsive huellas-img" ) %>
+             </div>
+             <div class="col-md-2 pl-0 pr-7 col-xs-2">
+               <%= image_tag('huellitas-amarillas.png', :class => "img-responsive huellas-img" ) %>
+             </div>
            </div>
-           <div class="col-md-2 pl-0 pr-7 col-xs-2">
-             <%= image_tag('huellitas-amarillas.png', :class => "img-responsive huellas-img" ) %>
-           </div>
-           <div class="col-md-2 pl-0 pr-7 col-xs-2">
-             <%= image_tag('huellitas-amarillas.png', :class => "img-responsive huellas-img" ) %>
-           </div>
-           <div class="col-md-2 pl-0 pr-7 col-xs-2">
-             <%= image_tag('huellitas-amarillas.png', :class => "img-responsive huellas-img" ) %>
-           </div>
-           <div class="col-md-2 pl-0 pr-7 col-xs-2">
-             <%= image_tag('huellitas-amarillas.png', :class => "img-responsive huellas-img" ) %>
-           </div>
+           
          </div>
         <%= link_to "Reservar".html_safe, new_booking_path(:provider_id => provider.id, :start_date => @start_date, :end_date => @end_date), :class => "mt-14 mb-21 btn btn-reservar bg-primary" %>
       </div>
-      <div class="col-md-8 pt-14">
+      <div class="col-md-8 pt-14 text-description">
         <h3 class="text-left text-gray"><%= provider.name %> <%= provider.last_name_1 %> <%= provider.last_name_2 %></h3>
         <h5 class="text-left text-graylight"><%= provider.category.name %></h5>
         <p class="text-left light lead text-description"><%= provider.description %></p>

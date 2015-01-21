@@ -59,27 +59,29 @@
    
     <div class="container-sm">
       <div class="row text-center text-white pt-70">
-        <h1 class="text-h1 mb-0 light">Deja a tu mascota en<br> buenas manos</h1>
+        <div class="col-md-12 col-xs-6">
+          <h1 class="text-h1 mb-0 light">Deja a tu mascota en<br> buenas manos</h1>
+        </div>
       </div>
     </div>
     <div class="container-fluid">
       <div class="row bg-check">
-        <h4 class="text-h3 lead mt-0 text-center text-white mb-0">Ellos también se merecen unas vacaciones, elige donde y cuando:</h4>
+        <h4 class="text-h3 lead mt-0 text-center text-white mb-0">Ellos también se merecen unas vacaciones, elige cuando y en donde:</h4>
         <div class="col-sm-1"></div>
-        <div class="col-sm-10 pl-63">
+        <div class="col-sm-10 pl-63 col-xs-10">
           <%= search_form_for @search do |f| %>
           <div class="row header-form">
             <%= f.collection_select :locations_id_eq, Location.order(:name), :id, :name,{include_blank:"Elegir Municipio"}, {class:"borderless form-location-nav"} %> 
      
             
-            <div class="col-sm-3">
+            <div class="col-sm-3 col-xs-in">
               <% if session[:start_date].nil? %>
                 <%= text_field_tag(:start_date, nil, class: 'form-control form-check', placeholder: 'DD/MM/AAAA') %>
               <% else %>
                 <%= text_field_tag(:start_date, session[:start_date].strftime("%d/%m/%Y"), class: 'datepicker form-control form-check', placeholder: 'DD/MM/AAAA') %>
               <% end %>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-3 col-xs-out">
               <% if session[:end_date].nil? %>
                 <%= text_field_tag(:end_date, nil, class: 'form-control form-check', placeholder: 'DD/MM/AAAA') %>
               <% else %>
@@ -102,22 +104,22 @@
       <div class="col-md-3 text-center">
         <%=image_tag('site-kmimos-flat-11.png', class: "mt--14") %>
         <h2 class="mt-28 light text-gray">Seguro</h2>
-        <h4 id="text-gray" class="p-7 mt-0 light line-5">Tu mascota contará con un seguro de salud durante toda su estadía.</h4>
+        <h4 id="text-gray" class="p-7 mt-0 light line-5 mb-21">Tu mascota contará con un seguro de salud durante toda su estadía.</h4>
       </div>
       <div class="col-md-3 text-center">
         <%=image_tag('site-kmimos-flat-12.png', class: "mt--14") %>
         <h2 class="mt-28 light text-gray">Calidad</h2>
-        <h4 id="text-gray" class="p-7 mt-0 light line-5">Todos nuestros proveedores han sido previamente evaluados.</h4>
+        <h4 id="text-gray" class="p-7 mt-0 light line-5 mb-21">Todos nuestros proveedores han sido previamente evaluados.</h4>
       </div>
       <div class="col-md-3 text-center">
         <%=image_tag('site-kmimos-flat-13.png', class: "mt--14") %>
         <h2 class="mt-28 light text-gray">Fotos</h2>
-        <h4 id="text-gray" class="p-7 mt-0 light line-5">Recibe fotos diarias de tu mascota para mantenerte cerca e informado.</h4>
+        <h4 id="text-gray" class="p-7 mt-0 light line-5 mb-21">Recibe fotos diarias de tu mascota para mantenerte cerca e informado.</h4>
       </div>
       <div class="col-md-3 text-center">
         <%=image_tag('site-kmimos-flat-14.png', class: "mt--14") %>
         <h2 class="mt-28 light text-gray">Atención</h2>
-        <h4 id="text-gray" class="p-7 mt-0 light line-5">Ofrecemos atención 24/7 para atender a tu mascota a cualquier hora mientras tú estás fuera.</h4>
+        <h4 id="text-gray" class="p-7 mt-0 light line-5 mb-21">Ofrecemos atención 24/7 para atender a tu mascota a cualquier hora mientras tú estás fuera.</h4>
       </div>
     </div>
   </div>
@@ -207,7 +209,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 m-28">
-        <div class="text-white text-right dsct mt-56 mr-70">
+        <div class="text-white text-right dsct mt-56 mr-70 text-recomendar">
           <h2 class="text-white mt-7 fz-50 mb-0">Recomiéndanos</h2>
           <h4 class="light mb-0 fz-30 mt-0">y tendrás</h4>
           <h1 class="dsct-10 mb-0 mt-0">10%</h1>

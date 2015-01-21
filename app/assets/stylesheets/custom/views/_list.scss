@@ -52,6 +52,10 @@
         background: #6cba9b;
         color: white;
         margin-bottom: 0px !important;
+        @media #{$xs-only} {
+          padding: 10px 78px;
+          margin-left: 0px !important;
+        }
 			}
 			.form-search:hover {
 				color: white;
@@ -106,15 +110,33 @@
 
 .header-form {
     .form-location-nav {
-    min-width: 320px;
-    border-radius: 6px !important;
-    padding: 10px !important;
-    margin: 0 !important;
-  }
+      min-width: 320px;
+      border-radius: 6px !important;
+      padding: 10px !important;
+      margin: 0 !important;
+      @media #{$xs-only} {
+        min-width: 198px;
+      }
+    }
 }
 .bg-navbar {
-    background: rgba(0, 0, 0, 0.4);
-    padding: 5px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 5px;
+  .header-form {
+    @media #{$xs-only} {
+      margin-left: 10px;
+    }
+    .form-location-nav {
+      @media #{$xs-only} {
+        min-width: 191px;
+      }   
+    }
+    .form-search {
+      @media #{$xs-only} {
+        padding: 10px 73px !important;
+      }
+    }
+  }
 }
 
 .list-profiles {

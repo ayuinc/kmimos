@@ -4399,6 +4399,9 @@ button span {
 .text-h1 {
   font-size: 70px !important;
   font-weight: 100 !important; }
+  @media only screen and (max-width: 480px) {
+    .text-h1 {
+      font-size: 37px !important; } }
 
 .text-h3 {
   font-size: 24px !important; }
@@ -4456,6 +4459,9 @@ button span {
   width: 2rem;
   height: 4px;
   height: 0.28571rem; }
+  @media only screen and (max-width: 480px) {
+    .separator-gray {
+      margin-right: 48px; } }
 
 .btn-login:hover {
   background: none !important; }
@@ -4468,6 +4474,31 @@ button span {
 
 .line-5 {
   line-height: 1.5 !important; }
+
+@media only screen and (max-width: 480px) {
+  .col-xs-in {
+    padding-left: 0px;
+    margin: 14px 0px; } }
+
+@media only screen and (max-width: 480px) {
+  .col-xs-out {
+    padding-left: 0px !important;
+    margin-bottom: 14px; } }
+
+@media only screen and (max-width: 480px) {
+  .text-recomendar {
+    text-align: center;
+    margin-right: 0px !important;
+    margin-top: 100px !important; } }
+@media only screen and (max-width: 480px) {
+  .text-recomendar h2 {
+    font-size: 41px !important; } }
+
+@media only screen and (max-width: 480px) {
+  .text-description h3,
+  .text-description h5,
+  .text-description p {
+    text-align: center !important; } }
 
 .container-fluid {
   padding-right: 15px;
@@ -4506,6 +4537,10 @@ button span {
       background: #6cba9b;
       color: white;
       margin-bottom: 0px !important; }
+      @media only screen and (max-width: 480px) {
+        .container-fluid .row form .form-search {
+          padding: 10px 78px;
+          margin-left: 0px !important; } }
     .container-fluid .row form .form-search:hover {
       color: white;
       opacity: 0.9; }
@@ -4540,10 +4575,22 @@ button span {
   border-radius: 6px !important;
   padding: 10px !important;
   margin: 0 !important; }
+  @media only screen and (max-width: 480px) {
+    .header-form .form-location-nav {
+      min-width: 198px; } }
 
 .bg-navbar {
   background: rgba(0, 0, 0, 0.4);
   padding: 5px; }
+  @media only screen and (max-width: 480px) {
+    .bg-navbar .header-form {
+      margin-left: 10px; } }
+  @media only screen and (max-width: 480px) {
+    .bg-navbar .header-form .form-location-nav {
+      min-width: 191px; } }
+  @media only screen and (max-width: 480px) {
+    .bg-navbar .header-form .form-search {
+      padding: 10px 73px !important; } }
 
 .list-profiles {
   margin-top: 20px;

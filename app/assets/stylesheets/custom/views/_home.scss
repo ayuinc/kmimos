@@ -252,6 +252,9 @@
 .text-h1 {
   font-size: 70px !important;
   font-weight: 100 !important;
+  @media #{$xs-only} {
+    font-size: 37px !important;
+  } 
 }
 
 .text-h3 {
@@ -323,6 +326,9 @@
   width: 2rem;
   height: 4px;
   height: 0.28571rem;
+  @media #{$xs-only} {
+    margin-right: 48px;
+  }
 }
 
 .btn-login {
@@ -340,4 +346,40 @@
 
 .line-5 {
   line-height: 1.5 !important;
+}
+
+.col-xs-in {
+  @media #{$xs-only} {
+    padding-left: 0px;
+    margin: 14px 0px;
+  }
+}
+
+.col-xs-out {
+  @media #{$xs-only} {
+    padding-left: 0px !important;
+    margin-bottom: 14px;
+  }
+}
+
+.text-recomendar {
+  @media #{$xs-only} {
+    text-align: center;
+    margin-right: 0px !important;
+    margin-top: 100px !important;
+  }
+  h2 {
+    @media #{$xs-only} {
+      font-size: 41px !important;
+    }
+  }
+}
+.text-description {
+  h3,
+  h5,
+  p {
+    @media #{$xs-only} {
+      text-align: center !important;
+    }
+  }
 }
