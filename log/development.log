@@ -938,3 +938,387 @@ Started GET "/assets/site_kmimos-14.png" for 181.66.228.33 at 2015-01-21 00:00:2
 
 
 Started GET "/assets/dog_lover3.jpg" for 181.66.228.33 at 2015-01-21 00:00:24 +0000
+
+
+Started GET "/assets/jquery-ui/core.css?body=1" for 181.66.228.33 at 2015-01-21 15:19:49 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (15.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/assets/jquery-ui/menu.css?body=1" for 181.66.228.33 at 2015-01-21 15:19:49 +0000
+
+
+Started GET "/assets/jquery-ui/theme.css?body=1" for 181.66.228.33 at 2015-01-21 15:19:49 +0000
+
+
+Started GET "/assets/application.css?body=1" for 181.66.228.33 at 2015-01-21 15:19:49 +0000
+
+
+Started GET "/assets/jquery-ui/accordion.css?body=1" for 181.66.228.33 at 2015-01-21 15:19:49 +0000
+
+
+Started GET "/assets/jquery-ui/autocomplete.css?body=1" for 181.66.228.33 at 2015-01-21 15:19:49 +0000
+
+
+Started GET "/assets/jquery-ui/datepicker.css?body=1" for 181.66.228.33 at 2015-01-21 15:19:50 +0000
+
+
+Started GET "/assets/jquery-ui/button.css?body=1" for 181.66.228.33 at 2015-01-21 15:19:50 +0000
+
+
+Started GET "/assets/jquery-ui/draggable.css?body=1" for 181.66.228.33 at 2015-01-21 15:19:50 +0000
+
+
+Started GET "/assets/jquery-ui/dialog.css?body=1" for 181.66.228.33 at 2015-01-21 15:19:50 +0000
+
+
+Started GET "/assets/jquery-ui/resizable.css?body=1" for 181.66.228.33 at 2015-01-21 15:19:50 +0000
+
+
+Started GET "/assets/jquery-ui/selectmenu.css?body=1" for 181.66.228.33 at 2015-01-21 15:19:51 +0000
+
+
+Started GET "/assets/jquery-ui/sortable.css?body=1" for 181.66.228.33 at 2015-01-21 15:19:51 +0000
+
+
+Started GET "/assets/jquery-ui/progressbar.css?body=1" for 181.66.228.33 at 2015-01-21 15:19:51 +0000
+
+
+Started GET "/assets/jquery-ui/spinner.css?body=1" for 181.66.228.33 at 2015-01-21 15:19:51 +0000
+
+
+Started GET "/assets/jquery-ui/slider.css?body=1" for 181.66.228.33 at 2015-01-21 15:19:51 +0000
+
+
+Started GET "/assets/jquery-ui/selectable.css?body=1" for 181.66.228.33 at 2015-01-21 15:19:51 +0000
+
+
+Started GET "/assets/jquery-ui/tooltip.css?body=1" for 181.66.228.33 at 2015-01-21 15:19:51 +0000
+
+
+Started GET "/assets/jquery-ui/tabs.css?body=1" for 181.66.228.33 at 2015-01-21 15:19:51 +0000
+
+
+Started GET "/assets/jquery-ui.css?body=1" for 181.66.228.33 at 2015-01-21 15:19:51 +0000
+
+
+Started GET "/assets/main.css?body=1" for 181.66.228.33 at 2015-01-21 15:19:51 +0000
+
+
+Started GET "/assets/jquery-ui/base.css?body=1" for 181.66.228.33 at 2015-01-21 15:19:51 +0000
+
+
+Started GET "/assets/jquery-ui/all.css?body=1" for 181.66.228.33 at 2015-01-21 15:19:51 +0000
+
+
+Started GET "/" for 181.66.228.33 at 2015-01-21 15:31:45 +0000
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (13.2ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mLocation Load (1.7ms)[0m  [1mSELECT "locations".* FROM "locations" ORDER BY "locations"."name" ASC[0m
+  Rendered referrals/_form.html.erb (410.6ms)
+  Rendered referrals/_table_row.html.erb (6.5ms)
+  Rendered providers/home.html.erb within layouts/application (515.1ms)
+Completed 500 Internal Server Error in 681ms
+
+ActionView::Template::Error (undefined method `code_value' for #<Referral:0x007ff063322e80>):
+    1: <div class="row p-14">
+    2:   <div class="col-sm-2"><%= referral.code_value %></div>
+    3:   <div class="col-sm-2"><%= referral.referrer_name %></div>
+    4:   <div class="col-sm-2"><%= referral.referrer_email %></div>
+    5: </div>
+  app/views/referrals/_table_row.html.erb:2:in `_app_views_referrals__table_row_html_erb___27573754721035560_70335206042860'
+  app/views/providers/home.html.erb:236:in `_app_views_providers_home_html_erb___130256444306460261_70335217545080'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (24.4ms)
+
+
+Started GET "/" for 181.66.228.33 at 2015-01-21 15:35:14 +0000
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (0.5ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mLocation Load (0.5ms)[0m  [1mSELECT "locations".* FROM "locations" ORDER BY "locations"."name" ASC[0m
+  Rendered referrals/_form.html.erb (3.8ms)
+  Rendered referrals/_table_row.html.erb (15.6ms)
+  Rendered providers/home.html.erb within layouts/application (60.1ms)
+Completed 500 Internal Server Error in 78ms
+
+ActionView::Template::Error (undefined method `code_value' for #<Referral:0x007ff062733110>):
+    1: <!-- <div class="row p-14">
+    2:   <div class="col-sm-2"><%= referral.code_value %></div>
+    3:   <div class="col-sm-2"><%= referral.referrer_name %></div>
+    4:   <div class="col-sm-2"><%= referral.referrer_email %></div>
+    5: </div> -->
+  app/views/referrals/_table_row.html.erb:2:in `_app_views_referrals__table_row_html_erb___27573754721035560_70335211817760'
+  app/views/providers/home.html.erb:236:in `_app_views_providers_home_html_erb___130256444306460261_70335217545080'
+
+
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered /home/action/.gem/ruby/2.1.1/gems/actionpack-4.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (20.9ms)
+
+
+Started GET "/" for 181.66.228.33 at 2015-01-21 15:35:25 +0000
+Processing by ProvidersController#home as HTML
+  [1m[35mLocation Load (0.5ms)[0m  SELECT "locations".* FROM "locations"
+  [1m[36mLocation Load (0.4ms)[0m  [1mSELECT "locations".* FROM "locations" ORDER BY "locations"."name" ASC[0m
+  Rendered referrals/_form.html.erb (1.6ms)
+  Rendered referrals/_table_row.html.erb (0.4ms)
+  Rendered providers/home.html.erb within layouts/application (19.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 7542ms (Views: 7536.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/jquery-ui/theme.css?body=1" for 181.66.228.33 at 2015-01-21 15:35:35 +0000
+
+
+Started GET "/assets/jquery-ui/accordion.css?body=1" for 181.66.228.33 at 2015-01-21 15:35:35 +0000
+
+
+Started GET "/assets/jquery-ui/core.css?body=1" for 181.66.228.33 at 2015-01-21 15:35:35 +0000
+
+
+Started GET "/assets/application.css?body=1" for 181.66.228.33 at 2015-01-21 15:35:35 +0000
+
+
+Started GET "/assets/jquery-ui/menu.css?body=1" for 181.66.228.33 at 2015-01-21 15:35:35 +0000
+
+
+Started GET "/assets/jquery-ui/autocomplete.css?body=1" for 181.66.228.33 at 2015-01-21 15:35:36 +0000
+
+
+Started GET "/assets/jquery-ui/datepicker.css?body=1" for 181.66.228.33 at 2015-01-21 15:35:37 +0000
+
+
+Started GET "/assets/jquery-ui/resizable.css?body=1" for 181.66.228.33 at 2015-01-21 15:35:37 +0000
+
+
+Started GET "/assets/jquery-ui/draggable.css?body=1" for 181.66.228.33 at 2015-01-21 15:35:37 +0000
+
+
+Started GET "/assets/jquery-ui/selectable.css?body=1" for 181.66.228.33 at 2015-01-21 15:35:37 +0000
+
+
+Started GET "/assets/jquery-ui/dialog.css?body=1" for 181.66.228.33 at 2015-01-21 15:35:37 +0000
+
+
+Started GET "/assets/jquery-ui/button.css?body=1" for 181.66.228.33 at 2015-01-21 15:35:37 +0000
+
+
+Started GET "/assets/jquery-ui/progressbar.css?body=1" for 181.66.228.33 at 2015-01-21 15:35:38 +0000
+
+
+Started GET "/assets/jquery-ui/selectmenu.css?body=1" for 181.66.228.33 at 2015-01-21 15:35:38 +0000
+
+
+Started GET "/assets/jquery-ui/sortable.css?body=1" for 181.66.228.33 at 2015-01-21 15:35:38 +0000
+
+
+Started GET "/assets/jquery-ui/slider.css?body=1" for 181.66.228.33 at 2015-01-21 15:35:38 +0000
+
+
+Started GET "/assets/jquery-ui/base.css?body=1" for 181.66.228.33 at 2015-01-21 15:35:39 +0000
+
+
+Started GET "/assets/jquery-ui/spinner.css?body=1" for 181.66.228.33 at 2015-01-21 15:35:40 +0000
+
+
+Started GET "/assets/jquery-ui/tooltip.css?body=1" for 181.66.228.33 at 2015-01-21 15:35:40 +0000
+
+
+Started GET "/assets/jquery-ui/tabs.css?body=1" for 181.66.228.33 at 2015-01-21 15:35:40 +0000
+
+
+Started GET "/assets/main.css?body=1" for 181.66.228.33 at 2015-01-21 15:35:40 +0000
+
+
+Started GET "/assets/jquery-ui.css?body=1" for 181.66.228.33 at 2015-01-21 15:35:40 +0000
+
+
+Started GET "/assets/jquery-ui/all.css?body=1" for 181.66.228.33 at 2015-01-21 15:35:41 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:41 +0000
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:41 +0000
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:41 +0000
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:42 +0000
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:42 +0000
+
+
+Started GET "/assets/bootstrap/z_popover.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:42 +0000
+
+
+Started GET "/assets/jquery.flexslider-min.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:43 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:43 +0000
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:43 +0000
+
+
+Started GET "/assets/jquery-ui/widget.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:43 +0000
+
+
+Started GET "/assets/jquery-ui/core.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:43 +0000
+
+
+Started GET "/assets/jquery-ui/position.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:44 +0000
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:44 +0000
+
+
+Started GET "/assets/jquery-ui/button.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:44 +0000
+
+
+Started GET "/assets/jquery-ui/accordion.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:44 +0000
+
+
+Started GET "/assets/jquery-ui/autocomplete.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:44 +0000
+
+
+Started GET "/assets/jquery-ui/menu.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:44 +0000
+
+
+Started GET "/assets/jquery-ui/mouse.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:45 +0000
+
+
+Started GET "/assets/jquery-ui/dialog.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:45 +0000
+
+
+Started GET "/assets/jquery-ui/droppable.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:45 +0000
+
+
+Started GET "/assets/jquery-ui/effect.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:46 +0000
+
+
+Started GET "/assets/jquery-ui/effect-blind.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:46 +0000
+
+
+Started GET "/assets/jquery-ui/draggable.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:46 +0000
+
+
+Started GET "/assets/jquery-ui/datepicker.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:47 +0000
+
+
+Started GET "/assets/jquery-ui/resizable.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:47 +0000
+
+
+Started GET "/assets/jquery-ui/effect-clip.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:47 +0000
+
+
+Started GET "/assets/jquery-ui/effect-bounce.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:47 +0000
+
+
+Started GET "/assets/jquery-ui/effect-drop.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:47 +0000
+
+
+Started GET "/assets/jquery-ui/effect-highlight.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:48 +0000
+
+
+Started GET "/assets/jquery-ui/effect-size.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:48 +0000
+
+
+Started GET "/assets/jquery-ui/effect-scale.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:49 +0000
+
+
+Started GET "/assets/jquery-ui/effect-puff.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:49 +0000
+
+
+Started GET "/assets/jquery-ui/effect-explode.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:49 +0000
+
+
+Started GET "/assets/jquery-ui/effect-fade.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:49 +0000
+
+
+Started GET "/assets/jquery-ui/effect-fold.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:49 +0000
+
+
+Started GET "/assets/jquery-ui/effect-pulsate.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:49 +0000
+
+
+Started GET "/assets/jquery-ui/effect-shake.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:50 +0000
+
+
+Started GET "/assets/jquery-ui/effect-transfer.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:50 +0000
+
+
+Started GET "/assets/jquery-ui/selectable.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:51 +0000
+
+
+Started GET "/assets/jquery-ui/slider.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:51 +0000
+
+
+Started GET "/assets/jquery-ui/sortable.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:51 +0000
+
+
+Started GET "/assets/jquery-ui/selectmenu.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:51 +0000
+
+
+Started GET "/assets/jquery-ui/effect-slide.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:52 +0000
+
+
+Started GET "/assets/jquery-ui/progressbar.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:52 +0000
+
+
+Started GET "/assets/jquery-ui/tooltip.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:52 +0000
+
+
+Started GET "/assets/jquery-ui/tabs.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:53 +0000
+
+
+Started GET "/assets/jquery-ui/spinner.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:53 +0000
+
+
+Started GET "/assets/referrals.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:53 +0000
+
+
+Started GET "/assets/logo-kmimos-blanco-04.png" for 181.66.228.33 at 2015-01-21 15:35:54 +0000
+
+
+Started GET "/assets/application.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:54 +0000
+
+
+Started GET "/assets/easing.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:54 +0000
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 181.66.228.33 at 2015-01-21 15:35:55 +0000
+
+
+Started GET "/assets/site-kmimos-flat-11.png" for 181.66.228.33 at 2015-01-21 15:35:55 +0000
+
+
+Started GET "/assets/site-kmimos-flat-13.png" for 181.66.228.33 at 2015-01-21 15:35:56 +0000
+
+
+Started GET "/assets/site-kmimos-flat-12.png" for 181.66.228.33 at 2015-01-21 15:35:56 +0000
+
+
+Started GET "/assets/site-kmimos-flat-14.png" for 181.66.228.33 at 2015-01-21 15:35:57 +0000
+
+
+Started GET "/assets/site_kmimos-13.png" for 181.66.228.33 at 2015-01-21 15:35:57 +0000
+
+
+Started GET "/assets/dog-lover1.jpg" for 181.66.228.33 at 2015-01-21 15:35:57 +0000
+
+
+Started GET "/assets/site_kmimos-14.png" for 181.66.228.33 at 2015-01-21 15:35:57 +0000
+
+
+Started GET "/assets/dog_lover3.jpg" for 181.66.228.33 at 2015-01-21 15:35:58 +0000
+
+
+Started GET "/assets/dog-lover2.jpg" for 181.66.228.33 at 2015-01-21 15:35:58 +0000
+
+
+Started GET "/assets/jquery-ui/ui-bg_flat_75_ffffff_40x100.png" for 181.66.228.33 at 2015-01-21 15:35:58 +0000
