@@ -4191,6 +4191,9 @@ html[xmlns] .slides {
 .navbar {
   margin-bottom: 0; }
 
+.dropdown-toggle:hover, .dropdown-toggle:focus {
+  background: none !important; }
+
 .navbar .navbar-collapse ul li a {
   text-decoration: none;
   border-radius: 4px;
@@ -4547,6 +4550,9 @@ button span {
   margin-bottom: 20px;
   border: 0;
   border-bottom: 1px solid #bbb; }
+
+.dropdown-menu {
+  left: -23px !important; }
 
 #error_explanation {
   color: red; }
