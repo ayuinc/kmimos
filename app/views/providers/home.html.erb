@@ -58,15 +58,15 @@
     </div>
    
     <div class="container-sm">
-      <div class="row text-center text-white mt-70 pt-70">
+      <div class="row text-center text-white pt-70">
         <h1 class="text-h1 mb-0 light">Deja a tu mascota en<br> buenas manos</h1>
       </div>
     </div>
     <div class="container-fluid">
       <div class="row bg-check">
-        <h4 class="text-h3 lead mt-0 text-center text-white mb-0">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur.</h4>
+        <h4 class="text-h3 lead mt-0 text-center text-white mb-0">Ellos también se merecen unas vacaciones, elige donde y cuando:</h4>
         <div class="col-sm-1"></div>
-        <div class="col-sm-10">
+        <div class="col-sm-10 pl-63">
           <%= search_form_for @search do |f| %>
           <div class="row header-form">
             <%= f.collection_select :locations_id_eq, Location.order(:name), :id, :name,{include_blank:"Elegir Municipio"}, {class:"borderless form-location-nav"} %> 
@@ -97,8 +97,8 @@
 </section>
 <section id="home-pasos" class="text-center bg-muted">
   <div class="container text-center">
-    <div class="row text-center p-28"><h1 class="light" id="text-gray">Beneficios</h1></div>
-    <div class="row mb-35">
+    <div class="row text-center p-28"><h1 class="light mt-7" id="text-gray">Beneficios</h1></div>
+    <div class="row mb-35 pl-42 pr-56">
       <div class="col-md-3 text-center">
         <%=image_tag('site-kmimos-flat-11.png', class: "mt--14") %>
         <h2 class="mt-28 light text-gray">Seguro</h2>
@@ -117,7 +117,7 @@
       <div class="col-md-3 text-center">
         <%=image_tag('site-kmimos-flat-14.png', class: "mt--14") %>
         <h2 class="mt-28 light text-gray">Atención</h2>
-        <h4 id="text-gray" class="p-7 mt-0 light line-5">Ofrecemos atención 24/7 para atender a tu mascota a cualquier hora mientras tu estas fuera.</h4>
+        <h4 id="text-gray" class="p-7 mt-0 light line-5">Ofrecemos atención 24/7 para atender a tu mascota a cualquier hora mientras tú estás fuera.</h4>
       </div>
     </div>
   </div>
@@ -143,7 +143,7 @@
               </div>
               <div class="col-md-6 server-desc text-center"><hr>
                 <p class="text-white light lead">
-                  In convallis fringilla urna vel tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia vitae elementum tortor, laoreet lacinia augue aptent taciti sociosqu lorem.</p>
+                  Lo máximo poder ver las fotos todos los días de tobby, mil gracias a Alberto Martinez por haber cuidado a tobby de la mejor manera.</p>
                 <h3 id="text-white"id="text-yellow" class="light">Daniel Cáceres</h3>
                 <hr>
               </div>
@@ -165,7 +165,7 @@
                 <%=image_tag('site_kmimos-13.png', class: "img-comillas-1") %>
               </div>
               <div class="col-md-6 server-desc text-center"><hr>
-                <p class="text-white light lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae mauris diam. Fusce auctor risus mollis. Suspendisse a felis non est fringilla porttitor in a aptent taciti sociosqu.</p>
+                <p class="text-white light lead">Ahora puedo viajar tranquilo sabiendo que Max no va a estar enjaulado en el veterinario todo el tiempo.</p>
                 <h3 id="text-white" class="light">Cesar Mejía</h3>
                 <hr>
               </div>
@@ -188,7 +188,7 @@
 
               </div>
               <div class="col-md-6 server-desc text-center"><hr>
-                <p class="text-white light lead">Nulla sed pellentesque felis. Etiam in est dolor. Nunc malesuada, risus in tincidunt dictum, ligula nibh aliquet justo, eu eleifend dolor sapien at turpis aptent taciti sociosqu.</p>
+                <p class="text-white light lead">Recomiendo con los ojos cerrados a Jorge Bello porque es un excelente cuidador, cada vez que viaje le dejare encargado a mi mascota.</p>
                 <h3 id="text-white" class="light">Martha López</h3>
                 <hr>
               </div>

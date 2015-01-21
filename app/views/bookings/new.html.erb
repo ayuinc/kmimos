@@ -1,18 +1,19 @@
 <div class="container content mh-630">
   <div class="row">
-    <h2 class="text-center">Confirma tu reserva</h2>
+    <h2 class="text-center mt-35">Confirma tu reserva</h2>
     <div class="col-md-2"></div>
-    <div class="col-md-8 mt-21">
-      <h2 class="text-gray">Detalle de tu reserva:</h2>
+    <div class="col-md-8 mt-21 mb-42">
+      <h3 class="text-gray mb-28">Detalle de tu reserva:</h3>
         <% if !session[:start_date].nil? %>
-          <h4 class="text-gray"><small class="text-black">Check-in:</small> <%= session[:start_date].strftime("%d/%m/%Y") %></h3>
+          <h4 class="text-gray"><small class="text-black bold">Check-in:</small> <%= session[:start_date].strftime("%d/%m/%Y") %></h3>
         <% end %></h4>
         <% if !session[:end_date].nil? %>
-          <h4 class="text-gray"><small class="text-black">Check-out:</small> <%= session[:end_date].strftime("%d/%m/%Y") %></h4>
+          <h4 class="text-gray"><small class="text-black bold">Check-out:</small> <%= session[:end_date].strftime("%d/%m/%Y") %></h4>
         <% end %>
     </h4>
-      <h4 class="text-gray"><small class="text-black">Cuidador:</small> <%= Provider.find(session[:chosen_provider_id]).name %> <%= Provider.find(session[:chosen_provider_id]).last_name_1 %> <%= Provider.find(session[:chosen_provider_id]).last_name_2 %></h4>
-      <hr>
+      <h4 class="text-gray"><small class="text-black bold">Cuidador:</small> <%= Provider.find(session[:chosen_provider_id]).name %> <%= Provider.find(session[:chosen_provider_id]).last_name_1 %> <%= Provider.find(session[:chosen_provider_id]).last_name_2 %></h4>
+      <h4 class="text-gray"><small class="text-black bold">Precio:</small> Mex $200 / noche</h4>
+      <hr class="hr-gray">
         <div class="panel panel-primary">
             <div class="panel-heading"><h2>Completa tus datos:</h2></div>
             <div class="panel-body">
@@ -20,22 +21,22 @@
               <%= render "bookings/error_messages" %>
               <div class="form-group row">
                 <div class="col-md-6">
-                  <%= f.label :user_first_name, "Nombre:", class: "h3 light" %><br>
+                  <%= f.label :user_first_name, "Nombre:", class: "h3 light text-gray" %><br>
                   <%= f.text_field :user_first_name, class: "form-control mb-21" %>
-                  <%= f.label :user_phone, "Teléfono:", class: "light h3" %><br>
+                  <%= f.label :user_phone, "Teléfono:", class: "light h3 text-gray" %><br>
                   <%= f.text_field :user_phone, class: "form-control mb-21" %>
                   
                 </div>
                 <div class="col-md-6 pl-0">
-                  <%= f.label :user_last_name, "Apellido:", class: "h3 light" %><br>
+                  <%= f.label :user_last_name, "Apellido:", class: "h3 light text-gray" %><br>
                   <%= f.text_field :user_last_name, class: "form-control mb-21" %>
-                  <%= f.label :user_email, "E-mail:", class: "light h3" %><br>
+                  <%= f.label :user_email, "E-mail:", class: "light h3 text-gray" %><br>
                   <%= f.text_field :user_email, class: "form-control mb-21" %>
                 </div>
               </div>
               <div class="form-group row">
                 <div class="col-md-12">
-                  <%= f.label :user_message, "Mensaje:", class: "h3 light" %><br>
+                  <%= f.label :user_message, "Mensaje:", class: "h3 light text-gray" %><br>
                   <%= f.text_area :user_message, class: "form-control" %>
 <!--                   <%= f.label :ref_code, "Código de descuento:" %><br> -->
 <!--                   <%= f.text_field :ref_code, class: "form-control" %> -->
@@ -50,8 +51,11 @@
               </div> 
 
 
-            <div class="col-md-3 pl-0">
-               <%= f.submit "Confirmar", id: "reservar", class: "btn btn-primary form-control" %>
+            <div class="col-md-3 pr-28 pl-0">
+              <%= f.submit "Atrás", id: "reservar", class: "btn mt-21 btn-primary form-control" %>
+            </div>
+            <div class="col-md-3 pr-28 pl-0">
+              <%= f.submit "Confirmar", id: "reservar", class: "btn mt-21 btn-primary form-control" %>
             </div>
           <% end %>
             </div> <!-- panel-body -->
