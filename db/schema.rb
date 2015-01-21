@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150110001414) do
+ActiveRecord::Schema.define(version: 20150121173240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20150110001414) do
     t.text     "description"
     t.string   "email_c"
     t.string   "avatar"
+    t.float    "price"
   end
 
   add_index "providers", ["category_id"], name: "index_providers_on_category_id", using: :btree
