@@ -3,7 +3,7 @@
   <!-- new booking row -->
   <div class="row bg-navbar">
     <div class="col-sm-1"></div>
-    <div class="col-sm-10">
+    <div class="col-sm-10 pl-70">
       <%= search_form_for @search do |f| %>
       <div class="row header-form">
         <%= f.collection_select :locations_id_eq, Location.order(:name), :id, :name,{include_blank:"Elegir Municipio"}, {class:"borderless form-location-nav"} %> 
@@ -47,30 +47,31 @@
         <% else %>
         <%= image_tag('server_carnet.png', :class => "img-circle" ) %>
         <% end %>
-         <div class="row mt-21">
+         <div class="row mt-7 ">
+           <h4 class="light mb-14">Mex $<%= provider.price %> / noche</h4>
            <div class="col-md-1"></div>
-           <div class="col-md-2 pl-0">
+           <div class="col-md-2 pl-0 pr-7 col-xs-2">
              <%= image_tag('huellitas-amarillas.png', :class => "img-responsive huellas-img" ) %>
            </div>
-           <div class="col-md-2 pl-0">
+           <div class="col-md-2 pl-0 pr-7 col-xs-2">
              <%= image_tag('huellitas-amarillas.png', :class => "img-responsive huellas-img" ) %>
            </div>
-           <div class="col-md-2 pl-0">
+           <div class="col-md-2 pl-0 pr-7 col-xs-2">
              <%= image_tag('huellitas-amarillas.png', :class => "img-responsive huellas-img" ) %>
            </div>
-           <div class="col-md-2 pl-0">
+           <div class="col-md-2 pl-0 pr-7 col-xs-2">
              <%= image_tag('huellitas-amarillas.png', :class => "img-responsive huellas-img" ) %>
            </div>
-           <div class="col-md-2 pl-0">
+           <div class="col-md-2 pl-0 pr-7 col-xs-2">
              <%= image_tag('huellitas-amarillas.png', :class => "img-responsive huellas-img" ) %>
            </div>
          </div>
         <%= link_to "Reservar".html_safe, new_booking_path(:provider_id => provider.id, :start_date => @start_date, :end_date => @end_date), :class => "mt-14 mb-21 btn btn-reservar bg-primary" %>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-8 pt-14">
         <h3 class="text-left text-gray"><%= provider.name %> <%= provider.last_name_1 %> <%= provider.last_name_2 %></h3>
         <h5 class="text-left text-graylight"><%= provider.category.name %></h5>
-        <h4 class="text-left text-description"><%= provider.description %></h4>
+        <p class="text-left light lead text-description"><%= provider.description %></p>
       </div>
       <div class="col-md-1"></div>
     </div>

@@ -1,7 +1,7 @@
 #home-filters {
   // background: url(http://s3.postimg.org/9z6tol4jn/casa.jpg) no-repeat;
   background-image: url(http://s9.postimg.org/y5f8sf1zj/foto_modificada_05.png);
-  min-height: 638px;
+  min-height: 589px;
   background-size: cover;
   background-repeat: no-repeat;
   .text-fold {
@@ -260,8 +260,8 @@
 
 .bg-check {
   background: rgba(0,0,0,0.4);
-  padding: 21px;
-  margin-top: 134px;
+  padding: 18px;
+  margin-top: 136px;
 }
 
 .form-check {
@@ -309,7 +309,7 @@
 }
 
 .img-logo {
-  width: 200px !important;
+  width: 190px !important;
 }
 
 .separator-lg {
@@ -329,6 +329,13 @@
   &:hover {
     background: none !important;
   }
+}
+
+.hr-gray {
+  margin-top: 49px !important;
+  margin-bottom: 49px !important;
+  border: 0;
+  border-top: 2px solid #aaa !important;
 }
 
 .line-5 {

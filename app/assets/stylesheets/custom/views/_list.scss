@@ -48,7 +48,7 @@
 			}
 			.form-search {
 				border-radius: 5px;
-        padding: 9px 23px;
+        padding: 10px 32px;
         background: #6cba9b;
         color: white;
         margin-bottom: 0px !important;
@@ -124,3 +124,6 @@
   border-bottom: 1px solid #bbb;
 }
 
+.dropdown-menu {
+  left: -23px !important;
+}

@@ -4191,6 +4191,9 @@ html[xmlns] .slides {
 .navbar {
   margin-bottom: 0; }
 
+.dropdown-toggle:hover, .dropdown-toggle:focus {
+  background: none !important; }
+
 .navbar .navbar-collapse ul li a {
   text-decoration: none;
   border-radius: 4px;
@@ -4211,7 +4214,7 @@ button span {
 
 #home-filters {
   background-image: url(http://s9.postimg.org/y5f8sf1zj/foto_modificada_05.png);
-  min-height: 638px;
+  min-height: 589px;
   background-size: cover;
   background-repeat: no-repeat; }
   #home-filters .text-fold {
@@ -4402,8 +4405,8 @@ button span {
 
 .bg-check {
   background: rgba(0, 0, 0, 0.4);
-  padding: 21px;
-  margin-top: 134px; }
+  padding: 18px;
+  margin-top: 136px; }
 
 .form-check {
   height: 40px !important;
@@ -4441,7 +4444,7 @@ button span {
   line-height: 1.5 !important; }
 
 .img-logo {
-  width: 200px !important; }
+  width: 190px !important; }
 
 .separator-lg {
   width: 163px !important;
@@ -4456,6 +4459,12 @@ button span {
 
 .btn-login:hover {
   background: none !important; }
+
+.hr-gray {
+  margin-top: 49px !important;
+  margin-bottom: 49px !important;
+  border: 0;
+  border-top: 2px solid #aaa !important; }
 
 .line-5 {
   line-height: 1.5 !important; }
@@ -4493,7 +4502,7 @@ button span {
       color: gray; }
     .container-fluid .row form .form-search {
       border-radius: 5px;
-      padding: 9px 23px;
+      padding: 10px 32px;
       background: #6cba9b;
       color: white;
       margin-bottom: 0px !important; }
@@ -4541,6 +4550,9 @@ button span {
   margin-bottom: 20px;
   border: 0;
   border-bottom: 1px solid #bbb; }
+
+.dropdown-menu {
+  left: -23px !important; }
 
 #error_explanation {
   color: red; }
