@@ -46,6 +46,8 @@ class ProvidersController < ApplicationController
   # POST /providers.json
   def create
     @provider = Provider.new(provider_params)
+    @hotel_id = Category.find_by_name("Hotel").id 
+    @provider.category_id = @hotel_id
       if @provider.save
         session[:provider_id] = @provider.id
         flash.now[:success] = "Hola #{@provider.name}, bienvenido a Servihogar."
