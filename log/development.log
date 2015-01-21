@@ -24451,3 +24451,15 @@ Started GET "/assets/dog-lover2.jpg" for 181.66.228.33 at 2015-01-21 20:53:34 +0
 
 
 Started GET "/assets/jquery-ui/ui-bg_flat_75_ffffff_40x100.png" for 181.66.228.33 at 2015-01-21 20:53:34 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeleteReferrals (20150121213023)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeleteReferrals (20150121213023)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (220.4ms)[0m  [1mDROP TABLE "referrals"[0m
+  [1m[35m (169.3ms)[0m  CREATE TABLE "referrals" ("id" serial primary key, "code_value" character varying(255), "referrer_name" character varying(255), "referrer_email" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150121213023"]]
+  [1m[35m (10.4ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
