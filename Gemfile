@@ -31,7 +31,7 @@ gem 'unicorn'
 
 gem 'carrierwave'
 gem 'rmagick', '2.13.3', :require => 'RMagick'
-gem 'fog'
+gem 'fog', '~> 1.24.0'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

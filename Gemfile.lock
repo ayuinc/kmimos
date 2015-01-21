@@ -331,7 +331,7 @@ DEPENDENCIES
   database_cleaner
   factory_girl_rails (= 4.2.1)
   faker
-  fog
+  fog (~> 1.24.0)
   foreman
   guard-cucumber
   guard-rspec
