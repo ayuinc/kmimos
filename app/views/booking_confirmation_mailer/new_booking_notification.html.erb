@@ -1,18 +1,17 @@
-Hola <%= @booking.user_first_name %>, <br>
-Muchas gracias por haber solicitado una reserva con Kmimos. <br> Abajo los detalles de tu solicitud: <br>
+<p>Hola <%= @booking.user_first_name %>,</p>
+<p>Muchas gracias por haber solicitado una reserva con Kmimos. </p> 
+<p>Abajo los detalles de tu solicitud: </p>
 
 <% unless @booking.start_date.nil? %> 
-Check-in: <%= @booking.start_date.strftime("%d/%m/%Y") %><br>
+<p>Check-in: <%= @booking.start_date.strftime("%d/%m/%Y") %></p>
 <% end %>
 <% unless @booking.end_date.nil? %>
-Check-out: <%= @booking.end_date.strftime("%d/%m/%Y") %><br>
+<p>Check-out: <%= @booking.end_date.strftime("%d/%m/%Y") %></p>
 <% end %>
-Nombre del cuidador: <%= Provider.find(@booking.provider_id).name %>  <%= Provider.find(@booking.provider_id).last_name_1 %><br>
-Precio por noche: $MXN <%= Provider.find(@booking.provider_id).price %><br>
+<p>Nombre del cuidador: <%= Provider.find(@booking.provider_id).name %>  <%= Provider.find(@booking.provider_id).last_name_1 %></p>
+<p>Precio por noche: $MXN <%= Provider.find(@booking.provider_id).price %></p>
+<p>Durante las próximas 24 horas recibirás una llamada telefónica o te contactaremos por correo electrónico para coordinar la logística de la estadía de tu mascota.</p>
+<p>Cualquier pregunta no dudes en contactarnos al + 55 6631 9264.</p>
 
-Durante las próximas 24 horas recibirás una llamada telefónica o te contactaremos por correo electrónico para coordinar la logística de la estadía de tu mascota.<br>
-
-Cualquier pregunta no dudes en contactarnos al + 55 6631 9264.<br>
-
-¡Gracias!
-Roberto de Kmimos
+<p>¡Gracias!</p>
+<p>Roberto de Kmimos</p>
