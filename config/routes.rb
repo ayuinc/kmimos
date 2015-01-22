@@ -15,4 +15,6 @@ ServihogarRails::Application.routes.draw do
 
   resources :categories, only: [:show]
 
+  get 'pages/thank_you' => 'high_voltage/pages#show', id: 'thank_you'
+  
 end
