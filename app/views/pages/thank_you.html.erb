@@ -13,16 +13,18 @@
         <% if !session[:end_date].nil? %>
           <h4 class="text-gray"><small class="text-black bold">Check-out:</small> <%= session[:end_date].strftime("%d/%m/%Y") %></h4>
         <% end %>
+        <% if !session[:chosen_provider_id].nil? %>
       <h4 class="text-gray"><small class="text-black bold">Cuidador:</small> <%= Provider.find(session[:chosen_provider_id]).name %> <%= Provider.find(session[:chosen_provider_id]).last_name_1 %> <%= Provider.find(session[:chosen_provider_id]).last_name_2 %></h4>
   <h4 class="text-gray"><small class="text-black bold">Precio:</small> Mex $<%= Provider.find(session[:chosen_provider_id]).price %> / noche</h4>
+        <% end %>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12 text-center">
         <h3>Para tu comodidad hemos enviado la información a:</h3>
       
-      <% unless @booking.nil? %>
-        <h4>Correo: <%= @booking.user_email %></h4>
+        <% unless session[:user_email].nil? %>
+        <h4><%= session[:user_email] %></h4>
       <% end %>
         <hr class="mt-42">
       </div>

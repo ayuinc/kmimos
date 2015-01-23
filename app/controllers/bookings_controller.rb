@@ -15,7 +15,8 @@ class BookingsController < ApplicationController
     	flash[:success] = 'Reserva realizada. Te hemos enviado un correo de confirmación.'
 	    session[:start_date] = nil
 	    session[:end_date] = nil
-	    redirect_to root_path
+      session[:user_email] = @booking.user_email
+	    redirect_to  pages_thank_you_path
 	  else
 	    render 'new'
 	  end
