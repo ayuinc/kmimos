@@ -1,4 +1,4 @@
-class ProvidersController < ApplicationController
+  class ProvidersController < ApplicationController
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
   before_action :require_current_provider, only: [:edit]
   before_action :get_ranges, except: [:show]
