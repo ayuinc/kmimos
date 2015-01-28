@@ -10,7 +10,7 @@
   # GET /providers.json
   def index
     @search = Provider.search(params[:q])
-    @providers = @search.result.order("last_name_1 ASC")
+    @providers = @search.result.order("last_name_1 DESC")
   end
 
   def home
