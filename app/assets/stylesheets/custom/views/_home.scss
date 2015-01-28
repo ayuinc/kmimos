@@ -131,6 +131,21 @@
   padding-left: 90px;
 }
 
+.locations-dd {
+  @media #{$xs-only} {
+    padding-left: 0 !important;
+ }
+}
+
+.search-btn {
+  @media #{$xs-only} {
+    margin-top: 14px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+ }
+}
+
+
 .demo {
   padding-left: 42%;
   padding-top: 5%;
@@ -265,10 +280,15 @@
   background: rgba(0,0,0,0.4);
   padding: 18px;
   margin-top: 136px;
+  .form-search {
+    @media #{$xs-only} {
+      padding: 10px 85px !important;
+    }
+  }
 }
 
 .form-check {
-  height: 40px !important;
+  // height: 40px !important;
   border-radius: 6px !important;
   background: url(http://s11.postimg.org/3yekqnerz/calendario_05.png) !important;
   background-position: right !important;
@@ -351,12 +371,14 @@
 .col-xs-in {
   @media #{$xs-only} {
     padding-left: 0px;
+    padding-right: 0px;
     margin: 14px 0px;
   }
 }
 
 .col-xs-out {
   @media #{$xs-only} {
+    padding-right: 0px;
     padding-left: 0px !important;
     margin-bottom: 14px;
   }
