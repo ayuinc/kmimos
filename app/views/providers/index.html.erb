@@ -72,7 +72,7 @@
            </div>
            
          </div>
-        <%= link_to "Reservar".html_safe, new_booking_path(:provider_id => provider.id, :start_date => @start_date, :end_date => @end_date), :class => "mt-14 mb-21 btn btn-reservar bg-primary" %>
+        <%= link_to "Reservar".html_safe, new_booking_path(:provider_id => provider.id, :start_date => @start_date, :end_date => @end_date), :class => "mt-14 mb-21 btn btn-reservar bg-primary",  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Reservar', 'provider_#{provider.id.to_s}']);"  %>
       </div>
       <div class="col-md-8 pt-14 text-description">
         <h3 class="text-left text-gray"><%= provider.name %> <%= provider.last_name_1 %> <%= provider.last_name_2 %></h3>
