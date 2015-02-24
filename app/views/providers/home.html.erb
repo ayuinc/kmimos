@@ -1,3 +1,4 @@
+<script type="text/javascript" src="//cdn.sublimevideo.net/js/8n5auym4.js"></script>
 <section id="home-filters"> 
   <div class="container-fluid pr-0">
    <div class="navbar p-7">
@@ -60,15 +61,20 @@
     <div class="container-sm">
       <div class="row text-center text-white pt-70">
         <div class="col-md-12 col-xs-6">
-          <h1 class="text-h1 mb-0 light">Deja a tu mascota en<br> buenas manos</h1>
+          <h1 class="mb-7 light">Viaja con tranquilidad dejando a tu mascota en buenas manos</h1>
+          <a href="#video1" class="btn-how btn sublime" data-youtube-id="oA9NUwVqwlU">
+            Cómo funciona
+          </a>
+          <video id="video1" width="640" height="360" style="display:none" data-uid="" data-youtube-id="oA9NUwVqwlU" preload="none">
+          </video>
         </div>
       </div>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid mt-21">
       <div class="row bg-check">
-        <h4 class="text-h3 lead mt-0 text-center text-white mb-0">Ellos también se merecen unas vacaciones, elige cuando y en donde:</h4>
-        <div class="col-sm-1"></div>
-        <div class="col-sm-10 pl-63 col-xs-10">
+        <h4 class="text-h3 lead mt-0 text-center text-white mb-0">Busca cuidadores calificados para que atiendan a tu mascota mientras estas de viaje</h4>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-9 col-xs-10">
           <%= search_form_for @search do |f| %>
           <div class="row header-form">
             <div class="col-sm-3 col-xs-in">
@@ -89,7 +95,7 @@
               <%= f.collection_select :locations_id_eq, Location.order(:name), :id, :name,{include_blank:"Elegir Municipio"}, {class:"input-lg borderless form-location-nav"} %> 
             </div>
             <div class="col-sm-3 search-btn">
-              <%= f.submit "Buscar", class:"ml-7 borderless form-search" %>
+              <%= f.submit "Buscar", class:"ml-21 borderless form-search" %>
             </div>
             <% end %>
           </div>
@@ -159,7 +165,7 @@
             <div class="row ml-0 mr-0">
                <div class="col-md-4"></div>
                <div class="col-md-4 server-pic mt-56 mb-21">
-                 <%=image_tag('dog-lover2.jpg', class: "img-circle img-responsive") %>
+                 <%=image_tag('camacho.jpg', class: "img-circle img-responsive") %>
                </div>
                <div class="col-md-4"></div>
             </div>
@@ -181,7 +187,7 @@
             <div class="row ml-0 mr-0">
                <div class="col-md-4"></div>
                <div class="col-md-4 server-pic mt-56 mb-21">
-                 <%=image_tag('dog_lover3.jpg', class: "img-circle img-responsive") %>
+                 <%=image_tag('giovanni.jpg', class: "img-circle img-responsive") %>
                </div>
                <div class="col-md-4"></div>
             </div>
@@ -247,10 +253,12 @@
           </div>
           <nav>
            
-            <%= link_to 'Recomendar', '#new_code_modal', 'data-toggle' => 'modal', :class => "mt-28 btn btn-lg text-white light", :id => "btn-recomendar" %>
+            <%= link_to 'Recomendar', '#new_code_modal', 'data-toggle' => 'modal', :class => "mt-28 btn btn-lg text-white light", :id => "btn-recomendar", :onClick=>"_gaq.push(['_trackEvent', 'Homepage', 'Recomendar-modal-trigger']);"  %>
           </nav>
         </div>  
       </div>
     </div>
   </div>
 </section>
+
+

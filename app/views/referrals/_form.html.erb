@@ -31,7 +31,7 @@
 
   <%# Added Bootstrap classes %>
   <div class="actions">
-    <%= f.submit 'Generar código', :id => "btn-recomendar" , class: 'btn btn-default'  %>
+    <%= f.submit 'Generar código', :id => "btn-recomendar" , class: 'btn btn-default', :onClick=>"_gaq.push(['_trackEvent', 'Modal', 'Generar-codigo']);"  %>
   </div>
 
 <% end %>
