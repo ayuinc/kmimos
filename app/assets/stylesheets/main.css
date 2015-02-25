@@ -4706,15 +4706,16 @@ button span {
 
 .btn-how {
   font-family: "proxima-nova", Helvetica, Arial, sans-serif !important;
-  font-weight: 100;
+  font-weight: 300;
   font-style: normal;
+  background: rgba(255, 255, 255, 0.45);
+  border-style: none;
   color: white;
   width: 200px;
   font-size: 18px;
-  font-size: rem(18px);
-  border: 2px solid white;
-  border-radius: 4px; }
+  font-size: rem(18px); }
   .btn-how:hover {
+    background-color: rgba(0, 0, 0, 0.35);
     color: white; }
 
 .xl {
