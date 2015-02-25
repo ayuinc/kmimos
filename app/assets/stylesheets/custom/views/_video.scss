@@ -1,16 +1,18 @@
 .btn-how {
-    background: rgba(108, 122, 137,0.7);
-    border-style: none;
+    // background: rgba(108, 122, 137,0.7);
+    @include thin;
     color: white;
-    font-size: 20px;
-    font-size: rem(20px);
-    border-color: #565a5c;
+    width: 200px;
+    font-size: 18px;
+    font-size: rem(18px);
+    border: 2px solid white;
+    border-radius: 4px;
     &:hover {
       color: white;
     }
 }
 
-// .form-search {
-//     display: block;
-//     margin: 0 auto;
-// }
+.xl {
+	font-size: 48px;
+	font-size: rem(48px);
+}

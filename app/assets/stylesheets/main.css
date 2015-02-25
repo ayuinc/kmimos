@@ -4085,17 +4085,12 @@ html[xmlns] .slides {
   .flex-direction-nav .flex-next {
     opacity: 1;
     right: 10px; } }
-.btn-how {
-  background: rgba(108, 122, 137, 0.7);
-  border-style: none;
-  color: white;
-  font-size: 20px;
-  font-size: rem(20px);
-  border-color: #565a5c; }
-  .btn-how:hover {
-    color: white; }
-
 /* PROJECT ESPECIFIC FONTS */
+.thin {
+  font-family: "proxima-nova", Helvetica, Arial, sans-serif !important;
+  font-weight: 100;
+  font-style: normal; }
+
 .light {
   font-family: "proxima-nova", Helvetica, Arial, sans-serif !important;
   font-weight: 300;
@@ -4223,7 +4218,7 @@ button span {
   padding-top: 10px; }
 
 #home-filters {
-  background-image: url(http://s9.postimg.org/y5f8sf1zj/foto_modificada_05.png);
+  background-image: url(http://s3.postimg.org/cx057ann7/fondo_kmimos.png);
   min-height: 589px;
   background-size: cover;
   background-repeat: no-repeat; }
@@ -4708,6 +4703,23 @@ button span {
 
 #myModalLabel img {
   width: 170px; }
+
+.btn-how {
+  font-family: "proxima-nova", Helvetica, Arial, sans-serif !important;
+  font-weight: 100;
+  font-style: normal;
+  color: white;
+  width: 200px;
+  font-size: 18px;
+  font-size: rem(18px);
+  border: 2px solid white;
+  border-radius: 4px; }
+  .btn-how:hover {
+    color: white; }
+
+.xl {
+  font-size: 48px;
+  font-size: rem(48px); }
 
 .ui-datepicker th {
   font-family: "Graphie light" !important; }
