@@ -189,7 +189,8 @@
           text-align: center;
           padding-left: 100px;
           img {
-            width: 200px;
+            height: 200px;
+            width: auto;
           }
         }
         .server-desc {
@@ -197,11 +198,11 @@
           color: white;
           text-shadow: none;
           a {
-            border-radius: 21px;
-            background-color: #F9F936;
-            padding: 1px 28px;
-            border: 2px solid white;
-            color: black;
+            // border-radius: 21px;
+            // background-color: #F9F936;
+            // padding: 1px 28px;
+            // border: 2px solid white;
+            color: white;
           }
         }
       }
