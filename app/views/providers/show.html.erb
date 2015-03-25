@@ -30,6 +30,12 @@
   <%= @provider.category %>
 </p>
 
+<h3>mostrando photos</h3>
+<% @provider_attachments.each do |p| %>
+  <%= image_tag p.photo_url, :size => "150x150" %>
+  <%= link_to "Destroy", p, method: :delete %>
+<% end %>
+
 <%= link_to 'Edit', edit_provider_path(@provider) %> |
 <%= link_to 'Back', providers_path %>
 

@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150121213023) do
+ActiveRecord::Schema.define(version: 20150325222506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "albums", force: true do |t|
+    t.integer "provider_id"
+  end
+
+  add_index "albums", ["provider_id"], name: "index_albums_on_provider_id", using: :btree
 
   create_table "bookings", force: true do |t|
     t.date     "start_date"
@@ -48,6 +54,13 @@ ActiveRecord::Schema.define(version: 20150121213023) do
     t.string "name"
   end
 
+  create_table "photos", force: true do |t|
+    t.integer "album_id"
+    t.string  "image"
+  end
+
+  add_index "photos", ["album_id"], name: "index_photos_on_album_id", using: :btree
+
   create_table "pictures", force: true do |t|
     t.string   "image"
     t.integer  "imageable_id"
@@ -57,6 +70,20 @@ ActiveRecord::Schema.define(version: 20150121213023) do
   end
 
   add_index "pictures", ["imageable_id", "imageable_type"], name: "index_pictures_on_imageable_id_and_imageable_type", using: :btree
+
+  create_table "post_attachments", force: true do |t|
+    t.integer "provider_id"
+    t.string  "attachment"
+  end
+
+  add_index "post_attachments", ["provider_id"], name: "index_post_attachments_on_provider_id", using: :btree
+
+  create_table "provider_attachments", force: true do |t|
+    t.integer  "provider_id"
+    t.string   "photo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "providers", force: true do |t|
     t.string   "name"

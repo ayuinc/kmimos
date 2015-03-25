@@ -113,6 +113,14 @@
               </div>
             </div>
 
+            <h2>fotos varias</h2> 
+            <%= f.fields_for :provider_attachments do |p| %>
+              <div class="field">
+                <%= p.label :photo %><br>
+                <%= p.file_field :photo, :multiple => true, name: "provider_attachments[photo][]" %>
+              </div>
+            <% end %>
+
           <div class="col-md-3 pl-0 mb-42">
              <%= f.submit "Regístrate", id: "submit", class: "btn btn-primary form-control" %>
           </div>
