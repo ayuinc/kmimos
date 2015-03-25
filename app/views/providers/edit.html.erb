@@ -98,6 +98,18 @@
               </div>
             </div>
 
+            <h2>fotos varias</h2> 
+            <%= f.fields_for :provider_attachments do |p| %>
+              <div class="field">
+                <%= p.label :photo %><br>
+                <%= p.file_field :photo, :multiple => true, name: "provider_attachments[photo][]" %>
+              </div>
+            <% end %>
+
+            <% @provider.provider_attachments.each do |p| %>
+              <%= image_tag p.photo, :size => "150x150" %>
+            <% end %>
+
       <div class="form-group mt-14">
         <%= f.submit "Actualizar perfil", id: "submit", class: "btn btn-primary-grad" %>
       </div>

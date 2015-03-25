@@ -1,9 +1,9 @@
 class Provider < ActiveRecord::Base
   belongs_to :category
   has_secure_password
-  has_many :pictures, as: :imageable
-  accepts_nested_attributes_for :pictures 
   mount_uploader :avatar, AvatarUploader
+  has_many :provider_attachments
+  accepts_nested_attributes_for :provider_attachments
   validates_presence_of :email, :category_id, :name, :last_name_1, :last_name_2, :phone, :dni
   validates_format_of :email, with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates_uniqueness_of :dni
