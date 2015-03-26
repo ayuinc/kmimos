@@ -1,5 +1,6 @@
 class Provider < ActiveRecord::Base
   belongs_to :category
+  belongs_to :propiedad
   has_secure_password
   has_many :age
   has_many :size
