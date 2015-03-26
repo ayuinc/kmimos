@@ -4,8 +4,8 @@
     <div class="col-md-7">
       <span>Publicado el 2013&middot;10&middot;16</span>
       <div class="info">
-        <div class="user">
-          <div class="user-card user-card-round size xs">
+        <div class="user border-bottom">
+          <div class="user-card user-card-round size xs mb-21">
             <div class="user-pic flex-middle">                        
               <% if @provider.avatar? %>
               <%= image_tag(@provider.avatar_url(:thumb), :class => "img-circle") %>
@@ -13,8 +13,8 @@
               <%= image_tag('server_carnet.png', :class => "img-circle" ) %>
               <% end %>
             </div>
-            <div class="user-info">
-              <h1 class="text-primary m-0">Daniel Cáceres Villegas</h1>
+            <div class="user-info ml-42 mt-14">
+              <h1 class="m-0">Jorge Bello</h1>
               <span>Consectur adipiscing</span>
             </div>
           </div>

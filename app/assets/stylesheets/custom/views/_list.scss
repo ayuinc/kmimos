@@ -71,7 +71,8 @@
       
       .col-md-3 {
         img {
-          width: 105px;
+          width: 105px; 
+          border: 1px solid #ccc;
         }
       }
       .btn-reservar {
@@ -138,9 +139,10 @@
 }
 
 .list-profiles {
-  border: 2px solid #ccc; 
+  border: 1px solid #ccc; 
   margin-top: 20px;
   margin-bottom: 20px;
+  height: 209px;
 }
 
 .dropdown-menu {
@@ -174,7 +176,7 @@
   -ms-flex-direction: row;
   .user-pic {
     img {
-      width: 70px;
+      width: 90px;
     }
   }
 }
@@ -217,4 +219,8 @@
 
 .text-secondary {
   color: #1DBA9A;
+}
+
+.border-bottom {
+  margin-bottom: 21px;
 }
