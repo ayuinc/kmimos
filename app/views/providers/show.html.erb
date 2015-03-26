@@ -50,7 +50,12 @@
       </div>
       <div class="ubicacion border-top">
         <h2>Ubicación</h2>
-        <%=image_tag('maxresdefault.jpg') %>
+        <p class="mb-21"><span><i class="fa fa-map-marker text-secondary"></i></span> Coyoacán, Estado de México, Mipa Alta.</p>
+        <%=image_tag('maps.jpg', class: "img-responsive") %>
+      </div>
+      <div class="comentarios border-top">
+        <h2>Comentarios</h2>
+        <div id="disqus_thread"></div>
       </div>
     </div>
     <div class="col-md-3">
@@ -62,30 +67,30 @@
 
         <a href="#"><h4 class="text-black">Conocer cuidador<br> en persona</h4></a>
       </div>
-      <h4 class="text-warning medium-heading mb-0">Últimos Artículos</h4>
-      <ul class="grid-list grid-list-1 grid-list-1-xs isotope-grid blog-grid">
-        <li class="pl-0 mv-21">
-          <div class="pic">
-            <div style="background-image: url(assets/img/user_male.png);"></div>
-          </div>
-          <div class="content">
-            <!-- <h5 class="text-primary">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h5> -->
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit facilis magnam ea minima.</p>
-          </div>
-        </li>
-        <li class="pl-0">
-          <div class="pic">
-            <div style="background-image: url(assets/img/user_male.png);"></div>
-          </div>
-          <div class="content">
-            <!-- <h5 class="text-primary">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h5> -->
-            <p>Lorem ipsum dolor sit amet, autem ut recusandae facilis magnam ea minima.</p>
-          </div>
-        </li>
-      </ul>
+      <div class="content-detalles mt-14 mb-28 text-center m-21">
+        <div class="border-bottom text-left pl-21">
+          <h3 class=" text-gray mv-14">Detalles</h3>
+        </div>
+        <div class="text-left ph-21">
+          <h4 class=" text-secondary mt-14 mb-7">Tipo de propiedad:</h4>
+          <p><%= Property.find(@provider.property_id).property_name %></p>
+          <h4 class=" text-gray mt-14 mb-7">Áreas externas:</h4>
+          <p></p>
+          <h4 class=" text-gray mt-14 mb-7">Tamaño de perros aceptados:</h4>
+          <p></p>
+          <h4 class=" text-gray mt-14 mb-7">Edades aceptadas para perros:</h4>
+          <p></p>
+          <h4 class=" text-gray mt-14 mb-7">Transporte de emergencia:</h4>
+          <p></p>
+          <h4 class=" text-gray mt-14 mb-7">Años cuidando perros:</h4>
+          <p></p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+
 <div class="hidden">
   <h3>mostrando photos</h3>
   <% @provider_attachments.each do |p| %>
@@ -93,11 +98,12 @@
     <%= link_to "Borrar foto", p, method: :delete %>
   <% end %>
 </div>
+<div class="hidden">
+  <%= link_to 'Edit', edit_provider_path(@provider) %> |
+  <%= link_to 'Back', providers_path %>
+</div>
 
-<%= link_to 'Edit', edit_provider_path(@provider) %> |
-<%= link_to 'Back', providers_path %>
 
-<div id="disqus_thread"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = 'kmimos';

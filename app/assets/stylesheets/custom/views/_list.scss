@@ -154,6 +154,12 @@
 .content-article {
 	background-color: $gray-lighter;
 	padding: 14px;
+  border: 1px solid #ddd;
+}
+
+.content-detalles {
+	background-color: $gray-lighter;
+  border: 1px solid #ddd;
 }
 
 .user-card {
