@@ -4706,7 +4706,12 @@ button span {
 /* Style Perfil proveedores */
 .content-article {
   background-color: #eeeeee;
-  padding: 14px; }
+  padding: 14px;
+  border: 1px solid #ddd; }
+
+.content-detalles {
+  background-color: #eeeeee;
+  border: 1px solid #ddd; }
 
 .user-card {
   position: relative;
