@@ -76,20 +76,6 @@ ActiveRecord::Schema.define(version: 20150326212010) do
 
   add_index "pictures", ["imageable_id", "imageable_type"], name: "index_pictures_on_imageable_id_and_imageable_type", using: :btree
 
-<<<<<<< HEAD
-=======
-  create_table "post_attachments", force: true do |t|
-    t.integer "provider_id"
-    t.string  "attachment"
-  end
-
-  add_index "post_attachments", ["provider_id"], name: "index_post_attachments_on_provider_id", using: :btree
-
-  create_table "properties", force: true do |t|
-    t.string "property_name"
-  end
-
->>>>>>> dc450f93679c74617203e386abfa4abf748c1ce4
   create_table "provider_attachments", force: true do |t|
     t.integer  "provider_id"
     t.string   "photo"
