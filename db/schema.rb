@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150326203324) do
+ActiveRecord::Schema.define(version: 20150326212010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,10 @@ ActiveRecord::Schema.define(version: 20150326203324) do
 
   add_index "post_attachments", ["provider_id"], name: "index_post_attachments_on_provider_id", using: :btree
 
+  create_table "properties", force: true do |t|
+    t.string "property_name"
+  end
+
   create_table "provider_attachments", force: true do |t|
     t.integer  "provider_id"
     t.string   "photo"
@@ -106,11 +110,11 @@ ActiveRecord::Schema.define(version: 20150326203324) do
     t.string   "email_c"
     t.string   "avatar"
     t.float    "price"
-    t.string   "tipo_propiedad"
     t.string   "areas_externas"
     t.boolean  "emergencia"
     t.integer  "experiencia"
     t.text     "iframe_code"
+    t.integer  "property_id"
   end
 
   add_index "providers", ["category_id"], name: "index_providers_on_category_id", using: :btree

@@ -1,0 +1,103 @@
+  [1m[36mActiveRecord::SchemaMigration Load (6.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeTipoPropiedadInProviders (20150326211416)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (23.3ms)[0m  [1mALTER TABLE "providers" DROP "tipo_propiedad"[0m
+  [1m[35m (7.5ms)[0m  ALTER TABLE "providers" ADD COLUMN "propiedad_id" integer
+  [1m[36mSQL (5.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150326211416"]]
+  [1m[35m (2.4ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to ChangeTipoPropiedadInProviders (20150326211416)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.8ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to ChangeTipoPropiedadInProviders (20150326211416)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangePropiedadIdInProviders (20150326211904)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (12.8ms)[0m  [1mALTER TABLE "providers" DROP "propiedad_id"[0m
+  [1m[35m (3.2ms)[0m  ALTER TABLE "providers" ADD COLUMN "property_id" integer
+  [1m[36mSQL (4.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20150326211904"]]
+  [1m[35m (1.5ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateProperties (20150326212010)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (37.3ms)[0m  [1mCREATE TABLE "properties" ("id" serial primary key, "property_name" character varying(255)) [0m
+  [1m[35mSQL (2.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150326212010"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mLocation Load (2.8ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Alvaro Obregón' LIMIT 1
+  [1m[36mLocation Load (0.4ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Azcapotzalco' LIMIT 1[0m
+  [1m[35mLocation Load (0.4ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Benito Juárez' LIMIT 1
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Coyoacán' LIMIT 1[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Cuajimalpa de Morelos' LIMIT 1
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Cuauhtémoc' LIMIT 1[0m
+  [1m[35mLocation Load (0.3ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Estado de Mexico' LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Gustavo A. Madero' LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Iztacalco' LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Iztapalapa' LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'La Magdalena Contreras' LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Miguel Hidalgo' LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Milpa Alta' LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Querétaro' LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Tlalpan' LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Tláhuac' LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Venustiano Carranza' LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Xochimilco' LIMIT 1[0m
+  [1m[35mCategory Load (2.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Entrenador' LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Hotel' LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Paseador' LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Veterinario' LIMIT 1[0m
+  [1m[35mAge Load (3.5ms)[0m  SELECT "ages".* FROM "ages" WHERE "ages"."age_group_name" = 'Adultos' LIMIT 1
+  [1m[36mAge Load (0.3ms)[0m  [1mSELECT "ages".* FROM "ages" WHERE "ages"."age_group_name" = 'Cachorros' LIMIT 1[0m
+  [1m[35mSize Load (0.5ms)[0m  SELECT "sizes".* FROM "sizes" WHERE "sizes"."size_title" = 'Grandes' LIMIT 1
+  [1m[36mSize Load (0.3ms)[0m  [1mSELECT "sizes".* FROM "sizes" WHERE "sizes"."size_title" = 'Medianos' LIMIT 1[0m
+  [1m[35mSize Load (0.3ms)[0m  SELECT "sizes".* FROM "sizes" WHERE "sizes"."size_title" = 'Pequeños' LIMIT 1
+  [1m[36mSize Load (0.2ms)[0m  [1mSELECT "sizes".* FROM "sizes" WHERE "sizes"."size_title" = 'Grandes' LIMIT 1[0m
+  [1m[35mSize Load (0.2ms)[0m  SELECT "sizes".* FROM "sizes" WHERE "sizes"."size_title" = 'Medianos' LIMIT 1
+  [1m[36mSize Load (0.2ms)[0m  [1mSELECT "sizes".* FROM "sizes" WHERE "sizes"."size_title" = 'Pequeños' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mLocation Load (1.0ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Alvaro Obregón' LIMIT 1
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Azcapotzalco' LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Benito Juárez' LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Coyoacán' LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Cuajimalpa de Morelos' LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Cuauhtémoc' LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Estado de Mexico' LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Gustavo A. Madero' LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Iztacalco' LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Iztapalapa' LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'La Magdalena Contreras' LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Miguel Hidalgo' LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Milpa Alta' LIMIT 1
+  [1m[36mLocation Load (0.2ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Querétaro' LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Tlalpan' LIMIT 1
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Tláhuac' LIMIT 1[0m
+  [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Venustiano Carranza' LIMIT 1
+  [1m[36mLocation Load (0.3ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE "locations"."name" = 'Xochimilco' LIMIT 1[0m
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Entrenador' LIMIT 1
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Hotel' LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Paseador' LIMIT 1
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."name" = 'Veterinario' LIMIT 1[0m
+  [1m[35mAge Load (0.6ms)[0m  SELECT "ages".* FROM "ages" WHERE "ages"."age_group_name" = 'Adultos' LIMIT 1
+  [1m[36mAge Load (0.5ms)[0m  [1mSELECT "ages".* FROM "ages" WHERE "ages"."age_group_name" = 'Cachorros' LIMIT 1[0m
+  [1m[35mSize Load (0.5ms)[0m  SELECT "sizes".* FROM "sizes" WHERE "sizes"."size_title" = 'Grandes' LIMIT 1
+  [1m[36mSize Load (0.3ms)[0m  [1mSELECT "sizes".* FROM "sizes" WHERE "sizes"."size_title" = 'Medianos' LIMIT 1[0m
+  [1m[35mSize Load (0.2ms)[0m  SELECT "sizes".* FROM "sizes" WHERE "sizes"."size_title" = 'Pequeños' LIMIT 1
+  [1m[36mSize Load (0.5ms)[0m  [1mSELECT "sizes".* FROM "sizes" WHERE "sizes"."size_title" = 'Grandes' LIMIT 1[0m
+  [1m[35mSize Load (0.4ms)[0m  SELECT "sizes".* FROM "sizes" WHERE "sizes"."size_title" = 'Medianos' LIMIT 1
+  [1m[36mSize Load (0.4ms)[0m  [1mSELECT "sizes".* FROM "sizes" WHERE "sizes"."size_title" = 'Pequeños' LIMIT 1[0m
+  [1m[35mProperty Load (1.0ms)[0m  SELECT "properties".* FROM "properties" WHERE "properties"."property_name" = 'Casa' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (3.7ms)[0m  INSERT INTO "properties" ("property_name") VALUES ($1) RETURNING "id"  [["property_name", "Casa"]]
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mProperty Load (0.3ms)[0m  SELECT "properties".* FROM "properties" WHERE "properties"."property_name" = 'Departamento' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "properties" ("property_name") VALUES ($1) RETURNING "id"  [["property_name", "Departamento"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m

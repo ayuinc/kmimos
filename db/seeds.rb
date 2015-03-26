@@ -30,3 +30,15 @@ sizes = ["Pequeños", "Medianos", "Grandes"]
 sizes.sort!.each do |size|
   Size.find_or_create_by(size_title: size)
 end
+
+sizes = ["Pequeños", "Medianos", "Grandes"]
+
+sizes.sort!.each do |size|
+  Size.find_or_create_by(size_title: size)
+end
+
+properties = ["Casa", "Departamento"]
+
+properties.sort!.each do |property|
+  Property.find_or_create_by(property_name: property)
+end
