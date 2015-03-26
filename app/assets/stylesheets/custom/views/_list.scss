@@ -223,4 +223,26 @@
 
 .border-bottom {
   margin-bottom: 21px;
+  border-bottom: 1px solid #ddd;
+}
+
+.border-top {
+  margin-top: 21px;
+  border-top: 1px solid #ddd;
+}
+
+.carousel-gallery {
+  .flex-direction-nav {
+     .flex-next {
+       right: 16px;
+     }
+  }
+}
+
+.carousel-gallery {
+  .flex-direction-nav {
+     .flex-prev {
+       left: 20px;
+     }
+  }
 }
