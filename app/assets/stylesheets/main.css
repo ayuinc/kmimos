@@ -3835,6 +3835,46 @@ button.close {
 .text-muted {
   color: #ddd; }
 
+.pv-7 {
+  padding-top: 7px !important;
+  padding-bottom: 7px !important; }
+
+.pv-14 {
+  padding-top: 21px !important;
+  padding-bottom: 21px !important; }
+
+.pv-21 {
+  padding-top: 21px !important;
+  padding-bottom: 21px !important; }
+
+.pv-35 {
+  padding-top: 35px !important;
+  padding-bottom: 35px !important; }
+
+.ph-7 {
+  padding-left: 7px !important;
+  padding-right: 7px !important; }
+
+.ph-21 {
+  padding-left: 21px !important;
+  padding-right: 21px !important; }
+
+.ph-14 {
+  padding-left: 14px !important;
+  padding-right: 14px !important; }
+
+.ph-28 {
+  padding-left: 28px !important;
+  padding-right: 28px !important; }
+
+.ph-35 {
+  padding-left: 35px !important;
+  padding-right: 35px !important; }
+
+.ph-42 {
+  padding-left: 42px !important;
+  padding-right: 42px !important; }
+
 /*
  * jQuery FlexSlider v2.2.0
  * http://www.woothemes.com/flexslider/
@@ -4457,9 +4497,6 @@ button span {
 .dsct-10 {
   font-size: 110px !important; }
 
-.text-description {
-  line-height: 1.5 !important; }
-
 .img-logo {
   width: 190px !important; }
 
@@ -4516,6 +4553,9 @@ button span {
   .text-description p {
     text-align: center !important; } }
 
+.text-yellow {
+  color: #FFDB00; }
+
 .container-fluid {
   padding-right: 15px;
   padding-left: 0px;
@@ -4563,7 +4603,8 @@ button span {
       opacity: 0.9; }
 
 .container .row .col-md-8 .col-md-3 img {
-  width: 105px; }
+  width: 105px;
+  border: 1px solid #ccc; }
 .container .row .col-md-8 .btn-reservar {
   color: #fff;
   padding: 9px 35px; }
@@ -4608,9 +4649,10 @@ button span {
       min-width: 191px; } }
 
 .list-profiles {
-  border: 2px solid #ccc;
+  border: 1px solid #ccc;
   margin-top: 20px;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  height: 209px; }
 
 .dropdown-menu {
   left: -23px !important; }
@@ -4639,7 +4681,7 @@ button span {
   flex-direction: row;
   -ms-flex-direction: row; }
   .user-card .user-pic img {
-    width: 70px; }
+    width: 90px; }
 
 .flex-middle {
   display: -webkit-box;
@@ -4676,6 +4718,9 @@ button span {
 
 .text-secondary {
   color: #1DBA9A; }
+
+.border-bottom {
+  margin-bottom: 21px; }
 
 #error_explanation {
   color: red; }
@@ -4730,6 +4775,30 @@ button span {
 
 .alert-icon-col {
   height: 127px; }
+
+/* Lista de mini perfiles */
+.picture-perfil {
+  padding: 14px 0px;
+  height: 207px;
+  background: #eee; }
+
+.text-description-1 {
+  line-height: 1.5 !important;
+  border-left: 1px solid #ccc;
+  height: 207px; }
+
+/* Hover de la lista de perfiles */
+.list-profiles:hover > .text-description-1 {
+  background: #eee; }
+
+.list-profiles:hover > .picture-perfil {
+  background: #D1D1D1; }
+
+/* END */
+.rating-reviews {
+  padding-left: 3px; }
+  .rating-reviews .fa {
+    padding-right: 3px; }
 
 .close {
   float: right;

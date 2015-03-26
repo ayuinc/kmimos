@@ -69,5 +69,32 @@
   height: 127px;
 }
 
+/* Lista de mini perfiles */
+.picture-perfil {
+  padding: 14px 0px;
+  height: 207px;
+  background: #eee;
+}
 
+.text-description-1 {
+  line-height: 1.5 !important;
+  border-left: 1px solid #ccc;
+  height: 207px;
+}
 
+/* Hover de la lista de perfiles */
+.list-profiles:hover > .text-description-1 {
+  background: #eee;
+}
+
+.list-profiles:hover > .picture-perfil {
+  background: #D1D1D1;
+}
+/* END */
+
+.rating-reviews {
+  padding-left: 3px;
+  .fa {
+    padding-right: 3px;
+  }
+}
