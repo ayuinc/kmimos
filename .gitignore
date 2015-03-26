@@ -11,6 +11,8 @@ custom_plan.rb
 app/assets/.DS_Store
 .env
 public/uploads/picture/**
+public/uploads/provider/**
+public/uploads/provider_attachment/**
 /rerun.txt
 .css
 .sass-cache

@@ -121,6 +121,22 @@
               </div>
             <% end %>
 
+            <h4>nuevos campos</h4>
+            <div> <span>edades</span>
+              <%= hidden_field_tag "provider[age_ids][]", nil %>
+              <% Age.all.each do |age| %>
+                <%= check_box_tag "provider[age_ids][]", age.id, @provider.age_ids.include?(age.id), id: dom_id(age) %>
+                <%= label_tag dom_id(age), age.age_group_name, class: "small" %> <br>
+              <% end %>
+            </div>
+            <div> <span>tamaños</span>
+              <%= hidden_field_tag "provider[size_ids][]", nil %>
+              <% Size.all.each do |size| %>
+                <%= check_box_tag "provider[size_ids][]", size.id, @provider.size_ids.include?(size.id), id: dom_id(size) %>
+                <%= label_tag dom_id(size), size.size_title, class: "small" %> <br>
+              <% end %>
+            </div>
+
           <div class="col-md-3 pl-0 mb-42">
              <%= f.submit "Regístrate", id: "submit", class: "btn btn-primary form-control" %>
           </div>

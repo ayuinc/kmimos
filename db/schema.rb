@@ -11,10 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150325222506) do
+ActiveRecord::Schema.define(version: 20150326203324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ages", force: true do |t|
+    t.string  "age_group_name"
+    t.integer "provider_id"
+  end
 
   create_table "albums", force: true do |t|
     t.integer "provider_id"
@@ -71,6 +76,13 @@ ActiveRecord::Schema.define(version: 20150325222506) do
 
   add_index "pictures", ["imageable_id", "imageable_type"], name: "index_pictures_on_imageable_id_and_imageable_type", using: :btree
 
+  create_table "post_attachments", force: true do |t|
+    t.integer "provider_id"
+    t.string  "attachment"
+  end
+
+  add_index "post_attachments", ["provider_id"], name: "index_post_attachments_on_provider_id", using: :btree
+
   create_table "provider_attachments", force: true do |t|
     t.integer  "provider_id"
     t.string   "photo"
@@ -94,6 +106,11 @@ ActiveRecord::Schema.define(version: 20150325222506) do
     t.string   "email_c"
     t.string   "avatar"
     t.float    "price"
+    t.string   "tipo_propiedad"
+    t.string   "areas_externas"
+    t.boolean  "emergencia"
+    t.integer  "experiencia"
+    t.text     "iframe_code"
   end
 
   add_index "providers", ["category_id"], name: "index_providers_on_category_id", using: :btree
@@ -104,6 +121,11 @@ ActiveRecord::Schema.define(version: 20150325222506) do
     t.string   "referrer_email"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "sizes", force: true do |t|
+    t.string  "size_title"
+    t.integer "provider_id"
   end
 
 end

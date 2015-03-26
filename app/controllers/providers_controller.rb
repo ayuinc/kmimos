@@ -45,8 +45,10 @@
     @provider.category_id = @hotel_id
       if @provider.save
         session[:provider_id] = @provider.id
-        params[:provider_attachments]['photo'].each do |a|
-           @provider_attachment = @provider.provider_attachments.create!(:photo => a, :provider_id => @provider.id)
+        unless params[:provider_attachments].nil?
+          params[:provider_attachments]['photo'].each do |a|
+             @provider_attachment = @provider.provider_attachments.create!(:photo => a, :provider_id => @provider.id)
+          end
         end
         flash.now[:success] = "Hola #{@provider.name}, bienvenido a Kmimos."
         redirect_to root_path
@@ -91,7 +93,7 @@
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def provider_params
-      params.require(:provider).permit(:name, :last_name_1, :last_name_2, :dni, :avatar, :avatar_cache, :description, :email, :email_c, :phone, :price, :avg_rating, :category_id, :password, :password_confirmation, locations_attributes: [:id], location_ids: [], provider_attachments_attributes: [:id, :provider_id, :photo])
+      params.require(:provider).permit(:name, :last_name_1, :last_name_2, :dni, :avatar, :avatar_cache, :description, :email, :email_c, :phone, :price, :avg_rating, :category_id, :password, :password_confirmation, locations_attributes: [:id], location_ids: [], provider_attachments_attributes: [:id, :provider_id, :photo], age_ids: [], size_ids: [])
     end
 
     def get_ranges
