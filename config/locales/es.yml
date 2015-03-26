@@ -223,9 +223,13 @@ es:
       event: slot de tiempo
       provider: proveedor
       location: ubicación
+      album: fotos
+      photo: foto
     errors:
       <<: *errors
     attributes:
+        provider_attachment:
+            photo: "Foto"
         provider: 
             email: "Correo electrónico"
             email_c: "Confirmación de correo electrónico"

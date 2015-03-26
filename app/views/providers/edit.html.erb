@@ -108,6 +108,7 @@
 
             <% @provider.provider_attachments.each do |p| %>
               <%= image_tag p.photo, :size => "150x150" %>
+              <%= link_to "Borrar foto", p, method: :delete %>
             <% end %>
 
       <div class="form-group mt-14">
