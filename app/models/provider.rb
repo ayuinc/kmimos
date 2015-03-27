@@ -2,8 +2,8 @@ class Provider < ActiveRecord::Base
   belongs_to :category
   belongs_to :property
   has_secure_password
-  has_many :age
-  has_many :size
+  has_many :ages
+  has_many :sizes
   mount_uploader :avatar, AvatarUploader
   has_many :provider_attachments
   accepts_nested_attributes_for :provider_attachments
