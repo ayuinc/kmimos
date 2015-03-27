@@ -39,7 +39,7 @@
   <% @providers.each do |provider| %>
   <div class="row mt-14 mb-14">
     <div class="col-md-2"></div>   
-    <a href="#">
+    <%= link_to(provider_path(provider)) do %>
       <div class="col-md-8 list-profiles pl-0 pr-0">
       <div class="col-md-3 text-center p-14 picture-perfil">
         <% if provider.avatar? %>
@@ -65,13 +65,13 @@
           <span><i class="fa fa-star text-yellow"></i></span>
           <span><i class="fa fa-star text-yellow"></i></span>
           <span><i class="fa fa-star text-yellow"></i></span>
-          <span class="ml-21 text-gray"><i class="fa fa-comments-o text-secondary"></i> 2 comentarios</span>
+          <span class="ml-21 text-gray"><i class="fa fa-comments-o text-secondary"></i> Ver comentarios</span>
         </div>
-        <p class="text-left light  text-description mt-14 text-gray"><%= provider.description %></p>
+        <p class="text-left light  text-description mt-14 text-gray"><%= truncate(provider.description, :length => 200, :separator => ' ') %></p>
       </div>
       <div class="col-md-1"></div>
     </div>
-    </a>
+    <% end %>
     <div class="col-md-2"></div>
   </div>
     <% end %>
