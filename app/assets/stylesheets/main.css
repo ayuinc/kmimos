@@ -4732,7 +4732,8 @@ button span {
   flex-direction: row;
   -ms-flex-direction: row; }
   .user-card .user-pic img {
-    width: 80px; }
+    width: 80px;
+    border: 1px solid #6F7272; }
 
 .flex-middle {
   display: -webkit-box;
