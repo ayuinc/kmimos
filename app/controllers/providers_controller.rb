@@ -63,8 +63,10 @@
   def update
     respond_to do |format|
       if @provider.update(provider_params)
-        params[:provider_attachments]['photo'].each do |a|
-           @provider_attachment = @provider.provider_attachments.create!(:photo => a, :provider_id => @provider.id)
+        unless params[:provider_attachments].nil?
+          params[:provider_attachments]['photo'].each do |a|
+             @provider_attachment = @provider.provider_attachments.create!(:photo => a, :provider_id => @provider.id)
+          end
         end
         format.html { redirect_to root_path }
         format.json { head :no_content }
