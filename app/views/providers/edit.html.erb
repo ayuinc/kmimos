@@ -35,13 +35,13 @@
                 <%= f.label :phone, "Teléfono:" %><br>
                 <%= f.text_field :phone, class: "form-control" %>
               </div>
+            </div>
+
+            <div class="form-group row">
               <div class="col-md-3">
                   <%= f.label :price, "Precio por noche:" %><br>
                   <%= f.text_field :price, class: "form-control" %>
                 </div>
-            </div>
-
-            <div class="form-group row">
               <div class="col-md-5">
                 <label>¿A qué categoría perteneces?</label>
                 <%= f.collection_select(:category_id, Category.all, :id, :name, {}, { :class=> "form-control" }) %>
@@ -93,29 +93,77 @@
 
             <div class="form-group row">
               <div class="col-md-12">
-                <%= f.label :description, "Descripción de servicios:" %>
+                <%= f.label :description, "Cuéntanos sobre ti:" %>
                 <%= f.text_field :description, class: "form-control" %>
               </div>
             </div>
-
-            <h2>fotos varias</h2> 
-            <%= f.fields_for :provider_attachments do |p| %>
-              <div class="field">
-                <%= p.label :photo %><br>
-                <%= p.file_field :photo, :multiple => true, name: "provider_attachments[photo][]" %>
+            
+             <div class="row mt-28">
+              <div class="col-md-6">
+                <%= f.label :provider_attachments, "Elige fotos para tu galeria:" %> <br>
+                <%= f.fields_for :provider_attachments do |p| %>
+                  <div class="field mv-7">                
+                    <%= p.file_field :photo, :multiple => true, name: "provider_attachments[photo][]" %>
+                  </div>
+                <% end %>
               </div>
-            <% end %>
+              <div class="col-md-3">
+                <div>
+                  <%= f.label "Tamaños:" %> <br>
+                  <%= hidden_field_tag "provider[size_ids][]", nil %>
+                  <% Size.all.each do |size| %>
+                    <%= check_box_tag "provider[size_ids][]", size.id, @provider.size_ids.include?(size.id), id: dom_id(size) %>
+                    <%= label_tag dom_id(size), size.size_title, class: "small" %> <br>
+                  <% end %>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div> 
+                  <%= f.label "Edades:" %> <br>
+                  <%= hidden_field_tag "provider[age_ids][]", nil %>
+                  <% Age.all.each do |age| %>
+                    <%= check_box_tag "provider[age_ids][]", age.id, @provider.age_ids.include?(age.id), id: dom_id(age) %>
+                    <%= label_tag dom_id(age), age.age_group_name, class: "small" %> <br>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+            <div class="mt-28">
+              <%= f.label :areas_externas, "¿Cuéntas con áreas externas? (describe)" %><br>
+              <%= f.text_field :areas_externas, class: "form-control" %>
+            </div>
+            <div class="row mt-28">
+              <div class="col-md-6">
+                <div>
+                  <%= f.label :experiencia, "¿Años cuidando perros?" %><br>
+                  <%= f.text_field :experiencia, class: "form-control" %>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div>
+                  <%= f.label :property_id, "Tipo de propiedad" %><br>
+                  <%= f.collection_select(:property_id, Property.all, :id, :property_name, {prompt: 'Selecciona'}, :class => "form-control") %>
+                </div>
+              </div>
+            </div>
 
-            <div> 
-              <h4>Mapa</h4>
+            <div class="mt-28"> 
               <%= f.label :iframe_code, "Ingresa el código iframe para agregar un mapa de tu ubicación" %><br>
               <%= f.text_area :iframe_code, class: "form-control" %>
+            </div>
+
+            <div class="row mv-28">
+              <div class="col-md-6">
+                <%= f.check_box( :emergencia, {}, "Sí", "No") %>
+                <%= f.label :emergencia, "¿Brindas transporte de emergencia?" %>
+              </div>
             </div>
 
             <% @provider.provider_attachments.each do |p| %>
               <%= image_tag p.photo, :size => "150x150" %>
               <%= link_to "Borrar foto", p, method: :delete %>
             <% end %>
+    
 
       <div class="form-group mt-14">
         <%= f.submit "Actualizar perfil", id: "submit", class: "btn btn-primary-grad" %>

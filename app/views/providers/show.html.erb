@@ -67,25 +67,31 @@
         </div>
         <div class="text-left ph-21">
           <h4 class=" text-secondary mt-14 mb-7">Tipo de propiedad:</h4>
-          <p><%= Property.find(@provider.property_id).property_name if !@provider.property_id.nil? %></p>
-          <h4 class=" text-gray mt-14 mb-7">Áreas externas:</h4>
-          <p><%= @provider.areas_externas %></p>
-          <h4 class=" text-gray mt-14 mb-7">Tamaño de perros aceptados:</h4>
-           <% @provider.sizes.each do |size| %>
-            <p><%= size.size_title %></p>
+          <p class="text-gray"><%= Property.find(@provider.property_id).property_name if !@provider.property_id.nil? %></p>
+          <h4 class="text-secondary mt-14 mb-7">Áreas externas:</h4>
+          <p class="text-gray"><%= @provider.areas_externas %></p>
+          <h4 class="text-secondary mt-14 mb-7">Tamaño de perros aceptados:</h4>
+          <ul class="pl-21">
+            <% @provider.sizes.each do |size| %> 
+            <li class="text-gray"><%= size.size_title %></li>
            <% end %>
-          <h4 class=" text-gray mt-14 mb-7">Edades aceptadas para perros:</h4>
-           <% @provider.ages.each do |age| %>
-            <p><%= age.age_group_name %></p>
+          </ul>
+           
+          <h4 class="text-secondary mt-14 mb-7">Edades aceptadas para perros:</h4>
+          <ul class="pl-21">
+            <% @provider.ages.each do |age| %>
+            <li class="text-gray"><%= age.age_group_name %></li>
            <% end %>
-          <h4 class=" text-gray mt-14 mb-7">Transporte de emergencia:</h4>
+          </ul>
+           
+          <h4 class="text-secondary mt-14 mb-7">Transporte de emergencia:</h4>
           <% if @provider.emergencia == false %>
-            <p>No</p>
+            <p class="text-gray">No</p>
             <% else %>
             <p>Sí</p>
           <% end %>
-          <h4 class=" text-gray mt-14 mb-7">Años cuidando perros:</h4>
-          <p><%= @provider.experiencia %></p>
+          <h4 class="text-secondary mt-14 mb-7">Años cuidando perros:</h4>
+          <p class="text-gray"><%= @provider.experiencia %></p>
         </div>
       </div>
     </div>

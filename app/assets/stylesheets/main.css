@@ -4657,7 +4657,7 @@ button span {
   .container .row .col-md-8 .btn-reservar:hover {
     opacity: 0.8; }
 .container .row .col-md-8 .col-md-4 {
-  padding: 63px 0; }
+  /*         padding: 63px 0; */ }
   .container .row .col-md-8 .col-md-4 .btn {
     padding: 3px 45px;
     margin-left: 14px; }
