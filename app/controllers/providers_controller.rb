@@ -34,7 +34,7 @@
   # GET /providers/1/edit
   def edit
     @provider_attachment = @provider.provider_attachments.build
-    1.times {@provider.provider_attachments.build}
+    @new_provider_attachment = @provider.provider_attachments.new
     # @provider.pictures.build
   end
 
