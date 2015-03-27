@@ -20,7 +20,7 @@
           </div>
         </div>                
       </div>
-      <h2>Fotos</h2>
+      <h2 class="text-gray">Fotos</h2>
       <div class="flexslider carousel-gallery m-0">
         <% if !@provider_attachments.empty? %>
           <ul class="slides">
@@ -41,15 +41,14 @@
       <div class="descripcion-perfil border-top">
          <h2>Sobre <%= @provider.name %>:</h2>
           <p><%= @provider.description %></p>
-
       </div>
       <div class="ubicacion border-top">
-        <h2>Ubicación</h2>
+        <h2 class="text-gray">Ubicación</h2>
         <p class="mb-21"><span><i class="fa fa-map-marker text-secondary"></i></span> Coyoacán, Estado de México, Mipa Alta.</p>
         <%= @provider.iframe_code.html_safe if !@provider.iframe_code.nil? %>
       </div>
       <div class="comentarios border-top">
-        <h2>Comentarios</h2>
+        <h2 class="text-gray">Comentarios</h2>
         <div id="disqus_thread"></div>
       </div>
     </div>
