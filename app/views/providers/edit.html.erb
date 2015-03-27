@@ -106,6 +106,12 @@
               </div>
             <% end %>
 
+            <div> 
+              <h4>Mapa</h4>
+              <%= f.label :iframe_code, "Ingresa el código iframe para agregar un mapa de tu ubicación" %><br>
+              <%= f.text_area :iframe_code, class: "form-control" %>
+            </div>
+
             <% @provider.provider_attachments.each do |p| %>
               <%= image_tag p.photo, :size => "150x150" %>
               <%= link_to "Borrar foto", p, method: :delete %>

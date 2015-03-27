@@ -2,7 +2,7 @@
   <div class="row mv-56">
     <div class="col-md-1"></div>
     <div class="col-md-7">
-      <p class="text-gray medium ml-7 mb-35">Resultados > Jorge Bello</p>
+      <p class="text-gray medium ml-7 mb-35">Resultados > <%= @provider.name %> <%= @provider.last_name_1 %></p>
       <div class="info">
         <div class="user border-bottom">
           <div class="user-card user-card-round size xs mb-21">
@@ -14,7 +14,7 @@
               <% end %>
             </div>
             <div class="user-info ml-42 mt-14">
-              <h1 class="m-0">Jorge Bello</h1>
+              <h1 class="m-0"><%= @provider.name %> <%= @provider.last_name_1 %></h1>
               <span>Consectur adipiscing</span>
             </div>
           </div>
@@ -26,12 +26,10 @@
           <ul class="slides">
           <% @provider_attachments.each do |p| %>
             <li>
-              <div class="row ml-0 mr-0">
-                
-                 <div class="col-md-12 server-pic pl-0">
-                   <%= image_tag p.photo_url, size: '617x347' %>
-                 </div>
-                
+              <div class="row ml-0 mr-0">                
+               <div class="col-md-12 server-pic pl-0">
+                 <%= image_tag p.photo_url, size: '617x347' %>
+               </div>
               </div>
             </li>
           <% end %>
@@ -41,17 +39,13 @@
         <% end %>
       </div> 
       <div class="descripcion-perfil border-top">
-         <h2 class="text-gray">Sobre Jorge</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quasi quod optio dolor ducimus minima consequatur aliquam repellendus enim, amet aperiam quia voluptatum, doloremque voluptatem quas autem sed eos nesciunt.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem laudantium quod pariatur neque veritatis, iste quasi corporis nemo. Excepturi dignissimos quis temporibus nostrum illum consequuntur quae! Deserunt quisquam, consequatur iusto.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In nam quibusdam vero aspernatur nesciunt temporibus atque placeat, tempora aliquid excepturi accusantium perspiciatis, veniam dolores, autem assumenda corporis quis eius. Porro.</p>
-          <p>Lorem ipsum dolor sit amet, quis architecto cumque fuga? Sapiente sunt cumque totam iure eaque voluptatibus saepe minima.</p>
-          <p>¡Le esperamos!</p>
+         <h2>Sobre <%= @provider.name %>:</h2>
+          <p><%= @provider.description %></p>
       </div>
       <div class="ubicacion border-top">
         <h2 class="text-gray">Ubicación</h2>
         <p class="mb-21"><span><i class="fa fa-map-marker text-secondary"></i></span> Coyoacán, Estado de México, Mipa Alta.</p>
-        <%=image_tag('maps.jpg', class: "img-responsive") %>
+        <%= @provider.iframe_code.html_safe if !@provider.iframe_code.nil? %>
       </div>
       <div class="comentarios border-top">
         <h2 class="text-gray">Comentarios</h2>
@@ -72,22 +66,26 @@
           <h3 class=" text-gray mv-14">Detalles</h3>
         </div>
         <div class="text-left ph-21">
-          <h4 class="text-secondary mt-14 mb-7">Tipo de propiedad:</h4>
-          <p><%= Property.find(@provider.property_id).property_name %></p>
-          <h4 class="text-secondary mt-14 mb-7">Áreas externas:</h4>
-          <p></p>
-          <h4 class="text-secondary mt-14 mb-7">Tamaño de perros aceptados:</h4>
-          <ul>
-            <li></li>
-          </ul>
-          <h4 class="text-secondary mt-14 mb-7">Edades aceptadas para perros:</h4>
-          <ul>
-            <li></li>
-          </ul>
-          <h4 class="text-secondary mt-14 mb-7">Transporte de emergencia:</h4>
-          <p></p>
-          <h4 class="text-secondary mt-14 mb-7">Años cuidando perros:</h4>
-          <p></p>
+          <h4 class=" text-secondary mt-14 mb-7">Tipo de propiedad:</h4>
+          <p><%= Property.find(@provider.property_id).property_name if !@provider.property_id.nil? %></p>
+          <h4 class=" text-gray mt-14 mb-7">Áreas externas:</h4>
+          <p><%= @provider.areas_externas %></p>
+          <h4 class=" text-gray mt-14 mb-7">Tamaño de perros aceptados:</h4>
+           <% @provider.sizes.each do |size| %>
+            <p><%= size.size_title %></p>
+           <% end %>
+          <h4 class=" text-gray mt-14 mb-7">Edades aceptadas para perros:</h4>
+           <% @provider.ages.each do |age| %>
+            <p><%= age.age_group_name %></p>
+           <% end %>
+          <h4 class=" text-gray mt-14 mb-7">Transporte de emergencia:</h4>
+          <% if @provider.emergencia == false %>
+            <p>No</p>
+            <% else %>
+            <p>Sí</p>
+          <% end %>
+          <h4 class=" text-gray mt-14 mb-7">Años cuidando perros:</h4>
+          <p><%= @provider.experiencia %></p>
         </div>
       </div>
     </div>
