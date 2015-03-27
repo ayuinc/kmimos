@@ -20,7 +20,7 @@
           </div>
         </div>                
       </div>
-      <h2>Fotos</h2>
+      <h2 class="text-gray">Fotos</h2>
       <div class="flexslider carousel-gallery m-0">
         <% if !@provider_attachments.empty? %>
           <ul class="slides">
@@ -41,7 +41,7 @@
         <% end %>
       </div> 
       <div class="descripcion-perfil border-top">
-         <h2>Sobre Jorge</h2>
+         <h2 class="text-gray">Sobre Jorge</h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quasi quod optio dolor ducimus minima consequatur aliquam repellendus enim, amet aperiam quia voluptatum, doloremque voluptatem quas autem sed eos nesciunt.</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem laudantium quod pariatur neque veritatis, iste quasi corporis nemo. Excepturi dignissimos quis temporibus nostrum illum consequuntur quae! Deserunt quisquam, consequatur iusto.</p>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In nam quibusdam vero aspernatur nesciunt temporibus atque placeat, tempora aliquid excepturi accusantium perspiciatis, veniam dolores, autem assumenda corporis quis eius. Porro.</p>
@@ -49,12 +49,12 @@
           <p>¡Le esperamos!</p>
       </div>
       <div class="ubicacion border-top">
-        <h2>Ubicación</h2>
+        <h2 class="text-gray">Ubicación</h2>
         <p class="mb-21"><span><i class="fa fa-map-marker text-secondary"></i></span> Coyoacán, Estado de México, Mipa Alta.</p>
         <%=image_tag('maps.jpg', class: "img-responsive") %>
       </div>
       <div class="comentarios border-top">
-        <h2>Comentarios</h2>
+        <h2 class="text-gray">Comentarios</h2>
         <div id="disqus_thread"></div>
       </div>
     </div>
@@ -72,17 +72,17 @@
           <h3 class=" text-gray mv-14">Detalles</h3>
         </div>
         <div class="text-left ph-21">
-          <h4 class=" text-secondary mt-14 mb-7">Tipo de propiedad:</h4>
+          <h4 class="text-secondary mt-14 mb-7">Tipo de propiedad:</h4>
           <p><%= Property.find(@provider.property_id).property_name %></p>
-          <h4 class=" text-gray mt-14 mb-7">Áreas externas:</h4>
+          <h4 class="text-secondary mt-14 mb-7">Áreas externas:</h4>
           <p></p>
-          <h4 class=" text-gray mt-14 mb-7">Tamaño de perros aceptados:</h4>
+          <h4 class="text-secondary mt-14 mb-7">Tamaño de perros aceptados:</h4>
           <p></p>
-          <h4 class=" text-gray mt-14 mb-7">Edades aceptadas para perros:</h4>
+          <h4 class="text-secondary mt-14 mb-7">Edades aceptadas para perros:</h4>
           <p></p>
-          <h4 class=" text-gray mt-14 mb-7">Transporte de emergencia:</h4>
+          <h4 class="text-secondary mt-14 mb-7">Transporte de emergencia:</h4>
           <p></p>
-          <h4 class=" text-gray mt-14 mb-7">Años cuidando perros:</h4>
+          <h4 class="text-secondary mt-14 mb-7">Años cuidando perros:</h4>
           <p></p>
         </div>
       </div>
