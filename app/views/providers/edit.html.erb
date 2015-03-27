@@ -99,14 +99,7 @@
             </div>
             
              <div class="row mt-28">
-              <div class="col-md-6">
-                <%= f.label :provider_attachments, "Elige fotos para tu galeria:" %> <br>
-                <%= f.fields_for :provider_attachments do |p| %>
-                  <div class="field mv-7">                
-                    <%= p.file_field :photo, :multiple => true, name: "provider_attachments[photo][]" %>
-                  </div>
-                <% end %>
-              </div>
+
               <div class="col-md-3">
                 <div>
                   <%= f.label "Tamaños:" %> <br>
@@ -154,7 +147,7 @@
 
             <div class="row mv-28">
               <div class="col-md-6">
-                <%= f.check_box( :emergencia, {}, "Sí", "No") %>
+                <%= f.check_box :emergencia %>
                 <%= f.label :emergencia, "¿Brindas transporte de emergencia?" %>
               </div>
             </div>
@@ -163,6 +156,13 @@
               <%= image_tag p.photo, :size => "150x100" %>
               <%= link_to "Borrar foto", p, method: :delete %>
             <% end %>
+            <div class="col-md-6">
+              <%= f.fields_for @new_provider_attachment do |p| %>
+                <div class="field mv-7">                
+                  <%= p.file_field :photo, :multiple => true, name: "provider_attachments[photo][]" %>
+                </div>
+              <% end %>
+            </div>
     
 
       <div class="form-group mv-28">

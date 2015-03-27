@@ -13,10 +13,10 @@
               <%= image_tag('server_carnet.png', :class => "img-circle" ) %>
               <% end %>
             </div>
-            <div class="user-info ml-42 mt-14">
+            <div class="user-info ml-28">
               <h1 class="m-0"><%= @provider.name %> <%= @provider.last_name_1 %></h1>
               <span><%= provider.prov_locations_modal %></span>
-              <div class="rating-reviews pl-7">
+              <div class="rating-reviews pl-7 mt-7">
                 <span><i class="fa fa-star text-yellow"></i></span>
                 <span><i class="fa fa-star text-yellow"></i></span>
                 <span><i class="fa fa-star text-yellow"></i></span>
@@ -46,7 +46,7 @@
         <% end %>
       </div> 
       <div class="descripcion-perfil border-top">
-         <h2>Sobre <%= @provider.name %>:</h2>
+         <h2 class="text-gray">Sobre <%= @provider.name %>:</h2>
           <p><%= @provider.description %></p>
       </div>
       <div class="ubicacion border-top">
@@ -77,28 +77,28 @@
           <p class="text-gray"><%= Property.find(@provider.property_id).property_name if !@provider.property_id.nil? %></p>
           <h4 class="text-secondary mt-14 mb-7">Áreas externas:</h4>
           <p class="text-gray"><%= @provider.areas_externas %></p>
-          <h4 class="text-secondary mt-14 mb-7">Tamaño de perros aceptados:</h4>
+          <h4 class="text-secondary mt-14 mb-7 light">Tamaño de perros aceptados:</h4>
           <ul class="pl-21">
             <% @provider.sizes.each do |size| %> 
-            <li class="text-gray"><%= size.size_title %></li>
+            <li class="text-gray light"><%= size.size_title %></li>
            <% end %>
           </ul>
            
-          <h4 class="text-secondary mt-14 mb-7">Edades aceptadas para perros:</h4>
+          <h4 class="text-secondary mt-14 mb-7 light">Edades aceptadas para perros:</h4>
           <ul class="pl-21">
             <% @provider.ages.each do |age| %>
-            <li class="text-gray"><%= age.age_group_name %></li>
+            <li class="text-gray light"><%= age.age_group_name %></li>
            <% end %>
           </ul>
            
-          <h4 class="text-secondary mt-14 mb-7">Transporte de emergencia:</h4>
+          <h4 class="text-secondary mt-14 mb-7 light">Transporte de emergencia:</h4>
           <% if @provider.emergencia == false %>
-            <p class="text-gray">No</p>
+            <p class="text-gray light">No</p>
             <% else %>
             <p>Sí</p>
           <% end %>
-          <h4 class="text-secondary mt-14 mb-7">Años cuidando perros:</h4>
-          <p class="text-gray"><%= @provider.experiencia %></p>
+          <h4 class="text-secondary mt-14 mb-7 light">Años cuidando perros:</h4>
+          <p class="text-gray light"><%= @provider.experiencia %></p>
         </div>
       </div>
     </div>
