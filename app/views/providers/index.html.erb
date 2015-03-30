@@ -38,10 +38,10 @@
 <div class="container pb-14">
   <% @providers.each do |provider| %>
   <div class="row mt-14 mb-14">
-    <div class="col-md-2"></div>   
+    <div class="col-md-2 col-xs-1"></div>   
     <%= link_to(provider_path(provider)) do %>
       <div class="col-md-8 list-profiles pl-0 pr-0">
-      <div class="col-md-3 text-center p-14 picture-perfil">
+      <div class="col-md-3 text-center p-14 picture-perfil col-xs-12">
         <% if provider.avatar? %>
         <%= image_tag(provider.avatar_url(:thumb), :class => "img-circle") %>
         <% else %>
@@ -56,7 +56,7 @@
            </div>
          </div>
       </div>
-      <div class="col-md-9 p-28 text-description-1">
+      <div class="col-md-9 p-28 text-description-1 col-xs-12">
         <h3 class="text-left text-gray mb-0 mt-0"><%= provider.name %> <%= provider.last_name_1 %> <%= provider.last_name_2 %></h3>
         <h5 class="text-left text-graylight mt-7"><%= provider.prov_locations_modal %></h5>
         <div class="rating-reviews">
@@ -70,10 +70,10 @@
 
         <p class="text-left light  text-description mt-14 text-gray"><%= truncate(provider.description, :length => 240, :omission => '...') %></p>
       </div>
-      <div class="col-md-1"></div>
+      <div class="col-md-1 hidden-xs"></div>
     </div>
     <% end %>
-    <div class="col-md-2"></div>
+    <div class="col-md-2 col-xs-1"></div>
   </div>
     <% end %>
 </div>

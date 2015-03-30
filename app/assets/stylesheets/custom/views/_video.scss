@@ -1,13 +1,13 @@
 .btn-how {
     // background: rgba(108, 122, 137,0.7);
     @include light;
-    border: 1px solid #FFF;
+    background: rgba(255,255,255,0.7);
     color: white;
     width: 200px;
     font-size: 18px;
     font-size: rem(18px);
     &:hover {
-      background-color: rgba(0,0,0,0.3);
+      background-color: rgba(0,0,0,0.4);
     	color: white;
     }
 }
