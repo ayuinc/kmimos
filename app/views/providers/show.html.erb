@@ -15,7 +15,7 @@
             </div>
             <div class="user-info ml-28">
               <h1 class="m-0"><%= @provider.name %> <%= @provider.last_name_1 %></h1>
-              <span><%= provider.prov_locations_modal %></span>
+              <span class="text-gray"><%= @provider.prov_locations_modal %></span>
               <div class="rating-reviews pl-7 mt-7">
                 <span><i class="fa fa-star text-yellow"></i></span>
                 <span><i class="fa fa-star text-yellow"></i></span>
@@ -34,7 +34,7 @@
           <% @provider_attachments.each do |p| %>
             <li>
               <div class="row ml-0 mr-0">                
-               <div class="col-md-12 server-pic pl-0">
+               <div class="col-md-12 server-pic ph-0">
                  <%= image_tag p.photo_url, size: '617x347' %>
                </div>
               </div>
@@ -66,38 +66,38 @@
         <h4 class="light mt-0 text-gray">por noche</h4>
         <%= link_to "Reservar".html_safe, new_booking_path(:provider_id => @provider.id, :start_date => @start_date, :end_date => @end_date), :class => "mt-14 mb-21 btn btn-primary btn-small btn-fold",  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Reservar', 'provider_#{@provider.id.to_s}']);"  %>
 
-        <a href="#"><h4 class="text-black">Conocer cuidador<br> en persona</h4></a>
+        <a href="#"><h4 class="text-black text-conocer">Conocer cuidador<br> en persona</h4></a>
       </div>
-      <div class="content-detalles mt-14 mb-28 text-center m-21">
+      <div class="content-detalles mt-14 mb-28 text-center m-21 pb-14">
         <div class="border-bottom text-left pl-21">
           <h3 class=" text-gray mv-14">Detalles</h3>
         </div>
         <div class="text-left ph-21">
-          <h4 class=" text-secondary mt-14 mb-7">Tipo de propiedad:</h4>
+          <h5 class=" text-secondary mt-14 mb-7">Tipo de propiedad:</h5>
           <p class="text-gray"><%= Property.find(@provider.property_id).property_name if !@provider.property_id.nil? %></p>
-          <h4 class="text-secondary mt-14 mb-7">Áreas externas:</h4>
+          <h5 class="text-secondary mt-14 mb-7">Áreas externas:</h5>
           <p class="text-gray"><%= @provider.areas_externas %></p>
-          <h4 class="text-secondary mt-14 mb-7 light">Tamaño de perros aceptados:</h4>
+          <h5 class="text-secondary mt-14 mb-7 light">Tamaño de perros aceptados:</h5>
           <ul class="pl-21">
             <% @provider.sizes.each do |size| %> 
             <li class="text-gray light"><%= size.size_title %></li>
            <% end %>
           </ul>
            
-          <h4 class="text-secondary mt-14 mb-7 light">Edades aceptadas para perros:</h4>
+          <h5 class="text-secondary mt-14 mb-7 light">Edades aceptadas para perros:</h5>
           <ul class="pl-21">
             <% @provider.ages.each do |age| %>
             <li class="text-gray light"><%= age.age_group_name %></li>
            <% end %>
           </ul>
            
-          <h4 class="text-secondary mt-14 mb-7 light">Transporte de emergencia:</h4>
+          <h5 class="text-secondary mt-14 mb-7 light">Transporte de emergencia:</h5>
           <% if @provider.emergencia == false %>
             <p class="text-gray light">No</p>
             <% else %>
             <p>Sí</p>
           <% end %>
-          <h4 class="text-secondary mt-14 mb-7 light">Años cuidando perros:</h4>
+          <h5 class="text-secondary mt-14 mb-7 light">Años cuidando perros:</h5>
           <p class="text-gray light"><%= @provider.experiencia %></p>
         </div>
       </div>

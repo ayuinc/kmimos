@@ -241,7 +241,7 @@
 }
 
 .text-gray {
-  color: gray;
+  color: $gray;
 }
 
 .text-white {
@@ -404,4 +404,14 @@
 
 .text-yellow {
   color: #FFDB00;
+}
+
+.text-conocer {
+  &:hover {
+    color: #1DBA9A;
+  }
+}
+
+iframe {
+  width: 100%;
 }
