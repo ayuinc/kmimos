@@ -19,3 +19,4 @@ public/uploads/provider_attachment/**
 app/assets/stylesheets/.sass-cache
 log/development.log
 /log/development.log
+/config/local_env.yml

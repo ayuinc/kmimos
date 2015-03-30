@@ -8,9 +8,9 @@ ServihogarRails::Application.configure do
     :authentication => :plain,
     :address => "smtp.mailgun.org",
     :port => 587,
-    :domain => "sandboxaffb27ef1d13482ab515e43885cd8c54.mailgun.org",
-    :user_name => "postmaster@sandboxaffb27ef1d13482ab515e43885cd8c54.mailgun.org",
-    :password => "ca7d21879592ea267c667dbcda347d1f"
+    :domain => ENV['MAILING_DOMAIN'],
+    :user_name => ENV['MAILING_USERNAME'],
+    :password => ENV['MAILING_PASSWORD']
   }  
   # Code is not reloaded between requests.
   config.cache_classes = true
