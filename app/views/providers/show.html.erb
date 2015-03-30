@@ -61,12 +61,13 @@
     </div>
     <div class="col-md-3">
       <div class="content-article mt-14 mb-28 text-center m-21">
-        <h4 class="light mb-0 text-gray">Desde</h4>
+        <h4 class="light mb-0 text-gray text-small">Desde</h4>
         <h3 class="m-7 text-secondary">Mex $200</h3>
-        <h4 class="light mt-0 text-gray">por noche</h4>
-        <%= link_to "Reservar".html_safe, new_booking_path(:provider_id => @provider.id, :start_date => @start_date, :end_date => @end_date), :class => "mt-14 mb-21 btn btn-primary btn-small btn-fold",  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Reservar', 'provider_#{@provider.id.to_s}']);"  %>
+        <h4 class="light mt-0 text-gray text-small">por noche</h4>
+        
+        <%= link_to "Reservar".html_safe, new_booking_path(:provider_id => @provider.id, :start_date => @start_date, :end_date => @end_date), :class => "mt-14 mb-21 btn btn-primary btn-small btn-fold",  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Reservar', 'provider_#{@provider.id.to_s}']);"  %> <br>
+        <%= link_to "Conocer cuidador<br> en persona".html_safe, new_meeting_path(:provider_id => @provider.id), :class => "text-black text-small",  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Conocer', 'provider_#{@provider.id.to_s}']);"  %>
 
-        <a href="#"><h4 class="text-black text-conocer">Conocer cuidador<br> en persona</h4></a>
       </div>
       <div class="content-detalles mt-14 mb-28 text-center m-21 pb-14">
         <div class="border-bottom text-left pl-21">

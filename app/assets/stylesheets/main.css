@@ -4616,6 +4616,12 @@ button span {
 iframe {
   width: 100%; }
 
+.text-small {
+  font-size: 16px !important; }
+
+.line-regular {
+  line-height: 1.3 !important; }
+
 .container-fluid {
   padding-right: 15px;
   padding-left: 0px;
@@ -4713,6 +4719,8 @@ iframe {
   margin-top: 20px;
   margin-bottom: 20px;
   height: 209px; }
+  .list-profiles h4 {
+    font-size: 16px !important; }
 
 .dropdown-menu {
   left: -23px !important; }

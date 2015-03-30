@@ -1,0 +1,12 @@
+<p>Hola Roberto,
+
+<p>Se acaba de registrar una nueva reserva en Kmimos.</p> 
+
+<p>Nombre del cliente:  <%= @meeting.user_first_name %> <%= @meeting.user_last_name %></p>	
+<p>Teléfono del cliente:  <%= @meeting.user_phone %></p>	
+<p>Correo electrónico del cliente:  <%= @meeting.user_email %></p>
+
+
+<p>Nombre del cuidador: <%= Provider.find(@meeting.provider_id).name %>  <%= Provider.find(@meeting.provider_id).last_name_1 %></p>
+
+<p>Kmimos</p>
