@@ -4313,7 +4313,7 @@ button span {
 
 #home-filters {
   background-image: url(http://s11.postimg.org/h4k1brts3/foto_principal_kmimos.png);
-  min-height: 589px;
+  min-height: 616px;
   background-size: cover;
   background-repeat: no-repeat; }
   #home-filters .text-fold {
@@ -4513,9 +4513,9 @@ button span {
   font-size: 24px !important; }
 
 .bg-check {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.7);
   padding: 18px;
-  margin-top: 136px; }
+  margin-top: 76px; }
   @media only screen and (max-width: 480px) {
     .bg-check .form-search {
       padding: 10px 85px !important; } }
@@ -4621,6 +4621,9 @@ iframe {
 
 .line-regular {
   line-height: 1.3 !important; }
+
+.text-bg-check {
+  letter-spacing: 0.5px; }
 
 .container-fluid {
   padding-right: 15px;
@@ -4923,14 +4926,13 @@ iframe {
   font-family: "proxima-nova", Helvetica, Arial, sans-serif !important;
   font-weight: 300;
   font-style: normal;
-  background: rgba(255, 255, 255, 0.45);
-  border-style: none;
+  border: 1px solid #FFF;
   color: white;
   width: 200px;
   font-size: 18px;
   font-size: rem(18px); }
   .btn-how:hover {
-    background-color: rgba(0, 0, 0, 0.35);
+    background-color: rgba(0, 0, 0, 0.3);
     color: white; }
 
 .xl {
