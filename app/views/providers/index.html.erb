@@ -39,7 +39,7 @@
   <% @providers.each do |provider| %>
   <div class="row mt-14 mb-14">
     <div class="col-md-2"></div>   
-    <%= link_to(provider_path(provider)) do %>
+    <a href="#">
       <div class="col-md-8 list-profiles pl-0 pr-0">
       <div class="col-md-3 text-center p-14 picture-perfil">
         <% if provider.avatar? %>
@@ -51,13 +51,13 @@
            <div class="col-xs-1 hidden-lg"></div>
            <div class="col-xs-10 col-md-12">
             <h4 class="light m-0 text-gray">Desde</h4>
-             <h3 class="m-0 text-secondary">Mex $<%= provider.price %></h3>
+             <h3 class="m-0 text-secondary light">Mex $200</h3>
              <h4 class="light m-0 text-gray">por noche</h4>
            </div>
          </div>
       </div>
-      <div class="col-md-9 pv-7 text-description-1">
-        <h3 class="text-left text-gray mb-0 mt-7"><%= provider.name %> <%= provider.last_name_1 %> <%= provider.last_name_2 %></h3>
+      <div class="col-md-9 p-28 text-description-1">
+        <h3 class="text-left text-gray mb-0 mt-0"><%= provider.name %> <%= provider.last_name_1 %> <%= provider.last_name_2 %></h3>
         <h5 class="text-left text-graylight mt-7"><%= provider.prov_locations_modal %></h5>
         <div class="rating-reviews">
           <span><i class="fa fa-star text-yellow"></i></span>
@@ -65,13 +65,13 @@
           <span><i class="fa fa-star text-yellow"></i></span>
           <span><i class="fa fa-star text-yellow"></i></span>
           <span><i class="fa fa-star text-yellow"></i></span>
-          <span class="ml-21 text-gray"><i class="fa fa-comments-o text-secondary"></i> Ver comentarios</span>
+          <span class="text-gray ml-28"><%=image_tag('iconos-mensaje.png') %> 2 comentarios</span>
         </div>
-        <p class="text-left light  text-description mt-14 text-gray"><%= truncate(provider.description, :length => 200, :separator => ' ') %></p>
+        <p class="text-left light  text-description mt-14 text-gray"><%= provider.description %></p>
       </div>
       <div class="col-md-1"></div>
     </div>
-    <% end %>
+    </a>
     <div class="col-md-2"></div>
   </div>
     <% end %>
