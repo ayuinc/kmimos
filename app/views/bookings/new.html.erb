@@ -58,8 +58,6 @@
                 <div class="col-md-12">
                   <%= f.label :user_message, "Mensaje:", class: "h3 light text-gray" %><br>
                   <%= f.text_area :user_message, class: "form-control" %>
-<!--                   <%= f.label :ref_code, "Código de descuento:" %><br> -->
-<!--                   <%= f.text_field :ref_code, class: "form-control" %> -->
                   <% if !session[:start_date].nil? %>
                     <%= f.hidden_field :start_date, :value => session[:start_date] %> 
                   <% end %>
