@@ -16,7 +16,8 @@ class BookingConfirmationMailer < ActionMailer::Base
   def new_booking_for_admin(booking)
     @booking = booking
     mail(
-      to: "r.gonzalez@desdigitec.com",
+      # to: "r.gonzalez@desdigitec.com",
+      to: "adelrio@ayuinc.com",
       subject: 'Nueva reserva en Kmimos')
   end
 end
