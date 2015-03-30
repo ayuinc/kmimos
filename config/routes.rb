@@ -9,6 +9,7 @@ ServihogarRails::Application.routes.draw do
   resources :providers
 
   resources :bookings
+  resources :meetings
 
   resources :providers_sessions, only: [:new, :create, :destroy]
 
@@ -18,5 +19,6 @@ ServihogarRails::Application.routes.draw do
   resources :categories, only: [:show]
 
   get 'pages/thank_you' => 'high_voltage/pages#show', id: 'thank_you'
+  get 'pages/thank_you_meeting' => 'high_voltage/pages#show', id: 'thank_you_meeting'
   
 end

@@ -1,0 +1,11 @@
+<p>Hola <%= @meeting.user_first_name %>,</p>
+<p>Muchas gracias por haber solicitado una reserva con Kmimos. </p> 
+<p>Abajo los detalles de tu solicitud: </p>
+
+<p>Nombre del cuidador: <%= Provider.find(@meeting.provider_id).name %>  <%= Provider.find(@meeting.provider_id).last_name_1 %></p>
+<p>Precio por noche: $MXN <%= Provider.find(@meeting.provider_id).price %></p>
+<p>Durante las próximas 24 horas recibirás una llamada telefónica o te contactaremos por correo electrónico para coordinar la reunión en persona con el cuidador que seleccionaste.</p>
+<p>Cualquier pregunta no dudes en contactarnos al +55 3455 0138.</p>
+
+<p>¡Gracias!</p>
+<p>Roberto de Kmimos</p>
