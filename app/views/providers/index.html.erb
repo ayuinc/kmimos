@@ -67,7 +67,8 @@
           <span><i class="fa fa-star text-yellow"></i></span>
           <span class="text-gray ml-28"><%=image_tag('iconos-mensaje.png') %> 2 comentarios</span>
         </div>
-        <p class="text-left light  text-description mt-14 text-gray"><%= provider.description %></p>
+
+        <p class="text-left light  text-description mt-14 text-gray"><%= truncate(provider.description, :length => 240, :omission => '...') %></p>
       </div>
       <div class="col-md-1"></div>
     </div>
