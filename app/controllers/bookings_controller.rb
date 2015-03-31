@@ -14,8 +14,8 @@ class BookingsController < ApplicationController
     	BookingConfirmationMailer.new_booking_notification(@booking).deliver
     	BookingConfirmationMailer.new_booking_for_admin(@booking).deliver
     	flash[:success] = 'Reserva realizada. Te hemos enviado un correo de confirmación.'
-	    session[:start_date] = nil
-	    session[:end_date] = nil
+	    session[:start_date] = @booking.start_date
+	    session[:end_date] = @booking.end_date
       session[:user_email] = @booking.user_email
 	    redirect_to  pages_thank_you_path
 	  else
