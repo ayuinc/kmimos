@@ -1,0 +1,18 @@
+.btn-how {
+    // background: rgba(108, 122, 137,0.7);
+    @include light;
+    border: 1px solid white;
+    color: white;
+    width: 200px;
+    font-size: 18px;
+    font-size: rem(18px);
+    &:hover {
+      background-color: rgba(0,0,0,0.4);
+    	color: white;
+    }
+}
+
+.xl {
+	font-size: 48px;
+	font-size: rem(48px);
+}

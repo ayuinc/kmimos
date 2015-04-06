@@ -1,0 +1,19 @@
+<p>Hola Roberto,
+
+<p>Se acaba de registrar una nueva reserva en Kmimos.</p> 
+
+<p>Nombre del cliente:  <%= @booking.user_first_name %> <%= @booking.user_last_name %></p>	
+<p>Teléfono del cliente:  <%= @booking.user_phone %></p>	
+<p>Correo electrónico del cliente:  <%= @booking.user_email %></p>
+<p>Mensaje enviado por el cliente:  <%= @booking.user_message %></p>
+
+<% unless @booking.start_date.nil? %> 
+<p>Check-in: <%= @booking.start_date.strftime("%d/%m/%Y") %></p>
+<% end %>
+<% unless @booking.end_date.nil? %>
+<p>Check-out: <%= @booking.end_date.strftime("%d/%m/%Y") %></p>
+<% end %>
+<p>Nombre del cuidador: <%= Provider.find(@booking.provider_id).name %>  <%= Provider.find(@booking.provider_id).last_name_1 %></p>
+<p>Precio por noche: $MXN <%= Provider.find(@booking.provider_id).price %></p>
+
+<p>Kmimos</p>

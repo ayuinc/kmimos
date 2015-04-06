@@ -1,5 +1,25 @@
 <section id="mini-profiles">          
   <div class="container-fluid mh-210 bg-white m-0">
+      <div class="row bg-navbar pb-0">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+          <%= search_form_for @search do |f| %>
+          <div class="row header-form">
+            <%= f.collection_select :locations_id_eq, Location.order(:name), :id, :name,{include_blank:"Elegir Municipio"}, {class:"borderless form-location-nav"} %> 
+     
+            
+            <div class="col-sm-3">
+              <%= text_field_tag(:start_date, nil, class: 'datepicker form-control form-check', placeholder: 'DD/MM/AAAA') %>
+            </div>
+            <div class="col-sm-3">
+              <%= text_field_tag(:end_date, nil, class: 'datepicker form-control form-check', placeholder: 'DD/MM/AAAA') %>
+            </div>
+            <%= f.submit "Buscar", class:"ml-7 borderless form-search" %>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-sm-1"></div>
+      </div>
     <div class="row">
       <div class="profile-view">
         <div class="col-md-4 text-center">

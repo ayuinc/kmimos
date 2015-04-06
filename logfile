@@ -14,3 +14,11 @@ FATAL:  could not open directory "pg_tblspc": No such file or directory
 FATAL:  could not open directory "pg_tblspc": No such file or directory
 FATAL:  lock file "postmaster.pid" already exists
 HINT:  Is another postmaster (PID 74001) running in data directory "/usr/local/var/postgres"?
+LOG:  skipping missing configuration file "/usr/local/var/postgres/postgresql.auto.conf"
+FATAL:  database files are incompatible with server
+DETAIL:  The data directory was initialized by PostgreSQL version 9.3, which is not compatible with this version 9.4.0.
+LOG:  skipping missing configuration file "/usr/local/var/postgres/postgresql.auto.conf"
+FATAL:  database files are incompatible with server
+DETAIL:  The data directory was initialized by PostgreSQL version 9.3, which is not compatible with this version 9.4.0.
+FATAL:  lock file "postmaster.pid" already exists
+HINT:  Is another postmaster (PID 91686) running in data directory "/usr/local/var/postgres"?

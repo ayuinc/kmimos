@@ -31,10 +31,15 @@
   <meta name="twitter:site" content="">
   <meta name="twitter:creator" content="">
   <meta name="twitter:image" content="">
-  
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <!--FONTS -->
+  <script src="//use.typekit.net/jod1lcb.js"></script>
+  <script>try{Typekit.load();}catch(e){}</script>
+  <script type="text/javascript" src="//cdn.sublimevideo.net/js/e3e9l6b8.js"></script>
+  <!-- END FONTS -->
+  
   <!-- Fonts for Homepage -->
   <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
@@ -71,12 +76,22 @@
   })();
 </script>
 
-<% unless home? %>  
-  <%= render "layouts/header" %>
-<% end %> 
+  <% unless home? %>  
+    <%= render "layouts/header" %>
+  <% end %> 
 
-	<%= yield %>
+  <%= yield %>
   <%= render "layouts/footer" %>
+
+  <!--Start of Zopim Live Chat Script-->
+  <script type="text/javascript">
+  window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+  d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+  _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute('charset','utf-8');
+  $.src='//v2.zopim.com/?2rAZA158tdPofy3mBWtUwxr1sLuiKHRl';z.t=+new Date;$.
+  type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
+  </script>
+  <!--End of Zopim Live Chat Script-->
 
 </body>
 </html>

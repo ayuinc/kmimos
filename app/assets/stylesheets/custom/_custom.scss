@@ -1,4 +1,7 @@
+@import "plugins/media-queries";
+@import "plugins/custom-utilities";
 @import "plugins/flexslider";
+@import "plugins/demo";
 @import "views/fonts-custom";
 @import "views/fonts";
 @import "views/footer";
@@ -7,4 +10,6 @@
 @import "views/list";
 @import "views/proveedores";
 @import "views/provider_modal";
+@import "views/video";
+@import "views/datepicker-custom";
 // @import "views/type_custom";

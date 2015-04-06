@@ -117,16 +117,23 @@
   margin-bottom: 0;
 }
 
+.dropdown-toggle {
+  &:hover,
+  &:focus {
+    background: none !important;
+  }
+}
+
 .navbar {
   .navbar-collapse {
     ul {
       li {
         a {
           text-decoration: none;
-          border: 2px solid #F39442;
-          border-radius: 33px;
-          padding: 4px 11px;
-          color: #F39442;
+          border-radius: 4px;
+          padding: 9px 17px;
+          color: white;
+          background: #545454;
           &:hover {
             text-decoration: none;
           } 

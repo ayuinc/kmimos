@@ -1,3 +1,5 @@
+gem 'high_voltage', '~> 2.2.1'
+
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -16,9 +18,11 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+# gem 'bootstrap-datepicker-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails', '~> 5.0.3'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
@@ -29,7 +33,7 @@ gem 'unicorn'
 
 gem 'carrierwave'
 gem 'rmagick', '2.13.3', :require => 'RMagick'
-gem 'fog'
+gem 'fog', '~> 1.24.0'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

@@ -4,7 +4,7 @@
   margin-right: auto;
   margin-left: auto;
 	.header-navbar {
-		background: #ff9528;
+/* 		background: #ff9528; */
 		.col-md-6 {
 			.navbar-collapse {
 				ul {
@@ -29,7 +29,6 @@
 	}
 	.row {
 		form {
-			background: #efce5a;
 			margin-left: 14px;
 			margin-top: 52px;
 			padding: 10px;
@@ -48,54 +47,50 @@
 				color: gray;
 			}
 			.form-search {
-				border-radius: 4px;
-				padding: 7px 21px;
-				background: white;
-				color: gray;
+				border-radius: 5px;
+        padding: 10px 32px;
+        background: #6cba9b;
+        color: white;
+        font-size: 18px !important;
+        margin-bottom: 0px !important;
+        @media #{$xs-only} {
+          padding: 10px 78px;
+          margin-left: 0px !important;
+        }
 			}
 			.form-search:hover {
-				background: #f08622;
 				color: white;
+        opacity: 0.9;
 			}
 		}
 	}
 }
 .container {
-	.row {
-		.col-md-12 {
-			.row{
-				.col-md-8 {
-					border-left: 11px solid #f08622;
-					box-shadow: 1px 3px 25px -5px #BFBCAA;
-					i {
-						color: #f08622;
-					}
-					.col-md-3 {
-						img {
-						width: 150px;
-						border: 3px solid #f08622;
-						}
-					}
-					.btn-contratar {
-						color: #fff;
-						background-color: #f08622;
-						border-color: #f08622;
-						&:hover {
-							background: #EABD00;
-							border: 1px solid #EABD00;
-						}
-					}
-					.col-md-4 {
-						padding: 63px 0;
-						.btn {
-							padding: 3px 45px;
-							margin-left: 14px;
-						}
-					}
-				}
-			}	
-		}	
-	}
+  .row{
+    .col-md-8 {
+      
+      .col-md-3 {
+        img {
+          width: 105px; 
+          border: 1px solid #ccc;
+        }
+      }
+      .btn-reservar {
+        color: #fff;
+        padding: 9px 35px;
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+      .col-md-4 {
+/*         padding: 63px 0; */
+        .btn {
+          padding: 3px 45px;
+          margin-left: 14px;
+        }
+      }
+    }
+  }	
 }
 
 .fa-star {
@@ -114,4 +109,150 @@
 			border: none;
 		}
 	}
+}
+
+.header-form {
+  .form-location-nav {
+    min-width: 252px;
+    border-radius: 6px !important;
+    padding: 10px !important;
+    margin: 0 !important;
+    @media #{$xs-only} {
+      min-width: 52px !important;
+      width: 224px !important; 
+    }
+  }
+}
+.bg-navbar {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 5px;
+  .header-form {
+    @media #{$xs-only} {
+      margin-left: 10px;
+    }
+    .form-location-nav {
+      @media #{$xs-only} {
+        min-width: 191px;
+      }
+    }
+  }
+}
+
+.list-profiles {
+  h4 {
+    font-size: 16px !important;
+  }
+  border: 1px solid #ccc; 
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 209px;
+}
+
+.dropdown-menu {
+  left: -23px !important;
+}
+
+
+/* Style Perfil proveedores */
+.content-article {
+	background-color: $gray-lighter;
+	padding: 14px;
+  border: 1px solid #ddd;
+}
+
+.content-detalles {
+	background-color: $gray-lighter;
+  border: 1px solid #ddd;
+}
+
+.user-card {
+  position: relative;
+  margin-bottom: 7px;
+  width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-direction: row;
+  .user-pic {
+    img {
+      width: 80px;
+      border: 1px solid #eee;
+    }
+  }
+}
+
+.flex-middle {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+}
+
+.user-card .user-pic {
+  width: 70px;
+}
+
+.btn-fold {
+	padding: 10px 35px;
+  font-size: 1.5rem;
+  border-radius: 3px;
+}
+
+.text-secondary {
+  color: #1DBA9A;
+}
+
+.border-bottom {
+  margin-bottom: 21px;
+  border-bottom: 1px solid #ddd;
+}
+
+.border-top {
+  margin-top: 21px;
+  border-top: 1px solid #ddd;
+}
+
+.carousel-gallery {
+  .flex-direction-nav {
+     .flex-next {
+       right: 16px;
+     }
+  }
+}
+
+.carousel-gallery {
+  .flex-direction-nav {
+     .flex-prev {
+       left: 20px;
+     }
+  }
 }

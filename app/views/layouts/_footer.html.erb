@@ -1,26 +1,52 @@
 <div id="footer" class="mt-70-mob">  
-  <section class="bg-primary pt-21">
+  <section class="bg-success pt-21 pb-21">
     <div class="container">
-      <div class="row pt-21">
-        <div class="col-md-12 col-xs-12 pt-7 small">
-          <nav>
-            <% unless current_provider %>
-              <%= link_to 'Regístrate como proveedor', new_provider_path, class: "Graphie-Book bold btn-registrarse h5 not-underline" %>
-            <% end %>
-          </nav>
-          <div class="col-md-8 mt-35 mb-7 p-0"><h5 class="light text-muted mt-21">Contáctanos: +55 6631 9264 </h5></div>
-          <div class="col-md-4 mt-35 mb-7">
-            <a href="https://twitter.com/Kmimos">
-              <i class="text-muted fa fa-twitter-square fa-5x pull-right"></i>
-            </a>
+      <div class="row">
+        <div class="col-md-4 col-xs-4">
+          <h4 class="text-white">Contáctanos: +55 3455 0138 </h4>
+        </div>
+        <div class="col-md-4">
+          <div class="col-sm-6 pl-0">
+            <h4 class="left text-white text-right">Síguenos en </h4>
+          </div>
+          <div class="col-sm-6">
             <a href="https://www.facebook.com/pages/Kamimos/1473614136234432?ref=bookmarks">
-             <i class="fa fa-facebook-square text-muted fa-5x pull-right"></i> 
+              <i class="fa fa-facebook-square text-white fa-3x pull-left"></i> 
+            </a>
+            <a href="https://twitter.com/KmimosMx">
+              <i class="text-white fa fa-twitter-square fa-3x pull-left"></i>
             </a>
           </div>
         </div>
+        <div class="col-md-4 text-muted text-right">
+          <h5>Todos los derechos reservados<h5>
+        </div>
+      </div>
     </div>
   </section>
 </div>
+<script>
+  $(window).load(function() {
+    // The slider being synced must be initialized first
+    $('#carousel').flexslider({
+      animation: "slide",
+      controlNav: false,
+      animationLoop: false,
+      slideshow: false,
+      itemWidth: 120,
+      itemMargin: 5,
+      asNavFor: '#slider'
+    });
+
+    $('#slider').flexslider({
+      animation: "slide",
+      controlNav: false,
+      animationLoop: false,
+      slideshow: false,
+      sync: "#carousel"
+    });
+  });
+</script>
 
 <script type="text/javascript">
 setTimeout(function(){var a=document.createElement("script");
@@ -28,3 +54,11 @@ var b=document.getElementsByTagName("script")[0];
 a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0022/5945.js?"+Math.floor(new Date().getTime()/3600000);
 a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
 </script>
+<!-- crazyegg begins -->
+<script type="text/javascript">
+setTimeout(function(){var a=document.createElement("script");
+var b=document.getElementsByTagName("script")[0];
+a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0029/3661.js?"+Math.floor(new Date().getTime()/3600000);
+a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+</script>
+<!-- crazyegg ends -->

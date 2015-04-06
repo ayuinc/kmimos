@@ -1,0 +1,17 @@
+<p>Hola <%= @booking.user_first_name %>,</p>
+<p>Muchas gracias por haber solicitado una reserva con Kmimos. </p> 
+<p>Abajo los detalles de tu solicitud: </p>
+
+<% unless @booking.start_date.nil? %> 
+<p>Check-in: <%= @booking.start_date.strftime("%d/%m/%Y") %></p>
+<% end %>
+<% unless @booking.end_date.nil? %>
+<p>Check-out: <%= @booking.end_date.strftime("%d/%m/%Y") %></p>
+<% end %>
+<p>Nombre del cuidador: <%= Provider.find(@booking.provider_id).name %>  <%= Provider.find(@booking.provider_id).last_name_1 %></p>
+<p>Precio por noche: $MXN <%= Provider.find(@booking.provider_id).price %></p>
+<p>Durante las próximas 24 horas recibirás una llamada telefónica o te contactaremos por correo electrónico para coordinar la logística de la estadía de tu mascota.</p>
+<p>Cualquier pregunta no dudes en contactarnos al +55 3455 0138.</p>
+
+<p>¡Gracias!</p>
+<p>Roberto de Kmimos</p>

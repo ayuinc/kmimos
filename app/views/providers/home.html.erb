@@ -1,5 +1,5 @@
 <section id="home-filters"> 
-  <div class="container-fluid p-14">
+  <div class="container-fluid pr-0">
    <div class="navbar p-7">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -8,31 +8,34 @@
           <span class="icon-bar"></span>
         </button>
         <div class=" p-7 hidden-xs hidden-sm col-xs-4">
-          <%= link_to image_tag('site-kmimos-12.png', class: "mt--14"), root_url %>
+          <%= link_to image_tag('logo-kmimos-blanco-04.png', class: "mt--14 img-logo"), root_url %>
         </div>
         <div class=" p-7 hidden-md hidden-lg col-xs-4">
-          <%= link_to image_tag('site-kmimos-12.png', class: "mt-0"), root_url %>
+          <%= link_to image_tag('logo-kmimos-blanco-04.png', class: "mt-0 img-logo"), root_url %>
         </div>
       </div>
-      <div class="collapse navbar-collapse pr-63 mr-42">
-        <ul class="nav navbar-nav pull-right">
+      <div class="collapse navbar-collapse pr-21">
+        <ul class="nav navbar-nav pull-right mt-14">
           <% if current_provider %>
             <li class="dropdown mt-7">
-              <a href="#" class="dropdown-toggle text-muted" data-toggle="dropdown">Hola, <%= current_provider.name %> <i class="fa-caret-down"></i></a>
+              <a href="#" class="dropdown-toggle text-muted" data-toggle="dropdown">Hola, <%= current_provider.name %></a>
               <ul class="dropdown-menu" id="dropdown-menu">
-                <li><%= link_to '<i class="fa-edit"></i> Actualizar mi perfil'.html_safe, edit_provider_path(current_provider), class: "text-danger" %></li>
-                <li><%= link_to '<i class="fa-power-off"></i> Salir'.html_safe, salir_path, :method => :delete, class: "text-danger" %></li>
+                <li><%= link_to 'Actualizar mi perfil'.html_safe, edit_provider_path(current_provider), class: "text-danger pl-14 pr-14 mb-14" %></li>
+                <li><%= link_to 'Salir'.html_safe, salir_path, :method => :delete, class: "text-danger pl-56 pr-56" %></li>
               </ul>
             </li>
             <li class="hidden-lg hidden-md">
               <ul class="list-group m-0 pt-7">
-                <li class="list-group-item"><%= link_to '<i class="fa-edit"></i> Actualizar mi perfil'.html_safe, edit_provider_path(current_provider) %></li>
-                <li class="list-group-item"><%= link_to '<i class="fa-power-off"></i> Salir'.html_safe, salir_path, :method => :delete, class: "text-danger" %></li>
+                <li class="list-group-item"><%= link_to 'Actualizar mi perfil'.html_safe, edit_provider_path(current_provider) %></li>
+                <li class="list-group-item"><%= link_to 'Salir'.html_safe, salir_path, :method => :delete, class: "text-danger" %></li>
               </ul>
             </li>
           <% else %>    
-          <li class="active hidden-sm hidden-xs mt-28">
-           <%= link_to 'Ingresa a tu cuenta'.html_safe, new_providers_session_path, class: "not-underline" %>
+          <li class="active hidden-sm hidden-xs mr-7">
+            <%= link_to 'Iniciar sesión', new_providers_session_path, class: "not-underline log-in" %>
+          </li>
+          <li class="active hidden-sm hidden-xs">
+            <%= link_to 'Ser cuidador', new_provider_path, class: "not-underline sign-up" %>
           </li>
           <li class="hidden-lg hidden-md">
             <%= form_tag providers_sessions_path, :class => "form-inline mb-0 user-login-header-form" do %>
@@ -53,72 +56,77 @@
       </div>
       <!--/.nav-collapse -->
     </div>
-    <div class="row">
-      <div class="col-md-8 col-xs-1"></div>
-      <div class="col-md-3 ipad col-xs-11 mt-14">
-        <div class="opciones mt-7 mb-42 p-21">
-          <div class="row">
-            <div class="text col-md-12 text-center">
-              <h3 class="light hidden-sm hidden-xs mt-7">Consiente a tu mascota</h3>
-              <h3 class="light hidden-md hidden-lg mt-7">Consiente a tu mascota</h3>
-              <h5 class="text-gray pb-14 light">Conéctate con gente de confianza para consentir a tu mascota como se merece.</h5>
-            </div>
-          </div>
-          <div class="servicios row text-center">
-            <div class="col-md-6 p-0">
-              <%= link_to(category_path(Category.find_by(name: "Veterinario"))) do %>
-                <%= image_tag("site-kmimos-05.png", :class => "" ) %>
-                <div class="overlay">
-                </div>
+   
+    <div class="container-sm">
+      <div class="row text-center text-white pt-70">
+        <div class="col-md-12 col-xs-6">
+          <h1 class="mb-14 thin xl">Viaja con tranquilidad dejando a tu mascota en buenas manos</h1>
+          <a href="#Nea-sczW5kQ" class="btn-how btn sublime mt-56" data-youtube-id="Nea-sczW5kQ">
+            Cómo funciona
+          </a>
+          <video id="Nea-sczW5kQ" width="640" height="360" style="display:none" data-uid="Nea-sczW5kQ" data-youtube-id="Nea-sczW5kQ" preload="none">
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid mt-21">
+      <div class="row bg-check">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-9 col-xs-10">
+          <h3 class="pl-14 text-white thin mv-7 text-bg-check">Busca cuidadores calificados que atiendan a tu mascota mientras estás de viaje</h3>
+          <%= search_form_for @search do |f| %>
+          <div class="row header-form">
+            <div class="col-sm-3 col-xs-in">
+              <% if session[:start_date].nil? %>
+                <%= text_field_tag(:start_date, nil, class: 'datepicker input-lg form-control form-check', placeholder: 'DD/MM/AAAA') %>
+              <% else %>
+                <%= text_field_tag(:start_date, session[:start_date].strftime("%d/%m/%Y"), class: 'datepicker input-lg form-control form-check', placeholder: 'DD/MM/AAAA') %>
               <% end %>
             </div>
-            <div class="col-md-6 p-0">
-              <%= link_to(category_path(Category.find_by(name: "Paseador"))) do %>
-                <%= image_tag("site-kmimos-07.png", :class => "" ) %>
-                <div class="overlay">
-                </div>
+            <div class="col-sm-3 col-xs-out">
+              <% if session[:end_date].nil? %>
+                <%= text_field_tag(:end_date, nil, class: 'datepicker input-lg form-control form-check', placeholder: 'DD/MM/AAAA') %>
+              <% else %>
+                <%= text_field_tag(:end_date, session[:end_date].strftime("%d/%m/%Y"), class: 'datepicker input-lg form-control form-check', placeholder: 'DD/MM/AAAA') %>
               <% end %>
             </div>
-          </div>
-          <div class="servicios row text-center mt-14">
-            <div class="col-md-6 p-0">
-              <%= link_to(category_path(Category.find_by(name: "Hotel"))) do %>
-                <%= image_tag("site-kmimos-06.png", :class => "" ) %>
-                <div class="overlay">
-                </div>
-              <% end %>
+            <div class="col-sm-3 locations-dd">
+              <%= f.collection_select :locations_id_eq, Location.order(:name), :id, :name,{include_blank:"Elegir Municipio"}, {class:"input-lg borderless form-location-nav"} %> 
             </div>
-            <div class="col-md-6 p-0">
-              <%= link_to(category_path(Category.find_by(name: "Entrenador"))) do %>
-                <%= image_tag("site-kmimos-08.png", :class => "" ) %>
-                <div class="overlay">
-                </div>
-              <% end %>
+            <div class="col-sm-3 search-btn">
+              <%= f.submit "Buscar", class:"ml-21 borderless form-search" %>
             </div>
+            <% end %>
           </div>
         </div>
+        <div class="col-sm-1"></div>
       </div>
     </div>
   </div>
 </section>
 <section id="home-pasos" class="text-center bg-muted">
   <div class="container text-center">
-    <div class="row text-center text-primary p-28"><h2 class="light">¿Cómo funciona?</h2></div>
-    <div class="row mb-35">
-      <div class="col-md-4 text-center">
-        <%=image_tag('site-kmimos-09.png', class: "mt--14") %>
-        <h3 class="mt-35 light text-gray">1. Elige</h3>
-        <h5 id="text-gray" class="p-21 light  ">Selecciona el servicio que necesitas y elige entre la lista de proveedores calificados.</h5>
+    <div class="row text-center p-28"><h1 class="light mt-7" id="text-gray">Beneficios</h1></div>
+    <div class="row mb-35 pl-42 pr-56">
+      <div class="col-md-3 text-center">
+        <%=image_tag('site-kmimos-flat-11.png', class: "mt--14") %>
+        <h2 class="mt-28 light text-gray">Seguro</h2>
+        <h4 id="text-gray" class="p-7 mt-0 light line-5 mb-21">Tu mascota contará con un seguro de salud durante toda su estadía.</h4>
       </div>
-      <div class="col-md-4 text-center">
-        <%=image_tag('site-kmimos-10.png', class: "mt--14") %>
-        <h3 class="mt-35 light text-gray">2. Contrata</h3>
-        <h5 id="text-gray" class="p-21 light ">Contrata al proveedor <br> que más se ajusta a tus necesidades.</h5>
+      <div class="col-md-3 text-center">
+        <%=image_tag('site-kmimos-flat-12.png', class: "mt--14") %>
+        <h2 class="mt-28 light text-gray">Calidad</h2>
+        <h4 id="text-gray" class="p-7 mt-0 light line-5 mb-21">Todos nuestros proveedores han sido previamente evaluados.</h4>
       </div>
-      <div class="col-md-4 text-center">
-        <%=image_tag('site-kmimos-11.png', class: "mt--14") %>
-        <h3 class="mt-35 light text-gray">3. Evalúa</h3>
-        <h5 id="text-gray" class="p-21 light">Asígnale un puntaje al proveedor de acuerdo a la calidad del servicio brindado.</h5>
+      <div class="col-md-3 text-center">
+        <%=image_tag('site-kmimos-flat-13.png', class: "mt--14") %>
+        <h2 class="mt-28 light text-gray">Fotos</h2>
+        <h4 id="text-gray" class="p-7 mt-0 light line-5 mb-21">Recibe fotos diarias de tu mascota para mantenerte cerca e informado.</h4>
+      </div>
+      <div class="col-md-3 text-center">
+        <%=image_tag('site-kmimos-flat-14.png', class: "mt--14") %>
+        <h2 class="mt-28 light text-gray">Atención</h2>
+        <h4 id="text-gray" class="p-7 mt-0 light line-5 mb-21">Ofrecemos atención 24/7 para atender a tu mascota a cualquier hora mientras tú estás fuera.</h4>
       </div>
     </div>
   </div>
@@ -126,45 +134,76 @@
 
 <section>
   <!-- Place somewhere in the <body> of your page -->
-  <div class="container-fluid hidden-xs pasador pb-21 hidden-sm">
+  <div class="container-fluid hidden-xs pasador pb-56 hidden-sm">
     <div class="row">
-      <h3 class="text-center text-muted light">Nuestros servers destacados.</h3>
       <div class="flexslider m-0">
         <ul class="slides">
-          <li class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-4 server-pic m-21">
-              <%=image_tag('gabriel_garduno.jpg', class: "img-circle img-responsive") %>
+          <li>
+            <div class="row ml-0 mr-0">
+               <div class="col-md-4"></div>
+               <div class="col-md-4 server-pic mt-56 mb-21">
+                 <%=image_tag('dog-lover1.jpg', class: "img-circle") %>
+               </div>
+               <div class="col-md-4"></div>
             </div>
-            <div class="col-md-4 server-desc text-justify m-21">
-              <h3 id="text-yellow" class="light">Gabriel Garduño </h3>
-              <p class="text-muted light">Entrenador profesional, ofrezco hospedaje para tus mascotas, las paseamos las buscamos en tu domicilio para que se diviertan !!  ATIENDO EN TODO EL DF</p>
-              <%= link_to "Contactar".html_safe, @provider_a, remote: true, :class => "btn btn-sm h5", :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'ContactarCarousel', 'provider_#{@provider_a.id.to_s}']);" %>
+            <div class="row ml-0 mr-0">
+              <div class="col-md-3">
+                <%=image_tag('site_kmimos-13.png', class: "img-comillas-1") %>
+              </div>
+              <div class="col-md-6 server-desc text-center"><hr>
+                <p class="text-white light lead">El servicio fue magnifico y regresaron sanos y salvos mis perritos en especial Odin.</p>
+                <h3 id="text-white"id="text-yellow" class="light">Victor Villegas</h3>
+                <hr>
+              </div>
+              <div class="col-md-3">
+                <%=image_tag('site_kmimos-14.png', class: "img-comillas-2") %>
+              </div>
             </div>
-            <div class="col-md-2"></div>
           </li>
-          <li class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-4 server-pic m-21">
-              <%=image_tag('juan-camacho.jpg', class: "img-circle img-responsive") %>
+          <li>
+            <div class="row ml-0 mr-0">
+               <div class="col-md-4"></div>
+               <div class="col-md-4 server-pic mt-56 mb-21">
+                 <%=image_tag('camacho.jpg', class: "img-circle") %>
+               </div>
+               <div class="col-md-4"></div>
             </div>
-            <div class="col-md-4 server-desc text-justify m-21">
-              <h3 id="text-yellow" class="light">Juan Camacho</h3>
-              <p class="text-muted light">Consentimos y cuaidamos a tus mascotas en: Hospedaje y pension campestre;  Hotel citadino; Hotel hogareño. Entrenamos a tus mascotas, básico, avanzado y corrección de malos hábitos. Tenemos estética, y buscamos a tus mascotas en todo el DF y EDO de MEXICO.</p>
-              <%= link_to "Contactar".html_safe, @provider_b, remote: true, :class => "btn btn-sm h5", :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'ContactarCarousel', 'provider_#{@provider_b.id.to_s}']);" %>
+            <div class="row ml-0 mr-0">
+              <div class="col-md-3">
+                <%=image_tag('site_kmimos-13.png', class: "img-comillas-1") %>
+              </div>
+              <div class="col-md-6 server-desc text-center"><hr>
+                <p class="text-white light lead">Confié plenamente en los cuidados de <a href="http://www.twitter.com/KmimosMx">@KmimosMx</a> y no me arrepentí. Lo recomiendo 100%.</p>
+                <h3 id="text-white" class="light">Vicente Leyba</h3>
+                <hr>
+              </div>
+              <div class="col-md-3">
+                <%=image_tag('site_kmimos-14.png', class: "img-comillas-2") %>
+              </div>
             </div>
-            <div class="col-md-2"></div>
           </li>
-          <li class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-4 server-pic m-21">
-              <%=image_tag('jorge-morales.jpg', class: "img-circle img-responsive") %>
+          <li>
+            <div class="row ml-0 mr-0">
+               <div class="col-md-4"></div>
+               <div class="col-md-4 server-pic mt-56 mb-21">
+                 <%=image_tag('giovanni.jpg', class: "img-circle") %>
+               </div>
+               <div class="col-md-4"></div>
             </div>
-            <div class="col-md-4 server-desc text-justify m-21">
-              <h3 id="text-yellow" class="light">Jorge Bello</h3><p class="text-muted light">Nos encanta consentir a tus mascotas, las buscamos en tu casa, paseamos,entrenamos y si quieres un hospedaje con mucho cariño búscame para hacerlas sentir como en casa.  ATIENDO EN TODO EL DF</p>
-              <%= link_to "Contactar".html_safe, @provider_c, remote: true, :class => "btn btn-sm h5", :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'ContactarCarousel', 'provider_#{@provider_c.id.to_s}']);" %>
+            <div class="row ml-0 mr-0">
+              <div class="col-md-3">
+                <%=image_tag('site_kmimos-13.png', class: "img-comillas-1") %>
+
+              </div>
+              <div class="col-md-6 server-desc text-center"><hr>
+                <p class="text-white light lead">Bruno siempre regresa feliz y tranquilo, siempre que nos vamos de viaje se que lo dejo en buenas manos.</p>
+                <h3 id="text-white" class="light">Giovanni Ciullo</h3>
+                <hr>
+              </div>
+              <div class="col-md-3">
+                <%=image_tag('site_kmimos-14.png', class: "img-comillas-2") %>
+              </div>
             </div>
-            <div class="col-md-2"></div>
           </li>
         </ul>
       </div>   
@@ -172,23 +211,53 @@
   </div>
 </section>
 
-<section id="listo" class="mt-7 mb-21">
-  <div class="container mb-21 mt-21">
+<section id="recomendar" class="">
+  <div class="container">
     <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-8 m-28">
-        <h3 class="text-secondary text-center mt-7 light">¿Que esperas para consentir a tu mascota?</h3>
-        <div class="row text-center">
+      <div class="col-md-12 m-28">
+        <div class="text-white text-right dsct mt-56 mr-70 text-recomendar">
+          <h2 class="text-white mt-7 fz-50 mb-0">Recomiéndanos</h2>
+          <h4 class="light mb-0 fz-30 mt-0">y tendrás</h4>
+          <h1 class="dsct-10 mb-0 mt-0">25%</h1>
+          <h3 class="thin mt-0 mb-0 fz-40">descuento</h3>
+          <div class="separator-gray separator-lg pull-right"></div><br>
+          <h4 class="light fz-30">en tu siguiente reserva</h4>
+        </div>
+        
+        <div class="row text-right mr-70">
+          <%# Added Bootstrap data modal attribute %>
+          <%# Bootstrap modal markup. @see: http://getbootstrap.com/javascript/#modals %>
+          <div class="modal fade" id="new_code_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                      <h4 class="modal-title text-left" id="myModalLabel"><strong>Recomiéndanos y obtén 25% de descuento en tu siguiente reserva.</strong></h4>
+                </div>
+                <div class="modal-body">
+                  <%# Render the new person form (passing modal => true to enable remote => true) %>
+                  <%= render 'referrals/form', modal: true %>
+                </div>
+                <div id="referrals_table">
+
+                      <%# Render table row partial for each referral object %>
+                      <%= render partial: 'referrals/table_row', locals: {referral: @referral} %>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
           <nav>
-            <% unless current_provider %>
-             <%= link_to 'buscar aquí', providers_path, :class => "btn btn-lg text-muted", :id => "btn-search", :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Home', 'BuscarAqui']);" %>
-            <% end %>  
+           
+            <%= link_to 'Recomendar', '#new_code_modal', 'data-toggle' => 'modal', :class => "mt-28 btn btn-lg text-white light", :id => "btn-recomendar", :onClick=>"_gaq.push(['_trackEvent', 'Homepage', 'Recomendar-modal-trigger']);"  %>
           </nav>
         </div>  
       </div>
-      <div class="col-md-2"></div>
     </div>
   </div>
 </section>
 
-<%= render "layouts/modal" %>
+

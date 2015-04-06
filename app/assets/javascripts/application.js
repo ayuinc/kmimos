@@ -9,8 +9,8 @@
 //= require bootstrap/z_popover
 //= require bootstrap/modal
 //= require bootstrap/tab
+//= require jquery-ui
 //= require easing
-//= require typeahead.min
 //= require_self
 //= require_tree .
 
@@ -23,10 +23,47 @@ $(document).ready(function() {
     $('#footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
   }
 
+  // modal for referral codes
+  $(document).bind('ajaxError', 'form#new_referral', function(event, jqxhr, settings, exception){
+
+    // note: jqxhr.responseJSON undefined, parsing responseText instead
+    $(event.data).render_form_errors( $.parseJSON(jqxhr.responseText) );
+
+  });
+
   // pretty-fy the upload field
   // var realInputField = $('#provider_pictures_attributes_0_image');
   var realInputField = $('#provider_avatar');
   var picCache = $("#provider_avatar_cache")
+
+  //ocultar campos innecesarios en providers#edit
+  $('img').filter(function(){
+          return !$(this).attr('src');
+  }).hide();
+  $("a[href='/provider_attachments']").hide()
+
+  // initialize jquery-ui datepicker
+  $('#start_date').datepicker({
+  	  minDate: new Date(),
+      dateFormat: 'dd/mm/yy',
+      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 1,
+      onClose: function( selectedDate ) {
+        $( "#end_date" ).datepicker( "option", "minDate", selectedDate );
+      }
+    });
+  
+  $('#end_date').datepicker({
+  	  minDate: new Date(),
+      dateFormat: 'dd/mm/yy',
+      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 1,
+      onClose: function( selectedDate ) {
+        $( "#end_date" ).datepicker( "option", "minDate", selectedDate );
+      }
+    });
 
   // drop just the filename in the display field
   realInputField.change(function() {
@@ -95,6 +132,49 @@ function allLabel() {
 		checkAll();
 	}
 }
+
+// referrals
+(function($) {
+
+  $.fn.modal_success = function(){
+    // close modal
+    // this.modal('hide');
+    // this.removeClass('hidden');
+    this.find('.modal-title').html("Este es tu código de descuento. Cuando realices tu próxima reserva, utiliza este código y obtén 10% de descuento.");
+    this.find('.modal-body').hide();
+
+    // clear form input elements
+    // todo/note: handle textarea, select, etc
+    this.find('form input[type="text"]').val('');
+
+    // clear error state
+    this.clear_previous_errors();
+  };
+
+  $.fn.render_form_errors = function(errors){
+
+    $form = this;
+    this.clear_previous_errors();
+    model = this.data('model');
+
+    // show error messages in input form-group help-block
+    $.each(errors, function(field, messages){
+      $input = $('input[name="' + model + '[' + field + ']"]');
+      $input.closest('.form-group').addClass('has-error').find('.help-block').html( messages.join(' & ') );
+    });
+
+  };
+
+  $.fn.clear_previous_errors = function(){
+    $('.form-group.has-error', this).each(function(){
+      $('.help-block', $(this)).html('');
+      $(this).removeClass('has-error');
+    });
+  }
+
+}(jQuery));
+
+
 
 
 

@@ -1,0 +1,2 @@
+module ProviderAttachmentsHelper
+end

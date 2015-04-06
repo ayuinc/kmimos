@@ -223,9 +223,13 @@ es:
       event: slot de tiempo
       provider: proveedor
       location: ubicación
+      album: fotos
+      photo: foto
     errors:
       <<: *errors
     attributes:
+        provider_attachment:
+            photo: "Foto"
         provider: 
             email: "Correo electrónico"
             email_c: "Confirmación de correo electrónico"
@@ -241,6 +245,11 @@ es:
             phone: "Teléfono"
             dni: "IFE"
             category_id: "Categoría"
+        booking:
+            user_email: "Correo electrónico"
+            user_first_name: "Nombre"
+            user_last_name: "Apellido"
+            user_phone: "Teléfono"
         category:
             name: "Categoría"    
                 

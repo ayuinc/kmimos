@@ -1,6 +1,17 @@
 ServihogarRails::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  # mailer settings for mailgun
+  config.action_mailer.default_url_options = { :host => "www.cani.mx" }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => 'http://www.cani.mx' }
+  config.action_mailer.smtp_settings = {
+    :authentication => :plain,
+    :address => "smtp.mailgun.org",
+    :port => 587,
+    :domain => ENV['MAILING_DOMAIN'],
+    :user_name => ENV['MAILING_USERNAME'],
+    :password => ENV['MAILING_PASSWORD']
+  }  
   # Code is not reloaded between requests.
   config.cache_classes = true
 
