@@ -4178,7 +4178,8 @@ html[xmlns] .slides {
 #carousel img {
   display: block;
   opacity: .5;
-  cursor: pointer; }
+  cursor: pointer;
+  height: 85px; }
 
 #carousel img:hover {
   opacity: 1; }
