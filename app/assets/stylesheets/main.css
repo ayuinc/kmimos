@@ -4044,10 +4044,10 @@ html[xmlns] .slides {
   transition: all .3s ease; }
 
 .flex-direction-nav .flex-prev {
-  left: 141px; }
+  left: 29px; }
 
 .flex-direction-nav .flex-next {
-  right: 141px; }
+  right: 29px; }
 
 .flex-prev {
   opacity: 0.7;
@@ -4169,6 +4169,45 @@ html[xmlns] .slides {
   .flex-direction-nav .flex-next {
     opacity: 1;
     right: 10px; } }
+.slider {
+  margin: 50px 0 10px !important; }
+
+#carousel li {
+  margin-right: 5px; }
+
+#carousel img {
+  display: block;
+  opacity: .5;
+  cursor: pointer; }
+
+#carousel img:hover {
+  opacity: 1; }
+
+#carousel .flex-active-slide img {
+  opacity: 1;
+  cursor: default; }
+
+/* Loading
+***********************/
+.loading #container {
+  opacity: 0; }
+
+.loading:before {
+  content: 'LOADING';
+  display: block;
+  margin: 100px 0 0;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 60px;
+  opacity: 0.3; }
+
+body {
+  width: 100%;
+  float: left;
+  opacity: 1;
+  -webkit-transition: opacity 1s ease; }
+
 /* PROJECT ESPECIFIC FONTS */
 .thin {
   font-family: "proxima-nova", Helvetica, Arial, sans-serif !important;
@@ -4926,7 +4965,7 @@ iframe {
   font-family: "proxima-nova", Helvetica, Arial, sans-serif !important;
   font-weight: 300;
   font-style: normal;
-  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid white;
   color: white;
   width: 200px;
   font-size: 18px;
