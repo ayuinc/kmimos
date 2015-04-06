@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150121213023) do
+ActiveRecord::Schema.define(version: 20150406210300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ages", force: true do |t|
+    t.string  "age_group_name"
+    t.integer "provider_id"
+  end
+
+  create_table "albums", force: true do |t|
+    t.integer "provider_id"
+  end
+
+  add_index "albums", ["provider_id"], name: "index_albums_on_provider_id", using: :btree
 
   create_table "bookings", force: true do |t|
     t.date     "start_date"
@@ -28,6 +39,10 @@ ActiveRecord::Schema.define(version: 20150121213023) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "ref_code"
+    t.string   "raza"
+    t.string   "edad"
+    t.text     "cuidado_especial"
+    t.string   "token"
   end
 
   add_index "bookings", ["provider_id"], name: "index_bookings_on_provider_id", using: :btree
@@ -48,6 +63,24 @@ ActiveRecord::Schema.define(version: 20150121213023) do
     t.string "name"
   end
 
+  create_table "meetings", force: true do |t|
+    t.integer "provider_id"
+    t.string  "user_first_name"
+    t.string  "user_last_name"
+    t.string  "user_phone"
+    t.string  "user_email"
+    t.string  "token"
+  end
+
+  add_index "meetings", ["provider_id"], name: "index_meetings_on_provider_id", using: :btree
+
+  create_table "photos", force: true do |t|
+    t.integer "album_id"
+    t.string  "image"
+  end
+
+  add_index "photos", ["album_id"], name: "index_photos_on_album_id", using: :btree
+
   create_table "pictures", force: true do |t|
     t.string   "image"
     t.integer  "imageable_id"
@@ -57,6 +90,24 @@ ActiveRecord::Schema.define(version: 20150121213023) do
   end
 
   add_index "pictures", ["imageable_id", "imageable_type"], name: "index_pictures_on_imageable_id_and_imageable_type", using: :btree
+
+  create_table "post_attachments", force: true do |t|
+    t.integer "provider_id"
+    t.string  "attachment"
+  end
+
+  add_index "post_attachments", ["provider_id"], name: "index_post_attachments_on_provider_id", using: :btree
+
+  create_table "properties", force: true do |t|
+    t.string "property_name"
+  end
+
+  create_table "provider_attachments", force: true do |t|
+    t.integer  "provider_id"
+    t.string   "photo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "providers", force: true do |t|
     t.string   "name"
@@ -74,6 +125,11 @@ ActiveRecord::Schema.define(version: 20150121213023) do
     t.string   "email_c"
     t.string   "avatar"
     t.float    "price"
+    t.string   "areas_externas"
+    t.boolean  "emergencia"
+    t.integer  "experiencia"
+    t.text     "iframe_code"
+    t.integer  "property_id"
   end
 
   add_index "providers", ["category_id"], name: "index_providers_on_category_id", using: :btree
@@ -84,6 +140,11 @@ ActiveRecord::Schema.define(version: 20150121213023) do
     t.string   "referrer_email"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "sizes", force: true do |t|
+    t.string  "size_title"
+    t.integer "provider_id"
   end
 
 end

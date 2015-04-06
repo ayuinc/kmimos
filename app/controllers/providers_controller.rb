@@ -17,28 +17,27 @@
     @search = Provider.search(params[:q])
     @referral = Referral.new
     @referrals = Referral.all
+    session[:start_date] = nil
+    session[:end_date] = nil
+    session[:user_email] = nil
   end  
 
   # GET /providers/1
   # GET /providers/1.json
   def show
-    respond_to do |format|
-        format.html # show.html.erb
-        format.js # show.js.erb
-        format.json { render json: @provider }
-    end
+    @provider_attachments = @provider.provider_attachments.all
   end
 
   # GET /providers/new
   def new
     @provider = Provider.new
-    # @provider.pictures.new
-    # @provider.pictures.build
-    # @avatar = @provider.avatar_cache
+    @provider_attachment = @provider.provider_attachments.build
   end
 
   # GET /providers/1/edit
   def edit
+    @provider_attachment = @provider.provider_attachments.build
+    @new_provider_attachment = @provider.provider_attachments.new
     # @provider.pictures.build
   end
 
@@ -50,7 +49,12 @@
     @provider.category_id = @hotel_id
       if @provider.save
         session[:provider_id] = @provider.id
-        flash.now[:success] = "Hola #{@provider.name}, bienvenido a Servihogar."
+        unless params[:provider_attachments].nil?
+          params[:provider_attachments]['photo'].each do |a|
+             @provider_attachment = @provider.provider_attachments.create!(:photo => a, :provider_id => @provider.id)
+          end
+        end
+        flash.now[:success] = "Hola #{@provider.name}, bienvenido a Kmimos."
         redirect_to root_path
       else
        # fail
@@ -60,11 +64,14 @@
   end
 
   # PATCH/PUT /providers/1
-  # PATCH/PUT /providers/1.json
   def update
     respond_to do |format|
       if @provider.update(provider_params)
-      #  format.html { redirect_to root_path, notice: 'Tu perfil se ha actualizado con éxito' }
+        unless params[:provider_attachments].nil?
+          params[:provider_attachments]['photo'].each do |a|
+             @provider_attachment = @provider.provider_attachments.create!(:photo => a, :provider_id => @provider.id)
+          end
+        end
         format.html { redirect_to root_path }
         format.json { head :no_content }
       else
@@ -92,7 +99,7 @@
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def provider_params
-      params.require(:provider).permit(:name, :last_name_1, :last_name_2, :dni, :avatar, :avatar_cache, :description, :email, :email_c, :phone, :price, :avg_rating, :category_id, :password, :password_confirmation, locations_attributes: [:id], location_ids: [])
+      params.require(:provider).permit(:tipo_propiedad, :areas_externas, :emergencia, :experiencia, :iframe_code, :name, :last_name_1, :last_name_2, :dni, :avatar, :avatar_cache, :description, :email, :email_c, :phone, :price, :avg_rating, :property_id, :category_id, :password, :password_confirmation, locations_attributes: [:id], location_ids: [], provider_attachments_attributes: [:id, :provider_id, :photo], age_ids: [], size_ids: [])
     end
 
     def get_ranges
@@ -106,7 +113,7 @@
       unless params[:start_date].nil? || params[:start_date].empty?
         session[:start_date] = Date.strptime(params[:start_date],'%d/%m/%Y')
       end
-      unless params[:start_date].nil? || params[:start_date].empty?
+      unless params[:end_date].nil? || params[:end_date].empty?
         session[:end_date] = Date.strptime(params[:end_date],'%d/%m/%Y')
       end
     end

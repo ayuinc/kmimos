@@ -1,0 +1,55 @@
+<div class="container-sm">
+  <div class="row text-center mt-42">
+    <%= link_to image_tag('huella-mensaje-17.png' ), root_url %>
+      <h1 class="mb-21">¡Gracias por hacer tu reserva!</h1>
+      <h3>Los detalles de tu reserva a continuación:</h3>
+    <div class="col-md-4"></div>
+    <div class="col-md-5">
+      
+      <div class="text-left">
+        <h4 class="text-gray">
+          <% unless @booking.start_date.nil? %>
+          <small class="text-black bold">Check-in:</small>
+          <%= @booking.start_date.strftime("%d/%m/%Y") %>
+          <% end %>
+        </h4>
+        <h4 class="text-gray">
+          <% unless @booking.end_date.nil? %>
+          <small class="text-black bold">Check-out:</small>
+          <%= @booking.end_date.strftime("%d/%m/%Y") %>
+          <% end %>
+        </h4>
+        <h4 class="text-gray"><small class="text-black bold">Cuidador:</small> <%= @booking.provider.name %><%= @booking.provider.last_name_1 %> <%= @booking.provider.last_name_2 %></h4>
+        <h4 class="text-gray"><small class="text-black bold">Precio:</small> Mex $<%= @booking.provider.price %> / noche</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h3>Para tu comodidad hemos enviado la información a:</h3>
+        <h4><%= @booking.user_email %></h4>
+        <hr class="mt-42">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Facebook Conversion Code for Reservacion exitosa -->
+<script>
+(function() {
+  var _fbq = window._fbq || (window._fbq = []);
+  if (!_fbq.loaded) {
+    var fbds = document.createElement('script');
+    fbds.async = true;
+    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(fbds, s);
+    _fbq.loaded = true;
+  }
+})();
+window._fbq = window._fbq || [];
+window._fbq.push(['track', '6021903685305', {'value':'0.01','currency':'MXN'}]);
+</script>
+<noscript>
+  <img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?ev=6021903685305&amp;cd[value]=0.01&amp;cd[currency]=MXN&amp;noscript=1" />
+</noscript>

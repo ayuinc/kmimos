@@ -17,3 +17,28 @@ categories = ["Paseador", "Entrenador", "Veterinario", "Hotel"]
 categories.sort!.each do |category|
   Category.find_or_create_by(name: category)
 end
+
+
+ages = ["Cachorros", "Adultos"]
+
+ages.sort!.each do |age|
+  Age.find_or_create_by(age_group_name: age)
+end
+
+sizes = ["Pequeños", "Medianos", "Grandes"]
+
+sizes.sort!.each do |size|
+  Size.find_or_create_by(size_title: size)
+end
+
+sizes = ["Pequeños", "Medianos", "Grandes"]
+
+sizes.sort!.each do |size|
+  Size.find_or_create_by(size_title: size)
+end
+
+properties = ["Casa", "Departamento"]
+
+properties.sort!.each do |property|
+  Property.find_or_create_by(property_name: property)
+end

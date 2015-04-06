@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-	# before_action :get_dates, only: [:new]
+	before_action :set_booking, only: [:show]
 	# before_action :check_booking_params, only: [:new]
 
 	def new
@@ -8,15 +8,18 @@ class BookingsController < ApplicationController
 	  # @chosen_provider = Provider.find(params[:provider_id])
 	end
 
+	def show
+	end
+
 	def create 
 		@booking = Booking.new(booking_params)
 	  if @booking.save
-    	# BookingConfirmationMailer.new_booking_notification(@booking).deliver
-    	flash[:success] = 'Reserva realizada. Te hemos enviado un correo de confirmación.'
 	    session[:start_date] = nil
 	    session[:end_date] = nil
-      session[:user_email] = @booking.user_email
-	    redirect_to  pages_thank_you_path
+      session[:user_email] = nil
+    	BookingConfirmationMailer.new_booking_notification(@booking).deliver
+    	BookingConfirmationMailer.new_booking_for_admin(@booking).deliver
+	    redirect_to booking_path(@booking)
 	  else
 	    render 'new'
 	  end
@@ -38,8 +41,12 @@ class BookingsController < ApplicationController
 	private
 
 	def booking_params
-	  params.require(:booking).permit(:start_date, :end_date, :user_first_name, :user_last_name, :provider_id, :user_phone, :user_email, :ref_code, :user_message)
+	  params.require(:booking).permit(:raza, :edad, :cuidado_especial, :start_date, :end_date, :user_first_name, :user_last_name, :provider_id, :user_phone, :user_email, :ref_code, :user_message)
 	end
+
+	def set_booking
+    @booking = Booking.find_by_token(params[:id])
+  end
 
 	def get_dates
 	  unless params[:start_date].nil? || params[:start_date].empty?

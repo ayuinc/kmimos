@@ -1,6 +1,6 @@
 #home-filters {
-  background-image: url(http://s3.postimg.org/cx057ann7/fondo_kmimos.png);
-  min-height: 589px;
+  background-image: url(http://s11.postimg.org/h4k1brts3/foto_principal_kmimos.png);
+  min-height: 616px;
   background-size: cover;
   background-repeat: no-repeat;
   .text-fold {
@@ -241,7 +241,7 @@
 }
 
 .text-gray {
-  color: gray;
+  color: $gray;
 }
 
 .text-white {
@@ -277,9 +277,9 @@
 }
 
 .bg-check {
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.7);
   padding: 18px;
-  margin-top: 136px;
+  margin-top: 76px;
   .form-search {
     @media #{$xs-only} {
       padding: 10px 85px !important;
@@ -325,10 +325,6 @@
 
 .dsct-10 {
   font-size: 110px !important;
-}
-
-.text-description {
-  line-height: 1.5 !important;
 }
 
 .img-logo {
@@ -404,4 +400,30 @@
       text-align: center !important;
     }
   }
+}
+
+.text-yellow {
+  color: #FFDB00;
+}
+
+.text-conocer {
+  &:hover {
+    color: #1DBA9A;
+  }
+}
+
+iframe {
+  width: 100%;
+}
+
+.text-small {
+  font-size: 16px !important;
+}
+
+.line-regular {
+   line-height: 1.3 !important;
+}
+
+.text-bg-check {
+  letter-spacing: 0.5px;
 }

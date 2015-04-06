@@ -36,6 +36,12 @@ $(document).ready(function() {
   var realInputField = $('#provider_avatar');
   var picCache = $("#provider_avatar_cache")
 
+  //ocultar campos innecesarios en providers#edit
+  $('img').filter(function(){
+          return !$(this).attr('src');
+  }).hide();
+  $("a[href='/provider_attachments']").hide()
+
   // initialize jquery-ui datepicker
   $('#start_date').datepicker({
   	  minDate: new Date(),

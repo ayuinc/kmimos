@@ -1,0 +1,21 @@
+<div class="container-sm">
+  <div class="row text-center mt-42">
+    <%= link_to image_tag('huella-mensaje-17.png' ), root_url %>
+    <h1 class="mb-21">¡Gracias por solicitar conocer a un cuidador de Kmimos!</h1>
+    <h3>Los detalles de tu solicitud a continuación:</h3>
+    <div class="col-md-4"></div>
+    <div class="col-md-5">
+      <div class="text-left">
+        <h4 class="text-gray"><small class="text-black bold">Cuidador:</small> <%= @meeting.provider.name %><%= @meeting.provider.last_name_1 %> <%= @meeting.provider.last_name_2 %>
+        </h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+          <h3>Para tu comodidad hemos enviado la información a:</h3>      
+          <h4><%= @meeting.user_email %></h4>
+        <hr class="mt-42">
+      </div>
+    </div>
+  </div>
+</div>
