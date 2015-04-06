@@ -4965,7 +4965,7 @@ iframe {
   font-family: "proxima-nova", Helvetica, Arial, sans-serif !important;
   font-weight: 300;
   font-style: normal;
-  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid white;
   color: white;
   width: 200px;
   font-size: 18px;
