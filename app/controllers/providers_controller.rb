@@ -17,6 +17,9 @@
     @search = Provider.search(params[:q])
     @referral = Referral.new
     @referrals = Referral.all
+    session[:start_date] = nil
+    session[:end_date] = nil
+    session[:user_email] = nil
   end  
 
   # GET /providers/1

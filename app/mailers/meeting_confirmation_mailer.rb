@@ -10,13 +10,13 @@ class MeetingConfirmationMailer < ActionMailer::Base
     @meeting = meeting
     mail(
       to: @meeting.user_email,
-      subject: 'Reserva realizada.')
+      subject: 'Solicitud recibida.')
   end
 
   def new_meeting_for_admin(meeting)
     @meeting = meeting
     mail(
       to: "r.gonzalez@desdigitec.com",
-      subject: 'Nueva reserva en Kmimos')
+      subject: 'Nueva solicitud en Kmimos')
   end
 end
