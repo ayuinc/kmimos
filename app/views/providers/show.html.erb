@@ -28,7 +28,38 @@
         </div>                
       </div>
       <h2 class="text-gray">Fotos</h2>
-      <div class="flexslider carousel-gallery m-0">
+      <!-- Place somewhere in the <body> of your page -->
+      <div id="slider" class="flexslider carousel-gallery mb-7">
+        <% if !@provider_attachments.empty? %>
+          <ul class="slides">
+          <% @provider_attachments.each do |p| %>
+            <li>
+              <div class="row ml-0 mr-0">                
+               <div class="col-md-12 server-pic ph-0">
+                 <%= image_tag p.photo_url %>
+               </div>
+              </div>
+            </li>
+          <% end %>
+          </ul>
+        <% else %>
+        <p> No hay fotos </p>
+        <% end %>
+      </div>
+      <div id="carousel" class="flexslider">
+         <% if !@provider_attachments.empty? %>
+          <ul class="slides">
+          <% @provider_attachments.each do |p| %>
+            <li>
+              
+                 <%= image_tag p.photo_url%>
+
+            </li>
+          <% end %>
+          </ul>
+        <% end %>
+      </div>
+<!--       <div class="flexslider">
         <% if !@provider_attachments.empty? %>
           <ul class="slides">
           <% @provider_attachments.each do |p| %>
@@ -44,7 +75,7 @@
         <% else %>
         <p> No hay fotos </p>
         <% end %>
-      </div> 
+      </div>  -->
       <div class="descripcion-perfil border-top">
          <h2 class="text-gray">Sobre <%= @provider.name %>:</h2>
           <p><%= @provider.description %></p>
@@ -131,5 +162,6 @@
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
+
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
