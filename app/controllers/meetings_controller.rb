@@ -1,11 +1,14 @@
 class MeetingsController < ApplicationController
-	# before_action :get_dates, only: [:new]
+	before_action :set_meeting, only: [:show]
 	# before_action :check_booking_params, only: [:new]
 
 	def new
 		session[:chosen_provider_id] = params[:provider_id]
 	  @meeting = Meeting.new
 	  # @chosen_provider = Provider.find(params[:provider_id])
+	end
+
+	def show
 	end
 
 	def create 
@@ -16,8 +19,8 @@ class MeetingsController < ApplicationController
     	flash[:success] = 'Reserva realizada. Te hemos enviado un correo de confirmación.'
 	    session[:start_date] = nil
 	    session[:end_date] = nil
-      session[:user_email] = @meeting.user_email
-	    redirect_to  pages_thank_you_meeting_path
+      session[:user_email] = nil
+	    redirect_to  meeting_path(@meeting)
 	  else
 	    render 'new'
 	  end
@@ -41,6 +44,10 @@ class MeetingsController < ApplicationController
 	def meeting_params
 	  params.require(:meeting).permit(:user_first_name, :user_last_name, :provider_id, :user_phone, :user_email)
 	end
+
+	def set_meeting
+    @meeting = Meeting.find_by_token(params[:id])
+  end
 
 	def get_dates
 	  unless params[:start_date].nil? || params[:start_date].empty?

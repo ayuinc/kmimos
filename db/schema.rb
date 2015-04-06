@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150330171513) do
+ActiveRecord::Schema.define(version: 20150406210300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20150330171513) do
     t.string   "raza"
     t.string   "edad"
     t.text     "cuidado_especial"
+    t.string   "token"
   end
 
   add_index "bookings", ["provider_id"], name: "index_bookings_on_provider_id", using: :btree
@@ -68,6 +69,7 @@ ActiveRecord::Schema.define(version: 20150330171513) do
     t.string  "user_last_name"
     t.string  "user_phone"
     t.string  "user_email"
+    t.string  "token"
   end
 
   add_index "meetings", ["provider_id"], name: "index_meetings_on_provider_id", using: :btree
@@ -88,6 +90,13 @@ ActiveRecord::Schema.define(version: 20150330171513) do
   end
 
   add_index "pictures", ["imageable_id", "imageable_type"], name: "index_pictures_on_imageable_id_and_imageable_type", using: :btree
+
+  create_table "post_attachments", force: true do |t|
+    t.integer "provider_id"
+    t.string  "attachment"
+  end
+
+  add_index "post_attachments", ["provider_id"], name: "index_post_attachments_on_provider_id", using: :btree
 
   create_table "properties", force: true do |t|
     t.string "property_name"
