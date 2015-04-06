@@ -6,17 +6,14 @@
     <div class="col-md-4"></div>
     <div class="col-md-5">
       <div class="text-left">
-        <% if !session[:chosen_provider_id].nil? %>
-        <h4 class="text-gray"><small class="text-black bold">Cuidador:</small> <%= Provider.find(session[:chosen_provider_id]).name %> <%= Provider.find(session[:chosen_provider_id]).last_name_1 %> <%= Provider.find(session[:chosen_provider_id]).last_name_2 %></h4>
-        <% end %>
+        <h4 class="text-gray"><small class="text-black bold">Cuidador:</small> <%= @meeting.provider.name %><%= @meeting.provider.last_name_1 %> <%= @meeting.provider.last_name_2 %>
+        </h4>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12 text-center">
-        <% unless session[:user_email].nil? %>
           <h3>Para tu comodidad hemos enviado la información a:</h3>      
-          <h4><%= session[:user_email] %></h4>
-        <% end %>
+          <h4><%= @meeting.user_email %></h4>
         <hr class="mt-42">
       </div>
     </div>

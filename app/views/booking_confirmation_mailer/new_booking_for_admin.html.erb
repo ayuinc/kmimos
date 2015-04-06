@@ -6,6 +6,11 @@
 <p>Teléfono del cliente:  <%= @booking.user_phone %></p>	
 <p>Correo electrónico del cliente:  <%= @booking.user_email %></p>
 <p>Mensaje enviado por el cliente:  <%= @booking.user_message %></p>
+<p>Raza del perro:  <%= @booking.raza %></p>
+<p>Edad del perro:  <%= @booking.edad %></p>
+<% unless @booking.cuidado_especial.nil? %> 
+<p>Cuidad especial:  <%= @booking.cuidado_especial %></p>
+<% end %>
 
 <% unless @booking.start_date.nil? %> 
 <p>Check-in: <%= @booking.start_date.strftime("%d/%m/%Y") %></p>

@@ -7,6 +7,6 @@
 <p>Correo electrónico del cliente:  <%= @meeting.user_email %></p>
 
 
-<p>Nombre del cuidador: <%= Provider.find(@meeting.provider_id).name %>  <%= Provider.find(@meeting.provider_id).last_name_1 %></p>
+<p>Nombre del cuidador: <%= @meeting.provider.name %>  <%= @meeting.provider.last_name_1 %></p>
 
 <p>Kmimos</p>
