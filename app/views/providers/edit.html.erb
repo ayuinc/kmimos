@@ -67,29 +67,20 @@
             <div class="row pt-14 pb-21">
               <div class="col-md-12">
                 <%= check_box_tag('check_all', 'check_all', false, :onClick => "checkAll();") %> <p onclick="allLabel()" class="inline-block m-0 p-0 strong text-primary">Todos</p>
+                <%= hidden_field_tag "provider[location_ids][]", nil %>
               </div>
-            <div class="col-md-4 pr-0">
-              <%= hidden_field_tag "provider[location_ids][]", nil %>
-              <% @locations_set_1.each do |location| %>
+            </div>
+            <% State.all.each do |state| %>
+            <p><%= state.name %></p> 
+            <div class="row">
+              <% state.locations.order('id DESC').each do |location| %>
+                <div class="col-xs-4">
                 <%= check_box_tag "provider[location_ids][]", location.id, @provider.location_ids.include?(location.id), id: dom_id(location), :onClick => "uncheckMain(this);", class: "location_cbx" %>
-                <%= label_tag dom_id(location), location.name, class: "small" %> <br>
+                <%= label_tag dom_id(location), location.name, class: "small" %>
+                </div>
               <% end %>
             </div>
-            <div class="col-md-4 pr-0">
-              <%= hidden_field_tag "provider[location_ids][]", nil %>
-              <% @locations_set_2.each do |location| %>
-                <%= check_box_tag "provider[location_ids][]", location.id, @provider.location_ids.include?(location.id), id: dom_id(location), :onClick => "uncheckMain(this);", class: "location_cbx" %>
-                <%= label_tag dom_id(location), location.name, class: "small" %> <br>
-              <% end %>
-            </div>
-            <div class="col-md-4 pr-0">
-              <%= hidden_field_tag "provider[location_ids][]", nil %>
-              <% @locations_set_3.each do |location| %>
-                <%= check_box_tag "provider[location_ids][]", location.id, @provider.location_ids.include?(location.id), id: dom_id(location), :onClick => "uncheckMain(this);", class: "location_cbx" %>
-                <%= label_tag dom_id(location), location.name, class: "small" %> <br>
-              <% end %>
-            </div>
-            </div>
+            <% end %>
 
             <div class="form-group row">
               <div class="col-md-12">
