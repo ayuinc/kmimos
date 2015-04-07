@@ -33,7 +33,7 @@ class Provider < ActiveRecord::Base
 
   def prov_locations_modal
     if self.locations.count > 5
-      return "Varios municipios en #{State.find(self.locations.first).name}."
+      return "Varios municipios en #{State.find(self.locations.first.state_id).name}."
     else
       return self.locations.map(&:name).join(", ")
     end
