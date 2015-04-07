@@ -32,8 +32,8 @@ class Provider < ActiveRecord::Base
   end
 
   def prov_locations_modal
-    if self.locations.count == Location.all.count 
-      return "Todos los municipios de México DF."
+    if self.locations.count > 5
+      return "Varios municipios en #{State.find(self.locations.first).name}."
     else
       return self.locations.map(&:name).join(", ")
     end
