@@ -6,10 +6,17 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 locations = [
- "Xochimilco", "Venustiano Carranza", "Tlalpan", "Tláhuac", "Milpa Alta", "Miguel Hidalgo", "La Magdalena Contreras", "Iztapalapa", "Iztacalco", "Gustavo A. Madero", "Cuauhtémoc", "Cuajimalpa de Morelos", "Coyoacán", "Benito Juárez", "Azcapotzalco", "Alvaro Obregón", "Querétaro", "Estado de Mexico"]
+ "Xochimilco", "Venustiano Carranza", "Tlalpan", "Tláhuac", "Milpa Alta", "Miguel Hidalgo", "La Magdalena Contreras", "Iztapalapa", "Iztacalco", "Gustavo A. Madero", "Cuauhtémoc", "Cuajimalpa de Morelos", "Coyoacán", "Benito Juárez", "Azcapotzalco", "Alvaro Obregón", "Querétaro", "Estado de Mexico", "Atizapán", "Cuautitlan", "Cuautitlan Izcalli", "Metepec", "Nuacalpan", "Tlalnepantla", "Toluca", "Zapopan", "Monterrey", "San Nicolas de los Garza", "San Pedro", "Escobedo"]
 
 locations.sort!.each do |location|
   Location.find_or_create_by(name: location)
+end
+
+states = [
+"Distrito Federal", "Estado de México", "Guadalajara", "Nuevo León"]
+
+states.sort!.each do |state|
+  State.find_or_create_by(name: state)
 end
 
 categories = ["Paseador", "Entrenador", "Veterinario", "Hotel"]
