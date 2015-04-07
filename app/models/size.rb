@@ -1,3 +1,4 @@
 class Size < ActiveRecord::Base
-	belongs_to	:provider
+	has_many :sizings
+	has_many	:providers, :through => :sizings
 end
