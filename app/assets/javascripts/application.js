@@ -10,6 +10,7 @@
 //= require bootstrap/modal
 //= require bootstrap/tab
 //= require jquery-ui
+//= require datepicker-es.js
 //= require easing
 //= require_self
 //= require_tree .
@@ -43,6 +44,11 @@ $(document).ready(function() {
   $("a[href='/provider_attachments']").hide()
 
   // initialize jquery-ui datepicker
+  $.datepicker.setDefaults(
+    $.extend(
+      $.datepicker.regional['es']
+    )
+  );
   $('#start_date').datepicker({
   	  minDate: new Date(),
       dateFormat: 'dd/mm/yy',
