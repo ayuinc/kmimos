@@ -14,11 +14,11 @@ class BookingsController < ApplicationController
 	def create 
 		@booking = Booking.new(booking_params)
 	  if @booking.save
+    	BookingConfirmationMailer.new_booking_notification(@booking).deliver
+    	BookingConfirmationMailer.new_booking_for_admin(@booking).deliver
 	    session[:start_date] = nil
 	    session[:end_date] = nil
       session[:user_email] = nil
-    	BookingConfirmationMailer.new_booking_notification(@booking).deliver
-    	BookingConfirmationMailer.new_booking_for_admin(@booking).deliver
 	    redirect_to booking_path(@booking)
 	  else
 	    render 'new'
