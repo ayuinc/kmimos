@@ -9,8 +9,8 @@ ServihogarRails::Application.configure do
     :address => "smtp.mailgun.org",
     :port => 587,
     # :domain => 'dry-oasis-5911.herokuapp.com',
-    :domain => 'kmimosmx.herokuapp.com',
-    # :domain => ENV['MAILING_DOMAIN'],
+    # :domain => 'kmimosmx.herokuapp.com',
+    :domain => ENV['MAILING_DOMAIN'],
     :user_name => ENV['MAILING_USERNAME'],
     :password => ENV['MAILING_PASSWORD']
   }  
@@ -63,7 +63,7 @@ ServihogarRails::Application.configure do
 
   # Use a different logger for distributed setups.
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
-
+  # config.action_mailer.raise_delivery_errors = false
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
 
