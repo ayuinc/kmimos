@@ -8,8 +8,8 @@ ServihogarRails::Application.configure do
     :authentication => :plain,
     :address => "smtp.mailgun.org",
     :port => 587,
-    :domain => 'dry-oasis-5911.herokuapp.com',
-    # :domain => 'kmimosmx.herokuapp.com',
+    # :domain => 'dry-oasis-5911.herokuapp.com',
+    :domain => 'kmimosmx.herokuapp.com',
     # :domain => ENV['MAILING_DOMAIN'],
     :user_name => ENV['MAILING_USERNAME'],
     :password => ENV['MAILING_PASSWORD']
