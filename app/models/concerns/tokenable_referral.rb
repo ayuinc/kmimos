@@ -1,4 +1,4 @@
-module Tokenable
+module TokenableReferral
   extend ActiveSupport::Concern
 
   included do
