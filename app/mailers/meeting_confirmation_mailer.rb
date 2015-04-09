@@ -16,8 +16,9 @@ class MeetingConfirmationMailer < ActionMailer::Base
   def new_meeting_for_admin(meeting)
     @meeting = meeting
     mail(
-      to: "robcuevas@desdigitec.com",
-      cc: "r.gonzalez@desdigitec.com",
+      to: "adelrio@ayuinc.com",
+      # to: "robcuevas@desdigitec.com",
+      # cc: "r.gonzalez@desdigitec.com",
       subject: 'Nueva solicitud en Kmimos')
   end
 end
