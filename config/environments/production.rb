@@ -12,7 +12,7 @@ ServihogarRails::Application.configure do
     # :domain => 'kmimosmx.herokuapp.com',
     # :domain => ENV['MAILING_DOMAIN'],
     :user_name => ENV['SENDGRID_USERNAME'],
-    :password => ENV['SENDGRID_PASSWORD']
+    :password => ENV['SENDGRID_PASSWORD'],
     :domain => 'heroku.com',
     :enable_starttls_auto => true
   }  
