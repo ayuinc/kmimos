@@ -5,14 +5,16 @@ ServihogarRails::Application.configure do
   config.action_mailer.delivery_method = :smtp
   # config.action_mailer.default_url_options = { :host => 'http://www.cani.mx' }
   config.action_mailer.smtp_settings = {
-    :authentication => :plain,
-    :address => "smtp.mailgun.org",
+    :address => "smtp.sendgrid.net",
     :port => 587,
+    :authentication => :plain,
     # :domain => 'dry-oasis-5911.herokuapp.com',
     # :domain => 'kmimosmx.herokuapp.com',
-    :domain => ENV['MAILING_DOMAIN'],
-    :user_name => ENV['MAILING_USERNAME'],
-    :password => ENV['MAILING_PASSWORD']
+    # :domain => ENV['MAILING_DOMAIN'],
+    :user_name => ENV['SENDGRID_USERNAME'],
+    :password => ENV['SENDGRID_PASSWORD']
+    :domain => 'heroku.com',
+    :enable_starttls_auto => true
   }  
   # Code is not reloaded between requests.
   config.cache_classes = true
