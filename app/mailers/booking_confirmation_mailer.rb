@@ -17,7 +17,7 @@ class BookingConfirmationMailer < ActionMailer::Base
     @booking = booking
     mail(
       # to: "adelrio@ayuinc.com",
-      to: "robcuevas@desdigitec.com",
+      to: "r.cuevas@desdigitec.com",
       cc: "r.gonzalez@desdigitec.com",
       subject: 'Nueva reserva en Kmimos')
   end
