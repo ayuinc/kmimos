@@ -11,6 +11,7 @@
 //= require bootstrap/tab
 //= require jquery-ui
 //= require datepicker-es.js
+//= require jquery.timepicker.min.js
 //= require easing
 //= require_self
 //= require_tree .
@@ -30,6 +31,16 @@ $(document).ready(function() {
     // note: jqxhr.responseJSON undefined, parsing responseText instead
     $(event.data).render_form_errors( $.parseJSON(jqxhr.responseText) );
 
+  });
+  //timepicker
+
+  $('#booking_pickup_time').timepicker({
+    'minTime': '9:00am',
+    'maxTime': '6:00pm',
+  });
+  $('#booking_dropoff_time').timepicker({
+    'minTime': '9:00am',
+    'maxTime': '6:00pm',
   });
 
   // pretty-fy the upload field

@@ -39,13 +39,33 @@
                 </div>
               </div>
               <div class="form-group row">
-                <div class="col-md-6">
+                <div class="col-md-4">
+                  <%= f.label :pet_name, "Nombre del perro:", class: " h3 text-gray" %><br>
+                  <%= f.text_field :pet_name, class: "form-control mb-21" %>
+                </div>
+                <div class="col-md-4">
                   <%= f.label :raza, "Raza del perro:", class: " h3 text-gray" %><br>
                   <%= f.text_field :raza, class: "form-control mb-21" %>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                   <%= f.label :edad, "Edad del perro:", class: " h3 text-gray" %><br>
                   <%= f.text_field :edad, class: "form-control mb-21" %>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-6">
+                  <%= f.label :pickup_time, "Horario de recolección:", class: " h3 text-gray" %><br>
+                  <%= f.text_field :pickup_time, class: "form-control mb-21" %>
+                </div>
+                <div class="col-md-6">
+                  <%= f.label :dropoff_time, "Horario de entrega:", class: " h3 text-gray" %><br>
+                  <%= f.text_field :dropoff_time, class: "form-control mb-21" %>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-md-12">
+                  <%= f.label :address, "Dirección", class: "h3  text-gray" %><br>
+                  <%= f.text_area :address, class: "form-control" %>
                 </div>
               </div>
               <div class="form-group row">
