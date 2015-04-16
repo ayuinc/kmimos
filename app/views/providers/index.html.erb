@@ -60,11 +60,11 @@
         <h3 class="text-left text-gray mb-0 mt-0"><%= provider.name %> <%= provider.last_name_1 %> <%= provider.last_name_2 %></h3>
         <h5 class="text-left text-graylight mt-7"><%= provider.prov_locations_modal %></h5>
         <div class="rating-reviews">
-          <span><i class="fa fa-star text-yellow"></i></span>
-          <span><i class="fa fa-star text-yellow"></i></span>
-          <span><i class="fa fa-star text-yellow"></i></span>
-          <span><i class="fa fa-star text-yellow"></i></span>
-          <span><i class="fa fa-star text-yellow"></i></span>
+          <% unless provider.avg_rating.nil? %>
+          <% provider.avg_rating.to_i.times do %>
+            <span><i class="fa fa-star text-yellow"></i></span>
+          <% end %>
+          <% end %>
           <span class="text-gray ml-28 light"><%=image_tag('iconos-mensaje.png') %> Ver comentarios</span>
         </div>
 
