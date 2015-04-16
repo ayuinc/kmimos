@@ -14,11 +14,11 @@ class BookingsController < ApplicationController
 	def create 
 		@booking = Booking.new(booking_params)
 	  if @booking.save
+    	BookingConfirmationMailer.new_booking_notification(@booking).deliver
+    	BookingConfirmationMailer.new_booking_for_admin(@booking).deliver
 	    session[:start_date] = nil
 	    session[:end_date] = nil
       session[:user_email] = nil
-    	BookingConfirmationMailer.new_booking_notification(@booking).deliver
-    	BookingConfirmationMailer.new_booking_for_admin(@booking).deliver
 	    redirect_to booking_path(@booking)
 	  else
 	    render 'new'
@@ -41,7 +41,7 @@ class BookingsController < ApplicationController
 	private
 
 	def booking_params
-	  params.require(:booking).permit(:raza, :edad, :cuidado_especial, :start_date, :end_date, :user_first_name, :user_last_name, :provider_id, :user_phone, :user_email, :ref_code, :user_message)
+	  params.require(:booking).permit(:raza, :edad, :cuidado_especial, :start_date, :end_date, :user_first_name, :user_last_name, :provider_id, :user_phone, :user_email, :ref_code, :user_message, :address, :pickup_time, :dropoff_time, :pet_name)
 	end
 
 	def set_booking

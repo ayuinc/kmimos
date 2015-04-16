@@ -91,7 +91,7 @@
               <% end %>
             </div>
             <div class="col-sm-3 locations-dd">
-              <%= f.collection_select :locations_id_eq, Location.order(:name), :id, :name,{include_blank:"Elegir Municipio"}, {class:"input-lg borderless form-location-nav"} %> 
+              <%= grouped_collection_select(:location, :id, State.order(:name), :locations, :name, :id, :name, {:prompt => "Elegir Municipio"}, { :class=> "input-lg borderless form-location-nav" }) %>
             </div>
             <div class="col-sm-3 search-btn">
               <%= f.submit "Buscar", class:"ml-21 borderless form-search" %>

@@ -14,9 +14,21 @@
           <% end %>
         </h4>
         <h4 class="text-gray">
+          <% unless @booking.pickup_time.nil? %>
+          <small class="text-black bold">Horario de recolección:</small>
+          <%= @booking.pickup_time.strftime("%I:%M %p") %>
+          <% end %>
+        </I4>
+        <h4 class="text-gray">
           <% unless @booking.end_date.nil? %>
           <small class="text-black bold">Check-out:</small>
           <%= @booking.end_date.strftime("%d/%m/%Y") %>
+          <% end %>
+        </h4>
+        <h4 class="text-gray">
+          <% unless @booking.dropoff_time.nil? %>
+          <small class="text-black bold">Horario de entrega:</small>
+          <%= @booking.dropoff_time.strftime("%I:%M %p") %>
           <% end %>
         </h4>
         <h4 class="text-gray"><small class="text-black bold">Cuidador:</small> <%= @booking.provider.name %><%= @booking.provider.last_name_1 %> <%= @booking.provider.last_name_2 %></h4>

@@ -2,8 +2,10 @@ class Provider < ActiveRecord::Base
   belongs_to :category
   belongs_to :property
   has_secure_password
-  has_many :ages
-  has_many :sizes
+  has_many :agings
+  has_many :ages, :through => :agings
+  has_many :sizings
+  has_many :sizes, :through => :sizings
   mount_uploader :avatar, AvatarUploader
   has_many :provider_attachments
   accepts_nested_attributes_for :provider_attachments
@@ -32,8 +34,8 @@ class Provider < ActiveRecord::Base
   end
 
   def prov_locations_modal
-    if self.locations.count == Location.all.count 
-      return "Todos los municipios de México DF."
+    if self.locations.count > 5
+      return "Varios municipios en #{State.find(self.locations.first.state_id).name}."
     else
       return self.locations.map(&:name).join(", ")
     end

@@ -1,6 +1,7 @@
 class Location < ActiveRecord::Base
   has_many :localizations
   has_many :providers, :through => :localizations
+  belongs_to :state
 
   validates_presence_of :name
 

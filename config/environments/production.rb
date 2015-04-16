@@ -1,20 +1,20 @@
 ServihogarRails::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   # mailer settings for mailgun
-  config.action_mailer.default_url_options = { :host => "www.cani.mx" }
+  config.action_mailer.default_url_options = { :host => "cani.mx" }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { :host => 'http://www.cani.mx' }
   config.action_mailer.smtp_settings = {
     :authentication => :plain,
-    :address => "smtp.mailgun.org",
-    :port => 587,
-    :domain => ENV['MAILING_DOMAIN'],
-    :user_name => ENV['MAILING_USERNAME'],
-    :password => ENV['MAILING_PASSWORD']
+    :address => "smtp.mandrillapp.com",
+    :port => 25,
+    :user_name => ENV["MANDRILL_USERNAME"],
+    :password => ENV["MANDRILL_API_KEY"]
   }  
   # Code is not reloaded between requests.
   config.cache_classes = true
-
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both thread web servers
   # and those relying on copy on write to perform better.
@@ -22,7 +22,7 @@ ServihogarRails::Application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = true
+  config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
@@ -74,7 +74,7 @@ ServihogarRails::Application.configure do
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = false
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).

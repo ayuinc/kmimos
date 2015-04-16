@@ -1,3 +1,4 @@
 class Age < ActiveRecord::Base
-	belongs_to	:provider
+	has_many :agings
+	has_many	:providers, :through => :agings
 end
