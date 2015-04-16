@@ -55,10 +55,24 @@
               <% end %>
 					    <td></td>
 					  </tr>
+             <tr>
+              <% unless @booking.pickup_time.nil? %> 
+					    <td><p style="margin: 0;">Hora de recolección</p></td>
+					    <td><p style="margin: 0;">: <%= @booking.pickup_time.strftime("%I:%M %p") %></p></td>
+              <% end %>
+					    <td></td>
+					  </tr>
 					  <tr>
               <% unless @booking.end_date.nil? %>
 					    <td><p style="margin: 0;">Check-out</p></td>
 					    <td><p style="margin: 0;">: <%= @booking.end_date.strftime("%d/%m/%Y") %></p></td>
+              <% end %>
+					    <td> </td>
+					  </tr>
+            <tr>
+              <% unless @booking.dropoff_time.nil? %>
+					    <td><p style="margin: 0;">Hora de entrega</p></td>
+					    <td><p style="margin: 0;">: <%= @booking.dropoff_time.strftime("%I:%M %p") %></p></td>
               <% end %>
 					    <td> </td>
 					  </tr>
