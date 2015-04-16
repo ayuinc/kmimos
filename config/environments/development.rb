@@ -9,11 +9,10 @@ ServihogarRails::Application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :authentication => :plain,
-    :address => "smtp.mailgun.org",
-    :port => 587,
-    :domain => ENV['MAILING_DOMAIN'],
-    :user_name => ENV['MAILING_USERNAME'],
-    :password => ENV['MAILING_PASSWORD']
+    :address => "smtp.mandrillapp.com",
+    :port => 25,
+    :user_name => ENV["MANDRILL_USERNAME"],
+    :password => ENV["MANDRILL_API_KEY"]
   }  
 
   # Do not eager load code on boot.

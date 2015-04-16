@@ -6,14 +6,13 @@ Given /^an unlogged provider$/ do
   @provider = create(:provider)
 end
 
-And /^a logged in provider$/ do
+Given /^a logged in provider$/ do
   @provider = create(:provider)
   login(@provider)
+  save_and_show_page
 end
 
 Given /^a provider with a complete profile$/ do
-  business = create(:business)
-  @location = create(:location, business: business)
   @provider = create(:provider)
   @provider.locations << @location
   login(@provider)

@@ -44,6 +44,8 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 
 group :development do
   gem 'faker'
+  gem 'guard-livereload'
+  gem 'guard-bundler'
   gem 'guard-rspec', require: false
   gem 'guard-cucumber'
   gem 'spring', '~> 1.1.2'

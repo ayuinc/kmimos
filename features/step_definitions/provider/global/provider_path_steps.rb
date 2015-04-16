@@ -3,7 +3,10 @@ Then /^(?:|I )should be on the homepage$/ do
 end
 
 When /^I am on my provider edit page$/ do
-  category = create(:category)
+  visit_and_assert(edit_provider_path(@provider))
+end
+
+When /^I go to my provider edit page$/ do
   visit_and_assert(edit_provider_path(@provider))
 end
 
