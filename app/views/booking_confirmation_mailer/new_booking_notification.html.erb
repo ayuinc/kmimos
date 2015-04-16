@@ -1,17 +1,114 @@
-<p>Hola <%= @booking.user_first_name %>,</p>
-<p>Muchas gracias por haber solicitado una reserva con Kmimos. </p> 
-<p>Abajo los detalles de tu solicitud: </p>
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" <title>
+		<link rel="stylesheet" href="css/style.css">
+		<style>
+			.container {
+				margin: 0 auto;
+			  width: 620px;
+				padding: 25px;
+			}
+			.container-sm {
+		    width: 419px;
+  			padding-left: 14px;
+  			padding-right: 14px;
+  			margin: 0 auto;
+			}
+			p {
+				font-family: Trebuchet MS;
+				color: #9a9c9c;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container" style="margin: 0 auto;padding: 25px;">
+			<div class="header">
+				<table>
+					<thead>
+						<tr>
+							<td class="logo">
+								<img src="http://s23.postimg.org/qsnxkl9av/isotipo_mail_confirmacion.png">
+							</td>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="container-sm">
+				<tbody>
+					<tr>
+						<td>
+							<h1 style="font-family: arial;font-weight: 100;color: gray;">Hola <%= @booking.user_first_name %>,</h1>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<p>Muchas gracias por haber solicitado una reserva con Kmimos.</p>
+							<p>Abajo los detalles de tu solicitud:</p>
+						</td>
+					</tr>
+					<table>
+					  <tr>
+              <% unless @booking.start_date.nil? %> 
+					    <td><p style="margin: 0;">Check-in</p></td>
+					    <td><p style="margin: 0;">: <%= @booking.start_date.strftime("%d/%m/%Y") %></p></td>
+              <% end %>
+					    <td></td>
+					  </tr>
+					  <tr>
+              <% unless @booking.end_date.nil? %>
+					    <td><p style="margin: 0;">Check-out</p></td>
+					    <td><p style="margin: 0;">: <%= @booking.end_date.strftime("%d/%m/%Y") %></p></td>
+              <% end %>
+					    <td> </td>
+					  </tr>
+            <tr>
+					    <td><p style="margin: 0;">Nombre del cuidador</p></td>
+					    <td><p style="margin: 0;">: <%= Provider.find(@booking.provider_id).name %>  <%= Provider.find(@booking.provider_id).last_name_1 %></p></td>
+					    <td> </td>
+					  </tr>
+            <tr>
+					    <td><p style="margin: 0;">Precio por noche</p></td>
+					    <td><p style="margin: 0;">: $MXN <%= Provider.find(@booking.provider_id).price %></p></td>
+					    <td> </td>
+					  </tr>
+					</table>
+					<table>
+            <tr><td><p>¡Gracias!</td></tr>
+            <tr><td><p>Roberto de Kmimos</p></td></tr>
 
-<% unless @booking.start_date.nil? %> 
-<p>Check-in: <%= @booking.start_date.strftime("%d/%m/%Y") %></p>
-<% end %>
-<% unless @booking.end_date.nil? %>
-<p>Check-out: <%= @booking.end_date.strftime("%d/%m/%Y") %></p>
-<% end %>
-<p>Nombre del cuidador: <%= Provider.find(@booking.provider_id).name %>  <%= Provider.find(@booking.provider_id).last_name_1 %></p>
-<p>Precio por noche: $MXN <%= Provider.find(@booking.provider_id).price %></p>
-<p>Durante las próximas 24 horas recibirás una llamada telefónica o te contactaremos por correo electrónico para coordinar la logística de la estadía de tu mascota.</p>
-<p>Cualquier pregunta no dudes en contactarnos al +55 3455 0138.</p>
+						<tr>
+							<td>
+								<p>Durante las próximas 24 horas recibirás una llamada telefónica o te contactaremos por correo electrónico para coordinar la logística de la estadía de tu mascota.</p>
+								<p>El equipo de  &nbsp;<img src="http://s1.postimg.org/n12q65th7/logo_mail_confirmacion.png" alt="" style="top: 1px; position: relative;"></p>
+							</td>
+						</tr>
+					</table>
+					
+					<table>
+					  <tr>
+					  	<td><img src="http://s24.postimg.org/c5rfifgph/banner_mail_confirmacion.png" alt="" style="  margin-bottom: 28px;"></td>
+					    
+					  </tr>
+					</table>
+				</tbody>
+			</div>
+			<footer  style="background:#1dba9a; padding: 4px 12px;">
+				<table>
+					<tr>
+						<td>
+							<p  style="color:white; margin-right: 17px; margin-left: 12px;">Contáctanos: +55 3455 0138 </p>
+						</td>
 
-<p>¡Gracias!</p>
-<p>Roberto de Kmimos</p>
+						<td><a href="http://www.cani.mx/" style="color: white; margin-right: 88px; text-decoration: none;">www.cani.mx</a></td>
+						<td><p style="color:white; margin-right: 14px;">Síguenos en: </p></td>
+						<td>
+						<a href="https://www.facebook.com/pages/Kamimos/1473614136234432?ref=bookmarks"><img src="http://s17.postimg.org/r4ttx53vf/facebook_mail_confirmacion.png" alt="" style="margin-right: 3px;"></a>
+						<a href="https://twitter.com/KmimosMx"><img src="http://s12.postimg.org/gdclxk795/twitter_mail_confirmacion.png" alt=""></a></td>
+					</tr>
+				</table>
+				
+			</footer>
+		</div>
+	</body>
+</html>
