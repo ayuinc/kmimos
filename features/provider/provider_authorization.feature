@@ -4,7 +4,7 @@ Feature: provider authorizations
     Given a logged in provider
 
   Scenario: provider can go to edit page
-    When I go to my provider edit page
+    When I go to my edit page
     Then I should be on my provider edit page
 
   Scenario: provider cannot go to another's edit page

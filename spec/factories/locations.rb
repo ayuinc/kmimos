@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :location do
-  	sequence(:name)     { |n| "Distrito#{n}" } 
+  	name     "Guadalajara"
+  	state_id 	 1 
   end
 end

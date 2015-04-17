@@ -6,7 +6,7 @@ When /^I am on my provider edit page$/ do
   visit_and_assert(edit_provider_path(@provider))
 end
 
-When /^I go to my provider edit page$/ do
+When /^I go to my edit page$/ do
   visit_and_assert(edit_provider_path(@provider))
 end
 
@@ -64,7 +64,7 @@ Then /^I should be redirected to the provider signup page$/ do
 end
 
 Then /^I should be redirected to the provider login page$/ do
-  current_path_is("/providers_sessions")
+  current_path_is("/providers_sessions/new")
 end  
 
 Then /^I should be on the provider new password page$/ do

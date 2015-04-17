@@ -8,7 +8,7 @@ When /^I submit correct provider information$/ do
   fill_in('provider[last_name_2]', with: @provider.last_name_2)
   fill_in('provider[phone]', with: @provider.phone)
   fill_in('provider[price]', with: @provider.price)
-  select(category, from: 'provider[category_id]')
+  save_and_open_page
   find("#location_#{location.id}").set(true)
   fill_in('provider[password]', with: @provider.password)
   fill_in('provider[password_confirmation]', with: @provider.password_confirmation)
@@ -29,7 +29,6 @@ When /^I submit mismatched passwords$/ do
   fill_in('provider[dni]', with: @provider.dni)
   fill_in('provider[last_name_1]', with: @provider.last_name_1)
   fill_in('provider[last_name_2]', with: @provider.last_name_2)
-  select(category, from: 'provider[category_id]')
   find("#location_#{location.id}").set(true)
   fill_in('provider[password]', with: @provider.password)
   fill_in('provider[password_confirmation]', with: "wrongpassword")

@@ -9,7 +9,6 @@ end
 Given /^a logged in provider$/ do
   @provider = create(:provider)
   login(@provider)
-  save_and_show_page
 end
 
 Given /^a provider with a complete profile$/ do
