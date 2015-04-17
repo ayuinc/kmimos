@@ -57,6 +57,9 @@
           padding: 10px 78px;
           margin-left: 0px !important;
         }
+        @media #{$landscape} {
+          margin-left: 42px !important;
+        }
 			}
 			.form-search:hover {
 				color: white;
@@ -113,7 +116,7 @@
 
 .header-form {
   .form-location-nav {
-    min-width: 252px;
+    min-width: 215px;
     border-radius: 6px !important;
     padding: 10px !important;
     margin: 0 !important;
