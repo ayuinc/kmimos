@@ -121,6 +121,9 @@
       min-width: 52px !important;
       width: 224px !important; 
     }
+    @media #{$landscape} {
+        width: 180px !important;
+    }
   }
 }
 .bg-navbar {
@@ -135,6 +138,12 @@
         min-width: 191px;
       }
     }
+  }
+}
+
+.input-lg {
+  @media #{$landscape} {
+     font-size: 13px !important;
   }
 }
 

@@ -4810,6 +4810,9 @@ iframe {
     .header-form .form-location-nav {
       min-width: 52px !important;
       width: 224px !important; } }
+  @media only screen and (orientation: landscape) {
+    .header-form .form-location-nav {
+      width: 180px !important; } }
 
 .bg-navbar {
   background: rgba(0, 0, 0, 0.4);
@@ -4820,6 +4823,10 @@ iframe {
   @media only screen and (max-width: 480px) {
     .bg-navbar .header-form .form-location-nav {
       min-width: 191px; } }
+
+@media only screen and (orientation: landscape) {
+  .input-lg {
+    font-size: 13px !important; } }
 
 .list-profiles {
   border: 1px solid #ccc;
