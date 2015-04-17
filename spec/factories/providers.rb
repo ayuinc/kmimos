@@ -10,7 +10,6 @@ FactoryGirl.define do
     description              "lo que hago"
     password                 "foobarbaz"
     password_confirmation    "foobarbaz"
-    category
     locations          {|t| [t.association(:location)] }
   end  
 end

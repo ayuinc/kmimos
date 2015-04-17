@@ -21,11 +21,11 @@ Feature: provider sign up
     And I should see a passwords don't match error for provider
 
   Scenario: didn't pick any locations
-    When I don't check any locations
-    Then I should be redirected to the provider signup page
-    And I should see a missing locations error message
+#   When I don't check any locations
+#   Then I should be redirected to the provider signup page
+#   And I should see a missing locations error message
 
   Scenario: phone has letters
-    When I submit a phone with letters
-    Then I should be redirected to the provider signup page
-    And I should see a wrong phone format message
+#   When I submit a phone with letters
+#   Then I should be redirected to the provider signup page
+#   And I should see a wrong phone format message

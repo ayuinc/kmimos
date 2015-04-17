@@ -5,7 +5,7 @@ When /^I update my provider category$/ do
 end
 
 When /^I update my provider dni$/ do
-  fill_in('provider[dni]', with: "45818351")
+  fill_in('provider[dni]', with: "4581835166664")
   click_on("submit")
 end
 
@@ -16,7 +16,7 @@ Then /^I should have successfully updated my provider category$/ do
 end
 
 Then /^I should have successfully updated my provider dni$/ do
-  current_path_is provider_path(@provider)
+  current_path_is root_path
   provider = Provider.find(@provider.id)
-  expect(provider.dni).to eq("45818351")
+  expect(provider.dni).to eq("4581835166664")
 end

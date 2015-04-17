@@ -23,7 +23,7 @@ describe ReferralsController do
   # This should return the minimal set of attributes required to create a valid
   # Referral. As you add validations to Referral, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "code" => "MyString" } }
+  let(:valid_attributes) { { "code_value" => "MyString", "referrer_email" => "referrer@mail.com", "referrer_name" => "Pedro Perez" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -53,14 +53,6 @@ describe ReferralsController do
     end
   end
 
-  describe "GET edit" do
-    it "assigns the requested referral as @referral" do
-      referral = Referral.create! valid_attributes
-      get :edit, {:id => referral.to_param}, valid_session
-      assigns(:referral).should eq(referral)
-    end
-  end
-
   describe "POST create" do
     describe "with valid params" do
       it "creates a new Referral" do
@@ -85,14 +77,14 @@ describe ReferralsController do
       it "assigns a newly created but unsaved referral as @referral" do
         # Trigger the behavior that occurs when invalid params are submitted
         Referral.any_instance.stub(:save).and_return(false)
-        post :create, {:referral => { "code" => "invalid value" }}, valid_session
+        post :create, {:referral => { "code_value" => "invalid value" }}, valid_session
         assigns(:referral).should be_a_new(Referral)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Referral.any_instance.stub(:save).and_return(false)
-        post :create, {:referral => { "code" => "invalid value" }}, valid_session
+        post :create, {:referral => { "code_value" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,8 +98,8 @@ describe ReferralsController do
         # specifies that the Referral created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Referral.any_instance.should_receive(:update).with({ "code" => "MyString" })
-        put :update, {:id => referral.to_param, :referral => { "code" => "MyString" }}, valid_session
+        Referral.any_instance.should_receive(:update).with({ "code_value" => "MyString" })
+        put :update, {:id => referral.to_param, :referral => { "code_value" => "MyString" }}, valid_session
       end
 
       it "assigns the requested referral as @referral" do
@@ -128,7 +120,7 @@ describe ReferralsController do
         referral = Referral.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Referral.any_instance.stub(:save).and_return(false)
-        put :update, {:id => referral.to_param, :referral => { "code" => "invalid value" }}, valid_session
+        put :update, {:id => referral.to_param, :referral => { "code_value" => "invalid value" }}, valid_session
         assigns(:referral).should eq(referral)
       end
 
@@ -136,7 +128,7 @@ describe ReferralsController do
         referral = Referral.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Referral.any_instance.stub(:save).and_return(false)
-        put :update, {:id => referral.to_param, :referral => { "code" => "invalid value" }}, valid_session
+        put :update, {:id => referral.to_param, :referral => { "code_value" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end

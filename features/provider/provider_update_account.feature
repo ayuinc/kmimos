@@ -9,8 +9,8 @@ Feature: provider update account
     And I am on my provider edit page
 
   Scenario: successfully updated category
-    When I update my provider category
-    Then I should have successfully updated my provider category
+#  When I update my provider category
+#  Then I should have successfully updated my provider category
 
 
   Scenario: successfully updated DNI

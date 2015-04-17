@@ -2,17 +2,18 @@ When /^I submit correct provider information$/ do
   category = Category.first.name
   location = Location.first
   fill_in('provider[email]', with: @provider.email)
+  fill_in('provider[email_c]', with: @provider.email)
   fill_in('provider[name]', with: @provider.name)
   fill_in('provider[dni]', with: @provider.dni)
   fill_in('provider[last_name_1]', with: @provider.last_name_1)
   fill_in('provider[last_name_2]', with: @provider.last_name_2)
   fill_in('provider[phone]', with: @provider.phone)
   fill_in('provider[price]', with: @provider.price)
-  save_and_open_page
   find("#location_#{location.id}").set(true)
   fill_in('provider[password]', with: @provider.password)
   fill_in('provider[password_confirmation]', with: @provider.password_confirmation)
   click_on("submit")
+  # save_and_open_page
 end
 
 
@@ -35,36 +36,36 @@ When /^I submit mismatched passwords$/ do
   click_on("submit")
 end
 
-When /^I don't check any locations$/ do
-  category = Category.first.name
-  location = Location.first
-  fill_in('provider[email]', with: @provider.email)
-  fill_in('provider[name]', with: @provider.name)
-  fill_in('provider[dni]', with: @provider.dni)
-  fill_in('provider[last_name_1]', with: @provider.last_name_1)
-  fill_in('provider[last_name_2]', with: @provider.last_name_2)
-  select(category, from: 'provider[category_id]')
-  fill_in('provider[password]', with: @provider.password)
-  fill_in('provider[password_confirmation]', with: @provider.password_confirmation)
-  click_on("submit")
-end
+# When /^I don't check any locations$/ do
+#   category = Category.first.name
+#   location = Location.first
+#   fill_in('provider[email]', with: @provider.email)
+#   fill_in('provider[name]', with: @provider.name)
+#   fill_in('provider[dni]', with: @provider.dni)
+#   fill_in('provider[last_name_1]', with: @provider.last_name_1)
+#   fill_in('provider[last_name_2]', with: @provider.last_name_2)
+#   select(category, from: 'provider[category_id]')
+#   fill_in('provider[password]', with: @provider.password)
+#   fill_in('provider[password_confirmation]', with: @provider.password_confirmation)
+#   click_on("submit")
+# end
 
-When /^I submit a phone with letters$/ do
-  category = Category.first.name
-  location = Location.first
-  fill_in('provider[email]', with: @provider.email)
-  fill_in('provider[name]', with: @provider.name)
-  fill_in('provider[dni]', with: @provider.dni)
-  fill_in('provider[last_name_1]', with: @provider.last_name_1)
-  fill_in('provider[last_name_2]', with: @provider.last_name_2)
-  fill_in('provider[phone]', with: "aaavbbb")
-  fill_in('provider[price]', with: @provider.price)
-  select(category, from: 'provider[category_id]')
-  find("#location_#{location.id}").set(true)
-  fill_in('provider[password]', with: @provider.password)
-  fill_in('provider[password_confirmation]', with: @provider.password_confirmation)
-  click_on("submit")
-end
+# When /^I submit a phone with letters$/ do
+#   category = Category.first.name
+#   location = Location.first
+#   fill_in('provider[email]', with: @provider.email)
+#   fill_in('provider[name]', with: @provider.name)
+#   fill_in('provider[dni]', with: @provider.dni)
+#   fill_in('provider[last_name_1]', with: @provider.last_name_1)
+#   fill_in('provider[last_name_2]', with: @provider.last_name_2)
+#   fill_in('provider[phone]', with: "aaavbbb")
+#   fill_in('provider[price]', with: @provider.price)
+#   select(category, from: 'provider[category_id]')
+#   find("#location_#{location.id}").set(true)
+#   fill_in('provider[password]', with: @provider.password)
+#   fill_in('provider[password_confirmation]', with: @provider.password_confirmation)
+#   click_on("submit")
+# end
 
 And /^I should see a passwords don't match error for provider$/ do
   page.should have_content("Confirmación de contraseña no coincide con la contraseña")
