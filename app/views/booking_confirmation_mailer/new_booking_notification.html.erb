@@ -49,6 +49,10 @@
 					</tr>
 					<table>
 					  <tr>
+					    <td><p style="margin: 0;">Nombre</p></td>
+					    <td><p style="margin: 0;">: <%= @booking.user_first_name %><%= @booking.user_last_name %></p></td>
+					  </tr>
+					  <tr>
               <% unless @booking.start_date.nil? %> 
 					    <td><p style="margin: 0;">Check-in</p></td>
 					    <td><p style="margin: 0;">: <%= @booking.start_date.strftime("%d/%m/%Y") %></p></td>
@@ -77,17 +81,18 @@
 					    <td> </td>
 					  </tr>
             <tr>
-              <% unless @booking.raza.nil? %>
+					    <td><p style="margin: 0;">Nombre del perro</p></td>
+					    <td><p style="margin: 0;">: <%= @booking.pet_name %></p></td>
+					    <td> </td>
+					  </tr>						
+            <tr>
 					    <td><p style="margin: 0;">Raza</p></td>
 					    <td><p style="margin: 0;">: <%= @booking.raza %></p></td>
-              <% end %>
 					    <td> </td>
 					  </tr>
             <tr>
-              <% unless @booking.edad.nil? %>
 					    <td><p style="margin: 0;">Edad</p></td>
 					    <td><p style="margin: 0;">: <%= @booking.edad %></p></td>
-              <% end %>
 					    <td> </td>
 					  </tr>
             <tr>
