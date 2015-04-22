@@ -53,6 +53,10 @@
 					    <td><p style="margin: 0;">: <%= @booking.user_first_name %><%= @booking.user_last_name %></p></td>
 					  </tr>
 					  <tr>
+					    <td><p style="margin: 0;">Dirección</p></td>
+					    <td><p style="margin: 0;">: <%= @booking.address %></p></td>
+					  </tr>
+					  <tr>
               <% unless @booking.start_date.nil? %> 
 					    <td><p style="margin: 0;">Check-in</p></td>
 					    <td><p style="margin: 0;">: <%= @booking.start_date.strftime("%d/%m/%Y") %></p></td>
