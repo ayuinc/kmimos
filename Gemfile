@@ -61,10 +61,12 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'foreman'
+  gem 'byebug'
 end
 
 group :test do
-  gem 'cucumber-rails', require: false
+  gem "minitest"
+  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
   gem 'database_cleaner'
   gem "poltergeist", "1.5.0"
   gem 'capybara', '2.1.0'
@@ -72,5 +74,4 @@ group :test do
   gem "zeus", "0.13.3"
   gem 'factory_girl_rails', '4.2.1'
   gem 'launchy'
-  gem 'shoulda-matchers'
 end
