@@ -77,6 +77,20 @@
 					    <td> </td>
 					  </tr>
             <tr>
+              <% unless @booking.raza.nil? %>
+					    <td><p style="margin: 0;">Raza</p></td>
+					    <td><p style="margin: 0;">: <%= @booking.raza %></p></td>
+              <% end %>
+					    <td> </td>
+					  </tr>
+            <tr>
+              <% unless @booking.edad.nil? %>
+					    <td><p style="margin: 0;">Edad</p></td>
+					    <td><p style="margin: 0;">: <%= @booking.edad %></p></td>
+              <% end %>
+					    <td> </td>
+					  </tr>
+            <tr>
 					    <td><p style="margin: 0;">Nombre del cuidador</p></td>
 					    <td><p style="margin: 0;">: <%= Provider.find(@booking.provider_id).name %>  <%= Provider.find(@booking.provider_id).last_name_1 %></p></td>
 					    <td> </td>
