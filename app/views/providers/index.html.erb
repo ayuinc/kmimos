@@ -20,7 +20,7 @@
               <% end %>
             </div>
             <div class="col-sm-3">
-              <%= grouped_collection_select(:location, :id, State.order(:name), :locations, :name, :id, :name, {:prompt => "Elegir Municipio"}, { :class=> "input-lg borderless form-location-nav" }) %>
+              <%= f.grouped_collection_select(:locations_id_eq, State.order(:name), :locations, :name, :id, :name, {:prompt => "Elegir Municipio o Delegación"}, { :class=> "input-lg borderless form-location-nav" }) %>
             </div>
             <div class="col-sm-3">
               <%= f.submit "Buscar", class:"ml-7 borderless form-search" %>
