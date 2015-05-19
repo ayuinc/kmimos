@@ -4407,6 +4407,10 @@ body {
     .navbar-nav {
       margin: 7.5px -14px; } }
 
+@media only screen and (max-width: 480px) {
+  .header-navbar {
+    background: #6cba9b; } }
+
 .navbar-header a {
   text-decoration: none; }
   .navbar-header a:hover {

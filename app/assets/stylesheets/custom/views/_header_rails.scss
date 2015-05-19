@@ -90,6 +90,12 @@
   
 }
 
+.header-navbar {
+  @media #{$xs-only} {
+     background: #6cba9b;
+ }
+}
+
 .navbar-header {
 
   a {
