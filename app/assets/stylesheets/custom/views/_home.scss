@@ -1,8 +1,14 @@
 #home-filters {
-  background-image: url(http://s11.postimg.org/h4k1brts3/foto_principal_kmimos.png);
+  background-image: url(http://s23.postimg.org/a5ks76e4b/foto_home_kmimos.png);
   min-height: 616px;
   background-size: cover;
   background-repeat: no-repeat;
+  @media #{$xs-only} {
+    min-width: 100%;
+    background-image: url(http://s15.postimg.org/4izt924jf/foto_kmimos_celular_2.png) !important;
+      background-size: 100% !important;
+      background-position-y: 10%;
+  }
   .text-fold {
     color: #7F4104;
   }
@@ -58,6 +64,13 @@
       } 
      }
     }
+  }
+}
+
+//contenedor search - de la busqueda del home 
+.contenedor-search {
+  @media #{$xs-only} {
+     margin-left: 16.66667%;
   }
 }
 
@@ -132,7 +145,7 @@
 
 .locations-dd {
   @media #{$xs-only} {
-    padding-left: 0 !important;
+    padding: 0 !important;
  }
 }
 
@@ -152,6 +165,10 @@
 
 #home-title {
   height: auto;
+}
+
+.title-strong {
+   font-weight: 400 !important;
 }
 
 #meet-server {
@@ -220,6 +237,10 @@
   color: #F9F42F;
 }
 
+.font-lato {
+ font-family: 'Lato', sans-serif !important; 
+}
+
 #btn-recomendar {
   border-radius: 5px;
   color: white !important;
@@ -280,9 +301,13 @@
   background: rgba(0,0,0,0.7);
   padding: 18px;
   margin-top: 76px;
+  @media #{$xs-only} {
+     background-color: #535555 !important;
+  }
   .form-search {
     @media #{$xs-only} {
       padding: 10px 85px !important;
+      width: 100%;
     }
   }
 }
@@ -329,6 +354,12 @@
 
 .img-logo {
   width: 190px !important;
+}
+
+.botones-searchs {
+  @media #{$xs-only} {
+      padding: 0px !important;
+   }
 }
 
 .separator-lg {
@@ -427,3 +458,10 @@ iframe {
 .text-bg-check {
   letter-spacing: 0.5px;
 }
+
+.navbar-toggle {
+  .icon-bar {
+    width: 31px !important;
+    height: 3px !important;
+  }
+} 

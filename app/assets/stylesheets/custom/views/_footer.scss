@@ -1,4 +1,4 @@
-#footer {
+/* #footer {
 	.container {
 		nav {
 			a.btn-registrarse {
@@ -9,4 +9,36 @@
 			}
 		}
 	}
+} */
+
+#footer {
+  .container {
+    .col-sm-6 {
+      h4 {
+        text-align: right;
+        @media #{$xs-only} {
+          text-align: center;
+        }
+      }
+    .col-md-4 {
+      text-align: right;
+        @media #{$xs-only} {
+          text-align: center;
+        }
+      }
+    }
+    .redes-sociales {
+      @media #{$xs-only} {
+         margin-left: 33.33333%;
+      }
+    }
+    .text-footer {
+      @media #{$xs-only} {
+        text-align: center;
+      }
+      @media #{$portrait} {
+        text-align: center;
+      }
+    }
+  }
 }

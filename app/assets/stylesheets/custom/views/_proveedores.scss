@@ -74,6 +74,12 @@
   padding: 14px 0px;
   height: 207px;
   background: #eee;
+  @media #{$xs-only} {
+    height: auto !important;
+  }
+  @media #{$portrait} {
+    height: auto !important;
+  }
 }
 
 .text-description-1 {

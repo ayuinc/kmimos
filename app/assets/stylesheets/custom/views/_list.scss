@@ -53,13 +53,14 @@
         color: white;
         font-size: 18px !important;
         margin-bottom: 0px !important;
+        width: 100%;
         @media #{$xs-only} {
-          padding: 10px 78px;
+          padding: 10px 55px;
           margin-left: 0px !important;
         }
-        @media #{$landscape} {
+/*         @media #{$landscape} {
           margin-left: 42px !important;
-        }
+        } */
 			}
 			.form-search:hover {
 				color: white;
@@ -116,16 +117,19 @@
 
 .header-form {
   .form-location-nav {
-    min-width: 215px;
+    width: 215px;
     border-radius: 6px !important;
     padding: 10px !important;
     margin: 0 !important;
     @media #{$xs-only} {
-      min-width: 52px !important;
-      width: 224px !important; 
+      width: 100% !important;
+      
     }
     @media #{$landscape} {
-        width: 180px !important;
+        width: 100% !important;
+    }
+    @media #{$portrait} {
+       width: 100% !important;
     }
   }
 }
@@ -138,15 +142,20 @@
     }
     .form-location-nav {
       @media #{$xs-only} {
-        min-width: 191px;
+        width: 100%;
       }
     }
   }
 }
 
 .input-lg {
+  font-size: 15px !important;
   @media #{$landscape} {
      font-size: 13px !important;
+  }
+  @media #{$portrait} {
+     font-size: 9px !important;
+     padding: 10px 7px !important;
   }
 }
 

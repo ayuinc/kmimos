@@ -283,7 +283,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 body {
-  font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857;
   color: #333333;
@@ -4275,27 +4275,27 @@ body {
 
 /* PROJECT ESPECIFIC FONTS */
 .thin {
-  font-family: "proxima-nova", Helvetica, Arial, sans-serif !important;
+  font-family: "Lato", Helvetica, Arial, sans-serif !important;
   font-weight: 100;
   font-style: normal; }
 
 .light {
-  font-family: "proxima-nova", Helvetica, Arial, sans-serif !important;
+  font-family: "Lato", Helvetica, Arial, sans-serif !important;
   font-weight: 300;
   font-style: normal; }
 
 .light-italic {
-  font-family: "proxima-nova", Helvetica, Arial, sans-serif !important;
+  font-family: "Lato", Helvetica, Arial, sans-serif !important;
   font-weight: 300;
   font-style: italic; }
 
 .book {
-  font-family: "proxima-nova", Helvetica, Arial, sans-serif !important;
+  font-family: "Lato", Helvetica, Arial, sans-serif !important;
   font-weight: 400;
   font-style: normal; }
 
 .medium {
-  font-family: "proxima-nova", Helvetica, Arial, sans-serif !important;
+  font-family: "Lato", Helvetica, Arial, sans-serif !important;
   font-weight: 500;
   font-style: normal; }
 
@@ -4313,11 +4313,37 @@ body {
   font-weight: normal;
   font-style: normal; }
 
-#footer .container nav a.btn-registrarse {
-  padding: 12px 34px;
-  background: rgba(255, 255, 255, 0.5);
-  color: #ED9213;
-  border-radius: 8px; }
+/* #footer {
+	.container {
+		nav {
+			a.btn-registrarse {
+				padding: 12px 34px;
+				background: rgba(255,255,255,0.5);
+				color: #ED9213;
+				border-radius: 8px;
+			}
+		}
+	}
+} */
+#footer .container .col-sm-6 h4 {
+  text-align: right; }
+  @media only screen and (max-width: 480px) {
+    #footer .container .col-sm-6 h4 {
+      text-align: center; } }
+#footer .container .col-sm-6 .col-md-4 {
+  text-align: right; }
+  @media only screen and (max-width: 480px) {
+    #footer .container .col-sm-6 .col-md-4 {
+      text-align: center; } }
+@media only screen and (max-width: 480px) {
+  #footer .container .redes-sociales {
+    margin-left: 33.33333%; } }
+@media only screen and (max-width: 480px) {
+  #footer .container .text-footer {
+    text-align: center; } }
+@media only screen and (orientation: portrait) {
+  #footer .container .text-footer {
+    text-align: center; } }
 
 .main-nav {
   min-height: 30px;
@@ -4368,6 +4394,18 @@ body {
 
 .navbar {
   margin-bottom: 0; }
+  @media only screen and (max-width: 480px) {
+    .navbar {
+      background: #6cba9b; } }
+
+.navbar-nav {
+  float: right; }
+  @media only screen and (max-width: 480px) {
+    .navbar-nav {
+      float: none; } }
+  @media only screen and (orientation: portrait) {
+    .navbar-nav {
+      margin: 7.5px -14px; } }
 
 .navbar-header a {
   text-decoration: none; }
@@ -4416,10 +4454,16 @@ button span {
   padding-top: 10px; }
 
 #home-filters {
-  background-image: url(http://s11.postimg.org/h4k1brts3/foto_principal_kmimos.png);
+  background-image: url(http://s23.postimg.org/a5ks76e4b/foto_home_kmimos.png);
   min-height: 616px;
   background-size: cover;
   background-repeat: no-repeat; }
+  @media only screen and (max-width: 480px) {
+    #home-filters {
+      min-width: 100%;
+      background-image: url(http://s15.postimg.org/4izt924jf/foto_kmimos_celular_2.png) !important;
+      background-size: 100% !important;
+      background-position-y: 10%; } }
   #home-filters .text-fold {
     color: #7F4104; }
   #home-filters ul {
@@ -4451,6 +4495,10 @@ button span {
     border-radius: 17px; }
     #home-filters .container-fluid .row .col-md-3.ipad .opciones .servicios img {
       width: 120px; }
+
+@media only screen and (max-width: 480px) {
+  .contenedor-search {
+    margin-left: 16.66667%; } }
 
 #home-profiles .profile img {
   border-radius: 50%;
@@ -4512,7 +4560,7 @@ button span {
 
 @media only screen and (max-width: 480px) {
   .locations-dd {
-    padding-left: 0 !important; } }
+    padding: 0 !important; } }
 
 @media only screen and (max-width: 480px) {
   .search-btn {
@@ -4526,6 +4574,9 @@ button span {
 
 #home-title {
   height: auto; }
+
+.title-strong {
+  font-weight: 400 !important; }
 
 #meet-server {
   background-color: #F0EADB;
@@ -4570,6 +4621,9 @@ button span {
 
 #text-yellow {
   color: #F9F42F; }
+
+.font-lato {
+  font-family: 'Lato', sans-serif !important; }
 
 #btn-recomendar {
   border-radius: 5px;
@@ -4621,8 +4675,12 @@ button span {
   padding: 18px;
   margin-top: 76px; }
   @media only screen and (max-width: 480px) {
+    .bg-check {
+      background-color: #535555 !important; } }
+  @media only screen and (max-width: 480px) {
     .bg-check .form-search {
-      padding: 10px 85px !important; } }
+      padding: 10px 85px !important;
+      width: 100%; } }
 
 .form-check {
   border-radius: 6px !important;
@@ -4657,6 +4715,10 @@ button span {
 
 .img-logo {
   width: 190px !important; }
+
+@media only screen and (max-width: 480px) {
+  .botones-searchs {
+    padding: 0px !important; } }
 
 .separator-lg {
   width: 163px !important;
@@ -4729,6 +4791,10 @@ iframe {
 .text-bg-check {
   letter-spacing: 0.5px; }
 
+.navbar-toggle .icon-bar {
+  width: 31px !important;
+  height: 3px !important; }
+
 .container-fluid {
   padding-right: 15px;
   padding-left: 0px;
@@ -4766,14 +4832,15 @@ iframe {
       background: #6cba9b;
       color: white;
       font-size: 18px !important;
-      margin-bottom: 0px !important; }
+      margin-bottom: 0px !important;
+      width: 100%;
+      /*         @media only screen and (orientation: landscape) {
+                margin-left: 42px !important;
+              } */ }
       @media only screen and (max-width: 480px) {
         .container-fluid .row form .form-search {
-          padding: 10px 78px;
+          padding: 10px 55px;
           margin-left: 0px !important; } }
-      @media only screen and (orientation: landscape) {
-        .container-fluid .row form .form-search {
-          margin-left: 42px !important; } }
     .container-fluid .row form .form-search:hover {
       color: white;
       opacity: 0.9; }
@@ -4805,17 +4872,19 @@ iframe {
     border: none; }
 
 .header-form .form-location-nav {
-  min-width: 215px;
+  width: 215px;
   border-radius: 6px !important;
   padding: 10px !important;
   margin: 0 !important; }
   @media only screen and (max-width: 480px) {
     .header-form .form-location-nav {
-      min-width: 52px !important;
-      width: 224px !important; } }
+      width: 100% !important; } }
   @media only screen and (orientation: landscape) {
     .header-form .form-location-nav {
-      width: 180px !important; } }
+      width: 100% !important; } }
+  @media only screen and (orientation: portrait) {
+    .header-form .form-location-nav {
+      width: 100% !important; } }
 
 .bg-navbar {
   background: rgba(0, 0, 0, 0.4);
@@ -4825,11 +4894,17 @@ iframe {
       margin-left: 10px; } }
   @media only screen and (max-width: 480px) {
     .bg-navbar .header-form .form-location-nav {
-      min-width: 191px; } }
+      width: 100%; } }
 
-@media only screen and (orientation: landscape) {
-  .input-lg {
-    font-size: 13px !important; } }
+.input-lg {
+  font-size: 15px !important; }
+  @media only screen and (orientation: landscape) {
+    .input-lg {
+      font-size: 13px !important; } }
+  @media only screen and (orientation: portrait) {
+    .input-lg {
+      font-size: 9px !important;
+      padding: 10px 7px !important; } }
 
 .list-profiles {
   border: 1px solid #ccc;
@@ -4983,6 +5058,12 @@ iframe {
   padding: 14px 0px;
   height: 207px;
   background: #eee; }
+  @media only screen and (max-width: 480px) {
+    .picture-perfil {
+      height: auto !important; } }
+  @media only screen and (orientation: portrait) {
+    .picture-perfil {
+      height: auto !important; } }
 
 .text-description-1 {
   line-height: 1.5 !important;
@@ -5037,10 +5118,9 @@ iframe {
   width: 170px; }
 
 .btn-how {
-  font-family: "proxima-nova", Helvetica, Arial, sans-serif !important;
-  font-weight: 300;
+  font-weight: 600;
   font-style: normal;
-  border: 1px solid white;
+  background: rgba(255, 255, 255, 0.4);
   color: white;
   width: 200px;
   font-size: 18px;

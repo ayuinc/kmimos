@@ -53,7 +53,10 @@ $(document).ready(function() {
           return !$(this).attr('src');
   }).hide();
   $("a[href='/provider_attachments']").hide()
-
+  
+  //ocultar secciones de disqus
+   $('[data-tracking-area="footer"]').hide();
+  
   // initialize jquery-ui datepicker
   $.datepicker.setDefaults(
     $.extend(
@@ -188,11 +191,17 @@ function allLabel() {
       $(this).removeClass('has-error');
     });
   }
+  
+ 
 
 }(jQuery));
 
 
-
+function disqus_config() {
+  this.callbacks.afterRender = [function() {
+    console.log("disqus");
+  }];
+}
 
 
 

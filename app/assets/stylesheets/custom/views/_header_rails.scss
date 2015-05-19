@@ -73,6 +73,21 @@
 
 .navbar {
   margin-bottom: 0;
+  @media #{$xs-only} {
+     background: #6cba9b;
+ }
+  
+}
+
+.navbar-nav {
+    float: right;
+  @media #{$xs-only} {
+     float: none;
+ }
+  @media #{$portrait} {
+      margin: 7.5px -14px;
+  }
+  
 }
 
 .navbar-header {

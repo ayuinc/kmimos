@@ -2,7 +2,7 @@
   <div class="container-fluid pr-0">
    <div class="navbar p-7">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <button type="button" class="navbar-toggle mt-28" data-toggle="collapse" data-target=".navbar-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="collapse navbar-collapse pr-21">
-        <ul class="nav navbar-nav pull-right mt-14">
+        <ul class="nav navbar-nav mt-14">
           <% if current_provider %>
             <li class="dropdown mt-7">
               <a href="#" class="dropdown-toggle text-muted" data-toggle="dropdown">Hola, <%= current_provider.name %></a>
@@ -57,10 +57,10 @@
       <!--/.nav-collapse -->
     </div>
    
-    <div class="container-sm">
       <div class="row text-center text-white pt-70">
-        <div class="col-md-12 col-xs-6">
-          <h1 class="mb-14 thin xl">Viaja con tranquilidad dejando a tu mascota en buenas manos</h1>
+        <div class="col-md-offset-3 col-md-6 col-xs-12">
+          <h1 class="mb-14 thin xl font-lato title-strong">Viaja con tranquilidad dejando a tu mascota en buenas manos</h1>
+          <h3>Cuidadores calificados se encargarán de tu mascota.<h3>
           <a href="#Nea-sczW5kQ" class="btn-how btn sublime mt-56" data-youtube-id="Nea-sczW5kQ">
             Cómo funciona
           </a>
@@ -68,12 +68,12 @@
           </video>
         </div>
       </div>
-    </div>
     <div class="container-fluid mt-21">
       <div class="row bg-check">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-9 col-xs-10">
-          <h3 class="pl-14 text-white thin mv-7 text-bg-check">Busca cuidadores calificados que atiendan a tu mascota mientras estás de viaje</h3>
+        <h3 class="hidden-lg text-bg-check text-white text-center">Elige en donde y cuando</h3>
+        <div class="col-sm-2 hidden-xs"></div>
+        <div class="col-sm-8 contenedor-search col-xs-8">
+          <h3 class="pl-14 text-white thin mv-7 text-bg-check hidden-xs">Busca cuidadores calificados que atiendan a tu mascota mientras estás de viaje</h3>
           <%= search_form_for @search do |f| %>
           <div class="row header-form">
             <div class="col-sm-3 col-xs-in">
@@ -94,7 +94,7 @@
               <%= f.grouped_collection_select(:locations_id_eq, State.order(:name), :locations, :name, :id, :name, {:prompt => "Elegir Municipio o Delegación"}, { :class=> "input-lg borderless form-location-nav" }) %>
             </div>
             <div class="col-sm-3 search-btn">
-              <%= f.submit "Buscar", class:"ml-21 borderless form-search" %>
+              <%= f.submit "Buscar", class:" borderless form-search" %>
             </div>
             <% end %>
           </div>
@@ -106,26 +106,26 @@
 </section>
 <section id="home-pasos" class="text-center bg-muted">
   <div class="container text-center">
-    <div class="row text-center p-28"><h1 class="light mt-7" id="text-gray">Beneficios</h1></div>
+    <div class="row text-center p-28"><h1 class="light mt-7 title-strong" id="text-gray">Beneficios</h1></div>
     <div class="row mb-35 pl-42 pr-56">
       <div class="col-md-3 text-center">
         <%=image_tag('site-kmimos-flat-11.png', class: "mt--14") %>
-        <h2 class="mt-28 light text-gray">Seguro</h2>
+        <h2 class="mt-28 light text-gray title-strong">Seguro</h2>
         <h4 id="text-gray" class="p-7 mt-0 light line-5 mb-21">Tu mascota contará con un seguro de salud durante toda su estadía.</h4>
       </div>
       <div class="col-md-3 text-center">
         <%=image_tag('site-kmimos-flat-12.png', class: "mt--14") %>
-        <h2 class="mt-28 light text-gray">Calidad</h2>
+        <h2 class="mt-28 light text-gray title-strong">Calidad</h2>
         <h4 id="text-gray" class="p-7 mt-0 light line-5 mb-21">Todos nuestros proveedores han sido previamente evaluados.</h4>
       </div>
       <div class="col-md-3 text-center">
         <%=image_tag('site-kmimos-flat-13.png', class: "mt--14") %>
-        <h2 class="mt-28 light text-gray">Fotos</h2>
+        <h2 class="mt-28 light text-gray title-strong">Fotos</h2>
         <h4 id="text-gray" class="p-7 mt-0 light line-5 mb-21">Recibe fotos diarias de tu mascota para mantenerte cerca e informado.</h4>
       </div>
       <div class="col-md-3 text-center">
         <%=image_tag('site-kmimos-flat-14.png', class: "mt--14") %>
-        <h2 class="mt-28 light text-gray">Atención</h2>
+        <h2 class="mt-28 light text-gray title-strong">Atención</h2>
         <h4 id="text-gray" class="p-7 mt-0 light line-5 mb-21">Ofrecemos atención 24/7 para atender a tu mascota a cualquier hora mientras tú estás fuera.</h4>
       </div>
     </div>
