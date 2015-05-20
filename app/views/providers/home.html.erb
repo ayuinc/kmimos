@@ -17,15 +17,29 @@
       <div class="collapse navbar-collapse pr-21">
         <ul class="nav navbar-nav mt-14">
           <% if current_provider %>
-            <li class="dropdown mt-7">
+            <li class="dropdown mt-7 size-responsive">
               <a href="#" class="dropdown-toggle text-muted" data-toggle="dropdown">Hola, <%= current_provider.name %></a>
               <ul class="dropdown-menu" id="dropdown-menu">
                 <li><%= link_to 'Actualizar mi perfil'.html_safe, edit_provider_path(current_provider), class: "text-danger pl-14 pr-14 mb-14" %></li>
                 <li><%= link_to 'Salir'.html_safe, salir_path, :method => :delete, class: "text-danger pl-56 pr-56" %></li>
+                
               </ul>
             </li>
             <li class="hidden-lg hidden-md">
-              <ul class="list-group m-0 pt-7">
+              <ul class="list-group m-0 pt-7 pl-0 list-movil-header">
+                
+                <li class="hidden-lg hidden-md hidden-sm  li-first">
+                  <%= link_to 'Home', root_url, class: "not-underline log-in" %>
+                </li>
+                <li class="hidden-lg hidden-md hidden-sm">
+                  <a href="#bg-check" class="not-underline log-in">Reservar</a>
+                </li>
+                <li class="hidden-lg hidden-md hidden-sm">
+                  <a href="#home-pasos" class="not-underline log-in">Beneficios</a>
+                </li>
+                <li class="hidden-lg hidden-md hidden-sm">
+                  <a href="#slider-home" class="not-underline log-in">Testimonios</a>
+                </li>
                 <li class="list-group-item"><%= link_to 'Actualizar mi perfil'.html_safe, edit_provider_path(current_provider) %></li>
                 <li class="list-group-item"><%= link_to 'Salir'.html_safe, salir_path, :method => :delete, class: "text-danger" %></li>
               </ul>
@@ -38,22 +52,22 @@
             <%= link_to 'Ser cuidador', new_provider_path, class: "not-underline sign-up" %>
           </li>
           <li class="hidden-lg hidden-md hidden-sm">
-            <%= link_to 'Home', class: "not-underline log-in" %>
+            <%= link_to 'Home', root_url, class: "not-underline log-in" %>
           </li>
           <li class="hidden-lg hidden-md hidden-sm">
             <%= link_to 'Iniciar sesión', new_providers_session_path, class: "not-underline log-in" %>
           </li>
           <li class="hidden-lg hidden-md hidden-sm">
-            <%= link_to 'Reservar',  class: "not-underline log-in" %>
+            <a href="#bg-check" class="not-underline log-in">Reservar</a>
           </li>
           <li class="hidden-lg hidden-md hidden-sm">
-            <%= link_to 'Beneficios', class: "not-underline log-in" %>
+            <a href="#home-pasos" class="not-underline log-in">Beneficios</a>
           </li>
           <li class="hidden-lg hidden-md hidden-sm">
-            <%= link_to 'Testimonios', class: "not-underline log-in" %>
+            <a href="#slider-home" class="not-underline log-in">Testimonios</a>
           </li>
           <li class="hidden-lg hidden-md hidden-sm">
-            <%= link_to 'Ser cuidador', class: "not-underline log-in" %>
+            <%= link_to 'Ser cuidador', new_provider_path, class: "not-underline log-in" %>
           </li>
           <% end %>   
         </ul>
@@ -73,7 +87,7 @@
         </div>
       </div>
     <div class="container-fluid mt-21">
-      <div class="row bg-check">
+      <div class="row bg-check" id="bg-check">
         <h3 class="hidden-lg text-bg-check text-white text-center">Elige en donde y cuando</h3>
         <div class="col-sm-2 hidden-xs"></div>
         <div class="col-sm-8 contenedor-search col-xs-8">
@@ -136,9 +150,9 @@
   </div>
 </section>
 
-<section>
+<section id="slider-home">
   <!-- Place somewhere in the <body> of your page -->
-  <div class="container-fluid hidden-xs pasador pb-56 hidden-sm">
+  <div class="container-fluid pasador pb-56 hidden-sm">
     <div class="row">
       <div class="flexslider m-0">
         <ul class="slides">

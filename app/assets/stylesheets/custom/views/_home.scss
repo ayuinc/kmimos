@@ -471,3 +471,23 @@ iframe {
     height: 3px !important;
   }
 } 
+
+.li-first {
+  @media #{$xs-only} {
+    padding: 0 !important;
+  }
+}
+
+.list-movil-header {
+  li {
+    @media #{$xs-only} {
+      font-size: 21px !important; 
+    }
+  } 
+}
+
+.size-responsive {
+  @media #{$xs-only} {
+      font-size: 21px !important; 
+    }
+}

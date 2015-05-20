@@ -158,7 +158,10 @@
           background: #545454;
           &:hover {
             text-decoration: none;
-          } 
+          }
+          @media #{$xs-only} {
+            padding: 0px 17px;
+          }
         }
       }
     }

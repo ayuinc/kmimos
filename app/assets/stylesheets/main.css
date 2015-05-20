@@ -4448,6 +4448,9 @@ body {
   background: #545454; }
   .navbar .navbar-collapse ul li a:hover {
     text-decoration: none; }
+  @media only screen and (max-width: 480px) {
+    .navbar .navbar-collapse ul li a {
+      padding: 0px 17px; } }
 
 @media only screen and (max-width: 480px) {
   .navbar-collapse {
@@ -4810,6 +4813,18 @@ iframe {
 .navbar-toggle .icon-bar {
   width: 31px !important;
   height: 3px !important; }
+
+@media only screen and (max-width: 480px) {
+  .li-first {
+    padding: 0 !important; } }
+
+@media only screen and (max-width: 480px) {
+  .list-movil-header li {
+    font-size: 21px !important; } }
+
+@media only screen and (max-width: 480px) {
+  .size-responsive {
+    font-size: 21px !important; } }
 
 .container-fluid {
   padding-right: 15px;
