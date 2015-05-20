@@ -34,22 +34,6 @@
       padding-top: 12px;
     }
   }
-  // @-moz-document url-prefix() {
-  //   .css-select-moz {
-  //     height: 28px;
-  //     width: 28px;
-  //     position: absolute;
-  //     top: 12px;
-  //     right: 7px;
-  //     background-image: url('https://s3.amazonaws.com/viasam/select_drop.png');
-  //     background-repeat: no-repeat;
-  //     background-position: right center;
-  //     padding-top: 12px;
-  //     &:hover {
-  //       cursor: pointer;
-  //     }
-  //   }
-  // }
   .form-control {
     background-color: $gray-darker;
     border-left: 1px solid $gray;
@@ -77,7 +61,9 @@
      background: #6cba9b;
     padding: 0 !important;
  }
-  
+ &.internal {
+  background-color: #545454;
+ }
 }
 
 .navbar-nav {
