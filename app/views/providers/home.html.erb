@@ -38,18 +38,22 @@
             <%= link_to 'Ser cuidador', new_provider_path, class: "not-underline sign-up" %>
           </li>
           <li class="hidden-lg hidden-md">
-            <%= form_tag providers_sessions_path, :class => "form-inline mb-0 user-login-header-form" do %>
-            <div class="form-group mr-7">
-              <label class="hidden-lg hidden-md hidden-sm text-muted">Ingreso de proveedores</label>
-              <%= email_field_tag :email, params[:email], :autofocus => true, :class => "form-control input-sm", :placeholder => "Correo electrónico" %>
-            </div>
-            <div class="form-group mr-7">
-              <%= password_field_tag :password, nil, class: "form-control input-sm", :placeholder => "Contraseña" %>
-            </div>
-            <div class="form-group text-center">
-              <%= submit_tag "Ingresa", id: "user_login_button", class: "btn btn-info btn-sm" %>
-            </div>
-          <% end %>
+            <%= link_to root_url'Home', class: "not-underline log-in" %>
+          </li>
+          <li class="hidden-lg hidden-md">
+            <%= link_to 'Iniciar sesión', new_providers_session_path, class: "not-underline log-in" %>
+          </li>
+          <li class="hidden-lg hidden-md">
+            <%= link_to 'Reservar',  class: "not-underline log-in" %>
+          </li>
+          <li class="hidden-lg hidden-md">
+            <%= link_to 'Beneficios', class: "not-underline log-in" %>
+          </li>
+          <li class="hidden-lg hidden-md">
+            <%= link_to 'Testimonios', class: "not-underline log-in" %>
+          </li>
+          <li class="hidden-lg hidden-md">
+            <%= link_to 'Ser cuidador', class: "not-underline log-in" %>
           </li>
           <% end %>   
         </ul>

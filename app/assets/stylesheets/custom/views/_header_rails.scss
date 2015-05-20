@@ -164,6 +164,13 @@
   }
 }
 
+.navbar-collapse {
+  @media #{$xs-only} {
+    height: 580px;
+    background: rgb(85, 85, 85);
+  } 
+}
+
 .panel-heading > .panel-title {
   nav {
     a:nth-child(n + 2) {

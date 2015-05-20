@@ -20,6 +20,10 @@
       float: none;
       display: inline-block;
       padding: 0;
+      @media #{$xs-only} {
+        display: inline;
+        padding: 14px 1px;
+      }
 
       a {
         position: relative;

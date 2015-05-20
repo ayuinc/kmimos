@@ -4448,6 +4448,11 @@ body {
   .navbar .navbar-collapse ul li a:hover {
     text-decoration: none; }
 
+@media only screen and (max-width: 480px) {
+  .navbar-collapse {
+    height: 580px;
+    background: #555555; } }
+
 .panel-heading > .panel-title nav a:nth-child(n + 2) {
   padding-left: 3px; }
 
@@ -4476,6 +4481,10 @@ button span {
       float: none;
       display: inline-block;
       padding: 0; }
+      @media only screen and (max-width: 480px) {
+        #home-filters ul li {
+          display: inline;
+          padding: 14px 1px; } }
       #home-filters ul li a {
         position: relative;
         text-align: center;
