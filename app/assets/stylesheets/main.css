@@ -4396,7 +4396,8 @@ body {
   margin-bottom: 0; }
   @media only screen and (max-width: 480px) {
     .navbar {
-      background: #6cba9b; } }
+      background: #6cba9b;
+      padding: 0 !important; } }
 
 .navbar-nav {
   float: right; }
@@ -4484,7 +4485,9 @@ button span {
       @media only screen and (max-width: 480px) {
         #home-filters ul li {
           display: inline;
-          padding: 14px 1px; } }
+          padding: 14px 1px;
+          font-size: 35px;
+          font-weight: 100; } }
       #home-filters ul li a {
         position: relative;
         text-align: center;

@@ -31,28 +31,28 @@
               </ul>
             </li>
           <% else %>    
-          <li class="active hidden-sm hidden-xs mr-7">
+          <li class="active hidden-xs mr-7">
             <%= link_to 'Iniciar sesión', new_providers_session_path, class: "not-underline log-in" %>
           </li>
-          <li class="active hidden-sm hidden-xs">
+          <li class="active hidden-xs">
             <%= link_to 'Ser cuidador', new_provider_path, class: "not-underline sign-up" %>
           </li>
-          <li class="hidden-lg hidden-md">
-            <%= link_to root_url'Home', class: "not-underline log-in" %>
+          <li class="hidden-lg hidden-md hidden-sm">
+            <%= link_to 'Home', class: "not-underline log-in" %>
           </li>
-          <li class="hidden-lg hidden-md">
+          <li class="hidden-lg hidden-md hidden-sm">
             <%= link_to 'Iniciar sesión', new_providers_session_path, class: "not-underline log-in" %>
           </li>
-          <li class="hidden-lg hidden-md">
+          <li class="hidden-lg hidden-md hidden-sm">
             <%= link_to 'Reservar',  class: "not-underline log-in" %>
           </li>
-          <li class="hidden-lg hidden-md">
+          <li class="hidden-lg hidden-md hidden-sm">
             <%= link_to 'Beneficios', class: "not-underline log-in" %>
           </li>
-          <li class="hidden-lg hidden-md">
+          <li class="hidden-lg hidden-md hidden-sm">
             <%= link_to 'Testimonios', class: "not-underline log-in" %>
           </li>
-          <li class="hidden-lg hidden-md">
+          <li class="hidden-lg hidden-md hidden-sm">
             <%= link_to 'Ser cuidador', class: "not-underline log-in" %>
           </li>
           <% end %>   

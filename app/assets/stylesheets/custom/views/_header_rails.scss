@@ -75,6 +75,7 @@
   margin-bottom: 0;
   @media #{$xs-only} {
      background: #6cba9b;
+    padding: 0 !important;
  }
   
 }
