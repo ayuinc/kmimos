@@ -4823,6 +4823,10 @@ iframe {
     font-size: 21px !important; } }
 
 @media only screen and (max-width: 480px) {
+  .user-info {
+    padding-left: 7px !important; } }
+
+@media only screen and (max-width: 480px) {
   .size-responsive {
     font-size: 21px !important; } }
 

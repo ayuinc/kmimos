@@ -486,6 +486,12 @@ iframe {
   } 
 }
 
+.user-info {
+  @media #{$xs-only} {
+      padding-left: 7px !important; 
+    }
+}
+
 .size-responsive {
   @media #{$xs-only} {
       font-size: 21px !important; 
