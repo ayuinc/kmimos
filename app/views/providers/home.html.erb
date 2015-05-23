@@ -37,9 +37,6 @@
                 <li class="hidden-lg hidden-md hidden-sm">
                   <a href="#home-pasos" class="not-underline log-in">Beneficios</a>
                 </li>
-                <li class="hidden-lg hidden-md hidden-sm">
-                  <a href="#slider-home" class="not-underline log-in">Testimonios</a>
-                </li>
                 <li class="list-group-item"><%= link_to 'Actualizar mi perfil'.html_safe, edit_provider_path(current_provider) %></li>
                 <li class="list-group-item"><%= link_to 'Salir'.html_safe, salir_path, :method => :delete, class: "text-danger" %></li>
               </ul>
@@ -150,7 +147,7 @@
   </div>
 </section>
 
-<section id="slider-home">
+<section id="slider-home" class="hidden-xs">
   <!-- Place somewhere in the <body> of your page -->
   <div class="container-fluid pasador pb-56 hidden-sm">
     <div class="row">
@@ -238,7 +235,7 @@
           <h4 class="light mb-0 fz-30 mt-0">y tendrás</h4>
           <h1 class="dsct-10 mb-0 mt-0">25%</h1>
           <h3 class="thin mt-0 mb-0 fz-40">descuento</h3>
-          <div class="separator-gray separator-lg pull-right"></div><br>
+          <div class="separator-gray separator-lg pull-right hidden-xs hidden-sm"></div><br>
           <h4 class="light fz-30">en tu siguiente reserva</h4>
         </div>
         
