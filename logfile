@@ -22,3 +22,9 @@ FATAL:  database files are incompatible with server
 DETAIL:  The data directory was initialized by PostgreSQL version 9.3, which is not compatible with this version 9.4.0.
 FATAL:  lock file "postmaster.pid" already exists
 HINT:  Is another postmaster (PID 91686) running in data directory "/usr/local/var/postgres"?
+LOG:  database system was interrupted; last known up at 2015-05-19 12:24:03 PET
+LOG:  database system was not properly shut down; automatic recovery in progress
+LOG:  record with zero length at 0/1BD1B18
+LOG:  redo is not required
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started

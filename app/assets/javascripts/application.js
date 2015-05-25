@@ -56,7 +56,15 @@ $(document).ready(function() {
   
   //ocultar secciones de disqus
    $('[data-tracking-area="footer"]').hide();
-  
+  //validate datepickers
+  $("input.form-search").click(function(event){
+    if($("#start_date").val() == "" | $("#end_date").val() == "") {
+      event.preventDefault(); // cancel default behavior
+      // alert("llenalo");
+      $("#fechas-warning").show();
+    }
+    //... rest of add logic
+  });
   // initialize jquery-ui datepicker
   $.datepicker.setDefaults(
     $.extend(
@@ -103,6 +111,13 @@ $(document).ready(function() {
     });
   });
 });
+
+//validar fechas homepage
+// function prueba(event){
+//   // return false;
+//   event.preventDefault();
+//   // alert("clickeado");
+// }
 
 
 function checkAll(){
