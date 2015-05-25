@@ -74,7 +74,7 @@
             <p><%= state.name %></p> 
             <div class="row">
               <% state.locations.order('id DESC').each do |location| %>
-                <div class="col-xs-4">
+                <div class="col-xs-12 col-md-4">
                 <%= check_box_tag "provider[location_ids][]", location.id, @provider.location_ids.include?(location.id), id: dom_id(location), :onClick => "uncheckMain(this);", class: "location_cbx" %>
                 <%= label_tag dom_id(location), location.name, class: "small" %>
                 </div>

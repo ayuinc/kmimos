@@ -464,7 +464,7 @@
   }
   h2 {
     @media #{$xs-only} {
-      font-size: 41px !important;
+      font-size: 35px !important;
     }
   }
 }
@@ -523,6 +523,12 @@ iframe {
       font-size: 21px !important; 
     }
   } 
+}
+
+.user-info {
+  @media #{$xs-only} {
+      padding-left: 7px !important; 
+    }
 }
 
 .size-responsive {
