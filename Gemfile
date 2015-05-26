@@ -59,18 +59,9 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails'
   gem 'foreman'
-end
-
-group :test do
-  gem 'cucumber-rails', require: false
-  gem 'database_cleaner'
-  gem "poltergeist", "1.5.0"
-  gem 'capybara', '2.1.0'
-  gem 'simplecov', :require => false
-  gem "zeus", "0.13.3"
-  gem 'factory_girl_rails', '4.2.1'
-  gem 'launchy'
-  gem 'shoulda-matchers'
+  gem 'autotest-rails'
+  gem 'capybara'
+  gem 'shoulda'
+  gem 'byebug'
 end
