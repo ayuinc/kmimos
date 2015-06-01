@@ -24,19 +24,6 @@ class BookingsController < ApplicationController
 	  end
 	end
 
-	def update
-	  respond_to do |format|
-	    if @booking.update(booking_params)
-	    #  format.html { redirect_to root_path, notice: 'Tu perfil se ha actualizado con éxito' }
-	      format.html { redirect_to root_path }
-	      format.json { head :no_content }
-	    else
-	      format.html { render action: 'edit' }
-	      format.json { render json: @booking.errors, status: :unprocessable_entity }
-	    end
-	  end
-	end
-
 	private
 
 	def booking_params
