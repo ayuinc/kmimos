@@ -1,7 +1,6 @@
   class ProvidersController < ApplicationController
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
   before_action :require_current_provider, only: [:edit]
-  before_action :get_ranges, except: [:show]
   before_action :require_unlogged_provider, only: [:new]
   before_action :get_dates, only: [:index]
 
