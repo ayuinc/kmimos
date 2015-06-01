@@ -1,9 +1,11 @@
+@import "plugins/font-awesome";
 @import "plugins/timepicker";
-@import "plugins/media-queries";
-@import "plugins/custom-utilities";
+@import "plugins/media_queries";
+@import "plugins/custom_utilities";
 @import "plugins/flexslider";
 @import "plugins/demo";
-@import "views/fonts-custom";
+@import "views/flash_alerts";
+@import "views/fonts_custom";
 @import "views/fonts";
 @import "views/footer";
 @import "views/header_rails";
@@ -12,5 +14,5 @@
 @import "views/proveedores";
 @import "views/provider_modal";
 @import "views/video";
-@import "views/datepicker-custom";
+@import "views/datepicker_custom";
 // @import "views/type_custom";

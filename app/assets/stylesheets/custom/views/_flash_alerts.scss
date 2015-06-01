@@ -1,0 +1,20 @@
+$alerts: (danger: $brand-danger);
+
+@each $alert, $color in $alerts {
+	.alert-type-#{$alert} {
+		@media #{$xs-only} {
+			padding-left: 21px;
+		}
+		color: $color;
+		.clearfix {
+			border: 2px solid $color;
+			.icon-type-box {
+				background-color: $color;
+				color: white;
+				i {
+					padding: 14px 7px;
+				}
+			}
+		}
+	}
+}

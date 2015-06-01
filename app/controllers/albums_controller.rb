@@ -1,9 +1,9 @@
 class AlbumsController < ApplicationController
-# truncated for brevity.
   
   def new
     @album = Booking.new
   end
+
   def create
     @album = current_user.albums.build(album_params)
     authorize @album
@@ -21,6 +21,7 @@ class AlbumsController < ApplicationController
       render :new
     end
   end
+
   def update
     authorize @album
     if @album.update(params[:album].permit(:title,:description))
@@ -36,4 +37,5 @@ class AlbumsController < ApplicationController
       render :edit
     end
   end
+  
 end
