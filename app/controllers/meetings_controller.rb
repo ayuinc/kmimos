@@ -14,7 +14,6 @@ class MeetingsController < ApplicationController
 	  if @meeting.save
     	MeetingConfirmationMailer.new_meeting_notification(@meeting).deliver
     	MeetingConfirmationMailer.new_meeting_for_admin(@meeting).deliver
-    	flash[:success] = 'Reserva realizada. Te hemos enviado un correo de confirmación.'
 	    session[:start_date] = nil
 	    session[:end_date] = nil
       session[:user_email] = nil
