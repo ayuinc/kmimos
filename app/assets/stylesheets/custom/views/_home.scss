@@ -48,6 +48,9 @@
     background-size: 100% !important;
     background-position-y: 10%;
   }
+  @media #{$portrait} {
+      background-image: url(http://s10.postimg.org/ks4aq1ead/tablet_horizontal.jpg) !important;
+   }
   .text-fold {
     color: #7F4104;
   }
