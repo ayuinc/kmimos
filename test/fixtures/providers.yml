@@ -1,0 +1,11 @@
+one:
+  name: "Peter" 
+  last_name_1: "Last-name1" 
+  last_name_2: "Last-name2"
+  email: "provider@example.com"
+  email_c: "provider@example.com"
+  dni: "0123456789123"
+  phone: "5342352"
+  description: "lo que hago"
+  password_digest: <%= BCrypt::Password.create("afsfsgsdg")%>
+  category: "categoria"

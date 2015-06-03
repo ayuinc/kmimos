@@ -1,5 +1,5 @@
 class ReferralsController < ApplicationController
-  before_action :set_referral, only: [:show, :edit, :update, :destroy]
+  before_action :set_referral, only: [:show, :destroy]
 
   # GET /referrals
   # GET /referrals.json
@@ -17,10 +17,6 @@ class ReferralsController < ApplicationController
     @referral = Referral.new
   end
 
-  # GET /referrals/1/edit
-  def edit
-  end
-
   # POST /referrals
   # POST /referrals.json
   def create
@@ -36,20 +32,6 @@ class ReferralsController < ApplicationController
         format.html { render action: 'new' }
         format.json { render json: @referral.errors, status: :unprocessable_entity }
         format.js { render json: @referral.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /referrals/1
-  # PATCH/PUT /referrals/1.json
-  def update
-    respond_to do |format|
-      if @referral.update(referral_params)
-        format.html { redirect_to @referral, notice: 'Referral was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @referral.errors, status: :unprocessable_entity }
       end
     end
   end

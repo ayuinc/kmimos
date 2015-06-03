@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150415172016) do
+ActiveRecord::Schema.define(version: 20150602231925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,12 +25,6 @@ ActiveRecord::Schema.define(version: 20150415172016) do
     t.integer "provider_id"
     t.integer "age_id"
   end
-
-  create_table "albums", force: true do |t|
-    t.integer "provider_id"
-  end
-
-  add_index "albums", ["provider_id"], name: "index_albums_on_provider_id", using: :btree
 
   create_table "bookings", force: true do |t|
     t.date     "start_date"
@@ -83,23 +77,6 @@ ActiveRecord::Schema.define(version: 20150415172016) do
   end
 
   add_index "meetings", ["provider_id"], name: "index_meetings_on_provider_id", using: :btree
-
-  create_table "photos", force: true do |t|
-    t.integer "album_id"
-    t.string  "image"
-  end
-
-  add_index "photos", ["album_id"], name: "index_photos_on_album_id", using: :btree
-
-  create_table "pictures", force: true do |t|
-    t.string   "image"
-    t.integer  "imageable_id"
-    t.string   "imageable_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "pictures", ["imageable_id", "imageable_type"], name: "index_pictures_on_imageable_id_and_imageable_type", using: :btree
 
   create_table "properties", force: true do |t|
     t.string "property_name"

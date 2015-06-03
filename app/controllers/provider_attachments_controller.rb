@@ -1,25 +1,6 @@
 class ProviderAttachmentsController < ApplicationController
-  before_action :set_provider_attachment, only: [:show, :edit, :update, :destroy]
+  before_action :set_provider_attachment, only: [:update, :destroy]
 
-  # GET /provider_attachments
-  # GET /provider_attachments.json
-  def index
-    @provider_attachments = ProviderAttachment.all
-  end
-
-  # GET /provider_attachments/1
-  # GET /provider_attachments/1.json
-  def show
-  end
-
-  # GET /provider_attachments/new
-  def new
-    @provider_attachment = ProviderAttachment.new
-  end
-
-  # GET /provider_attachments/1/edit
-  def edit
-  end
 
   # POST /provider_attachments
   # POST /provider_attachments.json

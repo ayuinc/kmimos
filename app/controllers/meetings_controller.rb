@@ -1,11 +1,9 @@
 class MeetingsController < ApplicationController
 	before_action :set_meeting, only: [:show]
-	# before_action :check_booking_params, only: [:new]
 
 	def new
 		session[:chosen_provider_id] = params[:provider_id]
 	  @meeting = Meeting.new
-	  # @chosen_provider = Provider.find(params[:provider_id])
 	end
 
 	def show
@@ -16,7 +14,6 @@ class MeetingsController < ApplicationController
 	  if @meeting.save
     	MeetingConfirmationMailer.new_meeting_notification(@meeting).deliver
     	MeetingConfirmationMailer.new_meeting_for_admin(@meeting).deliver
-    	flash[:success] = 'Reserva realizada. Te hemos enviado un correo de confirmación.'
 	    session[:start_date] = nil
 	    session[:end_date] = nil
       session[:user_email] = nil
@@ -26,18 +23,6 @@ class MeetingsController < ApplicationController
 	  end
 	end
 
-	def update
-	  respond_to do |format|
-	    if @meeting.update(meeting_params)
-	    #  format.html { redirect_to root_path, notice: 'Tu perfil se ha actualizado con éxito' }
-	      format.html { redirect_to root_path }
-	      format.json { head :no_content }
-	    else
-	      format.html { render action: 'edit' }
-	      format.json { render json: @meeting.errors, status: :unprocessable_entity }
-	    end
-	  end
-	end
 
 	private
 

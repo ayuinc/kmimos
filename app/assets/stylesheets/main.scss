@@ -1,15 +1,4 @@
 @charset "UTF-8";
-/*
-
-  Ayu Consulting Frontend Boilerplate - @MadeByGus
-  ultima actualizacion: 12 de Noviembre 2014
-  Author: @MadeByGus - G. Andres Ibarra yo@soygus.com
-  Desde la consola navega hasta el directorio "stylesheets" y ejecuta: 
-
-  sass --watch main.scss:main.css
-  sass --watch main.scss:main.css -t compressed
-
-*/
 
 /*========================================
 =          Twitter Bootstrap 3.1.0      =
@@ -50,7 +39,6 @@
 
 /* @import "animate/animate-init"; */
 
-
 /*========================================
 =             APP CUSTOM                 =
 ========================================*/
@@ -58,5 +46,6 @@
 
 /* @import "app/app"; */
 @import "custom/custom";
+
 
 // @import "app/app";

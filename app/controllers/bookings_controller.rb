@@ -1,11 +1,10 @@
 class BookingsController < ApplicationController
 	before_action :set_booking, only: [:show]
-	# before_action :check_booking_params, only: [:new]
+	before_action :check_booking_params, only: [:new]
 
 	def new
 		session[:chosen_provider_id] = params[:provider_id]
 	  @booking = Booking.new
-	  # @chosen_provider = Provider.find(params[:provider_id])
 	end
 
 	def show
@@ -22,19 +21,6 @@ class BookingsController < ApplicationController
 	    redirect_to booking_path(@booking)
 	  else
 	    render 'new'
-	  end
-	end
-
-	def update
-	  respond_to do |format|
-	    if @booking.update(booking_params)
-	    #  format.html { redirect_to root_path, notice: 'Tu perfil se ha actualizado con éxito' }
-	      format.html { redirect_to root_path }
-	      format.json { head :no_content }
-	    else
-	      format.html { render action: 'edit' }
-	      format.json { render json: @booking.errors, status: :unprocessable_entity }
-	    end
 	  end
 	end
 

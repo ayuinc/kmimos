@@ -7,7 +7,7 @@ gem 'rails', '4.0.2'
 gem "pg", "~> 0.17.1"
 #gem 'sqlite3'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+# gem 'sass-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -59,18 +59,9 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails'
   gem 'foreman'
-end
-
-group :test do
-  gem 'cucumber-rails', require: false
-  gem 'database_cleaner'
-  gem "poltergeist", "1.5.0"
-  gem 'capybara', '2.1.0'
-  gem 'simplecov', :require => false
-  gem "zeus", "0.13.3"
-  gem 'factory_girl_rails', '4.2.1'
-  gem 'launchy'
-  gem 'shoulda-matchers'
+  gem 'autotest-rails'
+  gem 'capybara'
+  gem 'shoulda'
+  gem 'byebug'
 end

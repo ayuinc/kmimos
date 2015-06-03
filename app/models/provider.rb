@@ -25,20 +25,13 @@ class Provider < ActiveRecord::Base
     message: %Q[solo puede incluir números (0-9) y guiones "-".]  
   validate :fields_a_and_b_are_equal, on: :create
 
-  def prov_locations
-    if self.locations.count > 2
-      return self.locations.limit(2).map(&:name).join(", ") + ", entre otros."
+
+  def prov_locations_modal
+    if self.locations.count > 5
+      return "Varios municipios en México DF."
     else
       return self.locations.map(&:name).join(", ")
     end
-  end
-
-  def prov_locations_modal
-#     if self.locations.count > 5
-      return "Varios municipios en México DF."
-#     else
-#       return self.locations.map(&:name).join(", ")
-#     end
   end
 
   protected

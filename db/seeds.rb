@@ -1,4 +1,4 @@
-states = {"Distrito Federal" => ["Xochimilco", "Tlalpan", "Tláhuac", "Milpa Alta", "Miguel Hidalgo", "Venustiano Carranza", "Iztapalapa", "Iztacalco", "Gustavo A. Madero", "Cuauhtémoc", "Coyoacán", "Cuajimalpa de Morelos", "Benito Juárez", "Azcapotzalco", "Álvaro Obregón"], "Estado de México" => ["Toluca", "Tlalnepantla", "Nuacalpan", "Metepec", "Cuautitlan Izcalli", "Cuautitlan ", "Atizapán"], "Guadalajara" => ["Zapopan "], "Nuevo León" => ["Escobedo", "San Pedro", "San Nicolas de los Garza", "Monterrey"]}
+states = {"Distrito Federal" => ["Xochimilco", "Tlalpan", "Tláhuac", "Magdalena Contreras", "Milpa Alta", "Miguel Hidalgo", "Venustiano Carranza", "Iztapalapa", "Iztacalco", "Gustavo A. Madero", "Cuauhtémoc", "Coyoacán", "Cuajimalpa de Morelos", "Benito Juárez", "Azcapotzalco", "Álvaro Obregón"], "Estado de México" => ["Texcoco", "Acolman", "Coacalco", "Toluca", "Tlalnepantla", "Nuacalpan", "Metepec", "Cuautitlan Izcalli", "Cuautitlan ", "Atizapán"], "Guadalajara" => ["Zapopan "], "Nuevo León" => ["Escobedo", "San Pedro", "San Nicolas de los Garza", "Monterrey"]}
 
 states.each do |key, pair|
   State.find_or_create_by(name: key)
@@ -19,12 +19,6 @@ ages = ["Cachorros", "Adultos"]
 
 ages.sort!.each do |age|
   Age.find_or_create_by(age_group_name: age)
-end
-
-sizes = ["Pequeños", "Medianos", "Grandes"]
-
-sizes.sort!.each do |size|
-  Size.find_or_create_by(size_title: size)
 end
 
 sizes = ["Pequeños", "Medianos", "Grandes"]

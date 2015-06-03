@@ -1,7 +1,6 @@
   class ProvidersController < ApplicationController
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
   before_action :require_current_provider, only: [:edit]
-  before_action :get_ranges, except: [:show]
   before_action :require_unlogged_provider, only: [:new]
   before_action :get_dates, only: [:index]
 
@@ -17,9 +16,6 @@
     @search = Provider.search(params[:q])
     @referral = Referral.new
     @referrals = Referral.all
-    session[:start_date] = nil
-    session[:end_date] = nil
-    session[:user_email] = nil
   end  
 
   # GET /providers/1
@@ -100,13 +96,6 @@
     # Never trust parameters from the scary internet, only allow the white list through.
     def provider_params
       params.require(:provider).permit(:tipo_propiedad, :areas_externas, :emergencia, :experiencia, :iframe_code, :name, :last_name_1, :last_name_2, :dni, :avatar, :avatar_cache, :description, :email, :email_c, :phone, :price, :avg_rating, :property_id, :category_id, :password, :password_confirmation, locations_attributes: [:id], location_ids: [], provider_attachments_attributes: [:id, :provider_id, :photo], age_ids: [], size_ids: [])
-    end
-
-    def get_ranges
-      sets = Location.all.in_groups(3, false)
-      @locations_set_1 = sets[0]
-      @locations_set_2 = sets[1]
-      @locations_set_3 = sets[2]
     end
 
     def get_dates

@@ -14,19 +14,23 @@ module ApplicationHelper
     end
   end
 
-  def link_to_add_fields(name, f, association)
-    new_object = f.object.send(association).klass.new
-    id = new_object.object_id
-    fields = f.fields_for(association, new_object, child_index: id) do |builder|
-      render(association.to_s.singularize + "_fields", f: builder)
+  def icon_type flash_type
+    case flash_type
+      when :success
+        "fa-exclamation-triangle"
+      when :error
+        "fa-exclamation-triangle"
+      when :alert
+        "fa-exclamation-triangle"
+      when :notice
+        "fa-exclamation-triangle"
+      else
+        flash_type.to_s
     end
-    link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
 
   def home?
     (params[:action] == "home" && params[:controller] == "providers")
   end
-
-
 
 end

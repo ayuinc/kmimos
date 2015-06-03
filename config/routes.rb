@@ -1,6 +1,6 @@
 ServihogarRails::Application.routes.draw do
 	
-  resources :provider_attachments
+  resources :provider_attachments, only: [:create, :destroy]
 
   resources :referrals
 
