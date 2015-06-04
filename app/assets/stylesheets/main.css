@@ -6724,7 +6724,7 @@ iframe {
   font-size: 15px !important; }
   @media only screen and (orientation: landscape) {
     .input-lg {
-      font-size: 13px !important; } }
+      font-size: 11px !important; } }
   @media only screen and (orientation: portrait) {
     .input-lg {
       font-size: 9px !important;
