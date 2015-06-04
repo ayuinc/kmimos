@@ -6292,9 +6292,6 @@ ul.navbar-nav {
       background-image: url(http://s15.postimg.org/4izt924jf/foto_kmimos_celular_2.png) !important;
       background-size: 100% !important;
       background-position-y: 10%; } }
-  @media only screen and (orientation: portrait) {
-    .home-filters {
-      background-image: url(http://s10.postimg.org/ks4aq1ead/tablet_horizontal.jpg) !important; } }
   .home-filters .text-fold {
     color: #7F4104; }
   @media only screen and (min-width: 992px) and (max-width: 1200px) {
@@ -6306,10 +6303,11 @@ ul.navbar-nav {
     .home-filters .container-fluid .row .col-md-3.ipad .opciones .servicios img {
       width: 120px; }
 
-@media only screen and (max-width: 480px) {
-  .contenedor-search {
-    margin-left: 16.66667%; } }
-
+/* .contenedor-search {
+  @media only screen and (max-width: 480px) {
+     margin-left: 16.66667%;
+  }
+} */
 #home-profiles .profile img {
   border-radius: 50%;
   width: 140px;
