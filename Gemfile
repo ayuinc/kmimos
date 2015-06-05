@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'ransack'
 gem 'unicorn'
+gem 'sort_alphabetical'
 
 
 gem 'carrierwave'
