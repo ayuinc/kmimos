@@ -1,5 +1,6 @@
 
 source 'https://rubygems.org'
+ruby "2.2.1"
 
 gem 'rails', '4.0.2'
 
@@ -53,6 +54,10 @@ group :development, :test do
   gem 'capybara'
   gem 'shoulda'
   gem 'byebug'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
 
 gem 'sass'
