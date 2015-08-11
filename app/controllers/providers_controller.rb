@@ -3,20 +3,36 @@
   before_action :require_current_provider, only: [:edit]
   before_action :require_unlogged_provider, only: [:new]
   before_action :get_dates, only: [:index]
-
+  before_action :set_country, only: [:index,:home]
 
   # GET /providers
   # GET /providers.json
   def index
     @search = Provider.search(params[:q])
-    @providers = @search.result.order("last_name_1 DESC")
+    if (params[:q] != nil and params[:q][:locations_id_eq] != "") 
+      @providers = @search.result
+      .joins('LEFT OUTER JOIN "states" ON "states"."id" = "locations"."state_id" 
+             LEFT OUTER JOIN "countries" ON "countries".id = "states"."country_id"')
+      .where('"countries"."id" = ?',current_country.id).order("last_name_1 DESC")
+    else
+      @providers = Provider.select("distinct providers.*")
+      .joins('LEFT OUTER JOIN "localizations" on "localizations"."provider_id" = "providers"."id"
+              LEFT OUTER JOIN "locations" on "locations".id = "localizations"."location_id"
+              LEFT OUTER JOIN "states" ON "states"."id" = "locations"."state_id" 
+              LEFT OUTER JOIN "countries" ON "countries".id = "states"."country_id"')
+      .where('"countries"."id" = ?',current_country.id).order("last_name_1 DESC")      
+    end
   end
 
   def home
     @search = Provider.search(params[:q])
     @referral = Referral.new
-    @referrals = Referral.all
-  end  
+  end
+  
+  def la_home
+    @countries = Country.all
+    render :layout => "inter"
+  end
 
   # GET /providers/1
   # GET /providers/1.json
@@ -43,20 +59,32 @@
     @provider = Provider.new(provider_params)
     @hotel_id = Category.find_by_name("Hotel").id 
     @provider.category_id = @hotel_id
-      if @provider.save
-        session[:provider_id] = @provider.id
-        unless params[:provider_attachments].nil?
-          params[:provider_attachments]['photo'].each do |a|
-             @provider_attachment = @provider.provider_attachments.create!(:photo => a, :provider_id => @provider.id)
-          end
-        end
-        flash.now[:success] = "Hola #{@provider.name}, bienvenido a Kmimos."
-        redirect_to root_path
-      else
-       # fail
-       render "new"
-       #redirect_to new_provider_path
+    if (current_country.name == "México")
+      if @provider.dni.length != 13
+        @provider.errors.add(:dni,"debe tener 13 dígitos.")
+        render "new"
       end
+    else
+      if @provider.dni.length != 8
+        @provider.errors.add(:dni,"debe tener 8 dígitos.")
+        render "new"
+      end
+    end
+
+    if @provider.save
+      session[:provider_id] = @provider.id
+      unless params[:provider_attachments].nil?
+        params[:provider_attachments]['photo'].each do |a|
+           @provider_attachment = @provider.provider_attachments.create!(:photo => a, :provider_id => @provider.id)
+        end
+      end
+      flash.now[:success] = "Hola #{@provider.name}, bienvenido a Kmimos."
+      redirect_to root_path
+    else
+     # fail
+     render "new"
+     #redirect_to new_provider_path
+    end
   end
 
   # PATCH/PUT /providers/1
@@ -88,6 +116,12 @@
   end
 
   private
+  
+    def set_country
+      @country = current_country
+      redirect_to :action => :la_home if @country == nil      
+    end
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_provider
       @provider = Provider.find(params[:id])
@@ -95,7 +129,12 @@
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def provider_params
-      params.require(:provider).permit(:tipo_propiedad, :areas_externas, :emergencia, :experiencia, :iframe_code, :name, :last_name_1, :last_name_2, :dni, :avatar, :avatar_cache, :description, :email, :email_c, :phone, :price, :avg_rating, :property_id, :category_id, :password, :password_confirmation, locations_attributes: [:id], location_ids: [], provider_attachments_attributes: [:id, :provider_id, :photo], age_ids: [], size_ids: [])
+      params.require(:provider).permit(:tipo_propiedad, :areas_externas, :emergencia, :experiencia, 
+      :iframe_code, :name, :last_name_1, :last_name_2, :dni, :avatar, :avatar_cache, :description, 
+      :email, :email_c, :phone, :price, :avg_rating, :property_id, :category_id, 
+      :password, :password_confirmation,:q, locations_attributes: [:id], 
+      location_ids: [], provider_attachments_attributes: [:id, :provider_id, :photo], 
+      age_ids: [], size_ids: [])
     end
 
     def get_dates

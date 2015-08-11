@@ -100,7 +100,7 @@
               <% end %>
             </div>
             <div class="col-sm-3 locations-dd">
-              <%= f.grouped_collection_select(:locations_id_eq, State.order(:name), :locations, :name, :id, :name, {:prompt => "Elegir Municipio o Delegación"}, { :class=> "input-lg borderless form-location-nav" }) %>
+              <%= f.grouped_collection_select(:locations_id_eq, State.where("country_id=?",@country.id).order(:name), :locations, :name, :id, :name, {:prompt => "Elegir Municipio o Delegación"}, { :class=> "input-lg borderless form-location-nav" }) %>
             </div>
             <div class="col-sm-3 search-btn">
               <%= f.submit "Buscar", class:" borderless form-search" %>
@@ -145,7 +145,6 @@
 </section>
 
 <section id="slider-home" class="hidden-xs">
-  <!-- Place somewhere in the <body> of your page -->
   <div class="container-fluid pasador pb-56 hidden-sm">
     <div class="row">
       <div class="flexslider m-0">

@@ -1,3 +1,30 @@
+# == Schema Information
+#
+# Table name: providers
+#
+#  id              :integer          not null, primary key
+#  name            :string(255)
+#  last_name_1     :string(255)
+#  last_name_2     :string(255)
+#  dni             :string(255)
+#  email           :string(255)
+#  category_id     :integer
+#  created_at      :datetime
+#  updated_at      :datetime
+#  password_digest :string(255)
+#  avg_rating      :float
+#  phone           :string(255)
+#  description     :text
+#  email_c         :string(255)
+#  avatar          :string(255)
+#  price           :float
+#  areas_externas  :string(255)
+#  emergencia      :boolean
+#  experiencia     :integer
+#  iframe_code     :text
+#  property_id     :integer
+#
+
 require "test_helper"
 
 class ProviderTest < ActiveSupport::TestCase

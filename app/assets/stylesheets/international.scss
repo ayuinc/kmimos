@@ -1,0 +1,135 @@
+html, body{
+	height: 100%;
+	width: 100%;
+	font-family: 'Montserrat';
+	font-weight: normal;
+}
+
+h2 {
+	font-weight: normal;
+} 
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+body{
+	margin: 0px;
+	padding: 0px;
+	background-color: rgb(77,182,158);
+	background: image-url("international/1-pixel.png") top left repeat-y;
+}
+
+.heroImage {
+	background: image-url("international/fondo.png");
+	background-size: cover;
+	border-top: 1px solid #62D1B7;	
+}
+
+.container{
+	position: relative;
+	margin: 10% 25%;
+	color: white;
+	text-align: center;
+	height: 100%;
+}
+
+.logo{
+	width: 100%;
+}
+
+.col {
+	display: inline-block;
+	width: 30%;	
+}
+
+.col img{
+	width: 80%;
+}
+
+.doberman{
+	position: absolute;
+	left: -45%;
+	top: 40%;
+	width: 25%;
+}
+
+.pug{
+	position: absolute;
+	left: -15%;
+	top: 58%;
+	width: 20%;
+}
+
+.perrita{
+	position: absolute;
+	right: -20%;
+	top: 60%;
+	width: 20%;
+}
+
+.bull-terrier{
+	position: absolute;
+	right: -40%;
+	top: 65%;
+	width: 20%;
+}
+
+/*Ocultar perritos*/
+@media only screen and (max-width: 599px) {
+    .ocultar{
+        display: none;
+    }
+}
+
+/*Tamaño de la fuente*/
+@media all and (min-width: 960px) {
+    
+    .container{
+    	width: 27.2%;
+    	margin: auto;
+    	margin-top: 10%;
+    	padding-left: 5%;
+    	padding-right: 5%;
+    }
+    
+    h2 {
+    	font-size: 1.8em;
+    }
+}
+
+@media all and (max-width: 959px) and (min-width: 600px) {
+
+    body, a {
+        font-size: 0.8em;
+    } 
+
+    .container{
+    	width: 30%;
+    	margin: auto;
+    	margin-top: 10%;
+    	padding-left: 10%;
+    	padding-right: 10%;
+    }
+}
+
+@media all and (max-width: 599px) and (min-width: 359px) {
+    body, a {
+        font-size: 0.8em;
+    } 
+    
+    .container{
+    	margin: 10% 10%;
+    }
+}
+
+@media all and (max-width: 360px) and (min-width: 200px) {
+    body, a {
+        font-size: 0.8em;
+    } 
+    
+    .container{
+    	margin: 10% 10%;
+    }    
+}

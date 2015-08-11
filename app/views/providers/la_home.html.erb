@@ -1,0 +1,22 @@
+<div class="heroImage">
+	<div class="flex">
+		<div class="container">
+		    <%= image_tag 'international/logo-kmimos.png', :class => 'logo' %>
+			<h2>!Bienvenido!</h2>
+			<%= image_tag 'international/doberman.png', :class => 'doberman ocultar' %>
+			<%= image_tag 'international/pug.png', :class => 'pug ocultar' %>
+            <%= image_tag 'international/perrita.png', :class => 'perrita ocultar' %>
+            <%= image_tag 'international/bull-terrier.png', :class => 'bull-terrier ocultar' %>
+
+			<div class="banderas">
+			    <% @countries.each do |country| %>
+    				<a href="http://<%= country.domain %>" class="col">
+    					<%= image_tag "international/bandera-#{country.flag}.png" %>
+    					<p><%= country.name %></p>
+    				</a>
+			    <% end %>
+			</div>
+			
+		</div>
+	</div>
+</div>

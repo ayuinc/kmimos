@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: localizations
+#
+#  id          :integer          not null, primary key
+#  provider_id :integer
+#  location_id :integer
+#
+
 localization1:
   location: location1
   provider: one

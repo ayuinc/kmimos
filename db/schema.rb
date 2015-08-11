@@ -11,14 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150605175423) do
+ActiveRecord::Schema.define(version: 20150810064809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "ages", force: true do |t|
-    t.string  "age_group_name"
-    t.integer "provider_id"
+    t.string "age_group_name"
   end
 
   create_table "agings", force: true do |t|
@@ -52,6 +51,19 @@ ActiveRecord::Schema.define(version: 20150605175423) do
 
   create_table "categories", force: true do |t|
     t.string "name"
+  end
+
+  create_table "countries", force: true do |t|
+    t.string   "name"
+    t.string   "locale"
+    t.string   "currency"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "phone"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "flag"
+    t.string   "domain"
   end
 
   create_table "localizations", force: true do |t|
@@ -111,6 +123,7 @@ ActiveRecord::Schema.define(version: 20150605175423) do
     t.integer  "experiencia"
     t.text     "iframe_code"
     t.integer  "property_id"
+    t.boolean  "active",          default: true
   end
 
   add_index "providers", ["category_id"], name: "index_providers_on_category_id", using: :btree
@@ -124,8 +137,7 @@ ActiveRecord::Schema.define(version: 20150605175423) do
   end
 
   create_table "sizes", force: true do |t|
-    t.string  "size_title"
-    t.integer "provider_id"
+    t.string "size_title"
   end
 
   create_table "sizings", force: true do |t|
@@ -134,7 +146,10 @@ ActiveRecord::Schema.define(version: 20150605175423) do
   end
 
   create_table "states", force: true do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "country_id"
   end
+
+  add_index "states", ["country_id"], name: "index_states_on_country_id", using: :btree
 
 end

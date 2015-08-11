@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: meetings
+#
+#  id              :integer          not null, primary key
+#  provider_id     :integer
+#  user_first_name :string(255)
+#  user_last_name  :string(255)
+#  user_phone      :string(255)
+#  user_email      :string(255)
+#  token           :string(255)
+#
+
 class Meeting < ActiveRecord::Base
 	include Tokenable
 	include ResetTokenable

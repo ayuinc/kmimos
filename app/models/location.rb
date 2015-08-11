@@ -1,9 +1,19 @@
+# == Schema Information
+#
+# Table name: locations
+#
+#  id       :integer          not null, primary key
+#  name     :string(255)
+#  state_id :integer
+#  utf_name :string(255)
+#
+
 class Location < ActiveRecord::Base
   has_many :localizations
   has_many :providers, :through => :localizations
   belongs_to :state
 
-	default_scope :order => 'locations.utf_name ASC'
+	scope :order, -> { order('locations.utf_name ASC') }
 
   validates_presence_of :name
 

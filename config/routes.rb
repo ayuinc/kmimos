@@ -20,4 +20,6 @@ ServihogarRails::Application.routes.draw do
 
   get 'pages/tc' => 'high_voltage/pages#show', id: 'tc'
   
+  get 'la' => 'providers#la_home', as: 'la_home'
+
 end

@@ -20,7 +20,7 @@
               <% end %>
             </div>
             <div class="col-sm-3 botones-searchs p-0 mb-14">
-              <%= f.grouped_collection_select(:locations_id_eq, State.order(:name), :locations, :name, :id, :name, {:prompt => "Elegir Municipio o Delegación"}, { :class=> "input-lg borderless form-location-nav" }) %>
+              <%= f.grouped_collection_select(:locations_id_eq, State.where("country_id=?",@country.id).order(:name), :locations, :name, :id, :name , {:prompt => "Elegir Municipio o Delegación"}, { :class=> "input-lg borderless form-location-nav" }) %>
             </div>
             <div class="col-sm-3 botones-searchs p-0">
               <%= f.submit "Buscar", class:"ml-7 borderless form-search" %>
@@ -54,7 +54,7 @@
              <h3 class="text-center text-gray mb-0 mt-0 hidden-lg hidden-md"><%= provider.name %> <%= provider.last_name_1 %> <%= provider.last_name_2 %></h3>
              <h5 class="text-center text-graylight mt-7 hidden-lg hidden-md"><%= provider.prov_locations_modal %></h5>
             <h4 class="light m-0 text-gray">Desde</h4>
-             <h3 class="m-0 text-secondary light">Mex $<%= provider.price %></h3>
+             <h3 class="m-0 text-secondary light"><%= current_country.currency %><%= provider.price %></h3>
              <h4 class="light m-0 text-gray">por noche</h4>
            </div>
          </div>

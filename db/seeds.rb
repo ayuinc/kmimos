@@ -1,23 +1,101 @@
-states = {"Distrito Federal" => ["Xochimilco", "Tlalpan", "Tláhuac", "Magdalena Contreras", "Milpa Alta", "Miguel Hidalgo", "Venustiano Carranza", "Iztapalapa", "Iztacalco", "Gustavo A. Madero", "Cuauhtémoc", "Coyoacán", "Cuajimalpa de Morelos", "Benito Juárez", "Azcapotzalco", "Álvaro Obregón"], "Estado de México" => ["Texcoco", "Acolman", "Coacalco", "Toluca", "Tlalnepantla", "Nuacalpan", "Metepec", "Cuautitlan Izcalli", "Cuautitlan ", "Atizapán"], "Guadalajara" => ["Zapopan"], "Nuevo León" => ["Escobedo", "San Pedro", "San Nicolas de los Garza", "Monterrey"]}
+# Estructura para crear combos countries => states => cities (en bd se llama location)
+# Nota: Alguien creo un campo llamado utf_names => debería ser eliminado no tiene uso y sólo repite el nombre de la ciudad
 
-states.each do |key, pair|
-  State.find_or_create_by(name: key)
-  state = State.find_by_name(key)
-  pair.each do |location|
-    Location.find_or_create_by(name: location, state_id: state.id)
+countries = [{
+  name: "México",
+  locale: "es",
+  currency: "MXN $",
+  phone: '+55 3455 0138',
+  facebook:'https://www.facebook.com/pages/Kamimos/1473614136234432?ref=bookmarks',
+  twitter: 'https://twitter.com/KmimosMx',
+  flag: 'mexico',
+  domain: 'mx.kmimos.la',
+  states: [{
+    name: "Distrito Federal",
+    cities: ["Xochimilco", "Tlalpan", "Tláhuac", "Magdalena Contreras", 
+             "Milpa Alta", "Miguel Hidalgo", "Venustiano Carranza", "Iztapalapa", 
+             "Iztacalco", "Gustavo A. Madero", "Cuauhtémoc", "Coyoacán", 
+             "Cuajimalpa de Morelos", "Benito Juárez", "Azcapotzalco", "Álvaro Obregón"]
+  },{
+    name: "Estado de México",
+    cities: ["Texcoco", "Acolman", "Coacalco", "Toluca", "Tlalnepantla", "Naucalpan", 
+             "Metepec", "Cuautitlan Izcalli", "Cuautitlan ", "Atizapán"]
+  },{
+    name: "Jalisco",
+    cities: ["Guadalajara","Zapopan"]
+  },{
+    name: "Nuevo León",
+    cities: ["Escobedo", "San Pedro", "San Nicolas de los Garza", "Monterrey"]
+  }]
+},{
+  name: "Argentina",
+  locale: "es",
+  currency: "ARS $",
+  phone: '+55 3455 0138',
+  facebook:'https://www.facebook.com/pages/Kamimos/1473614136234432?ref=bookmarks',
+  twitter: 'https://twitter.com/KmimosMx',
+  flag:'argentina',  
+  domain: 'ar.kmimos.la',
+  states: [{
+    name: "Buenos Aires",
+    cities: ["Agronomía","Almagro","Balvanera","Barracas","Belgrano","Boedo",
+             "Caballito","Chacarita","Coghlan","Colegiales","Constitución",
+             "Flores","Floresta","La Boca","La Paternal","Liniers","Mataderos",
+             "Monte Castro","Montserrat","Nueva Pompeya","Nuñez","Palermo",
+             "Parque Avellaneda","Parque Chacabuco","Parque Chas","Parque Patricios",
+             "Puerto Madero","Recoleta","Retiro","Saavedra","San Cristóbal",
+             "San Nicolás","San Telmo","Versalles","Villa Crespo","Villa Devoto",
+             "Villa General Mitre","Villa Lugano","Villa Luro","Villa Ortúzar",
+             "Villa Pueyrredón","Villa Real","Villa Riachuelo","Villa Santa Rita",
+             "Villa Soldati","Villa Urquiza","Villa del Parque","Vélez Sarsfield"]
+  }]
+},{
+  name: "Panamá",
+  locale: "es",
+  currency: "PAN B/.",
+  phone: '+55 3455 0138',
+  facebook:'https://www.facebook.com/pages/Kamimos/1473614136234432?ref=bookmarks',
+  twitter: 'https://twitter.com/KmimosMx',
+  flag:'panama',
+  domain: 'pa.kmimos.la',
+  states: [{
+    name: "Ciudad de Panamá",
+    cities: ["San Francisco","Costa del Este","Punta Paitilla","Punta Pacifica",
+             "El Cangrejo","Marbella","Bella Vista","Obarrio","Avenida Balboa",
+             "El Dorado","Vía España","Costa Sur","Versalles","Albrook","Clayton",
+             "Coco del Mar","Altos del Golf","Campo Lindberg","Brisas del Golf",
+            "12 de Octubre","Rio Abajo"]
+  }]
+}]
+
+countries.each do |country|
+  c = Country.find_or_initialize_by(name: country[:name])
+  c.name = country[:name]
+  c.locale = country[:locale]
+  c.currency = country[:currency]
+  c.phone = country[:phone]
+  c.facebook = country[:facebook]
+  c.twitter = country[:twitter]
+  c.flag = country[:flag]
+  c.domain = country[:domain]
+  c.save
+  
+  country[:states].each do |state|
+    s = State.find_or_initialize_by(name: state[:name])
+    s.name = state[:name]
+    s.country_id = c.id
+    s.save
+    
+    state[:cities].each do |city|
+      l = Location.find_or_initialize_by(name: city)
+      l.name = city
+      l.utf_name = city
+      l.state_id = s.id
+      l.save
+      
+    end
   end
 end
-
-locations = [name: "Texcoco", utf_name: "Texcoco"], [name: "Acolman", utf_name: "Acolman"], [name: "Magdalena Contreras", utf_name: "Magdalena Contreras"], [name: "Escobedo", utf_name: "Escobedo"], [name: "San Pedro", utf_name: "San Pedro"], [name: "San Nicolas de los Garza", utf_name: "San Nicolas de los Garza"], [name: "Monterrey", utf_name: "Monterrey"], [name: "Zapopan", utf_name: "Zapopan"], [name: "Toluca", utf_name: "Toluca"], [name: "Tlalnepantla", utf_name: "Tlalnepantla"], [name: "Nuacalpan", utf_name: "Nuacalpan"], [name: "Metepec", utf_name: "Metepec"], [name: "Cuautitlan Izcalli", utf_name: "Cuautitlan Izcalli"], [name: "Cuautitlan", utf_name: "Cuautitlan"], [name: "Atizapán", utf_name: "Atizapán"], [name: "Xochimilco", utf_name: "Xochimilco"], [name: "Tlalpan", utf_name: "Tlalpan"], [name: "Tláhuac", utf_name: "Tláhuac"], [name: "Milpa Alta", utf_name: "Milpa Alta"], [name: "Miguel Hidalgo", utf_name: "Miguel Hidalgo"], [name: "Venustiano Carranza", utf_name: "Venustiano Carranza"], [name: "Iztapalapa", utf_name: "Iztapalapa"], [name: "Iztacalco", utf_name: "Iztacalco"], [name: "Gustavo A. Madero", utf_name: "Gustavo A. Madero"], [name: "Cuauhtémoc", utf_name: "Cuauhtémoc"], [name: "Coyoacán", utf_name: "Coyoacán"], [name: "Cuajimalpa de Morelos", utf_name: "Cuajimalpa de Morelos"], [name: "Benito Juárez", utf_name: "Benito Juárez"], [name: "Azcapotzalco", utf_name: "Azcapotzalco"], [name: "Alvaro Obregon", utf_name: "Alvaro Obregon"]
-
-locations.each do |data|
-	location = Location.find_by_name(data[0][:name])
-	unless location.nil?
-		location.utf_name = data[0][:utf_name]
-		location.save
-	end
-end
-
 
 categories = ["Paseador", "Entrenador", "Veterinario", "Hotel"]
 
