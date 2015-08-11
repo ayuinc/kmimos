@@ -29,7 +29,7 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt'
+gem 'bcrypt-ruby'
 
 group :development do
   gem 'faker'
