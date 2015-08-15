@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   }
  
   def set_locale
-    I18n.locale = current_country.locale || I18n.default_locale
+    I18n.locale = current_country != nil ? current_country.locale : I18n.default_locale
   end  
   
   def current_country
