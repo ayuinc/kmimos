@@ -1,18 +1,4 @@
 es-PA:
-  email: "Correo electrónico"
-  email_c: "Confirmación de correo electrónico"
-  password: "Contraseña"
-  password_confirmation: "Confirmación de contraseña"
-  name: "Nombre"
-  last_name_1: "Apellido Paterno"
-  last_name_2: "Apellido Materno"
-  url: "URL"
-  title: "Sufijo"
-  locations: "Ubicaciones"
-  price: "Precio por hora"
-  phone: "Teléfono"
-  category_id: "Categoría"
-
   routes:
     users: usuarios
     provider: proveedor
