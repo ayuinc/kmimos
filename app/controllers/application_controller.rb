@@ -26,6 +26,7 @@ class ApplicationController < ActionController::Base
   end  
   
   def current_country
+    puts "------> #{request.host}"
     if session[:country] == nil || session[:country] != HOSTS_MAPPING[request.host]
       current_country = HOSTS_MAPPING[request.host] != nil ? HOSTS_MAPPING[request.host] : "la"
       if current_country != "la"
@@ -34,6 +35,7 @@ class ApplicationController < ActionController::Base
         session[:country] = nil
       end
     end
+    puts "-------> #{session[:country]}"
     return Country.find_by_name(session[:country])
   end
 end
