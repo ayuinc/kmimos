@@ -9,9 +9,9 @@ class ProvidersSessionsController < ApplicationController
     @provider = Provider.find_by_dni(params[:dni])
     if @provider && @provider.authenticate(params[:password])
       session[:provider_id] = @provider.id
-      redirect_to root_url
+      redirect_to "http://#{current_country.domain}"
     else
-      flash[:error] = "IFE o contraseña inválidos."
+      flash[:error] = " o contraseña inválidos."
       # render 'new'
       redirect_to new_providers_session_path
     end

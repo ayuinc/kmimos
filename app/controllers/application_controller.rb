@@ -7,13 +7,22 @@ class ApplicationController < ActionController::Base
   helper_method :current_provider
   helper_method :current_provider?
   helper_method :current_country
+  before_action :set_locale
   
   HOSTS_MAPPING = {
     'kmimos.la' => 'la',
     'kmimos-giancorzo.c9.io' => 'México',
-    'mx.kmimos.la' => 'Argentina',
+    'cani.mx' => 'México',
+    'kmimos.com.mx' => 'México',
+    'www.cani.mx' => 'México',
+    'www.kmimos.com.mx' => 'México',
+    'ar.kmimos.la' => 'Argentina',
     'pa.kmimos.la' => 'Panamá'
   }
+ 
+  def set_locale
+    I18n.locale = current_country.locale
+  end  
   
   def current_country
     if session[:country] == nil || session[:country] != HOSTS_MAPPING[request.host]

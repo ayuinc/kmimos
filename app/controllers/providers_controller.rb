@@ -57,19 +57,7 @@
   # POST /providers.json
   def create
     @provider = Provider.new(provider_params)
-    @hotel_id = Category.find_by_name("Hotel").id 
-    @provider.category_id = @hotel_id
-    if (current_country.name == "México")
-      if @provider.dni.length != 13
-        @provider.errors.add(:dni,"debe tener 13 dígitos.")
-        render "new"
-      end
-    else
-      if @provider.dni.length != 8
-        @provider.errors.add(:dni,"debe tener 8 dígitos.")
-        render "new"
-      end
-    end
+    @provider.category_id = Category.find_by_name("Hotel").id
 
     if @provider.save
       session[:provider_id] = @provider.id

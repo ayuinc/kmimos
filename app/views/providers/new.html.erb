@@ -10,15 +10,15 @@
             <%= render "providers/error_messages" %>
             <div class="form-group row">
               <div class="col-md-4">
-                <%= f.label :name, "Nombre:" %><br>
+                <%= f.label :name, "Nombre:" %>
                 <%= f.text_field :name, class: "form-control" %>
               </div>
               <div class="col-md-4">
-                <%= f.label :last_name_1, "Apellido paterno:" %><br>
+                <%= f.label :last_name_1, "Apellido paterno:" %>
                 <%= f.text_field :last_name_1, class: "form-control" %>
               </div>
               <div class="col-md-4">
-                <%= f.label :last_name_2, "Apellido materno:" %><br>
+                <%= f.label :last_name_2, "Apellido materno:" %>
                 <%= f.text_field :last_name_2, class: "form-control" %>
               </div>
             </div>  
@@ -26,26 +26,26 @@
 
             <div class="form-group row">
               <div class="col-md-6">
-                <%= f.label :email, "Correo electrónico:" %><br>
+                <%= f.label :email, "Correo electrónico:" %>
                 <%= f.text_field :email, class: "form-control" %>
               </div>
               <div class="col-md-6">
-                <%= f.label :email_c, "Confirmar correo electrónico:" %><br>
+                <%= f.label :email_c, "Confirmar correo electrónico:" %>
                 <%= f.text_field :email_c, class: "form-control" %>
               </div>
             </div>
 
             <div class="form-group row">
               <div class="col-md-3">
-                <%= f.label :dni, current_country.name == "México" ? "IFE:" : "DNI:" %><br>
+                <%= f.label :dni, current_country.dni_label %>
                 <%= f.text_field :dni, class: "form-control" %>
               </div>
               <div class="col-md-3">
-                <%= f.label :phone, "Teléfono:" %><br>
+                <%= f.label :phone, "Teléfono:" %>
                 <%= f.text_field :phone, class: "form-control" %>
               </div>
               <div class="col-md-3">
-                  <%= f.label :price, "Precio por noche:" %><br>
+                  <%= f.label :price, "Precio por noche:" %>
                   <%= f.text_field :price, class: "form-control" %>
                 </div>
               <div class="col-md-3">
@@ -67,13 +67,13 @@
 
             <div class="form-group row">
               <div class="col-md-12">
-                <%= f.label :description, "Descripción de servicios:" %><br>
+                <%= f.label :description, "Descripción de servicios:" %>
                 <%= f.text_area :description, class: "form-control" %>
               </div>
             </div>
 
  
-            <label>¿En qué municipios puedes trabajar?</label> <br>
+            <label>¿En qué municipios puedes trabajar?</label>
 
             <div class="row pt-14 pb-21">
               <div class="col-md-12">
@@ -94,11 +94,11 @@
 
             <div class="form-group mt-28 row">
               <div class="col-md-6">
-                <%= f.label :password, "Contraseña:" %><br />
+                <%= f.label :password, "Contraseña:" %>
                 <%= f.password_field :password, class: "form-control"%>
               </div>
               <div class="col-md-6">
-                <%= f.label :password_confirmation, "Confirmación de contraseña:" %><br />
+                <%= f.label :password_confirmation, "Confirmación de contraseña:" %>
                 <%= f.password_field :password_confirmation, class: "form-control"%>
               </div>
             </div>
@@ -106,14 +106,14 @@
               <div class="col-md-6">
                 <%= f.fields_for :provider_attachments do |p| %>
                   <div class="field">
-                    <%= p.label :photo, "Elige fotos para tu galeria:" %> <br>
+                    <%= p.label :photo, "Elige fotos para tu galeria:" %>
                     <%= p.file_field :photo, :multiple => true, name: "provider_attachments[photo][]" %>
                   </div>
                 <% end %>
               </div>
               <div class="col-md-3">
                 <div>
-                  <%= f.label "Tamaños:" %> <br>
+                  <%= f.label "Tamaños:" %><br/>
                   <% Size.find_each do |size| %>
                     <%= check_box_tag "provider[size_ids][]", size.id, @provider.size_ids.include?(size.id), id: dom_id(size) %>
                     <%= label_tag dom_id(size), size.size_title, class: "small" %> <br>
@@ -122,7 +122,7 @@
               </div>
               <div class="col-md-3">
                 <div> 
-                  <%= f.label "Edades:" %> <br>
+                  <%= f.label "Edades:" %><br/>
                   <% Age.find_each do |age| %>
                     <%= check_box_tag "provider[age_ids][]", age.id, @provider.age_ids.include?(age.id), id: dom_id(age) %>
                     <%= label_tag dom_id(age), age.age_group_name, class: "small" %> <br>
@@ -131,26 +131,26 @@
               </div>
             </div>
             <div>
-              <%= f.label :areas_externas, "¿Cuéntas con áreas externas? (describe)" %><br>
+              <%= f.label :areas_externas, "¿Cuéntas con áreas externas? (describe)" %>
               <%= f.text_field :areas_externas, class: "form-control" %>
             </div>
             <div class="row mt-28">
               <div class="col-md-6">
                 <div>
-                  <%= f.label :experiencia, "¿Años cuidando perros?" %><br>
+                  <%= f.label :experiencia, "¿Años cuidando perros?" %>
                   <%= f.text_field :experiencia, class: "form-control" %>
                 </div>
               </div>
               <div class="col-md-6">
                 <div>
-                  <%= f.label :property_id, "Tipo de propiedad" %><br>
+                  <%= f.label :property_id, "Tipo de propiedad" %>
                   <%= f.collection_select(:property_id, Property.all, :id, :property_name, {prompt: 'Selecciona'}, :class => "form-control") %>
                 </div>
               </div>
             </div>
 
             <div class="mt-28"> 
-              <%= f.label :iframe_code, "Ingresa el código iframe para agregar un mapa de tu ubicación" %><br>
+              <%= f.label :iframe_code, "Ingresa el código iframe para agregar un mapa de tu ubicación" %>
               <%= f.text_area :iframe_code, class: "form-control" %>
             </div>
 

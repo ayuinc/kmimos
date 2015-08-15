@@ -8,7 +8,7 @@
         <div class="panel-body">
           <%= form_tag providers_sessions_path do %>
             <div class="form-group">
-              <%= label_tag :dni, "IFE" %>
+              <%= label_tag :dni, current_country.dni_label %>
               <%= text_field :dni, params[:dni], :autofocus => true, class: "form-control", id: "provider_login_dni" %>
             </div>
 

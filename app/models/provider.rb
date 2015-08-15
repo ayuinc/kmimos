@@ -23,6 +23,7 @@
 #  experiencia     :integer
 #  iframe_code     :text
 #  property_id     :integer
+#  active          :boolean          default(TRUE)
 #
 
 class Provider < ActiveRecord::Base
@@ -49,7 +50,6 @@ class Provider < ActiveRecord::Base
   
   validates_presence_of :email, :category_id, :name, :last_name_1, :last_name_2, :phone, :dni
   validates_format_of :email, with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates_uniqueness_of :dni
   
   validates :locations, :presence => true
   
@@ -62,10 +62,12 @@ class Provider < ActiveRecord::Base
     message: %Q[solo puede incluir números (0-9) y guiones "-".]  
   
   validate :fields_a_and_b_are_equal, on: :create
+  validate :dni_length, on: :create
+  validate :dni_uniqueness, on: :create
 
   def prov_locations_modal
-    if self.locations.count > 5
-      return "Varios municipios en México DF."
+    if self.locations.count > 3
+      return "#{self.locations[0].name}, #{self.locations[1].name}, #{self.locations[2].name}, otros"
     else
       return self.locations.map(&:name).join(", ")
     end
@@ -79,5 +81,22 @@ class Provider < ActiveRecord::Base
         errors.add(:email_c, 'debe coincidir con el correo electrónico')
       end
     end  
+  end
+
+  def dni_length
+    if self.locations[0] != nil
+      unless self.dni.length == self.locations[0].state.country.dni_length
+        errors.add(:dni, "debe tener #{self.locations[0].state.country.dni_length} dígitos.")
+      end
+    end
+  end
+  
+  def dni_uniqueness
+    if self.locations[0] != nil
+      provider = Provider.find_by_dni(self.dni)
+      if provider != nil
+        errors.add(:dni, "ya está en uso")
+      end
+    end
   end
 end

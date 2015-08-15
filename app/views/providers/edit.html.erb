@@ -28,7 +28,7 @@
                 <%= f.text_field :email, class: "form-control" %>
               </div>
               <div class="col-md-3">
-                <%= f.label :dni, "IFE:" %><br>
+                <%= f.label :dni, current_country.dni_label %><br>
                 <%= f.text_field :dni, class: "form-control" %>
               </div>
               <div class="col-md-3">
@@ -67,10 +67,9 @@
             <div class="row pt-14 pb-21">
               <div class="col-md-12">
                 <%= check_box_tag('check_all', 'check_all', false, :onClick => "checkAll();") %> <p onclick="allLabel()" class="inline-block m-0 p-0 strong text-primary">Todos</p>
-                <%= hidden_field_tag "provider[location_ids][]", nil %>
               </div>
             </div>
-            <% State.all.each do |state| %>
+            <% State.where("country_id = ?",current_country.id).each do |state| %>
             <p><%= state.name %></p> 
             <div class="row">
               <% state.locations.order('id DESC').each do |location| %>
@@ -94,7 +93,6 @@
               <div class="col-md-3">
                 <div>
                   <%= f.label "Tamaños:" %> <br>
-                  <%= hidden_field_tag "provider[size_ids][]", nil %>
                   <% Size.find_each do |size| %>
                     <%= check_box_tag "provider[size_ids][]", size.id, @provider.size_ids.include?(size.id), id: dom_id(size) %>
                     <%= label_tag dom_id(size), size.size_title, class: "small" %> <br>
@@ -104,7 +102,6 @@
               <div class="col-md-3">
                 <div> 
                   <%= f.label "Edades:" %> <br>
-                  <%= hidden_field_tag "provider[age_ids][]", nil %>
                   <% Age.find_each do |age| %>
                     <%= check_box_tag "provider[age_ids][]", age.id, @provider.age_ids.include?(age.id), id: dom_id(age) %>
                     <%= label_tag dom_id(age), age.age_group_name, class: "small" %> <br>

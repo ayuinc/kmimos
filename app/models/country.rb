@@ -8,6 +8,12 @@
 #  currency   :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  phone      :string(255)
+#  facebook   :string(255)
+#  twitter    :string(255)
+#  flag       :string(255)
+#  domain     :string(255)
+#  dni_length :integer
 #
 
 class Country < ActiveRecord::Base

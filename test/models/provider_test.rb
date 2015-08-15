@@ -23,6 +23,7 @@
 #  experiencia     :integer
 #  iframe_code     :text
 #  property_id     :integer
+#  active          :boolean          default(TRUE)
 #
 
 require "test_helper"

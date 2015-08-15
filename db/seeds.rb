@@ -3,13 +3,15 @@
 
 countries = [{
   name: "México",
-  locale: "es",
+  locale: "es-MX",
   currency: "MXN $",
   phone: '+55 3455 0138',
   facebook:'https://www.facebook.com/pages/Kamimos/1473614136234432?ref=bookmarks',
   twitter: 'https://twitter.com/KmimosMx',
   flag: 'mexico',
   domain: 'mx.kmimos.la',
+  dni_length: 13,
+  dni_label: 'IFE',
   states: [{
     name: "Distrito Federal",
     cities: ["Xochimilco", "Tlalpan", "Tláhuac", "Magdalena Contreras", 
@@ -29,13 +31,15 @@ countries = [{
   }]
 },{
   name: "Argentina",
-  locale: "es",
+  locale: "es-AR",
   currency: "ARS $",
   phone: '+55 3455 0138',
   facebook:'https://www.facebook.com/pages/Kamimos/1473614136234432?ref=bookmarks',
   twitter: 'https://twitter.com/KmimosMx',
   flag:'argentina',  
   domain: 'ar.kmimos.la',
+  dni_length: 8,
+  dni_label: 'DNI',
   states: [{
     name: "Buenos Aires",
     cities: ["Agronomía","Almagro","Balvanera","Barracas","Belgrano","Boedo",
@@ -51,13 +55,15 @@ countries = [{
   }]
 },{
   name: "Panamá",
-  locale: "es",
+  locale: "es-PA",
   currency: "PAN B/.",
   phone: '+55 3455 0138',
   facebook:'https://www.facebook.com/pages/Kamimos/1473614136234432?ref=bookmarks',
   twitter: 'https://twitter.com/KmimosMx',
   flag:'panama',
   domain: 'pa.kmimos.la',
+  dni_length: 8,
+  dni_label: 'DNI',
   states: [{
     name: "Ciudad de Panamá",
     cities: ["San Francisco","Costa del Este","Punta Paitilla","Punta Pacifica",
@@ -78,6 +84,8 @@ countries.each do |country|
   c.twitter = country[:twitter]
   c.flag = country[:flag]
   c.domain = country[:domain]
+  c.dni_length = country[:dni_length]
+  c.dni_label = country[:dni_label]
   c.save
   
   country[:states].each do |state|

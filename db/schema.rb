@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150810064809) do
+ActiveRecord::Schema.define(version: 20150814162413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,8 @@ ActiveRecord::Schema.define(version: 20150810064809) do
     t.string   "twitter"
     t.string   "flag"
     t.string   "domain"
+    t.integer  "dni_length"
+    t.string   "dni_label"
   end
 
   create_table "localizations", force: true do |t|
