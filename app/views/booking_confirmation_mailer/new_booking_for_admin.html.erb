@@ -27,6 +27,6 @@
 	<p>Hora de entrega: <%= @booking.dropoff_time.strftime("%I:%M %p") %></p>
 <% end %>
 <p>Nombre del cuidador: <%= Provider.find(@booking.provider_id).name %>  <%= Provider.find(@booking.provider_id).last_name_1 %></p>
-<p>Precio por noche: $MXN <%= Provider.find(@booking.provider_id).price %></p>
+<p>Precio por noche: <%= current_country.currency %> <%= Provider.find(@booking.provider_id).price.to_i %></p>
 
 <p>Kmimos</p>

@@ -54,7 +54,7 @@
              <h3 class="text-center text-gray mb-0 mt-0 hidden-lg hidden-md"><%= provider.name %> <%= provider.last_name_1 %> <%= provider.last_name_2 %></h3>
              <h5 class="text-center text-graylight mt-7 hidden-lg hidden-md"><%= provider.prov_locations_modal %></h5>
             <h4 class="light m-0 text-gray">Desde</h4>
-             <h3 class="m-0 text-secondary light"><%= current_country.currency %><%= provider.price %></h3>
+             <h3 class="m-0 text-secondary light"><%= current_country.currency %><%= provider.price.to_i %></h3>
              <h4 class="light m-0 text-gray">por noche</h4>
            </div>
          </div>

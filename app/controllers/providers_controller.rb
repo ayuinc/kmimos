@@ -13,14 +13,14 @@
       @providers = @search.result
       .joins('LEFT OUTER JOIN "states" ON "states"."id" = "locations"."state_id" 
              LEFT OUTER JOIN "countries" ON "countries".id = "states"."country_id"')
-      .where('"countries"."id" = ?',current_country.id).order("last_name_1 DESC")
+      .where('"countries"."id" = ? and "providers".active = ?',current_country.id,true).order("last_name_1 DESC")
     else
       @providers = Provider.select("distinct providers.*")
       .joins('LEFT OUTER JOIN "localizations" on "localizations"."provider_id" = "providers"."id"
               LEFT OUTER JOIN "locations" on "locations".id = "localizations"."location_id"
               LEFT OUTER JOIN "states" ON "states"."id" = "locations"."state_id" 
               LEFT OUTER JOIN "countries" ON "countries".id = "states"."country_id"')
-      .where('"countries"."id" = ?',current_country.id).order("last_name_1 DESC")      
+      .where('"countries"."id" = ? and "providers".active = ?',current_country.id,true).order("last_name_1 DESC")      
     end
   end
 
@@ -37,7 +37,11 @@
   # GET /providers/1
   # GET /providers/1.json
   def show
-    @provider_attachments = @provider.provider_attachments.all
+    if @provider.active 
+      @provider_attachments = @provider.provider_attachments.all
+    else
+      redirect_to :home
+    end
   end
 
   # GET /providers/new
