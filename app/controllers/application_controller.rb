@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   HOSTS_MAPPING = {
     'kmimos.la' => 'la',
     'www.kmimos.la' => 'la',
-    'kmimos-giancorzo.c9.io' => 'México',
+    'mx.kmimos.la' => 'México',
     'cani.mx' => 'México',
     'kmimos.com.mx' => 'México',
     'www.cani.mx' => 'México',
