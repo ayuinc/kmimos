@@ -32,7 +32,7 @@
           <% end %>
         </h4>
         <h4 class="text-gray"><small class="text-black bold">Cuidador:</small> <%= @booking.provider.name %><%= @booking.provider.last_name_1 %> <%= @booking.provider.last_name_2 %></h4>
-        <h4 class="text-gray"><small class="text-black bold">Precio:</small><%= current_country.currency %><%= @booking.provider.price.to_i %> / noche</h4>
+        <h4 class="text-gray"><small class="text-black bold">Precio:</small><%= current_country.currency %><%= 1.2*(@booking.provider.price.to_i) %> / noche</h4>
       </div>
     </div>
     <div class="row">

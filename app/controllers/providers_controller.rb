@@ -25,6 +25,7 @@
   end
 
   def home
+    "hola"
     @search = Provider.search(params[:q])
     @referral = Referral.new
   end

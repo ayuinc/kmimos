@@ -18,7 +18,8 @@ class ApplicationController < ActionController::Base
     'www.cani.mx' => 'México',
     'www.kmimos.com.mx' => 'México',
     'ar.kmimos.la' => 'Argentina',
-    'pa.kmimos.la' => 'Panamá'
+    'pa.kmimos.la' => 'Panamá',
+    'localhost' => 'México'
   }
  
   def set_locale
