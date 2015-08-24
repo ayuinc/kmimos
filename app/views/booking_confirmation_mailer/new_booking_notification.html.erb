@@ -106,7 +106,7 @@
 					  </tr>
             <tr>
 					    <td><p style="margin: 0;">Precio por noche</p></td>
-					    <td><p style="margin: 0;">: <%= current_country.currency %> <%= Provider.find(@booking.provider_id).price.to_i %></p></td>
+					    <td><p style="margin: 0;">: <%= @country.currency %> <%= Provider.find(@booking.provider_id).price.to_i %></p></td>
 					    <td> </td>
 					  </tr>
 					</table>
