@@ -17,10 +17,15 @@ class BookingConfirmationMailer < ActionMailer::Base
   def new_booking_for_admin(booking, current_country)
     @booking = booking
     @country = current_country
+    admins = []
+    admins << "r.gonzalez@desdigitec.com" << "e.celli@desdigitec.com"
+    # Panamá
+    if @country.id == 3
+      admins << "nenavieira@gmail.com" << "bobthin@gmail.com"
+    end
     mail(
-      # to: "adelrio@ayuinc.com",
       to: "r.cuevas@desdigitec.com",
-      cc: "r.gonzalez@desdigitec.com",
+      cc: admins,
       subject: 'Nueva reserva en Kmimos ' + @country.name)
   end
 end
