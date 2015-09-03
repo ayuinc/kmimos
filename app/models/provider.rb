@@ -67,7 +67,7 @@ class Provider < ActiveRecord::Base
 
   def prov_locations_modal
     if self.locations.count > 3
-      return "#{self.locations[0].name}, #{self.locations[1].name}, #{self.locations[2].name}, otros"
+      return "#{self.locations[0].name}, #{self.locations[1].name}, #{self.locations[2].name}"
     else
       return self.locations.map(&:name).join(", ")
     end
