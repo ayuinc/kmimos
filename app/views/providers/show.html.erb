@@ -104,11 +104,11 @@
           <h3 class=" text-gray mv-14">Detalles</h3>
         </div>
         <div class="text-left ph-21">
-          <h5 class=" text-secondary mt-14 mb-7">Tipo de propiedad:</h5>
-          <p class="text-gray"><%= Property.find(@provider.property_id).property_name if !@provider.property_id.nil? %></p>
-          <h5 class="text-secondary mt-14 mb-7">Áreas externas:</h5>
-          <p class="text-gray"><%= @provider.areas_externas %></p>
-          <h5 class="text-secondary mt-14 mb-7 light">Tamaño de perros aceptados:</h5>
+          <h5 class=" text-secondary light mt-14 mb-7">Tipo de propiedad:</h5>
+          <p class="text-gray light"><%= Property.find(@provider.property_id).property_name if !@provider.property_id.nil? %></p>
+          <h5 class="text-secondary light mt-14 mb-7">Áreas externas:</h5>
+          <p class="text-gray light"><%= @provider.areas_externas %></p>
+          <h5 class="text-secondary light mt-14 mb-7 light">Tamaño de perros aceptados:</h5>
           <ul class="pl-21">
             <% @provider.sizes.each do |size| %> 
             <li class="text-gray light"><%= size.size_title %></li>
