@@ -161,8 +161,15 @@
               </div>
             </div>
 
+            <div class="row mv-14">
+                <div class="col-md-12">
+                    <%= check_box_tag('terms_and_services', 'terms_and_services', false) %> 
+                    <label for="tems_and_services">Acepto términos y condiciones.</label>
+                </div>
+              </div>
+
           <div class="col-md-3 pl-0 mb-42">
-             <%= f.submit "Regístrate", id: "submit", class: "btn btn-primary form-control" %>
+             <%= f.submit "Regístrate", id: "new_provider", class: "btn btn-primary form-control" %>
           </div>
         <% end %>
           </div> <!-- panel-body -->
@@ -170,3 +177,14 @@
     </div> <!-- col-md-8 -->
   </div> <!-- row -->
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#new_provider').click(function(e) {
+      if (!$('#terms_and_services').is(':checked')) {
+        e.preventDefault();
+        alert('Debe aceptar los términos y condiciones');
+      };
+    });
+  });
+</script>
