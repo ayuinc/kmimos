@@ -117,3 +117,13 @@
     </div> <!-- col-md-8 -->
   </div> <!-- row -->
 </div>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $('#booking_reservation').click(function(e) {
+      if (!$('#terms_and_services').is(':checked')) {
+        e.preventDefault();
+        alert('Debe aceptar los términos y condiciones');
+      };
+    });
+  });
+</script>

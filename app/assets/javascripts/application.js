@@ -105,13 +105,6 @@ $(document).ready(function() {
     realInputField.click();
   });
 
-   $('#booking_reservation').click(function(e) {
-     if (!$('#terms_and_services').is(':checked')) {
-       e.preventDefault();
-       alert('Debe aceptar los términos y condiciones');
-     };
-   });
-
   $(window).load(function() {
     $('.flexslider').flexslider({
     	controlNav: true,
