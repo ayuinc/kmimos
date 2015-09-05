@@ -2,15 +2,17 @@ class MeetingConfirmationMailer < ActionMailer::Base
   default from: "\"Kmimos\" <reservas@cani.mx>"
 
 
-  def new_meeting_notification(meeting)
+  def new_meeting_notification(meeting, current_country)
     @meeting = meeting
+    @country = current_country
     mail(
       to: @meeting.user_email,
       subject: 'Solicitud recibida.')
   end
 
-  def new_meeting_for_admin(meeting)
-    @meeting = meeting
+  def new_meeting_for_admin(meeting, current_country)
+    @meeting = meeting    
+    @country = current_country
     admins = []
     admins << "r.gonzalez@desdigitec.com" << "e.celli@desdigitec.com"
     # Panamá
