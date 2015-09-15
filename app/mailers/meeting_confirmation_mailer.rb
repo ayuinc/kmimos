@@ -22,7 +22,7 @@ class MeetingConfirmationMailer < ActionMailer::Base
     mail(
       # to: "adelrio@ayuinc.com",
       to: "r.cuevas@desdigitec.com",
-      cc: "r.gonzalez@desdigitec.com",
-      subject: 'Nueva solicitud en Kmimos')
+      cc: admins,
+      subject: 'Nueva solicitud en Kmimos' + @country.name)
   end
 end

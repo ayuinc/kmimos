@@ -19,7 +19,8 @@ class ApplicationController < ActionController::Base
     'www.kmimos.com.mx' => 'México',
     'ar.kmimos.la' => 'Argentina',
     'pa.kmimos.la' => 'Panamá',
-    'dry-oasis-5911.herokuapp.com' => 'México'
+    'dry-oasis-5911.herokuapp.com' => 'México',
+    'localhost' => 'México'
   }
  
   def set_locale
