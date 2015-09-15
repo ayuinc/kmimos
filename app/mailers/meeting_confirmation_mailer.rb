@@ -19,10 +19,12 @@ class MeetingConfirmationMailer < ActionMailer::Base
     if @country.id == 3
       admins << "nenavieira@gmail.com" << "bobthin@gmail.com"
     end
+    admins << @meeting.provider.email
+    p admins
     mail(
       # to: "adelrio@ayuinc.com",
       to: "r.cuevas@desdigitec.com",
       cc: admins,
-      subject: 'Nueva solicitud en Kmimos' + @country.name)
+      subject: 'Nueva solicitud en Kmimos ' + @country.name)
   end
 end

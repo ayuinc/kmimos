@@ -23,6 +23,8 @@ class BookingConfirmationMailer < ActionMailer::Base
     if @country.id == 3
       admins << "nenavieira@gmail.com" << "bobthin@gmail.com"
     end
+    admins << @booking.provider.email
+    p admins
     mail(
       to: "r.cuevas@desdigitec.com",
       cc: admins,
