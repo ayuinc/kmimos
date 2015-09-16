@@ -25,6 +25,6 @@ class MeetingConfirmationMailer < ActionMailer::Base
       # to: "adelrio@ayuinc.com",
       to: "r.cuevas@desdigitec.com",
       cc: admins,
-      subject: 'Nueva solicitud en Kmimos ' + @country.name)
+      subject: 'Conocer en persona - Nueva solicitud. Kmimos ' + @country.name)
   end
 end
