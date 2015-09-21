@@ -33,15 +33,18 @@ $(document).ready(function() {
 
   });
   //timepicker
-
-  $('#booking_pickup_time').timepicker({
-    'minTime': '9:00am',
-    'maxTime': '6:00pm',
-  });
-  $('#booking_dropoff_time').timepicker({
-    'minTime': '9:00am',
-    'maxTime': '6:00pm',
-  });
+  if ($('#booking_pickup_time').length > 0) {
+    $('#booking_pickup_time').timepicker({
+      'minTime': '9:00am',
+      'maxTime': '6:00pm',
+    });
+  };
+  if ($('#booking_dropoff_time').length > 0) {
+    $('#booking_dropoff_time').timepicker({
+      'minTime': '9:00am',
+      'maxTime': '6:00pm',
+    });
+  };
 
   // pretty-fy the upload field
   // var realInputField = $('#provider_pictures_attributes_0_image');
@@ -65,14 +68,19 @@ $(document).ready(function() {
     }
     //... rest of add logic
   });
-  // initialize jquery-ui datepicker
-  $.datepicker.setDefaults(
-    $.extend(
-      $.datepicker.regional['es']
-    )
-  );
-  $('#start_date').datepicker({
-  	  minDate: new Date(),
+
+  if ($.datepicker != undefined) {
+    // initialize jquery-ui datepicker
+    $.datepicker.setDefaults(
+      $.extend(
+        $.datepicker.regional['es']
+      )
+    );  
+  }
+  
+  if ($('#start_date').length > 0) {
+    $('#start_date').datepicker({
+      minDate: new Date(),
       dateFormat: 'dd/mm/yy',
       defaultDate: "+1w",
       changeMonth: true,
@@ -82,17 +90,17 @@ $(document).ready(function() {
       }
     });
   
-  $('#end_date').datepicker({
-  	  minDate: new Date(),
-      dateFormat: 'dd/mm/yy',
-      defaultDate: "+1w",
-      changeMonth: true,
-      numberOfMonths: 1,
-      onClose: function( selectedDate ) {
-        $( "#end_date" ).datepicker( "option", "minDate", selectedDate );
-      }
-    });
-
+    $('#end_date').datepicker({
+        minDate: new Date(),
+        dateFormat: 'dd/mm/yy',
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 1,
+        onClose: function( selectedDate ) {
+          $( "#end_date" ).datepicker( "option", "minDate", selectedDate );
+        }
+      });
+  };
   // drop just the filename in the display field
   realInputField.change(function() {
     // $('#file-display').val $(@).val().replace(/^.*[\\\/]/, '');
