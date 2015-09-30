@@ -20,7 +20,7 @@
               <% end %>
             </div>
             <div class="col-sm-3 botones-searchs p-0 mb-14">
-              <%= f.grouped_collection_select(:locations_id_eq, State.where("country_id=?",@country.id).order(:name), :locations, :name, :id, :name , {:prompt => "Elegir Municipio o Delegación"}, { :class=> "input-lg borderless form-location-nav" }) %>
+              <%= f.grouped_collection_select(:locations_id_eq, State.where("country_id=?",@country.id).order(:name), :locations, :name, :id, :name , {:prompt => @country.id == 2 ? "Elegir Barrio" : "Elegir Municipio o Delegación"}, { :class=> "input-lg borderless form-location-nav" }) %>
             </div>
             <div class="col-sm-3 botones-searchs p-0">
               <%= f.submit "Buscar", class:"ml-7 borderless form-search" %>
