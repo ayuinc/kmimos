@@ -23,6 +23,9 @@
       .where('"countries"."id" = ? and "providers".active = ?',current_country.id,true).order("last_name_1 DESC")
       .distinct
     end
+    if params[:direction] != nil
+      @providers = @providers.order("price " + params[:direction])
+    end
     @providers = @providers.paginate(:per_page => 1, :page => params[:page])
   end
 

@@ -118,6 +118,11 @@ $(document).ready(function() {
     	controlNav: true,
     });
   });
+
+  $("#direction").change(function(e) {
+    e.preventDefault();
+    $(this).parent().parent().submit();
+  });
 });
 
 //validar fechas homepage
