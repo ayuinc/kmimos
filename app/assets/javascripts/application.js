@@ -17,11 +17,28 @@
 //= require_tree 
 //= require gmaps.min
 
+var map;
+
+if ($("#provider_location").length > 0) {
+  function setProviderLocation(latitude, longitude) {
+    map = new GMaps({
+      div: '#provider_location',
+      lat: latitude,
+      lng: longitude,
+      zoom: 15
+    });
+
+    map.addMarker({
+      lat: latitude,
+      lng: longitude
+    });
+  }
+}
+
 $(document).ready(function() {
   var docHeight = $(window).height();
   var footerHeight = $('#footer').height();
   var footerTop = $('#footer').position().top + footerHeight;
-  var map;
 
   if (footerTop < docHeight) {
     $('#footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
@@ -117,7 +134,7 @@ $(document).ready(function() {
 
   $(window).load(function() {
     $('.flexslider').flexslider({
-    	controlNav: true,
+      controlNav: true,
     });
   });
 
@@ -128,6 +145,7 @@ $(document).ready(function() {
 
   $("#address").keydown(function(e) {
     if (e.keyCode == 13) {
+      e.preventDefault();
       $("#search_address").trigger("click");
     };
   });
@@ -145,27 +163,31 @@ $(document).ready(function() {
             lat: latlng.lat(),
             lng: latlng.lng()
           });
+          $("#provider_latitude").val(latlng.lat());
+          $("#provider_longitude").val(latlng.lng());
         }
       }
     });
   });
-
-  map = new GMaps({
-    div: '#map',
-    lat: -12.043333,
-    lng: -77.028333,
-    zoom: 15
-  })
-
-  GMaps.geolocate({
-    success: function(position) {
-      map.setCenter(position.coords.latitude, position.coords.longitude);
-      map.addMarker({
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      });
-    }
-  });
+  if ($("#map").length > 0) {
+    map = new GMaps({
+      div: '#map',
+      lat: -12.043333,
+      lng: -77.028333,
+      zoom: 15
+    });   
+    GMaps.geolocate({
+      success: function(position) {
+        map.setCenter(position.coords.latitude, position.coords.longitude);
+        map.addMarker({
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        });
+        $("#provider_latitude").val(position.coords.latitude);
+        $("#provider_longitude").val(position.coords.longitude);
+      }
+    });
+  }
 
   GMaps.on('click', map.map, function(event) {
     var markers = map.markers.length;
@@ -179,63 +201,57 @@ $(document).ready(function() {
       lat: lat,
       lng: lng
     });
+    $("#provider_latitude").val(lat);
+    $("#provider_longitude").val(lng);
   });
 });
 
-//validar fechas homepage
-// function prueba(event){
-//   // return false;
-//   event.preventDefault();
-//   // alert("clickeado");
-// }
-
-
 function checkAll(){
-	// Pass in a named "Check All" checkbox that appears on the same form where all 
-	// checkboxes should be checked.
-	main_checkbox = document.getElementById("check_all");
+  // Pass in a named "Check All" checkbox that appears on the same form where all 
+  // checkboxes should be checked.
+  main_checkbox = document.getElementById("check_all");
 
-	// Loop through an array containing ALL inputs on same form as check_all
-	location_checkboxes = document.getElementsByClassName("location_cbx");
-	for (var i = 0; i < location_checkboxes.length; i++) {  
-	  // Only work on checkboxes, and NOT on the "Check All" checkbox
+  // Loop through an array containing ALL inputs on same form as check_all
+  location_checkboxes = document.getElementsByClassName("location_cbx");
+  for (var i = 0; i < location_checkboxes.length; i++) {  
+    // Only work on checkboxes, and NOT on the "Check All" checkbox
     if(main_checkbox.checked == true){
       location_checkboxes[i].checked = true ;
     }else{
       location_checkboxes[i].checked = false;
     }
-	};
+  };
 }
 
 function uncheckMain(location_checkbox) {
-	var tracker = 0;
-	main_checkbox = document.getElementById("check_all");
-		if(location_checkbox.checked == false) {
-			main_checkbox.checked = false;
-		};
-	location_checkboxes = document.getElementsByClassName("location_cbx");	
-		for (var i = 0; i < location_checkboxes.length; i++) {  
-		  // Only work on checkboxes, and NOT on the "Check All" checkbox
-		  if (location_checkboxes[i].type == "checkbox") { 
-		    if(location_checkboxes[i].checked == true){
-		      tracker ++;
-		    }
-		  }  
-		};
-	  if (tracker == location_checkboxes.length) {
-	    main_checkbox.checked = true;
-	  }
+  var tracker = 0;
+  main_checkbox = document.getElementById("check_all");
+    if(location_checkbox.checked == false) {
+      main_checkbox.checked = false;
+    };
+  location_checkboxes = document.getElementsByClassName("location_cbx");  
+    for (var i = 0; i < location_checkboxes.length; i++) {  
+      // Only work on checkboxes, and NOT on the "Check All" checkbox
+      if (location_checkboxes[i].type == "checkbox") { 
+        if(location_checkboxes[i].checked == true){
+          tracker ++;
+        }
+      }  
+    };
+    if (tracker == location_checkboxes.length) {
+      main_checkbox.checked = true;
+    }
 }
 
 function allLabel() {
-	main_checkbox = document.getElementById("check_all");
-	if (main_checkbox.checked == true) {
-		main_checkbox.checked = false;
-		checkAll();
-	}else{
-		main_checkbox.checked = true;
-		checkAll();
-	}
+  main_checkbox = document.getElementById("check_all");
+  if (main_checkbox.checked == true) {
+    main_checkbox.checked = false;
+    checkAll();
+  }else{
+    main_checkbox.checked = true;
+    checkAll();
+  }
 }
 
 // referrals
@@ -287,13 +303,3 @@ function disqus_config() {
     console.log("disqus");
   }];
 }
-
-
-
-
-
-
-
-
-
-

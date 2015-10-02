@@ -128,9 +128,21 @@
               </div>
             </div>
 
-            <div class="mt-28"> 
-              <%= f.label :iframe_code, "Ingresa el código iframe para agregar un mapa de tu ubicación" %><br>
-              <%= f.text_area :iframe_code, class: "form-control" %>
+            <div class="row mt-28">
+              <div class="map-info">
+                <%= f.hidden_field :latitude  %>
+                <%= f.hidden_field :longitude %>
+              </div>
+              <div class="col-md-8">
+                <input type="text" id="address" name="address" class="form-control" placeholder="Ingrese su dirección..."/>
+              </div>
+              <div class="col-md-4">
+                <button type="button" id="search_address" name="search_address" class="btn btn-primary">Buscar</button>
+              </div>
+              <div id="provider_location" class="mt-70" style="width: 800px; height: 400px;"></div>
+              <script type="text/javascript">
+                setProviderLocation(<%= @provider.latitude %>, <%= @provider.longitude %>);
+              </script>
             </div>
 
             <div class="row mv-28">
