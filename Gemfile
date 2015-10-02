@@ -23,7 +23,7 @@ gem 'fog', '~> 1.24.0'
 gem 'high_voltage', '~> 2.3.0'
 
 gem 'will_paginate'
-
+gem 'gmaps4rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

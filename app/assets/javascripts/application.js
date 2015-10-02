@@ -14,12 +14,14 @@
 //= require jquery.timepicker.min.js
 //= require easing
 //= require_self
-//= require_tree .
+//= require_tree 
+//= require gmaps.min
 
 $(document).ready(function() {
   var docHeight = $(window).height();
   var footerHeight = $('#footer').height();
   var footerTop = $('#footer').position().top + footerHeight;
+  var map;
 
   if (footerTop < docHeight) {
     $('#footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
@@ -122,6 +124,61 @@ $(document).ready(function() {
   $("#direction").change(function(e) {
     e.preventDefault();
     $(this).parent().parent().submit();
+  });
+
+  $("#address").keydown(function(e) {
+    if (e.keyCode == 13) {
+      $("#search_address").trigger("click");
+    };
+  });
+
+  $("#search_address").click(function(e) {
+    e.preventDefault();
+    GMaps.geocode({
+      address: $('#address').val(),
+      callback: function(results, status) {
+        if (status == 'OK') {
+          var latlng = results[0].geometry.location;
+          map.setCenter(latlng.lat(), latlng.lng());
+          map.removeMarkers();
+          map.addMarker({
+            lat: latlng.lat(),
+            lng: latlng.lng()
+          });
+        }
+      }
+    });
+  });
+
+  map = new GMaps({
+    div: '#map',
+    lat: -12.043333,
+    lng: -77.028333,
+    zoom: 15
+  })
+
+  GMaps.geolocate({
+    success: function(position) {
+      map.setCenter(position.coords.latitude, position.coords.longitude);
+      map.addMarker({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      });
+    }
+  });
+
+  GMaps.on('click', map.map, function(event) {
+    var markers = map.markers.length;
+    var lat = event.latLng.lat();
+    var lng = event.latLng.lng();
+    console.log(markers);
+    if (markers != null) {
+      map.removeMarkers();
+    }
+    map.addMarker({
+      lat: lat,
+      lng: lng
+    });
   });
 });
 
