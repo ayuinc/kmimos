@@ -24,6 +24,8 @@
 #  iframe_code     :text
 #  property_id     :integer
 #  active          :boolean          default(TRUE)
+#  latitude        :string(255)
+#  longitude       :string(255)
 #
 
 class Provider < ActiveRecord::Base

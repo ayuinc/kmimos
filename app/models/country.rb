@@ -14,6 +14,7 @@
 #  flag       :string(255)
 #  domain     :string(255)
 #  dni_length :integer
+#  dni_label  :string(255)
 #
 
 class Country < ActiveRecord::Base

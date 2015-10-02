@@ -82,8 +82,13 @@
       </div>
       <div class="ubicacion border-top">
         <h2 class="text-gray">Ubicación</h2>
-<!--         <p class="mb-21"><span><i class="fa fa-map-marker text-secondary"></i></span> Coyoacán, Estado de México, Mipa Alta.</p> -->
-        <%= @provider.iframe_code.html_safe if !@provider.iframe_code.nil? %>
+        <% if !@provider.latitude.nil? and !@provider.longitude.nil? %>
+          <div id="provider_location" style="width:400px;height:400px;">
+          </div>
+          <script type="text/javascript">
+            setProviderLocation(<%= @provider.latitude %>, <%= @provider.longitude %>);
+          </script>
+        <% end %>
       </div>
       <div class="comentarios border-top">
         <h2 class="text-gray">Comentarios</h2>
