@@ -131,13 +131,7 @@ $(document).ready(function() {
   $('#upload-btn').click(function() {
     realInputField.click();
   });
-
-  $(window).load(function() {
-    $('.flexslider').flexslider({
-      controlNav: true,
-    });
-  });
-
+  
   $("#direction").change(function(e) {
     e.preventDefault();
     $(this).parent().parent().submit();
@@ -203,6 +197,12 @@ $(document).ready(function() {
     });
     $("#provider_latitude").val(lat);
     $("#provider_longitude").val(lng);
+  });
+
+  $(window).load(function() {
+    $('.flexslider').flexslider({
+      controlNav: true,
+    });
   });
 });
 
