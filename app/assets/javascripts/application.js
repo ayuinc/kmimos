@@ -17,28 +17,28 @@
 //= require_tree 
 //= require gmaps.min
 
-var map;
-
-if ($("#provider_location").length > 0) {
-  function setProviderLocation(latitude, longitude) {
-    map = new GMaps({
-      div: '#provider_location',
-      lat: latitude,
-      lng: longitude,
-      zoom: 15
-    });
-
-    map.addMarker({
-      lat: latitude,
-      lng: longitude
-    });
-  }
-}
 
 $(document).ready(function() {
   var docHeight = $(window).height();
   var footerHeight = $('#footer').height();
   var footerTop = $('#footer').position().top + footerHeight;
+  var map;
+
+  if ($("#provider_location").length > 0) {
+    function setProviderLocation(latitude, longitude) {
+      map = new GMaps({
+        div: '#provider_location',
+        lat: latitude,
+        lng: longitude,
+        zoom: 15
+      });
+
+      map.addMarker({
+        lat: latitude,
+        lng: longitude
+      });
+    }
+  }
 
   if (footerTop < docHeight) {
     $('#footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
@@ -46,11 +46,10 @@ $(document).ready(function() {
 
   // modal for referral codes
   $(document).bind('ajaxError', 'form#new_referral', function(event, jqxhr, settings, exception){
-
     // note: jqxhr.responseJSON undefined, parsing responseText instead
     $(event.data).render_form_errors( $.parseJSON(jqxhr.responseText) );
-
   });
+
   //timepicker
   if ($('#booking_pickup_time').length > 0) {
     $('#booking_pickup_time').timepicker({
@@ -74,10 +73,10 @@ $(document).ready(function() {
   $('img').filter(function(){
           return !$(this).attr('src');
   }).hide();
-  $("a[href='/provider_attachments']").hide()
+  $("a[href='/provider_attachments']").hide();
   
   //ocultar secciones de disqus
-   $('[data-tracking-area="footer"]').hide();
+  $('[data-tracking-area="footer"]').hide();
   //validate datepickers
   $("input.form-search").click(function(event){
     if($("#start_date").val() == "" | $("#end_date").val() == "") {
@@ -110,16 +109,17 @@ $(document).ready(function() {
     });
   
     $('#end_date').datepicker({
-        minDate: new Date(),
-        dateFormat: 'dd/mm/yy',
-        defaultDate: "+1w",
-        changeMonth: true,
-        numberOfMonths: 1,
-        onClose: function( selectedDate ) {
-          $( "#end_date" ).datepicker( "option", "minDate", selectedDate );
-        }
-      });
-  };
+      minDate: new Date(),
+      dateFormat: 'dd/mm/yy',
+      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 1,
+      onClose: function( selectedDate ) {
+        $( "#end_date" ).datepicker( "option", "minDate", selectedDate );
+      }
+    });
+  }
+
   // drop just the filename in the display field
   realInputField.change(function() {
     // $('#file-display').val $(@).val().replace(/^.*[\\\/]/, '');
@@ -130,12 +130,6 @@ $(document).ready(function() {
   // trigger the real input field click to bring up the file selection dialog
   $('#upload-btn').click(function() {
     realInputField.click();
-  });
-
-  $(window).load(function() {
-    $('.flexslider').flexslider({
-      controlNav: true,
-    });
   });
 
   $("#direction").change(function(e) {
@@ -169,6 +163,7 @@ $(document).ready(function() {
       }
     });
   });
+  
   if ($("#map").length > 0) {
     map = new GMaps({
       div: '#map',
@@ -203,6 +198,12 @@ $(document).ready(function() {
     });
     $("#provider_latitude").val(lat);
     $("#provider_longitude").val(lng);
+  });
+
+  $(window).load(function() {
+    $('.flexslider').flexslider({
+      controlNav: true,
+    });
   });
 });
 
