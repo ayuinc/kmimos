@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     'www.kmimos.com.mx' => 'México',
     'ar.kmimos.la' => 'Argentina',
     'pa.kmimos.la' => 'Panamá',
-    'dry-oasis-5911.herokuapp.com' => 'Argentina',
+    'dry-oasis-5911.herokuapp.com' => 'México',
     'kmimos-ivandevp.c9.io' => 'México'
   }
  
