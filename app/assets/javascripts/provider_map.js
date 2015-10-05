@@ -36,6 +36,13 @@ if ($("#provider_location").length > 0) {
   }
 }
 
+if ($("#direction").length > 0) {
+  $("#direction").change(function(e) {
+    e.preventDefault();
+    $(this).parent().parent().submit();
+  });
+}  
+
 $("#address").keydown(function(e) {
   if (e.keyCode == 13) {
     e.preventDefault();

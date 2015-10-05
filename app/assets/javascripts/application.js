@@ -113,11 +113,6 @@ $(document).ready(function() {
   $('#upload-btn').click(function() {
     realInputField.click();
   });
-  
-  $("#direction").change(function(e) {
-    e.preventDefault();
-    $(this).parent().parent().submit();
-  });
 
   $(window).load(function() {
     $('.flexslider').flexslider({
