@@ -1,5 +1,25 @@
 var map;
 
+if ($("#map").length > 0) {
+  map = new GMaps({
+    div: '#map',
+    lat: -12.043333,
+    lng: -77.028333,
+    zoom: 15
+  });   
+  GMaps.geolocate({
+    success: function(position) {
+      map.setCenter(position.coords.latitude, position.coords.longitude);
+      map.addMarker({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      });
+      $("#provider_latitude").val(position.coords.latitude);
+      $("#provider_longitude").val(position.coords.longitude);
+    }
+  });
+}
+
 if ($("#provider_location").length > 0) {
   function setProviderLocation(latitude, longitude) {
     map = new GMaps({
@@ -42,26 +62,6 @@ $("#search_address").click(function(e) {
     }
   });
 });
-
-if ($("#map").length > 0) {
-  map = new GMaps({
-    div: '#map',
-    lat: -12.043333,
-    lng: -77.028333,
-    zoom: 15
-  });   
-  GMaps.geolocate({
-    success: function(position) {
-      map.setCenter(position.coords.latitude, position.coords.longitude);
-      map.addMarker({
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      });
-      $("#provider_latitude").val(position.coords.latitude);
-      $("#provider_longitude").val(position.coords.longitude);
-    }
-  });
-}
 
 if (map != undefined) {
   GMaps.on('click', map.map, function(event) {
