@@ -115,3 +115,13 @@
   </div>
 </div>
 <%= render "layouts/modal" %>
+<script type="text/javascript">
+  $(document).ready(function(e){
+    if ($("#direction").length > 0) {
+      $("#direction").change(function(e) {
+        e.preventDefault();
+        $(this).parent().parent().submit();
+      });
+    }
+  });
+</script>
