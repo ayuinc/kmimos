@@ -126,7 +126,7 @@ GEM
     foreman (0.78.0)
       thor (~> 0.19.1)
     formatador (0.2.5)
-    gherkin3 (3.1.1)
+    gherkin3 (3.1.2)
     git-version-bump (0.15.1)
     gmaps4rails (2.1.2)
     guard (2.13.0)
@@ -300,7 +300,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.44)
+    tzinfo (0.3.45)
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)

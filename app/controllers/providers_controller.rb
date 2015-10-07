@@ -26,7 +26,7 @@
     if params[:direction] != nil
       @providers = @providers.order("price " + params[:direction])
     end
-    @providers = @providers.paginate(:per_page => 1, :page => params[:page])
+    @providers = @providers.paginate(:per_page => 20, :page => params[:page])
   end
 
   def home
