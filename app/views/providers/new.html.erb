@@ -150,8 +150,6 @@
               <%= f.hidden_field :latitude  %>
               <%= f.hidden_field :longitude %>
             </div>
-            <%= javascript_include_tag 'gmaps.min' %>  
-            <%= javascript_include_tag 'provider_map' %>  
             <div class="col-md-8 col-xs-12 mt-14 pr-0-lg">
               <input type="text" id="address" name="address" class="form-control" placeholder="Ingrese su dirección..."/>
             </div>
@@ -513,3 +511,5 @@
                         </div> <!-- col-md-8 -->
                       </div> <!-- row -->
                     </div>
+<%= javascript_include_tag 'gmaps.min' %>  
+<%= javascript_include_tag 'provider_map' %>  
