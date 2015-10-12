@@ -26,6 +26,7 @@
 #  active          :boolean          default(TRUE)
 #  latitude        :string(255)
 #  longitude       :string(255)
+#  address         :string(255)
 #
 
 class Provider < ActiveRecord::Base

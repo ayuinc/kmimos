@@ -36,7 +36,7 @@ if ($("#provider_location").length > 0) {
   }
 }  
 
-$("#address").keydown(function(e) {
+$("#provider_address").keydown(function(e) {
   if (e.keyCode == 13) {
     e.preventDefault();
     $("#search_address").trigger("click");
@@ -46,7 +46,7 @@ $("#address").keydown(function(e) {
 $("#search_address").click(function(e) {
   e.preventDefault();
   GMaps.geocode({
-    address: $('#address').val(),
+    address: $('#provider_address').val(),
     callback: function(results, status) {
       if (status == 'OK') {
         var latlng = results[0].geometry.location;

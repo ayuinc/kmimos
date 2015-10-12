@@ -129,7 +129,7 @@
       params.require(:provider).permit(:tipo_propiedad, :areas_externas, :emergencia, :experiencia, 
       :name, :last_name_1, :last_name_2, :dni, :avatar, :avatar_cache, :description, 
       :email, :email_c, :phone, :price, :avg_rating, :property_id, :category_id, :latitude, :longitude,
-      :password, :password_confirmation,:q, locations_attributes: [:id], 
+      :address, :password, :password_confirmation,:q, locations_attributes: [:id], 
       location_ids: [], provider_attachments_attributes: [:id, :provider_id, :photo], 
       age_ids: [], size_ids: [])
     end
