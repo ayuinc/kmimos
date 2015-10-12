@@ -35,25 +35,25 @@
 </div>
 <h2 class="text-center">Resultados</h2>
 
-<div class="container">
+<!--<div class="container">
   <div class="row">
-      <%= search_form_for @search do %>
+      <%#<%= search_form_for @search do %>%>
       <div class="col-md-offset-3 col-md-3 text-center">
           <h5>Filtrar por precio :</h5>
       </div>
       <div class="col-md-3">
-          <%= select_tag(:direction,
+          <%#<%= select_tag(:direction,
               options_for_select(
               [
                 ['Seleccione criterio', ''],
                 ['De mayor a menor', 'desc'],
                 ['De menor a mayor', 'asc']
-              ], params[:direction]), :class => "form-control input-xs") %>
+              ], params[:direction]), :class => "form-control input-xs") %>%>
       </div>
-      <%= submit_tag("Filtrar", :class => "hidden") %>
-      <% end %>
+      <%#<%= submit_tag("Filtrar", :class => "hidden") %>%>
+      <%#<% end %>%>
   </div>
-</div>
+</div>-->
 
 <div class="container pb-14">
   <% @providers.each do |provider| %>

@@ -90,6 +90,8 @@
           <script type="text/javascript">
             setProviderLocation(<%= @provider.latitude %>, <%= @provider.longitude %>);
           </script>
+        <% else %>
+            <%= @provider.iframe_code.html_safe if !@provider.iframe_code.nil? %>
         <% end %>
       </div>
       <div class="comentarios border-top">
