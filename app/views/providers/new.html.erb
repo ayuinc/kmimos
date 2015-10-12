@@ -151,10 +151,12 @@
               <%= f.hidden_field :longitude %>
             </div>
             <div class="col-md-8 col-xs-12 mt-14 pr-0-lg">
+              <label for="address">Dirección:</label>
               <input type="text" id="address" name="address" class="form-control" placeholder="Ingrese su dirección..."/>
             </div>
-            <div class="col-md-4 col-xs-12 mt-14 text-right">
-              <button type="button" id="search_address" name="search_address" class="btn btn-primary pt-21-xs">Buscar</button>
+            <div class="col-md-4 col-xs-12 mt-14">
+              <label for="search_address" style="display:block;color:white">Buscar</label>
+              <button type="button" id="search_address" name="search_address" class="btn btn-primary form-control ml-0">Buscar</button>
             </div>
             <div class="ml-14 col-md-12 col-xs-12 col-sm-12 mt-14">
               <p>*Si el pin no se sitúa en el lugar de tu dirección, por favor ajústalo.</p>
