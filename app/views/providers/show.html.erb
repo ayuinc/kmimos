@@ -1,3 +1,5 @@
+<%= javascript_include_tag 'gmaps.min' %>  
+<%= javascript_include_tag 'provider_map' %>  
 <div class="container pvp-7 ph-21">
   <div class="row mv-56">
     <div class="col-md-1"></div>
@@ -15,7 +17,7 @@
             </div>
             <div class="user-info ml-28">
               <h1 class="m-0"><%= @provider.name %> <%= @provider.last_name_1 %></h1>
-              <span class="text-gray"><%= @provider.prov_locations_modal %></span>
+              <span class="text-gray"><%= @provider.locations.map(&:name).join(", ") %></span>
               <div class="rating-reviews pl-7 mt-7">
                 <span><i class="fa fa-star text-yellow"></i></span>
                 <span><i class="fa fa-star text-yellow"></i></span>
@@ -82,8 +84,15 @@
       </div>
       <div class="ubicacion border-top">
         <h2 class="text-gray">Ubicación</h2>
-<!--         <p class="mb-21"><span><i class="fa fa-map-marker text-secondary"></i></span> Coyoacán, Estado de México, Mipa Alta.</p> -->
-        <%= @provider.iframe_code.html_safe if !@provider.iframe_code.nil? %>
+        <% if !@provider.latitude.nil? and !@provider.longitude.nil? %>
+          <div id="provider_location" style="width:100%;height:400px;">
+          </div>
+          <script type="text/javascript">
+            setProviderLocation(<%= @provider.latitude %>, <%= @provider.longitude %>);
+          </script>
+        <% else %>
+            <%= @provider.iframe_code.html_safe if !@provider.iframe_code.nil? %>
+        <% end %>
       </div>
       <div class="comentarios border-top">
         <h2 class="text-gray">Comentarios</h2>
@@ -97,19 +106,18 @@
         <h4 class="light mt-0 text-gray text-small">por noche</h4>
         <p class="thin text-graylight"> (Los precios pueden variar dependiendo el tamaño y cuidados especiales de la mascota)</p>
         <%= link_to "Reservar".html_safe, new_booking_path(:provider_id => @provider.id, :start_date => @start_date, :end_date => @end_date), :class => "mt-14 mb-21 btn btn-primary btn-small btn-fold",  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Reservar', 'provider_#{@provider.id.to_s}']);"  %> <br>
-        <%= link_to "Conocer cuidador<br> en persona".html_safe, new_meeting_path(:provider_id => @provider.id), :class => "text-black text-small",  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Conocer', 'provider_#{@provider.id.to_s}']);"  %>
-
+        <%= link_to "Conocer cuidador".html_safe, new_meeting_path(:provider_id => @provider.id), :class => "text-secondary btn btn-fold", :style => "border-color: #1DBA9A; padding: 10px 7px;",  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Conocer', 'provider_#{@provider.id.to_s}']);"  %>
       </div>
       <div class="content-detalles mt-14 mb-28 text-center m-21 pb-14">
         <div class="border-bottom text-left pl-21">
           <h3 class=" text-gray mv-14">Detalles</h3>
         </div>
         <div class="text-left ph-21">
-          <h5 class=" text-secondary mt-14 mb-7">Tipo de propiedad:</h5>
-          <p class="text-gray"><%= Property.find(@provider.property_id).property_name if !@provider.property_id.nil? %></p>
-          <h5 class="text-secondary mt-14 mb-7">Áreas externas:</h5>
-          <p class="text-gray"><%= @provider.areas_externas %></p>
-          <h5 class="text-secondary mt-14 mb-7 light">Tamaño de perros aceptados:</h5>
+          <h5 class=" text-secondary light mt-14 mb-7">Tipo de propiedad:</h5>
+          <p class="text-gray light"><%= Property.find(@provider.property_id).property_name if !@provider.property_id.nil? %></p>
+          <h5 class="text-secondary light mt-14 mb-7">Áreas externas:</h5>
+          <p class="text-gray light"><%= @provider.areas_externas %></p>
+          <h5 class="text-secondary light mt-14 mb-7 light">Tamaño de perros aceptados:</h5>
           <ul class="pl-21">
             <% @provider.sizes.each do |size| %> 
             <li class="text-gray light"><%= size.size_title %></li>
@@ -164,4 +172,3 @@
 </script>
 
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-

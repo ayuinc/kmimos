@@ -11,8 +11,8 @@ class MeetingConfirmationMailer < ActionMailer::Base
   end
 
   def new_meeting_for_admin(meeting, current_country)
-    @meeting = meeting
-    p @meeting
+
+    @meeting = meeting     
     @country = current_country
     admins = []
     admins << "r.gonzalez@desdigitec.com" << "e.celli@desdigitec.com"
@@ -20,9 +20,14 @@ class MeetingConfirmationMailer < ActionMailer::Base
     if @country.id == 3
       admins << "nenavieira@gmail.com" << "bobthin@gmail.com"
     end
+ 
+    admins << @meeting.provider.email
+    p admins 
     mail(
       to: "r.cuevas@desdigitec.com",
       cc: admins,
-      subject: 'Nueva solicitud en Kmimos')
+ 
+      subject: 'Conocer en persona - Nueva solicitud. Kmimos ' + @country.name)
+ 
   end
 end

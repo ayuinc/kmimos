@@ -243,7 +243,7 @@ es-PA:
             locations: "Ubicaciones"
             price: "Precio por hora"
             phone: "Teléfono"
-            dni: "DNI"
+            dni: "ID"
             category_id: "Categoría"
         booking:
             user_email: "Correo electrónico"

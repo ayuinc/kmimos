@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150814162413) do
+ActiveRecord::Schema.define(version: 20151012192549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,6 +126,9 @@ ActiveRecord::Schema.define(version: 20150814162413) do
     t.text     "iframe_code"
     t.integer  "property_id"
     t.boolean  "active",          default: true
+    t.string   "latitude"
+    t.string   "longitude"
+    t.string   "address"
   end
 
   add_index "providers", ["category_id"], name: "index_providers_on_category_id", using: :btree

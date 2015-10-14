@@ -1,6 +1,6 @@
 
 source 'https://rubygems.org'
-ruby "2.0.0"
+ruby "2.2.3"
 
 gem 'rails', '4.0.2'
 
@@ -16,12 +16,13 @@ gem 'unicorn'
 gem 'sort_alphabetical'
 gem 'hirb'
 
-
 gem 'carrierwave'
 gem 'rmagick', '2.13.3', :require => 'RMagick'
 gem 'fog', '~> 1.24.0'
 gem 'high_voltage', '~> 2.3.0'
 
+gem 'will_paginate'
+gem 'gmaps4rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -32,6 +33,11 @@ end
 gem 'bcrypt-ruby'
 
 group :development do
+  
+  gem 'haml-rails'    #Haml Template Engine Added
+  gem 'devise'        #Devise Gem Added for Authentication
+  gem 'activeadmin', github: 'activeadmin'  # Fast Admin Generator Tool
+  
   gem 'faker'
   gem 'guard-livereload'
   gem 'guard-bundler'

@@ -15,13 +15,18 @@
              LEFT OUTER JOIN "countries" ON "countries".id = "states"."country_id"')
       .where('"countries"."id" = ? and "providers".active = ?',current_country.id,true).order("last_name_1 DESC")
     else
-      @providers = Provider.select("distinct providers.*")
+      @providers = Provider.select("providers.*")
       .joins('LEFT OUTER JOIN "localizations" on "localizations"."provider_id" = "providers"."id"
               LEFT OUTER JOIN "locations" on "locations".id = "localizations"."location_id"
               LEFT OUTER JOIN "states" ON "states"."id" = "locations"."state_id" 
               LEFT OUTER JOIN "countries" ON "countries".id = "states"."country_id"')
-      .where('"countries"."id" = ? and "providers".active = ?',current_country.id,true).order("last_name_1 DESC")      
+      .where('"countries"."id" = ? and "providers".active = ?',current_country.id,true).order("last_name_1 DESC")
+      .distinct
     end
+    #if params[:direction] != nil
+    #  @providers = @providers.order("price " + params[:direction])
+    #end
+    @providers = @providers.paginate(:per_page => 20, :page => params[:page])
   end
 
   def home
@@ -123,9 +128,9 @@
     # Never trust parameters from the scary internet, only allow the white list through.
     def provider_params
       params.require(:provider).permit(:tipo_propiedad, :areas_externas, :emergencia, :experiencia, 
-      :iframe_code, :name, :last_name_1, :last_name_2, :dni, :avatar, :avatar_cache, :description, 
-      :email, :email_c, :phone, :price, :avg_rating, :property_id, :category_id, 
-      :password, :password_confirmation,:q, locations_attributes: [:id], 
+      :name, :last_name_1, :last_name_2, :dni, :avatar, :avatar_cache, :description, 
+      :email, :email_c, :phone, :price, :avg_rating, :property_id, :category_id, :latitude, :longitude,
+      :address, :password, :password_confirmation,:q, locations_attributes: [:id], 
       location_ids: [], provider_attachments_attributes: [:id, :provider_id, :photo], 
       age_ids: [], size_ids: [])
     end

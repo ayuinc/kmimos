@@ -75,7 +75,54 @@ body{
 	top: 65%;
 	width: 20%;
 }
+/*MEDIA QUERY*/
 
+@media only screen and (max-device-width: 320px) and (orientation: portrait) {
+	.perros-responsive{
+	    height: 239px !important;
+	    background-size:inherit !important;
+	    background-repeat: no-repeat;
+	    background-position: center;
+	    background-position-x: center;
+	    background-image: url(/assets/international/perros-responsive.png);
+	}
+	.fs-25-xs {
+		font-size:25px !important;
+	}
+	.pt-42-xs{
+		padding-top:42px !important;
+	}
+	.w-80{
+	  width:80%;
+	}	
+	.w-100{
+	  width: 100%;
+	}
+
+} 
+@media only screen and (max-width: 480px) {
+	.perros-responsive{
+	    height: 266px;
+	    background-size: 550px;
+	    background-repeat: no-repeat;
+	    background-position: center;
+	    background-position-y: 90px;
+	    background-position-x: center;
+	    background-image: url(/assets/international/perros-responsive.png);
+	}	
+	.fs-25-xs {
+		font-size:25px !important;
+	}	
+	.pt-42-xs{
+		padding-top:42px !important;
+	}
+	.w-80{
+	  width:80%;
+	}
+	.w-100{
+	  width: 100%;
+	}
+}  
 /*Ocultar perritos*/
 @media only screen and (max-width: 599px) {
     .ocultar{
@@ -97,6 +144,9 @@ body{
     h2 {
     	font-size: 1.8em;
     }
+    .perros-responsive{
+    	display:none;
+    }    
 }
 
 @media all and (max-width: 959px) and (min-width: 600px) {
@@ -111,6 +161,9 @@ body{
     	margin-top: 10%;
     	padding-left: 10%;
     	padding-right: 10%;
+    }
+    .perros-responsive{
+    	display:none;
     }
 }
 

@@ -73,8 +73,9 @@
         <div class="col-md-offset-3 col-md-6 col-xs-12">
           <h1 class="mb-14 thin xl font-lato title-strong">Viaja con tranquilidad dejando a tu mascota en buenas manos</h1>
           <h3>Cuidadores calificados se encargarán de tu mascota.<h3>
-            <%= link_to 'Cómo funciona', '#video-kmimos', 'data-toggle' => 'modal', :class => "btn-how btn sublime mt-56", :onClick=>"_gaq.push(['_trackEvent', 'Homepage', 'Recomendar-modal-trigger']);"  %>
-
+            <% if @country.id != 2 %>
+              <%= link_to 'Cómo funciona', '#video-kmimos', 'data-toggle' => 'modal', :class => "btn-how btn sublime mt-56", :onClick=>"_gaq.push(['_trackEvent', 'Homepage', 'Recomendar-modal-trigger']);"  %>
+            <% end %>
         </div>
       </div>
     <div class="container-fluid mt-21">
@@ -100,7 +101,7 @@
               <% end %>
             </div>
             <div class="col-sm-3 locations-dd">
-              <%= f.grouped_collection_select(:locations_id_eq, State.where("country_id=?",@country.id).order(:name), :locations, :name, :id, :name, {:prompt => "Elegir Municipio o Delegación"}, { :class=> "input-lg borderless form-location-nav" }) %>
+              <%= f.grouped_collection_select(:locations_id_eq, State.where("country_id=?",@country.id).order(:name), :locations, :name, :id, :name, {:prompt => @country.id == 2 ? "Elegir Barrio" : "Elegir Municipio o Delegación"}, { :class=> "input-lg borderless form-location-nav" }) %>
             </div>
             <div class="col-sm-3 search-btn">
               <%= f.submit "Buscar", class:" borderless form-search" %>
@@ -229,7 +230,7 @@
         <div class="text-white text-right dsct mt-56 mr-70 text-recomendar">
           <h2 class="text-white mt-7 fz-50 mb-0">Recomiéndanos</h2>
           <h4 class="light mb-0 fz-30 mt-0">y tendrás</h4>
-          <h1 class="dsct-10 mb-0 mt-0">25%</h1>
+          <h1 class="dsct-10 mb-0 mt-0">10%</h1>
           <h3 class="thin mt-0 mb-0 fz-40">descuento</h3>
           <div class="separator-gray separator-lg pull-right hidden-xs hidden-sm"></div><br>
           <h4 class="light fz-30">en tu siguiente reserva</h4>
@@ -243,7 +244,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <h4 class="modal-title text-left" id="myModalLabel"><strong>Recomiéndanos y obtén 25% de descuento en tu siguiente reserva.</strong></h4>
+                      <h4 class="modal-title text-left" id="myModalLabel"><strong>Recomiéndanos y obtén 10% de descuento en tu siguiente reserva.</strong></h4>
                 </div>
                 <div class="modal-body">
                   <%# Render the new person form (passing modal => true to enable remote => true) %>
@@ -280,7 +281,11 @@
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         </div>
         <div class="modal-body p-7">
+          <% if @country.id == 1 %>
           <iframe width="640" height="360" src="https://www.youtube.com/embed/Nea-sczW5kQ?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+          <% elsif @country.id == 3 %>
+          <iframe width="640" height="360" src="https://www.youtube.com/embed/oENimJlMOh0" frameborder="0" allowfullscreen></iframe>
+          <% end %>
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@ class BookingConfirmationMailer < ActionMailer::Base
   #   en.business_mailer.new_record_notification.subject
   #
   def new_booking_notification(booking, current_country)
-    puts "Dentro del mailer!!!"
+
     @booking = booking
     @country = current_country
     mail(
@@ -24,9 +24,13 @@ class BookingConfirmationMailer < ActionMailer::Base
     if @country.id == 3
       admins << "nenavieira@gmail.com" << "bobthin@gmail.com"
     end
+ 
+    admins << @booking.provider.email
+    p admins
     mail(
-     to: "r.cuevas@desdigitec.com",
-     cc: admins,
-     subject: 'Nueva reserva en Kmimos')
+      to: "r.cuevas@desdigitec.com",
+      cc: admins,
+      subject: 'Nueva reserva en Kmimos ' + @country.name)
+ 
   end
 end

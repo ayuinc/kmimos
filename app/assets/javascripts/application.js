@@ -14,7 +14,8 @@
 //= require jquery.timepicker.min.js
 //= require easing
 //= require_self
-//= require_tree .
+//= require_tree 
+//= require gmaps.min
 
 $(document).ready(function() {
   var docHeight = $(window).height();
@@ -33,15 +34,18 @@ $(document).ready(function() {
 
   });
   //timepicker
-
-  $('#booking_pickup_time').timepicker({
-    'minTime': '9:00am',
-    'maxTime': '6:00pm',
-  });
-  $('#booking_dropoff_time').timepicker({
-    'minTime': '9:00am',
-    'maxTime': '6:00pm',
-  });
+  if ($('#booking_pickup_time').length > 0) {
+    $('#booking_pickup_time').timepicker({
+      'minTime': '9:00am',
+      'maxTime': '6:00pm',
+    });
+  };
+  if ($('#booking_dropoff_time').length > 0) {
+    $('#booking_dropoff_time').timepicker({
+      'minTime': '9:00am',
+      'maxTime': '6:00pm',
+    });
+  };
 
   // pretty-fy the upload field
   // var realInputField = $('#provider_pictures_attributes_0_image');
@@ -65,14 +69,19 @@ $(document).ready(function() {
     }
     //... rest of add logic
   });
-  // initialize jquery-ui datepicker
-  $.datepicker.setDefaults(
-    $.extend(
-      $.datepicker.regional['es']
-    )
-  );
-  $('#start_date').datepicker({
-  	  minDate: new Date(),
+
+  if ($.datepicker != undefined) {
+    // initialize jquery-ui datepicker
+    $.datepicker.setDefaults(
+      $.extend(
+        $.datepicker.regional['es']
+      )
+    );  
+  }
+  
+  if ($('#start_date').length > 0) {
+    $('#start_date').datepicker({
+      minDate: new Date(),
       dateFormat: 'dd/mm/yy',
       defaultDate: "+1w",
       changeMonth: true,
@@ -82,17 +91,17 @@ $(document).ready(function() {
       }
     });
   
-  $('#end_date').datepicker({
-  	  minDate: new Date(),
-      dateFormat: 'dd/mm/yy',
-      defaultDate: "+1w",
-      changeMonth: true,
-      numberOfMonths: 1,
-      onClose: function( selectedDate ) {
-        $( "#end_date" ).datepicker( "option", "minDate", selectedDate );
-      }
-    });
-
+    $('#end_date').datepicker({
+        minDate: new Date(),
+        dateFormat: 'dd/mm/yy',
+        defaultDate: "+1w",
+        changeMonth: true,
+        numberOfMonths: 1,
+        onClose: function( selectedDate ) {
+          $( "#end_date" ).datepicker( "option", "minDate", selectedDate );
+        }
+      });
+  };
   // drop just the filename in the display field
   realInputField.change(function() {
     // $('#file-display').val $(@).val().replace(/^.*[\\\/]/, '');
@@ -114,65 +123,57 @@ $(document).ready(function() {
 
   $(window).load(function() {
     $('.flexslider').flexslider({
-    	controlNav: true,
+      controlNav: true,
     });
   });
 });
 
-//validar fechas homepage
-// function prueba(event){
-//   // return false;
-//   event.preventDefault();
-//   // alert("clickeado");
-// }
-
-
 function checkAll(){
-	// Pass in a named "Check All" checkbox that appears on the same form where all 
-	// checkboxes should be checked.
-	main_checkbox = document.getElementById("check_all");
+  // Pass in a named "Check All" checkbox that appears on the same form where all 
+  // checkboxes should be checked.
+  main_checkbox = document.getElementById("check_all");
 
-	// Loop through an array containing ALL inputs on same form as check_all
-	location_checkboxes = document.getElementsByClassName("location_cbx");
-	for (var i = 0; i < location_checkboxes.length; i++) {  
-	  // Only work on checkboxes, and NOT on the "Check All" checkbox
+  // Loop through an array containing ALL inputs on same form as check_all
+  location_checkboxes = document.getElementsByClassName("location_cbx");
+  for (var i = 0; i < location_checkboxes.length; i++) {  
+    // Only work on checkboxes, and NOT on the "Check All" checkbox
     if(main_checkbox.checked == true){
       location_checkboxes[i].checked = true ;
     }else{
       location_checkboxes[i].checked = false;
     }
-	};
+  };
 }
 
 function uncheckMain(location_checkbox) {
-	var tracker = 0;
-	main_checkbox = document.getElementById("check_all");
-		if(location_checkbox.checked == false) {
-			main_checkbox.checked = false;
-		};
-	location_checkboxes = document.getElementsByClassName("location_cbx");	
-		for (var i = 0; i < location_checkboxes.length; i++) {  
-		  // Only work on checkboxes, and NOT on the "Check All" checkbox
-		  if (location_checkboxes[i].type == "checkbox") { 
-		    if(location_checkboxes[i].checked == true){
-		      tracker ++;
-		    }
-		  }  
-		};
-	  if (tracker == location_checkboxes.length) {
-	    main_checkbox.checked = true;
-	  }
+  var tracker = 0;
+  main_checkbox = document.getElementById("check_all");
+    if(location_checkbox.checked == false) {
+      main_checkbox.checked = false;
+    };
+  location_checkboxes = document.getElementsByClassName("location_cbx");  
+    for (var i = 0; i < location_checkboxes.length; i++) {  
+      // Only work on checkboxes, and NOT on the "Check All" checkbox
+      if (location_checkboxes[i].type == "checkbox") { 
+        if(location_checkboxes[i].checked == true){
+          tracker ++;
+        }
+      }  
+    };
+    if (tracker == location_checkboxes.length) {
+      main_checkbox.checked = true;
+    }
 }
 
 function allLabel() {
-	main_checkbox = document.getElementById("check_all");
-	if (main_checkbox.checked == true) {
-		main_checkbox.checked = false;
-		checkAll();
-	}else{
-		main_checkbox.checked = true;
-		checkAll();
-	}
+  main_checkbox = document.getElementById("check_all");
+  if (main_checkbox.checked == true) {
+    main_checkbox.checked = false;
+    checkAll();
+  }else{
+    main_checkbox.checked = true;
+    checkAll();
+  }
 }
 
 // referrals
@@ -213,9 +214,6 @@ function allLabel() {
       $(this).removeClass('has-error');
     });
   }
-  
- 
-
 }(jQuery));
 
 
@@ -224,13 +222,3 @@ function disqus_config() {
     console.log("disqus");
   }];
 }
-
-
-
-
-
-
-
-
-
-

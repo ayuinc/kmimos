@@ -24,6 +24,9 @@
 #  iframe_code     :text
 #  property_id     :integer
 #  active          :boolean          default(TRUE)
+#  latitude        :string(255)
+#  longitude       :string(255)
+#  address         :string(255)
 #
 
 class Provider < ActiveRecord::Base
@@ -67,7 +70,7 @@ class Provider < ActiveRecord::Base
 
   def prov_locations_modal
     if self.locations.count > 3
-      return "#{self.locations[0].name}, #{self.locations[1].name}, #{self.locations[2].name}, otros"
+      return "#{self.locations[0].name}, #{self.locations[1].name}, #{self.locations[2].name}"
     else
       return self.locations.map(&:name).join(", ")
     end
