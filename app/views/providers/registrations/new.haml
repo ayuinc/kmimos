@@ -1,0 +1,45 @@
+.container.content.mh-630
+  .row.mt-35
+    .col-md-2
+    .col-md-8
+      %h3 Regístrate en kmimos
+      .panel.panel-primary
+        .panel-heading.mb-21.text-gray 
+          Si quieres registrarte como proveedor de kmimos, llena este formulario y nos pondremos en contacto contigo.
+        .panel-body
+          = simple_form_for(resource, :html => {:multipart => true}) do |f| 
+            - @provider = resource
+            = devise_error_messages!
+            .registration_wizard
+              = render partial: 'step1', locals: {f: f}
+              = render partial: 'step2', locals: {f: f}
+              = render partial: 'step3', locals: {f: f}
+
+.col-md-3.pl-0.mb-42
+  = link_to 'Regístrate', '#myModal', 'data-toggle' => 'modal', :class => "btn btn-primary form-control", :onClick=>"_gaq.push(['_trackEvent', 'Homepage', 'Recomendar-modal-trigger']);"
+            
+:javascript
+  $(".registration_wizard").steps({
+      headerTag: "h3",
+      bodyTag: "section",
+      transitionEffect: "slideLeft",
+      autoFocus: true
+  });
+  
+  $('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').focus()
+  });
+  $(document).ready(function() {
+    var altura = $(window).height() - 250;
+    $("#license_terms").height(altura);
+    $("input[name=license_term]").click(function(e) {
+      if ($(this).is(":checked")) {
+        $("#confirm_new_provider").prop("disabled", false);
+      } else {
+        $("#confirm_new_provider").attr("disabled", true);
+      }
+    });
+  });
+ 
+= javascript_include_tag 'gmaps.min'
+= javascript_include_tag 'provider_map'

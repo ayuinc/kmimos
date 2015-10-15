@@ -1,0 +1,34 @@
+%h3
+%section
+  .row
+    .col-md-12
+      %h2 Detalles del Ciudador
+      %hr
+  .row
+    .col-md-12= f.input :description, label:  "Descripción como cuidador:"   
+  .row
+    .col-md-12= f.input :price, label:  "Precio por noche:"   
+  %label ¿En qué municipios puedes trabajar?
+  .row
+    .col-md-12= f.input :experiencia, label: "Años de experiencia cuidando perros"
+  .row
+    .col-md-12= # TO-DO Tipos de Propiedad
+  .row
+    .col-md-12
+      %div
+        %label "Tamaños:"
+        %br/
+        - Size.find_each do |size|
+          = check_box_tag "provider[size_ids][]", size.id, @provider.size_ids.include?(size.id), id: dom_id(size)
+          = label_tag dom_id(size), size.size_title, class: "small"
+          %br/
+    .col-md-12
+      %div
+        %label "Edades:"
+        %br/
+        - Age.find_each do |age|
+          = check_box_tag "provider[age_ids][]", age.id, @provider.age_ids.include?(age.id), id: dom_id(age)
+          = label_tag dom_id(age), age.age_group_name, class: "small"
+          %br/
+  .row
+    .col-md-12= f.input :areas_externas, label: "¿Cuéntas con áreas externas? (describe)"

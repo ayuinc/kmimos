@@ -16,6 +16,7 @@
 //= require_self
 //= require_tree 
 //= require gmaps.min
+//= require jquery.steps.js
 
 $(document).ready(function() {
   var docHeight = $(window).height();
