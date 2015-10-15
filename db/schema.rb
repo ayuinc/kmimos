@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151014233438) do
+ActiveRecord::Schema.define(version: 20151015213054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,6 +126,19 @@ ActiveRecord::Schema.define(version: 20151014233438) do
 
   add_index "meetings", ["provider_id"], name: "index_meetings_on_provider_id", using: :btree
 
+  create_table "own_sizings", force: true do |t|
+    t.integer  "provider_id"
+    t.integer  "size_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pet_behaviors", force: true do |t|
+    t.string   "behavior_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "properties", force: true do |t|
     t.string "property_name"
   end
@@ -171,6 +184,12 @@ ActiveRecord::Schema.define(version: 20151014233438) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.boolean  "has_other_pets"
+    t.integer  "number_of_pets"
+    t.integer  "pets_allowed"
+    t.boolean  "has_green"
+    t.boolean  "has_yard"
+    t.integer  "pet_behavior_id"
   end
 
   add_index "providers", ["category_id"], name: "index_providers_on_category_id", using: :btree
@@ -200,5 +219,23 @@ ActiveRecord::Schema.define(version: 20151014233438) do
   end
 
   add_index "states", ["country_id"], name: "index_states_on_country_id", using: :btree
+
+  create_table "users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
