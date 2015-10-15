@@ -2,25 +2,36 @@
 %section
   .row
     .col-md-12
-      %h2 Datos Personales
+      %h2.title-step Datos Personales
       %hr
   .row
-    .col-md-12
-      = f.input :name, label:  "Nombre:" 
-      = f.input :last_name_1, label:  "Apellido Paterno:"   
-  .row
-    .col-md-6= f.input :dni, label:  current_country.dni_label 
-    .col-md-6= f.input :phone, label:  "Teléfono:"  
-  .row
-    .col-md-12
-      %hr
-  .row
-    .col-md-12= f.input :email, label:  "Correo electrónico:"  
-  .row 
-    .col-md-12= f.input :password, label: "Contraseña:" 
-  .row
-    .col-md-12 
-      =#TO-DO Avatar
-  .row
-    .col-md-6
-      =# TO-DO Galeria Foto
+    .col-md-1
+    .col-md-10
+      .row
+        .col-md-3 Nombre:
+        .col-md-9= f.input :name, label: false 
+      .row
+        .col-md-3 Apellido Paterno:
+        .col-md-9= f.input :last_name_1, label: false 
+      .row
+        .col-md-2= current_country.dni_label 
+        .col-md-3= f.input :dni, label: false 
+        .col-md-1
+        .col-md-2 Teléfono:
+        .col-md-3= f.input :phone, label: false
+      .row
+        .col-md-12
+          %hr
+      .row
+        .col-md-3 Correo electrónico:
+        .col-md-9= f.input :email, label: false
+      .row 
+        .col-md-3 Contraseña:
+        .col-md-9= f.input :password, label: false
+      .row
+        .col-md-12 
+          =#TO-DO Avatar
+      .row
+        .col-md-6
+          =# TO-DO Galeria Foto
+    .col-md-1

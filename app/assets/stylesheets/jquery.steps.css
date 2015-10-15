@@ -2,6 +2,24 @@
     Common 
 */
 
+hr
+{
+  border-top: 2px solid #87B8AB;
+  margin-bottom: 40px;
+  margin-top: 0px;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+h2.title-step {
+  font-weight: 200;
+  color: #87B8AB;
+  font-size: 18px;
+  font-weight: 500;
+}
+
 .wizard,
 .tabcontrol
 {
@@ -116,7 +134,7 @@
     background-size: 100% 100%; 
     color: #000;
     padding-top: 100px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     cursor: default;
 }
 
@@ -131,7 +149,7 @@
     color: #51C2B0;
     font-weight: 700;
     padding-top: 100px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .wizard > .steps .done a,
@@ -142,7 +160,7 @@
   background-size: 100% 100%; 
   color: #000;
   padding-top: 100px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   cursor: default;
 }
 
@@ -166,6 +184,7 @@
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+    
 }
 
 .wizard.vertical > .content
