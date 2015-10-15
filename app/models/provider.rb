@@ -57,7 +57,14 @@ class Provider < ActiveRecord::Base
   
   has_many :provider_attachments
   
+  has_many :additional_services
+  has_many :services, :through => :additional_services
+  
+  accepts_nested_attributes_for :additional_services
+  
   accepts_nested_attributes_for :provider_attachments
+  
+  
   
   validates_presence_of :email, :category_id, :name, :last_name_1, :last_name_2, :phone, :dni
   validates_format_of :email, with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
