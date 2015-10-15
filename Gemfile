@@ -39,6 +39,8 @@ group :development do
   gem 'activeadmin', github: 'activeadmin'  # Fast Admin Generator Tool
   gem 'simple_form'   #Gem for form simplification
   
+  gem 'cancancan'
+  
   gem 'faker'
   gem 'guard-livereload'
   gem 'guard-bundler'
