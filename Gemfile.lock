@@ -340,6 +340,9 @@ GEM
     shoulda-context (1.2.1)
     shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)
+    simple_form (3.2.0)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
     slop (3.6.0)
     sort_alphabetical (1.0.2)
       unicode_utils (>= 1.2.2)
@@ -421,6 +424,7 @@ DEPENDENCIES
   sass-rails
   sdoc
   shoulda
+  simple_form
   sort_alphabetical
   spring (~> 1.1.2)
   spring-commands-cucumber (~> 1.0.1)

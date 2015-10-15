@@ -37,6 +37,7 @@ group :development do
   gem 'haml-rails'    #Haml Template Engine Added
   gem 'devise'        #Devise Gem Added for Authentication
   gem 'activeadmin', github: 'activeadmin'  # Fast Admin Generator Tool
+  gem 'simple_form'   #Gem for form simplification
   
   gem 'faker'
   gem 'guard-livereload'

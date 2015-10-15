@@ -1,6 +1,6 @@
 ServihogarRails::Application.routes.draw do
 	
-  devise_for :providers
+  devise_for :providers, :controllers => {:registrations => "provider/registrations"}
   devise_for :admin_users, ActiveAdmin::Devise.config
   
   resources :provider_attachments, only: [:create, :destroy]

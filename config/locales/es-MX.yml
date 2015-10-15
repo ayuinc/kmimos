@@ -132,6 +132,7 @@ es-MX:
       less_than_or_equal_to: debe ser menor que o igual a %{count}
       not_a_number: no es un número
       not_an_integer: debe ser un entero
+      not_saved: El registro no se pudo completar
       odd: debe ser impar
       record_invalid: ! 'La validación falló: %{errors}'
       taken: ya está en uso
