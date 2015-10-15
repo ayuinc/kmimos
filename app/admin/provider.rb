@@ -19,12 +19,15 @@ ActiveAdmin.register Provider do
   filter :current_sign_in_at
   filter :sign_in_count
   filter :created_at
+  
+  
 
   form do |f|
     f.inputs "Provider Details" do
       f.input :name
       f.input :last_name_1
       f.input :last_name_2
+      f.input :active
     end
     f.actions
   end
