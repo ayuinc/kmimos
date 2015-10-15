@@ -41,6 +41,8 @@ group :development do
   
   gem 'cancancan'
   
+  gem 'nested_form'
+  
   gem 'faker'
   gem 'guard-livereload'
   gem 'guard-bundler'

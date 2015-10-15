@@ -1,2 +1,20 @@
 %h3 Paso 3
 %section
+  .row
+    .col-md-12
+      %h2.title-step Servicios Adicionales
+      %hr
+  .row
+    .col-md-12
+      = f.fields_for :additional_services do |s|
+        .row
+          .col-md-4 Servicio
+          .col-md-8= s.association :service, label: false
+        .row
+          
+          .col-md-4.tricol_checkboxes= s.association :sizes, label: false, as: :check_boxes
+          .col-md-4= s.input :price, label: false
+        
+       
+        
+      = f.link_to_add "Agregar un Servicio Adicional", :additional_services 
