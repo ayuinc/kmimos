@@ -1,3 +1,21 @@
+
+.tricol_checkboxes { 
+  .checkbox {
+    margin-top: 0px;
+    float: left;
+    width: 33.3%;
+  }
+}
+
+
+.twocol_checkboxes { 
+  .radio {
+    margin-top: 0px;
+    float: left;
+    width: 50%;
+  }
+}
+
 // new
 #error_explanation {
   color: red;
