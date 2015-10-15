@@ -57,6 +57,7 @@
     position: relative;
     display: block;
     width: 100%;
+    
 }
 
 .wizard.vertical > .steps
@@ -69,6 +70,9 @@
 .wizard > .steps .number
 {
     font-size: 1.429em;
+    position: relative;
+    display: none;
+    
 }
 
 .wizard > .steps > ul > li
@@ -98,8 +102,8 @@
 {
     display: block;
     width: auto;
-    margin: 0 0.5em 0.5em;
-    padding: 1em 1em;
+    width: 100px;
+    height: 100px; 
     text-decoration: none;
  
 }
@@ -108,8 +112,11 @@
 .wizard > .steps .disabled a:hover,
 .wizard > .steps .disabled a:active
 {
-    background: #eee;
-    color: #aaa;
+    background-image: url('/assets/grey_kmimos.png');
+    background-size: 100% 100%; 
+    color: #000;
+    padding-top: 100px;
+    margin-bottom: 30px;
     cursor: default;
 }
 
@@ -121,14 +128,22 @@
     background-size: 100% 100%;
     color: #fff;
     cursor: default;
+    color: #51C2B0;
+    font-weight: 700;
+    padding-top: 100px;
+    margin-bottom: 30px;
 }
 
 .wizard > .steps .done a,
 .wizard > .steps .done a:hover,
 .wizard > .steps .done a:active
 {
-    background: #9dc8e2;
-    color: #fff;
+  background-image: url('/assets/grey_kmimos.png');
+  background-size: 100% 100%; 
+  color: #000;
+  padding-top: 100px;
+  margin-bottom: 30px;
+  cursor: default;
 }
 
 .wizard > .steps .error a,
@@ -141,11 +156,10 @@
 
 .wizard > .content
 {
-    background: #eee;
+    background: #fff;
     display: block;
     margin: 0.5em;
-    min-height: 35em;
-    overflow: hidden;
+    min-height: 35em; 
     position: relative;
     width: auto;
 
