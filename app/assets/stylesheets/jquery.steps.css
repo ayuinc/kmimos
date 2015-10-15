@@ -25,7 +25,7 @@ h2.title-step {
 {
     display: block;
     width: 100%;
-    overflow: hidden;
+     
 }
 
 .wizard a,
@@ -120,8 +120,8 @@ h2.title-step {
 {
     display: block;
     width: auto;
-    width: 100px;
-    height: 100px; 
+    width: 60px;
+    height: 60px; 
     text-decoration: none;
  
 }
@@ -130,10 +130,12 @@ h2.title-step {
 .wizard > .steps .disabled a:hover,
 .wizard > .steps .disabled a:active
 {
-    background-image: url('/assets/grey_kmimos.png');
-    background-size: 100% 100%; 
+    background-image: url('/assets/pasos-huella-inactiva.svg');
+    background-size: 48px 60px; 
+    background-repeat: no-repeat;
+    background-position: center;
     color: #000;
-    padding-top: 100px;
+    padding-top: 70px;
     margin-bottom: 10px;
     cursor: default;
 }
@@ -142,13 +144,15 @@ h2.title-step {
 .wizard > .steps .current a:hover,
 .wizard > .steps .current a:active
 {
-    background-image: url('/assets/kmimos_icon.png');
-    background-size: 100% 100%;
+    background-image: url('/assets/pasos-huella-activa.svg');
+    background-size: 60px 60px;
+    background-repeat: no-repeat;
+    background-position: center;
     color: #fff;
     cursor: default;
     color: #51C2B0;
     font-weight: 700;
-    padding-top: 100px;
+    padding-top: 70px;
     margin-bottom: 10px;
 }
 
@@ -156,10 +160,12 @@ h2.title-step {
 .wizard > .steps .done a:hover,
 .wizard > .steps .done a:active
 {
-  background-image: url('/assets/grey_kmimos.png');
-  background-size: 100% 100%; 
+  background-image: url('/assets/pasos-huella-activa.svg');
+  background-size: 48px 60px; 
+  background-repeat: no-repeat;
+  background-position: center;
   color: #000;
-  padding-top: 100px;
+  padding-top: 70px;
   margin-bottom: 10px;
   cursor: default;
 }
@@ -198,9 +204,8 @@ h2.title-step {
 .wizard > .content > .body
 {
     float: left;
-    position: absolute;
-    width: 95%;
-    height: 95%;
+    position: relative;
+    width: 95%; 
     padding: 2.5%;
 }
 
@@ -217,8 +222,7 @@ h2.title-step {
 .wizard > .content > .body > iframe
 {
     border: 0 none;
-    width: 100%;
-    height: 100%;
+    width: 100%; 
 }
 
 .wizard > .content > .body input
@@ -392,8 +396,7 @@ h2.title-step {
     position: relative;
     display: inline-block;
     width: 100%;
-    height: 35em;
-    overflow: hidden;
+    height: 35em; 
     border-top: 1px solid #bbb;
     padding-top: 20px;
 }
@@ -402,8 +405,7 @@ h2.title-step {
 {
     float: left;
     position: absolute;
-    width: 95%;
-    height: 95%;
+    width: 95%; 
     padding: 2.5%;
 }
 
