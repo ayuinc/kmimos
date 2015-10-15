@@ -15,7 +15,7 @@
               = render partial: 'step2', locals: {f: f}
               = render partial: 'step3', locals: {f: f}
 
-.col-md-3.pl-0.mb-42
+.col-md-3
   = link_to 'Regístrate', '#myModal', 'data-toggle' => 'modal', :class => "btn btn-primary form-control", :onClick=>"_gaq.push(['_trackEvent', 'Homepage', 'Recomendar-modal-trigger']);"
             
 :javascript
@@ -29,6 +29,7 @@
   $('#myModal').on('shown.bs.modal', function () {
     $('#myInput').focus()
   });
+  
   $(document).ready(function() {
     var altura = $(window).height() - 250;
     $("#license_terms").height(altura);

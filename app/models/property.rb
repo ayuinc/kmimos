@@ -8,4 +8,8 @@
 
 class Property < ActiveRecord::Base
 	has_many :providers
+  
+  def to_s
+    property_name
+  end
 end

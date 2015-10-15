@@ -5,30 +5,73 @@
       %h2.title-step Detalles del Ciudador
       %hr
   .row
-    .col-md-12= f.input :description, label:  "Descripción como cuidador:"   
-  .row
-    .col-md-12= f.input :price, label:  "Precio por noche:"   
-  %label ¿En qué municipios puedes trabajar?
-  .row
-    .col-md-12= f.input :experiencia, label: "Años de experiencia cuidando perros"
-  .row
-    .col-md-12= # TO-DO Tipos de Propiedad
-  .row
-    .col-md-12
-      %div
-        %label "Tamaños:"
-        %br/
-        - Size.find_each do |size|
-          = check_box_tag "provider[size_ids][]", size.id, @provider.size_ids.include?(size.id), id: dom_id(size)
-          = label_tag dom_id(size), size.size_title, class: "small"
-          %br/
-    .col-md-12
-      %div
-        %label "Edades:"
-        %br/
-        - Age.find_each do |age|
-          = check_box_tag "provider[age_ids][]", age.id, @provider.age_ids.include?(age.id), id: dom_id(age)
-          = label_tag dom_id(age), age.age_group_name, class: "small"
-          %br/
-  .row
-    .col-md-12= f.input :areas_externas, label: "¿Cuéntas con áreas externas? (describe)"
+    .col-md-1
+    .col-md-10
+      .row
+        .col-md-3 Descripción como cuidador:
+        .col-md-9= f.input :description, label: false   
+      .row
+        .col-md-3 Precio por noche:
+        .col-md-7= f.input :price, label: false 
+        .col-md-2 Pesos 
+      .row
+        %label ¿En qué municipios puedes trabajar?
+      .row
+        .col-md-12.tricol_checkboxes= f.association :locations, as: :check_boxes, label: false
+      .row
+        .col-md-6 Años de experiencia cuidando perros
+        .col-md-2= f.input :experiencia, label: false
+        .col-md-4 Años
+      .row
+        .col-md-3 Tipo de Propiedad: 
+        .col-md-9= f.association :property, label: false
+      .row
+        .col-md-12.tricol_checkboxes
+          %label ¿Con que tamaños de perro trabaja? 
+          = f.association :sizes, as: :check_boxes, label: false  
+      .row
+        .col-md-12.tricol_checkboxes
+          %label Etapas de vida de los perros que cuida 
+          = f.association :ages, as: :check_boxes, label: false
+      .row
+        .col-md-12
+          .map-info
+            = f.input :latitude, as: :hidden
+            = f.input :longitude, as: :hidden
+      .row
+        .col-md-9
+          = f.input :address, label: "Dirección:", placeholder: "Ingrese su dirección...", hint: "*Si el pin no se sitúa en el lugar de tu dirección, por favor ajústalo."
+        .col-md-3
+          %label{:for => "search_address", :style => "display:block;color:white"} Buscar
+          %button#search_address.btn.btn-primary.form-control.ml-0{:name => "search_address", :type => "button"} Buscar 
+      .row
+        .col-md-12
+          #map.map{style: "width: 100% !important; height: 200px !important; "}
+      %br
+      .row
+        .col-md-12 ¿Cuentas con Otros perros en casa?
+      .row
+        .col-md-4.twocol_checkboxes
+          = f.input :has_other_pets, as: :radio_buttons, label: false, :collection => [['Si', true], ['No', false]]
+        .col-md-4 Numero de perros
+        .col-md-4= f.input :number_of_pets, label: false
+      .row
+        .col-md-12 Tamaño de Perro
+      .row
+        .col-md-12.tricol_checkboxes= f.association :own_sizes, as: :check_boxes, label: false
+      .row
+        .col-md-3 Comportamiento del Perro
+        .col-md-9= f.association :pet_behavior, label: false
+      .row
+        .col-md-9 ¿Cantidad de perros aceptado en su propiedad?
+        .col-md-3= f.input :pet_behavior, label: false
+      .row
+        .col-md-8 ¿La propiedad tiene áreas verdes cercanas? 
+        .col-md-4.twocol_checkboxes= f.input :has_green, as: :radio_buttons, label: false, :collection => [['Si', true], ['No', false]]
+      .row
+        .col-md-8 ¿La propiedad cuenta con patio? 
+        .col-md-4.twocol_checkboxes= f.input :has_green, as: :radio_buttons, label: false, :collection => [['Si', true], ['No', false]]
+         
+        
+        
+    .col-md-1

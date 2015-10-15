@@ -37,6 +37,7 @@ class Provider < ActiveRecord::Base
   
   belongs_to :category
   belongs_to :property
+  belongs_to :pet_behavior
   
   has_secure_password
   
@@ -45,6 +46,9 @@ class Provider < ActiveRecord::Base
   
   has_many :sizings
   has_many :sizes, :through => :sizings
+  
+  has_many :own_sizings
+  has_many :own_sizes, :through => :own_sizings, :source => :size
   
   has_many :localizations
   has_many :locations, through: :localizations  

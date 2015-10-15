@@ -8,5 +8,10 @@
 
 class Size < ActiveRecord::Base
 	has_many :sizings
+  has_many :own_sizings
 	has_many :providers, :through => :sizings
+  
+  def to_s
+    size_title
+  end
 end

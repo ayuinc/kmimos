@@ -9,4 +9,8 @@
 class Age < ActiveRecord::Base
 	has_many :agings
 	has_many	:providers, :through => :agings
+  
+  def to_s
+    age_group_name
+  end
 end
