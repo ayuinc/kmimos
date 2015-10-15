@@ -1,6 +1,9 @@
 class Provider::RegistrationsController < Devise::RegistrationsController
 
   before_filter :configure_permitted_parameters
+  
+  
+  
 
   protected
  
