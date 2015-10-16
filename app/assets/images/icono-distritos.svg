@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="11px" height="16px" viewBox="0 0 11 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12081) - http://www.bohemiancoding.com/sketch -->
+    <title>ubicacion</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="INTERNAS" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="perfil-del-cuidador" sketch:type="MSArtboardGroup" transform="translate(-374.000000, -3094.000000)" fill="#6CBA9B">
+            <g id="ubicacion" sketch:type="MSLayerGroup" transform="translate(374.000000, 3094.000000)">
+                <path d="M5.22512077,0 C2.34502415,0 0,2.31028571 0,5.1492381 C0,6.292 0.742318841,8.15657143 2.26338164,10.8481905 C3.34357488,12.7511429 4.4036715,14.339619 4.44888889,14.4064762 L5.22512077,15.5665714 L6.00135266,14.4064762 C6.04531401,14.339619 7.10415459,12.7511429 8.18434783,10.8481905 C9.70792271,8.15657143 10.4489855,6.292 10.4489855,5.1492381 C10.4489855,2.31028571 8.10396135,0 5.22512077,0 L5.22512077,0 Z M5.22512077,7.78266667 C3.73043478,7.78266667 2.51584541,6.58914286 2.51584541,5.11333333 C2.51584541,3.64 3.73043478,2.4452381 5.22512077,2.4452381 C6.71855072,2.4452381 7.93188406,3.64 7.93188406,5.11333333 C7.93188406,6.58914286 6.71855072,7.78266667 5.22512077,7.78266667 L5.22512077,7.78266667 Z" id="Imported-Layers" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

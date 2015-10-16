@@ -2,8 +2,8 @@
 = javascript_include_tag 'provider_map'
 .container.pvp-7.ph-21
   .row.mv-56
-    .col-md-1
-    .col-md-7 
+    .col-md-3
+    .col-md-6
       .info
         .user.border-bottom
           .user-card.user-card-round.size.xs.mb-21
@@ -78,31 +78,31 @@
         %p= @provider.description
       .ubicacion
         %h3.text-gray Ubicación
-        
-        .col-md-5
-          %h4.text-secondary Ubicacion del Cuidador 
-          %p
-            = image_tag('icono-ubicacion-cuidador.svg')
-            = @provider.address
-          %h4.text-secondary Areas del Servicio
-          - @provider.locations.group_by(&:state_id).each do |k, state|
-            %h4.mb-14.mt-21.pb-7.border-bottom= state.first.state 
-            - state.each do |city|
-              .city-span.mt-7.mb-7
-                = image_tag('icono-distritos.svg')
-                %span.text-third= city
-                %br 
-        .col-md-7 
-          - if !@provider.latitude.nil? and !@provider.longitude.nil?
-            #provider_location{:style => "width:100%;height:400px;"}
-            :javascript
-              setProviderLocation(#{@provider.latitude}, #{@provider.longitude});
-          - else
-            = @provider.iframe_code.html_safe if !@provider.iframe_code.nil?
-      
+        .row
+          .col-md-5
+            %h4.text-secondary Ubicacion del Cuidador 
+            %p
+              = image_tag('icono-ubicacion-cuidador.svg')
+              = @provider.address
+            %h4.text-secondary Areas del Servicio
+            - @provider.locations.group_by(&:state_id).each do |k, state|
+              %h4.mb-14.mt-21.pb-7.border-bottom= state.first.state 
+              - state.each do |city|
+                .city-span.mt-7.mb-7
+                  = image_tag('icono-distritos.svg')
+                  %span.text-third= city
+                  %br 
+          .col-md-7 
+            - if !@provider.latitude.nil? and !@provider.longitude.nil?
+              #provider_location{:style => "width:100%;height:400px;"}
+              :javascript
+                setProviderLocation(#{@provider.latitude}, #{@provider.longitude});
+            - else
+              = @provider.iframe_code.html_safe if !@provider.iframe_code.nil?
+    
       .comentarios
-        %h2.text-gray Comentarios
-        #disqus_thread
+        %h3.text-gray Comentarios
+        
     .col-md-3
       .content-article.mt-14.mb-28.text-center.m-21
         %h4.light.mb-0.text-gray.text-small Desde
@@ -147,13 +147,11 @@
   |
   \#{link_to 'Back', providers_path}
   
-:javascript
-  $(".rating-reviews").ready(function(){
-    $(".rating-reviews").raty({
-      starOff : '/assets/icono-hueso-gris.svg',
-      starOn  : '/assets/icono-hueso-verde.svg'
-    });
-  });
+:javascript 
+  $(".rating-reviews").raty({
+    starOff : '/assets/icono-hueso-gris.svg',
+    starOn  : '/assets/icono-hueso-verde.svg'
+  }); 
   
 :javascript
   
