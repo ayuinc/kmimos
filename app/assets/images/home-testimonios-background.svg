@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1440px" height="1251px" viewBox="0 0 1440 1251" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12081) - http://www.bohemiancoding.com/sketch -->
+    <title>Rectangle-path Copy 2 + Rectangle-path Copy 11</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="6.58906356%" x2="50%" y2="80.3541933%" id="linearGradient-1">
+            <stop stop-color="#81EBE1" offset="0%"></stop>
+            <stop stop-color="#53CFDC" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="HOME" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Homepage-2" sketch:type="MSArtboardGroup" transform="translate(0.000000, -1392.000000)">
+            <g id="Rectangle-path-Copy-2-+-Rectangle-path-Copy-11" sketch:type="MSLayerGroup" transform="translate(0.000000, 1392.000000)">
+                <g id="Rectangle-path-Copy-2" fill="url(#linearGradient-1)" sketch:type="MSShapeGroup">
+                    <rect id="Rectangle-path-Copy" x="-3.26241969e-14" y="6.9422602e-15" width="1439.73735" height="1249.76747"></rect>
+                </g>
+                <path d="M1.33226763e-15,1131.02343 C1.33226763e-15,1131.02343 114.371057,1102.40484 306.859375,1078.70311 C499.347693,1055.00139 622.528905,1047.06531 700.206506,1044.80468 C994.107484,1036.25134 1336.375,1131.02342 1336.375,1131.02342 L1439.00751,1078.70311 L1439.00749,1250.99999 L1.33226763e-15,1251 L1.33226763e-15,1131.02343 Z" id="Rectangle-path-Copy-11" opacity="0.694193097" fill="#37BC9E" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>

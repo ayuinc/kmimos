@@ -41,6 +41,9 @@ gem 'cancancan'
 
 gem 'nested_form'
 
+gem 'sass'
+gem 'sass-rails'
+gem 'rails-i18n' 
 
 group :development do
   
@@ -73,6 +76,3 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'sass'
-gem 'sass-rails'
-gem 'rails-i18n' 
