@@ -3,7 +3,9 @@
  * Copyright (c) 2014 Rafael Staib (http://www.jquery-steps.com)
  * Licensed under MIT http://www.opensource.org/licenses/MIT
  */
-;(function ($, undefined)
+
+
+(function ($, undefined)
 {
 $.fn.extend({
     _aria: function (name, value)
