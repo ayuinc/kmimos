@@ -16,6 +16,10 @@ class Location < ActiveRecord::Base
 	#scope :order, -> { order('locations.utf_name ASC') }
 
   validates_presence_of :name
+  
+  def to_s
+    name
+  end
 
   def utfs
     locations.all

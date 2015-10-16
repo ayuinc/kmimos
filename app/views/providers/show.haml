@@ -3,9 +3,7 @@
 .container.pvp-7.ph-21
   .row.mv-56
     .col-md-1
-    .col-md-7
-      %p.text-gray.medium.ml-7.mb-35
-        Resultados > #{@provider.name}#{@provider.last_name_1}
+    .col-md-7 
       .info
         .user.border-bottom
           .user-card.user-card-round.size.xs.mb-21
@@ -14,7 +12,7 @@
               = image_tag('server_carnet.png') unless @provider.avatar?
               .rating-reviews.pl-14.mt-7
             .user-info.pl-14
-              %h1.m-0.mb-7
+              %h3.m-0.mb-7
                 = @provider.name
                 = @provider.last_name_1
               - @provider.locations.group_by(&:state_id).each do |k, state|
@@ -22,7 +20,7 @@
                 %br
                 %span.text-gray= state.map(&:name).join(", ")
                 %br
-      %h2.text-gray.mb-21 Detalles
+      %h3.text-gray.mb-21 Detalles
       .row.details-profile.pl-21
         .col-md-2
           .icon= image_tag('detalles-casa.svg')
@@ -41,7 +39,7 @@
           %span 15 años de experiencia
       .border-bottom.mt-21
         
-      %h2.text-gray Fotos
+      %h3.text-gray.mb-35.mt-49= "Fotos de #{@provider.name} #{@provider.last_name_1}"
       / Place somewhere in the <body> of your page
       #slider.flexslider.carousel-gallery.mb-7
         - if !@provider_attachments.empty?
@@ -59,7 +57,7 @@
             - @provider_attachments.each do |p|
               %li
                 = image_tag p.photo_url 
-      %h2.text-gray.mb-35 Otros detalles
+      %h3.text-gray.mb-35 Otros detalles
       .row.details-profile.pl-21
         .col-md-3
           .icon= image_tag('otros-detalles-otros-perros.svg')
@@ -75,15 +73,25 @@
           %span Cantidad de perros aceptados
       
       .descripcion-perfil.border-top
-        %h2.text-gray
+        %h3.text-gray
           Sobre #{@provider.name}:
         %p= @provider.description
       .ubicacion
-        %h2.text-gray Ubicación
+        %h3.text-gray Ubicación
+        
         .col-md-5
-          %h4 Ubicacion del Cuidador
-          %h4 Areas del Servicio
-            
+          %h4.text-secondary Ubicacion del Cuidador 
+          %p
+            = image_tag('icono-ubicacion-cuidador.svg')
+            = @provider.address
+          %h4.text-secondary Areas del Servicio
+          - @provider.locations.group_by(&:state_id).each do |k, state|
+            %h4.mb-14.mt-21.pb-7.border-bottom= state.first.state 
+            - state.each do |city|
+              .city-span.mt-7.mb-7
+                = image_tag('icono-distritos.svg')
+                %span.text-third= city
+                %br 
         .col-md-7 
           - if !@provider.latitude.nil? and !@provider.longitude.nil?
             #provider_location{:style => "width:100%;height:400px;"}
@@ -92,7 +100,7 @@
           - else
             = @provider.iframe_code.html_safe if !@provider.iframe_code.nil?
       
-      .comentarios.border-top
+      .comentarios
         %h2.text-gray Comentarios
         #disqus_thread
     .col-md-3
