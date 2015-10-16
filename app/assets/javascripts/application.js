@@ -15,15 +15,32 @@
 //= require easing
 //= require_self
 //= require_tree 
-//= require gmaps.min
+//= require gmaps.min 
 //= require jquery.steps.js
 //= require jquery.raty.js
-//= require jquery_nested_form
+//= require jquery_nested_form 
 
 $(document).ready(function() {
   var docHeight = $(window).height();
   var footerHeight = $('#footer').height();
   var footerTop = $('#footer').position().top + footerHeight;
+  var map;
+
+  if ($("#provider_location").length > 0) {
+    function setProviderLocation(latitude, longitude) {
+      map = new GMaps({
+        div: '#provider_location',
+        lat: latitude,
+        lng: longitude,
+        zoom: 15
+      });
+
+      map.addMarker({
+        lat: latitude,
+        lng: longitude
+      });
+    }
+  }
 
   if (footerTop < docHeight) {
     $('#footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
@@ -31,11 +48,10 @@ $(document).ready(function() {
 
   // modal for referral codes
   $(document).bind('ajaxError', 'form#new_referral', function(event, jqxhr, settings, exception){
-
     // note: jqxhr.responseJSON undefined, parsing responseText instead
     $(event.data).render_form_errors( $.parseJSON(jqxhr.responseText) );
-
   });
+
   //timepicker
   if ($('#booking_pickup_time').length > 0) {
     $('#booking_pickup_time').timepicker({
@@ -59,10 +75,10 @@ $(document).ready(function() {
   $('img').filter(function(){
           return !$(this).attr('src');
   }).hide();
-  $("a[href='/provider_attachments']").hide()
+  $("a[href='/provider_attachments']").hide();
   
   //ocultar secciones de disqus
-   $('[data-tracking-area="footer"]').hide();
+  $('[data-tracking-area="footer"]').hide();
   //validate datepickers
   $("input.form-search").click(function(event){
     if($("#start_date").val() == "" | $("#end_date").val() == "") {
@@ -95,16 +111,17 @@ $(document).ready(function() {
     });
   
     $('#end_date').datepicker({
-        minDate: new Date(),
-        dateFormat: 'dd/mm/yy',
-        defaultDate: "+1w",
-        changeMonth: true,
-        numberOfMonths: 1,
-        onClose: function( selectedDate ) {
-          $( "#end_date" ).datepicker( "option", "minDate", selectedDate );
-        }
-      });
-  };
+      minDate: new Date(),
+      dateFormat: 'dd/mm/yy',
+      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 1,
+      onClose: function( selectedDate ) {
+        $( "#end_date" ).datepicker( "option", "minDate", selectedDate );
+      }
+    });
+  }
+
   // drop just the filename in the display field
   realInputField.change(function() {
     // $('#file-display').val $(@).val().replace(/^.*[\\\/]/, '');
@@ -124,6 +141,65 @@ $(document).ready(function() {
     };
   });
 
+<<<<<<< HEAD
+=======
+  $("#search_address").click(function(e) {
+    e.preventDefault();
+    GMaps.geocode({
+      address: $('#address').val(),
+      callback: function(results, status) {
+        if (status == 'OK') {
+          var latlng = results[0].geometry.location;
+          map.setCenter(latlng.lat(), latlng.lng());
+          map.removeMarkers();
+          map.addMarker({
+            lat: latlng.lat(),
+            lng: latlng.lng()
+          });
+          $("#provider_latitude").val(latlng.lat());
+          $("#provider_longitude").val(latlng.lng());
+        }
+      }
+    });
+  });
+  
+  if ($("#map").length > 0) {
+    map = new GMaps({
+      div: '#map',
+      lat: -12.043333,
+      lng: -77.028333,
+      zoom: 15
+    });   
+    GMaps.geolocate({
+      success: function(position) {
+        map.setCenter(position.coords.latitude, position.coords.longitude);
+        map.addMarker({
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        });
+        $("#provider_latitude").val(position.coords.latitude);
+        $("#provider_longitude").val(position.coords.longitude);
+      }
+    });
+  }
+
+  GMaps.on('click', map.map, function(event) {
+    var markers = map.markers.length;
+    var lat = event.latLng.lat();
+    var lng = event.latLng.lng();
+    console.log(markers);
+    if (markers != null) {
+      map.removeMarkers();
+    }
+    map.addMarker({
+      lat: lat,
+      lng: lng
+    });
+    $("#provider_latitude").val(lat);
+    $("#provider_longitude").val(lng);
+  });
+
+>>>>>>> f7d3ff4f06f9bc21c2e492fbec987074d002f414
   $(window).load(function() {
     $('.flexslider').flexslider({
       controlNav: true,
