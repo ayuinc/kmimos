@@ -36,10 +36,13 @@ class Provider < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   
   belongs_to :category
+  
   belongs_to :property
   belongs_to :pet_behavior
   
-  has_secure_password
+  #has_secure_password
+  
+  mount_uploader :avatar, AvatarUploader
   
   has_many :agings
   has_many :ages, :through => :agings
@@ -48,13 +51,11 @@ class Provider < ActiveRecord::Base
   has_many :sizes, :through => :sizings
   
   has_many :own_sizings
-  has_many :own_sizes, :through => :own_sizings, :source => :size
+  has_many :own_sizes, :through => :own_sizings, :source => :size 
   
   has_many :localizations
-  has_many :locations, through: :localizations  
-  
-  mount_uploader :avatar, AvatarUploader
-  
+  has_many :locations, through: :localizations, :source => :location
+   
   has_many :provider_attachments
   
   has_many :additional_services
@@ -64,9 +65,8 @@ class Provider < ActiveRecord::Base
   
   accepts_nested_attributes_for :provider_attachments
   
-  
-  
-  validates_presence_of :email, :category_id, :name, :last_name_1, :last_name_2, :phone, :dni
+  # Temporary not necesary :category_id
+  validates_presence_of :email, :name, :last_name_1, :phone, :dni
   validates_format_of :email, with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
   validates :locations, :presence => true
@@ -78,8 +78,7 @@ class Provider < ActiveRecord::Base
   validates_format_of :phone,
     with: /\A[0-9\-]+\z/,
     message: %Q[solo puede incluir números (0-9) y guiones "-".]  
-  
-  validate :fields_a_and_b_are_equal, on: :create
+   
   validate :dni_length, on: :create
   validate :dni_uniqueness, on: :create
 
@@ -87,20 +86,13 @@ class Provider < ActiveRecord::Base
     if self.locations.count > 3
       return "#{self.locations[0].name}, #{self.locations[1].name}, #{self.locations[2].name}"
     else
-      return self.locations.map(&:name).join(", ")
+      return self.locations.map(&:name).join(", ") rescue ''
     end
   end
 
   protected
 
-  def fields_a_and_b_are_equal
-    if self.email.present?
-      unless self.email == self.email_c
-        errors.add(:email_c, 'debe coincidir con el correo electrónico')
-      end
-    end  
-  end
-
+ 
   def dni_length
     if self.locations[0] != nil
       unless self.dni.length == self.locations[0].state.country.dni_length
