@@ -26,7 +26,7 @@
             .btn.btn-default.btn-xs= "-"
       
       - current_country.states.each do |state|
-        .row{class: "state_#{state.id}", style: 'display: none;'}
+        .row{class: "state_#{state.id}"}
           .col-md-12
             %label= state
             .tricol_checkboxes= f.association :locations, as: :check_boxes, label: false, :collection => state.locations
