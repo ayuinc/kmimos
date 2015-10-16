@@ -226,8 +226,7 @@ h2.title-step {
 }
 
 .wizard > .content > .body input
-{
-    display: block;
+{ 
     border: 1px solid #ccc;
 }
 
@@ -260,7 +259,7 @@ h2.title-step {
 {
     position: relative;
     display: block;
-    text-align: right;
+    text-align: center;
     width: 100%;
 }
 
@@ -292,8 +291,9 @@ h2.title-step {
 .wizard > .actions a:hover,
 .wizard > .actions a:active
 {
-    background: #2184be;
     color: #fff;
+    background-color: #55af8c;
+    border-color: #4ba07e;
     display: block;
     padding: 0.5em 1em;
     text-decoration: none;

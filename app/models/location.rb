@@ -13,7 +13,7 @@ class Location < ActiveRecord::Base
   has_many :providers, :through => :localizations
   belongs_to :state
 
-	scope :order, -> { order('locations.utf_name ASC') }
+	#scope :order, -> { order('locations.utf_name ASC') }
 
   validates_presence_of :name
 

@@ -12,5 +12,8 @@ class State < ActiveRecord::Base
   belongs_to :country
   has_many :locations
   
+  def to_s 
+    name
+  end
   # scope :cities_by_name, -> { locations.order(utf_name: :desc) }
 end

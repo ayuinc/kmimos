@@ -7,6 +7,13 @@
   }
 }
 
+.details-profile {
+  .icon {
+    text-align: center;
+    width: 100%; 
+    height: 50px;
+  }
+}
 
 .twocol_checkboxes { 
   .radio {
@@ -31,7 +38,7 @@
 
 #file-display, #archivo-elegido {
   font-size: 11px;
-  width: 100%;
+  width: 50%;
 }
 // new - ends
 
@@ -120,5 +127,9 @@
   padding-left: 3px;
   .fa {
     padding-right: 3px;
+  }
+  img {
+    width: 16px !important;
+    border: 0px !important;
   }
 }

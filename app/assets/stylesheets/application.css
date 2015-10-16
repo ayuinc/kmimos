@@ -10,10 +10,12 @@
  *
  *= require_self
  *= require jquery-ui
- *= require main
- *= require jquery.steps.css
+ *= require main 
+ *= require jquery.steps.css 
+ *= require jquery.raty.css
  */
 
 #license_terms {
   overflow-y: scroll;
 }
+
