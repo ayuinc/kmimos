@@ -19,8 +19,8 @@
         .col-md-1
         .col-md-2 Teléfono:
         .col-md-3= f.input :phone, label: false
-      .row 
-        .col-md-12
+      .row.border-bottom.mb-42
+        .col-md-12.mb-35
           = f.input :avatar, label: false
           = f.input :avatar_cache, as: :hidden
           .input-append
@@ -28,9 +28,7 @@
               %i.icon-upload-alt
               Sube tu foto de perfil 
             %input#file-display.input-large.uneditable-input{:type => "text"}/
-      .row.mt-21
-        .col-md-12
-          %hr
+ 
       .row
         .col-md-3 Correo electrónico:
         .col-md-9= f.input :email, label: false

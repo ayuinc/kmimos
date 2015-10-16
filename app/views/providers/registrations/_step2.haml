@@ -23,10 +23,10 @@
             %input{type: 'checkbox'}
           .col-md-10=state.name
           .col-md-1
-            .btn= "-"
+            .btn.btn-default.btn-xs= "-"
       
       - current_country.states.each do |state|
-        .row{class: "state_#{state.id}"}
+        .row{class: "state_#{state.id}", style: 'display: none;'}
           .col-md-12
             %label= state
             .tricol_checkboxes= f.association :locations, as: :check_boxes, label: false, :collection => state.locations
@@ -64,7 +64,7 @@
         .col-md-12 ¿Cuentas con Otros perros en casa?
       .row
         .col-md-4.twocol_checkboxes
-          = f.input :has_other_pets, as: :radio_buttons, label: false, :collection => [['Si', true], ['No', false]]
+          = f.input :has_other_pets, as: :radio_buttons, label: false, :collection => [['Si', 1], ['No', 0]]
         .col-md-4 Numero de perros
         .col-md-4= f.input :number_of_pets, label: false
       .row
@@ -76,14 +76,12 @@
         .col-md-9= f.association :pet_behavior, label: false
       .row
         .col-md-9 ¿Cantidad de perros aceptado en su propiedad?
-        .col-md-3= f.input :pet_behavior, label: false
+        .col-md-3= f.input :pets_allowed, label: false
       .row
         .col-md-8 ¿La propiedad tiene áreas verdes cercanas? 
-        .col-md-4.twocol_checkboxes= f.input :has_green, as: :radio_buttons, label: false, :collection => [['Si', true], ['No', false]]
+        .col-md-4.twocol_checkboxes= f.input :has_green, as: :radio_buttons, label: false, :collection => [['Si', 1], ['No', 0]]
       .row
         .col-md-8 ¿La propiedad cuenta con patio? 
-        .col-md-4.twocol_checkboxes= f.input :has_yard, as: :radio_buttons, label: false, :collection => [['Si', true], ['No', false]]
+        .col-md-4.twocol_checkboxes= f.input :has_yard, as: :radio_buttons, label: false, :collection => [['Si', 1], ['No', 0]]
          
-        
-        
     .col-md-1
