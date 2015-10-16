@@ -128,4 +128,6 @@ properties = ["Casa", "Departamento"]
 
 properties.sort!.each do |property|
   Property.find_or_create_by(property_name: property)
-endAdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+end
+
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
