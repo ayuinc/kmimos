@@ -17,6 +17,8 @@
 //= require_tree 
 //= require gmaps.min
 //= require jquery.steps.js
+//= require jquery.raty.js
+//= require jquery_nested_form
 
 $(document).ready(function() {
   var docHeight = $(window).height();
