@@ -35,8 +35,7 @@ class ApplicationController < ActionController::Base
     if Rails.env.development?
       Country.first
     elsif ENV['MANUAL_DEFAULT'] == 'on'
-        Country.first
-      end
+        Country.first 
     else
       if session[:country] == nil || session[:country] != HOSTS_MAPPING[request.host]
         current_country = HOSTS_MAPPING[request.host] != nil ? HOSTS_MAPPING[request.host] : "la"
