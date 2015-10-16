@@ -32,16 +32,18 @@ end
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby'
 
+gem 'haml-rails'    #Haml Template Engine Added
+gem 'devise'        #Devise Gem Added for Authentication
+gem 'activeadmin', github: 'activeadmin'  # Fast Admin Generator Tool
+gem 'simple_form'   #Gem for form simplification
+
+gem 'cancancan'
+
+gem 'nested_form'
+
+
 group :development do
   
-  gem 'haml-rails'    #Haml Template Engine Added
-  gem 'devise'        #Devise Gem Added for Authentication
-  gem 'activeadmin', github: 'activeadmin'  # Fast Admin Generator Tool
-  gem 'simple_form'   #Gem for form simplification
-  
-  gem 'cancancan'
-  
-  gem 'nested_form'
   
   gem 'faker'
   gem 'guard-livereload'
@@ -73,4 +75,4 @@ end
 
 gem 'sass'
 gem 'sass-rails'
-gem 'rails-i18n', '~> 4.0.0'
+gem 'rails-i18n' 

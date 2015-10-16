@@ -415,7 +415,7 @@ DEPENDENCIES
   nested_form
   pg (~> 0.17.1)
   rails (= 4.1.11)
-  rails-i18n (~> 4.0.0)
+  rails-i18n
   rails_12factor
   ransack
   rb-fsevent
