@@ -1,0 +1,164 @@
+= javascript_include_tag 'gmaps.min'
+= javascript_include_tag 'provider_map'
+.container.pvp-7.ph-21
+  .row.mv-56
+    .col-md-1
+    .col-md-7
+      %p.text-gray.medium.ml-7.mb-35
+        Resultados > #{@provider.name}#{@provider.last_name_1}
+      .info
+        .user.border-bottom
+          .user-card.user-card-round.size.xs.mb-21
+            .user-pic.flex-middle
+              = image_tag(@provider.avatar_url(:thumb)) if @provider.avatar?
+              = image_tag('server_carnet.png') unless @provider.avatar?
+              .rating-reviews.pl-14.mt-7
+            .user-info.pl-14
+              %h1.m-0.mb-7
+                = @provider.name
+                = @provider.last_name_1
+              - @provider.locations.group_by(&:state_id).each do |k, state|
+                %b= state.first.state
+                %br
+                %span.text-gray= state.map(&:name).join(", ")
+                %br
+      %h2.text-gray.mb-21 Detalles
+      .row.details-profile.pl-21
+        .col-md-2
+          .icon= image_tag('detalles-casa.svg')
+          %span Casa de dos pisos
+        .col-md-2
+          .icon= image_tag('detalles-perro-grande.svg')
+          %span Perros Grandes
+        .col-md-2
+          .icon= image_tag('detalles-edad-perro-cachorro.svg')
+          %span Cachorros
+        .col-md-2
+          .icon= image_tag('detalles-transporte.svg')
+          %span Transporte a domicilio
+        .col-md-2
+          .icon= image_tag('detalles-experiencia.svg')
+          %span 15 años de experiencia
+      .border-bottom.mt-21
+        
+      %h2.text-gray Fotos
+      / Place somewhere in the <body> of your page
+      #slider.flexslider.carousel-gallery.mb-7
+        - if !@provider_attachments.empty?
+          %ul.slides
+            - @provider_attachments.each do |p|
+              %li
+                .row.ml-0.mr-0
+                  .col-md-12.server-pic.ph-0
+                    = image_tag p.photo_url
+        - else
+          %p No hay fotos
+      #carousel.flexslider
+        - if !@provider_attachments.empty?
+          %ul.slides
+            - @provider_attachments.each do |p|
+              %li
+                = image_tag p.photo_url
+      /
+        <div class="flexslider">
+        <haml_silent>         if !@provider_attachments.empty?
+        </haml_silent><haml_block>          <ul class="slides">
+        <haml_silent>           @provider_attachments.each do |p|
+        </haml_silent><haml_block>            <li>
+        <div class="row ml-0 mr-0">
+        <div class="col-md-12 server-pic ph-0">
+        <haml_loud> image_tag p.photo_url, size: '617x347' </haml_loud>
+        </div>
+        </div>
+        </li>
+        </haml_block>          </ul>
+        </haml_block><haml_silent>         else
+        </haml_silent><haml_block>        <p> No hay fotos </p>
+        </haml_block>      </div>
+      .descripcion-perfil.border-top
+        %h2.text-gray
+          Sobre #{@provider.name}:
+        %p= @provider.description
+      .ubicacion.border-top
+        %h2.text-gray Ubicación
+        - if !@provider.latitude.nil? and !@provider.longitude.nil?
+          #provider_location{:style => "width:100%;height:400px;"}
+          :javascript
+            setProviderLocation(#{@provider.latitude}, #{@provider.longitude});
+        - else
+          = @provider.iframe_code.html_safe if !@provider.iframe_code.nil?
+      .comentarios.border-top
+        %h2.text-gray Comentarios
+        #disqus_thread
+    .col-md-3
+      .content-article.mt-14.mb-28.text-center.m-21
+        %h4.light.mb-0.text-gray.text-small Desde
+        %h3.m-7.text-secondary
+          = current_country.currency
+          = 1.2*(@provider.price.to_i)
+        %h4.light.mt-0.text-gray.text-small por noche
+        %p.thin.text-graylight (Los precios pueden variar dependiendo el tamaño y cuidados especiales de la mascota)
+        = link_to "Reservar".html_safe, new_booking_path(:provider_id => @provider.id, :start_date => @start_date, :end_date => @end_date), :class => "mt-14 mb-21 btn btn-primary btn-small btn-fold",  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Reservar', 'provider_#{@provider.id.to_s}']);"
+        %br/
+        = link_to "Conocer cuidador".html_safe, new_meeting_path(:provider_id => @provider.id), :class => "text-secondary btn btn-fold", :style => "border-color: #1DBA9A; padding: 10px 7px;",  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Conocer', 'provider_#{@provider.id.to_s}']);"
+      .content-detalles.mt-14.mb-28.text-center.m-21.pb-14
+        .border-bottom.text-left.pl-21
+          %h3.text-gray.mv-14 Detalles
+        .text-left.ph-21
+          %h5.text-secondary.light.mt-14.mb-7 Tipo de propiedad:
+          %p.text-gray.light= Property.find(@provider.property_id).property_name if !@provider.property_id.nil?
+          %h5.text-secondary.light.mt-14.mb-7 Áreas externas:
+          %p.text-gray.light= @provider.areas_externas
+          %h5.text-secondary.light.mt-14.mb-7.light Tamaño de perros aceptados:
+          %ul.pl-21
+            - @provider.sizes.each do |size|
+              %li.text-gray.light= size.size_title
+          %h5.text-secondary.mt-14.mb-7.light Edades aceptadas para perros:
+          %ul.pl-21
+            - @provider.ages.each do |age|
+              %li.text-gray.light= age.age_group_name
+          %h5.text-secondary.mt-14.mb-7.light Transporte de emergencia:
+          - if @provider.emergencia == false
+            %p.text-gray.light No
+          - else
+            %p.text-gray.light Sí
+          %h5.text-secondary.mt-14.mb-7.light Años cuidando perros:
+          %p.text-gray.light= @provider.experiencia
+.hidden
+  %h3 mostrando photos
+  - @provider_attachments.each do |p|
+    = image_tag p.photo_url, :size => "150x150"
+    = link_to "Borrar foto", p, method: :delete
+.hidden
+  = link_to 'Edit', edit_provider_path(@provider)
+  |
+  \#{link_to 'Back', providers_path}
+  
+:javascript
+  $(".rating-reviews").ready(function(){
+    $(".rating-reviews").raty({
+      starOff : '/assets/icono-hueso-gris.svg',
+      starOn  : '/assets/icono-hueso-verde.svg'
+    });
+  });
+  
+:javascript
+  
+  
+  
+  /* * * CONFIGURATION VARIABLES * * */
+  var disqus_shortname = 'kmimos';
+  
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+  
+  
+  
+  
+%noscript
+  Please enable JavaScript to view the
+  %a{:href => "https://disqus.com/?ref_noscript", :rel => "nofollow"} comments powered by Disqus.
