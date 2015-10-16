@@ -13,12 +13,13 @@
 //= require datepicker-es.js
 //= require jquery.timepicker.min.js
 //= require easing
-//= require_self
-//= require_tree 
 //= require gmaps.min 
 //= require jquery.steps.js
 //= require jquery.raty.js
 //= require jquery_nested_form 
+//= require_self
+//= require_tree 
+
 
 $(document).ready(function() {
   var docHeight = $(window).height();
