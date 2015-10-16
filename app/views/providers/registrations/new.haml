@@ -7,9 +7,7 @@
         .panel-heading.mb-21.text-gray.text-align-center
           Si quieres registrarte como proveedor de Kmimos, llena este formulario y nos pondremos en contacto contigo.
         .panel-body
-          = simple_nested_form_for(resource, :html => {:multipart => true}) do |f| 
-            - @provider = resource
-            = devise_error_messages!
+          = simple_nested_form_for(resource, :html => {:multipart => true}) do |f|  
             .registration_wizard
               = render partial: 'step1', locals: {f: f}
               = render partial: 'step2', locals: {f: f}

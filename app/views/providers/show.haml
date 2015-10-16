@@ -58,35 +58,40 @@
           %ul.slides
             - @provider_attachments.each do |p|
               %li
-                = image_tag p.photo_url
-      /
-        <div class="flexslider">
-        <haml_silent>         if !@provider_attachments.empty?
-        </haml_silent><haml_block>          <ul class="slides">
-        <haml_silent>           @provider_attachments.each do |p|
-        </haml_silent><haml_block>            <li>
-        <div class="row ml-0 mr-0">
-        <div class="col-md-12 server-pic ph-0">
-        <haml_loud> image_tag p.photo_url, size: '617x347' </haml_loud>
-        </div>
-        </div>
-        </li>
-        </haml_block>          </ul>
-        </haml_block><haml_silent>         else
-        </haml_silent><haml_block>        <p> No hay fotos </p>
-        </haml_block>      </div>
+                = image_tag p.photo_url 
+      %h2.text-gray.mb-35 Otros detalles
+      .row.details-profile.pl-21
+        .col-md-3
+          .icon= image_tag('otros-detalles-otros-perros.svg')
+          %span 1 Perro en casa mediano
+        .col-md-3
+          .icon= image_tag('otros-detalles-patio.svg')
+          %span Casa con patio grande
+        .col-md-3
+          .icon= image_tag('otros-detalles-areas-verdes.svg')
+          %span Areas Verdes
+        .col-md-3
+          .icon= image_tag('otros-detalles-cantidad-perros.svg')
+          %span Cantidad de perros aceptados
+      
       .descripcion-perfil.border-top
         %h2.text-gray
           Sobre #{@provider.name}:
         %p= @provider.description
-      .ubicacion.border-top
+      .ubicacion
         %h2.text-gray Ubicación
-        - if !@provider.latitude.nil? and !@provider.longitude.nil?
-          #provider_location{:style => "width:100%;height:400px;"}
-          :javascript
-            setProviderLocation(#{@provider.latitude}, #{@provider.longitude});
-        - else
-          = @provider.iframe_code.html_safe if !@provider.iframe_code.nil?
+        .col-md-5
+          %h4 Ubicacion del Cuidador
+          %h4 Areas del Servicio
+            
+        .col-md-7 
+          - if !@provider.latitude.nil? and !@provider.longitude.nil?
+            #provider_location{:style => "width:100%;height:400px;"}
+            :javascript
+              setProviderLocation(#{@provider.latitude}, #{@provider.longitude});
+          - else
+            = @provider.iframe_code.html_safe if !@provider.iframe_code.nil?
+      
       .comentarios.border-top
         %h2.text-gray Comentarios
         #disqus_thread
