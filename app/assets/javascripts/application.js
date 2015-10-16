@@ -141,8 +141,7 @@ $(document).ready(function() {
     };
   });
 
-<<<<<<< HEAD
-=======
+ 
   $("#search_address").click(function(e) {
     e.preventDefault();
     GMaps.geocode({
@@ -198,8 +197,7 @@ $(document).ready(function() {
     $("#provider_latitude").val(lat);
     $("#provider_longitude").val(lng);
   });
-
->>>>>>> f7d3ff4f06f9bc21c2e492fbec987074d002f414
+ 
   $(window).load(function() {
     $('.flexslider').flexslider({
       controlNav: true,
