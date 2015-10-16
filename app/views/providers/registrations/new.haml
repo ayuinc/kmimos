@@ -23,7 +23,13 @@
       headerTag: "h3",
       bodyTag: "section",
       transitionEffect: "slideLeft",
-      autoFocus: true
+      autoFocus: true,
+      labels: {  
+              finish: "Registrarme",
+              next: "Continuar",
+              previous: "Anterior" 
+          },
+      onFinished: function () { $('.new_provider').submit(); },
   });
   
   $('#myModal').on('shown.bs.modal', function () {

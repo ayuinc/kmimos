@@ -19,7 +19,16 @@
         .col-md-1
         .col-md-2 Teléfono:
         .col-md-3= f.input :phone, label: false
-      .row
+      .row 
+        .col-md-12
+          = f.input :avatar, label: false
+          = f.input :avatar_cache, as: :hidden
+          .input-append
+            %a#upload-btn.btn.btn-primary
+              %i.icon-upload-alt
+              Sube tu foto de perfil 
+            %input#file-display.input-large.uneditable-input{:type => "text"}/
+      .row.mt-21
         .col-md-12
           %hr
       .row
@@ -28,10 +37,17 @@
       .row 
         .col-md-3 Contraseña:
         .col-md-9= f.input :password, label: false
+      .row 
+        .col-md-3 Confirmar Contraseña:
+        .col-md-9= f.input :password_confirmation, label: false
+      
       .row
-        .col-md-12 
-          =#TO-DO Avatar
-      .row
-        .col-md-6
-          =# TO-DO Galeria Foto
+        .col-md-3 Fotos Adicionales:
+        .col-md-9
+          - f.fields_for :provider_attachments do |a|  
+            .row
+              .col-md-2 Foto
+              .col-md-6= a.input :photo, :multiple => true, label: false
+              .col-md-4= a.link_to_remove "Eliminar"
+          = f.link_to_add "Agregar Foto", :provider_attachments 
     .col-md-1

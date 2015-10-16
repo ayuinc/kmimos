@@ -16,8 +16,20 @@
         .col-md-2 Pesos 
       .row
         %label ¿En qué municipios puedes trabajar?
-      .row
-        .col-md-12.tricol_checkboxes= f.association :locations, as: :check_boxes, label: false
+        
+      - current_country.states.each do |state|
+        .row.border-bottom
+          .col-md-1
+            %input{type: 'checkbox'}
+          .col-md-10=state.name
+          .col-md-1
+            .btn= "-"
+      
+      - current_country.states.each do |state|
+        .row{class: "state_#{state.id}"}
+          .col-md-12
+            %label= state
+            .tricol_checkboxes= f.association :locations, as: :check_boxes, label: false, :collection => state.locations
       .row
         .col-md-6 Años de experiencia cuidando perros
         .col-md-2= f.input :experiencia, label: false
@@ -70,7 +82,7 @@
         .col-md-4.twocol_checkboxes= f.input :has_green, as: :radio_buttons, label: false, :collection => [['Si', true], ['No', false]]
       .row
         .col-md-8 ¿La propiedad cuenta con patio? 
-        .col-md-4.twocol_checkboxes= f.input :has_green, as: :radio_buttons, label: false, :collection => [['Si', true], ['No', false]]
+        .col-md-4.twocol_checkboxes= f.input :has_yard, as: :radio_buttons, label: false, :collection => [['Si', true], ['No', false]]
          
         
         
