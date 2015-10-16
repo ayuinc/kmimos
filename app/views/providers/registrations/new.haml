@@ -18,8 +18,7 @@
                 .modal-content
                   = render partial: 'terms', locals: {f: f}
 
-.col-md-3
-  = link_to 'Regístrate', '#myModal', 'data-toggle' => 'modal', :class => "btn btn-primary form-control", :onClick=>"_gaq.push(['_trackEvent', 'Homepage', 'Recomendar-modal-trigger']);"
+ 
             
 :javascript
   
@@ -33,7 +32,10 @@
               next: "Continuar",
               previous: "Anterior" 
           },
-      onFinished: function () { $('#myModal').modal(); },
+      onFinished: function () { 
+        $('#myModal').modal(); 
+        _gaq.push(['_trackEvent', 'Homepage', 'Recomendar-modal-trigger']);
+      }
   });
   
   $('#myModal').on('shown.bs.modal', function () {
