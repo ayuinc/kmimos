@@ -24,3 +24,8 @@
     width: 100% !important;
     height: 200px !important;
 }
+
+.navbar .internal { 
+ 
+  background-color: #59C9A8;
+}
