@@ -19,3 +19,8 @@
   overflow-y: scroll;
 }
 
+
+.map{
+    width: 100% !important;
+    height: 200px !important;
+}
