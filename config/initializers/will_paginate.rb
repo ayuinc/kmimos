@@ -6,10 +6,13 @@ if defined?(WillPaginate)
       module RelationMethods
         alias_method :per, :per_page
         alias_method :num_pages, :total_pages
+        
+        def per(value = nil) per_page(value) end
+        def total_count() count end
       end
       
-      class Relation
-        alias_method :total_count, :count
+      module CollectionMethods
+        alias_method :num_pages, :total_pages
       end
       
     end
