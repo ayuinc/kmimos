@@ -40,6 +40,8 @@ class Provider < ActiveRecord::Base
   belongs_to :property
   belongs_to :pet_behavior
   
+  paginates_per 10
+  
   #has_secure_password
   
   mount_uploader :avatar, AvatarUploader

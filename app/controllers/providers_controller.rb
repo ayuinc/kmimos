@@ -26,7 +26,7 @@
     #if params[:direction] != nil
     #  @providers = @providers.order("price " + params[:direction])
     #endx`
-    @providers = @providers.all
+    @providers = @providers.all.page params[:page]
   end
 
   def home
