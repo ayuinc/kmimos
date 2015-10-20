@@ -308,15 +308,19 @@ $(window).scroll(function () {
   
   var len = p.getTotalLength();
   
-  var top_scroll = $(window).scrollTop() + 60;
+  var top_scroll = $(window).scrollTop() + 70;
   
   var width = $(window).width() / 2; 
   
   var x_position =  p.getPointAtLength(top_scroll * 3);
-   
+  
+  var width_size = 20 + ((($(window).scrollTop() / $(window).height()) * 9 )); 
   
   $(".fixed-ball").css({left: x_position.x * 1.5});
-  //$(".fixed-ball").css({width: width});
+  
+  $(".fixed-ball").css({width: width_size});
+  
+  
    
 });
 
