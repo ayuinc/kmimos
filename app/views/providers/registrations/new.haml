@@ -11,8 +11,7 @@
             .registration_wizard
               = render partial: 'step1', locals: {f: f}
               = render partial: 'step2', locals: {f: f}
-              = render partial: 'step3', locals: {f: f}
-              
+              = render partial: 'step3', locals: {f: f} 
             #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :style => "background-color: rgba(36,36,36,0.5);", :tabindex => "-1"}
               .modal-dialog.modal-lg{:role => "document"}
                 .modal-content

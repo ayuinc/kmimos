@@ -98,4 +98,6 @@
 .svg-path {
   position: absolute;
   z-index: 10;
+  top: 240px;
+  left: 300px;
 }

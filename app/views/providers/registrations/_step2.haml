@@ -23,10 +23,11 @@
             %input{type: 'checkbox'}
           .col-md-10=state.name
           .col-md-1
-            .btn.btn-default.btn-xs= "-"
+            %a.btn.btn-default.btn-xs{href: "javascript:select_state(" + state.id.to_s + ")"}
+              = "-"
       
       - current_country.states.each do |state|
-        .row{class: "state_#{state.id}"}
+        .div{class: "state_#{state.id} row", style: "display: none;"}
           .col-md-12
             %label= state
             .tricol_checkboxes= f.association :locations, as: :check_boxes, label: false, :collection => state.locations
@@ -48,8 +49,8 @@
       .row
         .col-md-12
           .map-info
-            = f.input :latitude, as: :hidden
-            = f.input :longitude, as: :hidden
+            = f.input :latitude #, as: :hidden
+            = f.input :longitude #, as: :hidden
       .row
         .col-md-9
           = f.input :address, label: "Dirección:", placeholder: "Ingrese su dirección...", hint: "*Si el pin no se sitúa en el lugar de tu dirección, por favor ajústalo."
@@ -57,8 +58,8 @@
           %label{:for => "search_address", :style => "display:block;color:white"} Buscar
           %button#search_address.btn.btn-primary.form-control.ml-0{:name => "search_address", :type => "button"} Buscar 
       .row
-        .col-md-12
-          #map.map{style: "width: 100% !important; height: 200px !important; "}
+        .col-md-12 
+          #map.map.ml-14.col-md-12.col-xs-12.col-sm-12.mt-14{style: "width: 100% !important; height: 200px !important; "}
       %br
       .row
         .col-md-12 ¿Cuentas con Otros perros en casa?
@@ -85,3 +86,10 @@
         .col-md-4.twocol_checkboxes= f.input :has_yard, as: :radio_buttons, label: false, :collection => [['Si', 1], ['No', 0]]
          
     .col-md-1
+    
+:javascript
+    $("[class^='state_']").hide();
+    
+    function select_state(id){
+      $(".state_" + id).toggle();
+    }
