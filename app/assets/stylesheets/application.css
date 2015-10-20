@@ -11,6 +11,7 @@
  *= require_self
  *= require jquery-ui
  *= require main 
+ *= require style 
  *= require jquery.steps.css 
  *= require jquery.raty.css
  */
@@ -26,6 +27,75 @@
 }
 
 .navbar .internal { 
- 
   background-color: #59C9A8;
+}
+
+.home-scene {
+  position: absolute;
+  top: 280px;
+  width: 90%;
+  
+}
+
+.left-person {
+  float:left;
+  margin-top: -80px;
+  padding-left: 150px;
+}
+
+.right-dogs {
+  float: right;
+}
+
+.right-dogs img {
+  margin: 20px;
+} 
+
+.fixed-ball {
+  top: 250px;
+  position: fixed;
+}
+
+ 
+
+.form-search {
+  z-index: 5;
+  width: 220px;
+  position: fixed;
+  background-color: #515672;
+  color: #fff;
+  padding: 25px;
+  top: 20%;
+  border-radius: 0px 15px 15px 0px;
+}
+ 
+.form-group {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+.main-video {
+  background-image: url('video.svg');
+  background-size: 100% 100%;
+}
+
+.recomendation {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff;
+  color: #445a6b;
+}
+
+.recomendation form {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.recomendation img {
+  margin-top: -30px;
+}
+
+.svg-path {
+  position: absolute;
+  z-index: 10;
 }

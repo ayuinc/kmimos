@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="129px" height="108px" viewBox="0 0 129 108" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12081) - http://www.bohemiancoding.com/sketch -->
+    <title>Imported Layers</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="HOME" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Homepage-2" sketch:type="MSArtboardGroup" transform="translate(-897.000000, -3438.000000)">
+            <g id="Group" sketch:type="MSLayerGroup" transform="translate(729.000000, 3437.000000)">
+                <g id="Imported-Layers" transform="translate(168.028684, 0.768478)">
+                    <path d="M128.579186,84.0895826 L64.4946903,107.452935 L0.408384627,84.0895826 L0.408384627,0.914096666 L128.579186,0.914096666 L128.579186,84.0895826" id="Fill-1" fill="#EDEAD4" sketch:type="MSShapeGroup"></path>
+                    <path d="M64.4946748,101.081353 C64.3185258,101.081353 64.1423769,101.048287 63.9840208,100.96893 L6.58259525,80.6319021 C6.26054516,80.4798001 6.05770698,80.1954356 6.05770698,79.887925 L6.05770698,7.22781387 C6.05770698,6.91699677 6.26054516,6.63593875 6.58259525,6.48383676 L122.408534,6.48383676 C122.728804,6.63593875 122.928084,6.91699677 122.928084,7.22781387 L122.928084,79.887925 C122.928084,80.1954356 122.728804,80.4798001 122.408534,80.6319021 L65.0053288,100.96893 C64.8451934,101.048287 64.672603,101.081353 64.4946748,101.081353 L64.4946748,101.081353 Z M8.12701227,79.390287 L64.4946748,99.2429029 L120.858779,79.390287 L120.858779,8.41487068 L8.12701227,8.41487068 L8.12701227,79.390287 L8.12701227,79.390287 Z" id="Fill-2" fill="#2BB08E" sketch:type="MSShapeGroup"></path>
+                    <text id="10%" sketch:type="MSTextLayer" font-family="Lato" font-size="47.9933454" font-weight="686" fill="#2BB08E">
+                        <tspan x="15.678009" y="57.7311781">10%</tspan>
+                    </text>
+                    <text id="de-descuento" sketch:type="MSTextLayer" font-family="Montserrat" font-size="12.9442633" font-weight="normal" fill="#2BB08E">
+                        <tspan x="20.4210852" y="73.216204">de descuen</tspan>
+                        <tspan x="94.6420246" y="73.216204" letter-spacing="-0.0472">t</tspan>
+                        <tspan x="99.7839067" y="73.216204">o</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

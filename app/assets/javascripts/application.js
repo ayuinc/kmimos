@@ -300,3 +300,22 @@ function disqus_config() {
     console.log("disqus");
   }];
 }
+
+var translation_x = 1;
+
+$(window).scroll(function () { 
+  
+  
+  var top_scroll = $(window).scrollTop() + -400;
+  var width = $(window).width() / 2; 
+  
+  var x_position = width + (Math.sin(top_scroll/300)) * 300
+  var width_size = 20 + ((($(window).scrollTop() / $(window).height()) * 9 )); 
+  
+  
+  $(".fixed-ball").css({left: x_position});
+  $(".fixed-ball").css({width: width_size});
+  
+  console.log(top_scroll % ($(window).width() / 3));
+});
+
