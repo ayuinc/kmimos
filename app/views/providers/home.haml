@@ -19,14 +19,14 @@
       
     .form-search
       %h3 Buscar cuidador
-      %p Selecciona donde, cuando y que necesitas para dejar tu perrito.
-      %form.form-horizontal
+      %p Selecciona donde, cuando y que necesitas para dejar tu perrito. 
+      = search_form_for @search do |f| 
         .form-group
-          %input.form-control(placeholder="Municipio")
+          = f.grouped_collection_select(:locations_id_eq, State.where("country_id=?",@country.id).order(:name), :locations, :name, :id, :name , {:prompt => @country.id == 2 ? "Elegir Barrio" : "Elegir Municipio o Delegación"}, { :class=> "form-control" }) 
         .form-group
-          %input.form-control(placeholder="Desde")
+          %input.form-control.datepicker(placeholder="Desde")
         .form-group
-          %input.form-control(placeholder="Hasta")
+          %input.form-control.datepicker(placeholder="Hasta")
         %button Buscar
     .site-wrapper 
       %main#scene.site-content{:role => "main"}
@@ -203,4 +203,6 @@
     
     
 :javascript
+    
+  $('.datepicker').datepicker();
     
