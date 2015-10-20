@@ -1004,8 +1004,7 @@
     color: #d1d1d1; }
 
 .active {
-  background-color: #63D1B8;
-  height: 70px;
+  background-color: #63D1B8; 
   display: -webkit-box;
   display: -moz-box;
   display: box;
