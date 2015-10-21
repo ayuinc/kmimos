@@ -1,51 +1,4 @@
-.container-fluid
-  / new booking row
-  .row.bg-navbar
-    .col-sm-1
-    .col-sm-10.pl-70.col-xs-10
-      = search_form_for @search do |f|
-        .row.header-form
-          .col-sm-3.col-xs-in
-            - if session[:start_date].nil?
-              = text_field_tag(:start_date, nil, class: 'datepicker input-lg form-control form-check', placeholder: 'DD/MM/AAAA')
-            - else
-              = text_field_tag(:start_date, session[:start_date].strftime("%d/%m/%Y"), class: 'datepicker input-lg form-control form-check', placeholder: 'DD/MM/AAAA')
-          .col-sm-3.col-xs-out
-            - if session[:end_date].nil?
-              = text_field_tag(:end_date, nil, class: 'datepicker input-lg form-control form-check', placeholder: 'DD/MM/AAAA')
-            - else
-              = text_field_tag(:end_date, session[:end_date].strftime("%d/%m/%Y"), class: 'datepicker input-lg form-control form-check', placeholder: 'DD/MM/AAAA')
-          .col-sm-3.botones-searchs.p-0.mb-14
-            = f.grouped_collection_select(:locations_id_eq, State.where("country_id=?",@country.id).order(:name), :locations, :name, :id, :name , {:prompt => @country.id == 2 ? "Elegir Barrio" : "Elegir Municipio o Delegación"}, { :class=> "input-lg borderless form-location-nav" })
-          .col-sm-3.botones-searchs.p-0
-            = f.submit "Buscar", class:"ml-7 borderless form-search"
-      .row
-        .text-center
-          = paginate @providers
-    .col-sm-1
-  / new booking row ends
-  = render "layouts/flash_alerts"
-%h2.text-center Resultados
-/
-  <div class="container">
-  <div class="row">
-  </haml_block><haml_silent></haml_silent><haml_block>%>
-  <div class="col-md-offset-3 col-md-3 text-center">
-  <h5>Filtrar por precio :</h5>
-  </div>
-  <div class="col-md-3">
-  </haml_block><haml_silent>
-  
-  
-  
-  
-  
-  </haml_silent><haml_block>%>
-  </div>
-  </haml_block><haml_silent></haml_silent><haml_block>%>
-  </haml_block><haml_silent></haml_silent><haml_block>%>
-  </div>
-  </div>
+
 .container.pb-14
   - @providers.each do |provider|
     .row.mt-14.mb-14
@@ -102,13 +55,5 @@
             %p.text-center.hidden-lg.hidden-md.light.text-description.mt-14.text-gray= truncate(provider.description, :length => 230, :omission => '...')
           .col-md-1.hidden-xs
       .col-md-2.col-xs-1
+      
 = render "layouts/modal"
-:javascript
-  $(document).ready(function(e){
-    if ($("#direction").length > 0) {
-      $("#direction").change(function(e) {
-        e.preventDefault();
-        $(this).parent().parent().submit();
-      });
-    }
-  });
