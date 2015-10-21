@@ -38,12 +38,21 @@
                 .container
                   .row
                     .col-12-md 
-                      .header-center.col-md-4.text-right.pull-right.mt-14
+                      .header-center.col-md-4.text-right.pull-right 
                         %nav.redes-sociales
                           .col-md-12
                             .col-md-6.pr-0
-                              %a.text-header.btn.pv-7{:href => "{site_url}yo-soy"}
-                                %span.h5.book.pr-14.ls-md Iniciar sesión
+                              .dropdown
+                                %a.dropdown-toggle.text-header.btn.pv-7(data-toggle="dropdown")
+                                  %span.h5.book.pr-14.ls-md Iniciar Sesión
+                                  %span.caret
+                                %ul(class="dropdown-menu")
+                                  %li
+                                    %a{:href => new_user_session_path}
+                                      %span.h5.btn Iniciar sesión como Usuario
+                                  %li
+                                    %a{:href => new_provider_session_path}
+                                      %span.h5.btn Iniciar sesión como Cuidador
                             .col-md-6.p-0
                               %a.text-black.btn.pv-7.yellow-button{:href => new_provider_registration_path}
                                 %span.h5.bold.ph-14.ls-md Quiero ser cuidador

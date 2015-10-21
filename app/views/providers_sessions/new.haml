@@ -1,0 +1,18 @@
+= render "layouts/flash_alerts"
+.container.mh-630
+  .row.mt-70
+    .col-md-4
+    .col-md-4
+      .panel.panel-primary
+        .panel-heading.medium.text-gray.mb-14 Ingresa como proveedor
+        .panel-body
+          = form_tag providers_sessions_path do
+            .form-group
+              = label_tag :dni, current_country.dni_label
+              = text_field :dni, params[:dni], :autofocus => true, class: "form-control", id: "provider_login_dni"
+            .form-group
+              = label_tag :password, "Contraseña"
+              %br/
+              = password_field_tag :password, nil, class: "form-control", id: "provider_login_password"
+            = submit_tag "Ingresa", id: "provider_login_button",  class: "form-control btn btn-primary mb-21"
+    .col-md-4
