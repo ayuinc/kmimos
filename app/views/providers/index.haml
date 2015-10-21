@@ -1,59 +1,9 @@
-
 .container.pb-14
-  - @providers.each do |provider|
-    .row.mt-14.mb-14
-      .col-md-2.col-xs-1
-      = link_to(provider_path(provider)) do
-        .col-md-8.list-profiles.pl-0.pr-0
-          .col-md-3.text-center.p-14.picture-perfil.col-xs-12
-            - if provider.avatar?
-              = image_tag(provider.avatar_url(:thumb), :class => "img-circle")
-            - else
-              = image_tag('server_carnet.png', :class => "img-circle" )
-            .row.mt-7
-              .col-xs-1.hidden-lg
-              .col-xs-10.col-md-12
-                %h3.text-center.text-gray.mb-0.mt-0.hidden-lg.hidden-md
-                  = provider.name
-                  = provider.last_name_1
-                  = provider.last_name_2
-                %h5.text-center.text-graylight.mt-7.hidden-lg.hidden-md
-                  = provider.prov_locations_modal
-                  , y otras zonas que puedes ver
-                  %span.text-primary aquí
-                %h4.light.m-0.text-gray Desde
-                %h3.m-0.text-secondary.light
-                  = current_country.currency
-                  = 1.2*(provider.price.to_i)
-                %h4.light.m-0.text-gray por noche
-          .col-md-9.p-28.text-description-1.col-xs-12
-            %h3.text-left.text-gray.mb-0.mt-0.hidden-xs.hidden-sm
-              = provider.name
-              = provider.last_name_1
-              = provider.last_name_2
-            %h5.text-left.text-graylight.mt-7.hidden-xs.hidden-sm
-              = provider.prov_locations_modal
-              , y otras zonas que puedes ver
-              %span.text-primary aquí
-            .rating-reviews.hidden-xs.hidden-sm
-              - unless provider.avg_rating.nil?
-                - provider.avg_rating.to_i.times do
-                  %span
-                    %i.fa.fa-star.text-yellow
-              %span.text-gray.ml-28.light
-                = image_tag('iconos-mensaje.png')
-                Ver comentarios
-            .rating-reviews.hidden-lg.hidden-md.text-center
-              - unless provider.avg_rating.nil?
-                - provider.avg_rating.to_i.times do
-                  %span
-                    %i.fa.fa-star.text-yellow
-              %span.text-gray.ml-28.light
-                = image_tag('iconos-mensaje.png')
-                Ver comentarios
-            %p.text-left.light.hidden-xs.hidden-sm.text-description.mt-14.text-gray= truncate(provider.description, :length => 230, :omission => '...')
-            %p.text-center.hidden-lg.hidden-md.light.text-description.mt-14.text-gray= truncate(provider.description, :length => 230, :omission => '...')
-          .col-md-1.hidden-xs
-      .col-md-2.col-xs-1
+  .row
+    .col-md-2
+      
+    .col-md-8
+      =render partial: 'grid'
+    .col-md-2
       
 = render "layouts/modal"
