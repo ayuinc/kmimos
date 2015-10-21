@@ -17,6 +17,7 @@
 //= require jquery.steps.js
 //= require jquery.raty.js
 //= require jquery_nested_form 
+//= require select2.js
 //= require_self
 //= require_tree 
 

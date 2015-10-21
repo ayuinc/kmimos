@@ -12,6 +12,8 @@ class Location < ActiveRecord::Base
   has_many :localizations
   has_many :providers, :through => :localizations
   belongs_to :state
+  
+  has_many :users 
 
 	#scope :order, -> { order('locations.utf_name ASC') }
 

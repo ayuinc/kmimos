@@ -1,0 +1,35 @@
+%h3 Paso 1
+%section
+  .row
+    .col-md-12
+      %h2.title-step Datos personales
+      %hr
+  .row
+    .col-md-1
+    .col-md-10
+      .row
+        .col-md-3 Nombres:
+        .col-md-9= f.input :first_name, label: false
+      .row
+        .col-md-3 Apellidos:
+        .col-md-9= f.input :last_name, label: false
+      .row
+        .col-md-3 Telefono:
+        .col-md-5= f.input :phone, label: false
+      .row
+        .col-md-3 Municipio:
+        .col-md-5= f.input :location_id, collection: current_country.states, as: :grouped_select, group_method: :locations, label: false
+      .row
+        .col-md-3 Codigo Postal:
+        .col-md-5= f.input :postal_code, label: false
+      .row
+        .col-md-12
+          %br
+          %hr
+      .row
+        .col-md-3 Correo Electronico:
+        .col-md-9= f.input :email, label: false
+      .row
+        .col-md-3 Contraseña:
+        .col-md-9= f.input :password, label: false
+    .col-md-1

@@ -1,0 +1,42 @@
+.container.content.mh-630.mb-70
+  .row.mt-35
+    .col-md-2
+    .col-md-8
+      %h3.text-align-center Deja tu mascota en las mejores manos
+      .panel.panel-primary
+        .panel-heading.mb-21.text-gray.text-align-center
+          Llena el siguiente formulario para poder empezar la experiencia en kmimos
+        .panel-body
+          = simple_nested_form_for(resource, :html => {:multipart => true}) do |f|  
+            .registration_wizard
+              = render partial: 'step1', locals: {f: f}
+              = render partial: 'step2', locals: {f: f} 
+            #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :style => "background-color: rgba(36,36,36,0.5);", :tabindex => "-1"}
+              .modal-dialog.modal-lg{:role => "document"}
+                .modal-content
+                  = render partial: 'terms', locals: {f: f}
+
+ 
+            
+:javascript
+  
+  $(".registration_wizard").steps({
+      headerTag: "h3",
+      bodyTag: "section",
+      transitionEffect: "slideLeft",
+      autoFocus: true,
+      labels: {  
+              finish: "Registrarme",
+              next: "Continuar",
+              previous: "Anterior" 
+          },
+      onFinished: function () { 
+        $('#myModal').modal(); 
+        _gaq.push(['_trackEvent', 'Homepage', 'Recomendar-modal-trigger']);
+      }
+  });
+  
+  $('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').focus()
+  });
+  

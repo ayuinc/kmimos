@@ -1,0 +1,29 @@
+%h3 Paso 2
+%section
+  .row
+    .col-md-12
+      %h2.title-step Datos de tu mascota
+      %hr
+  .row
+    .col-md-1
+    .col-md-10
+      = f.simple_fields_for :pets do |p|
+        .row
+          .col-md-3 Nombres:
+          .col-md-9= p.input :name, label: false 
+        .row 
+          .col-md-3 Raza:
+          .col-md-9= p.input :race, label: false
+        .row 
+          .col-md-3 Edad:
+          .col-md-9= p.input :age, label: false
+        .row 
+          .col-md-3 Tamaño:
+          .col-md-9= p.input :size, label: false 
+        .row
+          .col-md-3 Peso:
+          .col-md-9= p.input :weight, label: false 
+        .row.border-bottom
+          .col-md-12= p.link_to_remove "Eliminar"
+      = f.link_to_add "Agregar una Mascota", :pets
+    .col-md-1

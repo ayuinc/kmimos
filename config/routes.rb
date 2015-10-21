@@ -1,18 +1,20 @@
 ServihogarRails::Application.routes.draw do
+  
+  ActiveAdmin.routes(self)
 	
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "user/registrations"}
   devise_for :providers, :controllers => {:registrations => "provider/registrations"}
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
   
   resources :provider_attachments, only: [:create, :destroy]
   
-  ActiveAdmin.routes(self)
-
   resources :referrals
 
   root 'providers#home'
 
   resources :providers
+  resources :users
 
   resources :bookings
   resources :meetings

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019164429) do
+ActiveRecord::Schema.define(version: 20151020234425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,12 @@ ActiveRecord::Schema.define(version: 20151019164429) do
     t.integer "age_id"
   end
 
+  create_table "behaviors", force: true do |t|
+    t.string   "behavior_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "bookings", force: true do |t|
     t.date     "start_date"
     t.date     "end_date"
@@ -101,6 +107,15 @@ ActiveRecord::Schema.define(version: 20151019164429) do
     t.string "name"
   end
 
+  create_table "comments", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "provider_id"
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "countries", force: true do |t|
     t.string   "name"
     t.string   "locale"
@@ -119,6 +134,7 @@ ActiveRecord::Schema.define(version: 20151019164429) do
   create_table "localizations", force: true do |t|
     t.integer "provider_id"
     t.integer "location_id"
+    t.integer "user_id"
   end
 
   add_index "localizations", ["location_id"], name: "index_localizations_on_location_id", using: :btree
@@ -150,6 +166,18 @@ ActiveRecord::Schema.define(version: 20151019164429) do
 
   create_table "pet_behaviors", force: true do |t|
     t.string   "behavior_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pets", force: true do |t|
+    t.string   "name"
+    t.string   "race"
+    t.integer  "age"
+    t.float    "size"
+    t.float    "weight"
+    t.string   "sex"
+    t.integer  "behavior_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -249,6 +277,13 @@ ActiveRecord::Schema.define(version: 20151019164429) do
     t.datetime "updated_at"
   end
 
+  create_table "user_pets", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "pet_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -262,6 +297,11 @@ ActiveRecord::Schema.define(version: 20151019164429) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone"
+    t.integer  "location_id"
+    t.string   "postal_code"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
