@@ -37,8 +37,9 @@ gem 'devise'        #Devise Gem Added for Authentication
 gem 'activeadmin', github: 'activeadmin'  # Fast Admin Generator Tool
 gem 'simple_form'   #Gem for form simplification
 
-gem 'cancancan'
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 
+gem 'cancancan'
 gem 'nested_form'
 
 gem 'sass'
@@ -46,8 +47,6 @@ gem 'sass-rails'
 gem 'rails-i18n' 
 
 group :development do
-  
-  
   gem 'faker'
   gem 'guard-livereload'
   gem 'guard-bundler'
