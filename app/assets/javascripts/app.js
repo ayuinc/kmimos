@@ -1,0 +1,1 @@
+providers = angular.module('providers', ['ngResource']);

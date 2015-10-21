@@ -20,6 +20,8 @@ ServihogarRails::Application.routes.draw do
   resources :meetings
 
   resources :providers_sessions, only: [:new, :create, :destroy]
+  
+  get 'api/providers/get_providers' => 'api/providers#get_providers', as: 'api_get_providers'
 
   match '/salir', 
       to: 'providers_sessions#destroy', as: 'salir', via: :delete
