@@ -30,8 +30,12 @@
 #
 
 class Provider < ActiveRecord::Base
+  
+ include ActiveModel::Serialization
+ 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   
@@ -41,8 +45,6 @@ class Provider < ActiveRecord::Base
   belongs_to :pet_behavior
   
   paginates_per 10
-  
-  #has_secure_password
   
   mount_uploader :avatar, AvatarUploader
   
@@ -59,6 +61,8 @@ class Provider < ActiveRecord::Base
   has_many :locations, through: :localizations, :source => :location
    
   has_many :provider_attachments
+  
+  has_many :comments
   
   has_many :additional_services
   has_many :services, :through => :additional_services
@@ -83,6 +87,10 @@ class Provider < ActiveRecord::Base
    
   validate :dni_length, on: :create
   validate :dni_uniqueness, on: :create
+
+
+  scope :providers_sliced, -> (n, providers) {providers.each_slice(n).to_a}
+ 
 
   def prov_locations_modal
     if self.locations.count > 3

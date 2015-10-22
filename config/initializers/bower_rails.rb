@@ -17,6 +17,6 @@ BowerRails.configure do |bower_rails|
   # Invokes rake bower:install and rake bower:install:deployment with -F (force) flag. Defaults to false
   bower_rails.force_install = true
    
-  bower_rails.exclude_from_clean = ['moment']
+  #bower_rails.exclude_from_clean = ['moment']
    
 end

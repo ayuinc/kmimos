@@ -1,4 +1,5 @@
   class ProvidersController < ApplicationController
+    
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
   before_action :require_current_provider, only: [:edit]
   before_action :require_unlogged_provider, only: [:new]
@@ -7,6 +8,7 @@
 
   # GET /providers
   # GET /providers.json
+  
   def index
     @search = Provider.search(params[:q])
     if (params[:q] != nil and params[:q][:locations_id_eq] != "") 

@@ -14,13 +14,19 @@
 //= require jquery.timepicker.min.js
 //= require easing
 //= require gmaps.min 
+//= require utils
 //= require jquery.steps.js
 //= require jquery.raty.js
 //= require jquery_nested_form 
 //= require select2.js
-//= require angular/angular
-//= require_self
-//= require_tree 
+//= require angular/angular 
+//= require angular-rangeslider/angular.rangeSlider
+//= require angular-resource/angular-resource
+//= require app
+//= require modules/providers_module/services/providers.service.js 
+//= require modules/providers_module/services/services.service.js 
+//= require modules/providers_module/controllers/providers.controller.js
+//= require_self 
 
 
 $(document).ready(function() {
@@ -325,5 +331,21 @@ $(window).scroll(function () {
   
    
 });
+
+
+function groupBy( array , f )
+{
+  var groups = {};
+  array.forEach( function( o )
+  {
+    var group = JSON.stringify( f(o) );
+    groups[group] = groups[group] || [];
+    groups[group].push( o );  
+  });
+  return Object.keys(groups).map( function( group )
+  {
+    return groups[group]; 
+  })
+}
 
  

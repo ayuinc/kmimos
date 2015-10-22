@@ -1,1 +1,4 @@
-providers = angular.module('providers', ['ngResource']);
+
+providers_module = angular.module('providers_module', ['ngResource', 'ui-rangeSlider']);
+
+

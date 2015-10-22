@@ -6,8 +6,6 @@
           <%= search_form_for @search do |f| %>
           <div class="row header-form">
             <%= f.collection_select :locations_id_eq, Location.order(:name), :id, :name,{include_blank:"Elegir Municipio"}, {class:"borderless form-location-nav"} %> 
-     
-            
             <div class="col-sm-3">
               <%= text_field_tag(:start_date, nil, class: 'datepicker form-control form-check', placeholder: 'DD/MM/AAAA') %>
             </div>
@@ -45,7 +43,7 @@
             <% else %>
             <li><i class="fa-phone"></i>&nbsp;Teléfono:&nbsp; <strong><%= provider.phone %></strong></li>
             <% end %>
-            <li><span><i class="fa-map-marker mb-14"></i>&nbsp;Municipios donde puede trabajar:&nbsp;</span><%= provider.prov_locations_modal %></li>
+            <li><span><i class="fa-map-marker mb-14"></i>&nbsp;Municipios donde puede trabajar:&nbsp;</span><%=# provider.prov_locations_modal %></li>
             <li><i class="fa fa-quote-left"></i> <%= @provider.description %> <i class="fa fa-quote-right"></i></li>
            </ul> 
           </div>

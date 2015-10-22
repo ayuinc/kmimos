@@ -46,7 +46,7 @@ gem 'sass'
 gem 'sass-rails'
 gem 'rails-i18n' 
 
-gem "bower-rails"
+gem "bower-rails" 
 
 group :development do
   gem 'faker'

@@ -1,9 +1,48 @@
-.container.pb-14
-  .row
-    .col-md-2
-      
-    .col-md-8
-      =render partial: 'grid'
-    .col-md-2
+%center
+  %h1 Cuidadores Sugeridos
+
+
+%div(ng-app="providers_module")
+  %div(ng-controller="ProvidersController")  
+    
+    .container-fluid.pb-14 
+      .row
+        .col-md-2
+          .form-filter
+            %h3 Buscar cuidador
+            %p Selecciona donde, cuando y que necesitas para dejar tu perrito. 
+            = search_form_for @search do |f| 
+              .form-group
+                = f.grouped_collection_select(:locations_id_eq, State.where("country_id=?",@country.id).order(:name), :locations, :name, :name, :name , {:prompt => @country.id == 2 ? "Elegir Barrio" : "Elegir Municipio o Delegación"}, { :class=> "form-control"})  #, html_input: {'ng-model': ''} 
+              .form-group
+                %input.form-control(placeholder="Estado" ng-model="search.states")
+              .form-group
+                %input.form-control(placeholder="Municipio" ng-model="search.locations")
+              .form-group  
+                %input.form-control(placeholder="Precio" type="range" ng-model="search.price")
+              .form-group 
+                %input(type="checkbox" checked ng-model="sizes[0]" ng-true-value="Pequeños" data-ng-false-value='') Pequeño
+                %br 
+                %input(type="checkbox" checked ng-model="sizes[1]" ng-true-value="Medianos" data-ng-false-value='') Mediano 
+                %br
+                %input(type="checkbox" checked ng-model="sizes[2]" ng-true-value="Grandes" data-ng-false-value='') Grande 
+              .row
+                .col-xs-6
+                  %input(type="checkbox" checked ng-model="number_of" ng-true-value="1" data-ng-false-value='') 1  
+                .col-xs-6
+                  %input(type="checkbox" checked ng-model="number_of" ng-true-value="3" data-ng-false-value='') 3 
+              .row
+                .col-xs-6
+                  %input(type="checkbox" checked ng-model="number_of" ng-true-value="2" data-ng-false-value='') 2 
+                .col-xs-6
+                  %input(type="checkbox" checked ng-model="number_of" ng-true-value="4" data-ng-false-value='') 4 o mas
+              %br
+              .form-group  
+                %div(ng-repeat="service in services ")
+                  %input(type="checkbox" checked ng-model="sel_service[service.id]" ng-true-value="{{service.id}}" data-ng-false-value='') {{service.service_name}}
+                  %br 
+        .col-md-8 
+          =render partial: 'grid'
+        .col-md-2
       
 = render "layouts/modal"
