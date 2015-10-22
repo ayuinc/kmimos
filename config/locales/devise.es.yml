@@ -19,6 +19,8 @@ es-MX:
       invalid_token: 'Token de autentificación inválido.'
       timeout: 'Tu sesión ha expirado. Inicia sesión nuevamente.'
       inactive: 'Tu cuenta aun no ha sido activada.'
+      user:
+          not_found_in_database: 'No se ha encontrado el usuario en la base de datos'
     sessions:
       signed_in: 'Iniciaste sesión correctamente.'
       signed_out: 'Cerraste sesión correctamente.'
@@ -49,7 +51,8 @@ es-MX:
     mailer:
       confirmation_instructions:
         subject: 'Instrucciones de confirmación'
-      reset_password_instructions:
+      reset_password_instructions:  
         subject: 'Instrucciones de cambio de contraseña'
       unlock_instructions:
         subject: 'Instrucciones de desbloqueo'
+    
