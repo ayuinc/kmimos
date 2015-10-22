@@ -11,6 +11,7 @@ class Size < ActiveRecord::Base
   has_many :own_sizings
 	has_many :providers, :through => :sizings
   has_many :additional_services
+  has_many :rates
   
   def to_s
     size_title

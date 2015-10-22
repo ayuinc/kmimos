@@ -1,217 +1,133 @@
-!!!
-%html{:lang => "en"}
-  %head
-    %meta{:charset => "utf-8"}/
-    %title
-    %meta{:content => "", :name => "description"}/
-    %meta{:content => "", :name => "keywords"}/
-    %meta{:content => "@MadeByGus", :name => "author"}/
-    %meta{:content => "width=device-width, initial-scale=1.0, user-scalable=no", :name => "viewport"}/
-    %link{:href => "assets/favicon.png", :rel => "shortcut icon"}/
-    %link{:href => "assets/css/style.css", :rel => "stylesheet"}/
-    / App styles
-    %link{:href => "assets/css/ebm.css", :rel => "stylesheet"}/
-    %script{:src => "https://use.typekit.net/jod1lcb.js"}
-    :javascript
-      try{Typekit.load({ async: true });}catch(e){}
-  %body
-     
+
+.site-wrapper 
+  %main#scene.site-content{:role => "main"}
+    %img.fixed-ball(src="assets/pelota.svg")
+    .row.bg-img-block.home-bkg.no-margin-row{style: "background-image: url('assets/home-background.svg')"}
+      %header.site-menu
+        #menu-vistas.vistas.hidden-xs.container-fluid.text-center 
+          .header-center.col-md-4.text-right.pull-right 
+            %nav.redes-sociales.row 
+              .col-md-6.pr-0
+                .dropdown
+                  %a.dropdown-toggle.text-header.btn.pv-7(data-toggle="dropdown")
+                    %span.h5.book.pr-14.ls-md Iniciar Sesión
+                    %span.caret
+                  %ul(class="dropdown-menu")
+                    %li
+                      %a{:href => new_user_session_path}
+                        %span.h5.btn Iniciar sesión como Usuario
+                    %li
+                      %a{:href => new_provider_session_path}
+                        %span.h5.btn Iniciar sesión como Cuidador
+              .col-md-6.p-0
+                %a.text-black.btn.pv-7.yellow-button{:href => new_provider_registration_path}
+                  %span.h5.bold.ph-14.ls-md Quiero ser cuidador 
       
-    .form-search
-      %h3 Buscar cuidador
-      %p Selecciona donde, cuando y que necesitas para dejar tu perrito. 
-      = search_form_for @search do |f| 
-        .form-group
-          = f.grouped_collection_select(:locations_id_eq, State.where("country_id=?",@country.id).order(:name), :locations, :name, :id, :name , {:prompt => @country.id == 2 ? "Elegir Barrio" : "Elegir Municipio o Delegación"}, { :class=> "form-control" }) 
-        .form-group
-          %input.form-control.datepicker(placeholder="Desde")
-        .form-group
-          %input.form-control.datepicker(placeholder="Hasta")
-        %button Buscar
-    .site-wrapper 
-      %main#scene.site-content{:role => "main"}
-        %img.fixed-ball(src="assets/pelota.svg")
-        .row.bg-img-block.minhp-100.hero-unit.main-hero-unit.flex-middle{style: "background-image: url('assets/home-background.svg'); background-size: 100% auto; background-repeat: no-repeat;"}
-          %aside.site-menu
-            %header.site-menu
-              #menu-vistas.vistas.hidden-xs.container-fluid.text-center
-                .container
-                  .row
-                    .col-12-md 
-                      .header-center.col-md-4.text-right.pull-right 
-                        %nav.redes-sociales
-                          .col-md-12
-                            .col-md-6.pr-0
-                              .dropdown
-                                %a.dropdown-toggle.text-header.btn.pv-7(data-toggle="dropdown")
-                                  %span.h5.book.pr-14.ls-md Iniciar Sesión
-                                  %span.caret
-                                %ul(class="dropdown-menu")
-                                  %li
-                                    %a{:href => new_user_session_path}
-                                      %span.h5.btn Iniciar sesión como Usuario
-                                  %li
-                                    %a{:href => new_provider_session_path}
-                                      %span.h5.btn Iniciar sesión como Cuidador
-                            .col-md-6.p-0
-                              %a.text-black.btn.pv-7.yellow-button{:href => new_provider_registration_path}
-                                %span.h5.bold.ph-14.ls-md Quiero ser cuidador
-              .menu-section.hidden-lg.pt-14-xs.pl-14-xs.bg-primary
-                %a{:href => "{site_url}"}
-                  %h2.text-white.mt-7.serif-medium
-                .menu-toggle
-                  .one
-                  .two
-                  .three
-                %nav
-                  %ul.hidden{:role => "navigation"}
-                    %li
-                      %a.text-primary.mv-14{:href => "{site_url}yo-soy"}
-                        %span.h3.thin.text-white
-                    %li
-                      %a.text-primary.mv-14{:href => "{site_url}#tu-mejor-version"}
-                        %span.h3.thin.text-white TU MEJOR VERSIÓN
-                    %li
-                      %a.text-primary.mv-14{:href => "{site_url}#nuestra-casa"}
-                        %span.h3.thin.text-white NUESTRA CASA
-                    %li
-                      %a.text-primary.mv-14{:href => "{site_url}#mujeres-que-inspiran"}
-                        %span.h3.thin.text-white MUJERES QUE INSPIRAN
-                    %li
-                      %input.pl-7.mt-14{:placeholder => "buscar...", :type => "text"}/
-          .minh-7
-          .container
-            .home-scene
-              %img.left-person(src="assets/home-dueña-without_ball.svg") 
-              .right-dogs
-                %img(src="assets/home-perro-vainilla.svg")
-                %img(src="assets/home-perro-bull-terrier.svg")
-            .row.mb-56
-              .col-md-offset-3.col-sm-6.text-center
-                %img.pt-7.img-home{:src => "assets/logo-kmimos-blanco-04.png", :width => "220"}/
-                %p.h3.text-white.mv-35.lh-xl.bold.text-responsive
-                  Viaja con tranquilidad, dejando a tu
-                  %br/
-                  mascota en buenas manos.
-                .main-video{style: 'padding: 10px; padding: 5px; padding-top: 30px;'}
-                  %iframe{:allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/_08UJ0aYDCk?rel=0&controls=0&showinfo=0", :width => "560"} 
-        .row.mb-56#beneficios
-          .container-sm.pv-42 
-            .row.text-center.mt-49
-              %h1.bold.pb-42.text-gray-dark.mt-56 Beneficios
-              .col-md-3
-                %img.img-circle{:alt => "", :src => "assets/beneficios-seguro-salud.svg", :width => "100"}/
-                %h4.light.text-gray Seguro de salud para tu mascota
-              .col-md-3
-                %img.img-circle{:alt => "", :src => "assets/beneficios-cuidadores-especializados.svg", :width => "100"}/
-                %h4.light.text-gray Cuidadores especializados y evaluados
-              .col-md-3
-                %img.img-circle{:alt => "", :src => "assets/beneficios-fotos.svg", :width => "100"}/
-                %h4.light.text-gray Recibe fotos del estado de tu perrito
-              .col-md-3
-                %img.img-circle{:alt => "", :src => "assets/beneficios-atencion24_7.svg", :width => "100"}/
-                %h4.light.text-gray Atención 24/7 para tu mascota
-            .text-center.mt-35
-              %a.btn.btn-outline.btn-default.ph-35{:href => "#"}
-                %h4.book.text-primary.m-0 Leer más
-            .text-center.pt-42
-              %img{:alt => "", :src => "assets/scrolldown.svg"}/
-        .row.mb-56#testimonios{style: "background-image: url('assets/home-testimonios-background.svg')"}
-          .container-sm.pv-42
-            %h1.bold.pb-42.text-gray-dark.text-center.pt-56 Testimonios
-            .row
-              .col-md-7 
-                .triangle-left
-                  .col-md-2.pl-0
-                    %img{:alt => "", :src => "assets/testimonios-comillas.svg"}/
-                  .col-md-10.pl-0
-                    %h4.text-gray-dark.medium.mt-14 Confié plenamente en los cuidados de @KmimosMx y no me arrepentí. Lo recomiendo 100%.
-            .row
-              .col-md-5.pl-70
-                %img.img-circle.img-responsive{:alt => "", :src => "assets/user.jpg", :width => "120"}/
-                %h4.bold.text-success.mt-14 Vicente Leyba
-              .col-md-7 
-                .triangle-right
-                  .col-md-2.pl-0
-                    %img{:alt => "", :src => "assets/testimonios-comillas.svg"}/
-                  .col-md-10.pl-0
-                    %h4.text-gray-dark.medium.mt-14 Bruno siempre regresa feliz y tranquilo, siempre que nos vamos de viaje se que lo dejo en buenas manos.
-            .row
-              .col-md-7 
-                .triangle-left
-                  .col-md-2.pl-0
-                    %img{:alt => "", :src => "assets/testimonios-comillas.svg"}/
-                  .col-md-10.pl-0
-                    %h4.text-gray-dark.medium.mt-14 El servicio fue magnifico y regresaron sanos y salvos mis perritos en especial Odin.
-              .col-md-5.pl-70
-                %img.img-circle.img-responsive{:alt => "", :src => "assets/user.jpg", :width => "120"}/
-                %h4.bold.text-success.mt-14 Giovanni Ciullo
-            .row
-              .col-md-5.pl-70
-                %img.img-circle.img-responsive{:alt => "", :src => "assets/user.jpg", :width => "120"}/
-                %h4.bold.text-success.mt-14 Victor Villegas
-            %img{ style: "float: right;" }(src = "assets/testimoniales-perro-vainilla.svg")
-            
-            .text-center.pt-42 
-        .row.mb-56#cuidadores-semana
-          .container-sm.pv-42
-            %h1.bold.pb-42.text-gray-dark.text-center Cuidadores del mes
-            .row
-              .col-md-4
-                .bg-img-block.border-radius.square-green.mt-7{:style => "height: 200px; background-image: url(assets/user1.png);"}
-                  .text-center.pt-21.oculto
-                    %img{:alt => "", :src => "assets/icono-huella-hover.svg", :width => "70"}/
-                    %h4.bold.text-center.mv-7.text-white Gustavo Guzman Aguirre
-                    .rating-reviews.pl-14.mt-7
-              .col-md-4
-                .bg-img-block.border-radius.square-green.mt-7{:style => "height: 200px; background-image: url(assets/user1.png);"}
-                  .text-center.pt-21.oculto
-                    %img{:alt => "", :src => "assets/icono-huella-hover.svg", :width => "70"}/
-                    %h4.bold.text-center.mv-7.text-white Alejandra Guzman Baltazar
-                    .rating-reviews.pl-14.mt-7
-              .col-md-4
-                .bg-img-block.border-radius.square-green.mt-7{:style => "height: 200px; background-image: url(assets/user1.png);"}
-                  .text-center.pt-21.oculto
-                    %img{:alt => "", :src => "assets/icono-huella-hover.svg", :width => "70"}/
-                    %h4.bold.text-center.mv-7.text-white Eduardo Rodriguez Alania
-                    .rating-reviews.pl-14.mt-7
-            .minh-140.hidden-xs
-            %br
-            %img.mt-28{ style: "float: right;" }(src = "assets/cuidadores-mes-perro-vainilla.svg")
-            
-        .row.pb-56#recomendacion.bg-primary{style: "background-image: url(assets/home-descuento-background.svg);"} 
-          .container.pv-42
-            .row
-              .col-md-7
-                %img.mt-28{ style: "float: left; margin-left: 100px; margin-top: 200px !important;" }(src = "assets/home-dueño-perro-descuento_2.svg") 
-              .col-md-4.mt-63
-                .recomendation
-                  %img(src="assets/10descuento.svg")
-                  %h3.bold.mb-0
-                    Al recomendar nuestros servicios a otra persona 
-                  %p.light.m-0 Completa los siguientes datos y recibiras un cupon de 10% de descuento que se activara al momento de tu reserva. 
-                  %br
-                  %form.form-horizontal
-                    .form-group
-                      %input.form-control(placeholder="Nombre")
-                    .form-group
-                      %input.form-control(placeholder="Correo")
-                    .form-group
-                      %input.form-control(placeholder="Nombre de Persona a Recomendar")
-                    .form-group
-                      %input.form-control(placeholder="Correo de Persona a Recomendar")
-                  %a.btn.btn-primary-lighter.btn.mt-35.mb-21.pv-7{:href => "#"}
-                    %h4.bold.text-success.mv-0.ph-35 Recomendar
-    
-    
-    
-    %script{:src => "assets/js/jquery.min.js"}
-    / App scripts
-    %script{:src => "assets/js/scripts.min.js"}
-    %script{:src => "assets/js/menu-control.js"}
-    
-    
-:javascript
-    
-  $('.datepicker').datepicker();
-    
+      .home-scene
+        %img.left-person(src="assets/home-dueña-without_ball.svg") 
+        .right-dogs
+          %img(src="assets/home-perro-vainilla.svg")
+          %img(src="assets/home-perro-bull-terrier.svg")
+      .row.mb-56
+        .col-md-offset-3.col-sm-6.text-center
+          %img.pt-7.img-home{:src => "assets/logo-kmimos-blanco-04.png", :width => "220"}/
+          %p.h3.text-white.mv-35.lh-xl.bold.text-responsive
+            Viaja con tranquilidad, dejando a tu
+            %br/
+            mascota en buenas manos.
+          .main-video 
+            %iframe{:allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/_08UJ0aYDCk?rel=0&controls=0&showinfo=0", :width => "560"} 
+    .row.mb-56#beneficios
+      .container-sm.pv-42 
+        .row.text-center.mt-49
+          %h1.bold.pb-42.text-gray-dark.mt-56 Beneficios
+          .col-md-3
+            %img.img-circle{:alt => "", :src => "assets/beneficios-seguro-salud.svg", :width => "100"}/
+            %h4.light.text-gray Seguro de salud para tu mascota
+          .col-md-3
+            %img.img-circle{:alt => "", :src => "assets/beneficios-cuidadores-especializados.svg", :width => "100"}/
+            %h4.light.text-gray Cuidadores especializados y evaluados
+          .col-md-3
+            %img.img-circle{:alt => "", :src => "assets/beneficios-fotos.svg", :width => "100"}/
+            %h4.light.text-gray Recibe fotos del estado de tu perrito
+          .col-md-3
+            %img.img-circle{:alt => "", :src => "assets/beneficios-atencion24_7.svg", :width => "100"}/
+            %h4.light.text-gray Atención 24/7 para tu mascota
+        .text-center.mt-35
+          %a.btn.btn-outline.btn-default.ph-35{:href => "#"}
+            %h4.book.text-primary.m-0 Leer más
+        .text-center.pt-42
+          %img{:alt => "", :src => "assets/scrolldown.svg"}/
+    .row.mb-56#testimonios{style: "background-image: url('assets/home-testimonios-background.svg')"}
+      .container-sm.pv-42
+        %h1.bold.pb-42.text-gray-dark.text-center.pt-56 Testimonios
+        .row
+          .col-md-7 
+            .triangle-left
+              .col-md-2.pl-0
+                %img{:alt => "", :src => "assets/testimonios-comillas.svg"}/
+              .col-md-10.pl-0
+                %h4.text-gray-dark.medium.mt-14 Confié plenamente en los cuidados de @KmimosMx y no me arrepentí. Lo recomiendo 100%.
+        .row
+          .col-md-5.pl-70
+            %img.img-circle.img-responsive{:alt => "", :src => "assets/user.jpg", :width => "120"}/
+            %h4.bold.text-success.mt-14 Vicente Leyba
+          .col-md-7 
+            .triangle-right
+              .col-md-2.pl-0
+                %img{:alt => "", :src => "assets/testimonios-comillas.svg"}/
+              .col-md-10.pl-0
+                %h4.text-gray-dark.medium.mt-14 Bruno siempre regresa feliz y tranquilo, siempre que nos vamos de viaje se que lo dejo en buenas manos.
+        .row
+          .col-md-7 
+            .triangle-left
+              .col-md-2.pl-0
+                %img{:alt => "", :src => "assets/testimonios-comillas.svg"}/
+              .col-md-10.pl-0
+                %h4.text-gray-dark.medium.mt-14 El servicio fue magnifico y regresaron sanos y salvos mis perritos en especial Odin.
+          .col-md-5.pl-70
+            %img.img-circle.img-responsive{:alt => "", :src => "assets/user.jpg", :width => "120"}/
+            %h4.bold.text-success.mt-14 Giovanni Ciullo
+        .row
+          .col-md-5.pl-70
+            %img.img-circle.img-responsive{:alt => "", :src => "assets/user.jpg", :width => "120"}/
+            %h4.bold.text-success.mt-14 Victor Villegas
+        %img{ style: "float: right;" }(src = "assets/testimoniales-perro-vainilla.svg")
+        
+        .text-center.pt-42 
+    .row.mb-35#cuidadores-semana
+      %img{ style: "float: right; padding-top: 120px;" }(src = "assets/cuidadores-mes-perro-vainilla.svg")
+      .container-sm.pv-42
+        %h1.bold.pb-42.text-gray-dark.text-center Cuidadores del mes 
+        .row
+          - Provider.on_top_providers(3).each do |provider|
+            .col-md-4
+              .bg-img-block.border-radius.square-green.mt-7{:style => " background-image: url(#{provider.avatar.url});"}
+                #a.oculto.text-center.pt-21
+                  %img{:alt => "", :src => "assets/icono-huella-hover.svg", :width => "70"}/
+                  %h4.bold.text-center.mv-7.text-white= provider
+                  .rating-reviews.pl-14.mt-7  
+                  
+    .row.pb-56#recomendacion.bg-primary{style: "background-image: url(assets/home-descuento-background.svg);"} 
+      .container.pv-42
+        .row
+          .col-md-7
+            %img.mt-28{ style: "float: left; margin-left: 100px; margin-top: 200px !important;" }(src = "assets/home-dueño-perro-descuento_2.svg") 
+          .col-md-4.mt-63
+            .recomendation
+              %img(src="assets/10descuento.svg")
+              %h3.bold.mb-0
+                Al recomendar nuestros servicios a otra persona 
+              %p.light.m-0 Completa los siguientes datos y recibiras un cupon de 10% de descuento que se activara al momento de tu reserva. 
+              %br
+              %form.form-horizontal
+                .form-group
+                  %input.form-control(placeholder="Nombre")
+                .form-group
+                  %input.form-control(placeholder="Correo")
+                .form-group
+                  %input.form-control(placeholder="Nombre de Persona a Recomendar")
+                .form-group
+                  %input.form-control(placeholder="Correo de Persona a Recomendar")
+              %a.btn.btn-primary-lighter.btn.mt-35.mb-21.pv-7{:href => "#"}
+                %h4.bold.text-success.mv-0.ph-35 Recomendar

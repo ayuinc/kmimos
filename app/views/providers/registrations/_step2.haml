@@ -11,9 +11,15 @@
         .col-md-3 Descripción como cuidador:
         .col-md-9= f.input :description, label: false   
       .row
-        .col-md-3 Precio por noche:
-        .col-md-7= f.input :price, label: false 
-        .col-md-2 Pesos 
+        .col-md-3 Precio por noche: 
+        .col-md-9
+          - f.fields_for :rates do |a|  
+            .row
+              .col-md-2 Tamaño
+              .col-md-3= a.association :sizes, label: false
+              .col-md-3= a.input :price, label: false, placeholder: 'Precio'
+              .col-md-4= a.link_to_remove "Eliminar"
+          = f.link_to_add "Agregar", :rates
       .row
         %label ¿En qué municipios puedes trabajar?
         

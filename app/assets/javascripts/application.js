@@ -19,8 +19,15 @@
 //= require jquery.raty.js
 //= require jquery_nested_form 
 //= require select2.js
+
+//= require lodash/lodash
+
 //= require angular/angular 
+//= require angular-simple-logger/dist/angular-simple-logger
+//= require angular-google-maps/dist/angular-google-maps
+
 //= require angular-rangeslider/angular.rangeSlider
+
 //= require angular-resource/angular-resource
 //= require app
 //= require modules/providers_module/services/providers.service.js 

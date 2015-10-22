@@ -31,10 +31,11 @@
     @providers = @providers.all.page params[:page]
   end
 
-  def home
-    "hola"
+  def home 
     @search = Provider.search(params[:q])
     @referral = Referral.new
+    
+    render 'home', layout: 'home'
   end
   
   def la_home

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151021001926) do
+ActiveRecord::Schema.define(version: 20151022194837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -237,11 +237,20 @@ ActiveRecord::Schema.define(version: 20151021001926) do
     t.boolean  "has_green"
     t.boolean  "has_yard"
     t.integer  "pet_behavior_id"
+    t.boolean  "on_top"
   end
 
   add_index "providers", ["category_id"], name: "index_providers_on_category_id", using: :btree
   add_index "providers", ["email"], name: "index_providers_on_email", unique: true, using: :btree
   add_index "providers", ["reset_password_token"], name: "index_providers_on_reset_password_token", unique: true, using: :btree
+
+  create_table "rates", force: true do |t|
+    t.integer  "provider_id"
+    t.integer  "size_id"
+    t.float    "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "referrals", force: true do |t|
     t.string   "code_value"

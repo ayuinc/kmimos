@@ -48,6 +48,10 @@ class Provider < ActiveRecord::Base
   
   mount_uploader :avatar, AvatarUploader
   
+  has_many :rates
+  
+  accepts_nested_attributes_for :rates
+  
   has_many :agings
   has_many :ages, :through => :agings
   
@@ -90,7 +94,12 @@ class Provider < ActiveRecord::Base
 
 
   scope :providers_sliced, -> (n, providers) {providers.each_slice(n).to_a}
- 
+  scope :on_top_providers, -> (n) {where(on_top: true).limit(n)}
+
+
+  def to_s
+    "#{name} #{last_name_1} #{last_name_2}"
+  end
 
   def prov_locations_modal
     if self.locations.count > 3

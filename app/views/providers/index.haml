@@ -1,10 +1,7 @@
 %center
   %h1 Cuidadores Sugeridos
-
-
 %div(ng-app="providers_module")
   %div(ng-controller="ProvidersController")  
-    
     .container-fluid.pb-14 
       .row
         .col-md-2
@@ -44,5 +41,8 @@
         .col-md-8 
           =render partial: 'grid'
         .col-md-2
+          %ui-gmap-google-map(center='map.center' zoom='map.zoom')
+            %ui-gmap-marker(idKey='{{provider.id}}' coords='{ latitude: -12.095194, longitude: -77.047795 }') 
+            
       
 = render "layouts/modal"

@@ -93,6 +93,7 @@
 }
 
 .recomendation {
+  
   text-align: center;
   padding: 20px;
   background-color: #fff;
@@ -114,3 +115,20 @@
   top: 240px;
   left: 300px;
 }
+
+
+.row {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+}
+
+.main-video {
+  padding-left: 27px;
+  padding-right: 27px;
+  padding-top: 30px;
+}
+ 
+.square-green {
+  height: 200px;
+}
+ 

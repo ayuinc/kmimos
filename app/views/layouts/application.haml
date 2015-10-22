@@ -6,6 +6,7 @@
     
     = stylesheet_link_tag "application", media: "all"
     = stylesheet_link_tag "providers", media: "all"
+    = javascript_include_tag "application"
     = csrf_meta_tags
     
     / Fonts for Homepage
@@ -15,7 +16,7 @@
     / Fonts Awesome
     %link{:href => "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css", :rel => "stylesheet"}/
     %script{:src => "https://maps.googleapis.com/maps/api/js?sensor=false"}
-    = javascript_include_tag "application"
+   
     / FONTS
     %script{:src => "//use.typekit.net/jod1lcb.js"}
     :javascript
