@@ -1,14 +1,16 @@
 = javascript_include_tag 'gmaps.min'
 = javascript_include_tag 'provider_map'
+
 .container.pvp-7.ph-21
   .row.mv-56
     .col-md-3
+      
     .col-md-6
       .info
         .user.border-bottom
           .user-card.user-card-round.size.xs.mb-21
             .user-pic.flex-middle
-              = image_tag(@provider.avatar_url(:thumb)) if @provider.avatar?
+              = image_tag(@provider.avatar(:thumb)) if @provider.avatar?
               = image_tag('server_carnet.png') unless @provider.avatar?
               .rating-reviews.pl-14.mt-7
             .user-info.pl-14
@@ -116,32 +118,12 @@
         = link_to "Conocer cuidador".html_safe, new_meeting_path(:provider_id => @provider.id), :class => "text-secondary btn btn-fold", :style => "border-color: #1DBA9A; padding: 10px 7px;",  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Conocer', 'provider_#{@provider.id.to_s}']);"
       .content-detalles.mt-14.mb-28.text-center.m-21.pb-14
         .border-bottom.text-left.pl-21
-          %h3.text-gray.mv-14 Detalles
+          %h3.text-gray.mv-14 Evaluaciones
         .text-left.ph-21
-          %h5.text-secondary.light.mt-14.mb-7 Tipo de propiedad:
-          %p.text-gray.light= Property.find(@provider.property_id).property_name if !@provider.property_id.nil?
-          %h5.text-secondary.light.mt-14.mb-7 Áreas externas:
-          %p.text-gray.light= @provider.areas_externas
-          %h5.text-secondary.light.mt-14.mb-7.light Tamaño de perros aceptados:
-          %ul.pl-21
-            - @provider.sizes.each do |size|
-              %li.text-gray.light= size.size_title
-          %h5.text-secondary.mt-14.mb-7.light Edades aceptadas para perros:
-          %ul.pl-21
-            - @provider.ages.each do |age|
-              %li.text-gray.light= age.age_group_name
-          %h5.text-secondary.mt-14.mb-7.light Transporte de emergencia:
-          - if @provider.emergencia == false
-            %p.text-gray.light No
-          - else
-            %p.text-gray.light Sí
-          %h5.text-secondary.mt-14.mb-7.light Años cuidando perros:
-          %p.text-gray.light= @provider.experiencia
-.hidden
-  %h3 mostrando photos
-  - @provider_attachments.each do |p|
-    = image_tag p.photo_url, :size => "150x150"
-    = link_to "Borrar foto", p, method: :delete
+          %h4 Cuidado
+          %h4 Limpiza
+          %h4 Puntualidad
+          %h4 Area de Cuidado 
 .hidden
   = link_to 'Edit', edit_provider_path(@provider)
   |

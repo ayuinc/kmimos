@@ -1,0 +1,146 @@
+!!!
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %link{:href => "css/style.css", :rel => "stylesheet"}/
+    :css
+      .container {
+				margin: 0 auto;
+			  width: 620px;
+				padding: 25px;
+			}
+			.container-sm {
+		    width: 419px;
+  			padding-left: 14px;
+  			padding-right: 14px;
+  			margin: 0 auto;
+			}
+			p {
+				font-family: Trebuchet MS;
+				color: #9a9c9c;
+			}
+      
+  %body
+    .container{:style => "margin: 0 auto;padding: 25px;"}
+      .header
+        %table
+          %thead
+            %tr
+              %td.logo
+                %img{:src => "http://s23.postimg.org/qsnxkl9av/isotipo_mail_confirmacion.png"}/
+      .container-sm
+        %tbody
+          %tr
+            %td
+              %h1{:style => "font-family: arial;font-weight: 100;color: gray;"} Hola #{@booking.user_first_name},
+          %tr
+            %td
+              %p Muchas gracias por haber solicitado una reserva con Kmimos.
+              %p Abajo los detalles de tu solicitud:
+          %table
+            %tr
+              %td
+                %p{:style => "margin: 0;"} Nombre
+              %td
+                %p{:style => "margin: 0;"}
+                  \: #{@booking.user_first_name}#{@booking.user_last_name}
+            %tr
+              %td
+                %p{:style => "margin: 0;"} Dirección
+              %td
+                %p{:style => "margin: 0;"}
+                  \: #{@booking.address}
+            %tr
+              - unless @booking.start_date.nil?
+                %td
+                  %p{:style => "margin: 0;"} Check-in
+                %td
+                  %p{:style => "margin: 0;"}
+                    \: #{@booking.start_date.strftime("%d/%m/%Y")}
+              %td
+            %tr
+              - unless @booking.pickup_time.nil?
+                %td
+                  %p{:style => "margin: 0;"} Hora de recolección
+                %td
+                  %p{:style => "margin: 0;"}
+                    \: #{@booking.pickup_time.strftime("%I:%M %p")}
+              %td
+            %tr
+              - unless @booking.end_date.nil?
+                %td
+                  %p{:style => "margin: 0;"} Check-out
+                %td
+                  %p{:style => "margin: 0;"}
+                    \: #{@booking.end_date.strftime("%d/%m/%Y")}
+              %td
+            %tr
+              - unless @booking.dropoff_time.nil?
+                %td
+                  %p{:style => "margin: 0;"} Hora de entrega
+                %td
+                  %p{:style => "margin: 0;"}
+                    \: #{@booking.dropoff_time.strftime("%I:%M %p")}
+              %td
+            %tr
+              %td
+                %p{:style => "margin: 0;"} Nombre del perro
+              %td
+                %p{:style => "margin: 0;"}
+                  \: #{@booking.pet_name}
+              %td
+            %tr
+              %td
+                %p{:style => "margin: 0;"} Raza
+              %td
+                %p{:style => "margin: 0;"}
+                  \: #{@booking.raza}
+              %td
+            %tr
+              %td
+                %p{:style => "margin: 0;"} Edad
+              %td
+                %p{:style => "margin: 0;"}
+                  \: #{@booking.edad}
+              %td
+            %tr
+              %td
+                %p{:style => "margin: 0;"} Nombre del cuidador
+              %td
+                %p{:style => "margin: 0;"}
+                  \: #{Provider.find(@booking.provider_id).name}#{Provider.find(@booking.provider_id).last_name_1}
+              %td
+            %tr
+              %td
+                %p{:style => "margin: 0;"} Precio por noche
+              %td
+                %p{:style => "margin: 0;"}
+                  \: #{@country.currency}#{Provider.find(@booking.provider_id).price.to_i}
+              %td
+          %table
+            %tr
+              %td
+                %p Durante las próximas 24 horas recibirás una llamada telefónica o te contactaremos por correo electrónico para coordinar la logística de la estadía de tu mascota.
+                %p Cualquier pregunta no dudes en contactarnos al +55 3455 0138.
+                %p ¡Gracias!
+                %p
+                  El equipo de   
+                  %img{:alt => "", :src => "http://s1.postimg.org/n12q65th7/logo_mail_confirmacion.png", :style => "top: 1px; position: relative;"}/
+          %table
+            %tr
+              %td
+                %img{:alt => "", :src => "http://s4.postimg.org/siw8z7fm5/banner_mail.png", :style => "  margin-bottom: 28px;"}/
+      %footer{:style => "background:#1dba9a; padding: 4px 12px;"}
+        %table
+          %tr
+            %td
+              %p{:style => "color:white; margin-right: 17px; margin-left: 12px;"} Contáctanos: +55 3455 0138
+            %td
+              %a{:href => "http://www.cani.mx/", :style => "color: white; margin-right: 88px; text-decoration: none;"} www.cani.mx
+            %td
+              %p{:style => "color:white; margin-right: 14px;"} Síguenos en:
+            %td
+              %a{:href => "https://www.facebook.com/pages/Kamimos/1473614136234432?ref=bookmarks"}
+                %img{:alt => "", :src => "http://s17.postimg.org/r4ttx53vf/facebook_mail_confirmacion.png", :style => "margin-right: 3px;"}/
+              %a{:href => "https://twitter.com/KmimosMx"}
+                %img{:alt => "", :src => "http://s12.postimg.org/gdclxk795/twitter_mail_confirmacion.png"}/

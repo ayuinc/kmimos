@@ -1,0 +1,58 @@
+.container-sm
+  .row.text-center.mt-42
+    = link_to image_tag('huella-mensaje-17.png' ), root_url
+    %h1.mb-21 ¡Gracias por hacer tu reserva!
+    %h3 Los detalles de tu reserva a continuación:
+    .col-md-4
+    .col-md-5
+      .text-left
+        %h4.text-gray
+          - unless @booking.start_date.nil?
+            %small.text-black.bold Check-in:
+            = @booking.start_date.strftime("%d/%m/%Y")
+        %h4.text-gray
+          - unless @booking.pickup_time.nil?
+            %small.text-black.bold Horario de recolección:
+            = @booking.pickup_time.strftime("%I:%M %p")
+          %h4.text-gray
+            - unless @booking.end_date.nil?
+              %small.text-black.bold Check-out:
+              = @booking.end_date.strftime("%d/%m/%Y")
+          %h4.text-gray
+            - unless @booking.dropoff_time.nil?
+              %small.text-black.bold Horario de entrega:
+              = @booking.dropoff_time.strftime("%I:%M %p")
+          %h4.text-gray
+            %small.text-black.bold Cuidador:
+            = @booking.provider.name
+            = @booking.provider.last_name_1
+            = @booking.provider.last_name_2
+          %h4.text-gray
+            %small.text-black.bold Precio:
+            = current_country.currency
+            = 1.2*(@booking.provider.price.to_i)
+            \/ noche
+    .row
+      .col-md-12.text-center
+        %h3 Para tu comodidad hemos enviado la información a:
+        %h4= @booking.user_email
+        %hr.mt-42/
+/ Facebook Conversion Code for Reservacion exitosa
+:javascript
+  (function() {
+    var _fbq = window._fbq || (window._fbq = []);
+    if (!_fbq.loaded) {
+      var fbds = document.createElement('script');
+      fbds.async = true;
+      fbds.src = '//connect.facebook.net/en_US/fbds.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(fbds, s);
+      _fbq.loaded = true;
+    }
+  })();
+  
+  
+  window._fbq = window._fbq || [];
+  window._fbq.push(['track', '6021903685305', {'value':'0.01','currency':'MXN'}]);
+%noscript
+  %img{:alt => "", :height => "1", :src => "https://www.facebook.com/tr?ev=6021903685305&cd[value]=0.01&cd[currency]=MXN&noscript=1", :style => "display:none", :width => "1"}/
