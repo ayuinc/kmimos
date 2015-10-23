@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023154230) do
+ActiveRecord::Schema.define(version: 20151023191146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(version: 20151023154230) do
     t.datetime "pickup_time"
     t.datetime "dropoff_time"
     t.string   "pet_name"
+    t.integer  "user_id"
   end
 
   add_index "bookings", ["provider_id"], name: "index_bookings_on_provider_id", using: :btree

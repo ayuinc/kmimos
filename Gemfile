@@ -42,6 +42,8 @@ gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'cancancan'
 gem 'nested_form'
 
+gem 'best_in_place'
+
 gem 'sass'
 gem 'sass-rails'
 gem 'rails-i18n' 
