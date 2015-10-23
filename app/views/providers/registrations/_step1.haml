@@ -21,14 +21,12 @@
         .col-md-3= f.input :phone, label: false
       .row.border-bottom.mb-42
         .col-md-12.mb-35
-          = f.input :avatar, label: false
-          = f.input :avatar_cache, as: :hidden
+          = f.input :avatar, label: false 
           .input-append
             %a#upload-btn.btn.btn-primary
               %i.icon-upload-alt
               Sube tu foto de perfil 
-            %input#file-display.input-large.uneditable-input{:type => "text"}/
- 
+            
       .row
         .col-md-3 Correo electrónico:
         .col-md-9= f.input :email, label: false
@@ -43,9 +41,8 @@
         .col-md-3 Fotos Adicionales:
         .col-md-9
           - f.fields_for :provider_attachments do |a|  
-            .row
-              .col-md-2 Foto
-              .col-md-6= a.input :photo, :multiple => true, label: false
-              .col-md-4= a.link_to_remove "Eliminar"
+            .row 
+              .col-md-10= a.input :photo, :multiple => true, label: false
+              .col-md-2= a.link_to_remove "X"
           = f.link_to_add "Agregar Foto", :provider_attachments 
     .col-md-1

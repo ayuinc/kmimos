@@ -16,33 +16,40 @@
             %div#home(role="tabpanel" class="tab-pane active" id="") 
               .row.mv-56
                 .col-md-3
-                  %h3= "#{@user.first_name} #{@user.last_name}"
-                  %br
-                  = image_tag(@user.photo, width: '100%')
-                  
-                  = f.input :photo, label: false, label: false  
+                  %h3= "#{@user.first_name} #{@user.last_name}" 
                   .form-group
-                    %label Direccion
-                    = best_in_place @user, :address 
+                    = f.input :photo, label: false, input_html: {style: 'display: none;'}
+                    = image_tag(@user.photo, style: 'width: 100% !important;') 
+                    %br
+                    .input-append
+                      %a#upload-btn.btn.mb21.bordered-btn{style: 'width: 100% !important;'}
+                        %i.icon-upload-alt
+                        Otra foto de perfil   
                   .form-group
-                    %label Codigo Postal
-                    = best_in_place @user, :postal_code
+                    %label.row Direccion
+                    .row= best_in_place @user, :address 
                   .form-group
-                    %label Telefono
-                    = best_in_place @user, :phone
+                    %label.row Codigo Postal
+                    .row= best_in_place @user, :postal_code
                   .form-group
-                    %label E-mail
-                    = best_in_place @user, :email 
+                    %label.row Telefono
+                    .row= best_in_place @user, :phone
+                  .form-group
+                    %label.row E-mail
+                    .row= best_in_place @user, :email 
              
                 .col-md-9
                   %h3 Datos de mis mascotas
                   %hr  
-                  %br 
                   = f.simple_fields_for :pets do |pet|
-                    .row
+                    .row.pet-container
                       .col-md-4
-                        = image_tag(:photo)
-                        = pet.input :photo, label: false 
+                        = image_tag(:photo, style: 'width: 100% !important;') 
+                        = pet.input :photo, label: false, input_html: {style: 'display: none; '}
+                        .input-append
+                          %a#upload-btn.btn.btn-primary{style: "padding: 6px 12px;"}
+                            %i.icon-upload-alt
+                            Subir Foto
                       .col-md-4 
                         = pet.input :name, label: 'Nombre' 
                         = pet.input :race, label: 'Raza' 

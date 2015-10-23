@@ -8,12 +8,13 @@
     .col-md-6
       .info
         .user.border-bottom
-          .user-card.user-card-round.size.xs.mb-21
-            .user-pic.flex-middle
-              = image_tag(@provider.avatar(:thumb)) if @provider.avatar?
+          .user-card.user-card-round.size.xs.mb-21.row
+            .user-pic.col-md-4
+              = image_tag(@provider.avatar) if @provider.avatar?
               = image_tag('server_carnet.png') unless @provider.avatar?
-              .rating-reviews.pl-14.mt-7
-            .user-info.pl-14
+              %center
+                .rating-reviews.pl-14.mt-7
+            .user-info.col-md-8
               %h3.m-0.mb-7
                 = @provider.name
                 = @provider.last_name_1
@@ -24,21 +25,18 @@
                 %br
       %h3.text-gray.mb-21 Detalles
       .row.details-profile.pl-21
-        .col-md-2
+        .col-md-3
           .icon= image_tag('detalles-casa.svg')
-          %span Casa de dos pisos
-        .col-md-2
+          %center= @provider.property
+        .col-md-3
           .icon= image_tag('detalles-perro-grande.svg')
-          %span Perros Grandes
-        .col-md-2
+          %center= "Perros #{@provider.sizes.join(' ')} " 
+        .col-md-3
           .icon= image_tag('detalles-edad-perro-cachorro.svg')
-          %span Cachorros
-        .col-md-2
-          .icon= image_tag('detalles-transporte.svg')
-          %span Transporte a domicilio
-        .col-md-2
+          %center= "#{@provider.ages.join(' ')} "  
+        .col-md-3
           .icon= image_tag('detalles-experiencia.svg')
-          %span 15 años de experiencia
+          %center="#{@provider.experiencia} años de experiencia" 
       .border-bottom.mt-21
         
       %h3.text-gray.mb-35.mt-49= "Fotos de #{@provider.name} #{@provider.last_name_1}"
@@ -63,16 +61,16 @@
       .row.details-profile.pl-21
         .col-md-3
           .icon= image_tag('otros-detalles-otros-perros.svg')
-          %span 1 Perro en casa mediano
+          %center 1 Perro en casa mediano
         .col-md-3
           .icon= image_tag('otros-detalles-patio.svg')
-          %span Casa con patio grande
+          %center Casa con patio grande
         .col-md-3
           .icon= image_tag('otros-detalles-areas-verdes.svg')
-          %span Areas Verdes
+          %center Areas Verdes
         .col-md-3
           .icon= image_tag('otros-detalles-cantidad-perros.svg')
-          %span Cantidad de perros aceptados
+          %center="#{@provider.pets_allowed.to_i} perros aceptados"
       
       .descripcion-perfil.border-top
         %h3.text-gray
@@ -120,10 +118,15 @@
         .border-bottom.text-left.pl-21
           %h3.text-gray.mv-14 Evaluaciones
         .text-left.ph-21
-          %h4 Cuidado
-          %h4 Limpiza
-          %h4 Puntualidad
-          %h4 Area de Cuidado 
+          %h5 Cuidado
+          .rating-reviews.pl-14.mt-7
+          %h5 Limpieza
+          .rating-reviews.pl-14.mt-7
+          %h5 Puntualidad
+          .rating-reviews.pl-14.mt-7
+          %h5 Area de Cuidado 
+          .rating-reviews.pl-14.mt-7
+        %br
 .hidden
   = link_to 'Edit', edit_provider_path(@provider)
   |

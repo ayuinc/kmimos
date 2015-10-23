@@ -206,7 +206,7 @@
   -ms-flex-direction: row;
   .user-pic {
     img {
-      width: 120px;
+      width: 150px;
       border: 1px solid #eee;
     }
   }
@@ -238,8 +238,7 @@
   -ms-flex-pack: center;
 }
 
-.user-card .user-pic {
-  width: 120px;
+.user-card .user-pic { 
 }
 
 .btn-fold {

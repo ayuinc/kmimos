@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
 	end
 
 	def show
-    @booking = Booking.find(params[:id])
+    @booking = Booking.where(token: params[:id]).last
 	end
 
 	def create 
@@ -19,6 +19,7 @@ class BookingsController < ApplicationController
     @booking.user_id = current_user.id
     
 	  if @booking.save
+      
     	#BookingConfirmationMailer.new_booking_notification(@booking, current_country).deliver
     	#BookingConfirmationMailer.new_booking_for_admin(@booking, current_country).deliver
       

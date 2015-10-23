@@ -1243,5 +1243,19 @@ div.active {
   &:first-letter { text-transform: uppercase; }
 }
 
+.bordered-btn {
+  width: 100% !important;
+  border: 1px solid;
+  margin-top: 10px;
+}
+
+.pet-container {
+  background-color: #e1eeea;
+  padding: 20px;
+  margin: 15px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
 
 /*# sourceMappingURL=style.css.map */
