@@ -12,7 +12,7 @@
         %small(ng-repeat="state in provider.states ") 
           {{ state }}
         %a
-          %p.lh-sm.mb-0.text-gray.fz-xs {{ provider.description }}
+          %p.lh-sm.mb-0.text-gray.fz-xs {{ provider.description | limitTo: 200 }}
         .hidden-md.separator.separator-gray-dark.separator-centered.mt-0.separator-full-width
         .row
           .col-md-8.pr-0
