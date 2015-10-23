@@ -10,8 +10,9 @@
       .col-md-3 Descripción como cuidador:
       .col-md-9= f.input :description, label: false, input_html: {rows: 10}  
     .row
-      .col-md-3 Precio por noche: 
-      .col-md-9
+      .col-md-12 Precio por noche: 
+    .row
+      .col-md-12
         %ul
           - @provider.rates.each do |rate|
             %li= "#{rate.size} : #{rate.price}"
