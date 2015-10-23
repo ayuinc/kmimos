@@ -8,7 +8,7 @@
 //= require bootstrap/tooltip
 //= require bootstrap/z_popover
 //= require bootstrap/modal
-//= require bootstrap/tab
+//= require bootstrap/tab 
 //= require jquery-ui
 //= require datepicker-es.js
 //= require jquery.timepicker.min.js
@@ -16,7 +16,7 @@
 //= require gmaps.min 
 //= require utils
 //= require jquery.steps.js
-//= require jquery.raty.js
+//= require jquery.raty.js 
 //= require jquery_nested_form 
 //= require select2.js
 

@@ -14,6 +14,7 @@
  *= require style 
  *= require jquery.steps.css 
  *= require jquery.raty.css
+ *= require jquery-timepicker-jt/jquery.timepicker
  *= require angular-rangeslider/angular.rangeSlider
  *= require select2.css
  *= require select2-bootstrap.css

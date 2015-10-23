@@ -20,19 +20,19 @@
     %br
     .row
       .col-md-2
-      .col-md-8.row
+      .col-md-8.row#datepair
         .col-md-3
           Llegada
-          =f.input :start_date, as: :date
+          =f.input :start_date, as: :string, label: false, input_html: {class: "date start datepicker"} 
         .col-md-3
           Horas
-          =f.input :start_date, as: :time
-        .col-md-3
-          Salida
-          =f.input :end_date, as: :date
+          =f.input :start_date, as: :time, label: false, input_html: {class: "time start"} 
         .col-md-3
           Hora
-          =f.input :end_date, as: :time
+          =f.input :end_date, as: :time, label: false, input_html: {class: "time end"} 
+        .col-md-3
+          Salida
+          =f.input :end_date, as: :string, label: false, input_html: {class: "date end datepicker"}
     .row
       .col-md-2
       .col-md-8.mt-21.mb-42
@@ -63,7 +63,7 @@
               .col-md-6= f.input :pickup_time, class: "form-control mb-21", label: "Horario de recolección:"
               .col-md-6= f.input :dropoff_time, class: "form-control mb-21", label: "Horario de entrega:"
             .form-group.row
-              .col-md-12= f.input :address, class: "form-control", label: "Dirección de Recojo"
+              .col-md-12= f.input :address, class: "form-control", label: "Dirección de Recojo", as: :text
             .form-group.row
               .col-md-12= f.input :cuidado_especial, class: "form-control", label: "¿Necesita cuidados, especiales?", as: :boolean
             .form-group.row
@@ -73,14 +73,30 @@
               .col-md-6
                 = f.input :ref_code, label: "Código de descuento:"  
             / Modal
-            = render partial: 'terms', locals: {f: f}
-            
-            .form-group.row
-              .col-md-3
-                = link_to 'Reservar', '#myModal', 'data-toggle' => 'modal', :class => "btn btn-primary form-control mt-21", :onClick=>"_gaq.push(['_trackEvent', 'Homepage', 'Recomendar-modal-trigger']);"
+        %br
+        %h3.text-gray.mb-28 Quieres contratar servicios adicionales?
+        .panel-body
+          .form-group
+            = f.simple_fields_for :booked_services do |p|
+              .row.border-bottom
+                .col-md-3 Servicio:
+                .col-md-6= p.association :service, label: false   
+                .col-md-3= p.link_to_remove "Eliminar"
+            = f.link_to_add "Agregar un Servicio", :booked_services
+        .panel-heading 
+          %hr.hr-gray/
+        .panel-body
+          = render partial: 'terms', locals: {f: f}
+          
+          .form-group.row
+            .col-md-3
+              = link_to 'Reservar', '#myModal', 'data-toggle' => 'modal', :class => "btn btn-primary form-control mt-21", :onClick=>"_gaq.push(['_trackEvent', 'Homepage', 'Recomendar-modal-trigger']);"
           / panel-body
         / panel-default
         %div
           %h5 *La reservación del cuidador está sujeta a cambios por motivos de disponibilidad, tamaño de perro y cuidados necesarios.
       / col-md-8
     / row
+    
+:javascript 
+  $('.datepicker').datepicker();

@@ -3,6 +3,9 @@
   "dependencies": {
     "angular": "latest",
     "angular-rangeslider": "latest",
-    "angular-google-maps": "latest"
+    "angular-google-maps": "latest",
+    "jquery-ui": "latest",
+    "jquery-timepicker-jt": "latest",
+    "datepair.js": "latest"
   }
 }

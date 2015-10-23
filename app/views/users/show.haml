@@ -1,0 +1,42 @@
+= simple_nested_form_for(@user, :html => {:multipart => true}) do |f|  
+  .container.pvp-7.ph-21
+    .row
+      .col-md-2
+      .col-md-8
+        .row.mv-56
+          .col-md-4
+            %h3= "#{@user.first_name} #{@user.last_name}"
+            %br
+            = image_tag(@user.photo, width: '100%')
+            = f.input :photo, label: false, label: :false 
+            .input-append
+              %a#upload-btn.btn.btn-primary
+                %i.icon-upload-alt
+            = f.input :address, as: :text, label: 'Direccion' 
+            = f.input :postal_code, label: 'Codigo Postal' 
+            = f.input :phone, label: 'Telefono' 
+            = f.input :email, label: 'E-mail'
+             
+          .col-md-8
+            %h3 Datos de mis mascotas
+            %hr 
+            = f.simple_fields_for :pets do |pet|
+              .row
+                .col-md-4
+                  = image_tag(:photo)
+                  = pet.input :photo, label: false
+                  .input-append
+                    %a#upload-btn.btn.btn-primary
+                      %i.icon-upload-alt
+                .col-md-4 
+                  = pet.input :name, label: 'Nombre' 
+                  = pet.input :race, label: 'Raza' 
+                  = pet.input :age, label: 'Edad' 
+                  = pet.association :size, label: 'Tamaño'
+                  %br 
+                .col-md-4 
+                  = pet.input :weight, label: 'Peso' 
+                  = pet.input :sex, label: 'Sexo' 
+                  = pet.association :behavior, label: 'Comportamiento'
+            = f.link_to_add "Agregar Mascota", :pets
+      = f.submit "Actualizar", class: "btn btn-primary", disabled: true

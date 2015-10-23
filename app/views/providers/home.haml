@@ -26,7 +26,7 @@
                 - elsif current_user
                   %li.dropdown.mt-7.size-responsive
                     %a.dropdown-toggle.text-muted{"data-toggle" => "dropdown", :href => "#"}
-                      Hola, #{current_user.first_name}
+                      Hola, #{current_user.first_name }
                     %ul#dropdown-menu.dropdown-menu
                       %li= link_to 'Actualizar mi perfil'.html_safe, user_path(current_user), class: "text-danger pl-14 pr-14 mb-14"
                       %li= link_to 'Salir'.html_safe, salir_path, :method => :delete, class: "text-danger pl-56 pr-56"

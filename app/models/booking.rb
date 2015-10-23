@@ -34,6 +34,11 @@ class Booking < ActiveRecord::Base
   has_many :booked_pets
   has_many :pets, :through => :booked_pets
   accepts_nested_attributes_for :booked_pets
+  
+  has_many :booked_services
+  has_many :services, :through => :booked_services
+  accepts_nested_attributes_for :booked_services
+  
 
   def to_param
     token

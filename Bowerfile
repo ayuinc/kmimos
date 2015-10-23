@@ -6,3 +6,6 @@
 asset 'angular'
 asset 'angular-rangeslider'
 asset 'angular-google-maps'
+asset 'jquery-ui'
+asset 'jquery-timepicker-jt'
+asset 'datepair.js'
