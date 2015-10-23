@@ -1,7 +1,8 @@
-.row.mb-21
+.row.mb-21#cuidadores
   .col-md-4(ng-repeat="provider in providers | filter: search ")  
-    .bg-img-block.mt-7(style = "height: 150px; background-image: url('{{provider.avatar}}');")
-      
+    .bg-img-block.border-radius.square-green.mt-7(style = "height: 150px; background-image: url('{{provider.avatar}}');")
+      #a.oculto.text-center.pt-21
+        %img{:alt => "", :src => "assets/icono-huella-hover.svg", :width => "70"} 
     .bg-gray-lighter.p-14
       %small.fz-xs Desde
       %h4.text-primary.lh-xs.mv-0 Mex ${{provider.price}}
@@ -9,15 +10,21 @@
       %h5.bold.m-0 {{ provider.name }}
       %small(ng-repeat="state in provider.states ") 
         {{ state }}
-      %a{:href => "#"}
+      %a(href="/providers/{{provider.id}}")
         %p.lh-sm.mb-0.text-gray.fz-xs {{ provider.description }}
       .hidden-md.separator.separator-gray-dark.separator-centered.mt-0.separator-full-width
       .row
         .col-md-8.pr-0
           .rating-reviews.pl-14.mt-7
         .col-md-4.pl-0
-          .fz-xxs
-            14
-            %span.fz-xs comentarios
+      .row
+        %hr.mb0.mt0
+        .col-md-6
+          .rating-reviews.pl-14.mt-7
+        .col-md-6
+          14 comentarios
               
               
+
+
+ 

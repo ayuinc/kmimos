@@ -1,0 +1,86 @@
+:css
+  #license_terms {
+    overflow-y: scroll;
+  }
+.container.content.mh-630
+  = simple_nested_form_for(@booking)  do |f|
+    .row
+      .col-md-12
+        %h2.text-center.mt-35 Datos de la reserva
+    .row
+      .col-md-2
+      .col-md-4
+        = image_tag(@provider.avatar, width: '200px')
+      .col-md-4
+        %h2= @provider
+        - @provider.locations.group_by(&:state_id).each do |k, state|
+          %b= state.first.state
+          %br
+          %span.text-gray= state.map(&:name).join(", ")
+    %br
+    .row
+      .col-md-2
+      .col-md-8.row
+        .col-md-3
+          Llegada
+          =f.input :start_date, as: :date
+        .col-md-3
+          Horas
+          =f.input :start_date, as: :time
+        .col-md-3
+          Salida
+          =f.input :end_date, as: :date
+        .col-md-3
+          Hora
+          =f.input :end_date, as: :time
+    .row
+      .col-md-2
+      .col-md-8.mt-21.mb-42
+        %h3.text-gray.mb-28 Resumen de la reserva:
+        %h4.text-gray.light
+          %small.text-black.bold Cuidador:
+          = @provider.name
+          = @provider.last_name_1
+          = @provider.last_name_2
+        %h4.text-gray.light
+          %small.text-black.bold Precio:
+          = current_country.currency
+          = @provider.price.to_i * 1.2
+          \/ noche
+        %hr.hr-gray/
+        .panel.panel-primary
+          .panel-heading
+            %h4.text-gray.line-regular Completa tus datos para ponernos en contacto contigo y cerrar tu reservación. Uno de nuestros agentes te contactará en breve.
+          .panel-body
+            .form-group
+              = f.simple_fields_for :booked_pets do |p|
+                .row.border-bottom
+                  .col-md-3 Mascota:
+                  .col-md-6= p.association :pet, label: false   
+                  .col-md-3= p.link_to_remove "Eliminar"
+              = f.link_to_add "Agregar una Mascota", :booked_pets
+            .form-group.row
+              .col-md-6= f.input :pickup_time, class: "form-control mb-21", label: "Horario de recolección:"
+              .col-md-6= f.input :dropoff_time, class: "form-control mb-21", label: "Horario de entrega:"
+            .form-group.row
+              .col-md-12= f.input :address, class: "form-control", label: "Dirección de Recojo"
+            .form-group.row
+              .col-md-12= f.input :cuidado_especial, class: "form-control", label: "¿Necesita cuidados, especiales?", as: :boolean
+            .form-group.row
+              .col-md-12
+                = f.input :user_message, label: "Mensaje:", as: :text
+            .form-group.row
+              .col-md-6
+                = f.input :ref_code, label: "Código de descuento:"  
+            / Modal
+            = render partial: 'terms', locals: {f: f}
+            
+            .form-group.row
+              .col-md-3
+                = link_to 'Reservar', '#myModal', 'data-toggle' => 'modal', :class => "btn btn-primary form-control mt-21", :onClick=>"_gaq.push(['_trackEvent', 'Homepage', 'Recomendar-modal-trigger']);"
+          / panel-body
+        / panel-default
+        %div
+          %h5 *La reservación del cuidador está sujeta a cambios por motivos de disponibilidad, tamaño de perro y cuidados necesarios.
+      / col-md-8
+    / row

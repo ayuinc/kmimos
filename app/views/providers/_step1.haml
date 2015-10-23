@@ -1,0 +1,56 @@
+ 
+.row
+  .col-md-12
+    %h2.title-step Datos Personales
+    %hr
+.row
+  .col-md-1
+  .col-md-10
+    .row
+      .col-md-5
+        = image_tag(@provider.avatar, width: '100%') 
+        = f.input :avatar, label: false
+        = f.input :avatar_cache, as: :hidden
+        .input-append
+          %a#upload-btn.btn.btn-primary
+            %i.icon-upload-alt
+            Sube Otra foto de perfil 
+          %input#file-display.input-large.uneditable-input{:type => "text"}/
+      .col-md-7
+        .row
+          .col-md-3 Nombre:
+          .col-md-9= f.input :name, label: false 
+        .row
+          .col-md-3 Apellido Paterno:
+          .col-md-9= f.input :last_name_1, label: false 
+        .row
+          .col-md-3= current_country.dni_label 
+          .col-md-9= f.input :dni, label: false 
+        .row
+          .col-md-3 Teléfono:
+          .col-md-9= f.input :phone, label: false 
+        .row
+          .col-md-3 Correo electrónico:
+          .col-md-9= f.input :email, label: false
+    
+    .row
+      %h4 Fotos Adicionales:
+    .row
+      #carousel.flexslider
+        - if !@provider_attachments.empty?
+          %ul.slides
+            - @provider_attachments.each do |p|
+              %li
+                = image_tag p.photo_url
+        - else
+          %p No hay fotos
+    .row
+      .col-md-12
+        = f.link_to_add "Agregar Foto", :provider_attachments
+        - f.fields_for :provider_attachments do |a|  
+          .row
+            .col-md-2 Foto
+            .col-md-6= a.input :photo, :multiple => true, label: false
+            .col-md-4= a.link_to_remove "Eliminar"
+        
+  .col-md-1

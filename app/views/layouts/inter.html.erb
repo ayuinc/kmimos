@@ -28,7 +28,8 @@
     
     <!-- Fonts Awesome -->
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
-  
+    <%= csrf_meta_tag %>
+    
     <% if Rails.env.production? %>
       <script type="text/javascript">
         var _gaq = _gaq || [];

@@ -14,6 +14,7 @@
     / App styles
     %link{:href => "assets/css/ebm.css", :rel => "stylesheet"}/
     %script{:src => "https://use.typekit.net/jod1lcb.js"}
+    = csrf_meta_tag 
     :javascript
       try{Typekit.load({ async: true });}catch(e){}
   %body

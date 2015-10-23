@@ -28,6 +28,10 @@ class ApplicationController < ActionController::Base
     I18n.locale = current_country != nil ? current_country.locale : I18n.default_locale
   end  
   
+  def after_sign_in_path_for(resource)
+    #current_provider_path if resource.class.name == "Provider"
+    #current_user_path if resource.class.name == "User"
+  end
   
   
   def current_country

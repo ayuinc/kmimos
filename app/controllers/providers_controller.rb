@@ -1,7 +1,6 @@
   class ProvidersController < ApplicationController
     
-  before_action :set_provider, only: [:show, :edit, :update, :destroy]
-  before_action :require_current_provider, only: [:edit]
+  before_action :set_provider, only: [:show, :edit, :update, :destroy] 
   before_action :require_unlogged_provider, only: [:new]
   before_action :get_dates, only: [:index]
   before_action :set_country, only: [:index,:home]
@@ -63,6 +62,9 @@
   def edit
     @provider_attachment = @provider.provider_attachments.build
     @new_provider_attachment = @provider.provider_attachments.new
+    @provider_attachments = @provider.provider_attachments.all
+    
+    @provider = Provider.find(params[:id])
     # @provider.pictures.build
   end
 

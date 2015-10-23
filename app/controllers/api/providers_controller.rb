@@ -19,11 +19,12 @@ class Api::ProvidersController < ApplicationController
     
     @providers.each do |provider|
       hash_provider = Hash.new
+      hash_provider[:id] = provider.id
       hash_provider[:name] = "#{provider.name} #{provider.last_name_1}"
       hash_provider[:states] = provider.locations.map{|l| l.state.name}.uniq
       hash_provider[:locations] = provider.locations.map{|l| l.name}.uniq
       hash_provider[:description] = provider.description
-      hash_provider[:price] = provider.price.to_f
+      hash_provider[:price] = provider.price.to_f * 1.2
       hash_provider[:avatar] = provider.avatar.url == nil ? "assets/user.jpg" : provider.avatar.url 
       hash_provider[:sizes] = provider.sizes.map{|s| s.size_title}.uniq
       hash_provider[:pet_qty] = provider.pets_allowed.to_i

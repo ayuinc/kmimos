@@ -1,0 +1,13 @@
+.container.content.mh-630.mb-70
+  .row.mt-35
+    .col-md-2
+    .col-md-8
+      %h3.text-align-center Actualizar tu perfil
+      .panel.panel-primary
+ 
+        .panel-body
+          = simple_nested_form_for(@provider, :html => {:multipart => true}) do |f|  
+            = render partial: 'step1', locals: {f: f}
+            = render partial: 'step2', locals: {f: f}
+            = render partial: 'step3', locals: {f: f} 
+            = f.submit 'Guardar'

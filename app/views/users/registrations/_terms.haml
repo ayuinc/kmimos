@@ -198,3 +198,19 @@
     .col-md-6
       %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Cancelar
       = f.submit "Confirmar", id: "confirm_new_user", class: "btn btn-primary", disabled: true
+      
+      
+:javascript
+      
+  $(document).ready(function() {
+    var altura = $(window).height() - 250;
+    $("#license_terms").height(altura);
+    $("input[name=license_term]").click(function(e) {
+      if ($(this).is(":checked")) {
+        $("#confirm_new_user").prop("disabled", false);
+      } else {
+        $("#confirm_new_user").attr("disabled", true);
+      }
+    });
+  });
+  

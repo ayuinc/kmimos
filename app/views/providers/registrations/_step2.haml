@@ -16,7 +16,7 @@
           - f.fields_for :rates do |a|  
             .row
               .col-md-2 Tamaño
-              .col-md-3= a.association :sizes, label: false
+              .col-md-3= a.association :size, label: false
               .col-md-3= a.input :price, label: false, placeholder: 'Precio'
               .col-md-4= a.link_to_remove "Eliminar"
           = f.link_to_add "Agregar", :rates
