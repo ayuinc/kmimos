@@ -15,7 +15,7 @@
           %div.tab-content
             %div#home(role="tabpanel" class="tab-pane active" id="") 
               .row.mv-56
-                .col-md-4
+                .col-md-3
                   %h3= "#{@user.first_name} #{@user.last_name}"
                   %br
                   = image_tag(@user.photo, width: '100%')
@@ -34,7 +34,7 @@
                     %label E-mail
                     = best_in_place @user, :email 
              
-                .col-md-8
+                .col-md-9
                   %h3 Datos de mis mascotas
                   %hr  
                   %br 

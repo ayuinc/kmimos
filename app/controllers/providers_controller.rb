@@ -1,7 +1,7 @@
   class ProvidersController < ApplicationController
     
   before_action :set_provider, only: [:show, :edit, :update, :destroy] 
-  before_action :require_unlogged_provider, only: [:new]
+  #before_action :require_unlogged_provider, only: [:new]
   before_action :get_dates, only: [:index]
   before_action :set_country, only: [:index,:home]
 

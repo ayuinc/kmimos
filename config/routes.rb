@@ -18,17 +18,13 @@ ServihogarRails::Application.routes.draw do
 
   resources :bookings
   resources :meetings
-
-  resources :providers_sessions, only: [:new, :create, :destroy]
+ 
   
   namespace :api, defaults: { format: 'json' } do
     get 'providers/get_providers' => 'providers#get_providers', as: 'api_get_providers'
     get 'services/get_services' => 'services#get_services', as: 'api_get_services'
     get 'general/get_sizes' => 'general#get_sizes', as: 'api_get_sizes'
   end
-  
-  match '/salir', 
-      to: 'providers_sessions#destroy', as: 'salir', via: :delete
 
   resources :categories, only: [:show]
 

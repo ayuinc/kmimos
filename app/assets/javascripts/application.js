@@ -88,6 +88,8 @@ $(document).ready(function() {
   // pretty-fy the upload field
   // var realInputField = $('#provider_pictures_attributes_0_image');
   var realInputField = $('#provider_avatar');
+  var realInputField = $('#user_photo');
+  var realInputField = $('#pet_photo');
   var picCache = $("#provider_avatar_cache")
 
   //ocultar campos innecesarios en providers#edit

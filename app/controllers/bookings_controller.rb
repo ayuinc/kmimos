@@ -19,8 +19,8 @@ class BookingsController < ApplicationController
     @booking.user_id = current_user.id
     
 	  if @booking.save
-    	BookingConfirmationMailer.new_booking_notification(@booking, current_country).deliver
-    	BookingConfirmationMailer.new_booking_for_admin(@booking, current_country).deliver
+    	#BookingConfirmationMailer.new_booking_notification(@booking, current_country).deliver
+    	#BookingConfirmationMailer.new_booking_for_admin(@booking, current_country).deliver
       
 	    session[:start_date], session[:end_date] = nil, nil  
 	    redirect_to booking_path(@booking)
