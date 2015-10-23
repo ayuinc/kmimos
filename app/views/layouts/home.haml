@@ -7,12 +7,14 @@
     %meta{:content => "", :name => "keywords"}/
     %meta{:content => "@MadeByGus", :name => "author"}/
     %meta{:content => "width=device-width, initial-scale=1.0, user-scalable=no", :name => "viewport"}/
-    %link{:href => "assets/favicon.png", :rel => "shortcut icon"}/
-    %link{:href => "assets/css/style.css", :rel => "stylesheet"}/
+    %link{:href => "assets/favicon.png", :rel => "shortcut icon"}/ 
+    
+    = stylesheet_link_tag "style", media: "all"
     = stylesheet_link_tag "application", media: "all"
     = javascript_include_tag "application"
     / App styles
-    %link{:href => "assets/css/ebm.css", :rel => "stylesheet"}/
+    = stylesheet_link_tag "ebm", media: "all" 
+    
     %script{:src => "https://use.typekit.net/jod1lcb.js"}
     = csrf_meta_tag 
     :javascript
@@ -21,10 +23,10 @@
     = render :partial => 'layouts/shared/search_form'
     = yield
     
-    %script{:src => "assets/js/jquery.min.js"}
+    //%script{:src => "assets/js/jquery.min.js"}
     / App scripts
-    %script{:src => "assets/js/scripts.min.js"}
-    %script{:src => "assets/js/menu-control.js"}
+    //%script{:src => "assets/js/scripts.min.js"}
+    //%script{:src => "assets/js/menu-control.js"}
     
 :javascript
     
