@@ -1057,6 +1057,9 @@
     .active .header-center nav .instagram {
       background-image: url(../img/instagram-white.png); }
 
+
+ 
+
 .menu-toggle {
   width: 40px;
   height: 35px;
@@ -1205,11 +1208,14 @@
 }
 
 #cuidadores .square-green .oculto {
-  visibility: hidden; }
+  visibility: hidden; 
+}
+
 #cuidadores .square-green:hover .oculto {
   visibility: visible !important;
   background-color: rgba(99, 209, 184, 0.8);
-  height: 200px; }
+  height: 200px; 
+}
 
 .grey-button {
   width: 100%;
@@ -1220,6 +1226,21 @@
   text-align: center;
   padding: 4px;
   font-weight: bold;
+}
+
+div.active {
+  background-color: #fff !important; 
+}
+  
+.purr {
+  position: fixed;
+  top: 30px;
+  right: 100px;
+  width: 250px;
+  padding: 20px;
+  background-color: #FCC;
+  border: solid 2px #C66;
+  &:first-letter { text-transform: uppercase; }
 }
 
 

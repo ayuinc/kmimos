@@ -20,6 +20,9 @@
 //= require jquery_nested_form 
 //= require select2.js
 
+//= require jquery.purr
+//= require best_in_place
+
 //= require lodash/lodash
 
 //= require angular/angular 
@@ -354,5 +357,7 @@ function groupBy( array , f )
     return groups[group]; 
   })
 }
+
+
 
  
