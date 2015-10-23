@@ -8,18 +8,23 @@ class BookingsController < ApplicationController
 	end
 
 	def show
+    @booking = Booking.find(params[:id])
 	end
 
 	def create 
+    @provider = Provider.find(params[:provider_id])
 		@booking = Booking.new(booking_params)
+    
+    @booking.provider_id  = @provider.id
+    @booking.user_id = current_user.id
+    
 	  if @booking.save
     	BookingConfirmationMailer.new_booking_notification(@booking, current_country).deliver
     	BookingConfirmationMailer.new_booking_for_admin(@booking, current_country).deliver
-	    session[:start_date] = nil
-	    session[:end_date] = nil
-      session[:user_email] = nil
+      
+	    session[:start_date], session[:end_date] = nil, nil  
 	    redirect_to booking_path(@booking)
-	  else
+	  else 
 	    render 'new'
 	  end
 	end
@@ -27,7 +32,7 @@ class BookingsController < ApplicationController
 	private
 
 	def booking_params
-	  params.require(:booking).permit(:raza, :edad, :cuidado_especial, :start_date, :end_date, :user_first_name, :user_last_name, :provider_id, :user_phone, :user_email, :ref_code, :user_message, :address, :pickup_time, :dropoff_time, :pet_name)
+	  params.require(:booking).permit! #(:raza, :edad, :cuidado_especial, :start_date, :end_date, :user_first_name, :user_last_name, :provider_id, :user_phone, :user_email, :ref_code, :user_message, :address, :pickup_time, :dropoff_time, :pet_name)
 	end
 
 	def set_booking

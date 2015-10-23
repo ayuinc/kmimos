@@ -48,7 +48,7 @@
     if @provider.active 
       @provider_attachments = @provider.provider_attachments.all
     else
-      redirect_to :home
+      redirect_to :home 
     end
   end
 
@@ -93,7 +93,7 @@
   # PATCH/PUT /providers/1
   def update
     respond_to do |format|
-      if @provider.update(provider_params)
+      if @provider.update(all_provider_params)
         unless params[:provider_attachments].nil?
           params[:provider_attachments]['photo'].each do |a|
              @provider_attachment = @provider.provider_attachments.create!(:photo => a, :provider_id => @provider.id)
@@ -129,6 +129,12 @@
     def set_provider
       @provider = Provider.find(params[:id])
     end
+    
+    private
+    
+    def all_provider_params
+      params.require(:user).permit!
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def provider_params
@@ -148,4 +154,6 @@
         session[:end_date] = Date.strptime(params[:end_date],'%d/%m/%Y')
       end
     end
+    
+    
 end
