@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
    has_many :user_pets
    has_many :pets, :through => :user_pets
    has_many :bookings
+   has_many :comments
    
    accepts_nested_attributes_for :pets
    

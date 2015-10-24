@@ -1,0 +1,38 @@
+.comment-container {
+  .user-avatar {
+    
+  }
+  .comment-body {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    .col-md-3 {
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+    .comment-text {
+      .col-md-12 {
+        p {
+          padding-top: 40px;
+          padding-bottom: 20px;
+        }
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+      }
+    }
+  }
+  .new_comment {
+    
+    .avatar {
+      
+    }
+    
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    .comment {
+      .col-md-10 {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+      }
+    }
+  }
+}

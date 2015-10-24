@@ -19,6 +19,7 @@ ServihogarRails::Application.routes.draw do
   resources :bookings
   resources :meetings
  
+  resources :comments
   
   namespace :api, defaults: { format: 'json' } do
     get 'providers/get_providers' => 'providers#get_providers', as: 'api_get_providers'

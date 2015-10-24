@@ -45,6 +45,12 @@
   # GET /providers/1
   # GET /providers/1.json
   def show
+    
+    if current_user != nil
+      @comment = Comment.new
+      @comment.user_id = current_user.id
+    end
+    
     if @provider.active 
       @provider_attachments = @provider.provider_attachments.all
     else

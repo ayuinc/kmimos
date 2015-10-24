@@ -102,7 +102,9 @@
     
       .comentarios
         %h3.text-gray Comentarios
-        
+        #comments-div
+          = render partial: 'layouts/partial/comments', locals: {provider: @provider}
+          
     .col-md-3
       .content-article.mt-14.mb-28.text-center.m-21
         %h4.light.mb-0.text-gray.text-small Desde

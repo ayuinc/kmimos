@@ -1,0 +1,32 @@
+- if current_user != nil
+  -@provider.comments.each do |comment|
+    .comment-container.row
+      .user-avatar.col-md-2
+        =image_tag(comment.user.photo, width: '50px', height: '50px', class: 'img-circle')
+      .comment-body.col-md-10
+        %h4= "#{comment.user.first_name} #{comment.user.last_name}"
+        .valorations.row
+          .col-md-3
+            %b Cuidado
+            .rating-reviews.mt-7
+          .col-md-3
+            %b Puntualidad
+            .rating-reviews.mt-7
+          .col-md-3
+            %b Limpieza
+            .rating-reviews.mt-7
+          .col-md-3
+            %b Area de Cuidado
+            .rating-reviews.mt-7
+        .comment-text.row
+          .col-md-12
+            %p= comment.body
+    %hr
+  = simple_nested_form_for(@comment, :html => {:multipart => true}, remote: true) do |f|  
+    .new_comment.row
+      .avatar.col-md-2
+        = image_tag(current_user.photo, width: '50px', class: 'img-circle')
+      .comment.col-md-8
+        =f.input :body, label: false
+      .col-md-2.mt-7
+        = f.submit "Comentar", class: 'btn btn-primary'
