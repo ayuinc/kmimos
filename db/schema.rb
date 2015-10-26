@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151024171313) do
+ActiveRecord::Schema.define(version: 20151026220816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -262,6 +262,8 @@ ActiveRecord::Schema.define(version: 20151024171313) do
     t.boolean  "has_yard"
     t.integer  "pet_behavior_id"
     t.boolean  "on_top"
+    t.time     "check_in"
+    t.time     "check_out"
   end
 
   add_index "providers", ["category_id"], name: "index_providers_on_category_id", using: :btree
@@ -292,6 +294,8 @@ ActiveRecord::Schema.define(version: 20151024171313) do
 
   create_table "sizes", force: true do |t|
     t.string "size_title"
+    t.float  "min_size"
+    t.float  "max_size"
   end
 
   create_table "sizings", force: true do |t|

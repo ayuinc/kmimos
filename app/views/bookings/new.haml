@@ -60,17 +60,13 @@
                   .col-md-3 Mascota:
                   .col-md-6= p.association :pet, label: false   
                   .col-md-3= p.link_to_remove "Eliminar"
-              = f.link_to_add "Agregar una Mascota", :booked_pets, class: "btn btn-primary" 
+              = f.link_to_add "Agregar una Mascota", :booked_pets, class: "btn btn-primary"  
             .form-group.row
-              .col-md-6= f.input :pickup_time, class: "form-control mb-21", label: "Horario de recolección:", as: :time
-              .col-md-6= f.input :dropoff_time, class: "form-control mb-21", label: "Horario de entrega:", as: :time
-            .form-group.row
-              .col-md-12= f.input :address, class: "form-control", label: "Dirección de Recojo", as: :text
-            .form-group.row
-              .col-md-12= f.input :cuidado_especial, class: "form-control", label: "¿Necesita cuidados, especiales?", as: :boolean
+              .col-md-12= f.input :address, class: "form-control", label: "Dirección de Recojo", as: :text 
             .form-group.row
               .col-md-12
-                = f.input :user_message, label: "Mensaje:", as: :text
+                = f.input :user_message, label: "¿Necesitas que sepamos algún dato extra sobre tu perrito?
+", as: :text
             .form-group.row
               .col-md-6
                 = f.input :ref_code, label: "Código de descuento:"  

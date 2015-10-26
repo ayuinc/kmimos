@@ -8,7 +8,7 @@
     .col-md-1
     .col-md-10
       .row
-        .col-md-3 Descripción como cuidador:
+        .col-md-3 Preséntate con Kmimos :
         .col-md-9= f.input :description, label: false   
       .row
         .col-md-3 Precio por noche: 
@@ -20,6 +20,10 @@
               .col-md-3= a.input :price, label: false, placeholder: 'Precio'
               .col-md-4= a.link_to_remove "Eliminar"
           = f.link_to_add "Agregar", :rates
+      .row
+        .col-md-4 CheckIn y CheckOut
+        .col-md-4= f.input :check_in, as: :time, label: false
+        .col-md-4= f.input :check_out, as: :time, label: false
       .row
         %label ¿En qué municipios puedes trabajar?
         
