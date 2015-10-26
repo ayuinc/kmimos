@@ -274,6 +274,7 @@ GEM
     net-ssh (3.0.1)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    non-stupid-digest-assets (1.0.5)
     notiffany (0.0.8)
       nenv (~> 0.1)
       shellany (~> 0.0)
@@ -435,6 +436,7 @@ DEPENDENCIES
   kaminari
   meta_request
   nested_form
+  non-stupid-digest-assets
   paperclip!
   pg (~> 0.17.1)
   rails (= 4.1.11)

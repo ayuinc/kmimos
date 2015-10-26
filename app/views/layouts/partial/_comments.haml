@@ -1,29 +1,49 @@
+
+- provider.comments.each do |comment|
+  .comment-container.row
+    .user-avatar.col-xs-2
+      =image_tag(comment.user.photo, width: '50px', height: '50px', class: 'img-circle')
+    .comment-body.col-xs-10
+      %h4= "#{comment.user.first_name} #{comment.user.last_name}"
+      .valorations.row
+        .col-md-3.col-xs-6
+          %b Cuidado
+          .rating-reviews.mt-7
+        .col-md-3.col-xs-6
+          %b Puntualidad
+          .rating-reviews.mt-7
+        .col-md-3.col-xs-6
+          %b Limpieza
+          .rating-reviews.mt-7
+        .col-md-3.col-xs-6
+          %b Area de Cuidado
+          .rating-reviews.mt-7
+      .comment-text.row.mt-21
+        .col-xs-12
+          %p= comment.body
+  %hr
 - if current_user != nil
-  - provider.comments.each do |comment|
-    .comment-container.row
-      .user-avatar.col-md-2
-        =image_tag(comment.user.photo, width: '50px', height: '50px', class: 'img-circle')
-      .comment-body.col-md-10
-        %h4= "#{comment.user.first_name} #{comment.user.last_name}"
-        .valorations.row
-          .col-md-3
-            %b Cuidado
-            .rating-reviews.mt-7
-          .col-md-3
-            %b Puntualidad
-            .rating-reviews.mt-7
-          .col-md-3
-            %b Limpieza
-            .rating-reviews.mt-7
-          .col-md-3
-            %b Area de Cuidado
-            .rating-reviews.mt-7
-        .comment-text.row
-          .col-md-12
-            %p= comment.body
-    %hr
   - @comment = Comment.new 
   = simple_nested_form_for(@comment, :html => {:multipart => true}, remote: true) do |f|  
+    .row
+      .col-md-12
+        .valorations.row
+          .col-md-3.col-mx-6
+            %b Cuidado
+            .ratingStars(el="#val_1")
+            %input(name="val_1" id="val_1" value='2')
+          .col-md-3.col-mx-6
+            %b Puntualidad
+            .ratingStars(el="#val_2")
+            %input(name="val_2" id="val_2")
+          .col-md-3.col-mx-6
+            %b Limpieza
+            .ratingStars(el="#val_3")
+            %input(name="val_3" id="val_3")
+          .col-md-3.col-mx-6
+            %b Area de Cuidado
+            .ratingStars(el="#val_4")
+            %input(name="val_4" id="val_4")
     .new_comment.row
       .avatar.col-md-2
         = image_tag(current_user.photo, width: '50px', class: 'img-circle')

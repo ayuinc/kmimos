@@ -26,6 +26,9 @@
                         %i.icon-upload-alt
                         Otra foto de perfil    
                   .form-group
+                    %label.row Direccion
+                    .row= best_in_place @user, :address
+                  .form-group
                     %label.row Codigo Postal
                     .row= best_in_place @user, :postal_code
                   .form-group

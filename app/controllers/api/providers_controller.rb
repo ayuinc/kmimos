@@ -8,7 +8,7 @@ class Api::ProvidersController < ApplicationController
   
   def get_providers
     hash_response = Array.new
-    @providers = Provider.all
+    @providers = Provider.where(active: true)
     
     #@providers = Provider.providers_sliced(params[:slice].to_i, @providers) if params[:slice] != nil
     

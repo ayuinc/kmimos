@@ -12,6 +12,7 @@
  *= require jquery-ui
  *= require main 
  *= require style 
+ *= require extra
  *= require jquery.steps.css 
  *= require jquery.raty.css
  *= require jquery-timepicker-jt/jquery.timepicker

@@ -20,3 +20,59 @@ var uniqueItems = function (data, key) {
     }
     return result;
 };
+
+
+function groupBy( array , f )
+{
+  var groups = {};
+  array.forEach( function( o )
+  {
+    var group = JSON.stringify( f(o) );
+    groups[group] = groups[group] || [];
+    groups[group].push( o );  
+  });
+  return Object.keys(groups).map( function( group )
+  {
+    return groups[group]; 
+  })
+}
+
+
+$(".ratingStars").ready(function(){
+    
+ 
+    var get_score = function(n){
+      
+      if (isNaN(parseInt(n))){  
+         
+          $(origin).val(4);
+          return 4;  
+        
+      } else { 
+        return n; 
+      }
+        
+    }
+  
+    $(".ratingStars").raty({
+      score: parseInt($(this).attr("score").), 
+      click: function(score, evt) { 
+        var el = c
+        $(el).val(score); 
+      },
+      starOff : '/assets/icono-hueso-gris.svg',
+      starOn  : '/assets/icono-hueso-verde.svg'
+    });
+   
+ 
+   
+});
+  
+  
+  
+  
+  
+  
+  
+  
+  

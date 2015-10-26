@@ -101,7 +101,7 @@
               = @provider.iframe_code.html_safe if !@provider.iframe_code.nil?
     
       .comentarios
-        %h3.text-gray Comentarios
+        %h3.text-gray Experiencias Kmimos2
         #comments-div
           = render partial: 'layouts/partial/comments', locals: {provider: @provider}
           
@@ -134,15 +134,8 @@
   |
   \#{link_to 'Back', providers_path}
   
-:javascript 
-  $(".rating-reviews").raty({
-    starOff : '/assets/icono-hueso-gris.svg',
-    starOn  : '/assets/icono-hueso-verde.svg'
-  }); 
-  
+ 
 :javascript
-  
-  
   
   /* * * CONFIGURATION VARIABLES * * */
   var disqus_shortname = 'kmimos';
@@ -156,7 +149,4 @@
   
   
   
-  
-%noscript
-  Please enable JavaScript to view the
-  %a{:href => "https://disqus.com/?ref_noscript", :rel => "nofollow"} comments powered by Disqus.
+   

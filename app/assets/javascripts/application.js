@@ -1,5 +1,6 @@
 //= require jquery
 //= require jquery_ujs
+
 //= require jquery.flexslider-min.js
 //= require bootstrap/transition
 //= require bootstrap/collapse
@@ -14,11 +15,12 @@
 //= require jquery.timepicker.min.js
 //= require easing
 //= require gmaps.min 
-//= require utils
+
 //= require jquery.steps.js
 //= require jquery.raty.js 
 //= require jquery_nested_form 
 //= require select2.js
+//= require utils
 
 //= require jquery.purr
 //= require best_in_place
@@ -344,21 +346,6 @@ $(window).scroll(function () {
    
 });
 
-
-function groupBy( array , f )
-{
-  var groups = {};
-  array.forEach( function( o )
-  {
-    var group = JSON.stringify( f(o) );
-    groups[group] = groups[group] || [];
-    groups[group].push( o );  
-  });
-  return Object.keys(groups).map( function( group )
-  {
-    return groups[group]; 
-  })
-}
 
 
 

@@ -55,8 +55,8 @@
       .row
         .col-md-12
           .map-info
-            = f.input :latitude #, as: :hidden
-            = f.input :longitude #, as: :hidden
+            = f.input :latitude, as: :hidden
+            = f.input :longitude, as: :hidden
       .row
         .col-md-9
           = f.input :address, label: "Dirección:", placeholder: "Ingrese su dirección...", hint: "*Si el pin no se sitúa en el lugar de tu dirección, por favor ajústalo."

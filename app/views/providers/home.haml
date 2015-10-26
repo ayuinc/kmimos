@@ -65,8 +65,9 @@
             Viaja con tranquilidad, dejando a tu
             %br/
             mascota en buenas manos.
-          .main-video 
-            %iframe{:allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/_08UJ0aYDCk?rel=0&controls=0&showinfo=0", :width => "560"} 
+          .main-video
+            .video-screen
+              %iframe{:allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/_08UJ0aYDCk?rel=0&controls=0&showinfo=0", :width => "560"} 
     .row.mb-56#beneficios
       .container-sm.pv-42 
         .row.text-center.mt-49
@@ -116,11 +117,11 @@
               .col-md-10.pl-0
                 %h4.text-gray-dark.medium.mt-14 El servicio fue magnifico y regresaron sanos y salvos mis perritos en especial Odin.
           .col-md-5.pl-70
-            %img.img-circle.img-responsive{:alt => "", :src => "assets/test_13jpg", :width => "120"}/
+            %img.img-circle.img-responsive{:alt => "", :src => "assets/test_2.jpg", :width => "120"}/
             %h4.bold.text-success.mt-14 Giovanni Ciullo
         .row
           .col-md-5.pl-70
-            %img.img-circle.img-responsive{:alt => "", :src => "assets/test_1.jpg", :width => "120"}/
+            %img.img-circle.img-responsive{:alt => "", :src => "assets/test_3.jpg", :width => "120"}/
             %h4.bold.text-success.mt-14 Victor Villegas
         %img{ style: "float: right;" }(src = "assets/testimoniales-perro-vainilla.svg")
         
@@ -150,14 +151,16 @@
                 Al recomendar nuestros servicios a otra persona 
               %p.light.m-0 Completa los siguientes datos y recibiras un cupon de 10% de descuento que se activara al momento de tu reserva. 
               %br
-              %form.form-horizontal
-                .form-group
-                  %input.form-control(placeholder="Nombre")
-                .form-group
-                  %input.form-control(placeholder="Correo")
-                .form-group
-                  %input.form-control(placeholder="Nombre de Persona a Recomendar")
-                .form-group
-                  %input.form-control(placeholder="Correo de Persona a Recomendar")
-              %a.btn.btn-primary-lighter.btn.mt-35.mb-21.pv-7{:href => "#"}
-                %h4.bold.text-success.mv-0.ph-35 Recomendar
+              Guarda tu código y escríbela en tu reserva
+              - if false
+                %form.form-horizontal
+                  .form-group
+                    %input.form-control(placeholder="Nombre")
+                  .form-group
+                    %input.form-control(placeholder="Correo")
+                  .form-group
+                    %input.form-control(placeholder="Nombre de Persona a Recomendar")
+                  .form-group
+                    %input.form-control(placeholder="Correo de Persona a Recomendar")
+                %a.btn.btn-primary-lighter.btn.mt-35.mb-21.pv-7{:href => "#"}
+                  %h4.bold.text-success.mv-0.ph-35 Recomendar

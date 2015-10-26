@@ -51,6 +51,7 @@ gem 'rails-i18n'
 gem "bower-rails" 
 
 group :development do
+  gem "non-stupid-digest-assets"
   gem 'faker'
   gem 'guard-livereload'
   gem 'guard-bundler'
