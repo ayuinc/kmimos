@@ -4,7 +4,7 @@
 # asset 'bootstrap'
 
 asset 'angular'
-asset 'angular-rangeslider'
+asset 'angularjs-slider'
 asset 'angular-google-maps'
 asset 'jquery-ui'
 asset 'jquery-timepicker-jt'

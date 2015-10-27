@@ -32,6 +32,8 @@
 //= require angular-simple-logger/dist/angular-simple-logger
 //= require angular-google-maps/dist/angular-google-maps
 
+//= require angularjs-slider/dist/rzslider
+
 //= require ngmap/build/scripts/ng-map
 
 //= require angular-rangeslider/angular.rangeSlider

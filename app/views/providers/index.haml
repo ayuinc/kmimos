@@ -18,8 +18,8 @@
                 %input.form-control(placeholder="Municipio" ng-model="search.locations")
               .form-group  
                 %label Rango de Precio
-                %br
-                %input.form-control(placeholder="Precio" type="range" ng-model="price")
+                %br 
+                %rzslider(rz-slider-model="price" rz-slider-floor="priceSlider.floor" rz-slider-ceil="priceSlider.ceil" rz-slider-model="priceSlider.min" rz-slider-high="priceSlider.max")
               .form-group 
                 %label Tamaño de Perro
                 %br

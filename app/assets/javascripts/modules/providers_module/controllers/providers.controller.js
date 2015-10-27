@@ -15,13 +15,13 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
    
    
   
-  $scope.map_options = { icon:'assets/huella-mensaje-17-mini.png',
-                         draggable: false, 
-                         crossOnDrag: false,
-  animation: 1
-                       };
-  
-    //}
+   
+  $scope.priceSlider = {
+      min: 100,
+      max: 180,
+      ceil: 500,
+      floor: 0
+  };
   
   $scope.services = ServiceService.get();
   
