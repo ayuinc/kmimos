@@ -4,8 +4,7 @@ class Provider::RegistrationsController < Devise::RegistrationsController
   
   
   def new
-    @provider = Provider.new 
-    @provider.services.build
+    @provider = Provider.new  
   end
   
   

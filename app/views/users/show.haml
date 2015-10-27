@@ -5,67 +5,58 @@
   .container.pvp-7.ph-21
     .row
       .col-md-2
-      .col-md-8
-        %div 
-          %ul.nav.nav-tabs(role="tablist")
-            %li.active(role="presentation")
-              %a(href="#home" aria-controls="home" role="tab" data-toggle="tab") Mi Perfil 
-            %li.active(role="books")
-              %a(href="#books" aria-controls="home" role="tab" data-toggle="tab") Mis Reservas
-          %div.tab-content
-            %div#home(role="tabpanel" class="tab-pane active" id="") 
-              .row.mv-56
-                .col-md-3
-                  %h3= "#{@user.first_name} #{@user.last_name}" 
-                  .form-group
-                    = f.input :photo, label: false, input_html: {style: 'display: none;'}
-                    = image_tag(@user.photo, style: 'width: 100% !important;') 
-                    %br
-                    .input-append
-                      %a#upload-btn.btn.mb21.bordered-btn{style: 'width: 100% !important;'}
-                        %i.icon-upload-alt
-                        Otra foto de perfil    
-                  .form-group
-                    %label.row Direccion
-                    .row= best_in_place @user, :address
-                  .form-group
-                    %label.row Codigo Postal
-                    .row= best_in_place @user, :postal_code
-                  .form-group
-                    %label.row Telefono
-                    .row= best_in_place @user, :phone
-                  .form-group
-                    %label.row E-mail
-                    .row= best_in_place @user, :email 
-             
-                .col-md-9
-                  %h3 Datos de mis mascotas
-                  %hr  
-                  = f.simple_fields_for :pets do |pet|
-                    .row.pet-container
-                      .col-md-4
-                        = image_tag(:photo, style: 'width: 100% !important;') 
-                        = pet.input :photo, label: false, input_html: {style: 'display: none; '}
-                        .input-append
-                          %a#upload-btn.btn.btn-primary{style: "padding: 6px 12px;"}
-                            %i.icon-upload-alt
-                            Subir Foto
-                      .col-md-4 
-                        = pet.input :name, label: 'Nombre' 
-                        = pet.input :race, label: 'Raza' 
-                        = pet.input :age, label: 'Edad' 
-                        = pet.association :size, label: 'Tamaño'
-                        %br 
-                      .col-md-4 
-                        = pet.input :weight, label: 'Peso' 
-                        = pet.input :sex, label: 'Sexo' 
-                        = pet.association :behavior, label: 'Comportamiento'
-                  = f.link_to_add "Agregar Mascota", :pets, class: "btn btn-primary" 
-              %center
-                = f.submit "Actualizar", class: "btn btn-primary" 
-            %div#books(role="tabpanel" class="tab-pane" id="books")
-              
-        
+      .col-md-8  
+        .row.mv-56
+          .col-md-3
+            %h3= "#{@user.first_name} #{@user.last_name}" 
+            .form-group
+              = f.input :photo, label: false, input_html: {style: 'display: none;'}
+              = image_tag(@user.photo, style: 'width: 100% !important;') 
+              %br
+              .input-append
+                %a#upload-btn.btn.mb21.bordered-btn{style: 'width: 100% !important;'}
+                  %i.icon-upload-alt
+                  Otra foto de perfil    
+            .form-group
+              %label.row Direccion
+              .row= best_in_place @user, :address
+            .form-group
+              %label.row Codigo Postal
+              .row= best_in_place @user, :postal_code
+            .form-group
+              %label.row Telefono
+              .row= best_in_place @user, :phone
+            .form-group
+              %label.row E-mail
+              .row= best_in_place @user, :email 
+       
+          .col-md-9
+            %h3 Datos de mis mascotas
+            %hr  
+            = f.simple_fields_for :pets do |pet|
+              .row.pet-container
+                .col-md-4
+                  = image_tag(:photo, style: 'width: 100% !important;') 
+                  = pet.input :photo, label: false, input_html: {style: 'display: none; '}
+                  .input-append
+                    %a#upload-btn.btn.btn-primary{style: "padding: 6px 12px;"}
+                      %i.icon-upload-alt
+                      Subir Foto
+                .col-md-4 
+                  = pet.input :name, label: 'Nombre' 
+                  = pet.input :race, label: 'Raza' 
+                  = pet.input :age, label: 'Edad' 
+                  = pet.association :size, label: 'Tamaño'
+                  %br 
+                .col-md-4 
+                  = pet.input :weight, label: 'Peso' 
+                  = pet.input :sex, label: 'Sexo' 
+                  = pet.association :behavior, label: 'Comportamiento'
+            = f.link_to_add "Agregar Mascota", :pets, class: "btn btn-primary" 
+        %center
+          = f.submit "Actualizar", class: "btn btn-primary"  
+          
+    
      
 %br
 

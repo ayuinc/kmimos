@@ -1,0 +1,11 @@
+.row.mt-56
+  .col-md-1
+  .col-md-10
+    
+    - if @bookings.count == 0
+      %center
+        %h3 No hay reservas registradas
+    - else 
+      - @bookings.each do |book|
+        = book.inspect
+  .col-md-1

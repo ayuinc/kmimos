@@ -1259,6 +1259,16 @@ div.active {
 }
 
 
+.user_menu {
+  
+}
 
+.user_menu.active {
+  
+}
+
+.white-text {
+  color: #fff;
+}
 
 /*# sourceMappingURL=style.css.map */

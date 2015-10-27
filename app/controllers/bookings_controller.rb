@@ -1,6 +1,11 @@
 class BookingsController < ApplicationController
 	before_action :set_booking, only: [:show] 
   before_action :authenticate_user!
+  
+  def index
+    @bookings = Booking.where(user_id: current_user)
+    
+  end
 
 	def new
 		@provider = Provider.find(params[:provider_id])

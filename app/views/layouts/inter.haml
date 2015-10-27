@@ -6,7 +6,7 @@
     
     = stylesheet_link_tag "application", media: "all"
     = stylesheet_link_tag "providers", media: "all"
-    = javascript_include_tag "application"
+    = javascript_include_tag "application", media: "all"
     = csrf_meta_tags
     
     / Fonts for Homepage
@@ -26,7 +26,7 @@
     
   %body
     = render partial: 'layouts/partial/initializer'
-    = render "layouts/partial/header" unless home?
+    = render "layouts/partial/header"  
     = render :partial => 'layouts/shared/search_form'
     = yield
     = render "layouts/partial/footer"

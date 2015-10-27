@@ -7,20 +7,17 @@
         .panel-heading.mb-21.text-gray.text-align-center
           Llena el siguiente formulario para poder empezar la experiencia en kmimos
         .panel-body
-          = simple_nested_form_for(resource, :html => {:multipart => true}) do |f|  
-            .registration_wizard
+          = simple_nested_form_for(@user, :html => {:multipart => true}) do |f|  
+            .registration_wizard_user
               = render partial: 'step1', locals: {f: f}
               = render partial: 'step2', locals: {f: f} 
-            #myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :style => "background-color: rgba(36,36,36,0.5);", :tabindex => "-1"}
-              .modal-dialog.modal-lg{:role => "document"}
-                .modal-content
-                  = render partial: 'terms', locals: {f: f}
+            = render partial: 'terms', locals: {f: f}
 
  
             
 :javascript
   
-  $(".registration_wizard").steps({
+  $(".registration_wizard_user").steps({
       headerTag: "h3",
       bodyTag: "section",
       transitionEffect: "slideLeft",
@@ -35,8 +32,6 @@
         _gaq.push(['_trackEvent', 'Homepage', 'Recomendar-modal-trigger']);
       }
   });
-  
-  $('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').focus()
-  });
-  
+
+= javascript_include_tag 'gmaps.min'
+= javascript_include_tag 'provider_map'

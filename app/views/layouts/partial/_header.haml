@@ -6,6 +6,13 @@
       %span.icon-bar
     .p-7.hidden-xs.hidden-sm.col-xs-4= link_to image_tag('logo-kmimos-blanco-04.png', class: "mt--14 img-logo"), root_url
     .p-7.hidden-md.hidden-lg.col-xs-4= link_to image_tag('logo-kmimos-blanco-04.png', class: "mt-0 img-logo"), root_url
+    - if current_user
+      %ul.nav.navbar-nav.mt-7.ml-56
+      
+        %li
+          = link_to 'Mi Perfil', user_path(current_user), class: "not-underline white-text"
+        %li
+          = link_to 'Mis Reservas', bookings_path, class: "not-underline white-text"
   .collapse.navbar-collapse.pr-21
     %ul.nav.navbar-nav.mt-14
       - if current_provider
