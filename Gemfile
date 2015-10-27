@@ -34,7 +34,7 @@ gem 'bcrypt-ruby'
 
 gem 'haml-rails'    #Haml Template Engine Added
 gem 'devise'        #Devise Gem Added for Authentication
-gem 'activeadmin', github: 'activeadmin'  # Fast Admin Generator Tool
+gem 'activeadmin', git: 'git://github.com/gregbell/active_admin.git'  # Fast Admin Generator Tool
 gem 'simple_form'   #Gem for form simplification
 
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"

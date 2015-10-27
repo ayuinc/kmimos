@@ -13,11 +13,11 @@
           .col-md-9= f.input :description, label: false   
       .form-group
         .row
-          .col-md-4 Precio por noche: 
-          .col-md-8  
+          .col-md-3 Precio por noche: 
+          .col-md-9  
             - Size.all.each do |size|
               .row
-                .col-md-4
+                .col-md-8
                   %label= size
                   %input{value: size.id}(name="provider[rates_attributes][][id]" type="hidden")
                 .col-md-4
@@ -33,7 +33,7 @@
       .form-group
         .row
           %label ¿En qué municipios puedes trabajar?
-        
+          
         - current_country.states.each do |state|
           .row.border-bottom
             .col-md-1

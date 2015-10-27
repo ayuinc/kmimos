@@ -26,7 +26,7 @@
           .col-md-9= p.input :weight, label: false 
         .row
           .col-md-3 Sexo:
-          .col-md-9= p.input :sex, label: false, as: :check_boxes, :collection => ['Masculino', 'Femenino']
+          .col-md-9= p.input :sex, label: false, as: :radio_buttons, :collection => ['Masculino', 'Femenino']
         .row
           .col-md-3 Comportamiento:
           .col-md-9= p.association :behavior, label: false

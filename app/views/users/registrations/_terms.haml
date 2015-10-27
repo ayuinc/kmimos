@@ -210,17 +210,17 @@
     $('#myInput').focus()
   });
   
-            
-      
-  $(document).ready(function() {
-    var altura = $(window).height() - 250;
-    $("#license_terms").height(altura);
-    $("input[name=license_term]").click(function(e) {
-      if ($(this).is(":checked")) {
-        $("#confirm_new_user").prop("disabled", false);
-      } else {
-        $("#confirm_new_user").attr("disabled", true);
-      }
-    });
+             
+  var altura = $(window).height() - 250;
+  
+  $("#license_terms").height(altura);
+  
+  $("input[name=license_term]").click(function(e) {
+    if ($(this).is(":checked")) {
+      $("#confirm_new_user").prop("disabled", false);
+    } else {
+      $("#confirm_new_user").attr("disabled", true);
+    }
   });
+
   
