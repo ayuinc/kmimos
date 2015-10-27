@@ -45,7 +45,7 @@
   # GET /providers/1
   # GET /providers/1.json
   def show
-    
+    @search = Provider.search(params[:q])
     if current_user != nil
       @comment = Comment.new
       @comment.user_id = current_user.id
@@ -53,8 +53,9 @@
     
     if @provider.active 
       @provider_attachments = @provider.provider_attachments.all
+      render 'show', :layout => "inter"
     else
-      redirect_to :home 
+      redirect_to :home
     end
   end
 
