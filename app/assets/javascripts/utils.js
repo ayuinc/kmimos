@@ -37,28 +37,26 @@ function groupBy( array , f )
   })
 }
 
+function get_score(score, el){
+  $(el).val(score);
+  console.log(score);
+  return score;
+}
+
+$(this).attr('score')
 
 $(".ratingStars").ready(function(){
-    
- 
-    var get_score = function(n){
-      
-      if (isNaN(parseInt(n))){  
-         
-          $(origin).val(4);
-          return 4;  
-        
-      } else { 
-        return n; 
-      }
-        
-    }
-  
+     
     $(".ratingStars").raty({
-      score: parseInt($(this).attr("score")), 
-      click: function(score, evt) { 
-        var el = c
-        $(el).val(score); 
+      score: function() {
+        var el = $(this).attr('el');
+        $(el).val($(this).attr('score'));
+        $(el).hide();
+        return $(this).attr('score');
+      }, 
+      click: function(score, evt) {
+        var el = $(this).attr('el');
+        $(el).val(score);
       },
       starOff : '/assets/icono-hueso-gris.svg',
       starOn  : '/assets/icono-hueso-verde.svg'

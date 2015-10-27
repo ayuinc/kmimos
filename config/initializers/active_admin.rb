@@ -56,6 +56,8 @@ ActiveAdmin.setup do |config|
   # within the application controller.
   config.authentication_method = :authenticate_admin_user!
 
+   config.skip_before_filter :load_footer_variables
+
   # == User Authorization
   #
   # Active Admin will automatically call an authorization
@@ -119,7 +121,7 @@ ActiveAdmin.setup do |config|
   # This allows your users to comment on any resource registered with Active Admin.
   #
   # You can completely disable comments:
-  # config.comments = false
+   config.comments = false
   #
   # You can disable the menu item for the comments index page:
   # config.show_comments_in_menu = false
