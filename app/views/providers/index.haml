@@ -1,12 +1,13 @@
 %center
   %h1 Cuidadores Sugeridos
+  %br
 %div(ng-app="providers_module")
   %div(ng-controller="ProvidersController")  
     .container-fluid.pb-14 
       .row
         .col-md-2.padding-0
           .form-filter
-            %h3 Buscar cuidador
+            %h3 Buscar cuidador {{ test }}
             %p Selecciona donde, cuando y que necesitas para dejar tu perrito. 
             = search_form_for @search do |f| 
               .form-group
@@ -47,9 +48,27 @@
                   %br 
         .col-md-8 
           =render partial: 'grid'
-        .col-md-2
-          %ui-gmap-google-map(center='map.center' zoom='map.zoom')
-            %ui-gmap-marker(idKey='{{provider.id}}' coords='{ latitude: -12.095194, longitude: -77.047795 }') 
+        .col-md-2    
+          #map_canvas
+            %ui-gmap-google-map(center='providers[0].coords' zoom='map.zoom' control='map.control') 
+              %ui-gmap-markers(models="map.markers" coords="'self'" icon="'icon'")
             
       
 = render "layouts/modal"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

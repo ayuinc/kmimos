@@ -6,6 +6,7 @@
     "angular-google-maps": "latest",
     "jquery-ui": "latest",
     "jquery-timepicker-jt": "latest",
-    "datepair.js": "latest"
+    "datepair.js": "latest",
+    "ngmap": "latest"
   }
 }

@@ -25,6 +25,9 @@ class Api::ProvidersController < ApplicationController
       hash_provider[:id] = provider.id
       hash_provider[:name] = "#{provider.name} #{provider.last_name_1}"
       hash_provider[:states] = provider.locations.map{|l| l.state.name}.uniq
+      hash_provider[:longitude] = provider.longitude
+      hash_provider[:latitude] = provider.latitude
+      hash_provider[:coords] = {latitude: provider.latitude, longitude: provider.longitude }
       hash_provider[:locations] = provider.locations.map{|l| l.name}.uniq
       hash_provider[:description] = provider.description
       hash_provider[:price] = provider.price.to_f * 1.2
@@ -35,8 +38,6 @@ class Api::ProvidersController < ApplicationController
       hash_provider[:comments] = provider.comments
       hash_response << hash_provider
     end
-    
- 
     
     if params[:sizes].to_s.gsub(' ', '') != ""
       hash_response = hash_response.map{|provider| (params[:sizes].split(' ') & provider[:sizes]).any? ? provider : nil}.compact

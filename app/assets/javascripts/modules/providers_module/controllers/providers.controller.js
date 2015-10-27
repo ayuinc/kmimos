@@ -1,5 +1,5 @@
 providers_module.controller('ProvidersController', ['$scope', '$filter', 'ProviderService', 'ServiceService', function($scope, $filter, ProviderService, ServiceService) {
-  
+   
   $scope.search; 
   $scope.sizes = []; 
   $scope.number_of; 
@@ -7,10 +7,20 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
   $scope.sel_service = [];
   
   //navigator.geolocation.getCurrentPosition(success, console.log("error")); 
-  $scope.map = { center: { latitude: -12.095194, longitude: -77.047795 }, zoom: 8 };
+  
+  
   
   //function success(position){
-    //$scope.map = { center: { latitude: position.coords.latitude, longitude: position.coords.longitude }, zoom: 8 };
+  $scope.map = { zoom: 16, control: {}, markers: []}; 
+   
+   
+  
+  $scope.map_options = { icon:'assets/huella-mensaje-17-mini.png',
+                         draggable: false, 
+                         crossOnDrag: false,
+  animation: 1
+                       };
+  
     //}
   
   $scope.services = ServiceService.get();
@@ -33,8 +43,29 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
     //$scope.providers;
   });
   
+  
+  
   function update_filter(){
-    $scope.providers = ProviderService.get({sizes: $scope.sizes.join(' '), number_of: $scope.number_of, sel_service: $scope.sel_service.join(' ')}); 
+    
+    $scope.map.markers = [];
+    
+    ProviderService.get({sizes: $scope.sizes.join(' '), number_of: $scope.number_of, sel_service: $scope.sel_service.join(' ')}).$promise.then(function(providers) {
+      
+      var temp_markers = [];
+      var log = [];
+      
+      angular.forEach(providers, function(provider, key) {
+        temp_markers.push({latitude: provider.latitude, longitude: provider.longitude, id: provider.id, icon:'assets/huella-mensaje-17-mini.png', options: { animation: 1}});
+      }, log);
+      
+      $scope.providers = providers;
+      
+      $scope.map.markers = temp_markers;
+      
+    });; 
+    
+     
+    
   }
    
 }]);

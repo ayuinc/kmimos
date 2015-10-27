@@ -14,7 +14,7 @@
 //= require datepicker-es.js
 //= require jquery.timepicker.min.js
 //= require easing
-//= require gmaps.min 
+
 
 //= require jquery.steps.js
 //= require jquery.raty.js 
@@ -32,6 +32,8 @@
 //= require angular-simple-logger/dist/angular-simple-logger
 //= require angular-google-maps/dist/angular-google-maps
 
+//= require ngmap/build/scripts/ng-map
+
 //= require angular-rangeslider/angular.rangeSlider
 
 //= require angular-resource/angular-resource
@@ -46,18 +48,18 @@ $(document).ready(function() {
   var docHeight = $(window).height();
   var footerHeight = $('#footer').height();
   var footerTop = $('#footer').position().top + footerHeight;
-  var map;
+  var map_item;
 
   if ($("#provider_location").length > 0) {
     function setProviderLocation(latitude, longitude) {
-      map = new GMaps({
+      map_item = new GMaps({
         div: '#provider_location',
         lat: latitude,
         lng: longitude,
         zoom: 15
       });
 
-      map.addMarker({
+      map_item.addMarker({
         lat: latitude,
         lng: longitude
       });
@@ -173,9 +175,9 @@ $(document).ready(function() {
       callback: function(results, status) {
         if (status == 'OK') {
           var latlng = results[0].geometry.location;
-          map.setCenter(latlng.lat(), latlng.lng());
-          map.removeMarkers();
-          map.addMarker({
+          map_item.setCenter(latlng.lat(), latlng.lng());
+          map_item.removeMarkers();
+          map_item.addMarker({
             lat: latlng.lat(),
             lng: latlng.lng()
           });
@@ -186,17 +188,17 @@ $(document).ready(function() {
     });
   });
   
-  if ($("#map").length > 0) {
-    map = new GMaps({
-      div: '#map',
+  if ($("#map_item").length > 0) {
+    map_item = new GMaps({
+      div: '#map_item',
       lat: -12.043333,
       lng: -77.028333,
       zoom: 15
     });   
     GMaps.geolocate({
       success: function(position) {
-        map.setCenter(position.coords.latitude, position.coords.longitude);
-        map.addMarker({
+        map_item.setCenter(position.coords.latitude, position.coords.longitude);
+        map_item.addMarker({
           lat: position.coords.latitude,
           lng: position.coords.longitude
         });
@@ -206,15 +208,15 @@ $(document).ready(function() {
     });
   }
 
-  GMaps.on('click', map.map, function(event) {
-    var markers = map.markers.length;
+  GMaps.on('click', map_item.map, function(event) {
+    var markers = map_item.markers.length;
     var lat = event.latLng.lat();
     var lng = event.latLng.lng();
     console.log(markers);
     if (markers != null) {
-      map.removeMarkers();
+      map_item.removeMarkers();
     }
-    map.addMarker({
+    map_item.addMarker({
       lat: lat,
       lng: lng
     });

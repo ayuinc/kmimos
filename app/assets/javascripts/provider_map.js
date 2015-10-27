@@ -1,7 +1,7 @@
-var map;
+var map_item;
 
 if ($("#map").length > 0) {
-  map = new GMaps({
+  map_item = new GMaps({
     div: '#map',
     lat: -12.043333,
     lng: -77.028333,
@@ -9,8 +9,8 @@ if ($("#map").length > 0) {
   });   
   GMaps.geolocate({
     success: function(position) {
-      map.setCenter(position.coords.latitude, position.coords.longitude);
-      map.addMarker({
+      map_item.setCenter(position.coords.latitude, position.coords.longitude);
+      map_item.addMarker({
         lat: position.coords.latitude,
         lng: position.coords.longitude
       });
@@ -22,14 +22,14 @@ if ($("#map").length > 0) {
 
 if ($("#provider_location").length > 0) {
   function setProviderLocation(latitude, longitude) {
-    map = new GMaps({
+    map_item = new GMaps({
       div: '#provider_location',
       lat: latitude,
       lng: longitude,
       zoom: 15
     });
 
-    map.addMarker({
+    map_item.addMarker({
       lat: latitude,
       lng: longitude
     });
@@ -50,9 +50,9 @@ $("#search_address").click(function(e) {
     callback: function(results, status) {
       if (status == 'OK') {
         var latlng = results[0].geometry.location;
-        map.setCenter(latlng.lat(), latlng.lng());
-        map.removeMarkers();
-        map.addMarker({
+        map_item.setCenter(latlng.lat(), latlng.lng());
+        map_item.removeMarkers();
+        map_item.addMarker({
           lat: latlng.lat(),
           lng: latlng.lng()
         });
@@ -63,16 +63,16 @@ $("#search_address").click(function(e) {
   });
 });
 
-if (map != undefined) {
-  GMaps.on('click', map.map, function(event) {
-    var markers = map.markers.length;
+if (map_item != undefined) {
+  GMaps.on('click', map_item.map, function(event) {
+    var markers = map_item.markers.length;
     var lat = event.latLng.lat();
     var lng = event.latLng.lng();
     console.log(markers);
     if (markers != null) {
-      map.removeMarkers();
+      map_item.removeMarkers();
     }
-    map.addMarker({
+    map_item.addMarker({
       lat: lat,
       lng: lng
     });
