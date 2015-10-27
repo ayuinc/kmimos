@@ -22,8 +22,8 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
    
   $scope.priceSlider = {
       min: 0,
-      max: 180,
-      ceil: 500,
+      max: 1000,
+      ceil: 1000,
       floor: 0
   };
   
