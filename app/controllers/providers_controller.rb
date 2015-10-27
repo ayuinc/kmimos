@@ -10,23 +10,12 @@
   
   def index
     @search = Provider.search(params[:q])
-    if (params[:q] != nil and params[:q][:locations_id_eq] != "") 
-      @providers = @search.result
-      .joins('LEFT OUTER JOIN "states" ON "states"."id" = "locations"."state_id" 
-             LEFT OUTER JOIN "countries" ON "countries".id = "states"."country_id"')
-      .where('"countries"."id" = ? and "providers".active = ?',current_country.id,true).order("last_name_1 DESC")
-    else
-      @providers = Provider.select("providers.*")
-      .joins('LEFT OUTER JOIN "localizations" on "localizations"."provider_id" = "providers"."id"
-              LEFT OUTER JOIN "locations" on "locations".id = "localizations"."location_id"
-              LEFT OUTER JOIN "states" ON "states"."id" = "locations"."state_id" 
-              LEFT OUTER JOIN "countries" ON "countries".id = "states"."country_id"')
-      .where('"countries"."id" = ? and "providers".active = ?',current_country.id,true).order("last_name_1 DESC")
-      .distinct
-    end
-    #if params[:direction] != nil
-    #  @providers = @providers.order("price " + params[:direction])
-    #endx`
+    
+    @providers=Provider.where(active: true)
+    
+    session[:from_date] = (Date.strptime(params[:from_date], '%d/%m/%Y')).strftime('%m/%d/%Y') if params[:from_date] != nil
+    session[:to_date] = Date.strptime(params[:to_date], '%d/%m/%Y') if params[:to_date] != nil
+     
     @providers = @providers.all.page params[:page]
   end
 
@@ -57,6 +46,10 @@
     else
       redirect_to :home
     end
+  end
+  
+  def benefits
+    
   end
 
   # GET /providers/new

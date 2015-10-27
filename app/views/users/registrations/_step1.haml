@@ -18,11 +18,15 @@
         .col-md-5= f.input :phone, label: false
       .row
         .col-md-3 Codigo Postal:
-        .col-md-5= f.input :postal_code, label: false
+        .col-md-5= f.input :postal_code, label: false, input_html: {onchange: "getDirection(this)"}
        
       .row
-        .col-md-3 Direccion:
-        .col-md-5= f.input :address, as: :text, label: false 
+        .col-md-3 Estado:
+        .col-md-5= f.input :state_name, as: :text, label: false, input_html: {class: 'stateUser', disabled: true}
+      
+      .row
+        .col-md-3 Municipio:
+        .col-md-5= f.input :place_name, as: :text, label: false, input_html: {class: 'cityUser', disabled: true}
       
       
       .row
@@ -39,3 +43,29 @@
         .col-md-3 Contraseña:
         .col-md-9= f.input :password, label: false
     .col-md-1
+    
+    
+:javascript
+    
+    function getDirection(el){
+      var elVal = $(el).val();
+      
+      var client = new XMLHttpRequest();
+      client.open("GET", "http://api.zippopotam.us/MX/" + elVal, true);
+      
+      client.onreadystatechange = function() {
+      	if(client.readyState == 4) {
+      		var response = JSON.parse(client.response);
+          console.log(response.places[0]);
+          $('.stateUser').val(response.places[0]['state']);
+          $('.cityUser').val(response.places[0]['place name']);
+      	} else {
+          $('.stateUser').val('');
+          $('.cityUser').val('');
+      	};
+      };
+
+      client.send();
+    }
+  
+  

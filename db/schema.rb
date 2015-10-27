@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151026220816) do
+ActiveRecord::Schema.define(version: 20151027210046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20151026220816) do
     t.integer  "service_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "pet_id"
   end
 
   create_table "bookings", force: true do |t|
@@ -208,6 +209,7 @@ ActiveRecord::Schema.define(version: 20151026220816) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.integer  "size_id"
+    t.integer  "race_id"
   end
 
   create_table "properties", force: true do |t|
@@ -270,6 +272,12 @@ ActiveRecord::Schema.define(version: 20151026220816) do
   add_index "providers", ["email"], name: "index_providers_on_email", unique: true, using: :btree
   add_index "providers", ["reset_password_token"], name: "index_providers_on_reset_password_token", unique: true, using: :btree
 
+  create_table "races", force: true do |t|
+    t.string   "race_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "rates", force: true do |t|
     t.integer  "provider_id"
     t.integer  "size_id"
@@ -296,6 +304,7 @@ ActiveRecord::Schema.define(version: 20151026220816) do
     t.string "size_title"
     t.float  "min_size"
     t.float  "max_size"
+    t.string "description"
   end
 
   create_table "sizings", force: true do |t|
@@ -348,6 +357,8 @@ ActiveRecord::Schema.define(version: 20151026220816) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.text     "address"
+    t.string   "state_name"
+    t.string   "place_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

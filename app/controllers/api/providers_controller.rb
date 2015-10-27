@@ -7,6 +7,7 @@ class Api::ProvidersController < ApplicationController
   skip_before_action :verify_authenticity_token
   
   def get_providers
+    
     hash_response = Array.new
     @providers = Provider.where(active: true)
     

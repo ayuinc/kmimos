@@ -13,10 +13,11 @@
           .col-md-9= p.input :name, label: false 
         .row 
           .col-md-3 Raza:
-          .col-md-9= p.input :race, label: false
+          .col-md-9= p.association :race, label: false
         .row 
           .col-md-3 Edad:
-          .col-md-9= p.input :age, label: false
+          .col-md-6= p.input :age, label: false
+          .col-md-3 Años
         .row 
           .col-md-3 Tamaño:
           .col-md-9= p.association :size, label: false 
@@ -25,10 +26,10 @@
           .col-md-9= p.input :weight, label: false 
         .row
           .col-md-3 Sexo:
-          .col-md-9= p.input :sex, label: false
+          .col-md-9= p.input :sex, label: false, as: :check_boxes, :collection => ['Masculino', 'Femenino']
         .row
           .col-md-3 Comportamiento:
-          .col-md-9= p.input :behavior, label: false
+          .col-md-9= p.association :behavior, label: false
         .row
           .col-md-3 Foto:
           .col-md-9= p.input :photo, label: false

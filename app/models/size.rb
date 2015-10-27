@@ -16,7 +16,8 @@ class Size < ActiveRecord::Base
   
   has_many :booked_pets
   
+  
   def to_s
-    size_title
+    "#{size_title}          #{min_size} cm  - #{max_size} cm"
   end
 end

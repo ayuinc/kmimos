@@ -4,97 +4,156 @@
   }
   
 = render partial: 'error_messages'
-.container.content.mh-630
-  = simple_nested_form_for(@booking)  do |f|
-    %input{value: @provider.id}(name="provider_id" type="hidden")
-    .row
-      .col-md-12
-        %h2.text-center.mt-35 Datos de la reserva
-        %br
-    .row
-      .col-md-2
-      .col-md-3
-        = image_tag(@provider.avatar, width: '200px')
-      .col-md-5
-        %h2= @provider
-        - @provider.locations.group_by(&:state_id).each do |k, state|
-          %b= state.first.state
+%div(ng-app="bookings_module")
+  .container.content.mh-630(ng-controller = "BookingsController")
+    = simple_nested_form_for(@booking)  do |f|
+      %input{value: @provider.id}(name="provider_id" type="hidden")
+      .row
+        .col-md-12
+          %h2.text-center.mt-35 Datos de la reserva  
           %br
-          %span.text-gray= state.map(&:name).join(", ")
-    %br
-    .row
-      .col-md-2
-      .col-md-8.row#datepair
+          
+      .row
+        .col-md-2
         .col-md-3
-          Llegada
-          =f.input :start_date, as: :string, label: false, input_html: {class: "date start datepicker"} 
-        .col-md-3
-          Horas
-          =f.input :start_date, as: :time, label: false, input_html: {class: "time start"} 
-        .col-md-3
-          Hora
-          =f.input :end_date, as: :time, label: false, input_html: {class: "time end"} 
-        .col-md-3
-          Salida
-          =f.input :end_date, as: :string, label: false, input_html: {class: "date end datepicker"}
-    .row
-      .col-md-2
-      .col-md-8.mt-21.mb-42
-        %h3.text-gray.mb-42 Resumen de la reserva:
-        %h4.text-gray.light
-          %small.text-black.bold Cuidador:
-          = @provider.name
-          = @provider.last_name_1
-          = @provider.last_name_2
-        %h4.text-gray.light
-          %small.text-black.bold Precio:
-          = current_country.currency
-          = @provider.price.to_i * 1.2
-          \/ noche
-        %hr.hr-gray/
-        .panel.panel-primary 
-          .panel-body.line-regular
-            .form-group
-              = f.simple_fields_for :booked_pets do |p|
+          = image_tag(@provider.avatar, width: '200px')
+        .col-md-5
+          %h2= @provider
+          - @provider.locations.group_by(&:state_id).each do |k, state|
+            %b= state.first.state
+            %br
+            %span.text-gray= state.map(&:name).join(", ")
+      %br
+      .row
+        .col-md-2
+        .col-md-8.row#datepair
+          .col-md-3
+            Llegada
+            =f.input :start_date, as: :string, label: false, input_html: {class: "date start datepicker_min", 'ng-model': 'minDate', 'ng-change': 'get_diff_dates()'} 
+          .col-md-3
+            Horas
+            =f.input :start_date, as: :time, label: false, input_html: {class: "time start"} 
+          .col-md-3
+            Hora
+            =f.input :end_date, as: :time, label: false, input_html: {class: "time end"} 
+          .col-md-3
+            Salida
+            =f.input :end_date, as: :string, label: false, input_html: {class: "date end datepicker_max", 'ng-model': 'maxDate', 'ng-change': 'get_diff_dates()'}
+      .row
+        .col-md-2
+        .col-md-8.mt-21.mb-42
+          %h3.text-gray.mb-42 Resumen de la reserva:
+          %h4.text-gray.light
+            %small.text-black.bold Cuidador:
+            = @provider.name
+            = @provider.last_name_1
+            = @provider.last_name_2
+          %h4.text-gray.light
+            %small.text-black.bold Precio:
+            = current_country.currency
+            = @provider.price.to_i * 1.2
+            \/ noche  
+          %hr.hr-gray/
+          .panel.panel-primary 
+            .panel-body.line-regular
+               
+              .form-group.row(ng-repeat="pet in pets_booked")  
                 .row.border-bottom
                   .col-md-3 Mascota:
-                  .col-md-6= p.association :pet, label: false   
-                  .col-md-3= p.link_to_remove "Eliminar"
-              = f.link_to_add "Agregar una Mascota", :booked_pets, class: "btn btn-primary"  
-            .form-group.row
-              .col-md-12= f.input :address, class: "form-control", label: "Dirección de Recojo", as: :text 
-            .form-group.row
-              .col-md-12
-                = f.input :user_message, label: "¿Necesitas que sepamos algún dato extra sobre tu perrito?", as: :text
-            .form-group.row
-              .col-md-6
-                = f.input :ref_code, label: "Código de descuento:"  
-            / Modal
-        %br
-        %h3.text-gray.mb-28 Quieres contratar servicios adicionales?
-        .panel-body
-          .form-group
-            = f.simple_fields_for :booked_services do |p|
+                  .col-md-6
+                    %select.form-control{name: "booking[booked_pets_attributes][][pet_id]"}(ng-model= "pet.pet_id"  ng-change="update_pets(#{@provider.id})")
+                      -current_user.pets.each do |pet|
+                        %option{value: pet.id}= pet
+                  .col-md-3 $ {{ pet.price }} MXN
+              %a.btn.btn-primary(ng-click="add_pet()") Agregar Mascota
+              .row
+              
+                %br
+              .form-group.row
+                .col-md-12= f.input :address, class: "form-control", label: "Dirección de Recojo", as: :text, input_html: { value: current_user.address }
+              .form-group.row
+                .col-md-12
+                  = f.input :user_message, label: "¿Necesitas que sepamos algún dato extra sobre tu perrito?", as: :text
+              .form-group.row
+                .col-md-6
+                  = f.input :ref_code, label: "Código de descuento:"  
+              / Modal
+          %br 
+          %h3.text-gray.mb-28 Quieres contratar servicios adicionales?
+          .panel-body 
+            .form-group.row(ng-repeat="serv in services_booked")  
               .row.border-bottom
                 .col-md-3 Servicio:
-                .col-md-6= p.association :service, label: false   
-                .col-md-3= p.link_to_remove "Eliminar"
-            = f.link_to_add "Agregar un Servicio", :booked_services, class: "btn btn-primary" 
-        .panel-heading 
-          %hr.hr-gray/
-        .panel-body
-          = render partial: 'terms', locals: {f: f}
+                .col-md-3
+                  %select.form-control(ng-model= "serv.service_id"  )
+                    -Service.all.each do |se|
+                      %option{value: se.id}= se
+                .col-md-3 
+                  %select.form-control(ng-model= "serv.pet_id" ng-change="update_services()")
+                    -current_user.pets.each do |pet|
+                      %option{value: pet.id}= pet
+                .col-md-3 $ {{serv.price}}  MXN
+            %a.btn.btn-primary(ng-click="add_service()") Agregar Servicio
+          .panel-heading 
+            %hr.hr-gray/
+          .panel-body 
+          .table
+            %table(width="100%")
+              %thead
+                %th Mascota
+                %th Dias
+                %th.total Precio
+                %th.total SubTotal
+              %tbody
+                %tr(ng-repeat="pet in pets_booked") 
+                  %td {{ pet.pet_name }}
+                  %td {{ diff }}
+                  %td.total $ {{ pet.price | number:2 }} MXN
+                  %td.total $ {{ diff * pet.price | number:2 }} MXN
+              %tfoot
+                %tr
+                  %th.total(colspan=3) SUBTOTAL : 
+                  %th.total $ {{ pets_booked_total | number:2 }}  MXN
+                %tr
+                  %th.total(colspan=3) COMISION : 
+                  %th.total $ {{ pets_booked_total * 0.2 | number:2 }}  MXN
+                %tr
+                  %th.total(colspan=3) TOTAL : 
+                  %th.total $ {{ pets_booked_total * 1.2 | number:2 }}  MXN
+            %table(width="100%")
+              %thead
+                %th Mascota
+                %th Servicio
+                %th.total Precio
+              %tbody
+                %tr(ng-repeat="serv in services_booked")  
+                  %td {{ serv.pet_name }}
+                  %td {{ serv.service_name }}
+                  %td.total $ {{ serv.price | number:2 }} MXN
+              %tfoot
+                %tr
+                  %th.total(colspan=2) SUBTOTAL : 
+                  %th.total $ {{ services_booked_total | number:2 }}  MXN
+                %tr
+                  %th.total(colspan=2) COMISION : 
+                  %th.total $ {{ services_booked_total * 0.2 | number:2 }}  MXN
+                %tr
+                  %th.total(colspan=2) TOTAL : 
+                  %th.total $ {{ services_booked_total * 1.2 | number:2 }}  MXN
+          .panel-body
+            = render partial: 'terms', locals: {f: f}
           
-          .form-group.row
-            .col-md-3
-              %center= link_to 'Reservar', '#myModal', 'data-toggle' => 'modal', :class => "btn btn-primary form-control mt-21" 
-              /, :onClick=>"_gaq.push(['_trackEvent', 'Homepage', 'Recomendar-modal-trigger']);"
-          / panel-body
-        / panel-default
-        %div
-          %h5 *La reservación del cuidador está sujeta a cambios por motivos de disponibilidad, tamaño de perro y cuidados necesarios.
-      / col-md-8
-    / row
+            .form-group.row
+              .col-md-3
+                %center= link_to 'Reservar', '#myModal', 'data-toggle' => 'modal', :class => "btn btn-primary form-control mt-21" 
+                /, :onClick=>"_gaq.push(['_trackEvent', 'Homepage', 'Recomendar-modal-trigger']);"
+            / panel-body
+          / panel-default
+          %div
+            %h5 *La reservación del cuidador está sujeta a cambios por motivos de disponibilidad, tamaño de perro y cuidados necesarios.
+        / col-md-8
+      / row
     
 :javascript 
-  $('.datepicker').datepicker();
+  $('.datepicker_min').datepicker();
+  $('.datepicker_max').datepicker();

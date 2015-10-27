@@ -21,8 +21,15 @@ ServihogarRails::Application.routes.draw do
  
   resources :comments
   
+  get 'beneficios' => 'providers#benefits'
+  
   namespace :api, defaults: { format: 'json' } do
     get 'providers/get_providers' => 'providers#get_providers', as: 'api_get_providers'
+    get 'bookings/get_new_booking' => 'providers#get_new_booking', as: 'api_get_new_booking'
+    post 'bookings/get_rate' => 'bookings#get_rate', as: 'api_get_rate'
+    post 'bookings/get_pet_rate' => 'bookings#get_pet_rate', as: 'get_pet_rate'
+    
+    
     get 'services/get_services' => 'services#get_services', as: 'api_get_services'
     get 'general/get_sizes' => 'general#get_sizes', as: 'api_get_sizes'
   end

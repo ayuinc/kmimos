@@ -45,6 +45,7 @@
 //= require modules/providers_module/services/providers.service.js 
 //= require modules/providers_module/services/services.service.js 
 //= require modules/providers_module/controllers/providers.controller.js
+//= require modules/bookings_module/controllers/bookings.controller.js  
 //= require_self 
 
 
