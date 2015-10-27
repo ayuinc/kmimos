@@ -11,10 +11,13 @@ class Api::ProvidersController < ApplicationController
     @providers = Provider.where(active: true)
     
     #@providers = Provider.providers_sliced(params[:slice].to_i, @providers) if params[:slice] != nil
-    
-    
+  
     if params[:number_of].to_s != ""
       @providers = @providers.where('pets_allowed > ?', params[:number_of].to_i)
+    end
+    
+    if params[:price].to_s != ""
+      @providers = @providers.where('price > ?', params[:price].to_i)
     end
     
     @providers.each do |provider|
@@ -32,7 +35,7 @@ class Api::ProvidersController < ApplicationController
       hash_response << hash_provider
     end
     
-    
+ 
     
     if params[:sizes].to_s.gsub(' ', '') != ""
       hash_response = hash_response.map{|provider| (params[:sizes].split(' ') & provider[:sizes]).any? ? provider : nil}.compact

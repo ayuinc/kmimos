@@ -48,8 +48,7 @@ class Provider < ActiveRecord::Base
   
   mount_uploader :avatar, AvatarUploader
   
-  has_many :rates
-  
+  has_many :rates 
   accepts_nested_attributes_for :rates
   
   has_many :agings

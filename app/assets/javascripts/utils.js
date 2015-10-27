@@ -55,7 +55,7 @@ $(".ratingStars").ready(function(){
     }
   
     $(".ratingStars").raty({
-      score: parseInt($(this).attr("score").), 
+      score: parseInt($(this).attr("score")), 
       click: function(score, evt) { 
         var el = c
         $(el).val(score); 

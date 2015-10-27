@@ -3,6 +3,7 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
   $scope.search; 
   $scope.sizes = []; 
   $scope.number_of; 
+  $scope.price; 
   $scope.sel_service = [];
   
   //navigator.geolocation.getCurrentPosition(success, console.log("error")); 
@@ -26,6 +27,10 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
   
   $scope.$watchCollection('sizes', function() { 
     update_filter();
+  });
+  
+  $scope.$watchCollection('price', function() { 
+    //$scope.providers;
   });
   
   function update_filter(){

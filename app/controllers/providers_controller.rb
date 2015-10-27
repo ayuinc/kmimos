@@ -61,7 +61,8 @@
   # GET /providers/new
   def new
     @provider = Provider.new
-    @provider_attachment = @provider.provider_attachments.build
+    @provider_attachment = @provider.provider_attachments.build 
+    
   end
 
   # GET /providers/1/edit

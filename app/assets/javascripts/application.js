@@ -21,6 +21,7 @@
 //= require jquery_nested_form 
 //= require select2.js
 //= require utils
+//= require providers
 
 //= require jquery.purr
 //= require best_in_place

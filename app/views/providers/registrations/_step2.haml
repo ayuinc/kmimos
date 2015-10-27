@@ -7,93 +7,112 @@
   .row
     .col-md-1
     .col-md-10
-      .row
-        .col-md-3 Preséntate con Kmimos :
-        .col-md-9= f.input :description, label: false   
-      .row
-        .col-md-3 Precio por noche: 
-        .col-md-9
-          - f.fields_for :rates do |a|  
-            .row
-              .col-md-2 Tamaño
-              .col-md-3= a.association :size, label: false
-              .col-md-3= a.input :price, label: false, placeholder: 'Precio'
-              .col-md-4= a.link_to_remove "Eliminar"
-          = f.link_to_add "Agregar", :rates
-      .row
-        .col-md-4 CheckIn y CheckOut
-        .col-md-4= f.input :check_in, as: :time, label: false
-        .col-md-4= f.input :check_out, as: :time, label: false
-      .row
-        %label ¿En qué municipios puedes trabajar?
+      .form-group
+        .row
+          .col-md-3 Preséntate con Kmimos :
+          .col-md-9= f.input :description, label: false   
+      .form-group
+        .row
+          .col-md-4 Precio por noche: 
+          .col-md-8  
+            - Size.all.each do |size|
+              .row
+                .col-md-4
+                  %label= size
+                  %input{value: size.id}(name="provider[rates_attributes][][id]" type="hidden")
+                .col-md-4
+                  %input(name="provider[rates_attributes][][price]" placeholder="0.0" class="form-control") 
+      .form-group
+        .row
+          .col-md-3 CheckIn 
+          .col-md-9= f.input :check_in, as: :time, label: false
+      .form-group
+        .row
+          .col-md-3 CheckOut
+          .col-md-9= f.input :check_out, as: :time, label: false
+      .form-group
+        .row
+          %label ¿En qué municipios puedes trabajar?
         
-      - current_country.states.each do |state|
-        .row.border-bottom
-          .col-md-1
-            %input{type: 'checkbox'}
-          .col-md-10=state.name
-          .col-md-1
-            %a.btn.btn-default.btn-xs{href: "javascript:select_state(" + state.id.to_s + ")"}
-              = "-"
-      
-      - current_country.states.each do |state|
-        .div{class: "state_#{state.id} row", style: "display: none;"}
+        - current_country.states.each do |state|
+          .row.border-bottom
+            .col-md-1
+              %input{type: 'checkbox'}
+            .col-md-10=state.name
+            .col-md-1
+              %a.btn.btn-default.btn-xs{href: "javascript:select_state(" + state.id.to_s + ")"}
+                = "-" 
+        - current_country.states.each do |state|
+          .div{class: "state_#{state.id} row", style: "display: none;"}
+            .col-md-12
+              %label= state
+              .tricol_checkboxes= f.association :locations, as: :check_boxes, label: false, :collection => state.locations
+      .form-group
+        .row
+          .col-md-6 Años de experiencia cuidando perros
+          .col-md-2= f.input :experiencia, label: false
+          .col-md-4 Años
+      .form-group
+        .row
+          .col-md-3 Tipo de Propiedad: 
+          .col-md-9= f.association :property, label: false
+      .form-group
+        .row
+          .col-md-12.tricol_checkboxes
+            %label ¿Con que tamaños de perro trabaja? 
+            = f.association :sizes, as: :check_boxes, label: false
+      .form-group
+        .row
+          .col-md-12.tricol_checkboxes
+            %label Etapas de vida de los perros que cuida 
+            = f.association :ages, as: :check_boxes, label: false
+      .form-group
+        .row
           .col-md-12
-            %label= state
-            .tricol_checkboxes= f.association :locations, as: :check_boxes, label: false, :collection => state.locations
-      .row
-        .col-md-6 Años de experiencia cuidando perros
-        .col-md-2= f.input :experiencia, label: false
-        .col-md-4 Años
-      .row
-        .col-md-3 Tipo de Propiedad: 
-        .col-md-9= f.association :property, label: false
-      .row
-        .col-md-12.tricol_checkboxes
-          %label ¿Con que tamaños de perro trabaja? 
-          = f.association :sizes, as: :check_boxes, label: false  
-      .row
-        .col-md-12.tricol_checkboxes
-          %label Etapas de vida de los perros que cuida 
-          = f.association :ages, as: :check_boxes, label: false
-      .row
-        .col-md-12
-          .map-info
-            = f.input :latitude, as: :hidden
-            = f.input :longitude, as: :hidden
-      .row
-        .col-md-9
-          = f.input :address, label: "Dirección:", placeholder: "Ingrese su dirección...", hint: "*Si el pin no se sitúa en el lugar de tu dirección, por favor ajústalo."
-        .col-md-3
-          %label{:for => "search_address", :style => "display:block;color:white"} Buscar
-          %button#search_address.btn.btn-primary.form-control.ml-0{:name => "search_address", :type => "button"} Buscar 
-      .row
-        .col-md-12 
-          #map.map.ml-14.col-md-12.col-xs-12.col-sm-12.mt-14{style: "width: 100% !important; height: 200px !important; "}
-      %br
-      .row
-        .col-md-12 ¿Cuentas con Otros perros en casa?
-      .row
-        .col-md-4.twocol_checkboxes
-          = f.input :has_other_pets, as: :radio_buttons, label: false, :collection => [['Si', 1], ['No', 0]]
-        .col-md-4 Numero de perros
-        .col-md-4= f.input :number_of_pets, label: false
-      .row
-        .col-md-12 Tamaño de Perro
-      .row
-        .col-md-12.tricol_checkboxes= f.association :own_sizes, as: :check_boxes, label: false
-      .row
-        .col-md-3 Comportamiento del Perro
-        .col-md-9= f.association :pet_behavior, label: false
-      .row
-        .col-md-9 ¿Cantidad de perros aceptado en su propiedad?
-        .col-md-3= f.input :pets_allowed, label: false
-      .row
-        .col-md-8 ¿La propiedad tiene áreas verdes cercanas? 
-        .col-md-4.twocol_checkboxes= f.input :has_green, as: :radio_buttons, label: false, :collection => [['Si', 1], ['No', 0]]
-      .row
-        .col-md-8 ¿La propiedad cuenta con patio? 
-        .col-md-4.twocol_checkboxes= f.input :has_yard, as: :radio_buttons, label: false, :collection => [['Si', 1], ['No', 0]]
+            .map-info
+              = f.input :latitude, as: :hidden
+              = f.input :longitude, as: :hidden
+      .form-group
+        .row
+          .col-md-9
+            = f.input :address, label: "Dirección:", placeholder: "Ingrese su dirección...", hint: "*Si el pin no se sitúa en el lugar de tu dirección, por favor ajústalo."
+          .col-md-3
+            %label{:for => "search_address", :style => "display:block;color:white"} Buscar
+            %button#search_address.btn.btn-primary.form-control.ml-0{:name => "search_address", :type => "button"} Buscar 
+      .form-group
+        .row
+          .col-md-12 
+            #map.map.ml-14.col-md-12.col-xs-12.col-sm-12.mt-14{style: "width: 100% !important; height: 200px !important; "}
+        %br
+      .form-group
+        .row
+          .col-md-12 ¿Cuentas con Otros perros en casa?
+        .row
+          .col-md-4.twocol_checkboxes
+            = f.input :has_other_pets, as: :radio_buttons, label: false, :collection => [['Si', 1], ['No', 0]]
+          .col-md-4 Numero de perros
+          .col-md-4= f.input :number_of_pets, label: false
+      .form-group
+        .row
+          .col-md-12 Tamaño de Perro
+        .row
+          .col-md-12.tricol_checkboxes= f.association :own_sizes, as: :check_boxes, label: false
+      .form-group
+        .row
+          .col-md-3 Comportamiento del Perro
+          .col-md-9= f.association :pet_behavior, label: false
+      .form-group
+        .row
+          .col-md-9 ¿Cantidad de perros aceptado en su propiedad?
+          .col-md-3= f.input :pets_allowed, label: false
+      .form-group
+        .row
+          .col-md-8 ¿La propiedad tiene áreas verdes cercanas? 
+          .col-md-4.twocol_checkboxes= f.input :has_green, as: :radio_buttons, label: false, :collection => [['Si', 1], ['No', 0]]
+      .form-group
+        .row
+          .col-md-8 ¿La propiedad cuenta con patio? 
+          .col-md-4.twocol_checkboxes= f.input :has_yard, as: :radio_buttons, label: false, :collection => [['Si', 1], ['No', 0]]
          
     .col-md-1
     
