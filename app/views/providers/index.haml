@@ -7,7 +7,7 @@
       .row
         .col-md-2.padding-0
           .form-filter
-            %h3 Buscar cuidador {{ test }}
+            %h3 Buscar cuidador {{ price }}
             %p Selecciona donde, cuando y que necesitas para dejar tu perrito. 
             = search_form_for @search do |f| 
               .form-group
@@ -18,8 +18,8 @@
                 %input.form-control(placeholder="Municipio" ng-model="search.locations")
               .form-group  
                 %label Rango de Precio
-                %br 
-                %rzslider(rz-slider-model="price" rz-slider-floor="priceSlider.floor" rz-slider-ceil="priceSlider.ceil" rz-slider-model="priceSlider.min" rz-slider-high="priceSlider.max")
+                %br  
+                %rzslider(rz-slider-model="priceSlider" rz-slider-floor="priceSlider.floor" rz-slider-ceil="priceSlider.ceil" rz-slider-model="priceSlider.min" rz-slider-high="priceSlider.max" rz-slider-on-end="onSliderChange()")
               .form-group 
                 %label Tamaño de Perro
                 %br

@@ -13,11 +13,15 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
   //function success(position){
   $scope.map = { zoom: 16, control: {}, markers: []}; 
    
-   
+  
+  $scope.onSliderChange = function()
+  {
+      update_filter();
+  }
   
    
   $scope.priceSlider = {
-      min: 100,
+      min: 0,
       max: 180,
       ceil: 500,
       floor: 0
@@ -39,9 +43,6 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
     update_filter();
   });
   
-  $scope.$watchCollection('price', function() { 
-    //$scope.providers;
-  });
   
   
   
@@ -49,7 +50,7 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
     
     $scope.map.markers = [];
     
-    ProviderService.get({sizes: $scope.sizes.join(' '), number_of: $scope.number_of, sel_service: $scope.sel_service.join(' ')}).$promise.then(function(providers) {
+    ProviderService.get({sizes: $scope.sizes.join(' '), price: $scope.priceSlider, number_of: $scope.number_of, sel_service: $scope.sel_service.join(' ')}).$promise.then(function(providers) {
       
       var temp_markers = [];
       var log = [];

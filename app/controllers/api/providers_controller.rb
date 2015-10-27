@@ -10,14 +10,18 @@ class Api::ProvidersController < ApplicationController
     hash_response = Array.new
     @providers = Provider.where(active: true)
     
+    price = JSON.parse(params['price'])
+    
     #@providers = Provider.providers_sliced(params[:slice].to_i, @providers) if params[:slice] != nil
   
     if params[:number_of].to_s != ""
       @providers = @providers.where('pets_allowed > ?', params[:number_of].to_i)
     end
     
-    if params[:price].to_s != ""
-      @providers = @providers.where('price > ?', params[:price].to_i)
+    p price
+    
+    if price.to_s != ""
+      @providers = @providers.where('price >= ? AND price <= ?', price['min'].to_i, price['max'].to_i)
     end
     
     @providers.each do |provider|
