@@ -15,6 +15,8 @@
 //= require jquery.timepicker.min.js
 //= require easing
 
+//= require gmaps.min
+
 
 //= require jquery.steps.js
 //= require jquery.raty.js 
