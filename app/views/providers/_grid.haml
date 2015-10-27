@@ -5,24 +5,21 @@
         #a.oculto.text-center.pt-21
           %img{:alt => "", :src => "assets/icono-huella-hover.svg", :width => "70"} 
       .bg-gray-lighter.p-14
-        %small.fz-xs Desde
-        %h4.text-primary.lh-xs.mv-0 Mex ${{provider.price}}
-        %small.text-primary.fz-xs por noche
-        %h5.bold.m-0 {{ provider.name }}
-        %small(ng-repeat="state in provider.states ") 
-          {{ state }}
-        %a
-          %p.lh-sm.mb-0.text-gray.fz-xs {{ provider.description | limitTo: 100 }}
-        .hidden-md.separator.separator-gray-dark.separator-centered.mt-0.separator-full-width
-        .row
-          .col-md-8.pr-0
-            .rating-reviews.pl-14.mt-7
-          .col-md-4.pl-0
-        .row
-          %hr.mb0.mt0
-          .col-md-6
-            .rating-reviews.pl-14.mt-7
-          .col-md-6
+        .row.border-bottom
+          %small.fz-xs Desde
+          %h4.text-primary.lh-xs.mv-0 Mex ${{provider.price}}
+          %small.text-primary.fz-xs por noche
+          %h5.bold.m-0 {{ provider.name }}
+          %small(ng-repeat="state in provider.states ") 
+            {{ state }}
+          %a
+            %p.lh-sm.mb-0.text-gray.fz-xs {{ provider.description | limitTo: 100 }}
+          .hidden-md.separator.separator-gray-dark.separator-centered.mt-0.separator-full-width
+      
+        .row 
+          .col-md-8.rating
+            .ratingStars
+          .col-md-4.comments
             14 comentarios
               
               

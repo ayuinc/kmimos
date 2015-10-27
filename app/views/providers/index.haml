@@ -17,9 +17,11 @@
                 %input.form-control(placeholder="Municipio" ng-model="search.locations")
               .form-group  
                 %label Rango de Precio
+                %br
                 %input.form-control(placeholder="Precio" type="range" ng-model="price")
               .form-group 
                 %label Tamaño de Perro
+                %br
                 %input(type="checkbox" checked ng-model="sizes[0]" ng-true-value="Pequeños" data-ng-false-value='') Pequeño
                 %br 
                 %input(type="checkbox" checked ng-model="sizes[1]" ng-true-value="Medianos" data-ng-false-value='') Mediano 
