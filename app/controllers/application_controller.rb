@@ -3,10 +3,9 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   
   protect_from_forgery with: :exception
-   
-  include Bookings
+    
   
-  helper_method :current_country
+  
   
   before_action :set_locale
   
@@ -23,14 +22,21 @@ class ApplicationController < ActionController::Base
     'dry-oasis-5911.herokuapp.com' => 'México',
     'kmimos-ivandevp.c9.io' => 'México'
   }
+  
  
   def set_locale
     I18n.locale = current_country != nil ? current_country.locale : I18n.default_locale
   end  
   
+  protected
+
+    def authenticate_admin_user!
+      redirect_to(new_user_session_path) unless current_user.try(:admin?)
+    end
+  
    
   
-  
+  helper_method :current_country
   def current_country
     Country.first 
   end

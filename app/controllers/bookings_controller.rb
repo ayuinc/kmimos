@@ -9,7 +9,10 @@ class BookingsController < ApplicationController
 
 	def new
 		@provider = Provider.find(params[:provider_id])
+    
 	  @booking = Booking.new
+    @booking.start_date = session[:from_date]
+    @booking.end_date = session[:to_date]
 	end
 
 	def show
@@ -22,6 +25,8 @@ class BookingsController < ApplicationController
     
     @booking.provider_id  = @provider.id
     @booking.user_id = current_user.id
+    
+    
     
 	  if @booking.save
       

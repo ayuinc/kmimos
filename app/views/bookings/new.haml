@@ -29,7 +29,7 @@
         .col-md-8.row#datepair
           .col-md-3
             Llegada
-            =f.input :start_date, as: :string, label: false, input_html: {class: "date start datepicker_min", 'ng-model': 'minDate', 'ng-change': 'get_diff_dates()'} 
+            =f.input :start_date, as: :string, label: false, input_html: {class: "date start datepicker_min", 'ng-model': 'minDate', 'ng-change': 'get_diff_dates()', value: session[:from_date]} 
           .col-md-3
             Horas
             =f.input :start_date, as: :time, label: false, input_html: {class: "time start"} 
@@ -156,4 +156,17 @@
     
 :javascript 
   $('.datepicker_min').datepicker();
+  
   $('.datepicker_max').datepicker();
+  
+  setTimeout(function(){ 
+    $('.datepicker_max').datepicker("setDate", "#{session[:from_date]}");
+  
+    $('.datepicker_min').datepicker("setDate", "#{session[:to_date]}");
+    
+    $('.datepicker_max').change();
+    $('.datepicker_min').change();
+  
+  }, 1000);
+  
+  
