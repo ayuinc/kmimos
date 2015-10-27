@@ -16,13 +16,17 @@
               .form-group
                 %input.form-control(placeholder="Municipio" ng-model="search.locations")
               .form-group  
+                %label Rango de Precio
                 %input.form-control(placeholder="Precio" type="range" ng-model="price")
               .form-group 
+                %label Tamaño de Perro
                 %input(type="checkbox" checked ng-model="sizes[0]" ng-true-value="Pequeños" data-ng-false-value='') Pequeño
                 %br 
                 %input(type="checkbox" checked ng-model="sizes[1]" ng-true-value="Medianos" data-ng-false-value='') Mediano 
                 %br
                 %input(type="checkbox" checked ng-model="sizes[2]" ng-true-value="Grandes" data-ng-false-value='') Grande 
+              .row
+                %label Cantidad de Perros
               .row
                 .col-xs-6
                   %input(type="checkbox" checked ng-model="number_of" ng-true-value="1" data-ng-false-value='') 1  
@@ -35,6 +39,7 @@
                   %input(type="checkbox" checked ng-model="number_of" ng-true-value="4" data-ng-false-value='') 4 o mas
               %br
               .form-group  
+                %label Servicios Adicionales
                 %div(ng-repeat="service in services ")
                   %input(type="checkbox" checked ng-model="sel_service[service.id]" ng-true-value="{{service.id}}" data-ng-false-value='') {{service.service_name}}
                   %br 
