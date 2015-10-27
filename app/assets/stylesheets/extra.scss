@@ -8,9 +8,35 @@
 }
 
 #cuidadores {
-  a {
+  
+  .provider-item{
+    width: 30%;
+    margin: 5px;
+    float: left;
+    display: block;
+  }
+  
+  .block-cuidadores {
+    border: 1px #cdcdcd solid; 
+  }
+  
+  a { 
+    display: block;
+    color: #555;
     .bg-gray-lighter{
-      
+      h4 {
+        margin-bottom: 0px;
+      }
+      h5 {
+        margin-top: 10px;
+        margin-bottom: 0px;
+      }
+      h6 {
+        margin-top: 5px;
+      }
+      p {
+        margin-bottom: 10px;
+      }
     }
   }
   .rating {

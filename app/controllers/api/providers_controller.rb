@@ -32,6 +32,7 @@ class Api::ProvidersController < ApplicationController
       hash_provider[:sizes] = provider.sizes.map{|s| s.size_title}.uniq
       hash_provider[:pet_qty] = provider.pets_allowed.to_i
       hash_provider[:services] = provider.services.map{|s| s.service_name}.uniq
+      hash_provider[:comments] = provider.comments
       hash_response << hash_provider
     end
     
