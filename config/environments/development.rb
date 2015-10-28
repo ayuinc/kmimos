@@ -18,6 +18,7 @@ ServihogarRails::Application.configure do
   
   config.paperclip_defaults = {
     :storage => :s3,
+    :s3_region => '',
     :s3_credentials => {
       :bucket => 'servihogar',
       :access_key_id =>  'AKIAJPN6EZBZJY3UHKQA',
