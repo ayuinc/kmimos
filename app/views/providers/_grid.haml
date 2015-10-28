@@ -8,7 +8,8 @@
         .bg-gray-lighter.p-14
           .body.border-bottom
             %small.fz-xs Desde
-            %p {{ provider.is_favorite }}
+            %div(ng-if="provider.isFavorite"){style: "float: right;"}
+              %img{:alt => "", :src => "assets/cuidador_wow.png", :width => "70"} 
             %h4.text-primary.lh-xs.mv-0 Mex ${{provider.price}}
             %small.text-primary.fz-xs por noche 
             %h5.bold {{ provider.name }}

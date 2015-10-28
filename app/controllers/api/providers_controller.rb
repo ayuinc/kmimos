@@ -28,6 +28,7 @@ class Api::ProvidersController < ApplicationController
     @providers.each do |provider|
       hash_provider = Hash.new
       hash_provider[:id] = provider.id
+      hash_provider[:isFavorite] = provider.is_favorite
       hash_provider[:name] = "#{provider.name} #{provider.last_name_1}"
       hash_provider[:states] = provider.locations.map{|l| l.state.name}.uniq
       hash_provider[:longitude] = provider.longitude
@@ -41,7 +42,7 @@ class Api::ProvidersController < ApplicationController
       hash_provider[:pet_qty] = provider.pets_allowed.to_i
       hash_provider[:services] = provider.services.map{|s| s.service_name}.uniq
       hash_provider[:comments] = provider.comments
-      hash_provider[:is_favorite] = provider.is_favorite
+      
       hash_response << hash_provider
     end
     
