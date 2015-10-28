@@ -14,9 +14,7 @@ ServihogarRails::Application.configure do
     :user_name => ENV["MANDRILL_USERNAME"],
     :password => ENV["MANDRILL_API_KEY"]
   }  
- 
-  access_key_id: ENV["AWS_ACCESS_KEY_ID"]
-  secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"]
+  
   
   config.cache_classes = true
 
