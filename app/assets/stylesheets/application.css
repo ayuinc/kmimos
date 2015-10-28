@@ -126,9 +126,11 @@
 }
 
 .main-video {
-  padding-left: 27px;
-  padding-right: 27px;
-  padding-top: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 32px;
+  height: 356px;
+  width: 580px;
 }
  
 .square-green {
