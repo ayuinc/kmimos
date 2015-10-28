@@ -44,7 +44,7 @@
                       Subir Foto
                 .col-md-4 
                   = pet.input :name, label: 'Nombre' 
-                  = pet.input :race, label: 'Raza' 
+                  = pet.association :race, label: 'Raza' 
                   = pet.input :age, label: 'Edad' 
                   = pet.association :size, label: 'Tamaño'
                   %br 
