@@ -7,7 +7,8 @@ class Valuation < ActiveRecord::Base
     response = Array.new
     comments.each do |comment|
       valuations = comment.comment_valuations.where(valuation_id: self.id).map{|val| val.value.to_i}
-      response = [self.name, valuations.reduce(:+).to_i / valuations.size]
+      valuation = valuations.reduce(:+).to_i / valuations.size rescue 0
+      response = [self.name, valuation]
     end
     return response 
   end

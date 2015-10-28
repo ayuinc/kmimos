@@ -42,32 +42,28 @@ function get_score(score, el){
   console.log(score);
   return score;
 }
+ 
 
-$(this).attr('score')
+var paint_ratings = function(){
+     $(".ratingStars").raty({
+        score: function() {
+          var el = $(this).attr('el');
+          $(el).val($(this).attr('score'));
+          $(el).hide();
+          return $(this).attr('score');
+        }, 
+        click: function(score, evt) {
+          var el = $(this).attr('el');
+          $(el).val(score);
+        },
+        starOff : '/assets/icono-hueso-gris.svg',
+        starOn  : '/assets/icono-hueso-verde.svg'
+      }); 
+};
 
 $(".ratingStars").ready(function(){
-     
-    $(".ratingStars").raty({
-      score: function() {
-        var el = $(this).attr('el');
-        $(el).val($(this).attr('score'));
-        $(el).hide();
-        return $(this).attr('score');
-      }, 
-      click: function(score, evt) {
-        var el = $(this).attr('el');
-        $(el).val(score);
-      },
-      starOff : '/assets/icono-hueso-gris.svg',
-      starOn  : '/assets/icono-hueso-verde.svg'
-    });
-   
- 
-   
+  paint_ratings();
 });
-  
-  
-  
   
   
   
