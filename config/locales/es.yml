@@ -227,6 +227,21 @@ es-MX:
       location: ubicación
       album: fotos
       photo: foto
+      behavior:
+        one: Comportamiento
+        other: Comportamientos 
+      race:
+        one: Raza
+        other: Razas 
+      valuation: 
+        one: Criterio de Valoracion
+        other: Criterios de Valoracion
+      service:
+        one: Servicio
+        other: Servicios
+      size:
+        one: Tamaño 
+        other: Tamaños
     errors:
       <<: *errors
     attributes:
