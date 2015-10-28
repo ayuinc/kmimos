@@ -6,18 +6,10 @@
     .comment-body.col-xs-10
       %h4= "#{comment.user.first_name} #{comment.user.last_name}"
       .valorations.row
-        .col-md-3.col-xs-6
-          %b Cuidado
-          .ratingStars.mt-7
-        .col-md-3.col-xs-6
-          %b Puntualidad
-          .ratingStars.mt-7
-        .col-md-3.col-xs-6
-          %b Limpieza
-          .ratingStars.mt-7
-        .col-md-3.col-xs-6
-          %b Area de Cuidado
-          .ratingStars.mt-7
+        - comment.comment_valuations.each do |cval|
+          .col-md-3.col-xs-6
+            %b=cval.valuation.name
+            .ratingStars.mt-7{el: "this", score: cval.value.to_i} 
       .comment-text.row.mt-21
         .col-xs-12
           %p= comment.body
@@ -25,25 +17,14 @@
 - if current_user != nil
   - @comment = Comment.new 
   = simple_nested_form_for(@comment, :html => {:multipart => true}, remote: true) do |f|  
-    .row.valorations-row
-      
-        
-      .col-md-3.col-mx-6
-        %b Cuidado
-        .ratingStars(el="#val_1" score='0')
-        %input(name="val_1" id="val_1")
-      .col-md-3.col-mx-6
-        %b Puntualidad
-        .ratingStars(el="#val_2" score='0')
-        %input(name="val_2" id="val_2")
-      .col-md-3.col-mx-6
-        %b Limpieza
-        .ratingStars(el="#val_3" score='0')
-        %input(name="val_3" id="val_3")
-      .col-md-3.col-mx-6
-        %b Area de Cuidado
-        .ratingStars(el="#val_4" score='0')
-        %input(name="val_4" id="val_4")
+    .row.valorations-row  
+      - Valuation.all.each do |valuation|
+        .col-md-3.col-mx-6
+          %b=valuation.name
+          .ratingStars{el: "#val_#{valuation.id}", score:'0'}
+          %input{name:"comment[comment_valuations_attributes][#{valuation.id}][valuation_id]", value: valuation.id, type: 'hidden'}
+          %input{name:"comment[comment_valuations_attributes][#{valuation.id}][value]", id:"val_#{valuation.id}"}
+       
     .new_comment.row.mt-21
       .avatar.col-md-2
         = image_tag(current_user.photo, width: '50px', height: '50px', class: 'img-circle')
