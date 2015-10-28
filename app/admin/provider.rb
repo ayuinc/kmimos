@@ -12,7 +12,7 @@ ActiveAdmin.register Provider do
     column :dni
     column :email
     column :phone
-    column :is_favorite
+    column :is_favorite, as: :checkbox
     column :active
     actions
   end
