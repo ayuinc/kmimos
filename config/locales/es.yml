@@ -221,7 +221,9 @@ es-MX:
       user: usuario
       category: categoría
       event: slot de tiempo
-      provider: proveedor
+      provider: 
+        one: Proveedor
+        other: Proveedores
       location: ubicación
       album: fotos
       photo: foto
@@ -236,7 +238,7 @@ es-MX:
             password: "Contraseña"
             password_confirmation: "Confirmación de contraseña"
             name: "Nombre"
-            last_name_1: "Apellido Paterno"
+            last_name_1: "Apellidos"
             last_name_2: "Apellido Materno"
             url: "URL"
             title: "Sufijo"
@@ -245,6 +247,8 @@ es-MX:
             phone: "Teléfono"
             dni: "IFE"
             category_id: "Categoría"
+            is_favorite: "Destacado"
+            active: "Activo"
         booking:
             user_email: "Correo electrónico"
             user_first_name: "Nombre"

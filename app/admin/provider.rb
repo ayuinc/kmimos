@@ -2,13 +2,20 @@ ActiveAdmin.register Provider do
   permit_params :name, :last_name_1, :last_name_2, :dni, :email, :phone, :description, :email_c, :avatar,
   :price, :areas_externas, :emergencia, :experiencia, :active, :latitude, :longitude, :address, :is_favorite
    
+  
+  filter :name
+  filter :last_name_1
+  filter :dni
+  filter :email
+  filter :phone
+  filter :is_favorite 
+  filter :active 
    
   index do
     selectable_column
     id_column
     column :name
     column :last_name_1
-    column :last_name_2
     column :dni
     column :email
     column :phone
