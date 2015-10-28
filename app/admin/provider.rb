@@ -1,6 +1,6 @@
 ActiveAdmin.register Provider do
   permit_params :name, :last_name_1, :last_name_2, :dni, :email, :phone, :description, :email_c, :avatar,
-  :price, :areas_externas, :emergencia, :experiencia, :active, :latitude, :longitude, :address
+  :price, :areas_externas, :emergencia, :experiencia, :active, :latitude, :longitude, :address, :is_favorite
    
    
   index do
@@ -12,19 +12,18 @@ ActiveAdmin.register Provider do
     column :dni
     column :email
     column :phone
+    column :is_favorite
     actions
   end
  
-  
-  
-  
-
+   
   form do |f|
     f.inputs "Provider Details" do
       f.input :name
       f.input :last_name_1
       f.input :last_name_2
       f.input :active
+      f.input :is_favorite
     end
     f.actions
   end

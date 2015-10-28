@@ -1,8 +1,9 @@
 .main-video {
   .video-screen {
     overflow: hidden;
-    height: 315;
-    width: 560;
+    height: 324px !important;
+    width: 560px !important; 
+    padding-bottom: 10px;
   }
   
 }
