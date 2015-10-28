@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
     comment.save
     
     
+    
     render action: "create", layout: false
   end
   
