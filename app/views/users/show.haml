@@ -36,10 +36,10 @@
             = f.simple_fields_for :pets do |pet|
               .row.pet-container
                 .col-md-4
-                  = image_tag(:photo, style: 'width: 100% !important;') 
-                  = pet.input :photo, label: false, input_html: {style: 'display: none; '}
+                  = image_tag(pet.object.photo, style: 'width: 100% !important;') 
+                  = pet.input :photo, label: false, input_html: {style: 'display: none; ', class: "pet_photo"}
                   .input-append
-                    %a#upload-btn.btn.btn-primary{style: "padding: 6px 12px;"}
+                    %a#upload-btn.btn.btn-primary.pretty_upload_input{style: "padding: 6px 12px;", el: ".pet_photo"}
                       %i.icon-upload-alt
                       Subir Foto
                 .col-md-4 
