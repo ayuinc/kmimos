@@ -42,6 +42,9 @@ gem 'simple_form'   #Gem for form simplification
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'aws-sdk'
 
+gem 'state_machine'
+gem 'ruby-graphviz', :require => 'graphviz'
+
 gem 'cancancan'
 gem 'nested_form'
 
