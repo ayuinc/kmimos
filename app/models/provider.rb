@@ -94,6 +94,10 @@ class Provider < ActiveRecord::Base
 
   scope :providers_sliced, -> (n, providers) {providers.each_slice(n).to_a}
   scope :on_top_providers, -> (n) {where(on_top: true).limit(n)}
+  
+  def valuations 
+     
+  end
 
 
   def to_s

@@ -116,14 +116,9 @@
         .border-bottom.text-left.pl-21
           %h3.text-gray.mv-14 Evaluaciones
         .text-left.ph-21
-          %h5 Cuidado
-          .ratingStars.pl-14.mt-7
-          %h5 Limpieza
-          .ratingStars.pl-14.mt-7
-          %h5 Puntualidad
-          .ratingStars.pl-14.mt-7
-          %h5 Area de Cuidado 
-          .ratingStars.pl-14.mt-7
+          -Valuation.by_comments(@provider.comments).each do |valuation, value|
+            %h5= valuation
+            .ratingStars.pl-14.mt-7{score: value.to_i}
         %br
 .hidden
   = link_to 'Edit', edit_provider_path(@provider)

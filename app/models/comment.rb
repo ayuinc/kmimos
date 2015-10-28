@@ -7,4 +7,6 @@ class Comment < ActiveRecord::Base
   
   has_many :valuations, :through =>  :comment_valuations
   
+  
+  
 end
