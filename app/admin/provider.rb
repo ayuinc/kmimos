@@ -13,6 +13,7 @@ ActiveAdmin.register Provider do
     column :email
     column :phone
     column :is_favorite
+    column :active
     actions
   end
  
