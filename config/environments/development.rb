@@ -16,6 +16,15 @@ ServihogarRails::Application.configure do
   }  
   
   
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => 'servihogar',
+      :access_key_id =>  'AKIAJPN6EZBZJY3UHKQA',
+      :secret_access_key => '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'
+    }
+  }
+  
   config.cache_classes = true
 
   # Show full error reports and disable caching.

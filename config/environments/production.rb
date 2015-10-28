@@ -11,6 +11,14 @@ ServihogarRails::Application.configure do
     :password => ENV["MANDRILL_API_KEY"]
   }  
   
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['AWS_BUCKET'],
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }
+  }
  
   # Code is not reloaded between requests.
   config.cache_classes = true
