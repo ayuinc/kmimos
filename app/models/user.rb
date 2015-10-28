@@ -13,7 +13,8 @@ class User < ActiveRecord::Base
    
    accepts_nested_attributes_for :pets
    
-   has_attached_file :photo, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "user.jpg"
+   has_attached_file :photo, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "user.jpg", 
+   :storage => :s3, :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
      validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
      
      

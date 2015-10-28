@@ -79,11 +79,7 @@
       .ubicacion
         %h3.text-gray Ubicación
         .row
-          .col-md-5
-            %h4.text-secondary Ubicacion del Cuidador 
-            %p
-              = image_tag('icono-ubicacion-cuidador.svg')
-              = @provider.address
+          .col-md-5 
             %h4.text-secondary Areas del Servicio
             - @provider.locations.group_by(&:state_id).each do |k, state|
               %h4.mb-14.mt-21.pb-7.border-bottom= state.first.state 
@@ -121,13 +117,13 @@
           %h3.text-gray.mv-14 Evaluaciones
         .text-left.ph-21
           %h5 Cuidado
-          .rating-reviews.pl-14.mt-7
+          .ratingStars.pl-14.mt-7
           %h5 Limpieza
-          .rating-reviews.pl-14.mt-7
+          .ratingStars.pl-14.mt-7
           %h5 Puntualidad
-          .rating-reviews.pl-14.mt-7
+          .ratingStars.pl-14.mt-7
           %h5 Area de Cuidado 
-          .rating-reviews.pl-14.mt-7
+          .ratingStars.pl-14.mt-7
         %br
 .hidden
   = link_to 'Edit', edit_provider_path(@provider)

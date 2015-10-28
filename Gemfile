@@ -38,6 +38,7 @@ gem 'activeadmin', git: 'git://github.com/gregbell/active_admin.git'  # Fast Adm
 gem 'simple_form'   #Gem for form simplification
 
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+gem 'aws-sdk'
 
 gem 'cancancan'
 gem 'nested_form'
