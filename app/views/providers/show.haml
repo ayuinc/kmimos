@@ -13,7 +13,8 @@
               = image_tag('server_carnet.png', class: 'avatar') unless @provider.avatar?
               %center
                 - val = Valuation.by_comments(@provider.comments)
-                .ratingStars{score: val.map{|val| val[1]}.reduce(:+) / val.size, readOnly: true }
+                - score = val.map{|val| val[1]}.reduce(:+).to_i / val.size.to_i rescue 0
+                .ratingStars{score: score, readOnly: true }
             .user-info.col-md-9
               %h3.m-0.mb-7
                 = @provider.name
@@ -100,7 +101,11 @@
                 setProviderLocation(#{@provider.latitude}, #{@provider.longitude});
             - else
               = @provider.iframe_code.html_safe if !@provider.iframe_code.nil?
-    
+      .behaviors
+        %h3.text-gray Comportamientos de perros aceptados   
+        .row
+          = @provider.behaviors.each do |behavior|
+            =image_tag('huella-mensaje-17-mini.png')
       .comentarios
         %h3.text-gray Experiencias Kmimos2
         #comments-div

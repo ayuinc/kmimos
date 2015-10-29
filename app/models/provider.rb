@@ -56,7 +56,8 @@ class Provider < ActiveRecord::Base
   scope :on_top_providers, -> (n) {where(on_top: true).limit(n)}
   
   def behaviors
-    Behavior.find(self.behaviors_accepted)
+    #Behavior.find(self.behaviors_accepted)
+    self.behaviors_accepted
   end
 
   def to_s
