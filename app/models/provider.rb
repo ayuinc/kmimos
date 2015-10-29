@@ -8,7 +8,8 @@ class Provider < ActiveRecord::Base
   
   belongs_to :category 
   belongs_to :property
-  belongs_to :pet_behavior
+  belongs_to :behavior
+  
   
   serialize :behaviors_accepted, Array
   
@@ -21,6 +22,8 @@ class Provider < ActiveRecord::Base
   
   has_many :agings
   has_many :ages, :through => :agings
+  
+  
   
   has_many :sizings
   has_many :sizes, :through => :sizings
@@ -55,7 +58,7 @@ class Provider < ActiveRecord::Base
   scope :providers_sliced, -> (n, providers) {providers.each_slice(n).to_a}
   scope :on_top_providers, -> (n) {where(on_top: true).limit(n)}
   
-  def behaviors
+  def get_behaviors
     #Behavior.find(self.behaviors_accepted)
     self.behaviors_accepted
   end

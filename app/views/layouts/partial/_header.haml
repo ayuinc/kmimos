@@ -52,16 +52,14 @@
               %span.h5.book.pr-14.ls-md Iniciar Sesión
               %span.caret
             %ul(class="dropdown-menu")
-              %li
-                %a{:href => new_user_session_path}
-                  %span.h5.btn Iniciar sesión como Cliente
-              %li
-                %a{:href => new_provider_session_path}
-                  %span.h5.btn Iniciar sesión como Cuidador 
+              %li 
+                %a{:href => new_user_session_path} Iniciar sesión como Cliente
+              %li 
+                %a{:href => new_provider_session_path} Iniciar sesión como Cuidador 
         %li 
-          = link_to 'Registrarme', new_user_registration_path, class: "not-underline "
+          = link_to 'Registrarme', new_user_registration_path, class: "not-underline text-header"
         %li.active 
-          = link_to 'Ser cuidador', new_provider_registration_path, class: "not-underline sign-up"
+          = link_to 'Quiero ser cuidador', new_provider_registration_path, class: "not-underline sign-up"
         
          
   / /.nav-collapse

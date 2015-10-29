@@ -4,9 +4,8 @@
     .col-md-12
       %h2.title-step Datos Personales
       %hr
-  .row
-    .col-md-1
-    .col-md-10
+  .row 
+    .col-md-12
       .row
         .col-md-3 Nombre:
         .col-md-9= f.input :name, label: false 
@@ -20,12 +19,13 @@
         .col-md-2 Teléfono:
         .col-md-3= f.input :phone, label: false
       .row.border-bottom.mb-42
-        .col-md-12.mb-35
-          = f.input :avatar, label: false, input_html: {class: "profile_photo"}
-          .input-append
-            %a#upload-btn.btn.btn-primary.pretty_upload_input{el: ".profile_photo"}
-              %i.icon-upload-alt
-              Sube tu foto de perfil   
+      
+        = f.input :avatar, as: :file, label: false
+        .input-append
+          %a#upload-btn.btn.btn-primary.pretty_upload_input{el: "#provider_avatar"}
+            %i.icon-upload-alt 
+            Sube tu foto de perfil   
+        %br
       .row
         .col-md-3 Correo electrónico:
         .col-md-9= f.input :email, label: false
@@ -44,4 +44,9 @@
               .col-md-10= a.input :photo, :multiple => true, label: false
               .col-md-2= a.link_to_remove "X"
           = f.link_to_add "Agregar Foto", :provider_attachments 
-    .col-md-1
+   
+:javascript 
+
+   
+  paint_pretty_uploads();
+ 

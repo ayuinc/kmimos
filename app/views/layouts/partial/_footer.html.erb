@@ -2,21 +2,30 @@
   <section class="bg-success pt-21 pb-21">
     <div class="container">
       <div class="row">
-        <div class="col-md-6 col-xs-12">
-          <h4 class="text-white text-footer">Contáctanos: <%= current_country.phone %></h4>
-          <div class="col-sm-3 pl-0 col-xs-12 text-center">
-            <h4 class="text-white">Síguenos en </h4>
-          </div>
-          <div class="col-sm-6 col-xs-8 redes-sociales">
-            <a href="<%= current_country.facebook  %>">
-              <i class="fa fa-facebook-square text-white fa-3x pull-left"></i> 
-            </a>
-            <a href="<%= current_country.twitter %>">
-              <i class="text-white fa fa-twitter-square fa-3x pull-left"></i>
-            </a>
+        <div class="col-md-3 col-xs-12 pt-7">
+          <h5 class="text-white text-footer">Contáctanos: <%= current_country.phone %>  
+            </h5>
+     
+           
+            
+           
+        </div>
+        <div class="col-md-4 col-xs-12"> 
+          <div class="row pt-7">
+            <div class="col-md-4">
+              <h5 class="text-white text-footer"> Síguenos en </h5>
+            </div>
+            <div class="col-md-8">
+              <a href="<%= current_country.facebook  %>">
+                <%= image_tag('facebook.svg')%>
+              </a>
+              <a href="<%= current_country.twitter %>">
+                <%= image_tag('twitter.svg')%>
+              </a> 
+            </div>
           </div>
         </div>
-        <div class="col-md-6 text-muted text-right col-xs-12">
+        <div class="col-md-5 text-muted text-right col-xs-12">
           <h5 class="text-footer">Todos los derechos reservados</h5>
             <%= link_to '<h5>Términos y condiciones</h5>'.html_safe, page_path('tc'), class: "text-footer" %>
         </div>

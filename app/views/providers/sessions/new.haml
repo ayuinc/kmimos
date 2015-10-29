@@ -5,7 +5,9 @@
     .col-md-4
     .col-md-4 
       .panel.panel-primary
-        .panel-heading.medium.text-gray.mb-14 Ingresa como proveedor
+        .panel-heading.medium.text-gray.mb-14 
+          %center 
+            %h5 Ingresa como proveedor
         .panel-body
           = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
             .form-group= f.input :email 

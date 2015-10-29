@@ -4,9 +4,8 @@
     .col-md-12
       %h2.title-step Detalles del Ciudador
       %hr
-  .row
-    .col-md-1
-    .col-md-10
+  .row 
+    .col-md-12
       .form-group
         .row
           .col-md-3 Preséntate con Kmimos :
@@ -37,10 +36,10 @@
         - current_country.states.each do |state|
           .row.border-bottom
             .col-md-1
-              %input{type: 'checkbox'}
+              %input{type: 'checkbox', onchange: "javascript:check_state(#{state.id.to_s})", class: "main_state_#{state.id}"}
             .col-md-10=state.name
             .col-md-1
-              %a.btn.btn-default.btn-xs{href: "javascript:select_state(" + state.id.to_s + ")"}
+              %a.btn.btn-default.btn-xs{href: "javascript:select_state(#{state.id.to_s})"}
                 = "-" 
         - current_country.states.each do |state|
           .div{class: "state_#{state.id} row", style: "display: none;"}
@@ -79,11 +78,16 @@
           .col-md-3
             %label{:for => "search_address", :style => "display:block;color:white"} Buscar
             %button#search_address.btn.btn-primary.form-control.ml-0{:name => "search_address", :type => "button"} Buscar 
+            
+            
       .form-group
         .row
           .col-md-12 
             #map.map.ml-14.col-md-12.col-xs-12.col-sm-12.mt-14{style: "width: 100% !important; height: 200px !important; "}
         %br
+      .form-group
+        .col-md-6
+          = f.input :emergencia, label: "¿Brindas transporte de emergencia?", as: :boolean 
       .form-group
         .row
           .col-md-12 ¿Cuentas con Otros perros en casa?
@@ -100,7 +104,7 @@
       .form-group
         .row
           .col-md-3 Comportamiento del Perro
-          .col-md-9= f.association :pet_behavior, label: false
+          .col-md-9= f.association :behavior, label: false
       .form-group
         .row
           .col-md-9 ¿Cantidad de perros aceptado en su propiedad?
@@ -113,12 +117,21 @@
         .row
           .col-md-8 ¿La propiedad cuenta con patio? 
           .col-md-4.twocol_checkboxes= f.input :has_yard, as: :radio_buttons, label: false, :collection => [['Si', 1], ['No', 0]]
-         
-    .col-md-1
-    
+          
+= javascript_include_tag 'gmaps.min'
+= javascript_include_tag 'provider_map'
+
+        
 :javascript
     $("[class^='state_']").hide();
     
     function select_state(id){
       $(".state_" + id).toggle();
     }
+    
+    function check_state(id){ 
+      console.log($(".main_state_" + id));
+      $(".state_" + id + " .check_boxes").prop('checked', $(".main_state_" + id).prop('checked'));
+    }
+    
+    

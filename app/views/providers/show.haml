@@ -103,7 +103,7 @@
       .behaviors
         %h3.text-gray Comportamientos de perros aceptados   
         .row
-          - @provider.behaviors.each do |behavior|
+          - @provider.get_behaviors.each do |behavior|
             =image_tag('huella-mensaje-17-mini.png')
       .comentarios
         %h3.text-gray Experiencias Kmimos2

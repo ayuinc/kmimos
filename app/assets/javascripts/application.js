@@ -13,10 +13,7 @@
 //= require jquery-ui
 //= require datepicker-es.js
 //= require jquery.timepicker.min.js
-//= require easing
-
-//= require gmaps.min
-
+//= require easing 
 
 //= require jquery.steps.js
 //= require jquery.raty.js 
@@ -97,13 +94,13 @@ $(document).ready(function() {
   
   
   
-  var picCache = $("#provider_avatar_cache");
+  //var picCache = $("#provider_avatar_cache");
 
   //ocultar campos innecesarios en providers#edit
-  $('img').filter(function(){
-          return !$(this).attr('src');
-  }).hide();
-  $("a[href='/provider_attachments']").hide();
+  //$('img').filter(function(){
+  //        return !$(this).attr('src');
+  //}).hide();
+  //$("a[href='/provider_attachments']").hide();
   
   //ocultar secciones de disqus
   $('[data-tracking-area="footer"]').hide();
@@ -182,9 +179,9 @@ $(document).ready(function() {
     });
   });
   
-  if ($("#map_item").length > 0) {
+  if ($("#map").length > 0) {
     map_item = new GMaps({
-      div: '#map_item',
+      div: '#map',
       lat: -12.043333,
       lng: -77.028333,
       zoom: 15
