@@ -1,3 +1,6 @@
+@import "font-awesome-sprockets";
+  @import "font-awesome";
+  
 $skinLogo: url("kmimos-verde.png") no-repeat 0 0;
 
 .main-video {
@@ -350,4 +353,24 @@ $skinLogo: url("kmimos-verde.png") no-repeat 0 0;
   text-align: center;
   border: 2px dashed #ccc;
   border-radius: 10px;
+}
+
+h4 {
+  color: #52c8b6 !important;
+}
+
+h4.price {
+  font-size: 21px;
+}
+
+h3 {
+  color: #506474;
+  font-weight: 600;
+  color: #536774;
+}
+
+.label-small {
+  width: 100%;
+  font-size: 11px;
+  text-align: center;
 }

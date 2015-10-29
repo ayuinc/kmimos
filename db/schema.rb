@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028173711) do
+ActiveRecord::Schema.define(version: 20151029160219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -282,6 +282,7 @@ ActiveRecord::Schema.define(version: 20151028173711) do
     t.time     "check_in"
     t.time     "check_out"
     t.boolean  "is_favorite"
+    t.string   "behaviors_accepted"
   end
 
   add_index "providers", ["category_id"], name: "index_providers_on_category_id", using: :btree

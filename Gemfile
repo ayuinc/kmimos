@@ -42,6 +42,8 @@ gem 'simple_form'   #Gem for form simplification
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 gem 'aws-sdk'
 
+gem 'font-awesome-sass'
+
 gem 'state_machine'
 gem 'ruby-graphviz', :require => 'graphviz'
 

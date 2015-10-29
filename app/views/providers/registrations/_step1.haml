@@ -14,18 +14,18 @@
         .col-md-3 Apellido Paterno:
         .col-md-9= f.input :last_name_1, label: false 
       .row
-        .col-md-2= current_country.dni_label 
+        .col-md-3= current_country.dni_label 
         .col-md-3= f.input :dni, label: false 
         .col-md-1
         .col-md-2 Teléfono:
         .col-md-3= f.input :phone, label: false
       .row.border-bottom.mb-42
         .col-md-12.mb-35
-          = f.input :avatar, label: false 
+          = f.input :avatar, label: false, input_html: {class: "profile_photo"}
           .input-append
-            %a#upload-btn.btn.btn-primary
+            %a#upload-btn.btn.btn-primary.pretty_upload_input{el: ".profile_photo"}
               %i.icon-upload-alt
-              Sube tu foto de perfil  
+              Sube tu foto de perfil   
       .row
         .col-md-3 Correo electrónico:
         .col-md-9= f.input :email, label: false

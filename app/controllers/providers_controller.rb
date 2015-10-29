@@ -14,7 +14,7 @@
     @providers=Provider.where(active: true)
     
     session[:from_date] = (Date.strptime(params[:from_date], '%d/%m/%Y')).strftime('%m/%d/%Y') if params[:from_date].to_s != ""
-    session[:to_date] = Date.strptime(params[:to_date], '%d/%m/%Y') if params[:to_date].to_s != ""
+    session[:to_date] = (Date.strptime(params[:to_date], '%d/%m/%Y')) if params[:to_date].to_s != ""
      
     @providers = @providers.all.page params[:page]
   end

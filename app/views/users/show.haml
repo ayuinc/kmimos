@@ -8,13 +8,13 @@
           .col-md-3
             %h3(style="margin-top: 0px;")= "#{@user.first_name} #{@user.last_name}" 
             .form-group
-              = f.input :photo, label: false, input_html: {style: 'display: none;'}
+              = f.input :photo, label: false, input_html: {style: 'display: none;', class: "profile_photo"}
               = image_tag(@user.photo, style: 'width: 100% !important;') 
               %br
               .input-append
-                %a#upload-btn.btn.mb21.bordered-btn{style: 'width: 100% !important;'}
+                %a#upload-btn.btn.mb21.bordered-btn.pretty_upload_input{style: 'width: 100% !important;', el: ".profile_photo"}
                   %i.icon-upload-alt
-                  Otra foto de perfil    
+                  Otra foto de perfil     
               %br
             .form-group
               %label.row Direccion
@@ -41,9 +41,8 @@
                     %p Felicidades tienes disponible este cúpon en tu próxima reserva por recomendar nuestros servicios a un amigo
             %h4 Datos de mis mascotas
             %hr
-            %small
-              *Haga click sobre los campos de texto para poder editarlos
-         
+            %small *Haga click sobre los campos de texto para poder editarlos 
+            
             = f.simple_fields_for :pets do |pet| 
               .row.pet-container
                 .col-md-4
@@ -79,11 +78,12 @@
                     = pet.object.name.to_s != "" ? best_in_place(pet.object, :behavior_id, as: :select, collection: Behavior.all.map{|b| [b.id, b.behavior_name] }) : pet.association(:behavior, label: false)
             .new_pet_fieldset
               = f.link_to_add "Agregar Mascota", :pets, class: "btn btn-primary" 
-            
-                   
+    
 %br
 
 :javascript
+
+   
 
    function submit_form(){
      $(".edit_user").submit();
