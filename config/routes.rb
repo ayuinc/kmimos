@@ -16,6 +16,8 @@ ServihogarRails::Application.routes.draw do
   resources :providers
   resources :users
 
+  resources :pets
+  
   resources :bookings
   resources :meetings
  

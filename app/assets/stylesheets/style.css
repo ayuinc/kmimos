@@ -1271,4 +1271,10 @@ div.active {
   color: #fff;
 }
 
+.btn_delete_nested{
+  margin-top: 40px;
+  padding: 4px 45px !important;
+  margin-left: -14px !important;
+}
+
 /*# sourceMappingURL=style.css.map */

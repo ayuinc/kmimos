@@ -94,11 +94,8 @@ $(document).ready(function() {
       'maxTime': '6:00pm',
     });
   };
-
-  // pretty-fy the upload field
-  // var realInputField = $('#provider_pictures_attributes_0_image');
-  var realInputField = $('#provider_avatar');
-  var realInputField = $('#user_photo'); 
+  
+  
   
   var picCache = $("#provider_avatar_cache");
 
@@ -153,17 +150,9 @@ $(document).ready(function() {
     });
   }
 
-  // drop just the filename in the display field
-  realInputField.change(function() {
-    // $('#file-display').val $(@).val().replace(/^.*[\\\/]/, '');
-    $('#file-display').val("Archivo elegido: " + realInputField.val().replace(/^.*[\\\/]/, ''));
-    $('#archivo-elegido').hide();
-  });
+ 
 
-  // trigger the real input field click to bring up the file selection dialog
-  $('#upload-btn').click(function() {
-    realInputField.click();
-  });
+  
 
   $('#booking_reservation').click(function(e) {
     if (!$('#terms_and_services').is(':checked')) {

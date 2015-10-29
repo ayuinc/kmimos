@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
    has_many :bookings
    has_many :comments
    
-   accepts_nested_attributes_for :pets
+   accepts_nested_attributes_for :pets, :allow_destroy => true, update_only: true
    
    has_attached_file :photo, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "user.jpg"
      validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/

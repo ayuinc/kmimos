@@ -52,6 +52,7 @@ var paint_ratings = function(){
           $(el).hide();
           return $(this).attr('score');
         }, 
+        readOnly: $(this).attr('readOnly'),
         click: function(score, evt) {
           var el = $(this).attr('el');
           $(el).val(score);
@@ -61,12 +62,26 @@ var paint_ratings = function(){
       }); 
 };
 
+
 $(".ratingStars").ready(function(){
   paint_ratings();
 });
   
   
+
+var paint_pretty_uploads = function(){
+  
+$(".pretty_upload_input").on('click', function(){
+  $($(this).attr('el')).click();
+});
+
+$(".pretty_upload_input").on('change', function(){
+  $($(this).attr('display')).val("Archivo elegido: " + $($(this).attr('el').val().replace(/^.*[\\\/]/, '')));
+});
+
+};
   
   
-  
-  
+$(".pretty_upload_input").ready(function(){
+  paint_pretty_uploads();
+});

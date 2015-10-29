@@ -18,7 +18,7 @@ ServihogarRails::Application.configure do
   
   config.paperclip_defaults = {
     :storage => :s3,
-    :s3_region => '',
+    :s3_region => 'us-east-1',
     :s3_credentials => {
       :bucket => 'servihogar',
       :access_key_id =>  'AKIAJPN6EZBZJY3UHKQA',
@@ -26,7 +26,11 @@ ServihogarRails::Application.configure do
     }
   }
   
-  config.cache_classes = true
+  # servihogar.s3-website-us-east-1.amazonaws.com
+  # servihogar.s3.us-standard.amazonaws.com
+  
+  config.cache_classes = false 
+  config.reload_classes_only_on_change = false
   config.eager_load = true
 
   # Show full error reports and disable caching.

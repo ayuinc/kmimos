@@ -118,7 +118,7 @@
         .text-left.ph-21
           -Valuation.by_comments(@provider.comments).each do |valuation, value|
             %h5= valuation
-            .ratingStars.pl-14.mt-7{score: value.to_i}
+            .ratingStars.pl-14.mt-7{score: value.to_i, readOnly: true}
         %br
 .hidden
   = link_to 'Edit', edit_provider_path(@provider)
