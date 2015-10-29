@@ -14,11 +14,10 @@
               %center
                 - val = Valuation.by_comments(@provider.comments)
                 - score = val.map{|val| val[1]}.reduce(:+).to_i / val.size.to_i rescue 0
-                .ratingStars{score: score, readOnly: true }
+                .ratingStars{score: score, readOnly: true}
             .user-info.col-md-9
               %h3.m-0.mb-7
-                = @provider.name
-                = @provider.last_name_1
+                = "#{@provider.name} #{@provider.last_name_1}" 
               - @provider.locations.group_by(&:state_id).each do |k, state|
                 %b.mb-7= state.first.state 
                 %br
@@ -104,7 +103,7 @@
       .behaviors
         %h3.text-gray Comportamientos de perros aceptados   
         .row
-          = @provider.behaviors.each do |behavior|
+          - @provider.behaviors.each do |behavior|
             =image_tag('huella-mensaje-17-mini.png')
       .comentarios
         %h3.text-gray Experiencias Kmimos2
