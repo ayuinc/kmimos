@@ -94,7 +94,7 @@
                   %span.text-third= city
                   %br 
           .col-md-7 
-            - if !@provider.latitude.nil? and !@provider.longitude.nil?
+            - if !(@provider.latitude.to_s == "") and !(@provider.longitude.to_s == "")
               #provider_location{:style => "width:100%;height:400px;"}
               :javascript
                 setProviderLocation(#{@provider.latitude}, #{@provider.longitude});
