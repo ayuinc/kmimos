@@ -29,11 +29,14 @@ ServihogarRails::Application.configure do
   # servihogar.s3-website-us-east-1.amazonaws.com
   # servihogar.s3.us-standard.amazonaws.com
   
+  config.middleware.use(Rack::ImageAssetsCacheControl)
+    
   config.cache_classes = false 
   config.reload_classes_only_on_change = false
   config.eager_load = true
   
   config.serve_static_assets = true
+  config.static_cache_control = "public, max-age=3600"
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true

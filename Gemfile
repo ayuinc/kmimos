@@ -59,6 +59,7 @@ gem "bower-rails"
 
 group :development do
   gem 'rack_image_assets_cache_control' 
+  gem 'quiet_assets'
   gem 'faker'
   gem 'guard-livereload'
   gem 'guard-bundler'
