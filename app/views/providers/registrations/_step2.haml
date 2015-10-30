@@ -117,9 +117,6 @@
         .row
           .col-md-8 ¿La propiedad cuenta con patio? 
           .col-md-4.twocol_checkboxes= f.input :has_yard, as: :radio_buttons, label: false, :collection => [['Si', 1], ['No', 0]]
-          
-= javascript_include_tag 'gmaps.min'
-= javascript_include_tag 'provider_map'
 
         
 :javascript
