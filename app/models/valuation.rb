@@ -1,16 +1,17 @@
 class Valuation < ActiveRecord::Base
   has_many :comment_valuations
   
-  scope :by_comments, ->(cs) { Valuation.all.map{|v| v.get_valuation_results(cs)} }
+  #scope :by_comments, ->(cs) { Valuation.all.map{|v| cs.map{|c| c.comment_valuations.where(valuation_id: v.id).average(:value)}} }
 
-  def get_valuation_results(comments)
-    response = Array.new
-    comments.each do |comment|
-      valuations = comment.comment_valuations.where(valuation_id: self.id).map{|val| val.value.to_i}
-      valuation = valuations.reduce(:+).to_i / valuations.size rescue 0
-      response = [self.name, valuation]
-    end
-    return response 
-  end
+  scope :by_comments, ->(provider_id) { 
+    CommentValuation.joins(:comment).joins(:valuation)
+    .select(['valuations.name as name', 'AVG(value) as value'])
+    .where('comments.provider_id = ?', provider_id).group('valuations.name').map{
+      |c| [c.name, c.value]
+    }
+  }
+
+  #scope :by_comment, ->(c) { c.comment_valuations.select(['valuation_id', 'SUM(value) as value']).group(:valuation_id).map{|cv| [cv.valuation_id, cv.value]}}
+  
   
 end

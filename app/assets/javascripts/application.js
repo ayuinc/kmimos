@@ -26,10 +26,9 @@
 //= require best_in_place
 
 //= require lodash/lodash
- 
 
-//= require gmaps.min 
 
+  
 //= require angular/angular 
 //= require angular-simple-logger/dist/angular-simple-logger
 //= require angular-google-maps/dist/angular-google-maps

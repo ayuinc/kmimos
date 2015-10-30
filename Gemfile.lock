@@ -192,7 +192,6 @@ GEM
     formtastic_i18n (0.4.1)
     gherkin3 (3.1.2)
     git-version-bump (0.15.1)
-    gmaps4rails (2.1.2)
     guard (2.13.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, <= 4.0)
@@ -437,7 +436,6 @@ DEPENDENCIES
   fog (~> 1.24.0)
   font-awesome-sass
   foreman
-  gmaps4rails
   guard-bundler
   guard-cucumber
   guard-livereload

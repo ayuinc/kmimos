@@ -32,6 +32,8 @@ ServihogarRails::Application.configure do
   config.cache_classes = false 
   config.reload_classes_only_on_change = false
   config.eager_load = true
+  
+  config.serve_static_assets = true
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
@@ -50,4 +52,5 @@ ServihogarRails::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = false
+  
 end

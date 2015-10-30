@@ -85,3 +85,13 @@ $(".pretty_upload_input").on('change', function(){
 $(".pretty_upload_input").ready(function(){
   paint_pretty_uploads();
 });
+
+
+
+var map;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 8
+  });
+}
