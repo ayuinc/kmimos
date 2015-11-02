@@ -125,6 +125,9 @@
           %b Check out:
           = @provider.check_out
       .content-detalles.mt-14-mb-28.m-21.pb-14
+        .border-bottom.text-left-pl-21
+          %h4.text-gray.mv-14 
+            Servicios Adicionales
         - @provider.additional_services.each do |service|
           %ul
             %li service.service
