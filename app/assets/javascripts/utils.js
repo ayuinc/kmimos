@@ -123,6 +123,8 @@ function initMap(mapName, mapId) {
     tempItem[mapName] = map;
 
     maps.push(tempItem);
+    
+    return map;
 
 }
 
