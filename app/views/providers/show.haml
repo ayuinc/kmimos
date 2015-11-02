@@ -135,7 +135,7 @@
       .content-detalles.mt-14.mb-28.text-center.m-21.pd-14
         %h4 Servicios Adicionales
         %br
-        - @provider.additional_service.each do |service|
+        - @provider.additional_services.each do |service|
           %ul
             %li= service.service
 
