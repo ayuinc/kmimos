@@ -117,6 +117,8 @@
         = link_to "Conocer cuidador".html_safe, new_meeting_path(:provider_id => @provider.id), :class => "text-secondary btn btn-fold", :style => "border-color: #1DBA9A; padding: 10px 7px;",  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Conocer', 'provider_#{@provider.id.to_s}']);"
         %br
         %p
+          %br
+        %p
           %b Check in:
           = @provider.check_in
         %p
