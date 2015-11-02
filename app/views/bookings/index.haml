@@ -26,7 +26,7 @@
               %td
                 = "#{book.user.first_name} #{book.user.last_name}"
               %td
-                = book.booked_service.map{|bs| bs.service}.join(' ,')
+                = book.booked_services.map{|bs| bs.service}.join(' ,')
               %td
                 %td
                   - Valuation.by_comments(book.provider.id).each do |valuation, value|
