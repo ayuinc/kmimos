@@ -20,7 +20,8 @@
           .rating
             .ratingStars
             .comments
-              %span {{ provider.comments.length }} Comentarios
+              %span.badge {{ provider.comments.length }}
+              %span Comentarios
 #waiting-screen(ng-if="providers == undefined")
   ="... Loading ..."
 
