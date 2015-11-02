@@ -13,8 +13,6 @@
               .form-group
                 = f.grouped_collection_select(:locations_id_eq, State.where("country_id=?",@country.id).order(:name), :locations, :name, :name, :name , {:prompt => @country.id == 2 ? "Elegir Barrio" : "Elegir Municipio o Delegación"}, 'ng-model': "search.locations", class: "form-control", "multiple":"")  #, html_input: {'ng-model': ''}
               .form-group
-                %input.form-control(placeholder="Estado" ng-model="search.states")
-              .form-group
                 %label Rango de Precio
                 %br
                 %rzslider(rz-slider-model="search.price" rz-slider-floor="search.price.floor" rz-slider-ceil="search.price.ceil" rz-slider-model="search.price.min" rz-slider-high="search.price.max" )
