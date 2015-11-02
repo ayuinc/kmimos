@@ -26,8 +26,6 @@ class BookingsController < ApplicationController
     @booking.provider_id  = @provider.id
     @booking.user_id = current_user.id
     
-    
-    
 	  if @booking.save
       
     	#BookingConfirmationMailer.new_booking_notification(@booking, current_country).deliver
