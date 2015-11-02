@@ -1,78 +1,25 @@
-
-.site-wrapper 
+.site-wrapper.provider-home
   %main#scene.site-content{:role => "main"}
     %img.fixed-ball(src="assets/pelota.svg")
-    .row.bg-img-block.home-bkg.no-margin-row{style: "background-image: url('assets/home-background.svg')"}
-      %header.site-menu
-        #menu-vistas.vistas.hidden-xs.container-fluid.text-center 
-          .header-center.col-md-6.text-right.pull-right 
-            .collapse.navbar-collapse.pr-21
-              %ul.nav.navbar-nav.mt-14
-                - if current_provider
-                  %li.dropdown.mt-7.size-responsive
-                    %a.dropdown-toggle.text-muted.text-header{"data-toggle" => "dropdown", :href => "#"}
-                      Hola, #{current_provider.name}
-                    %ul#dropdown-menu.dropdown-menu
-                      %li= link_to 'Actualizar mi perfil'.html_safe, edit_provider_path(current_provider), class: "text-danger pl-14 pr-14 mb-14"
-                      %li= link_to 'Salir'.html_safe, destroy_provider_session_path, :method => :delete, class: "text-danger pl-56 pr-56"
-                  %li.hidden-lg.hidden-md
-                    %ul.list-group.m-0.pt-7.pl-0.list-movil-header
-                      %li.hidden-lg.hidden-md.hidden-sm.li-first
-                        = link_to 'Home', root_url, class: "not-underline log-in"
-                      %li.hidden-lg.hidden-md.hidden-sm
-                        = link_to 'Reservar', providers_path, class: "not-underline log-in"
-                      %li.list-group-item= link_to 'Actualizar mi perfil'.html_safe, edit_provider_path(current_provider)
-                      %li.list-group-item= link_to 'Salir'.html_safe, destroy_provider_session_path, :method => :delete, class: "text-danger"
-                - elsif current_user
-                  %li.dropdown.mt-7.size-responsive
-                    %a.dropdown-toggle.text-muted.text-header{"data-toggle" => "dropdown", :href => "#"}
-                      Hola, #{current_user.first_name }
-                    %ul#dropdown-menu.dropdown-menu
-                      %li= link_to 'Actualizar mi perfil'.html_safe, user_path(current_user), class: "text-danger pl-14 pr-14 mb-14"
-                      %li= link_to 'Salir'.html_safe, destroy_user_session_path, :method => :delete, class: "text-danger pl-56 pr-56"
-                  %li.hidden-lg.hidden-md
-                    %ul.list-group.m-0.pt-7.pl-0.list-movil-header
-                      %li.hidden-lg.hidden-md.hidden-sm.li-first
-                        = link_to 'Home', root_url, class: "not-underline log-in"
-                      %li.hidden-lg.hidden-md.hidden-sm
-                        = link_to 'Reservar', providers_path, class: "not-underline log-in"
-                      %li.list-group-item= link_to 'Actualizar mi perfil'.html_safe, user_path(current_user)
-                      %li.list-group-item= link_to 'Salir'.html_safe, destroy_user_session_path, :method => :delete, class: "text-danger"
-                - else
-                  %li
-                    .dropdown
-                      %a.dropdown-toggle.text-header.btn.pv-7(data-toggle="dropdown")
-                        %span.h5.book.pr-14.ls-md Iniciar Sesión
-                        %span.caret
-                      %ul.dropdown-menu
-                        %li
-                          %a{:href => new_user_session_path}
-                            %span.h5.btn Iniciar sesión como Cliente
-                        %li
-                          %a{:href => new_provider_session_path}
-                            %span.h5.btn Iniciar sesión como Cuidador
-                  %li 
-                    = link_to 'Registrarme', new_user_registration_path, class: "not-underline text-header "
-                  %li.active 
-                    = link_to 'Quiero ser cuidador', new_provider_registration_path, class: "not-underline sign-up"
-                  
+    .row.bg-img-block.home-bkg.no-margin-row
+      =render partial: 'layouts/partial/new_header.haml'
       .home-scene
-        %img.left-person(src="assets/home-duena-without_ball.svg") 
+        =image_tag('home-duena-without_ball.svg', class: "left-person")
         .right-dogs
-          %img(src="assets/home-perro-vainilla.svg")
-          %img(src="assets/home-perro-bull-terrier.svg")
+          =image_tag("home-perro-vainilla.svg")
+          =image_tag("home-perro-bull-terrier.svg")
       .row.mb-56
-        .col-md-offset-3.col-sm-6.text-center
-          %img.pt-7.img-home{:src => "assets/assets/logo-kmimos.svg", :width => "220"}/
+        .col-md-12.text-center
+          %img.pt-7.img-home{:src => "assets/logo-kmimos.svg", :width => "220"}/
           %p.h3.text-white.mv-35.lh-xl.bold.text-responsive
             Viaja con tranquilidad, dejando a tu
             %br/
             mascota en buenas manos.
-          .main-video
-            .video-screen
-              %iframe{:allowfullscreen => "", :frameborder => "0", :height => "315", :src => "https://www.youtube.com/embed/_08UJ0aYDCk?rel=0&controls=0&showinfo=0", :width => "560"} 
+          %center
+            .main-video
+              #video
     .row.mb-56#beneficios
-      .container-sm.pv-42 
+      .container-sm.pv-42
         .row.text-center.mt-49
           %h1.bold.pb-42.text-gray-dark.mt-56 Beneficios
           .col-md-3
@@ -96,7 +43,7 @@
       .container-sm.pv-42
         %h1.bold.pb-42.text-gray-dark.text-center.pt-56 Testimonios
         .row
-          .col-md-7 
+          .col-md-7
             .triangle-left
               .col-md-2.pl-0
                 %img{:alt => "", :src => "assets/testimonios-comillas.svg"}/
@@ -106,14 +53,14 @@
           .col-md-5.pl-70
             %img.img-circle.img-responsive{:alt => "", :src => "assets/test_1.jpg", :width => "120"}/
             %h4.bold.text-success.mt-14 Vicente Leyba
-          .col-md-7 
+          .col-md-7
             .triangle-right
               .col-md-2.pl-0
                 %img{:alt => "", :src => "assets/testimonios-comillas.svg"}/
               .col-md-10.pl-0
                 %h4.text-gray-dark.medium.mt-14 Bruno siempre regresa feliz y tranquilo, siempre que nos vamos de viaje se que lo dejo en buenas manos.
         .row
-          .col-md-7 
+          .col-md-7
             .triangle-left
               .col-md-2.pl-0
                 %img{:alt => "", :src => "assets/testimonios-comillas.svg"}/
@@ -127,12 +74,12 @@
             %img.img-circle.img-responsive{:alt => "", :src => "assets/test_3.jpg", :width => "120"}/
             %h4.bold.text-success.mt-14 Victor Villegas
         %img{ style: "float: right;" }(src = "assets/testimoniales-perro-vainilla.svg")
-        
-        .text-center.pt-42 
+
+        .text-center.pt-42
     .row.mb-35#cuidadores-semana
       %img{ style: "float: right; padding-top: 120px;" }(src = "assets/cuidadores-mes-perro-vainilla.svg")
       .container-sm.pv-42
-        %h1.bold.pb-42.text-gray-dark.text-center Cuidadores del mes 
+        %h1.bold.pb-42.text-gray-dark.text-center Cuidadores del mes
         .row
           - Provider.on_top_providers(3).each do |provider|
             .col-md-4
@@ -140,19 +87,19 @@
                 #a.oculto.text-center.pt-21
                   %img{:alt => "", :src => "assets/icono-huella-hover.svg", :width => "70"}/
                   %h4.bold.text-center.mv-7.text-white= provider
-                  .rating-reviews.pl-14.mt-7  
-                  
-    .row.pb-56#recomendacion.bg-primary{style: "background-image: url(assets/home-descuento-background.svg);"} 
+                  .rating-reviews.pl-14.mt-7
+
+    .row.pb-56#recomendacion.bg-primary{style: "background-image: url(assets/home-descuento-background.svg);"}
       .container.pv-42
         .row
           .col-md-7
-            %img.mt-28{ style: "float: left; margin-left: 100px; margin-top: 200px !important;" }(src = "assets/home-dueno-perro-descuento_2.svg") 
+            %img.mt-28{ style: "float: left; margin-left: 100px; margin-top: 200px !important;" }(src = "assets/home-dueno-perro-descuento_2.svg")
           .col-md-4.mt-63
             .recomendation
               %img(src="assets/10descuento.svg")
               %h3.bold.mb-0
-                Al recomendar nuestros servicios a otra persona 
-              %p.light.m-0 Completa los siguientes datos y recibiras un cupon de 10% de descuento que se activara al momento de tu reserva. 
+                Al recomendar nuestros servicios a otra persona
+              %p.light.m-0 Completa los siguientes datos y recibiras un cupon de 10% de descuento que se activara al momento de tu reserva.
               %br
               Guarda tu código y escríbela en tu reserva
               - if false
@@ -167,3 +114,7 @@
                     %input.form-control(placeholder="Correo de Persona a Recomendar")
                 %a.btn.btn-primary-lighter.btn.mt-35.mb-21.pv-7{:href => "#"}
                   %h4.bold.text-success.mv-0.ph-35 Recomendar
+
+:javascript
+
+  initPlayer('homePlayer', 'video');

@@ -21,7 +21,7 @@ gem 'rmagick', '2.13.3', :require => 'RMagick'
 gem 'fog', '~> 1.24.0'
 gem 'high_voltage', '~> 2.3.0'
 
-gem 'kaminari' 
+gem 'kaminari'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -46,6 +46,8 @@ gem 'font-awesome-sass'
 gem 'state_machine'
 gem 'ruby-graphviz', :require => 'graphviz'
 
+#gem 'typescript-rails'
+
 gem 'cancancan'
 gem 'nested_form'
 
@@ -53,18 +55,18 @@ gem 'best_in_place'
 
 gem 'sass'
 gem 'sass-rails'
-gem 'rails-i18n' 
+gem 'rails-i18n'
 
-gem "bower-rails" 
+gem "bower-rails"
 
 group :development do
-  gem 'rack_image_assets_cache_control' 
+  gem 'rack_image_assets_cache_control'
   gem 'quiet_assets'
   gem 'faker'
-  gem 'guard-livereload'
-  gem 'guard-bundler'
-  gem 'guard-rspec', require: false
-  gem 'guard-cucumber'
+  #gem 'guard-livereload'
+  #gem 'guard-bundler'
+  #gem 'guard-rspec', require: false
+  #gem 'guard-cucumber'
   gem 'spring', '~> 1.1.2'
   gem 'spring-commands-rspec', '~> 1.0.2'
   gem 'spring-commands-cucumber', '~> 1.0.1'
@@ -74,6 +76,7 @@ group :development do
   gem 'meta_request'
   gem 'rb-fsevent'
   gem 'annotate'
+  gem 'thin'
 end
 
 group :development, :test do
@@ -87,4 +90,3 @@ end
 group :production do
   gem 'rails_12factor'
 end
-

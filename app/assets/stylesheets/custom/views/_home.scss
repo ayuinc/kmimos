@@ -4,9 +4,9 @@
       display: none;
     }
   }
-  
+
   .yellow-button {
-    background: #FDFB75; 
+    background: #FDFB75;
   }
 
   ul.navbar-nav {
@@ -39,7 +39,7 @@
         }
 
         &:hover {
-          background-image: url(../images/site-kmimos-15.png);
+          background-image: url('site-kmimos-15.png');
           .overlay {
           display: block;
           }
@@ -80,13 +80,13 @@
             }
           }
         }
-      } 
+      }
      }
     }
   }
 }
 
-//contenedor search - de la busqueda del home 
+//contenedor search - de la busqueda del home
 /* .contenedor-search {
   @media #{$xs-only} {
      margin-left: 16.66667%;
@@ -104,7 +104,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border-radius: 5px; 
+  border-radius: 5px;
   border: 2px solid ;
   margin: 0 auto;
   width: 80%;
@@ -115,7 +115,7 @@
 
 #home-profiles .profile {
   background: white;
-  min-height: 300px; 
+  min-height: 300px;
 }
 
 #home-profiles .container {
@@ -126,7 +126,7 @@
 .container .content-wrapper img {
   position: absolute;
   top: -50px;
-  left: 53px;  
+  left: 53px;
 }
 
 #home-profiles .profile img {
@@ -144,7 +144,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border-radius: 5px; 
+  border-radius: 5px;
   border: 2px solid ;
   margin: 0 auto;
   width: 80%;
@@ -250,14 +250,14 @@
       }
     }
   }
-}    
+}
 
 #text-yellow {
   color: #F9F42F;
 }
 
 .font-lato {
- font-family: 'Lato', sans-serif !important; 
+ font-family: 'Lato', sans-serif !important;
 }
 
 #btn-recomendar {
@@ -293,11 +293,11 @@
 }
 
 .text-center {
-  text-align: center;  
+  text-align: center;
 }
 
 .sign-up {
-  background: #FFDB00 !important; 
+  background: #FFDB00 !important;
   color: black !important;
 }
 
@@ -309,7 +309,7 @@
   font-weight: 100 !important;
   @media #{$xs-only} {
     font-size: 37px !important;
-  } 
+  }
 }
 
 .text-h3 {
@@ -337,7 +337,7 @@
   background: url(http://s11.postimg.org/3yekqnerz/calendario_05.png) !important;
   background-position: right !important;
   background-repeat: no-repeat !important;
-  background-color: white !important; 
+  background-color: white !important;
 }
 
 
@@ -483,7 +483,7 @@ iframe {
     width: 31px !important;
     height: 3px !important;
   }
-} 
+}
 
 .li-first {
   @media #{$xs-only} {
@@ -494,21 +494,19 @@ iframe {
 .list-movil-header {
   li {
     @media #{$xs-only} {
-      font-size: 21px !important; 
+      font-size: 21px !important;
     }
-  } 
+  }
 }
 
 .user-info {
   @media #{$xs-only} {
-      padding-left: 7px !important; 
+      padding-left: 7px !important;
     }
 }
 
 .size-responsive {
   @media #{$xs-only} {
-      font-size: 21px !important; 
+      font-size: 21px !important;
     }
 }
-
-

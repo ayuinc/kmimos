@@ -1,10 +1,10 @@
 /*
  *= require_self
  *= require jquery-ui
- *= require main 
- *= require style 
+ *= require main
+ *= require style
  *= require extra
- *= require jquery.steps.css 
+ *= require jquery.steps.css
  *= require jquery.raty.css
  *= require jquery-timepicker-jt/jquery.timepicker
  *= require angular-rangeslider/angular.rangeSlider
@@ -12,7 +12,7 @@
  *= require new_styles
  *= require select2.css
  *= require select2-bootstrap.css
- 
+
  */
 
 #license_terms {
@@ -25,7 +25,7 @@
     height: 200px !important;
 }
 
-.navbar .internal { 
+.navbar .internal {
   background-color: #59C9A8;
 }
 
@@ -33,7 +33,7 @@
   position: absolute;
   top: 280px;
   width: 90%;
-  
+
 }
 
 .left-person {
@@ -42,13 +42,6 @@
   padding-left: 210px;
 }
 
-.right-dogs {
-  float: right;
-}
-
-.right-dogs img {
-  margin: 20px;
-} 
 
 .fixed-ball {
   top: 250px;
@@ -56,15 +49,15 @@
 }
 
 
-.form-filter { 
+.form-filter {
   z-index: 5;
-  width: 200px; 
+  width: 200px;
   background-color: #515672;
   color: #fff;
-  padding: 15px; 
+  padding: 15px;
   border-radius: 0px 15px 15px 0px;
 }
- 
+
 
 .form-search {
   z-index: 5;
@@ -76,7 +69,7 @@
   top: 20%;
   border-radius: 0px 15px 15px 0px;
 }
- 
+
 .form-group {
   margin-left: 0px !important;
   margin-right: 0px !important;
@@ -88,7 +81,7 @@
 }
 
 .recomendation {
-  
+
   text-align: center;
   padding: 20px;
   background-color: #fff;
@@ -124,12 +117,12 @@
   height: 356px;
   width: 580px;
 }
- 
+
 .square-green {
   height: 200px;
 }
- 
- 
+
+
 .padding-0 {
   padding-left: 0px !important;
   padding-right: 0px !important;

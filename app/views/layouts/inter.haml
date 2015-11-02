@@ -3,26 +3,29 @@
   %head
     = render partial: 'layouts/partial/metas'
     %title kmimos
-    
+
     = stylesheet_link_tag "application", media: "all"
     = stylesheet_link_tag "providers", media: "all"
     = javascript_include_tag "application", media: "all"
     = csrf_meta_tags
-    
+
     / Fonts for Homepage
     %link{:href => "https://fonts.googleapis.com/css?family=Lato:300,400,700", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "https://fonts.googleapis.com/css?family=Montserrat", :rel => "stylesheet", :type => "text/css"}/
-    %link{:href => "https://fonts.googleapis.com/css?family=Open+Sans", :rel => "stylesheet", :type => "text/css"}/ 
-    %script{src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBzifBGJzf56IXmM4u-M8nQoJxdPpNcLAQ"}
+    %link{:href => "https://fonts.googleapis.com/css?family=Open+Sans", :rel => "stylesheet", :type => "text/css"}/
+
+    / Google API
+    %script{src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyCQBZylrzO1yGB_xh5dUCLhEISHFZb7a0c"}
+    %script{src: "http://www.youtube.com/apiplayer?enablejsapi=1&version=3"}
     / FONTS
     %script{:src => "//use.typekit.net/jod1lcb.js"}
     :javascript
       try{Typekit.load();}catch(e){}
     / END FONTS
-    
+
   %body
     = render partial: 'layouts/partial/initializer'
-    = render "layouts/partial/header"  
+    = render "layouts/partial/header"
     = render :partial => 'layouts/shared/search_form'
     = yield
     = render "layouts/partial/footer"

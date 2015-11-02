@@ -1,20 +1,20 @@
 @import "font-awesome-sprockets";
   @import "font-awesome";
-  
+
 $skinLogo: url("kmimos-verde.png") no-repeat 0 0;
 
 .main-video {
   .video-screen {
     overflow: hidden;
     height: 324px !important;
-    width: 560px !important; 
+    width: 560px !important;
     padding-bottom: 10px;
   }
-  
+
 }
 
 #cuidadores {
-  
+
   -webkit-column-count: 3;
 	-webkit-column-gap: 10px;
 	-webkit-column-fill: auto;
@@ -24,17 +24,17 @@ $skinLogo: url("kmimos-verde.png") no-repeat 0 0;
 	column-count: 3;
 	column-gap: 15px;
 	column-fill: auto;
-  
-  .provider-item{ 
-    
-    
+
+  .provider-item{
+
+
     display: inline-block;
-  	background: #FEFEFE; 
+  	background: #FEFEFE;
   	box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
   	margin: 0 2px 15px;
   	-webkit-column-break-inside: avoid;
   	-moz-column-break-inside: avoid;
-  	column-break-inside: avoid;  
+  	column-break-inside: avoid;
   	background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
   	opacity: 1;
 
@@ -42,14 +42,14 @@ $skinLogo: url("kmimos-verde.png") no-repeat 0 0;
   	-moz-transition: all .2s ease;
   	-o-transition: all .2s ease;
   	transition: all .2s ease;
-    
+
   }
-  
+
   .block-cuidadores {
-    border: 1px #cdcdcd solid; 
+    border: 1px #cdcdcd solid;
   }
-  
-  a { 
+
+  a {
     display: block;
     color: #555;
     text-decoration: none;
@@ -73,7 +73,7 @@ $skinLogo: url("kmimos-verde.png") no-repeat 0 0;
     padding-left: 0px !important;
     padding-right: 0px !important;
     display: flex;
-    
+
   }
   .ratingStars {
     float: left;
@@ -131,7 +131,7 @@ $skinLogo: url("kmimos-verde.png") no-repeat 0 0;
   	background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#ebebeb));
   	background: -moz-linear-gradient(top,  #ededed,  #ebebeb);
   }
-  
+
   .total {
   	text-align: right !important;
   }
@@ -189,7 +189,7 @@ $skinLogo: url("kmimos-verde.png") no-repeat 0 0;
   table tr:hover td {
   	background: #f2f2f2;
   	background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
-  	background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);	
+  	background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);
   }
 }
 
@@ -200,7 +200,7 @@ $skinLogo: url("kmimos-verde.png") no-repeat 0 0;
     padding-bottom: 40px;
     text-align: center;
     h1 {
-      
+
       width: 30%;
       margin-bottom: 40px;
     }
@@ -228,7 +228,7 @@ $skinLogo: url("kmimos-verde.png") no-repeat 0 0;
 {
     margin-left: 50px;
     margin-top: 50px;
-} 
+}
 
 
 #Photo1
@@ -237,7 +237,7 @@ $skinLogo: url("kmimos-verde.png") no-repeat 0 0;
     -ms-transform:rotate(-10deg); /* IE 9 */
     -moz-transform:rotate(-10deg); /* Firefox */
     -webkit-transform:rotate(-10deg); /* Safari and <span id="IL_AD5" class="IL_AD">Chrome</span> */
-    -o-transform:rotate(-10deg);  
+    -o-transform:rotate(-10deg);
     width: 200px;
     position: relative;
     border-left: 5px solid #fff;
@@ -247,7 +247,7 @@ $skinLogo: url("kmimos-verde.png") no-repeat 0 0;
     -webkit-box-shadow: 0px 0px 19px -3px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 19px -3px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 19px -3px rgba(0,0,0,0.75);
-} 
+}
 
 #Photo2
 {
@@ -271,7 +271,7 @@ $skinLogo: url("kmimos-verde.png") no-repeat 0 0;
   -webkit-box-shadow: 0px 0px 19px -3px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 19px -3px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 19px -3px rgba(0,0,0,0.75);
-} 
+}
 
 #Photo3
 {
@@ -279,7 +279,7 @@ $skinLogo: url("kmimos-verde.png") no-repeat 0 0;
   border-right: 5px solid #fff;
   border-top: 5px solid #fff;
   border-bottom: 45px solid #fff;
-  
+
   transform: rotate(10deg);
   -ms-transform: rotate(10deg);
   /* IE 9 */
@@ -296,7 +296,7 @@ $skinLogo: url("kmimos-verde.png") no-repeat 0 0;
   -webkit-box-shadow: 0px 0px 19px -3px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 19px -3px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 19px -3px rgba(0,0,0,0.75);
-} 
+}
 
 #Photo4
 {
@@ -307,7 +307,7 @@ $skinLogo: url("kmimos-verde.png") no-repeat 0 0;
   -o-transform:rotate(-20deg); /* Opera */
   position: relative;
   margin-left: -200px;
-  width: 200px; 
+  width: 200px;
   margin-top: 200px;
   border-left: 5px solid #fff;
   border-right: 5px solid #fff;
@@ -325,8 +325,8 @@ $skinLogo: url("kmimos-verde.png") no-repeat 0 0;
   -moz-transform:rotate(0deg); /* Firefox */
   -webkit-transform:rotate(0deg); /* Safari and Chrome */
   -o-transform:rotate(0deg); /* Opera */
-  position: relative; 
-  width: 200px; 
+  position: relative;
+  width: 200px;
   margin-top: 100px;
   border-left: 5px solid #fff;
   border-right: 5px solid #fff;
@@ -335,7 +335,7 @@ $skinLogo: url("kmimos-verde.png") no-repeat 0 0;
   -webkit-box-shadow: 0px 0px 19px -3px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 19px -3px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 19px -3px rgba(0,0,0,0.75);
-} 
+}
 
 
 .box-yellow {
@@ -374,3 +374,29 @@ h3 {
   font-size: 11px;
   text-align: center;
 }
+
+
+
+
+// PROVIDER HOME
+
+.provider-home {
+  .home-bkg {
+    background-image: url('home-background.svg');
+    .home-scene {
+      .right-dogs {
+        float: right;
+        img {
+          margin: 0px;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+}
+

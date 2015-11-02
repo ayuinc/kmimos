@@ -2,73 +2,57 @@
   %h1 Cuidadores Sugeridos
   %br
 %div(ng-app="providers_module")
-  %div(ng-controller="ProvidersController")  
-    .container-fluid.pb-14 
+  %div(ng-controller="ProvidersController")
+    .container-fluid.pb-14
       .row
         .col-md-2.padding-0
           .form-filter
-            %h3.text-header Buscar cuidador  
-            %p Selecciona donde, cuando y que necesitas para dejar tu perrito. 
-            = search_form_for @search do |f| 
+            %h3.text-header Buscar cuidador
+            %p Selecciona donde, cuando y que necesitas para dejar tu perrito.
+            = search_form_for @search do |f|
               .form-group
-                = f.grouped_collection_select(:locations_id_eq, State.where("country_id=?",@country.id).order(:name), :locations, :name, :name, :name , {:prompt => @country.id == 2 ? "Elegir Barrio" : "Elegir Municipio o Delegación"}, { :class=> "form-control", input_html: {'ng-model': "search.locations" }})  #, html_input: {'ng-model': ''} 
+                = f.grouped_collection_select(:locations_id_eq, State.where("country_id=?",@country.id).order(:name), :locations, :name, :name, :name , {:prompt => @country.id == 2 ? "Elegir Barrio" : "Elegir Municipio o Delegación"}, 'ng-model': "search.locations", class: "form-control", "multiple":"")  #, html_input: {'ng-model': ''}
               .form-group
                 %input.form-control(placeholder="Estado" ng-model="search.states")
               .form-group
-                %input.form-control(placeholder="Municipio" ng-model="search.locations")
-              .form-group  
                 %label Rango de Precio
-                %br  
-                %rzslider(rz-slider-model="priceSlider" rz-slider-floor="priceSlider.floor" rz-slider-ceil="priceSlider.ceil" rz-slider-model="priceSlider.min" rz-slider-high="priceSlider.max" rz-slider-on-end="onSliderChange()")
-              .form-group 
+                %br
+                %rzslider(rz-slider-model="search.price" rz-slider-floor="search.price.floor" rz-slider-ceil="search.price.ceil" rz-slider-model="search.price.min" rz-slider-high="search.price.max" )
+              .form-group
                 %label Tamaño de Perro
                 %br
-                %input(type="checkbox" checked ng-model="sizes[0]" ng-true-value="Pequeños" data-ng-false-value='') Pequeño
-                %br 
-                %input(type="checkbox" checked ng-model="sizes[1]" ng-true-value="Medianos" data-ng-false-value='') Mediano 
+                %input(type="checkbox" checked ng-model="search.sizes[0]" ng-true-value="Pequeños" data-ng-false-value='') Pequeño
                 %br
-                %input(type="checkbox" checked ng-model="sizes[2]" ng-true-value="Grandes" data-ng-false-value='') Grande 
+                %input(type="checkbox" checked ng-model="search.sizes[1]" ng-true-value="Medianos" data-ng-false-value='') Mediano
+                %br
+                %input(type="checkbox" checked ng-model="search.sizes[2]" ng-true-value="Grandes" data-ng-false-value='') Grande
               .row
                 %label Cantidad de Perros
               .row
                 .col-xs-6
-                  %input(type="checkbox" checked ng-model="number_of" ng-true-value="1" data-ng-false-value='') 1  
+                  %input(type="checkbox" checked ng-model="search.number_of" ng-true-value="1" data-ng-false-value='') 1
                 .col-xs-6
-                  %input(type="checkbox" checked ng-model="number_of" ng-true-value="3" data-ng-false-value='') 3 
+                  %input(type="checkbox" checked ng-model="search.number_of" ng-true-value="3" data-ng-false-value='') 3
               .row
                 .col-xs-6
-                  %input(type="checkbox" checked ng-model="number_of" ng-true-value="2" data-ng-false-value='') 2 
+                  %input(type="checkbox" checked ng-model="search.number_of" ng-true-value="2" data-ng-false-value='') 2
                 .col-xs-6
-                  %input(type="checkbox" checked ng-model="number_of" ng-true-value="4" data-ng-false-value='') 4 o mas
+                  %input(type="checkbox" checked ng-model="search.number_of" ng-true-value="4" data-ng-false-value='') 4 o mas
               %br
-              .form-group  
+              .form-group
                 %label Servicios Adicionales
                 %div(ng-repeat="service in services ")
-                  %input(type="checkbox" checked ng-model="sel_service[service.id]" ng-true-value="{{service.id}}" data-ng-false-value='') {{service.service_name}}
-                  %br 
-        .col-md-8 
+                  %input(type="checkbox" checked ng-model="search.sel_service[service.id]" ng-true-value="{{service.id}}" data-ng-false-value='') {{service.service_name}}
+                  %br
+        .col-md-8
           =render partial: 'grid'
-        .col-md-2    
+        .col-md-2
           #map_canvas
-            %ui-gmap-google-map(center='providers[0].coords' zoom='map.zoom' control='map.control') 
+            %ui-gmap-google-map(center='providers[0].coords' zoom='map.zoom' control='map.control')
               %ui-gmap-markers(models="map.markers" coords="'self'" icon="'icon'")
-            
-      
+
+
 = render "layouts/modal"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+:javascript
+  $("#q_locations_id_eq").select2();
