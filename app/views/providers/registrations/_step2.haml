@@ -135,59 +135,22 @@
       $(".state_" + id + " .check_boxes").prop('checked', $(".main_state_" + id).prop('checked'));
     }
     
-    $(document).ready(function(){
+    $("#map").ready(function(){
       newProviderMap = initMap('newProviderMap', 'map');
       
        
       var marker = new google.maps.Marker({
+          draggable: true,
           position: itemLatLng,
           map: newProviderMap
       });
+      
+      
+      
     });
     
     
     
-    
-    $("#provider_address").keydown(function(e) {
-      if (e.keyCode == 13) {
-        e.preventDefault();
-        $("#search_address").trigger("click");
-      };
-    });
-    
-    
-    $("#search_address").click(function(e) {
-      e.preventDefault();
-      newProviderMap.geocode({
-        address: $('#provider_address').val(),
-        callback: function(results, status) {
-          if (status == 'OK') {
-            var latlng = results[0].geometry.location;
-            newProviderMap.setCenter(latlng.lat(), latlng.lng());
-            newProviderMap.removeMarkers();
-            newProviderMap.addMarker({
-              lat: latlng.lat(),
-              lng: latlng.lng()
-            });
-            $("#provider_latitude").val(latlng.lat());
-            $("#provider_longitude").val(latlng.lng());
-          }
-        }
-      });
-    });
+     
   
-    newProviderMap.on('click', newProviderMap.map, function(event) {
-      var markers = newProviderMap.markers.length;
-      var lat = event.latLng.lat();
-      var lng = event.latLng.lng();
-      console.log(markers);
-      if (markers != null) {
-        newProviderMap.removeMarkers();
-      }
-      newProviderMap.addMarker({
-        lat: lat,
-        lng: lng
-      });
-      $("#provider_latitude").val(lat);
-      $("#provider_longitude").val(lng);
-    });
+    
