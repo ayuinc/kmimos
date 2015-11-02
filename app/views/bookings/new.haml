@@ -96,8 +96,8 @@
                     -current_user.pets.each do |pet|
                       %option{value: pet.id}= pet
                 .col-md-3 $ {{serv.price}}  MXN
-          %center
-            %a.btn.btn-primary(ng-click="add_service()") Agregar Servicio
+            %center
+              %a.btn.btn-primary(ng-click="add_service()") Agregar Servicio
           .panel-heading 
             %hr.hr-gray/
           .panel-body 
@@ -152,7 +152,7 @@
             = render partial: 'terms', locals: {f: f}
           
             .form-group.row
-              .col-md-3
+              .col-md-12
                 %center
                   = link_to 'Reservar', '#myModal', 'data-toggle' => 'modal', :class => "btn grey-button form-control mt-21" 
                 /, :onClick=>"_gaq.push(['_trackEvent', 'Homepage', 'Recomendar-modal-trigger']);"

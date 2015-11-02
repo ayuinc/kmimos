@@ -7,5 +7,33 @@
         %h3 No hay reservas registradas
     - else 
       - @bookings.each do |book|
-        = book.inspect
-  .col-md-1
+        .table
+          %table
+            %thead
+              %th Fecha
+              %th Cuidador
+              %th Servicio 
+              %th Precio Total 
+              %th Calificacion
+            %tbody
+              %td
+                %p
+                  %b Llegada
+                  = book.start_date
+                %p
+                  %b Salida
+                  = book.end_date
+              %td
+                = "#{book.user.first_name} #{book.user.last_name}"
+              %td
+                = book.booked_service.map{|bs| bs.service}.join(' ,')
+              %td
+                %td
+                  - Valuation.by_comments(book.provider.id).each do |valuation, value|
+                    .ratingStarts.pl-14-mt-7{score: value.to_i, readOnly: true}
+                
+            %tfoot
+              .col-md-1
+
+
+
