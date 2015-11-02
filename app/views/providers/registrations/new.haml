@@ -15,3 +15,20 @@
             = render partial: 'terms', locals: {f: f}
 
  
+ :javascript
+    
+   setTimeout(function(){ 
+     
+       newProviderMap = initMap('newProviderMap', 'map');
+      
+       var marker = new google.maps.Marker({
+           draggable: true,
+           position: itemLatLng,
+           map: newProviderMap
+       });
+       
+     });
+   
+   }, 1000);
+      
+      
