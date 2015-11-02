@@ -131,7 +131,14 @@
           -Valuation.by_comments(@provider.id).each do |valuation, value|
             %h5= valuation
             .ratingStars.pl-14.mt-7{score: value.to_i, readOnly: true}
+          %br
+      .content-detalles.mt-14.mb-28.text-center.m-21.pd-14
+        %h4 Servicios Adicionales
         %br
+        - @provider.additional_service.each do |service|
+          %ul
+            %li= service.service
+
 .hidden
   = link_to 'Edit', edit_provider_path(@provider)
   |
