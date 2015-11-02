@@ -16,11 +16,14 @@ providers_module.filter('searchProvider', function(){
       isValid = true;
 
       for(var j = 0; j < keys.length ; j++){ // Explorar los filtros
+        
         // Si hay informacion en el filtro
+        
         if(filterData[keys[j]] != undefined && String(filterData[keys[j]]) != "" ){
             if (keys[j]=='locations') {
                  isValid = isValid &&  contains(filterData[keys[j]], provider[keys[j]]);
-            } 
+            }
+
             if (keys[j]=='states') {
                  isValid = isValid &&  contains(filterData[keys[j]], provider[keys[j]]);
             }
@@ -31,7 +34,6 @@ providers_module.filter('searchProvider', function(){
 
             if (keys[j] == 'price'){
                 isValid = isValid &&  (parseFloat(provider[keys[j]]) > parseFloat(filterData[keys[j]].min) && parseFloat(provider[keys[j]]) < parseFloat(filterData[keys[j]].max));
-
             }
 
             if (keys[j] == 'number_of'){
@@ -47,6 +49,7 @@ providers_module.filter('searchProvider', function(){
 
       if(isValid){
         markersArray.push({latitude: provider.latitude, longitude: provider.longitude, id: provider.id, icon: 'assets/huella-mensaje-17-mini.png'});
+        console.log(markersArray);
         filtered.push(provider);
       }
 

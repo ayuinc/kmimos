@@ -10,8 +10,12 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
   
   $scope.search.sel_service = [];
 
-  $scope.providers=ProviderService.get();
-
+  $scope.providers;
+  
+  ProviderService.get().$promise.then(function(providers){
+    $scope.providers = providers;
+  });
+  
   $scope.map = { zoom: 16, control: {}, markers: []};
 
   $scope.map.markers = [];
