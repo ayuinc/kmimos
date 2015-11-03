@@ -2,10 +2,7 @@ class User::RegistrationsController < Devise::RegistrationsController
 
   before_filter :configure_permitted_parameters
   
-  def new
-    @user = User.new  
-    render 'new', layout: 'application'
-  end
+ 
   
   protected
  

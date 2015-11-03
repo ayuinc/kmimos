@@ -2,11 +2,7 @@ class Provider::RegistrationsController < Devise::RegistrationsController
 
   before_filter :configure_permitted_parameters
   
-  
-  def new
-    @provider = Provider.new  
-  end
-  
+ 
   def create
     super
     ProviderMailer.welcome_message(@provider).deliver unless @provider.invalid?
