@@ -118,10 +118,10 @@
           = render partial: 'layouts/partial/comments', locals: {provider: @provider}
           
     .col-md-3
-      .content-article.mt-14.mb-28.m-21
+      .content-article.mt-14.mb-28.m-21 
         %p.light.mb-0.text-gray.text-small Desde
         %h4.m-7.price
-          = 1.2*(@provider.price.to_i)
+          = 1.2*(@provider.rates.minimum(:price))
           = current_country.currency
         %h5.light.mt-0.text-gray.text-small por noche
         
@@ -152,12 +152,7 @@
             %h5= valuation
             .ratingStars.pl-14.mt-7{score: value.to_i, readOnly: true}
           %br
-
-.hidden
-  = link_to 'Edit', edit_provider_path(@provider)
-  |
-  \#{link_to 'Back', providers_path}
-   
+  
 
 :javascript
 

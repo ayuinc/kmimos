@@ -10,4 +10,6 @@
             = render partial: 'step1', locals: {f: f}
             = render partial: 'step2', locals: {f: f}
             = render partial: 'step3', locals: {f: f} 
-            = f.submit 'Guardar'
+            %center
+              %br
+              = f.submit 'Guardar', class: 'grey-button'

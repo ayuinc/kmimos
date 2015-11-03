@@ -127,10 +127,10 @@ function initMap(mapName, mapId) {
       var itemLatLng = {lat: parseFloat($(this).attr('latitude')), lng: parseFloat($(this).attr('longitude'))};
       var radio = parseFloat($(this).attr('radio'));
       var cityCircle = new google.maps.Circle({
-            strokeColor: '#FF0000',
+            strokeColor: '#5c9c7a',
             strokeOpacity: 0.8,
             strokeWeight: 2,
-            fillColor: '#FF0000',
+            fillColor: '#5c9c7a',
             fillOpacity: 0.35,
             map: map,
             center: itemLatLng,

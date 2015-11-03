@@ -8,11 +8,8 @@
     .p-7.hidden-md.hidden-lg.col-xs-4= link_to image_tag('logo-kmimos.svg', class: "mt-0 img-logo"), root_url
     - if current_user
       %ul.nav.navbar-nav.mt-7.ml-56
-      
-        %li
-          = link_to 'Mi Perfil', user_path(current_user), class: "not-underline white-text"
-        %li
-          = link_to 'Mis Reservas', bookings_path, class: "not-underline white-text"
+        %li= link_to 'Mi Perfil', user_path(current_user), class: "not-underline white-text"
+        %li= link_to 'Mis Reservas', bookings_path, class: "not-underline white-text"
   .collapse.navbar-collapse.pr-21
     %ul.nav.navbar-nav.mt-14
       - if current_provider
@@ -21,16 +18,8 @@
             %a.dropdown-toggle.text-header{"data-toggle" => "dropdown", :href => "#"}
               Hola, #{current_provider.name}
             %ul#dropdown-menu.dropdown-menu
-              %li= link_to 'Actualizar mi perfil'.html_safe, edit_provider_path(current_provider.id) 
-              %li= link_to 'Salir'.html_safe, destroy_provider_session_path, :method => :delete 
-          %li.hidden-lg.hidden-md
-            %ul.list-group.m-0.pt-7.pl-0.list-movil-header
-              %li.hidden-lg.hidden-md.hidden-sm.li-first
-                = link_to 'Home', root_url, class: "not-underline log-in"
-              %li.hidden-lg.hidden-md.hidden-sm
-                = link_to 'Reservar', providers_path, class: "not-underline log-in"
-              %li.list-group-item= link_to 'Actualizar mi perfil'.html_safe, edit_provider_path(current_provider)
-              %li.list-group-item= link_to 'Cerrar Sesion'.html_safe, destroy_provider_session_path, :method => :delete, class: "text-danger"
+              %li= link_to 'Mi perfil'.html_safe, edit_provider_path(current_provider.id) 
+              %li= link_to 'Salir'.html_safe, destroy_provider_session_path, :method => :delete  
       - elsif current_user
         %li.ml-35
           .dropdown 
@@ -40,14 +29,7 @@
               %li= link_to 'Mi perfil'.html_safe, user_path(current_user) 
               %li= link_to 'Mis reservas'.html_safe, bookings_path 
               %li= link_to 'Salir'.html_safe, destroy_user_session_path, :method => :delete 
-          %li.hidden-lg.hidden-md
-            %ul.list-group.m-0.pt-7.pl-0.list-movil-header
-              %li.hidden-lg.hidden-md.hidden-sm.li-first
-                = link_to 'Home', root_url, class: "not-underline log-in"
-              %li.hidden-lg.hidden-md.hidden-sm
-                = link_to 'Reservar', providers_path, class: "not-underline log-in"
-              %li.list-group-item= link_to 'Actualizar mi perfil'.html_safe, user_path(current_user)
-              %li.list-group-item= link_to 'Cerrar Sesion'.html_safe, destroy_user_session_path, :method => :delete, class: "text-danger"
+           
       - else
         %li
           .dropdown
@@ -59,10 +41,6 @@
                 %a{:href => new_user_session_path} Iniciar sesión como Cliente
               %li 
                 %a{:href => new_provider_session_path} Iniciar sesión como Cuidador 
-        %li 
-          = link_to 'Registrarme', new_user_registration_path, class: "not-underline text-header"
-        %li.active 
-          = link_to 'Quiero ser cuidador', new_provider_registration_path, class: "not-underline sign-up"
+        %li= link_to 'Registrarme', new_user_registration_path, class: "not-underline text-header"
+        %li.active= link_to 'Quiero ser cuidador', new_provider_registration_path, class: "not-underline sign-up"
         
-         
-  / /.nav-collapse
