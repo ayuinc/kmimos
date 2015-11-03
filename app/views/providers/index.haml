@@ -46,7 +46,7 @@
           =render partial: 'grid'
         .col-md-2
           #map_canvas
-            %ui-gmap-google-map(center='providers[0].coords' zoom='map.zoom' control='map.control')
+            %ui-gmap-google-map(center='filteredProviders[0].coords' zoom='map.zoom' control='map.control')
               %ui-gmap-markers(models="map.markers" coords="'self'" icon="'icon'")
 
 
