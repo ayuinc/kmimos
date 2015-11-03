@@ -10,4 +10,9 @@
 class Aging < ActiveRecord::Base
   belongs_to :provider
   belongs_to :age
+  
+  def to_s
+    self.age
+  end
+  
 end

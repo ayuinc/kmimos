@@ -13,16 +13,16 @@
       .col-md-12 Precio por noche: 
     .row
       .col-md-12
-        %ul
-          - @provider.rates.each do |rate|
-            %li= "#{rate.size} : #{rate.price}"
-        - f.fields_for :rates do |a|  
+      
+        - @provider.rates.each do |rate| 
           .row
-            .col-md-2 Tamaño
-            .col-md-3= a.association :size, label: false
-            .col-md-3= a.input :price, label: false, placeholder: 'Precio'
-            .col-md-4= a.link_to_remove "Eliminar"
-        = f.link_to_add "Agregar", :rates
+            .col-md-8
+              %label= rate.size
+              %input{value: rate.id}(name="provider[rates_attributes][][id]" type="hidden")
+              %input{value: rate.size.id}(name="provider[rates_attributes][][size_id]" type="hidden")
+            .col-md-4
+              %input{value: rate.price}(name="provider[rates_attributes][][price]" placeholder="0.0" class="form-control")
+        
     %br
     .row
       %label ¿En qué municipios puedes trabajar?
@@ -59,18 +59,19 @@
     .row
       .col-md-12
         .map-info
-          = f.input :latitude #, as: :hidden
-          = f.input :longitude #, as: :hidden
+          = f.input :latitude, as: :hidden
+          = f.input :longitude, as: :hidden
     .row
       .col-md-9
         = f.input :address, label: "Dirección:", placeholder: "Ingrese su dirección...", hint: "*Si el pin no se sitúa en el lugar de tu dirección, por favor ajústalo."
       .col-md-3
         %label{:for => "search_address", :style => "display:block;color:white"} Buscar
         %button#search_address.btn.btn-primary.form-control.ml-0{:name => "search_address", :type => "button"} Buscar 
+     
     .row
       .col-md-12 
-        #map.map.ml-14.col-md-12.col-xs-12.col-sm-12.mt-14{style: "width: 100% !important; height: 200px !important; "}
-    %br
+        #mapNew{style: "width: 100% !important; height: 200px !important; ", latitude: @provider.latitude, longitude: @provider.longitude, zoom: 16 } 
+      %br
     .row
       .col-md-12 ¿Cuentas con Otros perros en casa?
     .row
@@ -103,3 +104,7 @@
   function select_state(id){
     $(".state_" + id).toggle();
   }
+  
+  newProviderMap = initMap('editProvider', 'mapNew');
+  
+  

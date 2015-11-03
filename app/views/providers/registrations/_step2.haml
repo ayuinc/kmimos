@@ -17,8 +17,8 @@
             - Size.all.each do |size|
               .row
                 .col-md-8
-                  %label= size
-                  %input{value: size.id}(name="provider[rates_attributes][][id]" type="hidden")
+                  %label= size 
+                  %input{value: size.id}(name="provider[rates_attributes][][size_id]" type="hidden")
                 .col-md-4
                   %input(name="provider[rates_attributes][][price]" placeholder="0.0" class="form-control") 
       .form-group

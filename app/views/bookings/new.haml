@@ -169,9 +169,9 @@
   $('.datepicker_max').datepicker();
   
   setTimeout(function(){ 
-    $('.datepicker_max').datepicker("setDate", "#{session[:from_date]}");
+    $('.datepicker_max').datepicker("setDate", "#{session[:to_date]}");
   
-    $('.datepicker_min').datepicker("setDate", "#{session[:to_date]}");
+    $('.datepicker_min').datepicker("setDate", "#{session[:from_date]}");
     
     $('.datepicker_max').change();
     $('.datepicker_min').change();

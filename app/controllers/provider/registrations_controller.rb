@@ -7,6 +7,11 @@ class Provider::RegistrationsController < Devise::RegistrationsController
     @provider = Provider.new  
   end
   
+  def create
+    super
+    ProviderMailer.welcome_message(@provider).deliver unless @provider.invalid?
+  end
+  
   
   protected
   

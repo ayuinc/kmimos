@@ -30,8 +30,9 @@ providers_module.filter('searchProvider', function(){
             if (keys[j]=='sizes'){
                 
                 temp_valid = true;
-                for(var i=0; i < filterData[keys[j]].length; i++){
-                  temp_valid = temp_valid &&  (String(filterData[keys[j]]) == "");
+                
+                for(var k=0; k < filterData[keys[j]].length; k++){
+                  temp_valid = temp_valid &&  (String(filterData[keys[j]][k]) == "");
                 }
                 
                 if (temp_valid){
