@@ -1,6 +1,6 @@
 .row.mt-56
-  .col-md-1
-  .col-md-10
+  .col-md-2
+  .col-md-8
     %center
       %h1 Reservas 
     %br
@@ -11,16 +11,11 @@
       .table
         %table{style: "width: 100%;"}
           %thead
-            %th 
-              %h4 Fecha
-            %th 
-              %h4 Cuidador
-            %th 
-              %h4 Servicio 
-            %th 
-              %h4 Precio Total 
-            %th 
-              %h4 Calificacion
+            %th Fecha
+            %th Cuidador
+            %th Servicio 
+            %th Precio Total 
+            %th Calificacion
           - @bookings.each do |book| 
             %tbody{style: "background-color: #fffff8"}
               %td
@@ -40,6 +35,6 @@
                 - val = Valuation.by_comments(book.provider.id)
                 - score = val.map{|val| val[1]}.reduce(:+).to_i / val.size.to_i rescue 0
                 .ratingStars{score: score, readOnly: true} 
-  .col-md-1
+  .col-md-2
 
  
