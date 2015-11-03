@@ -16,35 +16,38 @@
   .collapse.navbar-collapse.pr-21
     %ul.nav.navbar-nav.mt-14
       - if current_provider
-        %li.dropdown.mt-7.size-responsive
-          %a.dropdown-toggle.text-muted{"data-toggle" => "dropdown", :href => "#"}
-            Hola, #{current_provider.name}
-          %ul#dropdown-menu.dropdown-menu
-            %li= link_to 'Actualizar mi perfil'.html_safe, edit_provider_path(current_provider.id), class: "text-danger pl-14 pr-14 mb-14"
-            %li= link_to 'Salir'.html_safe, destroy_provider_session_path, :method => :delete, class: "text-danger pl-56 pr-56"
-        %li.hidden-lg.hidden-md
-          %ul.list-group.m-0.pt-7.pl-0.list-movil-header
-            %li.hidden-lg.hidden-md.hidden-sm.li-first
-              = link_to 'Home', root_url, class: "not-underline log-in"
-            %li.hidden-lg.hidden-md.hidden-sm
-              = link_to 'Reservar', providers_path, class: "not-underline log-in"
-            %li.list-group-item= link_to 'Actualizar mi perfil'.html_safe, edit_provider_path(current_provider)
-            %li.list-group-item= link_to 'Cerrar Sesion'.html_safe, destroy_provider_session_path, :method => :delete, class: "text-danger"
+        %li
+          .dropdown 
+            %a.dropdown-toggle.text-header{"data-toggle" => "dropdown", :href => "#"}
+              Hola, #{current_provider.name}
+            %ul#dropdown-menu.dropdown-menu
+              %li= link_to 'Actualizar mi perfil'.html_safe, edit_provider_path(current_provider.id) 
+              %li= link_to 'Salir'.html_safe, destroy_provider_session_path, :method => :delete 
+          %li.hidden-lg.hidden-md
+            %ul.list-group.m-0.pt-7.pl-0.list-movil-header
+              %li.hidden-lg.hidden-md.hidden-sm.li-first
+                = link_to 'Home', root_url, class: "not-underline log-in"
+              %li.hidden-lg.hidden-md.hidden-sm
+                = link_to 'Reservar', providers_path, class: "not-underline log-in"
+              %li.list-group-item= link_to 'Actualizar mi perfil'.html_safe, edit_provider_path(current_provider)
+              %li.list-group-item= link_to 'Cerrar Sesion'.html_safe, destroy_provider_session_path, :method => :delete, class: "text-danger"
       - elsif current_user
-        %li.dropdown.mt-7.size-responsive
-          %a.dropdown-toggle.text-muted{"data-toggle" => "dropdown", :href => "#"}
-            Hola, #{current_user.first_name}
-          %ul#dropdown-menu.dropdown-menu
-            %li= link_to 'Actualizar mi perfil'.html_safe, user_path(current_user), class: "text-danger pl-14 pr-14 mb-14"
-            %li= link_to 'Salir'.html_safe, destroy_user_session_path, :method => :delete, class: "text-danger pl-56 pr-56"
-        %li.hidden-lg.hidden-md
-          %ul.list-group.m-0.pt-7.pl-0.list-movil-header
-            %li.hidden-lg.hidden-md.hidden-sm.li-first
-              = link_to 'Home', root_url, class: "not-underline log-in"
-            %li.hidden-lg.hidden-md.hidden-sm
-              = link_to 'Reservar', providers_path, class: "not-underline log-in"
-            %li.list-group-item= link_to 'Actualizar mi perfil'.html_safe, user_path(current_user)
-            %li.list-group-item= link_to 'Cerrar Sesion'.html_safe, destroy_user_session_path, :method => :delete, class: "text-danger"
+        %li.ml-35
+          .dropdown 
+            %a.dropdown-toggle.text-header{"data-toggle" => "dropdown", :href => "#"}
+              Hola, #{current_user.first_name}
+            %ul#dropdown-menu.dropdown-menu
+              %li= link_to 'Mi perfil'.html_safe, user_path(current_user) 
+              %li= link_to 'Mis reservas'.html_safe, bookings_path 
+              %li= link_to 'Salir'.html_safe, destroy_user_session_path, :method => :delete 
+          %li.hidden-lg.hidden-md
+            %ul.list-group.m-0.pt-7.pl-0.list-movil-header
+              %li.hidden-lg.hidden-md.hidden-sm.li-first
+                = link_to 'Home', root_url, class: "not-underline log-in"
+              %li.hidden-lg.hidden-md.hidden-sm
+                = link_to 'Reservar', providers_path, class: "not-underline log-in"
+              %li.list-group-item= link_to 'Actualizar mi perfil'.html_safe, user_path(current_user)
+              %li.list-group-item= link_to 'Cerrar Sesion'.html_safe, destroy_user_session_path, :method => :delete, class: "text-danger"
       - else
         %li
           .dropdown
