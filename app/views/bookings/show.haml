@@ -1,42 +1,51 @@
-.container-sm
+.container-fluid
   .row.text-center.mt-42
-    = link_to image_tag('huella-mensaje-17.png' ), root_url
-    %h1.mb-21 ¡Gracias por hacer tu reserva!
-    %h3 Los detalles de tu reserva a continuación:
     .col-md-4
-    .col-md-5
-      .text-left
-        %h4.text-gray
-          - unless @booking.start_date.nil?
-            %small.text-black.bold Check-in:
-            = @booking.start_date.strftime("%d/%m/%Y")
-        %h4.text-gray
-          - unless @booking.pickup_time.nil?
-            %small.text-black.bold Horario de recolección:
-            = @booking.pickup_time.strftime("%I:%M %p")
-          %h4.text-gray
-            - unless @booking.end_date.nil?
-              %small.text-black.bold Check-out:
-              = @booking.end_date.strftime("%d/%m/%Y")
-          %h4.text-gray
-            - unless @booking.dropoff_time.nil?
-              %small.text-black.bold Horario de entrega:
-              = @booking.dropoff_time.strftime("%I:%M %p")
-          %h4.text-gray
-            %small.text-black.bold Cuidador:
-            = @booking.provider.name
-            = @booking.provider.last_name_1
-            = @booking.provider.last_name_2
-          %h4.text-gray
-            %small.text-black.bold Precio:
-            = current_country.currency
-            = 1.2*(@booking.provider.price.to_i)
-            \/ noche
-    .row
-      .col-md-12.text-center
-        %h3 Para tu comodidad hemos enviado la información a:
-        %h4= @booking.user_email
-        %hr.mt-42/
+    .col-md-4 
+      %h1.mb-21 ¡Gracias por solicitar nuestro servicio!
+      %br
+      %p 
+        El dia 
+        = @booking.start_date.strftime("%d/%m/%Y")
+        a las 
+        = @booking.start_date.strftime("%I:%M %p")
+        en 
+        = @booking.user.address
+        %b= @booking.provider 
+        ira a su domicilio a recoger a su mascota.
+        %p Cuidara a su perrito hasta el 
+        %b= @booking.end_date.strftime("%d/%m/%Y,")
+        el costo de este servicio es de $
+        %b= @booking.total 
+        MXN
+        %br
+        %br
+      .col-md-4
+  .row{style: "background-color: #e6e5a3;"}
+    .col-md-4
+    .col-md-4.text-center
+      %br
+      %h5
+        Usted solicito tambien los servicios adicionales 
+      %br
+      %br
+           
+      - @booking.booked_services.each do |service|
+        .row 
+          .col-md-8="- #{service.service}"
+          .col-md-4
+            %b="$ 0.0 MXN"
+       
+      %br       
+      %h5
+        Recibiras un correo de confirmacion y el cuidador se contactara contigo
+      %br.mt-42/
+      %br
+      
+      %h3 Quedate tranquilo que tu mascota estara en buenas manos.
+      %br
+      %br 
+        
 / Facebook Conversion Code for Reservacion exitosa
 :javascript
   (function() {
