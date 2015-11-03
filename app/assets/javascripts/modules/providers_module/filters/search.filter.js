@@ -1,5 +1,5 @@
 providers_module.filter('searchProvider', function(){
-  return function (providers, filterData, markersArray) {
+  return function (providers, filterData) {
 
     if(filterData == undefined){
       return providers;
@@ -7,8 +7,7 @@ providers_module.filter('searchProvider', function(){
 
     var keys = Object.keys(filterData);
     var filtered = [];
-    var isValid=true;
-    markersArray = [];
+    var isValid=true; 
 
     for (var i = 0; i < providers.length; i++) {
 
@@ -48,8 +47,8 @@ providers_module.filter('searchProvider', function(){
       }
 
       if(isValid){
-        markersArray.push({latitude: provider.latitude, longitude: provider.longitude, id: provider.id, icon: 'assets/huella-mensaje-17-mini.png'});
-        console.log(markersArray);
+        //markersArray.push({latitude: provider.latitude, longitude: provider.longitude, id: provider.id, icon: 'assets/huella-mensaje-17-mini.png'});
+        //console.log(markersArray);
         filtered.push(provider);
       }
 

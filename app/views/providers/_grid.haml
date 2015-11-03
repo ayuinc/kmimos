@@ -1,5 +1,5 @@
 #cuidadores(ng-if="providers != undefined")
-  .provider-item(ng-repeat="provider in providers | searchProvider: search:map.markers ")
+  .provider-item(ng-repeat="provider in ($parent.filteredProviders = (providers | searchProvider: search)) ")
     .block-cuidadores
       %a(href="/providers/{{provider.id}}")
         .bg-img-block.border-radius.square-green(style = "height: 150px; background-image: url('{{provider.avatar}}');")
