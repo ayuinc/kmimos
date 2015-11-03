@@ -133,10 +133,10 @@
           %br
         %p
           %b Check in:
-          = @provider.check_in.strftime("HH:MM")
+          = @provider.check_in.strftime("%H:%M")
         %p
           %b Check out:
-          = @provider.check_out.strftime("HH:MM")
+          = @provider.check_out.strftime("%H:%M")
       .content-detalles.mt-14-mb-28.m-21.pb-14
         .border-bottom.text-left.pl-21
           %h4.text-gray.mv-14 
