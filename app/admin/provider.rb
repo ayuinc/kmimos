@@ -1,6 +1,6 @@
 ActiveAdmin.register Provider do
   permit_params :name, :last_name_1, :last_name_2, :dni, :email, :phone, :description, :email_c, :avatar,
-  :price, :areas_externas, :emergencia, :experiencia, :active, :latitude, :longitude, :address, :is_favorite
+  :price, :areas_externas, :emergencia, :experiencia, :active, :latitude, :longitude, :address, :is_favorite, :on_top
    
   
   filter :name
@@ -8,7 +8,7 @@ ActiveAdmin.register Provider do
   filter :dni
   filter :email
   filter :phone
-  filter :is_favorite 
+  filter :on_top 
   filter :active 
    
   index do
@@ -19,7 +19,7 @@ ActiveAdmin.register Provider do
     column :dni
     column :email
     column :phone
-    column :is_favorite, as: :checkbox
+    column :on_top 
     column :active
     actions
   end
@@ -31,7 +31,7 @@ ActiveAdmin.register Provider do
       f.input :last_name_1
       f.input :last_name_2
       f.input :active
-      f.input :is_favorite
+      f.input :on_top
     end
     f.actions
   end
