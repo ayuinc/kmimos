@@ -28,6 +28,10 @@
         .col-md-3 Municipio:
         .col-md-5= f.input :place_name, as: :text, label: false, input_html: {class: 'cityUser', disabled: true} 
       .row
+        .col-md-3 Direccion:
+        .col-md-5= f.input :address, as: :text, label: false
+      
+      .row
         .col-md-3 Foto:
         .col-md-5= f.input :photo, label: false
       .row
