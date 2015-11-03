@@ -19,15 +19,15 @@
     
    setTimeout(function(){ 
      
-       newProviderMap = initMap('newProviderMap', 'map');
-      
+       var newProviderMap = initMap('newProviderMap', 'map');
+       
        var marker = new google.maps.Marker({
            draggable: true,
            position: itemLatLng,
            map: newProviderMap
        });
        
-     });
+    
    
    }, 1000);
       
