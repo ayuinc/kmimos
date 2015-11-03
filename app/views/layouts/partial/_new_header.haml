@@ -19,7 +19,7 @@
                 %ul.dropdown-menu
                   %li= link_to 'Mi perfil'.html_safe, user_path(current_user) 
                   %li= link_to 'Mis Reservas'.html_safe, bookings_path 
-                  %li= link_to 'Salir'.html_safe, destroy_user_session_path 
+                  %li= link_to 'Salir'.html_safe, destroy_user_session_path, :method => :delete 
           - else
             %li
               .dropdown
