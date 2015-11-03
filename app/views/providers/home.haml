@@ -84,7 +84,7 @@
           - Provider.on_top_providers(3).each do |provider|
             .col-md-4
               .bg-img-block.border-radius.square-green.mt-7{:style => " background-image: url(#{provider.avatar.url});"}
-                #a.oculto.text-center.pt-21
+                #a.oculto.text-center.pt-21{href: provider_path(provider.id)}
                   %img{:alt => "", :src => "assets/icono-huella-hover.svg", :width => "70"}/
                   %h4.bold.text-center.mv-7.text-white= provider
                   .rating-reviews.pl-14.mt-7
