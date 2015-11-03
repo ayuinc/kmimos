@@ -83,10 +83,7 @@
       .form-group
         .row
           .col-md-12 
-            #mapNew{style: "width: 100% !important; height: 200px !important; ", latitude: 19.414319, longitude: -99.128175, zoom: 16 }
-            :javascript
-            
-              
+            #mapNew{style: "width: 100% !important; height: 200px !important; ", latitude: 19.414319, longitude: -99.128175, zoom: 16 } 
         %br
       .form-group
         .col-md-6
@@ -123,7 +120,9 @@
 
         
 :javascript
-    
+          
+    var itemLatLng = {lat: 19.414319, lng: -99.128175};
+   
     $("[class^='state_']").hide();
     
     function select_state(id){
@@ -135,7 +134,35 @@
       $(".state_" + id + " .check_boxes").prop('checked', $(".main_state_" + id).prop('checked'));
     }
     
-      
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        
+        var newProviderMap = initMap('newProviderMap', 'mapNew');
+        
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+ 
+        newProviderMap.setCenter(pos);
+         
+        var marker = new google.maps.Marker({
+            draggable: true,
+            position: pos,
+            map: newProviderMap
+        });
+        
+      }, function() {
+         
+      });
+    } else {
+      // Browser doesn't support Geolocation
+        
+    }
+    
+            
+    
+    
     
     
      

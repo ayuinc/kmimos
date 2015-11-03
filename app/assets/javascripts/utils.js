@@ -95,6 +95,9 @@ function initMap(mapName, mapId) {
     var latitude = $("#" + mapId).attr('latitude');
     var longitude = $("#" + mapId).attr('longitude');
     var zoom = $("#" + mapId).attr('zoom');
+    
+    console.log(latitude);
+    console.log(longitude);
 
     var tempItem={};
 
@@ -127,21 +130,7 @@ function initMap(mapName, mapId) {
     return map;
 
 }
-
-function setProviderLocation(latitude, longitude) {
-  map_item = new GMaps({
-    div: '#provider_location',
-    lat: latitude,
-    lng: longitude,
-    zoom: 15
-  });
-
-  map_item.addMarker({
-    lat: latitude,
-    lng: longitude
-  });
-}
-
+ 
 
 
 var players=[];

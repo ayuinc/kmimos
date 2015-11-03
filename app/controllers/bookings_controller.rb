@@ -52,7 +52,7 @@ class BookingsController < ApplicationController
 	  unless params[:start_date].nil? || params[:start_date].empty?
 	    session[:start_date] = Date.strptime(params[:start_date],'%d/%m/%Y')
 	  end
-	  unless params[:start_date].nil? || params[:start_date].empty?
+	  unless params[:end_date].nil? || params[:end_date].empty?
 	    session[:end_date] = Date.strptime(params[:end_date],'%d/%m/%Y')
 	  end
 	end

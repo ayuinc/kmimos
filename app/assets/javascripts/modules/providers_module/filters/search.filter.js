@@ -28,9 +28,19 @@ providers_module.filter('searchProvider', function(){
             }
 
             if (keys[j]=='sizes'){
-                 
+                
+                temp_valid = true;
+                for(var i=0; i < filterData[keys[j]].length; i++){
+                  temp_valid = temp_valid &&  (String(filterData[keys[j]]) == "");
+                }
+                
+                if (temp_valid){
+                  isValid = isValid && true;
+                } else {
+                  isValid = isValid &&  contains(filterData[keys[j]], provider[keys[j]]);
+                }
               
-                isValid = isValid &&  contains(filterData[keys[j]], provider[keys[j]]);
+                
             }
 
             if (keys[j] == 'price'){
