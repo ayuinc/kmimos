@@ -8,16 +8,21 @@
       %center
         %h3 No hay reservas registradas
     - else 
-      - @bookings.each do |book|
-        .table
-          %table{style: "width: 100%;"}
-            %thead
-              %th Fecha
-              %th Cuidador
-              %th Servicio 
-              %th Precio Total 
-              %th Calificacion
-            %tbody
+      .table
+        %table{style: "width: 100%;"}
+          %thead
+            %th 
+              %h4 Fecha
+            %th 
+              %h4 Cuidador
+            %th 
+              %h4 Servicio 
+            %th 
+              %h4 Precio Total 
+            %th 
+              %h4 Calificacion
+          - @bookings.each do |book| 
+            %tbody{style: "background-color: #fffff8"}
               %td
                 %p
                   %b Llegada
@@ -30,12 +35,11 @@
               %td
                 = book.booked_services.map{|bs| bs.service}.join(' ,')
               %td
-                %td
-                  - Valuation.by_comments(book.provider.id).each do |valuation, value|
-                    .ratingStarts.pl-14-mt-7{score: value.to_i, readOnly: true}
-                
-            %tfoot
-              .col-md-1
+                = book.total 
+              %td
+                - val = Valuation.by_comments(book.provider.id)
+                - score = val.map{|val| val[1]}.reduce(:+).to_i / val.size.to_i rescue 0
+                .ratingStars{score: score, readOnly: true} 
+  .col-md-1
 
-
-
+ 

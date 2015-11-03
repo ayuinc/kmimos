@@ -31,7 +31,7 @@
       %br
            
       - @booking.booked_services.each do |service|
-        .row 
+        .row.border-bottom
           .col-md-8="- #{service.service}"
           .col-md-4
             %b="$ 0.0 MXN"
