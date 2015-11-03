@@ -1,7 +1,7 @@
 #cuidadores(ng-if="providers != undefined")
   .provider-item(ng-repeat="provider in ($parent.filteredProviders = (providers | searchProvider: search)) ")
     .block-cuidadores
-      %a(href="/providers/{{provider.id}}")
+      %a(href="/providers/{{provider.id}}" ng-)
         .bg-img-block.border-radius.square-green(style = "height: 150px; background-image: url('{{provider.avatar}}');")
           .oculto.text-center.pt-21
             %img{:alt => "", :src => "assets/icono-huella-hover.svg", :width => "70"}

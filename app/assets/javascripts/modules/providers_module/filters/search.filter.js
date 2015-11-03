@@ -28,6 +28,8 @@ providers_module.filter('searchProvider', function(){
             }
 
             if (keys[j]=='sizes'){
+                 
+              
                 isValid = isValid &&  contains(filterData[keys[j]], provider[keys[j]]);
             }
 
@@ -53,8 +55,7 @@ providers_module.filter('searchProvider', function(){
       }
 
     }
-
-    console.log("results : " + filtered);
+ 
     return filtered;
   };
 });

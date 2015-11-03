@@ -11,6 +11,8 @@
             %p Selecciona donde, cuando y que necesitas para dejar tu perrito.
             = search_form_for @search do |f|
               .form-group
+                %label Municipio
+                %br
                 = f.grouped_collection_select(:locations_id_eq, State.where("country_id=?",@country.id).order(:name), :locations, :name, :name, :name , {:prompt => @country.id == 2 ? "Elegir Barrio" : "Elegir Municipio o Delegación"}, 'ng-model': "search.locations", class: "form-control", "multiple":"")  #, html_input: {'ng-model': ''}
               .form-group
                 %label Rango de Precio

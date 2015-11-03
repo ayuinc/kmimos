@@ -123,10 +123,7 @@
 
         
 :javascript
-          
-    var newProviderMap;
-    var itemLatLng = {lat: 19.414319, lng: -99.128175};
-        
+    
     $("[class^='state_']").hide();
     
     function select_state(id){
@@ -138,46 +135,7 @@
       $(".state_" + id + " .check_boxes").prop('checked', $(".main_state_" + id).prop('checked'));
     }
     
-     
-    
-    
-    function initMap(mapName, mapId) {
-
-        var latitude = $("#" + mapId).attr('latitude');
-        var longitude = $("#" + mapId).attr('longitude');
-        var zoom = $("#" + mapId).attr('zoom');
-
-        var tempItem={};
-
-        var map_component = $("#" + mapId);
-
-        var markers = $(".marker");
-
-        // Search for markers
-
-        var map = new google.maps.Map(document.getElementById(mapId), {
-          center: {lat: parseFloat(latitude), lng: parseFloat(longitude)},
-          zoom: parseInt(zoom)
-        });
-
-        markers.each(function(){ 
-        
-                var itemLatLng = {lat: parseFloat($(this).attr('latitude')), lng: parseFloat($(this).attr('longitude'))};
-
-                var marker = new google.maps.Marker({
-                    position: itemLatLng,
-                    map: map
-                    });
-        });
-        
-
-        tempItem[mapName] = map;
-
-        maps.push(tempItem);
-    
-        return map;
-
-    }
+      
     
     
      

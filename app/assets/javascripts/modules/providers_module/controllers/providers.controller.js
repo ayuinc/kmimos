@@ -35,8 +35,7 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
     var temp_markers = [];
     var log = [];
 
-    angular.forEach($scope.filteredProviders, function(provider, key) {
-      console.log("quantity");
+    angular.forEach($scope.filteredProviders, function(provider, key) { 
       temp_markers.push({latitude: provider.latitude, longitude: provider.longitude, id: provider.id, icon:'assets/huella-mensaje-17-mini.png' });
     }, log);
 
