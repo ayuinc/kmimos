@@ -29,15 +29,24 @@
       %h3.text-gray Detalles
       .row.details-profile.mt-35
         .col-md-3
-          .icon= image_tag('detalles-casa.svg', height: '32px')
+          %p.label-small 
+            -if @provider.property != nil
+              ="Tengo" 
+              .icon= image_tag('detalles-casa.svg', height: '32px')
+            - else 
+              .icon= image_tag('detalles-casa.svg', height: '32px')
+              No Especificado
           %p.label-small= @provider.property
         .col-md-3
+          %p.label-small Tengo
           .icon= image_tag('detalles-perro-grande.svg', height: '32px') 
           %p.label-small="Perros #{@provider.sizes.map{|size| size.size_title}.join(', ')} " 
         .col-md-3
+          %p.label-small Tengo
           .icon= image_tag('detalles-edad-perro-cachorro.svg', height: '32px')
           %p.label-small="#{@provider.ages.join(' ')} "  
         .col-md-3
+          %p.label-small Tengo
           .icon= image_tag('detalles-experiencia.svg', height: '32px')
           %p.label-small= "#{@provider.experiencia} años de experiencia" 
       .border-bottom.mt-21
@@ -63,15 +72,19 @@
       %h3.text-gray.mb-35 Otros detalles
       .row.details-profile.pl-21
         .col-md-3
+          %p.label-small Tengo
           .icon= image_tag('otros-detalles-otros-perros.svg', height: '32px')
           %p.label-small= "#{@provider.number_of_pets} Perros en casa (#{@provider.own_sizes.map{|size| size.size_title}.join(', ')})" 
         .col-md-3
+          %p.label-small Tengo
           .icon= image_tag('otros-detalles-patio.svg', height: '32px')
           %p.label-small= @provider.has_yard ? "Casa con patio" : "No tiene patio"
         .col-md-3
+          %p.label-small Tengo
           .icon= image_tag('otros-detalles-areas-verdes.svg', height: '32px')
           %p.label-small= @provider.has_green ? "Areas Verdes" : "No tiene areas verdes"
         .col-md-3
+          %p.label-small Tengo
           .icon= image_tag('otros-detalles-cantidad-perros.svg', height: '32px')
           %p.label-small="#{@provider.pets_allowed.to_i} perros aceptados"
       
