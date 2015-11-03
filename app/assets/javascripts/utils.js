@@ -104,6 +104,7 @@ function initMap(mapName, mapId) {
     var map_component = $("#" + mapId);
 
     var markers = $(".marker");
+    var circles = $(".circle");
 
     // Search for markers
 
@@ -120,6 +121,21 @@ function initMap(mapName, mapId) {
                 position: itemLatLng,
                 map: map
                 });
+    });
+    
+    circles.each(function(){
+      var itemLatLng = {lat: parseFloat($(this).attr('latitude')), lng: parseFloat($(this).attr('longitude'))};
+      var radio = parseFloat($(this).attr('radio'));
+      var cityCircle = new google.maps.Circle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+            map: map,
+            center: itemLatLng,
+            radius: radio
+          });
     });
         
 

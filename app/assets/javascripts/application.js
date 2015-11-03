@@ -59,24 +59,24 @@ $(document).ready(function() {
   }
 
   // modal for referral codes
-  $(document).bind('ajaxError', 'form#new_referral', function(event, jqxhr, settings, exception){
+  //$(document).bind('ajaxError', 'form#new_referral', function(event, jqxhr, settings, exception){
     // note: jqxhr.responseJSON undefined, parsing responseText instead
-    $(event.data).render_form_errors( $.parseJSON(jqxhr.responseText) );
-  });
+  //  $(event.data).render_form_errors( $.parseJSON(jqxhr.responseText) );
+  //});
 
   //timepicker
-  if ($('#booking_pickup_time').length > 0) {
-    $('#booking_pickup_time').timepicker({
-      'minTime': '9:00am',
-      'maxTime': '6:00pm',
-    });
-  };
-  if ($('#booking_dropoff_time').length > 0) {
-    $('#booking_dropoff_time').timepicker({
-      'minTime': '9:00am',
-      'maxTime': '6:00pm',
-    });
-  };
+  //if ($('#booking_pickup_time').length > 0) {
+  //  $('#booking_pickup_time').timepicker({
+  //    'minTime': '9:00am',
+  //    'maxTime': '6:00pm',
+  //  });
+  //};
+  //if ($('#booking_dropoff_time').length > 0) {
+  //  $('#booking_dropoff_time').timepicker({
+  //    'minTime': '9:00am',
+  //    'maxTime': '6:00pm',
+  //  });
+  //};
 
 
 
@@ -99,39 +99,6 @@ $(document).ready(function() {
     }
     //... rest of add logic
   });
-
-  if ($.datepicker != undefined) {
-    // initialize jquery-ui datepicker
-    $.datepicker.setDefaults(
-      $.extend(
-        $.datepicker.regional['es']
-      )
-    );
-  }
-
-  if ($('#start_date').length > 0) {
-    $('#start_date').datepicker({
-      minDate: new Date(),
-      dateFormat: 'dd/mm/yy',
-      defaultDate: "+1w",
-      changeMonth: true,
-      numberOfMonths: 1,
-      onClose: function( selectedDate ) {
-        $( "#end_date" ).datepicker( "option", "minDate", selectedDate );
-      }
-    });
-
-    $('#end_date').datepicker({
-      minDate: new Date(),
-      dateFormat: 'dd/mm/yy',
-      defaultDate: "+1w",
-      changeMonth: true,
-      numberOfMonths: 1,
-      onClose: function( selectedDate ) {
-        $( "#end_date" ).datepicker( "option", "minDate", selectedDate );
-      }
-    });
-  }
 
 
 

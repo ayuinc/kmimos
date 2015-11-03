@@ -1,8 +1,8 @@
   class ProvidersController < ApplicationController
     
   before_action :set_provider, only: [:show, :edit, :update, :destroy] 
-  #before_action :require_unlogged_provider, only: [:new]
-  before_action :get_dates, only: [:index]
+  #before_action :require_unlogged_provider, only: [:new] 
+  
   before_action :set_country, only: [:index,:home]
 
   # GET /providers
@@ -149,14 +149,7 @@
       age_ids: [], size_ids: [])
     end
 
-    def get_dates
-      unless params[:start_date].nil? || params[:start_date].empty?
-        session[:start_date] = Date.strptime(params[:start_date],'%d/%m/%Y')
-      end
-      unless params[:end_date].nil? || params[:end_date].empty?
-        session[:end_date] = Date.strptime(params[:end_date],'%d/%m/%Y')
-      end
-    end
+ 
     
     
 end

@@ -31,7 +31,7 @@ class BookingsController < ApplicationController
     	#BookingConfirmationMailer.new_booking_notification(@booking, current_country).deliver
     	#BookingConfirmationMailer.new_booking_for_admin(@booking, current_country).deliver
       
-	    session[:start_date], session[:end_date] = nil, nil  
+	    session[:from_date], session[:to_date] = nil, nil  
 	    redirect_to booking_path(@booking)
 	  else 
 	    render 'new'
@@ -48,13 +48,6 @@ class BookingsController < ApplicationController
     @booking = Booking.find_by_token(params[:id])
   end
 
-	def get_dates
-	  unless params[:start_date].nil? || params[:start_date].empty?
-	    session[:start_date] = Date.strptime(params[:start_date],'%d/%m/%Y')
-	  end
-	  unless params[:end_date].nil? || params[:end_date].empty?
-	    session[:end_date] = Date.strptime(params[:end_date],'%d/%m/%Y')
-	  end
-	end
+ 
 
 end

@@ -74,7 +74,7 @@
       .form-group
         .row
           .col-md-9
-            = f.input :address, label: "Dirección:", placeholder: "Ingrese su dirección...", hint: "*Si el pin no se sitúa en el lugar de tu dirección, por favor ajústalo."
+            = f.input :address, label: "Dirección:", placeholder: "Ingrese su dirección...", hint: "*Si el pin no se sitúa en el lugar de tu dirección, por favor ajústalo.", input_html: {:onchange=>"codeAddress()"}
           .col-md-3
             %label{:for => "search_address", :style => "display:block;color:white"} Buscar
             %button#search_address.btn.btn-primary.form-control.ml-0{:name => "search_address", :type => "button"} Buscar 
@@ -122,6 +122,9 @@
 :javascript
           
     var itemLatLng = {lat: 19.414319, lng: -99.128175};
+    var newProviderMap;
+    var geocoder = new google.maps.Geocoder();
+    var marker;
    
     $("[class^='state_']").hide();
     
@@ -136,20 +139,30 @@
     
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
-        
-        var newProviderMap = initMap('newProviderMap', 'mapNew');
-        
+         
         var pos = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
+        
+        newProviderMap = new google.maps.Map(document.getElementById('mapNew'), {
+          center: pos,
+          zoom: 8
+        });
+        
+        
  
         newProviderMap.setCenter(pos);
          
-        var marker = new google.maps.Marker({
+        marker = new google.maps.Marker({
             draggable: true,
             position: pos,
             map: newProviderMap
+        });
+        
+        google.maps.event.addListener(marker,'drag',function(event) {
+            $("#provider_latitude").val(event.latLng.lat());
+            $("#provider_longitude").val(event.latLng.lng());
         });
         
       }, function() {
@@ -160,7 +173,25 @@
         
     }
     
+    
+  
             
+    function codeAddress() {
+        var address = document.getElementById("provider_address").value;
+        geocoder.geocode( { 'address': address}, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            newProviderMap.setCenter(results[0].geometry.location);
+            marker.setPosition( results[0].geometry.location );
+            console.log(results[0].geometry.location);
+            $("#provider_latitude").val(results[0].geometry.location.lat());
+            $("#provider_longitude").val(results[0].geometry.location.lng());
+          } else {
+            alert("Geocode was not successful for the following reason: " + status);
+          }
+        });
+      }
+    
+  
     
     
     
