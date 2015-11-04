@@ -46,7 +46,11 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    session[:previous_url] || root_path
+    if resource.class == User
+      session[:previous_url] || root_path
+    else
+      return '/'
+    end
   end
   
   helper_method :current_country
