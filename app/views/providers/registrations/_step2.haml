@@ -59,12 +59,16 @@
         .row
           .col-md-12.tricol_checkboxes
             %label ¿Con que tamaños de perro trabaja? 
-            = f.association :sizes, as: :check_boxes, label: false
+            = f.association :sizes, as: :check_boxes, label: false 
+      .row
+        .col-md-12.tricol_checkboxes
+          %label Etapas de vida de los perros que cuida 
+          = f.association :agings, as: :check_boxes, label: false
       .form-group
         .row
-          .col-md-12.tricol_checkboxes
-            %label Etapas de vida de los perros que cuida 
-            = f.association :ages, as: :check_boxes, label: false
+          .col-md-12 Comportamiento de perros aceptados
+        .row
+          .col-md-12= f.association :accepted_behaviors, as: :check_boxes, label: false
       .form-group
         .row
           .col-md-12
@@ -101,20 +105,15 @@
           .col-md-12 Tamaño de Perro
         .row
           .col-md-12.tricol_checkboxes= f.association :own_sizes, as: :check_boxes, label: false
-      .form-group 
-        .row
-          .col-md-3 Comportamiento del Perro
-          .col-md-9= f.association :behavior, label: false
+      .row
+        .col-md-12 Comportamiento de mis perros
+      .row
+        .col-md-12= f.association :pet_behaviors, as: :check_boxes, label: false
       .form-group
         .row
           .col-md-9 ¿Cantidad de perros aceptado en su propiedad?
           .col-md-3= f.input :pets_allowed, label: false
-      .form-group
-        .row 
-          .col-md-12 Comportamiento de perros aceptados
-      .form-group
-        .row 
-          .col-md-12 
+ 
             
       .form-group
         .row

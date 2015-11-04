@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class AcceptedBehaviorsTest < ActiveSupport::TestCase
+class AcceptedBehaviorTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

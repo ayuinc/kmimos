@@ -78,7 +78,9 @@
                     = pet.object.name.to_s != "" ? best_in_place(pet.object, :behavior_id, as: :select, collection: Behavior.all.map{|b| [b.id, b.behavior_name] }) : pet.association(:behavior, label: false)
             .new_pet_fieldset
               = f.link_to_add "Agregar Mascota", :pets, class: "btn btn-primary" 
-    
+            %br
+            %h4 Cuidadores Favoritos
+            %hr
 %br
 
 :javascript

@@ -1,6 +1,7 @@
 class PetBehavior < ActiveRecord::Base
-  has_many :providers
-  has_many :pet 
+  belongs_to :provider
+  has_many :pet
+  belongs_to :behavior 
   
   def to_s
     behavior_name

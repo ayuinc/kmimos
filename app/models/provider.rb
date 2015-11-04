@@ -10,9 +10,7 @@ class Provider < ActiveRecord::Base
   belongs_to :property
   belongs_to :behavior
   
-  
-  serialize :behaviors_accepted, Array
-  
+     
   paginates_per 10
   
   mount_uploader :avatar, AvatarUploader
@@ -44,6 +42,12 @@ class Provider < ActiveRecord::Base
    
   has_many :provider_attachments
   accepts_nested_attributes_for :provider_attachments
+  
+  has_many :pet_behaviors
+  has_many :own_behaviors, :through => :pet_behaviors, :source => :behavior
+  
+  has_many :accepted_behaviors
+  has_many :valid_behaviors, :through => :accepted_behaviors, :source => :behavior 
   
   validates_presence_of :email, :name, :last_name_1, :phone, :dni
   validates_format_of :email, with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

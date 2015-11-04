@@ -26,6 +26,8 @@ ServihogarRails::Application.routes.draw do
  
   resources :comments
   
+  resources :favorites
+  
   get 'beneficios' => 'providers#benefits'
   
   namespace :api, defaults: { format: 'json' } do

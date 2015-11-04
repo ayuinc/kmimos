@@ -87,7 +87,9 @@
                 #a.oculto.text-center.pt-21
                   %img{:alt => "", :src => "assets/icono-huella-hover.svg", :width => "70"}/
                   %h4.bold.text-center.mv-7.text-white= provider
-                  .rating-reviews.pl-14.mt-7
+                  - val = Valuation.by_comments(provider.id)
+                  - score = val.map{|val| val[1]}.reduce(:+).to_i / val.size.to_i rescue 0
+                  .ratingStars{score: score, readOnly: true}
 
     .row.pb-56#recomendacion.bg-primary{style: "background-image: url(assets/home-descuento-background.svg);"}
       .container.pv-42
