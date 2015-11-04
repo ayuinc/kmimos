@@ -40,7 +40,7 @@
       .div{class: "state_#{state.id} row", style: "display: none;"}
         .col-md-12
           %label= state
-          .tricol_checkboxes= f.association :locations, as: :check_boxes, label: false, :collection => state.locations
+          .tricol_checkboxes= f.association :localizations, as: :check_boxes, label: false, :collection => state.locations
     .row
       .col-md-6 Años de experiencia cuidando perros
       .col-md-2= f.input :experiencia, label: false
