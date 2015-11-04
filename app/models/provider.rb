@@ -64,7 +64,7 @@ class Provider < ActiveRecord::Base
   scope :providers_sliced, -> (n, providers) {providers.each_slice(n).to_a}
   scope :on_top_providers, -> (n) {where(on_top: true).limit(n)}
   
-  def is_favorite(user)
+  def favorite?(user)
     Favorite.where("user_id = ? AND provider_id = ?", user.id, self.id).count > 0
   end
   
