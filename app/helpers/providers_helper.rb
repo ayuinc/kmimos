@@ -3,4 +3,6 @@ module ProvidersHelper
     3.times { provider.rates.build }
     provider
   end
+  
+  
 end

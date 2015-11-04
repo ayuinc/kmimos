@@ -23,13 +23,22 @@
                   %br
                   %p.mt-7.mb-7.text-gray= state.map(&:name).join(", ")  
                 -if current_user != nil
-                  .row
-                    .col-md-5
-                    .col-md-7
-                      = simple_form_for Favorite.new, remote: true, url: url do |f|  
-                      .btn.bordered-btn 
-                        %i.fa.fa-heart-o
-                        %small Guardar como cuidador favorito
+                  - if @provider.is_favorite(current_user)
+                    .row
+                      .col-md-5
+                      .col-md-7
+                        = simple_form_for Favorite.new, remote: true, url: url do |f|  
+                        .btn.bordered-btn 
+                          %i.fa.fa-heart
+                          %small Eliminar de mis favoritos
+                  - else 
+                    .row
+                      .col-md-5
+                      .col-md-7
+                        = simple_form_for Favorite.new, remote: true, url: url do |f|  
+                        .btn.bordered-btn 
+                          %i.fa.fa-heart-o
+                          %small Guardar como cuidador favorito
         %h3.text-gray Detalles
         .row.details-profile.mt-35
           .col-md-3

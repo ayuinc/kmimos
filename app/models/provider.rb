@@ -64,6 +64,10 @@ class Provider < ActiveRecord::Base
   scope :providers_sliced, -> (n, providers) {providers.each_slice(n).to_a}
   scope :on_top_providers, -> (n) {where(on_top: true).limit(n)}
   
+  def is_favorite(user)
+    Favorites.where(user_id: user.id, provider_id: self.id).count > 0
+  end
+  
   def get_behaviors
     #Behavior.find(self.behaviors_accepted)
     self.behaviors_accepted
