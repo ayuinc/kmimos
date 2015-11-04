@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
 
 	def new
     
-    @services = Service.find(params[:services])
+    @services =  params[:services] != nil ? Service.find(params[:services]) : []
     
 		@provider = Provider.find(params[:booking][:provider_id]) 
 	  @booking = Booking.new

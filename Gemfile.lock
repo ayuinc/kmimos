@@ -27,6 +27,15 @@ GIT
       mime-types
       mimemagic (= 0.3.0)
 
+GIT
+  remote: git://github.com/zpaulovics/datetimepicker-rails.git
+  revision: 36d21cec5da7f5b214925804f60e63c61c747023
+  branch: master
+  submodules: true
+  specs:
+    datetimepicker-rails (4.7.16)
+      momentjs-rails (>= 2.9.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -228,6 +237,8 @@ GEM
     mimemagic (0.3.0)
     mini_portile (0.6.2)
     minitest (5.8.1)
+    momentjs-rails (2.10.6)
+      railties (>= 3.1)
     multi_json (1.11.2)
     nested_form (0.3.2)
     net-scp (1.2.1)
@@ -367,6 +378,7 @@ DEPENDENCIES
   capybara
   carrierwave
   coffee-rails (~> 4.0.0)
+  datetimepicker-rails!
   devise
   faker
   fog (~> 1.24.0)
@@ -380,6 +392,7 @@ DEPENDENCIES
   jquery-ui-rails (~> 5.0.3)
   kaminari
   meta_request
+  momentjs-rails
   nested_form
   paperclip!
   pg (~> 0.17.1)

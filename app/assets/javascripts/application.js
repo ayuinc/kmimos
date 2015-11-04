@@ -46,6 +46,9 @@
 //= require modules/providers_module/controllers/providers.controller.js
 //= require modules/bookings_module/controllers/bookings.controller.js
 //= require_self
+//= require moment
+//= require bootstrap-datetimepicker
+//= require pickers
 
 
 $(document).ready(function() {

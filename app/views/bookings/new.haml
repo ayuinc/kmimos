@@ -46,10 +46,10 @@
               =f.input :start_date, as: :string, label: false, input_html: {class: "date start datepicker_min", 'ng-model': 'minDate', 'ng-change': 'get_diff_dates()'} 
             .col-md-3
               Horas
-              =f.input :start_date, as: :time, label: false, input_html: {class: "time start"} 
+              =f.input :start_date, :as => :time_picker, label: false, input_html: {style: "width: 50%; display: inline;"}
             .col-md-3
               Hora
-              =f.input :end_date, as: :time, label: false, input_html: {class: "time end"} 
+              =f.input :end_date, :as => :time_picker, label: false, input_html: {style: "width: 50%; display: inline;"}
             .col-md-3
               Salida
               =f.input :end_date, as: :string, label: false, input_html: {class: "date end datepicker_max", 'ng-model': 'maxDate', 'ng-change': 'get_diff_dates()'}
@@ -90,7 +90,7 @@
               .row.border-bottom
                 .col-md-3 Servicio:
                 .col-md-3
-                  %select.form-control.bkd_srv{name: "booking[booked_services_attributes][][service_id]"}(ng-model= "serv.service_id")
+                  %select.form-control.bkd_srv{name: "booking[booked_services_attributes][][service_id]"}(ng-model= "serv.service_id" ng-change="update_services()")
                     -Service.all.each do |se|
                       %option{value: se.id}= se
                 .col-md-3 

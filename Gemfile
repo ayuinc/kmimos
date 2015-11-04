@@ -48,6 +48,9 @@ gem 'ruby-graphviz', :require => 'graphviz'
 
 #gem 'typescript-rails'
 
+gem 'momentjs-rails'
+gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
+
 gem 'cancancan'
 gem 'nested_form'
 
