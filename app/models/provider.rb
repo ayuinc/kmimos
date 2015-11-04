@@ -65,7 +65,7 @@ class Provider < ActiveRecord::Base
   scope :on_top_providers, -> (n) {where(on_top: true).limit(n)}
   
   def is_favorite(user)
-    Favorites.where("user_id = ? AND provider_id = ?", user.id, self.id).count > 0
+    Favorite.where("user_id = ? AND provider_id = ?", user.id, self.id).count > 0
   end
   
   def get_behaviors
