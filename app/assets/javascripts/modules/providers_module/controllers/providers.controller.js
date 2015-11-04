@@ -29,6 +29,9 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
       floor: 0
   };
   
+  $scope.onClick = function(marker, eventName, model) { 
+      model.show = !model.show;
+  };
   
   
   $scope.$watch('filteredProviders', function() {
@@ -38,7 +41,7 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
     var log = [];
 
     angular.forEach($scope.filteredProviders, function(provider, key) { 
-      temp_markers.push({latitude: provider.latitude, longitude: provider.longitude, id: provider.id, icon:'assets/huella-mensaje-17-mini.png' });
+      temp_markers.push({latitude: provider.latitude, longitude: provider.longitude, id: provider.id, icon:'assets/huella-mensaje-17-mini.png', title: provider.name });
     }, log);
 
     $scope.map.markers = temp_markers;

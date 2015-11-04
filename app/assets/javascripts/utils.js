@@ -68,6 +68,29 @@ $(".ratingStars").ready(function(){
 });
 
 
+var paint_ratings_white = function(){
+     $(".ratingStarsWhite").raty({
+        score: function() {
+          var el = $(this).attr('el');
+          $(el).val($(this).attr('score'));
+          $(el).hide();
+          return $(this).attr('score');
+        },
+        readOnly: $(this).attr('readOnly'),
+        click: function(score, evt) {
+          var el = $(this).attr('el');
+          $(el).val(score);
+        },
+        starOff : '/assets/icono-hueso-gris.svg',
+        starOn  : '/assets/icono-hueso-blanco.svg'
+      });
+};
+
+
+$(".ratingStarsWhite").ready(function(){
+  paint_ratings_white();
+});
+
 
 var paint_pretty_uploads = function(){
 

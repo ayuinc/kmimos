@@ -89,7 +89,7 @@
                   %h4.bold.text-center.mv-7.text-white= provider
                   - val = Valuation.by_comments(provider.id)
                   - score = val.map{|val| val[1]}.reduce(:+).to_i / val.size.to_i rescue 0
-                  .ratingStars{score: score, readOnly: true}
+                  .ratingStarsWhite{score: score, readOnly: true}
 
     .row.pb-56#recomendacion.bg-primary{style: "background-image: url(assets/home-descuento-background.svg);"}
       .container.pv-42
