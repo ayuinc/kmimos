@@ -9,7 +9,7 @@
         - comment.comment_valuations.each do |cval|
           .col-md-3.col-xs-6
             %b=cval.valuation.name
-            .ratingStars.mt-7{el: "this", score: cval.value.to_i} 
+            .ratingStars.mt-7{el: "this", score: cval.value.to_i, readOnly: true} 
       .comment-text.row.mt-21
         .col-xs-12
           %p= comment.body
