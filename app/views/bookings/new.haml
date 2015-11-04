@@ -47,12 +47,13 @@
             .col-md-3
               Horas
               =f.input :pickup_time, :as => :time_picker, label: false, input_html: {style: "width: 50%; display: inline;"}
-            .col-md-3
-              Hora
-              =f.input :dropoff_time, :as => :time_picker, label: false, input_html: {style: "width: 50%; display: inline;"}
+            
             .col-md-3
               Salida
               =f.input :end_date, as: :string, label: false, input_html: {class: "date end datepicker_max", 'ng-model': 'maxDate', 'ng-change': 'get_diff_dates()'}
+            .col-md-3
+              Hora
+              =f.input :dropoff_time, :as => :time_picker, label: false, input_html: {style: "width: 50%; display: inline;"}
 
           .hr-gray
           .panel.panel-primary 
@@ -178,11 +179,13 @@
   
   $('.datepicker_max').datepicker();
   
-  $('.datepicker_max').datepicker("setDate", "#{Date.strptime(session[:to_date],'%m/%d/%Y').strftime('%d/%m/%Y')}");
-  
-  $('.datepicker_min').datepicker("setDate", "#{Date.strptime(session[:from_date],'%m/%d/%Y').strftime('%d/%m/%Y')}");
   
   setTimeout(function(){  
+  
+    $('.datepicker_max').datepicker("setDate", "#{Date.strptime(session[:to_date],'%m/%d/%Y').strftime('%d/%m/%Y')}");
+  
+    $('.datepicker_min').datepicker("setDate", "#{Date.strptime(session[:from_date],'%m/%d/%Y').strftime('%d/%m/%Y')}");
+    
     
     $('.datepicker_max').change();
     $('.datepicker_min').change();
