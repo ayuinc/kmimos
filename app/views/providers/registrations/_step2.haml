@@ -101,7 +101,7 @@
           .col-md-12 Tamaño de Perro
         .row
           .col-md-12.tricol_checkboxes= f.association :own_sizes, as: :check_boxes, label: false
-      .form-group
+      .form-group 
         .row
           .col-md-3 Comportamiento del Perro
           .col-md-9= f.association :behavior, label: false
@@ -109,6 +109,13 @@
         .row
           .col-md-9 ¿Cantidad de perros aceptado en su propiedad?
           .col-md-3= f.input :pets_allowed, label: false
+      .form-group
+        .row 
+          .col-md-12 Comportamiento de perros aceptados
+      .form-group
+        .row 
+          .col-md-12 
+            
       .form-group
         .row
           .col-md-8 ¿La propiedad tiene áreas verdes cercanas? 
