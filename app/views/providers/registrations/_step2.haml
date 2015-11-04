@@ -15,7 +15,7 @@
           .col-md-3 Precio por noche: 
           .col-md-9  
             - Size.all.each do |size|
-              .row
+              .row  
                 .col-md-8
                   %label= size 
                   %input{value: size.id}(name="provider[rates_attributes][][size_id]" type="hidden")
@@ -59,11 +59,11 @@
         .row
           .col-md-12.tricol_checkboxes
             %label ¿Con que tamaños de perro trabaja? 
-            = f.association :sizes, as: :check_boxes, label: false 
+            = f.association :sizes, as: :check_boxes, label: false
       .row
         .col-md-12.tricol_checkboxes
           %label Etapas de vida de los perros que cuida 
-          = f.association :agings, as: :check_boxes, label: false
+          = f.association :agings, as: :check_boxes, label: false, :collection => @provider.agings
       .form-group
         .row
           .col-md-12 Comportamiento de perros aceptados
