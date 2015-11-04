@@ -29,6 +29,8 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
       floor: 0
   };
   
+  
+  
   $scope.$watch('filteredProviders', function() {
     console.log("changed!");
     

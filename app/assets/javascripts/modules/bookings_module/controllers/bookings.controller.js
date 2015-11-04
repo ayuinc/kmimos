@@ -38,6 +38,14 @@ bookings_module.controller('BookingsController', ['$scope', '$filter', '$http', 
     
   }
   
+  $scope.deleteServ=function(serv) {
+    $scope.services_booked.splice($scope.services_booked.indexOf(serv), 1);
+  }
+  
+  $scope.deletePet=function(pet) {
+    $scope.pets_booked.splice($scope.pets_booked.indexOf(pet), 1);
+  }
+  
    
   
   $scope.add_pet = function(){  

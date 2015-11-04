@@ -66,7 +66,9 @@
                     %select.form-control{name: "booking[booked_pets_attributes][][pet_id]"}(ng-model= "pet.pet_id"  ng-change="update_pets(#{@provider.id})")
                       -current_user.pets.each do |pet|
                         %option{value: pet.id}= pet
-                  .col-md-3 $ {{ pet.price }} MXN
+                  .col-md-2 $ {{ pet.price }} MXN
+                  .col-md-1
+                    %a(ng-click="deletePet(pet)" href="#") X
               %center
                 %a.btn.btn-primary(ng-click="add_pet()") Agregar Mascota
               .row 
@@ -95,7 +97,9 @@
                   %select.form-control.bkd_pt{name: "booking[booked_services_attributes][][pet_id]"}(ng-model= "serv.pet_id" ng-change="update_services()")
                     -current_user.pets.each do |pet|
                       %option{value: pet.id}= pet
-                .col-md-3 $ {{serv.price}}  MXN
+                .col-md-2 $ {{serv.price}}  MXN
+                .col-md-1
+                  %a(ng-click="deleteServ(serv)" href="#") X
             %center
               %a.btn.btn-primary.add_srv_btn(ng-click="add_service()") Agregar Servicio
           .panel-heading 
