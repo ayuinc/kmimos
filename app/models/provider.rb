@@ -20,19 +20,22 @@ class Provider < ActiveRecord::Base
   
   has_many :agings
   has_many :ages, :through => :agings
-  
+  accepts_nested_attributes_for :agings 
   
   has_many :favorites
   
   
   has_many :sizings
   has_many :sizes, :through => :sizings
+  accepts_nested_attributes_for :sizings 
   
   has_many :own_sizings
   has_many :own_sizes, :through => :own_sizings, :source => :size 
+  accepts_nested_attributes_for :own_sizings 
   
   has_many :localizations
   has_many :locations, through: :localizations, :source => :location
+  accepts_nested_attributes_for :localizations
    
   has_many :comments
   

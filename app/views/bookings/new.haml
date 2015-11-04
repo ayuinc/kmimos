@@ -172,9 +172,15 @@
  
     
 :javascript 
+
+  
   $('.datepicker_min').datepicker();
   
   $('.datepicker_max').datepicker();
+  
+  $('.datepicker_max').datepicker("setDate", "#{session[:to_date]}");
+  
+  $('.datepicker_min').datepicker("setDate", "#{session[:from_date]}");
   
   setTimeout(function(){  
     
