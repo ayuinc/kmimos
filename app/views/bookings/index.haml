@@ -26,7 +26,7 @@
                   %b Salida
                   = book.end_date
               %td
-                = "#{book.provider.first_name} #{book.provider.last_name}"
+                = "#{book.provider.name} #{book.provider.last_name}"
               %td
                 = book.booked_services.map{|bs| bs.service}.join(' ,')
               %td
