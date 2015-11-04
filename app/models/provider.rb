@@ -24,6 +24,8 @@ class Provider < ActiveRecord::Base
   has_many :ages, :through => :agings
   
   
+  has_many :favorites
+  
   
   has_many :sizings
   has_many :sizes, :through => :sizings

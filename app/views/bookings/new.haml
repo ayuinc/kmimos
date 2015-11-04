@@ -88,16 +88,16 @@
               .row.border-bottom
                 .col-md-3 Servicio:
                 .col-md-3
-                  %select.form-control{name: "booking[booked_services_attributes][][service_id]"}(ng-model= "serv.service_id")
+                  %select.form-control.bkd_srv{name: "booking[booked_services_attributes][][service_id]"}(ng-model= "serv.service_id")
                     -Service.all.each do |se|
                       %option{value: se.id}= se
                 .col-md-3 
-                  %select.form-control{name: "booking[booked_services_attributes][][pet_id]"}(ng-model= "serv.pet_id" ng-change="update_services()")
+                  %select.form-control.bkd_pt{name: "booking[booked_services_attributes][][pet_id]"}(ng-model= "serv.pet_id" ng-change="update_services()")
                     -current_user.pets.each do |pet|
                       %option{value: pet.id}= pet
                 .col-md-3 $ {{serv.price}}  MXN
             %center
-              %a.btn.btn-primary(ng-click="add_service()") Agregar Servicio
+              %a.btn.btn-primary.add_srv_btn(ng-click="add_service()") Agregar Servicio
           .panel-heading 
             %hr.hr-gray/
           .panel-body  
@@ -157,6 +157,14 @@
  
           %div
             %h5 *La reservación del cuidador está sujeta a cambios por motivos de disponibilidad, tamaño de perro y cuidados necesarios.
+
+- @services.each do |service| 
+  :javascript
+    setTimeout(function(){ 
+      $('.add_srv_btn').click();
+      $('.bkd_srv:last-child').val("#{service.id}")
+    }, 1000);
+  
  
     
 :javascript 

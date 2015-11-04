@@ -13,7 +13,12 @@ class Api::BookingsController < ApplicationController
     
     additional_service = AdditionalService.where(size_id: pet.size_id, service_id: service.id).last
      
-    price= additional_service.price rescue 0;
+    price = additional_service.price rescue 0;
+    
+    
+    p pet
+    p service
+    
     
     response = {service_name: service.to_s, pet_name: pet.to_s, price: price}
      
@@ -28,6 +33,7 @@ class Api::BookingsController < ApplicationController
     provider = Provider.find(params[:provider])
     
     rate = Rate.where(provider_id: provider.id, size_id: pet.size_id).last
+    
     
     price = rate.price rescue 0
     

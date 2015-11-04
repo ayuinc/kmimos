@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
    has_many :pets, :through => :user_pets
    has_many :bookings
    has_many :comments
+   has_many :favorites
    
    accepts_nested_attributes_for :pets, :allow_destroy => true, update_only: true
    

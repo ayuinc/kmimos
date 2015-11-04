@@ -1,163 +1,168 @@
 
 .container.pvp-7.ph-21
-  .row.mv-56
-    .col-md-2
-    .col-md-7
-      .info
-        .user.border-bottom
-          .user-card.user-card-round.size.xs.mb-21.row
-            .user-pic.col-md-3
-              = image_tag(@provider.avatar, class: 'avatar') if @provider.avatar?
-              = image_tag('server_carnet.png', class: 'avatar') unless @provider.avatar?
-              %center
-                - val = Valuation.by_comments(@provider.id)
-                - score = val.map{|val| val[1]}.reduce(:+).to_i / val.size.to_i rescue 0
-                .ratingStars{score: score, readOnly: true}
-            .user-info.col-md-9
-              %h3.m-0.mb-7
-                = "#{@provider.name} #{@provider.last_name_1}" 
-              - @provider.locations.group_by(&:state_id).each do |k, state|
-                %b.mb-7= state.first.state 
-                %br
-                %p.mt-7.mb-7.text-gray= state.map(&:name).join(", ")  
-              .row
-                .col-md-5
-                .col-md-7
-                  .btn.bordered-btn 
-                    %i.fa.fa-heart-o
-                    %small Guardar como cuidador favorito
-      %h3.text-gray Detalles
-      .row.details-profile.mt-35
-        .col-md-3
-          %p.label-small 
-            -if @provider.property != nil
-              ="Tipo de propiedad" 
-              .icon= image_tag('detalles-casa.svg', height: '32px')
-            - else 
-              Tipo de propiedad
-              .icon= image_tag('detalles-casa.svg', height: '32px')
-              No Especificado
-          %p.label-small= @provider.property
-        .col-md-3
-          %p.label-small Tamaño aceptados
-          .icon= image_tag('detalles-perro-grande.svg', height: '32px') 
-          %p.label-small="Perros #{@provider.sizes.map{|size| size.size_title}.join(', ')} " 
-        .col-md-3
-          %p.label-small Edad aceptada para perros
-          .icon= image_tag('detalles-edad-perro-cachorro.svg', height: '32px')
-          %p.label-small="#{@provider.ages.join(' ')} "  
-        .col-md-3 
-          .icon= image_tag('detalles-experiencia.svg', height: '32px')
-          %p.label-small= "#{@provider.experiencia} años de experiencia" 
-      .border-bottom.mt-21
+  = simple_form_for Booking.new, :url => new_booking_path do |f| 
+    .row.mv-56
+      .col-md-2
+      .col-md-7
+        .info
+          .user.border-bottom
+            .user-card.user-card-round.size.xs.mb-21.row
+              .user-pic.col-md-3
+                = image_tag(@provider.avatar, class: 'avatar') if @provider.avatar?
+                = image_tag('server_carnet.png', class: 'avatar') unless @provider.avatar?
+                %center
+                  - val = Valuation.by_comments(@provider.id)
+                  - score = val.map{|val| val[1]}.reduce(:+).to_i / val.size.to_i rescue 0
+                  .ratingStars{score: score, readOnly: true}
+              .user-info.col-md-9
+                %h3.m-0.mb-7
+                  = f.input :provider_id, as: :hidden, input_html: {value: @provider.id}
+                  = "#{@provider.name} #{@provider.last_name_1}" 
+                - @provider.locations.group_by(&:state_id).each do |k, state|
+                  %b.mb-7= state.first.state 
+                  %br
+                  %p.mt-7.mb-7.text-gray= state.map(&:name).join(", ")  
+                .row
+                  .col-md-5
+                  .col-md-7
+                    .btn.bordered-btn 
+                      %i.fa.fa-heart-o
+                      %small Guardar como cuidador favorito
+        %h3.text-gray Detalles
+        .row.details-profile.mt-35
+          .col-md-3
+            %p.label-small
+              -if @provider.property != nil
+                ="Tipo de propiedad" 
+                .icon= image_tag('detalles-casa.svg', height: '32px')
+              - else 
+                Tipo de propiedad
+                .icon= image_tag('detalles-casa.svg', height: '32px')
+                No Especificado
+            %p.label-small= @provider.property
+          .col-md-3
+            %p.label-small Tamaño aceptados
+            .icon= image_tag('detalles-perro-grande.svg', height: '32px') 
+            %p.label-small="Perros #{@provider.sizes.map{|size| size.size_title}.join(', ')} " 
+          .col-md-3
+            %p.label-small Edad aceptada para perros
+            .icon= image_tag('detalles-edad-perro-cachorro.svg', height: '32px')
+            %p.label-small="#{@provider.ages.join(' ')} "  
+          .col-md-3 
+            %p.label-small Años de experiencia
+            .icon= image_tag('detalles-experiencia.svg', height: '32px')
+            %p.label-small= "#{@provider.experiencia} " 
+        .border-bottom.mt-21
         
-      %h3.text-gray.mb-35.mt-49= "Fotos de #{@provider.name} #{@provider.last_name_1}"
-      / Place somewhere in the <body> of your page
-      #slider.flexslider.carousel-gallery.mb-7
-        - if !@provider_attachments.empty?
-          %ul.slides
-            - @provider_attachments.each do |p|
-              %li
-                .row.ml-0.mr-0
-                  .col-md-12.server-pic.ph-0
-                    = image_tag p.photo_url
-        - else
-          %p No hay fotos
-      #carousel.flexslider
-        - if !@provider_attachments.empty?
-          %ul.slides
-            - @provider_attachments.each do |p|
-              %li
-                = image_tag p.photo_url 
-      %h3.text-gray.mb-35 Otros detalles
-      .row.details-profile.pl-21
-        .col-md-3
-          %p.label-small Tengo
-          .icon= image_tag('otros-detalles-otros-perros.svg', height: '32px')
-          %p.label-small= "#{@provider.number_of_pets} Perros en casa (#{@provider.own_sizes.map{|size| size.size_title}.join(', ')})" 
-        .col-md-3
-          %p.label-small Mi propiedad
-          .icon= image_tag('otros-detalles-patio.svg', height: '32px')
-          %p.label-small= @provider.has_yard ? "Tiene patio" : "No tiene patio"
-        .col-md-3
-          %p.label-small Mi propiedad
-          .icon= image_tag('otros-detalles-areas-verdes.svg', height: '32px')
-          %p.label-small= @provider.has_green ? "Tiene areas Verdes" : "No tiene areas verdes"
-        .col-md-3 
-          %p.label-small # de Perros aceptados
-          .icon= image_tag('otros-detalles-cantidad-perros.svg', height: '32px')
-          %p.label-small="#{@provider.pets_allowed.to_i}"
+        %h3.text-gray.mb-35.mt-49= "Fotos de #{@provider.name} #{@provider.last_name_1}"
+        / Place somewhere in the <body> of your page
+        #slider.flexslider.carousel-gallery.mb-7
+          - if !@provider_attachments.empty?
+            %ul.slides
+              - @provider_attachments.each do |p|
+                %li
+                  .row.ml-0.mr-0
+                    .col-md-12.server-pic.ph-0
+                      = image_tag p.photo_url
+          - else
+            %p No hay fotos
+        #carousel.flexslider
+          - if !@provider_attachments.empty?
+            %ul.slides
+              - @provider_attachments.each do |p|
+                %li
+                  = image_tag p.photo_url 
+        %h3.text-gray.mb-35 Otros detalles
+        .row.details-profile.pl-21
+          .col-md-3
+            %p.label-small Tengo
+            .icon= image_tag('otros-detalles-otros-perros.svg', height: '32px')
+            %p.label-small= "#{@provider.number_of_pets} Perros en casa (#{@provider.own_sizes.map{|size| size.size_title}.join(', ')})" 
+          .col-md-3
+            %p.label-small Mi propiedad
+            .icon= image_tag('otros-detalles-patio.svg', height: '32px')
+            %p.label-small= @provider.has_yard ? "Tiene patio" : "No tiene patio"
+          .col-md-3
+            %p.label-small Mi propiedad
+            .icon= image_tag('otros-detalles-areas-verdes.svg', height: '32px')
+            %p.label-small= @provider.has_green ? "Tiene areas Verdes" : "No tiene areas verdes"
+          .col-md-3 
+            %p.label-small # de Perros aceptados
+            .icon= image_tag('otros-detalles-cantidad-perros.svg', height: '32px')
+            %p.label-small="#{@provider.pets_allowed.to_i}"
       
-      .descripcion-perfil.border-top
-        %h3.text-gray
-          Sobre #{@provider.name}:
-        %p= @provider.description
-      .ubicacion
-        %h3.text-gray Ubicación
-        .row
-          .col-md-5 
-            %h4.text-secondary Areas del Servicio
-            - @provider.locations.group_by(&:state_id).each do |k, state|
-              %h4.mb-14.mt-21.pb-7.border-bottom= state.first.state 
-              - state.each do |city|
-                .city-span.mt-7.mb-7
-                  = image_tag('icono-distritos.svg')
-                  %span.text-third= city
-                  %br 
-          .col-md-7 
-            #map{style: "width: 100%; height: 400px;", latitude: @provider.latitude, longitude: @provider.longitude, zoom: "14"}
-            .circle{latitude: @provider.latitude, longitude: @provider.longitude, radio: '800'}
-      .Comportamientos
-        %h3.text-gray Comportamientos de perros aceptados   
-        .row
-          - @provider.get_behaviors.each do |behavior|
-            =image_tag('huella-mensaje-17-mini.png')
-      .comentarios
-        %h3.text-gray Experiencias Kmimos2
-        #comments-div
-          = render partial: 'layouts/partial/comments', locals: {provider: @provider}
+        .descripcion-perfil.border-top
+          %h3.text-gray
+            Sobre #{@provider.name}:
+          %p= @provider.description
+        .ubicacion
+          %h3.text-gray Ubicación
+          .row
+            .col-md-5 
+              %h4.text-secondary Areas del Servicio
+              - @provider.locations.group_by(&:state_id).each do |k, state|
+                %h4.mb-14.mt-21.pb-7.border-bottom= state.first.state 
+                - state.each do |city|
+                  .city-span.mt-7.mb-7
+                    = image_tag('icono-distritos.svg')
+                    %span.text-third= city
+                    %br 
+            .col-md-7 
+              #map{style: "width: 100%; height: 400px;", latitude: @provider.latitude, longitude: @provider.longitude, zoom: "14"}
+              .circle{latitude: @provider.latitude, longitude: @provider.longitude, radio: '800'}
+        .Comportamientos
+          %h3.text-gray Comportamientos de perros aceptados   
+          .row
+            - @provider.get_behaviors.each do |behavior|
+              =image_tag('huella-mensaje-17-mini.png')
+        .comentarios
+          %h3.text-gray Experiencias Kmimos2
+          #comments-div
+            = render partial: 'layouts/partial/comments', locals: {provider: @provider}
           
-    .col-md-3
-      .content-article.mt-14.mb-28.m-21 
-        %p.light.mb-0.text-gray.text-small Desde
-        %h4.m-7.price
-          = 1.2*(@provider.rates.minimum(:price))
-          = current_country.currency
-        %h5.light.mt-0.text-gray.text-small por noche
+      .col-md-3
+        .content-article.mt-14.mb-28.m-21 
         
-        = link_to "Reservar".html_safe, new_booking_path(:provider_id => @provider.id, :start_date => @start_date, :end_date => @end_date), :class => "mt-14 mb-21 btn btn-primary btn-small btn-fold",  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Reservar', 'provider_#{@provider.id.to_s}']);"
-        %br/
-        = link_to "Conocer cuidador".html_safe, new_meeting_path(:provider_id => @provider.id), :class => "text-secondary btn btn-fold", :style => "border-color: #1DBA9A; padding: 10px 7px;",  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Conocer', 'provider_#{@provider.id.to_s}']);"
-        %br
-        %p
+          %p.light.mb-0.text-gray.text-small Desde
+          %h4.m-7.price
+            = 1.2*(@provider.rates.minimum(:price))
+            = current_country.currency
+          %h5.light.mt-0.text-gray.text-small por noche
+        
+          =f.submit "Reservar".html_safe, :class => "mt-14 mb-21 btn btn-primary btn-small btn-fold" #,  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Reservar', 'provider_#{@provider.id.to_s}']);"
+          %br/
+          = link_to "Conocer cuidador".html_safe, new_meeting_path(:provider_id => @provider.id), :class => "text-secondary btn btn-fold", :style => "border-color: #1DBA9A; padding: 10px 7px;",  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Conocer', 'provider_#{@provider.id.to_s}']);"
           %br
-        %p
-          %b Check in:
-          = @provider.check_in.strftime("%H:%M")
-        %p
-          %b Check out:
-          = @provider.check_out.strftime("%H:%M")
-      .content-detalles.mt-14-mb-28.m-21.pb-14
-        .border-bottom.text-left.pl-21
-          %h4.text-gray.mv-14 
-            Servicios Adicionales
-        - @provider.additional_services.each do |service|
-          %ul
-            %li=service.service
-      .content-detalles.mt-14.mb-28.text-center.m-21.pb-14
-        .border-bottom.text-left.pl-21
-          %h4.text-gray.mv-14="#{@provider.comments.count} Evaluaciones"
-        .text-left.ph-21
-          -Valuation.by_comments(@provider.id).each do |valuation, value|
-            %h5= valuation
-            .ratingStars.pl-14.mt-7{score: value.to_i, readOnly: true}
-          %br
+          %p
+            %br
+          %p
+            %b Check in:
+            = @provider.check_in.strftime("%H:%M") rescue ""
+          %p
+            %b Check out:
+            = @provider.check_out.strftime("%H:%M") rescue ""
+        .content-detalles.mt-14-mb-28.m-21.pb-14
+          .border-bottom.text-left.pl-21
+            %h4.text-gray.mv-14 
+              Servicios Adicionales
+          - @provider.additional_services.each do |service|
+            .form-group
+              %input{value: service.id}(type="checkbox" name="services[]")
+                =service.service 
+        .content-detalles.mt-14.mb-28.text-center.m-21.pb-14
+          .border-bottom.text-left.pl-21
+            %h4.text-gray.mv-14="#{@provider.comments.count} Evaluaciones"
+          .text-left.ph-21
+            -Valuation.by_comments(@provider.id).each do |valuation, value|
+              %h5= valuation
+              .ratingStars.pl-14.mt-7{score: value.to_i, readOnly: true}
+            %br
   
 
 :javascript
 
   providerMap = initMap('providerMap', 'map');
-  
+    
   /* * * CONFIGURATION VARIABLES * * */
   var disqus_shortname = 'kmimos'; 
   

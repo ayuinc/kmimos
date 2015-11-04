@@ -13,12 +13,15 @@ ServihogarRails::Application.routes.draw do
 
   root 'providers#home'
 
+  resources :bookings
+
   resources :providers
   resources :users
 
-  resources :pets
+  resources :pets 
   
-  resources :bookings
+  post 'bookings/new' => 'bookings#new'
+  
   resources :meetings
  
   resources :comments
