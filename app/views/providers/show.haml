@@ -100,11 +100,9 @@
           .col-md-3 
             %p.label-small # de Perros aceptados
             .icon= image_tag('otros-detalles-cantidad-perros.svg', height: '32px')
-            %p.label-small="#{@provider.pets_allowed.to_i}"
-      
+            %p.label-small="#{@provider.pets_allowed.to_i}" 
         .descripcion-perfil.border-top
-          %h3.text-gray
-            Sobre #{@provider.name}:
+          %h3.text-gray=Sobre "#{@provider.name}":
           %p= @provider.description
         .ubicacion
           %h3.text-gray Ubicación
