@@ -52,7 +52,7 @@ var paint_ratings = function(){
           $(el).hide();
           return $(this).attr('score');
         },
-        readOnly: Boolean($(this).attr('readOnly')),
+        readOnly: true, //Boolean($(this).attr('readOnly'))
         click: function(score, evt) {
           var el = $(this).attr('el');
           $(el).val(score);
