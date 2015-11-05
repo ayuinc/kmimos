@@ -52,7 +52,7 @@ var paint_ratings = function(){
           $(el).hide();
           return $(this).attr('score');
         },
-        readOnly: $(this).attr('readOnly'),
+        readOnly: true, //Boolean($(this).attr('readOnly'))
         click: function(score, evt) {
           var el = $(this).attr('el');
           $(el).val(score);
@@ -69,6 +69,8 @@ $(".ratingStars").ready(function(){
 
 
 var paint_ratings_white = function(){
+     
+     
      $(".ratingStarsWhite").raty({
         score: function() {
           var el = $(this).attr('el');
