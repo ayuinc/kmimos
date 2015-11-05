@@ -5,14 +5,15 @@
     %link{:href => "css/style.css", :rel => "stylesheet"}
 
       
-  %body
+  %body{style: "background-color: #fdfff7, margin: 30px; color: #445a4f;"}
     .container{:style => "margin: 0 auto;padding: 25px;"}
       .header
         %table
           %thead
             %tr
+              %td
               %td.logo
-                %img{:src => "http://assets/logo-kmimos-a543dda8ac0dd6bed0af1a3f00e5f90bcf9f40f5779eaaef865410e423542dab.svg"}/
+                %img{:src => "http://s1.postimg.org/n12q65th7/logo_mail_confirmacion.png"}/
       .container-sm
         %tbody
           %tr
@@ -39,100 +40,23 @@
                 Para cualquier duda y/o comentario puedes contactarte al telefono 
                 %b #{@booking.provider.phone}
                 o al correo 
-                %b #{@booking.provider.email}
-                
-                
-                
-              %p Abajo los detalles de tu solicitud:
-          %table
-            %tr
-              %td
-                %p{:style => "margin: 0;"} Nombre
-              %td
-                %p{:style => "margin: 0;"}
-                  \: #{@booking.user.first_name}#{@booking.user.last_name}
-            %tr
-              %td
-                %p{:style => "margin: 0;"} Dirección
-              %td
-                %p{:style => "margin: 0;"}
-                  \: #{@booking.address}
-            %tr
-              - unless @booking.start_date.nil?
+                %b #{@booking.provider.email} 
+          - @booking.booked_pets.each do |pet|
+            %table
+              %tr
                 %td
-                  %p{:style => "margin: 0;"} Check-in
+                  %p Durante las próximas 24 horas recibirás una llamada telefónica o te contactaremos por correo electrónico para coordinar la logística de la estadía de tu mascota.
+                  %p Cualquier pregunta no dudes en contactarnos al +55 3455 0138.
+                  %p ¡Gracias!
+                  %p
+                    El equipo de   
+                    %img{:alt => "", :src => "http://s1.postimg.org/n12q65th7/logo_mail_confirmacion.png", :style => "top: 1px; position: relative;"}/
                 %td
-                  %p{:style => "margin: 0;"}
-                    \: #{@booking.start_date.strftime("%d/%m/%Y")}
-              %td
-            %tr
-              - unless @booking.pickup_time.nil?
-                %td
-                  %p{:style => "margin: 0;"} Hora de recolección
-                %td
-                  %p{:style => "margin: 0;"}
-                    \: #{@booking.pickup_time.strftime("%I:%M %p")}
-              %td
-            %tr
-              - unless @booking.end_date.nil?
-                %td
-                  %p{:style => "margin: 0;"} Check-out
-                %td
-                  %p{:style => "margin: 0;"}
-                    \: #{@booking.end_date.strftime("%d/%m/%Y")}
-              %td
-            %tr
-              - unless @booking.dropoff_time.nil?
-                %td
-                  %p{:style => "margin: 0;"} Hora de entrega
-                %td
-                  %p{:style => "margin: 0;"}
-                    \: #{@booking.dropoff_time.strftime("%I:%M %p")}
-              %td
-            %tr
-              %td
-                %p{:style => "margin: 0;"} Nombre del perro
-              %td
-                %p{:style => "margin: 0;"}
-                  \: #{@booking.pet_name}
-              %td
-            %tr
-              %td
-                %p{:style => "margin: 0;"} Raza
-              %td
-                %p{:style => "margin: 0;"}
-                  \: #{@booking.raza}
-              %td
-            %tr
-              %td
-                %p{:style => "margin: 0;"} Edad
-              %td
-                %p{:style => "margin: 0;"}
-                  \: #{@booking.edad}
-              %td
-            %tr
-              %td
-                %p{:style => "margin: 0;"} Nombre del cuidador
-              %td
-                %p{:style => "margin: 0;"}
-                  \: #{Provider.find(@booking.provider_id).name}#{Provider.find(@booking.provider_id).last_name_1}
-              %td
-            %tr
-              %td
-                %p{:style => "margin: 0;"} Precio por noche
-              %td
-                %p{:style => "margin: 0;"}
-                  \: #{@country.currency}#{Provider.find(@booking.provider_id).price.to_i}
-              %td
-          %table
-            %tr
-              %td
-                %p Durante las próximas 24 horas recibirás una llamada telefónica o te contactaremos por correo electrónico para coordinar la logística de la estadía de tu mascota.
-                %p Cualquier pregunta no dudes en contactarnos al +55 3455 0138.
-                %p ¡Gracias!
-                %p
-                  El equipo de   
-                  %img{:alt => "", :src => "http://s1.postimg.org/n12q65th7/logo_mail_confirmacion.png", :style => "top: 1px; position: relative;"}/
+                  %h3 Acerca de #{pet.pet}
+                  %br
+                  %h4 Comportamiento
+                  %p 
+           %br
           %table
             %tr
               %td
