@@ -93,15 +93,16 @@
             %p.label.text-center # Perros aceptados
             .icon= image_tag('otros-detalles-cantidad-perros.svg', height: '32px')
             %p.label-small="#{@provider.pets_allowed.to_i}" 
-        .descripcion-perfil.border-top
-          %h3.text-gray="Sobre #{@provider.name} :"
-          %p= @provider.description
         .Comportamientos
           %h3.text-gray Comportamientos de perros aceptados   
           .row.comp
             - @provider.accepted_behaviors.each do |behavior|
               = image_tag('huella_comportamientos.svg')
               = behavior
+        .descripcion-perfil.border-top
+          %h3.text-gray="Sobre #{@provider.name} :"
+          %p= @provider.description
+        
         .ubicacion
           %h3.text-gray Ubicación
           .row
