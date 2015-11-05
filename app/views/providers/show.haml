@@ -28,8 +28,8 @@
                     .col-md-7
                       - unless @provider.favorite?(current_user)
                         = simple_form_for Favorite.new do |fav|  
-                          .btn.bordered-btn 
-                            =fav.input :provider_id, as: :hidden, input_html: {value: @provider.id}
+                          = fav.input :provider_id, as: :hidden, input_html: {value: @provider.id}
+                          %submit.btn.bordered-btn
                             %i.fa.fa-heart-o
                             %small Agregar a Favoritos
                    
