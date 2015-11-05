@@ -26,10 +26,12 @@
                   .row
                     .col-md-5
                     .col-md-7
-                      = simple_form_for Favorite.new do |f|  
-                        .btn.bordered-btn 
-                          %i.fa.fa-heart
-                          %small Eliminar de mis favoritos
+                      - unless @provider.favorite?
+                        = simple_form_for Favorite.new do |fav|  
+                          .btn.bordered-btn 
+                            =fav.input :provider_id, as: :hidden, input_html: {value: @provider.id}
+                            %i.fa.fa-heart-o
+                            %small Agregar a Favoritos
                    
         %h3.text-gray Detalles
         .row.details-profile.mt-35
