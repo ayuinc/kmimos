@@ -9,7 +9,7 @@
         El dia 
         = @booking.start_date.strftime("%d/%m/%Y")
         a las 
-        = @booking.start_date.strftime("%I:%M %p")
+        = @booking.pickup_time.strftime("%I:%M %p")
         en 
         = @booking.user.address
         %b= @booking.provider 
