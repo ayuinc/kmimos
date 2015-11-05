@@ -10,9 +10,7 @@ class CommentsController < ApplicationController
     
     comment.user = current_user
     comment.save
-    
-    
-    
+     
     render action: "create", layout: false
   end
   

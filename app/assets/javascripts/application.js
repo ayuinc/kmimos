@@ -1,5 +1,5 @@
 //= require jquery
-//= require jquery_ujs
+
 
 //= require jquery.flexslider-min.js
 //= require bootstrap/transition
@@ -26,6 +26,8 @@
 //= require best_in_place
 
 //= require lodash/lodash
+
+//= require jquery_ujs
 
 
 //= require angular/angular

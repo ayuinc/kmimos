@@ -17,10 +17,7 @@
     %script{src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyCQBZylrzO1yGB_xh5dUCLhEISHFZb7a0c"}
     %script{src: "http://www.youtube.com/apiplayer?enablejsapi=1&version=3"}
     / FONTS
-    %script{:src => "//use.typekit.net/jod1lcb.js"}
-    :javascript
-      try{Typekit.load();}catch(e){}
-    / END FONTS
+  
 
   %body
     = render partial: 'layouts/partial/initializer'
@@ -28,3 +25,8 @@
     = render :partial => 'layouts/shared/search_form'
     = yield
     = render "layouts/partial/footer"
+
+  %script{:src => "//use.typekit.net/jod1lcb.js"}
+  :javascript
+    try{Typekit.load();}catch(e){}
+  / END FONTS
