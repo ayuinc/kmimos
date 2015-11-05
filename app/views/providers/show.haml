@@ -34,25 +34,25 @@
         %h3.text-gray Detalles
         .row.details-profile.mt-35
           .col-md-3
-            %p.label-small
+            %p.label.text-center
               -if @provider.property != nil
-                ="Tipo de propiedad" 
+                Tipo de propiedad 
                 .icon= image_tag('detalles-casa.svg', height: '32px')
+                %p.label-small= @provider.property
               - else 
                 Tipo de propiedad
                 .icon= image_tag('detalles-casa.svg', height: '32px')
-                No Especificado
-            %p.label-small= @provider.property
+                %p.label-small= @provider.property
           .col-md-3
-            %p.label-small Tamaño aceptados
+            %p.label.text-center Tamaño aceptados
             .icon= image_tag('detalles-perro-grande.svg', height: '32px') 
             %p.label-small="Perros #{@provider.sizes.map{|size| size.size_title}.join(', ')} " 
           .col-md-3
-            %p.label-small Edad aceptada para perros
+            %p.label.text-center Edades aceptadas
             .icon= image_tag('detalles-edad-perro-cachorro.svg', height: '32px')
             %p.label-small="#{@provider.ages.join(' ')} "  
           .col-md-3 
-            %p.label-small Años de experiencia
+            %p.label.text-center Años de experiencia
             .icon= image_tag('detalles-experiencia.svg', height: '32px')
             %p.label-small= "#{@provider.experiencia} " 
         .border-bottom.mt-21
@@ -78,19 +78,19 @@
         %h3.text-gray.mb-35 Otros detalles
         .row.details-profile.pl-21
           .col-md-3
-            %p.label-small Tengo
+            %p.label.text-center Tengo
             .icon= image_tag('otros-detalles-otros-perros.svg', height: '32px')
             %p.label-small= "#{@provider.number_of_pets} Perros en casa (#{@provider.own_sizes.map{|size| size.size_title}.join(', ')})" 
           .col-md-3
-            %p.label-small Mi propiedad
+            %p.label.text-center Mi propiedad
             .icon= image_tag('otros-detalles-patio.svg', height: '32px')
             %p.label-small= @provider.has_yard ? "Tiene patio" : "No tiene patio"
           .col-md-3
-            %p.label-small Mi propiedad
+            %p.label.text-center Mi propiedad
             .icon= image_tag('otros-detalles-areas-verdes.svg', height: '32px')
             %p.label-small= @provider.has_green ? "Tiene areas Verdes" : "No tiene areas verdes"
           .col-md-3 
-            %p.label-small # de Perros aceptados
+            %p.label.text-center # Perros aceptados
             .icon= image_tag('otros-detalles-cantidad-perros.svg', height: '32px')
             %p.label-small="#{@provider.pets_allowed.to_i}" 
         .descripcion-perfil.border-top
