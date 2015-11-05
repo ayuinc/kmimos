@@ -68,7 +68,7 @@
         .row
           .col-md-12 Comportamiento de perros aceptados
         .row
-          .col-md-12.tricol_checkboxes= f.association :accepted_behaviors, as: :check_boxes, label: false
+          .col-md-12.tricol_checkboxes= f.association :accepted_behaviors, as: :check_boxes, label: false, :collection => Behavior.all
       .form-group
         .row
           .col-md-12
@@ -104,7 +104,7 @@
         .row
           .col-md-12 Tamaño de Perro
         .row
-          .col-md-12.tricol_checkboxes= f.association :own_sizes, as: :check_boxes, label: false
+          .col-md-12.tricol_checkboxes= f.association :own_sizes, as: :check_boxes, label: false, :collection => Behavior.all
       .row
         .col-md-12 Comportamiento de mis perros
       .row
@@ -112,9 +112,7 @@
       .form-group
         .row
           .col-md-9 ¿Cantidad de perros aceptado en su propiedad?
-          .col-md-3= f.input :pets_allowed, label: false
- 
-            
+          .col-md-3= f.input :pets_allowed, label: false 
       .form-group
         .row
           .col-md-8 ¿La propiedad tiene áreas verdes cercanas? 

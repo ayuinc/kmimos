@@ -33,7 +33,7 @@ class BookingsController < ApplicationController
     
 	  if @booking.save
       
-    	#BookingConfirmationMailer.new_booking_notification(@booking, current_country).deliver
+    	BookingConfirmationMailer.new_booking_notification(@booking, current_country).deliver
     	#BookingConfirmationMailer.new_booking_for_admin(@booking, current_country).deliver
       
 	    session[:from_date], session[:to_date] = nil, nil  
