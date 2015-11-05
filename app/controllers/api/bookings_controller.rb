@@ -11,14 +11,18 @@ class Api::BookingsController < ApplicationController
     pet=Pet.find(params[:pet])
     service = Service.find(params[:service])
     
-    additional_service = AdditionalService.where(size_id: pet.size_id, service_id: service.id).last
+    price = 0
      
-    price = additional_service.price rescue 0;
+    additional_services = AdditionalService.where(service_id: service.id)
     
-    
-    p pet
-    p service
-    
+    additional_services.each do |service|
+      service.sizes.each do |size|
+        if size.id == pet.size_id 
+          price = service.price
+        end
+      end
+    end 
+     
     
     response = {service_name: service.to_s, pet_name: pet.to_s, price: price}
      
