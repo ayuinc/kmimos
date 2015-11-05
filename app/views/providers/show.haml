@@ -26,7 +26,7 @@
                   .row
                     .col-md-5
                     .col-md-7
-                      - unless @provider.favorite?
+                      - unless @provider.favorite?(current_user)
                         = simple_form_for Favorite.new do |fav|  
                           .btn.bordered-btn 
                             =fav.input :provider_id, as: :hidden, input_html: {value: @provider.id}
