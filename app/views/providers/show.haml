@@ -98,7 +98,7 @@
           %p= @provider.description
         .Comportamientos
           %h3.text-gray Comportamientos de perros aceptados   
-          .row
+          .row.comp
             - @provider.accepted_behaviors.each do |behavior|
               = image_tag('huella-mensaje-17-mini.png')
               = behavior
