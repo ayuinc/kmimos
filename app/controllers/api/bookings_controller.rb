@@ -8,12 +8,14 @@ class Api::BookingsController < ApplicationController
   end
   
   def get_rate
+    
     pet=Pet.find(params[:pet])
     service = Service.find(params[:service])
+    provider = Provider.find(params[:provider])
     
     price = 0
      
-    additional_services = AdditionalService.where(service_id: service.id)
+    additional_services = AdditionalService.where(service_id: service.id, provider_id: provider.id)
     
     additional_services.each do |service|
       service.sizes.each do |size|

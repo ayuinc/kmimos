@@ -35,7 +35,7 @@
         .row.border-bottom
           .col-md-8="- #{service.service}"
           .col-md-4
-            %b="$ 0.0 MXN"
+            %b="$ #{AdditionalService.get_rate(@booking.provider_id, service.pet.size_id, service.service_id) rescue 0} MXN"
        
       %br       
       %h5

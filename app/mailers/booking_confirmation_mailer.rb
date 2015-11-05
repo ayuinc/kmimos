@@ -42,7 +42,7 @@ class BookingConfirmationMailer < ActionMailer::Base
     @country = current_country
     
     mail(
-      to: @booking.user.email,
+      to: @booking.provider.email,
       subject: 'Reserva realizada.')
   end
 end

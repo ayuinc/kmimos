@@ -5,7 +5,7 @@
       .col-md-2
       .col-md-7
         .info
-          .user.border-line
+          .user.border-bottom
             .user-card.user-card-round.size.xs.mb-21.row
               .user-pic.col-md-3
                 = image_tag(@provider.avatar, class: 'avatar') if @provider.avatar?
@@ -31,8 +31,8 @@
                           %i.fa.fa-heart
                           %small Eliminar de mis favoritos
                    
-        %h3.text-gray.pt-21 Detalles
-        .row.details-profile.mt-35.pb-21
+        %h3.text-gray Detalles
+        .row.details-profile.mt-35
           .col-md-3
             %p.label.text-center
               -if @provider.property != nil
@@ -55,7 +55,7 @@
             %p.label.text-center Años de experiencia
             .icon= image_tag('detalles-experiencia.svg', height: '32px')
             %p.label-small= "#{@provider.experiencia} " 
-        .border-line.mt-21
+        .border-bottom.mt-21
         
         %h3.text-gray.mb-35.mt-49= "Fotos de #{@provider.name} #{@provider.last_name_1}"
         / Place somewhere in the <body> of your page
@@ -93,17 +93,17 @@
             %p.label.text-center # Perros aceptados
             .icon= image_tag('otros-detalles-cantidad-perros.svg', height: '32px')
             %p.label-small="#{@provider.pets_allowed.to_i}" 
-        .Comportamientos.pb-14
+        .Comportamientos
           %h3.text-gray Comportamientos de perros aceptados   
-          .row.comp.pb-14
+          .row.comp
             - @provider.accepted_behaviors.each do |behavior|
               = image_tag('huella_comportamientos.svg')
               = behavior
-        .descripcion-perfil.border-top-2.pt-21.pb-21
+        .descripcion-perfil.border-top
           %h3.text-gray="Sobre #{@provider.name} :"
           %p= @provider.description
         
-        .ubicacion.pt-21.pb-21
+        .ubicacion
           %h3.text-gray Ubicación
           .row
             .col-md-5 

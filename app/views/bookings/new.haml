@@ -56,7 +56,7 @@
           .hr-gray
           .panel.panel-primary 
             .panel-body.line-regular
-              %h4 Mascotas
+              %h4 Mascotas para la estadia
               %br
               .form-group.row(ng-repeat="pet in pets_booked")  
                 .row.pb-7.border-bottom
@@ -89,11 +89,11 @@
               .row.border-bottom
                 .col-md-3 Servicio:
                 .col-md-3
-                  %select.form-control.bkd_srv{name: "booking[booked_services_attributes][][service_id]"}(ng-model= "serv.service_id" ng-change="update_services()")
+                  %select.form-control.bkd_srv{name: "booking[booked_services_attributes][][service_id]"}(ng-model= "serv.service_id" ng-change="update_services(#{@provider.id})")
                     -Service.all.each do |se|
                       %option{value: se.id}= se
                 .col-md-3 
-                  %select.form-control.bkd_pt{name: "booking[booked_services_attributes][][pet_id]"}(ng-model= "serv.pet_id" ng-change="update_services()")
+                  %select.form-control.bkd_pt{name: "booking[booked_services_attributes][][pet_id]"}(ng-model= "serv.pet_id" ng-change="update_services(#{@provider.id})")
                     -current_user.pets.each do |pet|
                       %option{value: pet.id}= pet
                 .col-md-2 $ {{serv.price}}  MXN

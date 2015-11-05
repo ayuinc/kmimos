@@ -6,4 +6,24 @@ class AdditionalService < ActiveRecord::Base
   belongs_to :provider
   belongs_to :service
   
+  def self.get_rate(provider_id, size_id, service_id)
+    
+   
+    price = 0
+      
+     
+    additional_services = AdditionalService.where(service_id: service.id, provider_id: provider_id)
+    
+    additional_services.each do |service|
+      service.sizes.each do |size|
+        if size.id == size_id 
+          price = service.price
+        end
+      end
+    end 
+    
+    return price
+    
+  end
+  
 end

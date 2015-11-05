@@ -102,7 +102,7 @@ bookings_module.controller('BookingsController', ['$scope', '$filter', '$http', 
   }
   
   
-  $scope.update_services=function(){
+  $scope.update_services=function(provider_id){
     var host_name = document.location.hostname;
     var port = document.location.port;
     var url_service="http://" + host_name +":" + port + "/api/bookings/get_rate.json"; //local url 
@@ -111,7 +111,7 @@ bookings_module.controller('BookingsController', ['$scope', '$filter', '$http', 
       $http({
           method: 'POST',
           url: url_service,
-          data: { pet: service.pet_id, service: service.service_id}
+          data: { pet: service.pet_id, service: service.service_id, provider: provider_id}
         }).then(function (response){ 
           service.price = response.data.price;
           service.pet_name = response.data.pet_name;
