@@ -96,6 +96,12 @@
         .descripcion-perfil.border-top
           %h3.text-gray="Sobre #{@provider.name} :"
           %p= @provider.description
+        .Comportamientos
+          %h3.text-gray Comportamientos de perros aceptados   
+          .row
+            - @provider.accepted_behaviors.each do |behavior|
+              = image_tag('huella-mensaje-17-mini.png')
+              = behavior
         .ubicacion
           %h3.text-gray Ubicación
           .row
@@ -111,12 +117,7 @@
             .col-md-7 
               #map{style: "width: 100%; height: 400px;", latitude: @provider.latitude, longitude: @provider.longitude, zoom: "14"}
               .circle{latitude: @provider.latitude, longitude: @provider.longitude, radio: '800'}
-        .Comportamientos
-          %h3.text-gray Comportamientos de perros aceptados   
-          .row
-            - @provider.accepted_behaviors.each do |behavior|
-              = image_tag('huella-mensaje-17-mini.png')
-              = behavior
+        
         .comentarios
           %h3.text-gray Experiencias Kmimos2
           #comments-div

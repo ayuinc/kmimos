@@ -17,7 +17,7 @@
         %tbody
           %tr
             %td
-              %h1{:style => "font-family: arial;font-weight: 100;color: gray;"} Hola #{@booking.user_first_name},
+              %h1{:style => "font-family: arial;font-weight: 100;color: gray;"} Hola #{@booking.user.first_name},
           %tr
             %td
               %p Muchas gracias por haber solicitado una reserva con Kmimos.
@@ -28,7 +28,7 @@
                 %p{:style => "margin: 0;"} Nombre
               %td
                 %p{:style => "margin: 0;"}
-                  \: #{@booking.user_first_name}#{@booking.user_last_name}
+                  \: #{@booking.user.first_name}#{@booking.user.last_name}
             %tr
               %td
                 %p{:style => "margin: 0;"} Dirección
