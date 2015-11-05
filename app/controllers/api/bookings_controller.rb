@@ -12,20 +12,9 @@ class Api::BookingsController < ApplicationController
     pet=Pet.find(params[:pet])
     service = Service.find(params[:service])
     provider = Provider.find(params[:provider])
-    
-    price = 0
      
-    additional_services = AdditionalService.where(service_id: service.id, provider_id: provider.id)
-    
-    additional_services.each do |service|
-      service.sizes.each do |size|
-        if size.id == pet.size_id 
-          price = service.price
-        end
-      end
-    end 
-     
-    
+    price = AdditionalService.get_rate(provider.id, pet.size_id, service.id ) rescue 0
+      
     response = {service_name: service.to_s, pet_name: pet.to_s, price: price}
      
     respond_to do |format|
