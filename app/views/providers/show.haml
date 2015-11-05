@@ -27,12 +27,10 @@
                     .col-md-5
                     .col-md-7
                       .favorite_form
-                        - unless @provider.favorite?(current_user)
-                          = simple_form_for Favorite.new do |fav|  
-                            = fav.input :provider_id, as: :hidden, input_html: {value: @provider.id}
-                            %submit.btn.bordered-btn
-                              %i.fa.fa-heart-o
-                              %small Agregar a Favoritos
+                        - unless @provider.favorite?(current_user) 
+                          %a.btn.bordered-btn{href: "#{new_favorite_path}?provider_id=#{@provider.id}"}
+                            %i.fa.fa-heart-o
+                            %small Agregar a Favoritos
                    
         %h3.text-gray Detalles
         .row.details-profile.mt-35
