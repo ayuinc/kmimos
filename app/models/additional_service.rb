@@ -12,7 +12,7 @@ class AdditionalService < ActiveRecord::Base
     price = 0
       
      
-    additional_services = AdditionalService.where(service_id: service.id, provider_id: provider_id)
+    additional_services = AdditionalService.where(service_id: service_id, provider_id: provider_id)
     
     additional_services.each do |service|
       service.sizes.each do |size|
