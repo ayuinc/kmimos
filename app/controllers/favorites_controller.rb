@@ -4,7 +4,7 @@ class FavoritesController < ApplicationController
     user = current_user.id
     
     Favorite.new({provider_id: provider, user_id: user}).save
-    redirect_to "providers/#{provider}"
+    redirect_to "/providers/#{provider}"
   end
   
   def create
@@ -12,6 +12,6 @@ class FavoritesController < ApplicationController
     user = current_user.id
     
     Favorite.new({provider_id: provider, user_id: user}).save
-    redirect_to 'providers/#{provider}'
+    redirect_to '/providers/#{provider}'
   end
 end
