@@ -41,21 +41,31 @@
                 %b #{@booking.provider.phone}
                 o al correo 
                 %b #{@booking.provider.email} 
-          - @booking.booked_pets.each do |pet|
+          - @booking.booked_pets.each do |booked|
             %table
               %tr
                 %td
-                  %p Durante las próximas 24 horas recibirás una llamada telefónica o te contactaremos por correo electrónico para coordinar la logística de la estadía de tu mascota.
-                  %p Cualquier pregunta no dudes en contactarnos al +55 3455 0138.
-                  %p ¡Gracias!
-                  %p
-                    El equipo de   
-                    %img{:alt => "", :src => "http://s1.postimg.org/n12q65th7/logo_mail_confirmacion.png", :style => "top: 1px; position: relative;"}/
+                  %label Nombre
+                  %p #{booked.pet}
+                  %label Raza
+                  %p #{booked.pet.race}
+                  %label Tamaño
+                  %p #{booked.pet.size}
+                  %label Peso
+                  %p #{booked.pet.weight}
+                  %label Peso
+                  %p #{booked.pet.sex}
                 %td
-                  %h3 Acerca de #{pet.pet}
+                  %h3 Acerca de #{booked.pet}
                   %br
                   %h4 Comportamiento
+                  %p #{booked.pet.behavior}
+                  %br
+                  %p Consideraciones especiales
+                  %p #{booked.user_message}
                   %p 
+                  %p Consideraciones especiales
+                  %p #{booked.user_message}
            %br
           %table
             %tr
