@@ -69,6 +69,8 @@ $(".ratingStars").ready(function(){
 
 
 var paint_ratings_white = function(){
+     
+     
      $(".ratingStarsWhite").raty({
         score: function() {
           var el = $(this).attr('el');
