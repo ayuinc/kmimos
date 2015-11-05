@@ -84,7 +84,7 @@
             %hr
             - @user.favorites.each do |favorite|
               %a{href: provider_path(favorite.provider.id)}
-                =image_tag(favorite.provider.avatar, float: "left", width: '100px')
+                = image_tag(favorite.provider.avatar, class: 'avatar')  
               
             
 %br
