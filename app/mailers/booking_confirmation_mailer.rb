@@ -10,6 +10,7 @@ class BookingConfirmationMailer < ActionMailer::Base
   def new_booking_notification(booking, current_country) 
     @booking = booking
     @country = current_country
+    
     mail(
       to: @booking.user.email,
       subject: 'Reserva realizada.')
