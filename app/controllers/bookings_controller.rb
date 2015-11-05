@@ -8,9 +8,7 @@ class BookingsController < ApplicationController
   end
 
 	def new
-    
-    @services =  params[:services] != nil ? Service.find(params[:services]) : []
-    
+    @services =  params[:services] != nil ? Service.find(params[:services]) : [] 
 		@provider = Provider.find(params[:booking][:provider_id]) 
 	  @booking = Booking.new
     @booking.start_date = session[:from_date]

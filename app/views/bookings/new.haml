@@ -182,9 +182,9 @@
   
   setTimeout(function(){  
   
-    $('.datepicker_max').datepicker("setDate", "#{Date.strptime(session[:to_date],'%m/%d/%Y').strftime('%d/%m/%Y')}");
+    $('.datepicker_max').datepicker("setDate", "#{Date.strptime(session[:to_date],'%m/%d/%Y').strftime('%d/%m/%Y') rescue '' }");
   
-    $('.datepicker_min').datepicker("setDate", "#{Date.strptime(session[:from_date],'%m/%d/%Y').strftime('%d/%m/%Y')}");
+    $('.datepicker_min').datepicker("setDate", "#{Date.strptime(session[:from_date],'%m/%d/%Y').strftime('%d/%m/%Y') rescue '' }");
     
     
     $('.datepicker_max').change();
