@@ -19,13 +19,13 @@
           %tr
             %td
               %h1{:style => "font-family: arial;font-weight: 100;color: gray; font-size: 64px"} 
-                %b Hola #{@booking.user.first_name},
+                %b Hola #{@booking.provider.name},
           %tr
             %td
               %p 
-                Se ha hecho una reserva en Kmimos para que 
-                %b #{@booking.provider.name}
-                cuide a tu mascota :
+                %b
+                  #{@booking.user.first_name} 
+                ha hecho una reserva en Kmimos para que cuides a su(s) mascota(s)
                 %ul
                 - @booking.booked_pets.each do |pet|
                   %li= pet.pet
@@ -34,13 +34,11 @@
                 hasta el
                 %b #{@booking.end_date} a las #{@booking.dropoff_time}
               %p 
-                Recogiendo y entregando a tus perritos en el domicilio ubicado en
+                Recogiendo y entregando a los perritos en el domicilio ubicado en
                 %b #{@booking.address}
               %p
-                Para cualquier duda y/o comentario puedes contactarte al telefono 
-                %b #{@booking.provider.phone}
-                o al correo 
-                %b #{@booking.provider.email} 
+                Para cualquier duda y/o comentario puedes contactarte al correo 
+                %b #{@booking.user.email} 
           - @booking.booked_pets.each do |booked|
             %table
               %tr

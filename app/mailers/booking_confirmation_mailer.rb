@@ -36,4 +36,13 @@ class BookingConfirmationMailer < ActionMailer::Base
       subject: 'Nueva reserva en Kmimos ' + @country.name)
  
   end
+  
+  def new_booking_provider_notification(booking, current_country) 
+    @booking = booking
+    @country = current_country
+    
+    mail(
+      to: @booking.user.email,
+      subject: 'Reserva realizada.')
+  end
 end
