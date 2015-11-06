@@ -23,6 +23,10 @@ gem 'high_voltage', '~> 2.3.0'
 
 gem 'kaminari'
 
+
+gem 'useragent'
+gem 'mobylette'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

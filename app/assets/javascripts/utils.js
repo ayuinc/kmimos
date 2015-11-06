@@ -54,7 +54,7 @@ var paint_ratings = function(){
         },
         readOnly: function(){
           return Boolean($(this).attr('readOnly'))
-        }, 
+        },
         click: function(score, evt) {
           var el = $(this).attr('el');
           $(el).val(score);
@@ -71,8 +71,8 @@ $(".ratingStars").ready(function(){
 
 
 var paint_ratings_white = function(){
-     
-     
+
+
      $(".ratingStarsWhite").raty({
         score: function() {
           var el = $(this).attr('el');
@@ -122,7 +122,7 @@ function initMap(mapName, mapId) {
     var latitude = $("#" + mapId).attr('latitude');
     var longitude = $("#" + mapId).attr('longitude');
     var zoom = $("#" + mapId).attr('zoom');
-    
+
     console.log(latitude);
     console.log(longitude);
 
@@ -140,8 +140,8 @@ function initMap(mapName, mapId) {
       zoom: parseInt(zoom)
     });
 
-    markers.each(function(){ 
-        
+    markers.each(function(){
+
             var itemLatLng = {lat: parseFloat($(this).attr('latitude')), lng: parseFloat($(this).attr('longitude'))};
 
             var marker = new google.maps.Marker({
@@ -149,7 +149,7 @@ function initMap(mapName, mapId) {
                 map: map
                 });
     });
-    
+
     circles.each(function(){
       var itemLatLng = {lat: parseFloat($(this).attr('latitude')), lng: parseFloat($(this).attr('longitude'))};
       var radio = parseFloat($(this).attr('radio'));
@@ -164,16 +164,16 @@ function initMap(mapName, mapId) {
             radius: radio
           });
     });
-        
+
 
     tempItem[mapName] = map;
 
     maps.push(tempItem);
-    
+
     return map;
 
 }
- 
+
 
 
 var players=[];
@@ -215,7 +215,6 @@ function initPlayer(playerName, playerId){
   } else {
     load_player(playerName, playerId);
   }
-
 
 
 }
