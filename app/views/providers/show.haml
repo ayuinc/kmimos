@@ -157,7 +157,7 @@
               =service.service
             %br
             %small.pl-21{style: 'font-size: 9px;'}
-              %i= AdditionalService.get_min_rates_for(@provider.id, service.id).map{|k,v| "#{k} $#{v} MXN"}.join(", ")
+              %i= AdditionalService.get_min_rates_for(@provider.id, service.id).map{|k,v| "#{k} $#{v}"}.join(", ")
             %br
         .content-detalles.mt-14.mb-28.text-center.m-21.pb-14
           .border-bottom.text-left.pl-21
