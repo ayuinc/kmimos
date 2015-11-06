@@ -66,18 +66,21 @@
                       .col-md-2 $ {{ pet.price }} MXN
                       .col-md-1
                         %a(ng-click="deletePet(pet)" href="#") X
-                  %center
-                    %a.btn.btn-primary(ng-click="add_pet()") Quiero agregar a mi mascota
+                  %a.btn.btn-primary(ng-click="add_pet()") Quiero agregar a mi mascota
                   .row
-                    %br
-                  .form-group.row
-                    .col-md-12= f.input :address, class: "form-control", label: "Dirección de Recojo", as: :text, input_html: { value: current_user.address }
+                    %h5 Informacion Adicional
                   .form-group.row
                     .col-md-12
-                      = f.input :user_message, label: "¿Necesitas que sepamos algún dato extra sobre tu perrito?", as: :text, class: "form-control"
+                      %p Dirección de Recojo
+                      = f.input :address, class: "form-control", label: false, as: :text, input_html: { value: current_user.address }
+                  .form-group.row
+                    .col-md-12
+                      %p ¿Necesitas que sepamos algún dato extra sobre tu perrito?
+                      = f.input :user_message, label: false, as: :text, class: "form-control"
                   .form-group.row
                     .col-md-6
-                      = f.input :ref_code, label: "Código de descuento:", class: "form-control"
+                      %p Código de descuento:
+                      = f.input :ref_code, label: false, class: "form-control"
                   / Modal
           %br
           %h4 Quieres contratar servicios adicionales?
