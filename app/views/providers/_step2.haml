@@ -2,14 +2,6 @@
   .col-md-12
     %h2.title-step Detalles del Ciudador
     %hr
-.row
-  .col-md-1
-  .col-md-10
-    .row
-      .col-md-3 Descripción como cuidador:
-      .col-md-9= f.input :description, label: false, input_html: {rows: 10}
-  .row
-      .col-md-12 Precio por noche:
 
   -@provider.rates.each do |rate|
     .row
