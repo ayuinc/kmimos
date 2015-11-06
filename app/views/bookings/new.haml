@@ -104,50 +104,52 @@
           .panel-body
           = f.input :total, as: :hidden, input_html: {value: "{{services_booked_total + pets_booked_total}}"}
           .table
-            %h4 Costos del servicio de estadia
-            %table(width="100%")
-              %thead
-                %th Mascota
-                %th Dias
-                %th.total Precio
-                %th.total SubTotal
-              %tbody
-                %tr(ng-repeat="pet in pets_booked")
-                  %td {{ pet.pet_name }}
-                  %td {{ diff }}
-                  %td.total $ {{ pet.price | number:2 }} MXN
-                  %td.total $ {{ diff * pet.price | number:2 }} MXN
-              %tfoot
-                %tr
-                  %th.total(colspan=3) SUBTOTAL :
-                  %th.total $ {{ pets_booked_total | number:2 }}  MXN
-                %tr
-                  %th.total(colspan=3) BENEFICIOS KMIMOS :
-                  %th.total $ {{ pets_booked_total * 0.2 | number:2 }}  MXN
-                %tr
-                  %th.total(colspan=3) TOTAL :
-                  %th.total $ {{ pets_booked_total * 1.2 | number:2 }}  MXN
-            %h4 Costos de los servicios adicionales
-            %table(width="100%")
-              %thead
-                %th Mascota
-                %th Servicio
-                %th.total Precio
-              %tbody
-                %tr(ng-repeat="serv in services_booked")
-                  %td {{ serv.pet_name }}
-                  %td {{ serv.service_name }}
-                  %td.total $ {{ serv.price | number:2 }} MXN
-              %tfoot
-                %tr
-                  %th.total(colspan=2) SUBTOTAL :
-                  %th.total $ {{ services_booked_total | number:2 }}  MXN
-                %tr
-                  %th.total(colspan=2) BENEFICIOS KMIMOS :
-                  %th.total $ {{ services_booked_total * 0.2 | number:2 }}  MXN
-                %tr
-                  %th.total(colspan=2) TOTAL :
-                  %th.total $ {{ services_booked_total * 1.2 | number:2 }}  MXN
+            %div(ng-if="parseInt(services_booked_total) != 0")
+              %h4 Costos del servicio de estadia
+              %table(width="100%")
+                %thead
+                  %th Mascota
+                  %th Dias
+                  %th.total Precio
+                  %th.total SubTotal
+                %tbody
+                  %tr(ng-repeat="pet in pets_booked")
+                    %td {{ pet.pet_name }}
+                    %td {{ diff }}
+                    %td.total $ {{ pet.price | number:2 }} MXN
+                    %td.total $ {{ diff * pet.price | number:2 }} MXN
+                %tfoot
+                  %tr
+                    %th.total(colspan=3) SUBTOTAL :
+                    %th.total $ {{ pets_booked_total | number:2 }}  MXN
+                  %tr
+                    %th.total(colspan=3) BENEFICIOS KMIMOS :
+                    %th.total $ {{ pets_booked_total * 0.2 | number:2 }}  MXN
+                  %tr
+                    %th.total(colspan=3) TOTAL :
+                    %th.total $ {{ pets_booked_total * 1.2 | number:2 }}  MXN
+            %div(ng-if="parseInt(services_booked_total) != 0")
+              %h4 Costos de los servicios adicionales
+              %table(width="100%")
+                %thead
+                  %th Mascota
+                  %th Servicio
+                  %th.total Precio
+                %tbody
+                  %tr(ng-repeat="serv in services_booked")
+                    %td {{ serv.pet_name }}
+                    %td {{ serv.service_name }}
+                    %td.total $ {{ serv.price | number:2 }} MXN
+                %tfoot
+                  %tr
+                    %th.total(colspan=2) SUBTOTAL :
+                    %th.total $ {{ services_booked_total | number:2 }}  MXN
+                  %tr
+                    %th.total(colspan=2) BENEFICIOS KMIMOS :
+                    %th.total $ {{ services_booked_total * 0.2 | number:2 }}  MXN
+                  %tr
+                    %th.total(colspan=2) TOTAL :
+                    %th.total $ {{ services_booked_total * 1.2 | number:2 }}  MXN
           .panel-body
             = render partial: 'terms', locals: {f: f}
 
