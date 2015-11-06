@@ -166,7 +166,7 @@
               %small.pl-21{style: 'font-size: 9px;'}
                 %i= AdditionalService.get_min_rates_for(@provider.id, service.id).map{|k,v| "#{k} $#{v}"}.join(", ")
               %br
-            =f.submit "Reservar".html_safe, :class => "mt-14 mb-21 btn btn-primary btn-small btn-fold" #,  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Reservar', 'provider_#{@provider.id.to_s}']);"
+            =f.submit "Contratar".html_safe, :class => "mt-14 mb-21 btn btn-primary btn-small btn-fold" #,  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Reservar', 'provider_#{@provider.id.to_s}']);"
         .content-detalles.mt-14-mb-28.m-21.pb-14
           .border-bottom.text-left.pl-21
             %h4.text-gray.mv-14="#{@provider.comments.count} Evaluaciones"
