@@ -2,28 +2,36 @@
   .col-md-12
     %h2.title-step Detalles del Ciudador
     %hr
-
-  -@provider.rates.each do |rate|
+.row
+  .col-md-1
+  .col-md-10
     .row
-      .col-md-8
-        %label= rate.size
-        %input{value: rate.id}(name="provider[rates_attributes][][id]" type="hidden")
-        %input{value: rate.size.id}(name="provider[rates_attributes][][size_id]" type="hidden")
-      .col-md-4
-        %input{value: rate.price}(name="provider[rates_attributes][][price]" placeholder="0.0" class="form-control")
-    %br
-       %label ¿En qué municipios puedes trabajar?
+      .col-md-3 Descripción como cuidador:
+      .col-md-9= f.input :description, label: false, input_html: {rows: 10}
+.row
+  .col-md-12 Precio por noche:
+    -@provider.rates.each do |rate|
+      .row
+        .col-md-8
+          %label= rate.size
+          %input{value: rate.id}(name="provider[rates_attributes][][id]" type="hidden")
+          %input{value: rate.size.id}(name="provider[rates_attributes][][size_id]" type="hidden")
+        .col-md-4
+          %input{value: rate.price}(name="provider[rates_attributes][][price]" placeholder="0.0" class="form-control")
+    .row
+      %br
+         %label ¿En qué municipios puedes trabajar?
 
-    - current_counates.each do |state|
-      .row.border-bottom
-        .col-md-1
-          %input{type: 'checkbox'}
-        .col-md-10=state.name
-        .col-md-1
-          %a.btn.btn-default.btn-xs{href: "javascript:select_state(" + state.id.to_s + ")"}
-            = "-"
+      - current_country.states.each do |state|
+        .row.border-bottom
+          .col-md-1
+            %input{type: 'checkbox'}
+          .col-md-10=state.name
+          .col-md-1
+            %a.btn.btn-default.btn-xs{href: "javascript:select_state(" + state.id.to_s + ")"}
+              = "-"
 
-    - current_country.st.each do |state|
+    - current_country.states.each do |state|
       .div{class: "state_#{state.id} row", style: "display: none;"}
         .col-md-12
           %label= state
