@@ -7,6 +7,10 @@ class BookingsController < ApplicationController
 
   end
 
+	def get_pdf
+
+	end
+
 	def new
     @services =  params[:services] != nil ? Service.where(id: params[:services]) : []
 		@provider = Provider.find(params[:booking][:provider_id])
@@ -20,8 +24,6 @@ class BookingsController < ApplicationController
 	end
 
 	def create
-
-
 
     @provider = Provider.find(params[:provider_id])
 		@booking = Booking.new(booking_params)
