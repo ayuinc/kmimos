@@ -16,7 +16,7 @@
                 .ratingStars{score: score, readOnly: true}
             .user-info.col-md-9
               %h3.m-0.mb-7
-              
+
                 = "#{@provider.name} #{@provider.last_name_1}"
               - @provider.locations.group_by(&:state_id).each do |k, state|
                 %b.mb-7= state.first.state
@@ -156,8 +156,8 @@
             %input{value: service.id}(type="checkbox" name="services[]")
               =service.service
             %br
-            %small.pl-21
-              %i= AdditionalService.get_min_rates_for(@provider.id, service.id).map{|k,v| "$#{k}#{v}"}.join(", ")
+            %small.pl-21{style: 'font-size: 9px;'}
+              %i= AdditionalService.get_min_rates_for(@provider.id, service.id).map{|k,v| "#{k} $#{v} MXN"}.join(", ")
             %br
         .content-detalles.mt-14.mb-28.text-center.m-21.pb-14
           .border-bottom.text-left.pl-21
