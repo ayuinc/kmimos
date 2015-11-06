@@ -111,9 +111,9 @@
         .col-md-12.tricol_checkboxes= f.association :own_behaviors, as: :check_boxes, label: false, :collection => Behavior.all
       .form-grpup
         .row
-          .col-md-9
+          .col-md-8
             Acepta perros estirilizados
-          .col-md-3
+          .col-md-4.twocol_checkboxes
             = f.input :only_sterilizated, as: :radio_buttons, label: false, :collection => [['Si', 1], ['No', 0]]
       .form-group
         .row
