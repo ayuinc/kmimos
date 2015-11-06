@@ -54,7 +54,7 @@
             .col-md-12
               .panel.panel-primary
                 .panel-body.line-regular
-                  %p Añade a tu mascota a la reserva del tiempo de estadía que selecciones. 
+                  %p Añade a tu mascota a la reserva del tiempo de estadía que selecciones.
                   .form-group.row(ng-repeat="pet in pets_booked")
                     .row.pd-0.border-bottom
                       .col-md-3 Nombre:
@@ -66,7 +66,7 @@
                       .col-md-1
                         %a(ng-click="deletePet(pet)" href="#") X
                   %a.btn.btn-primary(ng-click="add_pet()") Quiero agregar a mi mascota
-                  .row.mt-35.mb-35
+                  .row.mt-35.mb-14
                     %label Informacion Adicional
                   .form-group.row
                     .col-md-12
@@ -77,9 +77,11 @@
                       %p ¿Necesitas que sepamos algún dato extra sobre tu perrito?
                       = f.input :user_message, label: false, as: :text, class: "form-control"
 
+          %hr.hr-gray/
           %br
           %h4 Quieres contratar servicios adicionales?
           %br
+          %p Kmimos te ofrece servicios adicionales para tu mascota, puedes adquirirrlos independientemente de tu reserva.
           .panel-body
             .form-group.row(ng-repeat="serv in services_booked")
               .row.border-bottom
