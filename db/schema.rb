@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151106164041) do
+ActiveRecord::Schema.define(version: 20151106174420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -336,6 +336,7 @@ ActiveRecord::Schema.define(version: 20151106164041) do
     t.float  "min_size"
     t.float  "max_size"
     t.string "description"
+    t.string "symbol"
   end
 
   create_table "sizings", force: true do |t|
