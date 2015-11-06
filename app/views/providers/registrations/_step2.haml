@@ -4,26 +4,26 @@
     .col-md-12
       %h2.title-step Detalles del Ciudador
       %hr
-  .row 
+  .row
     .col-md-12
       .form-group
         .row
           .col-md-3 Preséntate con Kmimos :
-          .col-md-9= f.input :description, label: false   
+          .col-md-9= f.input :description, label: false
       .form-group
         .row
-          .col-md-3 Precio por noche: 
-          .col-md-9  
+          .col-md-3 Precio por noche:
+          .col-md-9
             - Size.all.each do |size|
-              .row  
+              .row
                 .col-md-8
-                  %label= size 
+                  %label= size
                   %input{value: size.id}(name="provider[rates_attributes][][size_id]" type="hidden")
                 .col-md-4
-                  %input(name="provider[rates_attributes][][price]" placeholder="0.0" class="form-control") 
+                  %input(name="provider[rates_attributes][][price]" placeholder="0.0" class="form-control")
       .form-group
         .row
-          .col-md-3 CheckIn 
+          .col-md-3 CheckIn
           .col-md-9= f.input :check_in, as: :time, label: false
       .form-group
         .row
@@ -32,7 +32,7 @@
       .form-group
         .row
           %label ¿En qué municipios puedes trabajar?
-          
+
         - current_country.states.each do |state|
           .row.border-bottom
             .col-md-1
@@ -40,7 +40,7 @@
             .col-md-10=state.name
             .col-md-1
               %a.btn.btn-default.btn-xs{href: "javascript:select_state(#{state.id.to_s})"}
-                %i.fa.fa-caret-down 
+                %i.fa.fa-caret-down
         - current_country.states.each do |state|
           .div{class: "state_#{state.id} row", style: "display: none;"}
             .col-md-12
@@ -53,16 +53,16 @@
           .col-md-4 Años
       .form-group
         .row
-          .col-md-3 Tipo de Propiedad: 
+          .col-md-3 Tipo de Propiedad:
           .col-md-9= f.association :property, label: false
       .form-group
         .row
           .col-md-12.tricol_checkboxes
-            %label ¿Con que tamaños de perro trabaja? 
+            %label ¿Con que tamaños de perro trabaja?
             = f.association :sizes, as: :check_boxes, label: false
       .row
         .col-md-12.tricol_checkboxes
-          %label Etapas de vida de los perros que cuida 
+          %label Etapas de vida de los perros que cuida
           = f.association :agings, as: :check_boxes, label: false, :collection => @provider.agings
       .form-group
         .row
@@ -81,17 +81,17 @@
             = f.input :address, label: "Dirección:", placeholder: "Ingrese su dirección...", hint: "*Si el pin no se sitúa en el lugar de tu dirección, por favor ajústalo.", input_html: {:onchange=>"codeAddress()"}
           .col-md-3
             %label{:for => "search_address", :style => "display:block;color:white"} Buscar
-            %button#search_address.btn.btn-primary.form-control.ml-0{:name => "search_address", :type => "button"} Buscar 
-            
-            
+            %button#search_address.btn.btn-primary.form-control.ml-0{:name => "search_address", :type => "button"} Buscar
+
+
       .form-group
         .row
-          .col-md-12 
-            #mapNew{style: "width: 100% !important; height: 200px !important; ", latitude: 19.414319, longitude: -99.128175, zoom: 16 } 
+          .col-md-12
+            #mapNew{style: "width: 100% !important; height: 200px !important; ", latitude: 19.414319, longitude: -99.128175, zoom: 16 }
         %br
       .form-group
         .col-md-6
-          = f.input :emergencia, label: "¿Brindas transporte de emergencia?", as: :boolean 
+          = f.input :emergencia, label: "¿Brindas transporte de emergencia?", as: :boolean
       .form-group
         .row
           .col-md-12 ¿Cuentas con Otros perros en casa?
@@ -109,86 +109,92 @@
         .col-md-12 Comportamiento de mis perros
       .row
         .col-md-12.tricol_checkboxes= f.association :own_behaviors, as: :check_boxes, label: false, :collection => Behavior.all
+      .form-grpup
+        .row
+          .col-md-9
+            Acepta perros estirilizados
+          .col-md-3 only_sterilizatedz
+            = f.input :only_sterilizated, label: false
       .form-group
         .row
           .col-md-9 ¿Cantidad de perros aceptado en su propiedad?
-          .col-md-3= f.input :pets_allowed, label: false 
+          .col-md-3= f.input :pets_allowed, label: false
       .form-group
         .row
-          .col-md-8 ¿La propiedad tiene áreas verdes cercanas? 
+          .col-md-8 ¿La propiedad tiene áreas verdes cercanas?
           .col-md-4.twocol_checkboxes= f.input :has_green, as: :radio_buttons, label: false, :collection => [['Si', 1], ['No', 0]]
       .form-group
         .row
-          .col-md-8 ¿La propiedad cuenta con patio? 
+          .col-md-8 ¿La propiedad cuenta con patio?
           .col-md-4.twocol_checkboxes= f.input :has_yard, as: :radio_buttons, label: false, :collection => [['Si', 1], ['No', 0]]
 
-        
+
 :javascript
-          
+
     var itemLatLng = {lat: 19.414319, lng: -99.128175};
     var newProviderMap;
     var geocoder = new google.maps.Geocoder();
     var marker;
-   
+
     $("[class^='state_']").hide();
-    
+
     function select_state(id){
       $(".state_" + id).toggle();
     }
-    
-    function check_state(id){ 
-      
+
+    function check_state(id){
+
       if ($(".main_state_" + id).prop('checked')){
-        $(".main_state_" + id + "fa").removeClass("fa-caret-down"); 
-        $(".main_state_" + id + "fa").addClass("fa-caret-up"); 
+        $(".main_state_" + id + "fa").removeClass("fa-caret-down");
+        $(".main_state_" + id + "fa").addClass("fa-caret-up");
       } else {
-        $(".main_state_" + id + "fa").removeClass("fa-caret-up"); 
+        $(".main_state_" + id + "fa").removeClass("fa-caret-up");
         $(".main_state_" + id + "fa").addClass("fa-caret-down");
       }
-      
+
       console.log($(".main_state_" + id));
       $(".state_" + id + " .check_boxes").prop('checked', $(".main_state_" + id).prop('checked'));
     }
-    
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
-         
+
         var pos = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
-        
+
         newProviderMap = new google.maps.Map(document.getElementById('mapNew'), {
           center: pos,
           zoom: 8
         });
-        
-        
- 
+
+
+
         newProviderMap.setCenter(pos);
-         
+
         marker = new google.maps.Marker({
             draggable: true,
             position: pos,
             map: newProviderMap
         });
-        
+
         google.maps.event.addListener(marker,'drag',function(event) {
             $("#provider_latitude").val(event.latLng.lat());
             $("#provider_longitude").val(event.latLng.lng());
         });
-        
+
       }, function() {
-         
+
       });
     } else {
       // Browser doesn't support Geolocation
-        
+
     }
-    
-    
-  
-            
+
+
+
+
     function codeAddress() {
         var address = document.getElementById("provider_address").value;
         geocoder.geocode( { 'address': address}, function(results, status) {
@@ -203,12 +209,3 @@
           }
         });
       }
-    
-  
-    
-    
-    
-    
-     
-  
-    
