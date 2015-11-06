@@ -11,10 +11,10 @@ class CommentsController < ApplicationController
     comment.user = current_user
     comment.save
 
-
+    render action: "create", layout: false
 
     #redirect_to provider_path(@provider.id)
-    format.html { render action: "create", layout: false }
+    #format.html { render action: "create", layout: false }
   end
 
   def comment_params
