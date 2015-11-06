@@ -94,11 +94,12 @@
           %p.label.text-center # Perros aceptados
           .icon= image_tag('otros-detalles-cantidad-perros.svg', height: '32px')
           %p.label-small="#{@provider.pets_allowed.to_i}"
-        - if !(@provider.only_sterilizated)
-          .col-md-3
-            %p.label.text-center Esterilizacón
-            .icon= image_tag('otros-detalles-cantidad-perros.svg', height: '32px')
-            %p.label-small"Solo acepta perros esterilizados"
+        .row
+          - if !(@provider.only_sterilizated)
+            .col-md-3
+              %p.label.text-center Esterilizacón
+              .icon= image_tag('otros-detalles-cantidad-perros.svg', height: '32px')
+              %p.label-small"Solo acepta perros esterilizados"
       .Comportamientos
         %h3.text-gray Comportamientos de perros aceptados
         .row.comp
