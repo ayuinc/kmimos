@@ -46,7 +46,7 @@
     .row
       .col-md-12.tricol_checkboxes
         %label ¿Con que tamaños de perro trabaja?
-        = f.association :size, as: :check_boxes, label: false, :collection => Size.all
+        = f.association :sizes, as: :check_boxes, label: false, :collection => Size.all
     .row
       .col-md-12.tricol_checkboxes
         %label Etapas de vida de los perros que cuida
