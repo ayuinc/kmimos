@@ -16,7 +16,7 @@
                 .ratingStars{score: score, readOnly: true}
             .user-info.col-md-9
               %h3.m-0.mb-7
-
+              
                 = "#{@provider.name} #{@provider.last_name_1}"
               - @provider.locations.group_by(&:state_id).each do |k, state|
                 %b.mb-7= state.first.state
