@@ -160,7 +160,7 @@
             %h4.text-gray.mv-14.border-bottom
               Servicios Adicionales
             - @provider.additional_services.each do |service|
-              %input{value: service.id}(type="checkbox" name="services[]")
+              %input.mt-21{value: service.id}(type="checkbox" name="services[]")
                 =service.service
               %br
               %small.pl-21{style: 'font-size: 9px;'}
