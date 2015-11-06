@@ -26,7 +26,7 @@ class AdditionalService < ActiveRecord::Base
 
   end
 
-  def self.get_rates_for(provider_id, service_id)
+  def self.get_min_rates_for(provider_id, service_id)
     price = 0
     additional_services = AdditionalService.where(service_id: service_id, provider_id: provider_id)
 
