@@ -1,8 +1,27 @@
 .navbar.navbar-default
   .container-fluid
     .navbar-header
-    .navbar-brand.text-white
-      Kmimos
+      .navbar-brand.text-white.pl-42
+        Kmimos
+      %button.navbar-toggle.mt-28.res-toogle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+
+    .collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        - if current_user
+          %li= link_to 'Mi Perfil', user_path(current_user)
+          %li= link_to 'Mis Reservas', bookings_path
+        - if current_provider
+          %li= link_to 'Mi perfil'.html_safe, edit_provider_path(current_provider.id)
+          %li= link_to 'Salir'.html_safe, destroy_provider_session_path, :method => :delete
+        - if !(current_provider || current_user)
+          %li
+            %a{:href => new_user_session_path} Iniciar sesión como Cliente
+          %li
+            %a{:href => new_provider_session_path} Iniciar sesión como Cuidador
+
 .container-fluid.no-padding-margin
   .row.provider-home
     .col-md-12.home-bkg.p-21
@@ -12,6 +31,7 @@
       .text-center
         .h3.text-white.mv-35.lh-xl.bold.text-responsive
           Viaja con tranquilidad, dejando a tu mascota en buenas manos.
+
   .row
     #video-main.video
   .row.mb-56#beneficios

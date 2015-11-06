@@ -12,3 +12,29 @@
   width: 100%    !important;
   height: auto   !important;
 }
+
+.res-toogle {
+  border: 0px;
+  margin-top: 1rem !important;
+
+}
+
+.icon-bar {
+  background-color: #fff !important;
+}
+
+
+.navbar-collapse {
+  background: #fff;
+}
+
+ul.navbar-nav li {
+  display: flex;
+  padding: 0px 1px;
+  font-size: 24px;
+}
+
+
+.navbar .navbar-collapse ul li a {
+  padding: 10px 17px;
+}
