@@ -87,12 +87,11 @@
       .col-md-12 Comportamiento de mis perros
     .row
       .col-md-12.tricol_checkboxes= f.association :own_behaviors, as: :check_boxes, label: false, :collection => Behavior.all
-    .form-grpup
-      .row
-        .col-md-9
-          Acepta perros estirilizados
-        .col-md-3 only_sterilizatedz
-          = f.input :only_sterilizated, label: false
+
+    .row
+      .col-md-9 Acepta perros estirilizados
+      .col-md-3  
+        = f.input :only_sterilizated, label: false
     .row
       .col-md-9 ¿Cantidad de perros aceptado en su propiedad?
       .col-md-3= f.input :pets_allowed, label: false
