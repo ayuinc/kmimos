@@ -19,6 +19,9 @@
           = image_tag(@provider.avatar, width: '200px')
         .col-md-5
           %h2= @provider
+          %h4.text-gray.light
+            %small.text-black.bold Precio:
+            = "#{current_country.currency} #{@provider.price.to_i * 1.2} noche"
           - @provider.locations.group_by(&:state_id).each do |k, state|
             %b= state.first.state
             %br
@@ -27,16 +30,10 @@
       .row
         .col-md-2
         .col-md-8
-          %h3.text-gray.mb-42 Resumen de la reserva:
+          %h3.text-gray.mb-14 Genera tu reserva:
       .row.booking-container
         .col-md-2
         .col-md-8.mt-21.mb-42
-          %h4.text-gray.light
-            %small.text-black.bold Cuidador:
-            = "#{@provider.name} #{@provider.last_name_1} #{@provider.last_name_2}"
-          %h4.text-gray.light
-            %small.text-black.bold Precio:
-            = "#{current_country.currency} #{@provider.price.to_i * 1.2} noche"
           %br
           %br
           .row#datepair
