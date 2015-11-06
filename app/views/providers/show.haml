@@ -153,12 +153,12 @@
             %h4.text-gray.mv-14
               Servicios Adicionales
           - @provider.additional_services.each do |service|
-            .form-group
-              %input{value: service.id}(type="checkbox" name="services[]")
-                =service.service
-              %br
-              %small.pl-21
-                %i $35p, $48m, $50g, $60xg
+           
+            %input{value: service.id}(type="checkbox" name="services[]")
+              =service.service
+            %br
+            %small.pl-21
+              %i $35p, $48m, $50g, $60xg
         .content-detalles.mt-14.mb-28.text-center.m-21.pb-14
           .border-bottom.text-left.pl-21
             %h4.text-gray.mv-14="#{@provider.comments.count} Evaluaciones"
