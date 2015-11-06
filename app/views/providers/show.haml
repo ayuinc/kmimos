@@ -94,7 +94,7 @@
           %p.label.text-center # Perros aceptados
           .icon= image_tag('otros-detalles-cantidad-perros.svg', height: '32px')
           %p.label-small="#{@provider.pets_allowed.to_i}"
-      .row
+      .row.details-profile.pl-21
         - if !(@provider.only_sterilizated)
           .col-md-3
             %p.label.text-center Esterilizacón
