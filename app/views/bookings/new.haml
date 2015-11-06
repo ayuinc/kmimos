@@ -53,34 +53,35 @@
               Hora
               =f.input :dropoff_time, :as => :time_picker, label: false, input_html: {style: "width: 50%; display: inline;"}
 
-
-          .panel.panel-primary
-            .panel-body.line-regular
-              %h5 Para reserva una estadia agrega tu mascota
-              %br
-              .form-group.row(ng-repeat="pet in pets_booked")
-                .row.pb-7.border-bottom
-                  .col-md-3 Nombre:
-                  .col-md-6
-                    %select.form-control{name: "booking[booked_pets_attributes][][pet_id]"}(ng-model= "pet.pet_id"  ng-change="update_pets(#{@provider.id})")
-                      -current_user.pets.each do |pet|
-                        %option{value: pet.id}= pet
-                  .col-md-2 $ {{ pet.price }} MXN
-                  .col-md-1
-                    %a(ng-click="deletePet(pet)" href="#") X
-              %center
-                %a.btn.btn-primary(ng-click="add_pet()") Agregar Mascota
-              .row
-                %br
-              .form-group.row
-                .col-md-12= f.input :address, class: "form-control", label: "Dirección de Recojo", as: :text, input_html: { value: current_user.address }
-              .form-group.row
-                .col-md-12
-                  = f.input :user_message, label: "¿Necesitas que sepamos algún dato extra sobre tu perrito?", as: :text, class: "form-control"
-              .form-group.row
-                .col-md-6
-                  = f.input :ref_code, label: "Código de descuento:", class: "form-control"
-              / Modal
+          .row
+            .col-md-12
+              .panel.panel-primary
+                .panel-body.line-regular
+                  %p Añade a tu mascota a la reserva del tiempo de estadía que selecciones.
+                  %br
+                  .form-group.row(ng-repeat="pet in pets_booked")
+                    .row.pb-7.border-bottom
+                      .col-md-3 Nombre:
+                      .col-md-6
+                        %select.form-control{name: "booking[booked_pets_attributes][][pet_id]"}(ng-model= "pet.pet_id"  ng-change="update_pets(#{@provider.id})")
+                          -current_user.pets.each do |pet|
+                            %option{value: pet.id}= pet
+                      .col-md-2 $ {{ pet.price }} MXN
+                      .col-md-1
+                        %a(ng-click="deletePet(pet)" href="#") X
+                  %center
+                    %a.btn.btn-primary(ng-click="add_pet()") Quiero agregar a mi mascota
+                  .row
+                    %br
+                  .form-group.row
+                    .col-md-12= f.input :address, class: "form-control", label: "Dirección de Recojo", as: :text, input_html: { value: current_user.address }
+                  .form-group.row
+                    .col-md-12
+                      = f.input :user_message, label: "¿Necesitas que sepamos algún dato extra sobre tu perrito?", as: :text, class: "form-control"
+                  .form-group.row
+                    .col-md-6
+                      = f.input :ref_code, label: "Código de descuento:", class: "form-control"
+                  / Modal
           %br
           %h4 Quieres contratar servicios adicionales?
           %br
