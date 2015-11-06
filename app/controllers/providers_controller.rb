@@ -24,7 +24,7 @@
   def home
 
     @agent = request.env["HTTP_USER_AGENT"]
-
+    
     @search = Provider.search(params[:q])
     @referral = Referral.new
 
