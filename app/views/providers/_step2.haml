@@ -10,17 +10,15 @@
       .col-md-9= f.input :description, label: false, input_html: {rows: 10}
   .row
       .col-md-12 Precio por noche:
-   .row
-      .col-md-12
 
-   -@provider.rates.each do |rate|
-     .row
-        .col-md-8
-          %label= rate.size
+  -@provider.rates.each do |rate|
+    .row
+      .col-md-8
+        %label= rate.size
           %input{value: rate.id}(name="provider[rates_attributes][][id]" type="hidden")
           %input{value: rate.size.id}(name="provider[rates_attributes][][size_id]" type="hidden")
-        .col-md-4
-          %input{value: rate.price}(name="provider[rates_attributes][][price]" placeholder="0.0" class="form-control")
+      .col-md-4
+        %input{value: rate.price}(name="provider[rates_attributes][][price]" placeholder="0.0" class="form-control")
 
     %br
        %label ¿En qué municipios puedes trabajar?
