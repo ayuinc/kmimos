@@ -104,7 +104,7 @@
           .panel-body
           = f.input :total, as: :hidden, input_html: {value: "{{services_booked_total + pets_booked_total}}"}
           .table
-            %h4 Servicios del Cuidador
+            %h4 Costos del servicio de estadia
             %table(width="100%")
               %thead
                 %th Mascota
@@ -127,7 +127,7 @@
                 %tr
                   %th.total(colspan=3) TOTAL :
                   %th.total $ {{ pets_booked_total * 1.2 | number:2 }}  MXN
-            %h4 Servicios Adicionales
+            %h4 Costos de los servicios adicionales
             %table(width="100%")
               %thead
                 %th Mascota
