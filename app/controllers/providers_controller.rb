@@ -20,7 +20,7 @@
     @providers = @providers.all.page params[:page]
 
     respond_to do |format|
-      format.html   { render 'index', layout: 'inter' }
+      format.html   { render 'index' }
       format.mobile { render 'index_mobile', layout: 'mobile' }
     end
 
