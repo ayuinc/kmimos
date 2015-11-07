@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107064223) do
+ActiveRecord::Schema.define(version: 20151107103256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -295,7 +295,6 @@ ActiveRecord::Schema.define(version: 20151107064223) do
     t.boolean  "is_favorite"
     t.string   "behaviors_accepted"
     t.integer  "behavior_id"
-    t.boolean  "accept_non_sterilized"
     t.boolean  "only_sterilizated"
   end
 
@@ -391,6 +390,10 @@ ActiveRecord::Schema.define(version: 20151107064223) do
     t.text     "address"
     t.string   "state_name"
     t.string   "place_name"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
