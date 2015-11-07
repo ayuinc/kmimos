@@ -24,10 +24,8 @@
               %p
                 Se ha hecho una reserva en Kmimos para que
                 %b #{@booking.provider.name}
-                cuide a tu mascota :
-                %ul
-                - @booking.booked_pets.each do |pet|
-                  %li= pet.pet
+                cuide a tu mascota  #{booking.booked_pets.joing(', ')}:
+                %br
                 Desde el dia
                 %b #{@booking.start_date} a las #{@booking.pickup_time}
                 hasta el
@@ -43,18 +41,18 @@
           - @booking.booked_pets.each do |booked|
             %table{style: "width: 100%;"}
               %tr
-                %td{style: "background-color: #ace2d3; width: 40%;"}
-                  %label Nombre
+                %td{style: "background-color: #ace2d3; width: 40%; margin: 5px;"}
+                  %strong Nombre
                   %p #{booked.pet}
-                  %label Raza
+                  %strong Raza
                   %p #{booked.pet.race}
-                  %label Tamaño
+                  %strong Tamaño
                   %p #{booked.pet.size}
-                  %label Peso
+                  %strong Peso
                   %p #{booked.pet.weight}
-                  %label Peso
+                  %strong Peso
                   %p #{booked.pet.sex}
-                %td{style: "background-color: #e1eeea; width: 60%;"}
+                %td{style: "background-color: #e1eeea; width: 60%; margin: 5px;"}
                   %h3 Acerca de #{booked.pet}
                   %br
                   %h4 Comportamiento
