@@ -21,7 +21,7 @@
           %h2= @provider
           %h4.text-gray.light
             %small.text-black.bold Precio:
-            = "#{current_country.currency} #{@provider.price.to_i * 1.2} noche"
+            = "#{current_country.currency} #{ 1.2 * (@provider.rates.minimum(:price))} noche"
           - @provider.locations.group_by(&:state_id).each do |k, state|
             %b= state.first.state
             %br
