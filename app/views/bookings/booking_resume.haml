@@ -7,7 +7,7 @@
   %body{style: "background-color: #fdfff7, margin: 30px; color: #445a4f;"}
     .container{:style => "margin: 0 auto;padding: 25px;"}
       .header{style: "text-align:center;margin-left:auto;margin-right:auto;min-width:620px;width:100%"}
-        %table
+        %table{style: "text-align:center;margin-left:auto;margin-right:auto;min-width:620px;width:100%"}
           %thead
             %tr
               %td
@@ -43,7 +43,7 @@
                   %strong Nombre
                   %p #{booked.pet}
                   %strong Raza
-                  %p #{booked.pet.race}
+                  %p #{booked.pet.race_id.race}
                   %strong Tamaño
                   %p #{booked.pet.size}
                   %strong Peso
@@ -64,15 +64,15 @@
         %center
           %img{src: "http://www.ucarecdn.com/624fa984-5c02-47a7-8786-6309a432ff9f/importante_kmimos_mail.png", width: "50%"}
       %footer{:style => "background:#13334C; padding: 4px 12px;"}
-        %table
-          %tr
-            %td
+        %table{:style => "background:#13334C"}
+          %tr{:style => "background:#13334C"}
+            %td{:style => "background:#13334C"}
               %p{:style => "color:white; margin-right: 17px; margin-left: 12px;"} Contáctanos: +55 3455 0138
-            %td
+            %td{:style => "background:#13334C"}
               %a{:href => "http://www.cani.mx/", :style => "color: white; margin-right: 88px; text-decoration: none;"} www.cani.mx
-            %td
+            %td{:style => "background:#13334C"}
               %p{:style => "color:white; margin-right: 14px;"} Síguenos en:
-            %td
+            %td{:style => "background:#13334C"}
               %a{:href => "https://www.facebook.com/pages/Kamimos/1473614136234432?ref=bookmarks"}
                 %img{:alt => "", :src => "http://s17.postimg.org/r4ttx53vf/facebook_mail_confirmacion.png", :style => "margin-right: 3px;"}/
               %a{:href => "https://twitter.com/KmimosMx"}
