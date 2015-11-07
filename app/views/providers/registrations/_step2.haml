@@ -137,7 +137,8 @@
 
 :javascript
 
-    var itemLatLng = {lat: 19.414319, lng: -99.128175};
+    
+    
     var newProviderMap;
     
     var geocoder = new google.maps.Geocoder();
@@ -164,14 +165,16 @@
       $(".state_" + id + " .check_boxes").prop('checked', $(".main_state_" + id).prop('checked'));
     }
     
- 
-    var pos = {
-      lat: position.coords.latitude,
-      lng: position.coords.longitude
-    };
+    var itemLatLng = {}; //lat: , lng: 
+    
+    
+    $("#mapNew").each(function(){
+      itemLatLng = {lat: $(this).attr('latitude'), lng: $(this).attr('longitude')};
+    });
+  
 
     newProviderMap = new google.maps.Map(document.getElementById('mapNew'), {
-      center: pos,
+      center: itemLatLng,
       zoom: 8
     });
 
@@ -179,7 +182,7 @@
 
     marker = new google.maps.Marker({
         draggable: true,
-        position: pos,
+        position: itemLatLng,
         map: newProviderMap
     });
 
