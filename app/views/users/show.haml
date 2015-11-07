@@ -1,5 +1,5 @@
 = simple_nested_form_for(@user, :html => {:multipart => true}) do |f|
-container.pvp-7.ph-21
+  .container.pvp-7.ph-21
     .row
       .col-md-2
       .col-md-8
@@ -70,7 +70,7 @@ container.pvp-7.ph-21
                 .cl-md-4
                  .form-group
                    %label Peso
-                    = pet.object.weight.to_s != "" ? best_in_place(pet.object, :weight) : pet.input(:weight, label: false) 
+                    = pet.object.weight.to_s != "" ? best_in_place(pet.object, :weight) : pet.input(:weight, label: false)
                   .form-group
                    = pet.input :sex, label:'Sexo', as: :radio_buttons, :collection => ['Masculino', 'Femenino']
                   .form-group
