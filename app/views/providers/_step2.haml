@@ -128,7 +128,7 @@
 
     var marker_item = $("#marker");
 
-    var itemLatLng = {lat: parsFloat(marker_item.attr('latitude')),ng: parseFloat(marker_item.attr('longitude'))};
+    var itemLatLng = {lat: parseFloat(marker_item.attr('latitude')),ng: parseFloat(marker_item.attr('longitude'))};
 
     newProviderMap = initMap('editProvider', 'mapNew');
 
