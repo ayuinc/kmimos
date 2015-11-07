@@ -37,5 +37,5 @@
                 - score = val.map{|val| val[1]}.reduce(:+).to_i / val.size.to_i rescue 0
                 .ratingStars{score: score, readOnly: true}
               %td
-                = %a{href: "http://peaceful-ocean-4005.herokuapp.com/bookings/booking_resume.pdf?booking_id=#{@booking.id}"} Ver Reserva
+                %a{href: "http://peaceful-ocean-4005.herokuapp.com/bookings/booking_resume.pdf?booking_id=#{@booking.id}"} Ver Reserva
   .col-md-2
