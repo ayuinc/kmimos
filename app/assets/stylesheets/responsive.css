@@ -40,6 +40,8 @@ ul.navbar-nav li {
   padding: 20px;
   color: #fff;
   text-align: center;
+  position: fixed;
+  bottom: 0px;
 }
 
 .do_search {
