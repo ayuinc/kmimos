@@ -19,12 +19,17 @@
 
     @providers = @providers.all.page params[:page]
 
+    respond_to do |format|
+      format.html   { render 'index', layout: 'inter' }
+      format.mobile { render 'index_mobile', layout: 'mobile' }
+    end
+
   end
 
   def home
 
     @agent = request.env["HTTP_USER_AGENT"]
-    
+
     @search = Provider.search(params[:q])
     @referral = Referral.new
 
