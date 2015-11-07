@@ -1,4 +1,3 @@
-%p Deja una calificacion y un comentario sobre tu cuidador
 
 - provider.comments.each do |comment|
   .comment-container.row
@@ -15,6 +14,9 @@
         .col-xs-12
           %p= comment.body
   %hr
+%p
+  %b Deja una calificacion y un comentario sobre tu cuidador
+%br
 - if current_user != nil
   - @comment = Comment.new
   = simple_nested_form_for(@comment, :html => {:multipart => true}, remote: true) do |f|
