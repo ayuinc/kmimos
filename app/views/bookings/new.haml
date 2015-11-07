@@ -165,7 +165,8 @@
 
   var preselect_services =[]
 
-  - @services.each do |service|
+- @services.each do |service|
+  :javascript
     setTimeout(function(){
       $('.add_srv_btn').click();
       preselect_services.push("#{service.id}")
@@ -173,7 +174,7 @@
         $(this).val(preselect_services[index]);
       });
     }, 1000);
- 
+
 :javascript
 
 
