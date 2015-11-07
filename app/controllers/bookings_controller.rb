@@ -11,6 +11,10 @@ class BookingsController < ApplicationController
 
 	end
 
+	def booking_resume
+		@booking = Booking.find(params[:booking_id])
+	end
+
 	def new
     @services =  params[:services] != nil ? Service.where(id: params[:services]) : []
 		@provider = Provider.find(params[:booking][:provider_id])

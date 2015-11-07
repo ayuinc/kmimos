@@ -128,13 +128,13 @@
 
     var marker_item = $("#marker");
 
-    var itemLatLng = {lat: parsloat(marker_item.attr('latitude')),ng: parseFloat(marker_item.attr('longitude'))};
+    var itemLatLng = {lat: parsFloat(marker_item.attr('latitude')),ng: parseFloat(marker_item.attr('longitude'))};
 
     newProviderMap = initMap('editProvider', 'mapNew');
 
-    newProvideM.setCenter(itemLatLng);
+    newProviderMap.setCenter(itemLatLng);
 
-    var marker = new google.mapsarker({
+    var marker = new google.maps.Marker({
         draggable: true,
         posin: itemLatLng,
         map: newProviderMap
