@@ -34,7 +34,7 @@ class AdditionalService < ActiveRecord::Base
 
     #price = additional_services.map{|as| as.sizes.map{|s| hash_prices[s.symbol] = as.price}} rescue 0
 
-    price = additional_services.min(:price)
+    price = additional_services.min(:price).to_i
 
     return price
   end
