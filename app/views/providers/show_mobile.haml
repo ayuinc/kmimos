@@ -13,23 +13,22 @@
                 - val = Valuation.by_comments(@provider.id)
                 - score = val.map{|val| val[1]}.reduce(:+).to_i / val.size.to_i rescue 0
                 .ratingStars{score: score, readOnly: true}
-            .user-info.col-md-12
-              %h3.m-0.mb-7
-
-                = "#{@provider.name} #{@provider.last_name_1}"
-              - @provider.locations.group_by(&:state_id).each do |k, state|
-                %b.mb-7= state.first.state
-                %br
-                %p.mt-7.mb-7.text-gray= state.map(&:name).join(", ")
-              -if current_user != nil
-                .row
-                  .col-md-5
-                  .col-md-7
-                    .favorite_form
-                      - unless @provider.favorite?(current_user)
-                        %a.btn.bordered-btn{href: "#{new_favorite_path}?provider_id=#{@provider.id}"}
-                          %i.fa.fa-heart-o
-                          %small Agregar a Favoritos
+    .user-info.col-md-12
+      %h3.m-0.mb-7
+        = "#{@provider.name} #{@provider.last_name_1}"
+      - @provider.locations.group_by(&:state_id).each do |k, state|
+        %b.mb-7= state.first.state
+        %br
+        %p.mt-7.mb-7.text-gray= state.map(&:name).join(", ")
+      -if current_user != nil
+        .row
+          .col-md-5
+          .col-md-7
+            .favorite_form
+              - unless @provider.favorite?(current_user)
+                %a.btn.bordered-btn{href: "#{new_favorite_path}?provider_id=#{@provider.id}"}
+                  %i.fa.fa-heart-o
+                  %small Agregar a Favoritos
     .col-md-12
       = simple_form_for Booking.new, :url => new_booking_path do |f|
         = f.input :provider_id, as: :hidden, input_html: {value: @provider.id}
