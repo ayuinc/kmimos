@@ -24,8 +24,7 @@
               %p
                 Se ha hecho una reserva en Kmimos para que
                 %b #{@booking.provider.name}
-                cuide a tu mascota  #{@booking.booked_pets.join(', ')}:
-                %br
+                cuide a tu mascota  #{@booking.booked_pets.map{|b| b.pet.name}.join(', ')}: 
                 Desde el dia
                 %b #{@booking.start_date} a las #{@booking.pickup_time}
                 hasta el

@@ -13,7 +13,6 @@ class BookingsController < ApplicationController
 
 	def booking_resume
 		@booking = Booking.find(params[:booking_id])
-
 		render :booking_resume, layout: false
 	end
 

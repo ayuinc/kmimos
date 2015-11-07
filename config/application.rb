@@ -17,7 +17,7 @@ module ServihogarRails
     app.config.assets.precompile.shift
 
 
-    
+
     config.middleware.use PDFKit::Middleware
 
     # config.assets.paths << Rails.root.join("app", "assets", "fonts")
