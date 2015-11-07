@@ -123,7 +123,6 @@
     $(".state_" + id + " .check_boxes").prop('checked', $(".main_state_" + id).prop('checked'));
   }
 
-  function do_map(){
     var geocoder = new google.maps.Geocoder();
 
     var marker_item = $("#marker");
@@ -160,13 +159,7 @@
       });
     }
 
-  }
-
-  setTimeout(function(){
-
-    do_map();
-
-  }, 5000);
+ 
 
   $("[class^state_']").hide();
 
