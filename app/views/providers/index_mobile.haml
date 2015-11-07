@@ -2,25 +2,27 @@
   %h1 Cuidadores Sugeridos
   %br
 %div
-  %div
-    #cuidadores
-      - Provider.all.each do |provider|
-        .provider-item
-          .block-cuidadores
-            %a(href="/providers/#{provider.id}" ng-)
-              .bg-img-block.border-radius.square-green(style = "height: 150px; background-image: url('#{provider.avatar}');")
-                .oculto.text-center.pt-21
-                  %img{:alt => "", :src => "assets/icono-huella-hover.svg", :width => "70"}
-              .bg-gray-lighter.p-14
-                .body.border-bottom.body-provider
-                  %small.fz-xs Desde
-                  %h4.text-primary.lh-xs.mv-0 Mex $#{provider.price}
-                  %small.text-primary.fz-xs por noche
-                  %h5.bold #{ provider.name }
-                  %p.lh-sm.text-gray.fz-xs #{ provider.description }
-                  .hidden-md.separator.separator-gray-dark.separator-centered.mt-0.separator-full-width
-                .rating
-                  .ratingStars
-                  .comments
-                    %span.badge #{ provider.comments.length }
-                    %span Comentarios
+
+  - Provider.all.each do |provider|
+    %br
+    .provider-item
+      .block-cuidadores
+        %a(href="/providers/#{provider.id}" ng-)
+          .bg-img-block.border-radius.square-green(style = "height: 150px; background-image: url('#{provider.avatar}');")
+            .oculto.text-center.pt-21
+              %img{:alt => "", :src => "assets/icono-huella-hover.svg", :width => "70"}
+          .bg-gray-lighter.p-14
+            .body.border-bottom.body-provider
+              %small.fz-xs Desde
+              %h4.text-primary.lh-xs.mv-0 Mex $#{provider.price}
+              %small.text-primary.fz-xs por noche
+              %h5.bold #{ provider.name }
+              %p.lh-sm.text-gray.fz-xs #{ provider.description }
+              .hidden-md.separator.separator-gray-dark.separator-centered.mt-0.separator-full-width
+            .rating
+              .ratingStars
+              .comments
+                %span.badge #{ provider.comments.length }
+                %span Comentarios
+%br
+%br

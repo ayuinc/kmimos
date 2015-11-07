@@ -1,35 +1,70 @@
+
+
 .container.pvp-7.ph-21
-  .row.mv-56
-    .col-md-2
-    .col-md-7
+  .row
+    .col-md-12
       .info
         .user.border-bottom
           .user-card.user-card-round.size.xs.mb-21.row
-            .user-pic.col-md-3
+            .user-pic.col-md-12
               = image_tag(@provider.avatar, class: 'avatar') if @provider.avatar?
               = image_tag('server_carnet.png', class: 'avatar') unless @provider.avatar?
               %center
                 - val = Valuation.by_comments(@provider.id)
                 - score = val.map{|val| val[1]}.reduce(:+).to_i / val.size.to_i rescue 0
                 .ratingStars{score: score, readOnly: true}
-            .user-info.col-md-9
-              %h3.m-0.mb-7
+    .user-info.col-md-12
+      %h3.m-0.mb-7
+        = "#{@provider.name} #{@provider.last_name_1}"
+      - @provider.locations.group_by(&:state_id).each do |k, state|
+        %b.mb-7= state.first.state
+        %br
+        %p.mt-7.mb-7.text-gray= state.map(&:name).join(", ")
+      -if current_user != nil
+        .row
+          .col-md-5
+          .col-md-7
+            .favorite_form
+              - unless @provider.favorite?(current_user)
+                %a.btn.bordered-btn{href: "#{new_favorite_path}?provider_id=#{@provider.id}"}
+                  %i.fa.fa-heart-o
+                  %small Agregar a Favoritos
+    .col-md-12
+      = simple_form_for Booking.new, :url => new_booking_path do |f|
+        = f.input :provider_id, as: :hidden, input_html: {value: @provider.id}
+        .content-article.mt-14.mb-28.m-21
+          .border-bottom.text-left.pl-21
+            %p.light.mb-0.text-gray.text-small Desde
+            %h4.m-7.price
+              = 1.2*(@provider.rates.minimum(:price)) rescue 0
+              = current_country.currency
+            %h5.light.mt-0.text-gray.text-small por noche
 
-                = "#{@provider.name} #{@provider.last_name_1}"
-              - @provider.locations.group_by(&:state_id).each do |k, state|
-                %b.mb-7= state.first.state
-                %br
-                %p.mt-7.mb-7.text-gray= state.map(&:name).join(", ")
-              -if current_user != nil
-                .row
-                  .col-md-5
-                  .col-md-7
-                    .favorite_form
-                      - unless @provider.favorite?(current_user)
-                        %a.btn.bordered-btn{href: "#{new_favorite_path}?provider_id=#{@provider.id}"}
-                          %i.fa.fa-heart-o
-                          %small Agregar a Favoritos
+            =f.submit "Reservar".html_safe, :class => "mt-14 mb-21 btn btn-primary btn-small btn-fold" #,  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Reservar', 'provider_#{@provider.id.to_s}']);"
+            %br/
+            = link_to "Conocer cuidador".html_safe, new_meeting_path(:provider_id => @provider.id), :class => "text-secondary btn btn-fold", :style => "border-color: #1DBA9A; padding: 10px 7px;",  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Conocer', 'provider_#{@provider.id.to_s}']);"
+            %br
+            %p
+              %br
+            %p
+              %b Check in:
+              = @provider.check_in.strftime("%H:%M") rescue ""
+            %p
+              %b Check out:
+              = @provider.check_out.strftime("%H:%M") rescue ""
+          .border-bottom.text-left.pl-21
+            %h4.text-gray.mv-14.border-bottom
+              Servicios Adicionales
+            %p Elige el servicio que deseas para tu mascota. Puedes agregarlo(s) a tu reserva o contratarlo(s) por separado
+            - @provider.additional_services.each do |service|
+              %input.mt-21{value: service.id}(type="checkbox" name="services[]")
+                #{service.service} desde #{AdditionalService.get_min_rates_for(@provider.id, service.id)}
+              %br
+            =f.submit "Contratar".html_safe, :class => "mt-14 mb-21 btn btn-primary btn-small btn-fold" #,  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Reservar', 'provider_#{@provider.id.to_s}']);"
 
+    .col-md-12
+
+      .content-detalles.mt-14-mb-28.m-21.pb-14
       %h3.text-gray Detalles
       .row.details-profile.mt-35
         .col-md-3
@@ -129,40 +164,8 @@
         #comments-div
           = render partial: 'layouts/partial/comments', locals: {provider: @provider}
 
-    .col-md-3
-      = simple_form_for Booking.new, :url => new_booking_path do |f|
-        = f.input :provider_id, as: :hidden, input_html: {value: @provider.id}
-        .content-article.mt-14.mb-28.m-21
-          .border-bottom.text-left.pl-21
-            %p.light.mb-0.text-gray.text-small Desde
-            %h4.m-7.price
-              = 1.2*(@provider.rates.minimum(:price)) rescue 0
-              = current_country.currency
-            %h5.light.mt-0.text-gray.text-small por noche
 
-            =f.submit "Reservar".html_safe, :class => "mt-14 mb-21 btn btn-primary btn-small btn-fold" #,  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Reservar', 'provider_#{@provider.id.to_s}']);"
-            %br/
-            = link_to "Conocer cuidador".html_safe, new_meeting_path(:provider_id => @provider.id), :class => "text-secondary btn btn-fold", :style => "border-color: #1DBA9A; padding: 10px 7px;",  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Conocer', 'provider_#{@provider.id.to_s}']);"
-            %br
-            %p
-              %br
-            %p
-              %b Check in:
-              = @provider.check_in.strftime("%H:%M") rescue ""
-            %p
-              %b Check out:
-              = @provider.check_out.strftime("%H:%M") rescue ""
 
-        .content-detalles.mt-14-mb-28.m-21.pb-14
-          .border-bottom.text-left.pl-21
-            %h4.text-gray.mv-14.border-bottom
-              Servicios Adicionales
-            %p Elige el servicio que deseas para tu mascota. Puedes agregarlo(s) a tu reserva o contratarlo(s) por separado
-            - @provider.additional_services.each do |service|
-              %input.mt-21{value: service.id}(type="checkbox" name="services[]")
-                #{service.service} desde #{AdditionalService.get_min_rates_for(@provider.id, service.id)}
-              %br
-            =f.submit "Contratar".html_safe, :class => "mt-14 mb-21 btn btn-primary btn-small btn-fold" #,  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Reservar', 'provider_#{@provider.id.to_s}']);"
         .content-detalles.mt-14-mb-28.m-21.pb-14
           .border-bottom.text-left.pl-21
             %h4.text-gray.mv-14="#{@provider.comments.count} Evaluaciones"
