@@ -69,7 +69,7 @@
         .row
           .col-md-12 Comportamiento de perros aceptados
         .row
-          .col-md-12.tricol_checkboxes= f.association :accepted_behaviors, as: :check_boxes, label: false, :collection => Behavior.all
+          .col-md-12.tricol_checkboxes= f.association :valid_behaviors, as: :check_boxes, label: false, :collection => Behavior.all
       .form-grpup
         .row
           .col-md-6 Acepta perros no estirilizados
