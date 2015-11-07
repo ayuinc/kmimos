@@ -106,44 +106,56 @@
 
 :javascript
 
-  var geocoder = new gops.Geocoder()
+
   $("[class^state_']").hide();
 
   function select_state(id
     $(".state_" + id).toggle();
 
 
-  var marker_item = $("#marker");
+  function do_map(){
+    var geocoder = new gops.Geocoder()
 
-  var itemLatLng = {lat: parsloat(marker_item.attr('latitude')),ng: parseFloat(marker_item.attr('longitude'))};
+    var marker_item = $("#marker");
+
+    var itemLatLng = {lat: parsloat(marker_item.attr('latitude')),ng: parseFloat(marker_item.attr('longitude'))};
 
 
-  newProviderMap = initMap('editProvider', 'mapNew');
 
-  newProvideM.setCenter(itemLatLng);
+    newProviderMap = initMap('editProvider', 'mapNew');
 
-  var marker = new google.mapsarker({
-      draggable: true,
-      posin: itemLatLng,
-      map: newProviderMap
-  });
+    newProvideM.setCenter(itemLatLng);
 
-  google.maps.event.addListener(marker,'drag',function(event) {
-      $("#prider_latitude").val(event.latLng.lat());
-      $("#provider_longitude").val(event.latLng.lng());
-  });
-
-  function codeAddress() {
-    var address = document.getElementById("providerddress").value;
-    geocoder.geocode( { 'address': address}, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        newProviderMap.setCenter(results[0].geometry.location);
-        marker.setPosition( results[0].geometry.location );
-        console.log(results[0].geometry.location);
-        $("#provider_latitude").val(results[0].geometry.location.lat());
-        $("#provider_longitude").val(results[0].geometry.location.lng());
-      } else {
-        alert("Geocode was not successful for the following reason: " + status);
-      }
+    var marker = new google.mapsarker({
+        draggable: true,
+        posin: itemLatLng,
+        map: newProviderMap
     });
+
+    google.maps.event.addListener(marker,'drag',function(event) {
+        $("#prider_latitude").val(event.latLng.lat());
+        $("#provider_longitude").val(event.latLng.lng());
+    });
+
+    function codeAddress() {
+      var address = document.getElementById("providerddress").value;
+      geocoder.geocode( { 'address': address}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          newProviderMap.setCenter(results[0].geometry.location);
+          marker.setPosition( results[0].geometry.location );
+          console.log(results[0].geometry.location);
+          $("#provider_latitude").val(results[0].geometry.location.lat());
+          $("#provider_longitude").val(results[0].geometry.location.lng());
+        } else {
+          alert("Geocode was not successful for the following reason: " + status);
+        }
+      });
+    }
+
   }
+
+  setTimeout(function(){
+
+    do_map();
+
+  }, 5000);
