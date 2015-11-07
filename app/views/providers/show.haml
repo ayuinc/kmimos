@@ -14,13 +14,12 @@
                 .ratingStars{score: score, readOnly: true}
             .user-info.col-md-9
               %h3.m-0.mb-7
-
                 = "#{@provider.name} #{@provider.last_name_1}"
               - @provider.locations.group_by(&:state_id).each do |k, state|
                 %b.mb-7= state.first.state
                 %br
                 %p.mt-7.mb-7.text-gray= state.map(&:name).join(", ")
-              -if current_user != nil
+              - if current_user != nil
                 .row
                   .col-md-5
                   .col-md-7
@@ -28,8 +27,7 @@
                       - unless @provider.favorite?(current_user)
                         %a.btn.bordered-btn{href: "#{new_favorite_path}?provider_id=#{@provider.id}"}
                           %i.fa.fa-heart-o
-                          %small Agregar a Favoritos
-
+                          %small Agregar a Favoritos 
       %h3.text-gray Detalles
       .row.details-profile.mt-35
         .col-md-3
