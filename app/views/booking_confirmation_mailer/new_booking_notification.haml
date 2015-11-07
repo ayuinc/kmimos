@@ -21,10 +21,10 @@
               %h1{:style => "font-family: arial;font-weight: 100;color: gray; font-size: 64px"}
                 %b Hola #{@booking.user.first_name},
           %tr
-            %td 
+            %td
               %p{style: "font-family: Montserrat-Light;font-size: 14px;color: #637988;line-height: 22.2px;"}
-                Se ha hecho una reserva en Kmimos para que 
-                %b #{@booking.provider.name} 
+                Se ha hecho una reserva en Kmimos para que
+                %b #{@booking.provider.name}
                 cuide a tu(s) mascota(s): #{@booking.booked_pets.map{|b| b.pet.name}.join(', ')}
                 Desde el día
                 %b #{@booking.start_date} a las #{@booking.pickup_time}
@@ -66,7 +66,7 @@
           %img{src: "http://www.ucarecdn.com/624fa984-5c02-47a7-8786-6309a432ff9f/importante_kmimos_mail.png", width: "50%"}
       %div
         %center
-          %a{href: "http://peaceful-ocean-4005.herokuapp.com/bookings/booking_resume.pdf?booking_id=#{@booking.id}"}
+          %a{href: "http://peaceful-ocean-4005.herokuapp.com/bookings/booking_resume.pdf?booking_id=#{@booking.id}"} Descagar pdf
       %footer{:style => "background:#1dba9a; padding: 4px 12px;"}
         %table
           %tr
