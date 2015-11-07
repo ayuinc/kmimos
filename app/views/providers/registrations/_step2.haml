@@ -96,7 +96,7 @@
       .form-group
         .row
           .col-md-12
-            #mapNew{style: "width: 100% !important; height: 200px !important; ", latitude: 19.414319, longitude: -99.128175, zoom: 16 }
+            #mapNew{style: "width: 100% !important; height: 200px !important; ", latitude: f.object.latitude, longitude: f.object.longitude, zoom: 16 }
       .form-group
         .row
           .col-md-3 Tipo de Propiedad:
@@ -139,6 +139,7 @@
 
     var itemLatLng = {lat: 19.414319, lng: -99.128175};
     var newProviderMap;
+    
     var geocoder = new google.maps.Geocoder();
     var marker;
 
@@ -162,43 +163,32 @@
       console.log($(".main_state_" + id));
       $(".state_" + id + " .check_boxes").prop('checked', $(".main_state_" + id).prop('checked'));
     }
+    
+ 
+    var pos = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    };
 
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
+    newProviderMap = new google.maps.Map(document.getElementById('mapNew'), {
+      center: pos,
+      zoom: 8
+    });
 
-        var pos = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
+    newProviderMap.setCenter(pos);
 
-        newProviderMap = new google.maps.Map(document.getElementById('mapNew'), {
-          center: pos,
-          zoom: 8
-        });
+    marker = new google.maps.Marker({
+        draggable: true,
+        position: pos,
+        map: newProviderMap
+    });
 
+    google.maps.event.addListener(marker,'drag',function(event) {
+        $("#provider_latitude").val(event.latLng.lat());
+        $("#provider_longitude").val(event.latLng.lng());
+    });
 
-
-        newProviderMap.setCenter(pos);
-
-        marker = new google.maps.Marker({
-            draggable: true,
-            position: pos,
-            map: newProviderMap
-        });
-
-        google.maps.event.addListener(marker,'drag',function(event) {
-            $("#provider_latitude").val(event.latLng.lat());
-            $("#provider_longitude").val(event.latLng.lng());
-        });
-
-      }, function() {
-
-      });
-    } else {
-      // Browser doesn't support Geolocation
-
-    }
-
+   
 
 
 
