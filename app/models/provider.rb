@@ -1,76 +1,76 @@
 
 class Provider < ActiveRecord::Base
-  
+
   include ActiveModel::Serialization
- 
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  
-  belongs_to :category 
+
+  belongs_to :category
   belongs_to :property
   belongs_to :behavior
-  
-     
+
+
   paginates_per 10
-  
+
   mount_uploader :avatar, AvatarUploader
-  
-  has_many :rates 
+
+  has_many :rates
   accepts_nested_attributes_for :rates
-  
+
   has_many :agings
   has_many :ages, :through => :agings
-  accepts_nested_attributes_for :agings 
-  
+  accepts_nested_attributes_for :agings
+
   has_many :favorites
-  
-  
+
+
   has_many :sizings
   has_many :sizes, :through => :sizings
-  accepts_nested_attributes_for :sizings 
-  
+  accepts_nested_attributes_for :sizings
+
   has_many :own_sizings
-  has_many :own_sizes, :through => :own_sizings, :source => :size 
-  accepts_nested_attributes_for :own_sizings 
-  
+  has_many :own_sizes, :through => :own_sizings, :source => :size
+  accepts_nested_attributes_for :own_sizings
+
   has_many :localizations
-  has_many :locations, through: :localizations, :source => :location
+  has_many :locations, through: :localizations
   accepts_nested_attributes_for :localizations
-   
+
   has_many :comments
-  
+
   has_many :additional_services
   has_many :services, :through => :additional_services
-  accepts_nested_attributes_for :additional_services 
-   
+  accepts_nested_attributes_for :additional_services
+
   has_many :provider_attachments
   accepts_nested_attributes_for :provider_attachments
-  
+
   has_many :pet_behaviors
   has_many :own_behaviors, :through => :pet_behaviors, :source => :behavior
-  
+
   has_many :accepted_behaviors
-  has_many :valid_behaviors, :through => :accepted_behaviors, :source => :behavior 
-  
+  has_many :valid_behaviors, :through => :accepted_behaviors, :source => :behavior
+
   validates_presence_of :email, :name, :last_name_1, :phone, :dni
   validates_format_of :email, with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  
+
   validates :locations, :presence => true
-  
+
   validate :dni_length, on: :create
   validate :dni_uniqueness, on: :create
-  
+
   validates_format_of :dni, with: /[0-9]+\z/i, message: %Q[solo puede incluir números (0-9).]
-  
-  validates_format_of :phone, with: /\A[0-9\-]+\z/, message: %Q[solo puede incluir números (0-9) y guiones "-".]  
-   
+
+  validates_format_of :phone, with: /\A[0-9\-]+\z/, message: %Q[solo puede incluir números (0-9) y guiones "-".]
+
   scope :providers_sliced, -> (n, providers) {providers.each_slice(n).to_a}
   scope :on_top_providers, -> (n) {where(on_top: true).limit(n)}
-  
+
   def favorite?(user)
     Favorite.where("user_id = ? AND provider_id = ?", user.id, self.id).count > 0
   end
-  
+
   def get_behaviors
     #Behavior.find(self.behaviors_accepted)
     self.behaviors_accepted
@@ -88,8 +88,8 @@ class Provider < ActiveRecord::Base
     end
   end
 
-  protected 
-  
+  protected
+
   def dni_length
     if self.locations[0] != nil
       unless self.dni.length == self.locations[0].state.country.dni_length
@@ -97,7 +97,7 @@ class Provider < ActiveRecord::Base
       end
     end
   end
-  
+
   def dni_uniqueness
     if self.locations[0] != nil
       provider = Provider.find_by_dni(self.dni)

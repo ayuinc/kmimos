@@ -7,7 +7,9 @@
 #  location_id :integer
 #
 
-class Localization < ActiveRecord::Base 
-  belongs_to :provider  
-  belongs_to :location 
+class Localization < ActiveRecord::Base
+
+  belongs_to :provider
+  belongs_to :location
+
 end
