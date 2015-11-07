@@ -96,7 +96,7 @@
       .form-group
         .row
           .col-md-12
-            #mapNew{style: "width: 100% !important; height: 200px !important; ", latitude: f.object.latitude, longitude: f.object.longitude, zoom: 16 }
+            %div#mapNew{style: "width: 100% !important; height: 200px !important; ", latitude: f.object.latitude, longitude: f.object.longitude, zoom: 16 }
       .form-group
         .row
           .col-md-3 Tipo de Propiedad:
@@ -169,7 +169,7 @@
     
     
     $("#mapNew").each(function(){
-      itemLatLng = {lat: $(this).attr('latitude'), lng: $(this).attr('longitude')};
+      itemLatLng = {lat: $(this).prop('latitude'), lng: $(this).prop('longitude')};
     });
   
 
