@@ -107,11 +107,7 @@
 :javascript
 
 
-  $("[class^state_']").hide();
 
-  function select_state(id){
-    $(".state_" + id).toggle();
-  }
 
   function check_state(id){
 
@@ -133,8 +129,6 @@
     var marker_item = $("#marker");
 
     var itemLatLng = {lat: parsloat(marker_item.attr('latitude')),ng: parseFloat(marker_item.attr('longitude'))};
-
-
 
     newProviderMap = initMap('editProvider', 'mapNew');
 
@@ -173,3 +167,9 @@
     do_map();
 
   }, 5000);
+
+  $("[class^state_']").hide();
+
+  function select_state(id){
+    $(".state_" + id).toggle();
+  }
