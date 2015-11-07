@@ -1,3 +1,4 @@
+%p Deja una calificacion y un comentario sobre tu cuidador
 
 - provider.comments.each do |comment|
   .comment-container.row
@@ -9,22 +10,22 @@
         - comment.comment_valuations.each do |cval|
           .col-md-3.col-xs-6
             %b=cval.valuation.name
-            .ratingStars.mt-7{el: "this", score: cval.value.to_i, readOnly: true} 
+            .ratingStars.mt-7{el: "this", score: cval.value.to_i, readOnly: true}
       .comment-text.row.mt-21
         .col-xs-12
           %p= comment.body
   %hr
 - if current_user != nil
-  - @comment = Comment.new 
-  = simple_nested_form_for(@comment, :html => {:multipart => true}, remote: true) do |f|  
-    .row.valorations-row  
+  - @comment = Comment.new
+  = simple_nested_form_for(@comment, :html => {:multipart => true}, remote: true) do |f|
+    .row.valorations-row
       - Valuation.all.each do |valuation|
         .col-md-3.col-mx-6
           %b=valuation.name
           .ratingStars{el: "#val_#{valuation.id}", score:'0'}
           %input{name:"comment[comment_valuations_attributes][#{valuation.id}][valuation_id]", value: valuation.id, type: 'hidden'}
           %input{name:"comment[comment_valuations_attributes][#{valuation.id}][value]", id:"val_#{valuation.id}"}
-       
+
     .new_comment.row.mt-21
       .avatar.col-md-2
         = image_tag(current_user.photo, width: '50px', height: '50px', class: 'img-circle')
