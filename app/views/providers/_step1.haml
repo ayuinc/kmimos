@@ -9,13 +9,13 @@
     .row
       .col-md-5
         = image_tag(@provider.avatar, width: '100%') 
-        = f.input :avatar, label: false
-        = f.input :avatar_cache, as: :hidden
+        = f.input :avatar, label: false 
         .input-append
-          %a#upload-btn.btn.btn-primary
+          %a#upload-btn.btn.btn-primary.pretty_upload_input{el: "#provider_avatar"}
             %i.icon-upload-alt
             Sube Otra foto de perfil 
           %input#file-display.input-large.uneditable-input{:type => "text"}
+        .row.border-bottom.mb-42 
       .col-md-7
         .row
           .col-md-3 Nombre:
@@ -54,3 +54,8 @@
             .col-md-4= a.link_to_remove "Eliminar"
         
   .col-md-1
+  
+:javascript 
+
+   
+  paint_pretty_uploads();
