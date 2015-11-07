@@ -10,7 +10,7 @@
         .col-md-3 Nombre:
         .col-md-9= f.input :name, label: false 
       .row
-        .col-md-3 Apellido Paterno:
+        .col-md-3 Apellido:
         .col-md-9= f.input :last_name_1, label: false 
       .row
         .col-md-3= current_country.dni_label 
@@ -33,11 +33,11 @@
         .col-md-3 Contraseña:
         .col-md-9= f.input :password, label: false
       .row 
-        .col-md-3 Confirmar Contraseña:
+        .col-md-3 Confirma tu contraseña:
         .col-md-9= f.input :password_confirmation, label: false
       
       .row
-        .col-md-3 Fotos Adicionales:
+        .col-md-3 Sube fotos adicionales para tu perfil:
         .col-md-9
           - f.fields_for :provider_attachments do |a|  
             .row 
