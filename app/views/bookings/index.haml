@@ -2,23 +2,23 @@
   .col-md-2
   .col-md-8
     %center
-      %h1 Reservas
+      %h1{style: "font-family: Montserrat-Bold;color: #637988;line-height: 41px;"} Mis reservas
     %br
     - if @bookings.count == 0
       %center
-        %h3 No hay reservas registradas
+        %h3{style: "font-family: Montserrat-Bold;color: #637988;line-height: 41px;"} No hay reservas registradas
     - else
       .table
         %table{style: "width: 100%;"}
-          %thead
+          %thead{style:"font-family: Montserrat-Regular;color: #637988 !important;line-height: 24px;"}
             %th Fecha
             %th Cuidador
             %th Servicio
             %th Precio Total
             %th Calificacion del Cuidador
-            %th
+            %th Reserva
           - @bookings.each do |book|
-            %tbody{style: "background-color: #fffff8"}
+            %tbody{style: "background-color: #fffff8;font-family: Montserrat-Light;color: #435C70;line-height: 22px;"}
               %td
                 %p
                   %b Llegada
@@ -27,15 +27,16 @@
                   %b Salida
                   = book.end_date
               %td
-                = "#{book.provider.name} #{book.provider.last_name_1}"
+                %b="#{book.provider.name} #{book.provider.last_name_1}"
               %td
                 = book.booked_services.map{|bs| bs.service}.join(' ,')
-              %td
-                = book.total
+              %td{style:"font-family: Montserrat-Bold;color: #435C70;line-height: 17px;"}
+                %b$
+                %b= book.total
               %td
                 - val = Valuation.by_comments(book.provider.id)
                 - score = val.map{|val| val[1]}.reduce(:+).to_i / val.size.to_i rescue 0
                 .ratingStars{score: score, readOnly: true}
               %td
-                %a{href: "http://peaceful-ocean-4005.herokuapp.com/bookings/booking_resume.pdf?booking_id=#{@booking.id}"} Ver Reserva
+                %a{href: "http://peaceful-ocean-4005.herokuapp.com/bookings/booking_resume.pdf?booking_id=#{book.id}"} Ver Reserva
   .col-md-2
