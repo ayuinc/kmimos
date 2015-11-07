@@ -22,15 +22,7 @@
                 %b Hola #{@booking.user.first_name},
           %tr
             %td 
-              %p{style: "font-family: Montserrat-Light;font-size: 14px;color: #637988;line-height: 22.2px;"}El dia #{@booking.start_date.strftime("%d/%m/%Y")} a las #{@booking.pickup_time.strftime("%I:%M %p")},
-              %b=@booking.provider        
-              , irá a tu domicilio en #{@booking.user.address}, a recoger a tu mascota. Cuidará a tu perrito hasta el 
-              %b= @booking.end_date.strftime("%d/%m/%Y,")
-              , el costo de este servicio es de $ 
-              %b=@booking.total 
-              %b MXN
-              %br
-              %p
+              %p{style: "font-family: Montserrat-Light;font-size: 14px;color: #637988;line-height: 22.2px;"}
                 Se ha hecho una reserva en Kmimos para que 
                 %b #{@booking.provider.name} 
                 cuide a tu(s) mascota(s): #{@booking.booked_pets.map{|b| b.pet.name}.join(', ')}
@@ -40,7 +32,7 @@
                 %b #{@booking.end_date} a las #{@booking.dropoff_time}
                 Recogiendo y entregando a tus perritos en el domicilio ubicado en
                 %b #{@booking.address}
-              %p
+              %p{style: "font-family: Montserrat-Light;font-size: 14px;color: #637988;line-height: 22.2px;"}
                 Para cualquier duda y/o comentario puedes contactarte al telefono
                 %b #{@booking.provider.phone}
                 o al correo
@@ -49,16 +41,16 @@
             %table
               %tr
                 %td{style: "background-color: #ace2d3; width: 40%; padding: 5px;"}
-                  %label Nombre
-                  %p #{booked.pet}
-                  %label Raza
-                  %p #{booked.pet.race}
-                  %label Tamaño
-                  %p #{booked.pet.size}
-                  %label Peso
-                  %p #{booked.pet.weight}
-                  %label Peso
-                  %p #{booked.pet.sex}
+                  %label{style: "font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;"} Nombre
+                  %p{style: "font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 18px;"} #{booked.pet}
+                  %label{style: "font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;"}  Raza
+                  %p{style: "font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 18px;"} #{booked.pet.race}
+                  %label{style: "font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;"}  Tamaño
+                  %p{style: "font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 18px;"} #{booked.pet.size}
+                  %label{style: "font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;"}  Peso
+                  %p{style: "font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 18px;"} #{booked.pet.weight}
+                  %label{style: "font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;"}  Sexo
+                  %p{style: "font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 18px;"} #{booked.pet.sex}
                 %td{style: "background-color: #e1eeea; width: 60%; margin: 5px;"}
                   %h3 Acerca de #{booked.pet}
                   %br

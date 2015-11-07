@@ -13,7 +13,7 @@ class BookingConfirmationMailer < ActionMailer::Base
     
     mail(
       to: @booking.user.email,
-      subject: 'Tu reserva en Kmimos. @booking.start_date.strftime("%d/%m/%Y")')
+      subject: 'Tu reserva en Kmimos.')
   end
   
   def new_booking_for_admin(booking, current_country)
