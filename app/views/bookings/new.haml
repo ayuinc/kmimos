@@ -102,7 +102,7 @@
           .panel-heading
             %hr.hr-gray/
           .panel-body
-          = f.input :total, as: :hidden, input_html: {value: "{{services_booked_total + pets_booked_total}}"}
+          = f.input :total, as: :hidden, input_html: {value: "{{services_booked_total * 1.2 + pets_booked_total * 1.2}}"}
           .table
             %div(ng-if="parseInt(services_booked_total) != 0")
               %h4 Costos del servicio de estadia
