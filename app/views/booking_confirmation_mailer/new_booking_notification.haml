@@ -21,8 +21,8 @@
               %h1{:style => "font-family: arial;font-weight: 100;color: gray; font-size: 64px"}
                 %b Hola #{@booking.user.first_name},
           %tr
-            %td{style: "font-family: Montserrat-Light;font-size: 14px;color: #637988;line-height: 22.2px;"} 
-              El dia #{@booking.start_date.strftime("%d/%m/%Y")} a las #{@booking.pickup_time.strftime("%I:%M %p")},
+            %td 
+              %p{style: "font-family: Montserrat-Light;font-size: 14px;color: #637988;line-height: 22.2px;"}El dia #{@booking.start_date.strftime("%d/%m/%Y")} a las #{@booking.pickup_time.strftime("%I:%M %p")},
               %b=@booking.provider        
               , irá a tu domicilio en #{@booking.user.address}, a recoger a tu mascota. Cuidará a tu perrito hasta el 
               %b= @booking.end_date.strftime("%d/%m/%Y,")
@@ -48,7 +48,7 @@
           - @booking.booked_pets.each do |booked|
             %table
               %tr
-                %td
+                %td{style: "background-color: #ace2d3; width: 40%; padding: 5px;"}
                   %label Nombre
                   %p #{booked.pet}
                   %label Raza
@@ -59,7 +59,7 @@
                   %p #{booked.pet.weight}
                   %label Peso
                   %p #{booked.pet.sex}
-                %td
+                %td{style: "background-color: #e1eeea; width: 60%; margin: 5px;"}
                   %h3 Acerca de #{booked.pet}
                   %br
                   %h4 Comportamiento
