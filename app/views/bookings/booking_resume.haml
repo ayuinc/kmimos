@@ -3,7 +3,7 @@
   %head
     %meta{:charset => "utf-8"}/
     %link{:href => "css/style.css", :rel => "stylesheet"}
- 
+
   %body{style: "background-color: #fdfff7, margin: 30px; color: #445a4f;"}
     .container{:style => "margin: 0 auto;padding: 25px;"}
       .header
@@ -43,7 +43,7 @@
           - @booking.booked_pets.each do |booked|
             %table
               %tr
-                %td
+                %td{style: "background-color: #ace2d3;"}
                   %label Nombre
                   %p #{booked.pet}
                   %label Raza
@@ -54,7 +54,7 @@
                   %p #{booked.pet.weight}
                   %label Peso
                   %p #{booked.pet.sex}
-                %td
+                %td{style: "background-color: #e1eeea;"}
                   %h3 Acerca de #{booked.pet}
                   %br
                   %h4 Comportamiento
