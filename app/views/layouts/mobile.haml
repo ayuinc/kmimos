@@ -22,9 +22,26 @@
       try{Typekit.load({ async: true });}catch(e){}
   %body
     = yield
+    .searcher
+      %h3.text-header  Buscar cuidador
+      %p Selecciona donde, cuando y que necesitas para dejar tu perrito.
+      = search_form_for @search do |f|
+        .form-group
+          = f.grouped_collection_select(:locations_id_eq, State.where("country_id=?", current_country.id).order(:name), :locations, :name, :id, :name , {:prompt => current_country.id == 2 ? "Elegir Barrio" : "Elegir Municipio o Delegación"}, { :class=> "form-control" })
+        .form-group
+          %input.form-control.datepicker{value: session[:from_date]}(placeholder="Desde" name="from_date")
+        .form-group
+          %input.form-control.datepicker{value: session[:to_date]}(placeholder="Hasta" name="to_date")
+        %button.grey-button Buscar
+
+
+:javascript
+
+  $('.datepicker').datepicker();
+  $('#q_locations_id_eq').select2();
 
     //%script{:src => "assets/js/jquery.min.js"}
-    / App scripts
+    // App scripts
     //%script{:src => "assets/js/scripts.min.js"}
     //%script{:src => "assets/js/menu-control.js"}
 
