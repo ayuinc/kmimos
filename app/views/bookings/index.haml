@@ -2,19 +2,19 @@
   .col-md-2
   .col-md-8
     %center
-      %h1 Reservas 
+      %h1 Reservas
     %br
     - if @bookings.count == 0
       %center
         %h3 No hay reservas registradas
-    - else 
+    - else
       .table
         %table{style: "width: 100%;"}
           %thead
             %th Fecha
             %th Cuidador
-            %th Servicio 
-            %th Precio Total 
+            %th Servicio
+            %th Precio Total
             %th Calificacion
           - @bookings.each do |book| 
             %tbody{style: "background-color: #fffff8"}
@@ -30,11 +30,9 @@
               %td
                 = book.booked_services.map{|bs| bs.service}.join(' ,')
               %td
-                = book.total 
+                = book.total
               %td
                 - val = Valuation.by_comments(book.provider.id)
                 - score = val.map{|val| val[1]}.reduce(:+).to_i / val.size.to_i rescue 0
-                .ratingStars{score: score, readOnly: true} 
+                .ratingStars{score: score, readOnly: true}
   .col-md-2
-
- 

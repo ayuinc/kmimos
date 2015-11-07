@@ -9,16 +9,19 @@
 #
 
 class Location < ActiveRecord::Base
+
   has_many :localizations
+
   has_many :providers, :through => :localizations
-  belongs_to :state
   
-  has_many :users 
+  belongs_to :state
+
+  has_many :users
 
 	#scope :order, -> { order('locations.utf_name ASC') }
 
   validates_presence_of :name
-  
+
   def to_s
     name
   end
@@ -30,5 +33,5 @@ class Location < ActiveRecord::Base
   def find_localizations_by_provider(provider_id, location_id)
     self.localizations.where('provider_id = ? AND location_id = ?', provider_id, location_id).first
   end
-	
+
 end
