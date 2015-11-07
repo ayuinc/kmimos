@@ -3,7 +3,7 @@
   %br
 %div
 
-  - Provider.all.each do |provider|
+  - Provider.where(active: true).each do |provider|
     %br
     .provider-item
       .block-cuidadores

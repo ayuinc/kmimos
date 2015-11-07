@@ -52,3 +52,7 @@ ul.navbar-nav li {
 .navbar .navbar-collapse ul li a {
   padding: 10px 17px;
 }
+
+.comment-container .user-avatar {
+  display: none !important;
+}
