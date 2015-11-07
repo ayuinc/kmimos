@@ -43,7 +43,7 @@
           - @booking.booked_pets.each do |booked|
             %table{style: "width: 100%;"}
               %tr
-                %td{style: "background-color: #ace2d3;"}
+                %td{style: "background-color: #ace2d3; width: 40%;"}
                   %label Nombre
                   %p #{booked.pet}
                   %label Raza
@@ -54,7 +54,7 @@
                   %p #{booked.pet.weight}
                   %label Peso
                   %p #{booked.pet.sex}
-                %td{style: "background-color: #e1eeea;"}
+                %td{style: "background-color: #e1eeea; width: 60%;"}
                   %h3 Acerca de #{booked.pet}
                   %br
                   %h4 Comportamiento
