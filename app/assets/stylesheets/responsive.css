@@ -34,6 +34,18 @@ ul.navbar-nav li {
   font-size: 24px;
 }
 
+.searcher {
+  display: none;
+  background-color: #283848;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.do_search {
+  position: fixed;
+  bottom: 0px;
+}
 
 .navbar .navbar-collapse ul li a {
   padding: 10px 17px;

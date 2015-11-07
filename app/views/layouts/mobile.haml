@@ -33,12 +33,18 @@
         .form-group
           %input.form-control.datepicker{value: session[:to_date]}(placeholder="Hasta" name="to_date")
         %button.grey-button Buscar
+      %br
+    %button.grey-button.do_search Buscar
 
 
 :javascript
 
   $('.datepicker').datepicker();
   $('#q_locations_id_eq').select2();
+
+  $('.do_search').on('click', function(){
+    $('.searcher').slideToggle();
+  });
 
     //%script{:src => "assets/js/jquery.min.js"}
     // App scripts

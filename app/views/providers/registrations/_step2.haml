@@ -21,9 +21,9 @@
                   %input{value: size.id}(name="provider[rates_attributes][][size_id]" type="hidden")
                 .col-md-4
                   %input(name="provider[rates_attributes][][price]" placeholder="0.0" class="form-control")
-      
+
       .row
-        %label Horarios 
+        %label Horarios
       .form-group.pt-14
         .row
           .col-md-3 Hora de check in
@@ -48,9 +48,9 @@
           .div{class: "state_#{state.id} row", style: "display: none;"}
             .col-md-12
               %label= state
-              .tricol_checkboxes= f.association :localizations, as: :check_boxes, label: false, :collection => state.locations  
+              .tricol_checkboxes= f.association :locations, as: :check_boxes, label: false, :collection => state.locations
     .row.pt-14.pb-14
-      %label.pt-14 Trabajo con Mascotas 
+      %label.pt-14 Trabajo con Mascotas
       .form-group
         .row
           .col-md-6 Años de experiencia cuidando perros
@@ -84,7 +84,7 @@
           .col-md-12
             .map-info
               = f.input :latitude, as: :hidden
-              = f.input :longitude, as: :hidden     
+              = f.input :longitude, as: :hidden
     .row.pt-14
       %label Propiedad
       .form-group
@@ -101,7 +101,7 @@
       .form-group
         .row
           .col-md-3 Tipo de Propiedad:
-          .col-md-9= f.association :property, label: false        
+          .col-md-9= f.association :property, label: false
         %br
       .form-group
         .row
@@ -110,12 +110,12 @@
       .form-group
         .row
           .col-md-8 ¿La propiedad cuenta con patio?
-          .col-md-4.twocol_checkboxes= f.input :has_yard, as: :radio_buttons, label: false, :collection => [['Si', 1], ['No', 0]]    
+          .col-md-4.twocol_checkboxes= f.input :has_yard, as: :radio_buttons, label: false, :collection => [['Si', 1], ['No', 0]]
       .form-group
         .col-md-6
           = f.input :emergencia, label: "¿Brindas transporte de emergencia?", as: :boolean
     .row.pt-14
-      %label Mascotas propias  
+      %label Mascotas propias
       .form-group
         .row
           .col-md-12 ¿Tienes perros propios en casa?
@@ -147,7 +147,7 @@
 
     function select_state(id){
       $(".state_" + id).toggle();
-       
+
     }
 
     function check_state(id){
