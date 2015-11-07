@@ -1,4 +1,4 @@
-
+  
 .container.pvp-7.ph-21
 
   .row.mv-56
@@ -159,6 +159,7 @@
           .border-bottom.text-left.pl-21
             %h4.text-gray.mv-14.border-bottom
               Servicios Adicionales
+            %p Elige el servicio que deseas para tu mascota. Puedes agregarlo(s) a tu reserva o contratarlo(s) por separado  
             - @provider.additional_services.each do |service|
               %input.mt-21{value: service.id}(type="checkbox" name="services[]")
                 =service.service
