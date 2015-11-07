@@ -10,9 +10,9 @@
         %b=@booking.provider        
         , irá a tu domicilio en #{@booking.user.address}, a recoger a tu mascota. Cuidará a tu perrito hasta el 
         %b= @booking.end_date.strftime("%d/%m/%Y,")
-        El costo de este servicio es de $ 
+        , el costo de este servicio es de $ 
         %b=@booking.total 
-        MXN
+        %b MXN
         %br
       .col-md-4
   -if @booking.booked_services     

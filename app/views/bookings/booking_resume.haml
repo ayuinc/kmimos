@@ -24,13 +24,12 @@
               %p
                 Se ha hecho una reserva en Kmimos para que
                 %b #{@booking.provider.name}
-                cuide a tu mascota  #{@booking.booked_pets.map{|b| b.pet.name}.join(', ')}
+                cuide a tu(s) mascota(s)  #{@booking.booked_pets.map{|b| b.pet.name}.join(', ')}
                 desde el dia
                 %b #{@booking.start_date} a las #{@booking.pickup_time}
                 hasta el
                 %b #{@booking.end_date} a las #{@booking.dropoff_time}
-              %p
-                Recogiendo y entregando a tus perritos en el domicilio ubicado en
+                Recogiendo y entregando a tu(s) perrito(s) en el domicilio ubicado en
                 %b #{@booking.address}
               %p
                 Para cualquier duda y/o comentario puedes contactarte al telefono
