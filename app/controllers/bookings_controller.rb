@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
 	before_action :set_booking, only: [:show]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:booking_resume]
 
   def index
     @bookings = Booking.where(user_id: current_user)
@@ -9,6 +9,12 @@ class BookingsController < ApplicationController
 
 	def get_pdf
 
+	end
+
+	def booking_resume
+		@booking = Booking.find(params[:booking_id])
+
+		render :booking_resume, layout: false
 	end
 
 	def new

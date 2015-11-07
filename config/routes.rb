@@ -13,7 +13,8 @@ ServihogarRails::Application.routes.draw do
 
   root 'providers#home'
 
-  resources :bookings
+    get 'bookings/booking_resume' => 'bookings#booking_resume'
+
 
   resources :providers
   resources :users

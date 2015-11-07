@@ -21,7 +21,7 @@
           %h2= @provider
           %h4.text-gray.light
             %small.text-black.bold Precio:
-            = "#{current_country.currency} #{@provider.price.to_i * 1.2} noche"
+            = "#{current_country.currency} #{ 1.2 * (@provider.rates.minimum(:price))} noche"
           - @provider.locations.group_by(&:state_id).each do |k, state|
             %b= state.first.state
             %br
@@ -161,14 +161,19 @@
           %div
             %h5 *La reservación del cuidador está sujeta a cambios por motivos de disponibilidad, tamaño de perro y cuidados necesarios.
 
+:javascript
+
+  var preselect_services =[]
+
 - @services.each do |service|
   :javascript
     setTimeout(function(){
       $('.add_srv_btn').click();
-      $('.bkd_srv:last-child').val("#{service.id}")
+      preselect_services.push("#{service.id}")
+      $('.bkd_srv').each(function(index){
+        $(this).val(preselect_services[index]);
+      });
     }, 1000);
-
-
 
 :javascript
 

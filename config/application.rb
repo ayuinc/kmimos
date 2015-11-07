@@ -2,6 +2,8 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+require 'pdfkit'
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
@@ -10,12 +12,13 @@ module ServihogarRails
   class Application < Rails::Application
 
     initializer 'setup_asset_pipeline', :group => :all  do |app|
-      
+
     # We don't want the default of everything that isn't js or css, because it pulls too many things in
     app.config.assets.precompile.shift
+
+
     
-    
-    
+    config.middleware.use PDFKit::Middleware
 
     # config.assets.paths << Rails.root.join("app", "assets", "fonts")
     # config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
@@ -29,7 +32,7 @@ module ServihogarRails
     ]
     end)
     end
-    
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -40,11 +43,11 @@ module ServihogarRails
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    
+
     config.assets.precompile += %w[ 'active_admin.css.scss', 'active_admin.js' ]
-    
+
     config.autoload_paths += %W(#{config.root}/lib)
-    
+
     config.i18n.default_locale = :es
   end
 end
