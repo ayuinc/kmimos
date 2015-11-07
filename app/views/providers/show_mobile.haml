@@ -58,7 +58,11 @@
             %p Elige el servicio que deseas para tu mascota. Puedes agregarlo(s) a tu reserva o contratarlo(s) por separado
             - @provider.additional_services.each do |service|
               %input.mt-21{value: service.id}(type="checkbox" name="services[]")
-                #{service.service} desde #{AdditionalService.get_min_rates_for(@provider.id, service.id)}
+                %p
+                  #{service.service} desde
+                  %i{style: 'color: #a7a279'}
+                    #{AdditionalService.get_min_rates_for(@provider.id, service.id)}
+                   
               %br
             =f.submit "Contratar".html_safe, :class => "mt-14 mb-21 btn btn-primary btn-small btn-fold" #,  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Reservar', 'provider_#{@provider.id.to_s}']);"
 
@@ -168,5 +172,3 @@
               %h5= valuation
               .ratingStars.pl-14.mt-7{score: value.to_i, readOnly: true}
             %br
-
- 
