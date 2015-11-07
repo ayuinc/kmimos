@@ -8,16 +8,16 @@
     .col-md-1
     .col-md-10
       .row
-        .col-md-3 Nombres:
+        .col-md-3 Nombre:
         .col-md-9= f.input :first_name, label: false
       .row
-        .col-md-3 Apellidos:
+        .col-md-3 Apellido:
         .col-md-9= f.input :last_name, label: false
       .row
-        .col-md-3 Telefono:
+        .col-md-3 Teléfono:
         .col-md-5= f.input :phone, label: false
       .row
-        .col-md-3 Codigo Postal:
+        .col-md-3 Código Postal:
         .col-md-5= f.input :postal_code, label: false, input_html: {onchange: "getDirection(this)"}
        
       .row
@@ -27,18 +27,18 @@
         .col-md-3 Municipio:
         .col-md-5= f.input :place_name, as: :text, label: false, input_html: {class: 'cityUser', disabled: true} 
       .row
-        .col-md-3 Direccion:
-        .col-md-5= f.input :address, as: :text, label: false, hint: 'Tu direccion solo sera compartida al momento de tu reserva'
+        .col-md-3 Dirección:
+        .col-md-5= f.input :address, as: :text, label: false, hint: 'Tu dirección solo sera compartida al momento de completar una reserva'
       
       .row
-        .col-md-3 Foto:
+        .col-md-3 Foto de perfil:
         .col-md-5= f.input :photo, label: false
       .row
         .col-md-12
           %br
           %hr
       .row
-        .col-md-3 Correo Electronico:
+        .col-md-3 Correo electrónico:
         .col-md-9= f.input :email, label: false
       .row
         .col-md-3 Contraseña:
