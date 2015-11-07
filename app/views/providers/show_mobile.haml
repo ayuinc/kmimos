@@ -1,3 +1,5 @@
+
+
 .container.pvp-7.ph-21
   .row.mv-56
     .col-md-2
@@ -5,14 +7,14 @@
       .info
         .user.border-bottom
           .user-card.user-card-round.size.xs.mb-21.row
-            .user-pic.col-md-3
+            .user-pic.col-md-12
               = image_tag(@provider.avatar, class: 'avatar') if @provider.avatar?
               = image_tag('server_carnet.png', class: 'avatar') unless @provider.avatar?
               %center
                 - val = Valuation.by_comments(@provider.id)
                 - score = val.map{|val| val[1]}.reduce(:+).to_i / val.size.to_i rescue 0
                 .ratingStars{score: score, readOnly: true}
-            .user-info.col-md-9
+            .user-info.col-md-12
               %h3.m-0.mb-7
 
                 = "#{@provider.name} #{@provider.last_name_1}"

@@ -54,8 +54,11 @@
     end
 
     if @provider.active
-      @provider_attachments = @provider.provider_attachments.all
-      render 'show', :layout => "inter"
+      @provider_attachments = @provider.provider_attachments.all 
+      respond_to do |format|
+        format.html   { render 'show', layout: 'inter' }
+        format.mobile { render 'show_mobile', layout: 'mobile' }
+      end
     else
       redirect_to :home
     end
