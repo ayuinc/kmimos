@@ -24,6 +24,8 @@ gem 'high_voltage', '~> 2.3.0'
 gem 'kaminari'
 
 
+
+
 gem 'useragent'
 gem 'mobylette'
 
@@ -73,6 +75,10 @@ group :development do
   gem 'rack_image_assets_cache_control'
   gem 'quiet_assets'
   gem 'faker'
+  
+  gem 'flamegraph'
+  gem 'rack-mini-profiler'
+  
   #gem 'guard-livereload'
   #gem 'guard-bundler'
   #gem 'guard-rspec', require: false

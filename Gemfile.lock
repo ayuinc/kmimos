@@ -142,6 +142,11 @@ GEM
     execjs (2.6.0)
     faker (1.5.0)
       i18n (~> 0.5)
+    fast_stack (0.1.0)
+      rake
+      rake-compiler
+    flamegraph (0.1.0)
+      fast_stack
     fog (1.24.0)
       fog-brightbox
       fog-core (~> 1.23)
@@ -259,6 +264,8 @@ GEM
     rack-contrib (1.4.0)
       git-version-bump (~> 0.15)
       rack (~> 1.4)
+    rack-mini-profiler (0.9.7)
+      rack (>= 1.1.3)
     rack-test (0.6.3)
       rack (>= 1.0)
     rack_image_assets_cache_control (0.2.1)
@@ -289,6 +296,8 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.15.0)
     rake (10.4.2)
+    rake-compiler (0.9.5)
+      rake
     ransack (1.7.0)
       actionpack (>= 3.0)
       activerecord (>= 3.0)
@@ -386,6 +395,7 @@ DEPENDENCIES
   datetimepicker-rails!
   devise
   faker
+  flamegraph
   fog (~> 1.24.0)
   font-awesome-sass
   foreman
@@ -404,6 +414,7 @@ DEPENDENCIES
   pdfkit
   pg (~> 0.17.1)
   quiet_assets
+  rack-mini-profiler
   rack_image_assets_cache_control
   rails (= 4.1.11)
   rails-i18n

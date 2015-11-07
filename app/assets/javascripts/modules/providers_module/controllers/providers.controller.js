@@ -18,7 +18,7 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
     $scope.providers = providers;
   });
   
-  $scope.map = { zoom: 16, control: {}, markers: []};
+  $scope.map = { zoom: 10, control: {}, markers: []};
 
   $scope.map.markers = [];
 
