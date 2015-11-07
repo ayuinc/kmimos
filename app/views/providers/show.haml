@@ -159,9 +159,10 @@
             - @provider.additional_services.each do |service|
               %input.mt-21{value: service.id}(type="checkbox" name="services[]")
                 %small
-                  %i{style: 'color: #a7a279'}
-                    #{service.service} desde
-                    #{AdditionalService.get_min_rates_for(@provider.id, service.id)}
+                  #{service.service}
+                    %i{style: 'color: #a7a279'}
+                      desde
+                      #{AdditionalService.get_min_rates_for(@provider.id, service.id)}
               %br
             =f.submit "Contratar".html_safe, :class => "mt-14 mb-21 btn btn-primary btn-small btn-fold" #,  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Reservar', 'provider_#{@provider.id.to_s}']);"
         .content-detalles.mt-14-mb-28.m-21.pb-14

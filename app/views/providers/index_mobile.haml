@@ -17,7 +17,7 @@
               %h4.text-primary.lh-xs.mv-0 Mex $#{provider.price}
               %small.text-primary.fz-xs por noche
               %h5.bold #{ provider.name }
-              %p.lh-sm.text-gray.fz-xs #{ provider.description }
+              %p.lh-sm.text-gray.fz-xs #{ provider.description[0...200] }
               .hidden-md.separator.separator-gray-dark.separator-centered.mt-0.separator-full-width
             .rating
               .ratingStars
