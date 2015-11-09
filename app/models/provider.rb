@@ -10,6 +10,7 @@ class Provider < ActiveRecord::Base
   belongs_to :property
   belongs_to :behavior
 
+  after_create :active_provider
 
   paginates_per 10
 
@@ -66,7 +67,12 @@ class Provider < ActiveRecord::Base
 
   scope :providers_sliced, -> (n, providers) {providers.each_slice(n).to_a}
   scope :on_top_providers, -> (n) {where(on_top: true).limit(n)}
+  
 
+  def active_provider
+    update_attributes(:active => true)
+  end
+  
   def favorite?(user)
     Favorite.where("user_id = ? AND provider_id = ?", user.id, self.id).count > 0
   end
@@ -74,6 +80,12 @@ class Provider < ActiveRecord::Base
   def get_behaviors
     #Behavior.find(self.behaviors_accepted)
     self.behaviors_accepted
+  end
+  
+  def get_valoration
+    valuations = Valuation.by_comments(self.id) 
+    result = valuations.count > 0 ? (valuations.map{|v| v[1]}.reduce(:+).to_f / valuations.count.to_f) : 0
+    return result.to_i
   end
 
   def to_s

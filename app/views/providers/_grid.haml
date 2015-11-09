@@ -1,5 +1,5 @@
 #cuidadores(ng-if="providers != undefined")
-  .provider-item(ng-repeat="provider in ($parent.filteredProviders = (providers | searchProvider: search)) ")
+  .provider-item(ng-repeat="provider in ($parent.filteredProviders = (providers | searchProvider: search | orderBy: 'valuation')) ")
     .block-cuidadores
       %a(href="/providers/{{provider.id}}" ng-)
         .bg-img-block.border-radius.square-green(style = "height: 150px; background-image: url('{{provider.avatar}}');")
@@ -18,7 +18,7 @@
             %p.lh-sm.text-gray.fz-xs {{ provider.description | limitTo: 200 }}
             .hidden-md.separator.separator-gray-dark.separator-centered.mt-0.separator-full-width
           .rating
-            .ratingStars
+            .ratingStars(score = '{{provider.valuation}}' readOnly= true)
             .comments
               %span.badge {{ provider.comments.length }}
               %span Comentarios
