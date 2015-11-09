@@ -84,7 +84,7 @@ class Provider < ActiveRecord::Base
   
   def get_valoration
     valuations = Valuation.by_comments(self.id) 
-    result = valuations.count > 0 ? (valuations.map{|v| v[1]}.reduce(:+).to_f / valuations.count.to_f) rescue 0 : 0
+    result = valuations.count > 0 ? (valuations.map{|v| v[1]}.reduce(:+).to_f / valuations.count.to_f) : 0
     return result.to_i
   end
 
