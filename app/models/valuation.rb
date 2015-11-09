@@ -10,6 +10,8 @@ class Valuation < ActiveRecord::Base
       |c| [c.name, c.value]
     }
   }
+  
+  
 
   #scope :by_comment, ->(c) { c.comment_valuations.select(['valuation_id', 'SUM(value) as value']).group(:valuation_id).map{|cv| [cv.valuation_id, cv.value]}}
   
