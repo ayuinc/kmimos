@@ -96,7 +96,7 @@
       .form-group
         .row
           .col-md-12
-            %div#mapNew{style: "width: 100% !important; height: 200px !important; ", latitude: f.object.latitude, longitude: f.object.longitude, zoom: 16 }
+            %a 
       .form-group
         .row
           .col-md-3 Tipo de Propiedad:
@@ -168,12 +168,12 @@
     var itemLatLng = {}; //lat: , lng: 
     
     
-    $("#mapNew").each(function(){
+    $("#mapnew").each(function(){
       itemLatLng = {lat: $(this).prop('latitude'), lng: $(this).prop('longitude')};
     });
   
 
-    newProviderMap = new google.maps.Map(document.getElementById('mapNew'), {
+    newProviderMap = new google.maps.Map(document.getElementById('mapnew'), {
       center: itemLatLng,
       zoom: 8
     });
