@@ -60,7 +60,7 @@
         format.mobile { render 'show_mobile', layout: 'mobile' }
       end
     else
-      redirect_to :home
+      redirect_to action: :home
     end
   end
 
