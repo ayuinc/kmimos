@@ -44,7 +44,7 @@
                 %div(ng-repeat="service in services ")
                   %input(type="checkbox" checked ng-model="search.sel_service[service.id]" ng-true-value="{{service.id}}" data-ng-false-value='') {{service.service_name}}
                   %br
-        .col-md-8{style: "padding: 0px !important;"}
+        .col-md-8{style: "padding: 0px !important; margin: 0px;"}
           =render partial: 'grid'
         .col-md-2
           #map_canvas
