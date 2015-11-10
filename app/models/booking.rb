@@ -30,6 +30,7 @@ class Booking < ActiveRecord::Base
   
   belongs_to :provider
   belongs_to :user
+  
   #validates_presence_of :user_email, :user_first_name, :user_last_name, :pet_name, :provider_id, :user_phone, :raza, :edad, :address
   #validates_format_of :user_email, with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
@@ -41,8 +42,12 @@ class Booking < ActiveRecord::Base
   has_many :services, :through => :booked_services
   accepts_nested_attributes_for :booked_services
   
-
   def to_param
     token
   end
+  
+  def pets_list
+    self.pets.map{|pet| pet.name}.join(', ')
+  end
+   
 end

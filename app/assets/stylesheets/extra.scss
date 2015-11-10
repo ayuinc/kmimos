@@ -397,3 +397,74 @@ h3 {
   border-top: 2px solid #bdbcbd;
 }
 
+
+.booking_resume {
+     
+  background-color: rgb(253, 255, 247);
+  margin: 30px; 
+  color: #445a4f;
+   
+  .header{ 
+    text-align: left;
+    margin-left:auto;
+    margin-right:auto;
+    
+    min-width:620px;
+    width:100%;
+    
+    b {
+      color: rgb(90,177,154);
+    }
+
+    .logo {
+        float: right;
+    }
+ 
+  }
+  
+  .border-bottom {
+    border-bottom: 1px solid rgb(203, 207, 200);
+  }
+
+
+  h1 {
+     
+    font-weight: 200;
+    color: rgb(82, 101, 119); 
+    font-size: 35px;
+  } 
+  
+  p {
+     
+    color: rgb(82, 101, 119); 
+  }
+  
+  .pet_table {
+    .strong_green {
+      background-color: #ace2d3; 
+      width: 40%; 
+      padding: 5px;
+    }
+    
+    .light_green {
+      background-color: #e1eeea; 
+      width: 60%; 
+      margin: 5px;
+      padding: 20px;
+      
+      h3 {
+        font-family: Montserrat-Regular;
+        font-size: 20px;
+        color: #48CFC2;
+        line-height: 31.67px;
+      }
+      
+      h4 {
+        font-family: Montserrat-Bold;
+        font-size: 15px;
+        color: #637988;
+        line-height: 18px;
+      }
+    }
+  }
+}

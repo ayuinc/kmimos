@@ -11,7 +11,6 @@ class User::SessionsController < Devise::SessionsController
       render 'new'
     end
   end
-
  
 end
  
