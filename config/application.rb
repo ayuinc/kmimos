@@ -18,7 +18,7 @@ module ServihogarRails
 
 
 
-    config.middleware.use PDFKit::Middleware
+    #config.middleware.use PDFKit::Middleware
 
     # config.assets.paths << Rails.root.join("app", "assets", "fonts")
     # config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/

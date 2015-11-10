@@ -13,8 +13,13 @@ class BookingsController < ApplicationController
  
 
   def booking_resume
-      @booking = Booking.find(params[:booking_id])
-      render :booking_resume, layout: false
+    @booking = Booking.find(params[:booking_id])
+    
+
+    respond_to do |format|
+      format.html { render :booking_resume, layout: false }
+      format.pdf { render :text => PDFKit.new( booking_resume_path(booking_id: @booking.id) ).to_pdf }
+    end
   end
 
   def new
