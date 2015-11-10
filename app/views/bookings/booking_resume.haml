@@ -44,7 +44,7 @@
           %table.table.pet_table{style: "width: 100%;"}
             %tr
               %td.strong_green
-                = image_tag(pet.photo)
+                = image_tag(pet.photo, width: '100%')
                 %br
                 %strong Nombre
                 %p #{pet}
@@ -62,9 +62,8 @@
                 %h4 Comportamiento
                 %p #{pet.behavior}
                 %br
-                %p Consideraciones especiales
-                %p #{@booking.user_message}
-          
+                %h4 Consideraciones especiales
+                %p #{@booking.user_message} 
           %br
           %h3 Servicios del Cuidador
           %br
