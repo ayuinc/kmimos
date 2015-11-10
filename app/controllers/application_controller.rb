@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   
   include Mobylette::RespondToMobileRequests
+  
+  include ActionController::Caching
 
   after_filter :store_location
 
