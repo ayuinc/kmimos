@@ -165,20 +165,29 @@
       $(".state_" + id + " .check_boxes").prop('checked', $(".main_state_" + id).prop('checked'));
     }
     
+    var itemLatLng = {}
+    
+    $("#mapNew").each(function(){
+      itemLatLng = {lat: $(this).attr('latitude'), lng: $(this).attr('longitude')};
+    });
+    
+    newProviderMap = new google.maps.Map(document.getElementById('mapnew'), {
+      center: itemLatLng,
+      zoom: 8
+    });
+    
     if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+    
      
-
-        newProviderMap = new google.maps.Map(document.getElementById('mapnew'), {
-          center: pos,
-          zoom: 8
-        });
-
+      
       newProviderMap.setCenter(pos);
+      
+ 
 
       marker = new google.maps.Marker({
           draggable: true,
@@ -186,18 +195,13 @@
           map: newProviderMap
       });
 
-    google.maps.event.addListener(marker,'drag',function(event) {
-        $("#provider_latitude").val(event.latLng.lat());
-        $("#provider_longitude").val(event.latLng.lng());
-    });
+      google.maps.event.addListener(marker,'drag',function(event) {
+          $("#provider_latitude").val(event.latLng.lat());
+          $("#provider_longitude").val(event.latLng.lng());
+      });
 
    
-   }, function() {
-         });
-   } else {
-     // Browser doesn't support Geolocation
-   }
-
+   } 
 
 
     function codeAddress() {
