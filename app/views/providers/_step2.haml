@@ -76,7 +76,7 @@
       .col-md-12 ¿Tienes perros en casa?
     .row
       .col-md-4.twocol_checkboxes
-        = f.input :has_other_pets, as: :radio_buttons, label: false, :collection => [['Si', 1], ['No', 0]]
+        = f.input :has_other_pets, as: :radio_buttons, label: false, :collection => [['Si', true], ['No', false]]
       .col-md-4 Número de perros
       .col-md-4= f.input :number_of_pets, label: false
     .row
@@ -91,7 +91,7 @@
     .row
       .col-md-9 Acepta perros no estirilizados
       .col-md-3
-        = f.input :only_sterilizated, as: :radio_buttons, label: false, :collection => [['Si', 1], ['No', 0]]
+        = f.input :only_sterilizated, as: :radio_buttons, label: false, :collection => [['Si', true], ['No', false]]
     .row
       .col-md-9 ¿Cantidad de perros aceptado en su propiedad?
       .col-md-3= f.input :pets_allowed, label: false
