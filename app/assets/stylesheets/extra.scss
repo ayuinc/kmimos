@@ -422,8 +422,15 @@ h3 {
  
   }
   
-  .border-bottom {
-    border-bottom: 1px solid rgb(203, 207, 200);
+  tr.border-bottom td{
+    padding: 8px;
+    border-bottom: 2px solid rgb(203, 207, 200);
+  }
+  
+  .green-light-title {
+    color: rgb(77,190,172);
+    text-align: left;
+    font-weight: 600;
   }
 
 

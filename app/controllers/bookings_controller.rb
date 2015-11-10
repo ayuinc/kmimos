@@ -31,7 +31,7 @@ class BookingsController < ApplicationController
 	def create
 
     @provider = Provider.find(params[:provider_id])
-		@booking = Booking.new(booking_params)
+    @booking = Booking.new(booking_params)
 
     @booking.provider_id  = @provider.id
     @booking.user_id = current_user.id

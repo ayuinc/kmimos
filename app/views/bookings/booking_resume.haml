@@ -70,9 +70,9 @@
           %table.table{width: "100%"}
             %thead
               %thead
-                %th Detalle
-                %th Mascota
-                %th Tiempo
+                %th.green-light-title Detalle
+                %th.green-light-title Mascota
+                %th.green-light-title Tiempo
                 %th.total Costo Unitario
                 %th.total Precio Total
             %tbody
@@ -88,23 +88,22 @@
                   %td.total= "$ #{number_to_currency(amount, unit: "MXN")}"
                   %td.total= "$ #{number_to_currency(amount * diff, unit: "MXN")}"
             %tfoot
-              %tr
+              %tr.border-bottom
                 %td.total(colspan="4") Subtotal
                 %td.total= "$ #{number_to_currency(total, unit: "MXN")}"
-              %tr
+              %tr.border-bottom
                 %td.total(colspan="4") Beneficios Kmimos 
                 %td.total= "$ #{number_to_currency(total * 0.2, unit: "MXN")}"
-              %tr
+              %tr.border-bottom
                 %td.total(colspan="4") Total 
                 %td.total= "$ #{number_to_currency(total * 1.2, unit: "MXN")}"
-          %br
-          
+          %br 
           %h3 Servicios Adicionales
           %br
-          %table{width: "100%"}
+          %table.table{width: "100%"}
             %thead
-              %th Servicios
-              %th Costo
+              %th.green-light-title Servicios
+              %th.total Costo
             %tbody
               - total = 0 
               - amount = AdditionalService.get_rate(booked_service.booking.provider_id, booked_service.pet.size_id, booked_service.service_id) rescue 0
@@ -114,14 +113,14 @@
                   %td= booked_service.service
                   %td= AdditionalService.get_rate(@booking.provider_id, booked_service.pet.size_id, booked_service.service_id) rescue 0
             %tfoot
-              %tr
-                %td.total(colspan="3") Subtotal
+              %tr.border-bottom
+                %td.total Subtotal
                 %td.total= "$ #{number_to_currency(total, unit: "MXN")}"
-              %tr
-                %td.total(colspan="3") Beneficios Kmimos 
+              %tr.border-bottom
+                %td.total Beneficios Kmimos 
                 %td.total= "$ #{number_to_currency(total * 0.2, unit: "MXN")}"
-              %tr
-                %td.total(colspan="3") Total 
+              %tr.border-bottom
+                %td.total Precio Total 
                 %td.total= "$ #{number_to_currency(total * 1.2, unit: "MXN")}"
           %br
         %img{src: "http://www.ucarecdn.com/8acf1ab3-ad25-436c-8d36-399ee00d34cc/beneficios_kmimos.png", width: "100%"}
