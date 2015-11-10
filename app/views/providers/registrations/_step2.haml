@@ -96,7 +96,7 @@
       .form-group
         .row
           .col-md-12
-            %a 
+            #mapNew{style: "width: 100% !important; height: 200px !important; ", latitude: 19.414319, longitude: -99.128175, zoom: 16 }
       .form-group
         .row
           .col-md-3 Tipo de Propiedad:
@@ -165,26 +165,26 @@
       $(".state_" + id + " .check_boxes").prop('checked', $(".main_state_" + id).prop('checked'));
     }
     
-    var itemLatLng = {}; //lat: , lng: 
-    
-    
-    $("#mapnew").each(function(){
-      itemLatLng = {lat: $(this).prop('latitude'), lng: $(this).prop('longitude')};
-    });
-  
+    if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+     
 
-    newProviderMap = new google.maps.Map(document.getElementById('mapnew'), {
-      center: itemLatLng,
-      zoom: 8
-    });
+        newProviderMap = new google.maps.Map(document.getElementById('mapnew'), {
+          center: pos,
+          zoom: 8
+        });
 
-    newProviderMap.setCenter(pos);
+      newProviderMap.setCenter(pos);
 
-    marker = new google.maps.Marker({
-        draggable: true,
-        position: itemLatLng,
-        map: newProviderMap
-    });
+      marker = new google.maps.Marker({
+          draggable: true,
+          position: pos,
+          map: newProviderMap
+      });
 
     google.maps.event.addListener(marker,'drag',function(event) {
         $("#provider_latitude").val(event.latLng.lat());
@@ -192,6 +192,11 @@
     });
 
    
+   }, function() {
+         });
+   } else {
+     // Browser doesn't support Geolocation
+   }
 
 
 
