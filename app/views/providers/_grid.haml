@@ -17,8 +17,8 @@
               %small(ng-repeat="state in provider.states ") {{ state }}
             %p.lh-sm.text-gray.fz-xs {{ provider.description | limitTo: 200 }}
             .hidden-md.separator.separator-gray-dark.separator-centered.mt-0.separator-full-width
-          .rating 
-            .ratingStars(score= "{{provider.valuation}}" readOnly= true) 
+          .rating  
+            %raty(score="{{provider.valuation}}" readOnly= true)
             .comments
               %span.badge {{ provider.comments.length }}
               %span Comentarios

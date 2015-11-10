@@ -8,4 +8,4 @@ providers_module.directive("raty", function() {
                         });
         }
     }
-}
+});
