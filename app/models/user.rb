@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable#, :confirmable
 
    belongs_to :location
+    
 
    has_many :user_pets
    has_many :pets, :through => :user_pets

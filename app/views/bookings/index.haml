@@ -13,6 +13,7 @@
           %thead{style:"font-family: Montserrat-Regular;color: #637988 !important;line-height: 24px;"}
             %th Fecha
             %th Cuidador
+            %th Estadia
             %th Servicio
             %th Precio Total
             %th Calificacion del Cuidador
@@ -28,6 +29,8 @@
                   = book.end_date
               %td
                 %b="#{book.provider.name} #{book.provider.last_name_1}"
+              %td
+                =" Del #{book.start_date} al #{book.end_date}"
               %td
                 = book.booked_services.map{|bs| bs.service}.join(' ,')
               %td{style:"font-family: Montserrat-Bold;color: #435C70;line-height: 17px;"}

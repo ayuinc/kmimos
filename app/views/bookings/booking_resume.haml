@@ -10,14 +10,14 @@
         %table{style: "text-align:center;margin-left:auto;margin-right:auto;min-width:620px;width:100%"}
           %thead
             %tr
-              %td
+              %td{width: "100%"}
               %td.logo
                 %img{:src => "http://s1.postimg.org/n12q65th7/logo_mail_confirmacion.png"}
       .container-sm
         %tbody
           %tr
             %td
-              %h1{:style => "font-family: arial;font-weight: 100;color: gray; font-size: 64px"}
+              %h1{:style => "font-family: arial;font-weight: 100;color: gray; font-size: 35px"}
                 %b Hola #{@booking.user.first_name},
           %tr
             %td
@@ -73,7 +73,7 @@
               - @booking.booked_pets.each do |booked_pet|
                 - diff = (Booking.last.end_date - Booking.last.start_date).to_i
                 %tr
-                  %td=" Del #{Booking.last.start_date} al #{Booking.last.end_date}"
+                  %td=" Del #{@booking.start_date} al #{@booking.end_date}"
                   %td= booked_pet.pet
                   %td= diff
                   %td= AdditionalService.get_pet_rate(booked_service.pet, booked_service.booking.provider_id) *  diff rescue 0
