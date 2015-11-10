@@ -45,8 +45,7 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
     }, log);
 
     $scope.map.markers = temp_markers;
-    
-    paint_ratings();
+     
     
   });
 
