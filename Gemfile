@@ -24,7 +24,7 @@ gem 'high_voltage', '~> 2.3.0'
 gem 'kaminari'
 
 
-
+gem 'actionpack-action_caching'
 
 gem 'useragent'
 gem 'mobylette'
