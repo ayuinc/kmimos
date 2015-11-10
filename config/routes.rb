@@ -2,8 +2,8 @@ ServihogarRails::Application.routes.draw do
 
   ActiveAdmin.routes(self)
 
-  devise_for :users, :controllers => {:registrations => "user/registrations"}
-  devise_for :providers, :controllers => {:registrations => "provider/registrations"}
+  devise_for :users, :controllers => {:registrations => "user/registrations", sessions: "user/sessions"}
+  devise_for :providers, :controllers => {:registrations => "provider/registrations", sessions: "provider/sessions"}
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 

@@ -96,7 +96,7 @@
       .form-group
         .row
           .col-md-12
-            #mapNew{style: "width: 100% !important; height: 200px !important; ", latitude: 19.414319, longitude: -99.128175, zoom: 16 }
+            %div#mapNew{style: "width: 100% !important; height: 200px !important; ", latitude: 19.414319, longitude: -99.128175, zoom: 16}
       .form-group
         .row
           .col-md-3 Tipo de Propiedad:
@@ -143,6 +143,7 @@
     
     var geocoder = new google.maps.Geocoder();
     var marker;
+    var itemLatLng;
 
     $("[class^='state_']").hide();
 
@@ -165,56 +166,45 @@
       $(".state_" + id + " .check_boxes").prop('checked', $(".main_state_" + id).prop('checked'));
     }
     
-    var itemLatLng = {}
-    
-    $("#mapNew").each(function(){
-      itemLatLng = {lat: $(this).attr('latitude'), lng: $(this).attr('longitude')};
-    });
-    
-    newProviderMap = new google.maps.Map(document.getElementById('mapnew'), {
-      center: itemLatLng,
-      zoom: 8
-    });
-    
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        var pos = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
-    
-     
+    $("#mapNew").ready(function(){
       
-      newProviderMap.setCenter(pos);
-      
- 
-
+      $("#mapNew").each(function(){
+        itemLatLng = new google.maps.LatLng($(this).attr('latitude'), $(this).attr('longitude'), 1) 
+      });
+    
+      newProviderMap = new google.maps.Map(document.getElementById('mapNew'), {
+        center: itemLatLng,
+        zoom: 8
+      });
+    
       marker = new google.maps.Marker({
           draggable: true,
-          position: pos,
+          position: itemLatLng,
           map: newProviderMap
       });
-
+    
       google.maps.event.addListener(marker,'drag',function(event) {
           $("#provider_latitude").val(event.latLng.lat());
           $("#provider_longitude").val(event.latLng.lng());
       });
+    
+  
 
-   
-   } 
-
-
-    function codeAddress() {
-        var address = document.getElementById("provider_address").value;
-        geocoder.geocode( { 'address': address}, function(results, status) {
-          if (status == google.maps.GeocoderStatus.OK) {
-            newProviderMap.setCenter(results[0].geometry.location);
-            marker.setPosition( results[0].geometry.location );
-            console.log(results[0].geometry.location);
-            $("#provider_latitude").val(results[0].geometry.location.lat());
-            $("#provider_longitude").val(results[0].geometry.location.lng());
-          } else {
-            alert("Geocode was not successful for the following reason: " + status);
-          }
-        });
-      }
+      function codeAddress() {
+          var address = document.getElementById("provider_address").value;
+          geocoder.geocode( { 'address': address}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+              newProviderMap.setCenter(results[0].geometry.location);
+              marker.setPosition( results[0].geometry.location );
+              console.log(results[0].geometry.location);
+              $("#provider_latitude").val(results[0].geometry.location.lat());
+              $("#provider_longitude").val(results[0].geometry.location.lng());
+            } else {
+              alert("Geocode was not successful for the following reason: " + status);
+            }
+          });
+        }
+      
+    });
+    
+    

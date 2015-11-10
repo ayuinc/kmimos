@@ -110,7 +110,7 @@
         %h3.text-gray Ubicación
         .row
           .col-md-5
-            %h4.text-secondary Areas del Servicio
+            %h4.text-secondary Areas donde puede recoger a tu perrito
             - @provider.locations.group_by(&:state_id).each do |k, state|
               %h4.mb-14.mt-21.pb-7.border-bottom= state.first.state
               - state.each do |city|
