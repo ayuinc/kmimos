@@ -89,17 +89,15 @@
 %br
 
 :javascript
-
-
-
-   function submit_form() s);
-   }
-
-   $('.besn_place').best_in_place();
+ 
+   $('.best_in_place').best_in_place();
 
    $(document).on('nested:fieldAdded', function(event){
-     var n = Math.flooMath.random() * 900) + 1);
-     var field = event.field;    var button = field.find('.pretty_upload_input');     var input = field.find('.e');
+     var n = (Math.flooMath.random() * 900) + 1;
+     var field = event.field;    
+     var button = field.find('.pretty_upload_input');     
+     var input = field.find('.e');
      button.attr('el', '.photo_' + String(n));
-    input.addClass('photo_' + String(n))     paint_pretty_uploads();
+     input.addClass('photo_' + String(n));     
+    paint_pretty_uploads();
    });
