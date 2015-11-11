@@ -3,6 +3,7 @@ class Pet < ActiveRecord::Base
   belongs_to :size
   belongs_to :behavior
   belongs_to :race
+  belongs_to :age
 
   has_many :booked_services
 
