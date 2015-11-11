@@ -13,22 +13,22 @@
   .collapse.navbar-collapse.pr-21
     %ul.nav.navbar-nav.mt-14
       - if current_provider
-        %li
+        %li.ml-35
           .dropdown 
             %a.dropdown-toggle.text-header{"data-toggle" => "dropdown", :href => "#"}
               Hola, #{current_provider.name}
             %ul#dropdown-menu.dropdown-menu
-              %li= link_to 'Mi perfil'.html_safe, edit_provider_path(current_provider.id) 
-              %li= link_to 'Salir'.html_safe, destroy_provider_session_path, :method => :delete  
+              %li= link_to 'Mi perfil', edit_provider_path(current_provider.id) 
+              %li= link_to 'Salir', destroy_provider_session_path, :method => :delete  
       - elsif current_user
         %li.ml-35
           .dropdown 
             %a.dropdown-toggle.text-header{"data-toggle" => "dropdown", :href => "#"}
               Hola, #{current_user.first_name}
             %ul#dropdown-menu.dropdown-menu
-              %li= link_to 'Mi perfil'.html_safe, user_path(current_user) 
-              %li= link_to 'Mis reservas'.html_safe, bookings_path 
-              %li= link_to 'Salir'.html_safe, destroy_user_session_path, :method => :delete 
+              %li= link_to 'Mi perfil', user_path(current_user) 
+              %li= link_to 'Mis reservas', bookings_path 
+              %li= link_to 'Salir', destroy_user_session_path, :method => :delete 
            
       - else
         %li
