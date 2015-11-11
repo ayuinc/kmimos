@@ -1,4 +1,6 @@
 
+/*global bookings_module */
+/*global angular */
 
 bookings_module.controller('BookingsController', ['$scope', '$filter', '$http', function ($scope, $filter, $http) {
 
@@ -64,7 +66,7 @@ bookings_module.controller('BookingsController', ['$scope', '$filter', '$http', 
   $scope.set_total_services = function () {
     var total = 0;
     angular.forEach($scope.services_booked, function (service, key) {
-      total += parseInt(service.price);
+      total += parseInt(service.price, 10);
     });
     $scope.services_booked_total = total;
   };
@@ -72,7 +74,7 @@ bookings_module.controller('BookingsController', ['$scope', '$filter', '$http', 
   $scope.set_total_pets = function () {
     var total = 0;
     angular.forEach($scope.pets_booked, function (pet, key) {
-      total = total + parseInt(pet.price * $scope.diff);
+      total = total + parseInt(pet.price * $scope.diff, 10);
     });
     $scope.pets_booked_total = total;
   };

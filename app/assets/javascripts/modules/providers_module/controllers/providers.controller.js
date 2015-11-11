@@ -1,5 +1,11 @@
-providers_module.controller('ProvidersController', ['$scope', '$filter', 'ProviderService', 'ServiceService', function($scope, $filter, ProviderService, ServiceService) {
+/*global providers_module */
+/*global angular */
+/*global console */
 
+
+providers_module.controller('ProvidersController', ['$scope', '$filter', 'ProviderService', 'ServiceService', function ($scope, $filter, ProviderService, ServiceService) {
+
+  "use strict";
 
   $scope.search = {};
 
@@ -14,7 +20,7 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
   
   $scope.filteredProviders;
   
-  ProviderService.get().$promise.then(function(providers){
+  ProviderService.get().$promise.then(function (providers) {
     $scope.providers = providers;
   });
   
@@ -23,25 +29,33 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
   $scope.map.markers = [];
 
   $scope.search.price = {
-      min: 0,
-      max: 1000,
-      ceil: 1000,
-      floor: 0
+    min: 0,
+    max: 1000,
+    ceil: 1000,
+    floor: 0
   };
   
-  $scope.onClick = function(marker, eventName, model) { 
-      model.show = !model.show;
+  $scope.onClick = function (marker, eventName, model) {
+    model.show = !model.show;
   };
   
   
-  $scope.$watch('filteredProviders', function() {
+  $scope.$watch('filteredProviders', function () {
     console.log("changed!");
     
-    var temp_markers = [];
-    var log = [];
+    var temp_markers, log;
+    
+    log = [];
+    temp_markers = [];
 
-    angular.forEach($scope.filteredProviders, function(provider, key) { 
-      temp_markers.push({latitude: provider.latitude, longitude: provider.longitude, id: provider.id, icon:'assets/huella-mensaje-17-mini.png', title: provider.name });
+    angular.forEach($scope.filteredProviders, function (provider, key) {
+      temp_markers.push({
+        latitude: provider.latitude,
+        longitude: provider.longitude,
+        id: provider.id,
+        icon: 'assets/huella-mensaje-17-mini.png',
+        title: provider.name
+      });
     }, log);
 
     $scope.map.markers = temp_markers;
@@ -49,11 +63,10 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
     
   });
 
-  $scope.onSliderChange = function(){
-    
-    $scope.search.price.min=$scope.priceSlider.min;
-    $scope.search.price.max=$scope.priceSlider.max;
-  }
+  $scope.onSliderChange = function () {
+    $scope.search.price.min = $scope.priceSlider.min;
+    $scope.search.price.max = $scope.priceSlider.max;
+  };
 
   $scope.services = ServiceService.get();
 
