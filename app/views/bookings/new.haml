@@ -85,7 +85,7 @@
           .panel-body
             .form-group.row(ng-repeat="serv in services_booked")
               .row.border-bottom
-                .col-md-3 Servicio: {{services_booked}}
+                .col-md-3 Servicio: 
                 .col-md-3
                   %select.form-control.bkd_srv{name: "booking[booked_services_attributes][][service_id]"}(ng-model= "serv.service_id" ng-change="update_services(#{@provider.id})")
                     -@provider.services.each do |se|
