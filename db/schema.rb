@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107103256) do
+ActiveRecord::Schema.define(version: 20151111202715) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -214,8 +214,6 @@ ActiveRecord::Schema.define(version: 20151107103256) do
 
   create_table "pets", force: true do |t|
     t.string   "name"
-    t.integer  "age"
-    t.float    "size"
     t.float    "weight"
     t.string   "sex"
     t.integer  "behavior_id"
@@ -228,6 +226,7 @@ ActiveRecord::Schema.define(version: 20151107103256) do
     t.integer  "size_id"
     t.integer  "race_id"
     t.integer  "weight_id"
+    t.integer  "age_id"
   end
 
   create_table "promotional_codes", force: true do |t|
@@ -295,7 +294,6 @@ ActiveRecord::Schema.define(version: 20151107103256) do
     t.boolean  "is_favorite"
     t.string   "behaviors_accepted"
     t.integer  "behavior_id"
-    t.boolean  "accept_non_sterilized"
     t.boolean  "only_sterilizated"
   end
 

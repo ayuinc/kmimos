@@ -7,8 +7,9 @@
 #
 
 class Age < ActiveRecord::Base
-	has_many :agings
-	has_many	:providers, :through => :agings
+  has_many :agings
+  has_many :providers, :through => :agings
+  has_many :pets
   
   def to_s
     age_group_name
