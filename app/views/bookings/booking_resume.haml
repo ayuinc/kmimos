@@ -43,8 +43,7 @@
         - @booking.pets.each do |pet|
           %table.table.pet_table{style: "width: 100%;"}
             %tr
-              %td.strong_green
-                = image_tag(pet.photo, width: '100%')
+              %td.strong_green 
                 %br
                 %strong Nombre
                 %p #{pet}

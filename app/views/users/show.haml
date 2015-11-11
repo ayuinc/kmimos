@@ -65,7 +65,7 @@
                     = pet.object.age.to_s != "" ? best_in_place(pet.object, :age) : pet.input(:age, label: false)
                   .form-group
                     %label Tamaño
-                    = pet.object.size.size_title != "" ? best_in_place(pet.object, :size_id, as: :select, collesction: Size.all.map{|s| [s.id, s.size_title] }) : pet.association(:size, label: false)
+                    = pet.object.size.to_s != "" ? best_in_place(pet.object, :size_id, as: :select, collesction: Size.all.map{|s| [s.id, s.size_title] }) : pet.association(:size, label: false)
                     %br
                 .col-md-4
                   .form-group

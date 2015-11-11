@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show]
   before_action :authenticate_user!, except: [:booking_resume]
   
+  
   caches_page   :public
   caches_action :booking_resume
 
@@ -9,25 +10,28 @@ class BookingsController < ApplicationController
     @bookings = Booking.where(user_id: current_user)
 
   end
-
  
-
   def booking_resume
-    @booking = Booking.find(params[:booking_id])
+    @booking = Booking.find(params[:booking_id]) 
     
-
     respond_to do |format|
-      format.html { render :booking_resume, layout: false }
-      format.pdf { render :text => PDFKit.new( booking_resume_path(booking_id: @booking.id) ).to_pdf }
+      format.html
+      format.pdf do
+        html = render_to_string(layout: false)
+        kit = PDFKit.new(html, page_size: 'A4', print_media_type: true)
+        kit.stylesheets << "#{Rails.root}/app/assets/stylesheets/extra.scss"
+        pdf = kit.to_pdf
+        send_data pdf, filename: 'booklet.pdf', type: 'application/pdf', disposition: 'inline'
+      end
     end
   end
 
   def new
-  @services =  params[:services] != nil ? Service.where(id: params[:services]) : []
-      @provider = Provider.find(params[:booking][:provider_id])
+    @services =  params[:services] != nil ? Service.where(id: params[:services]) : []
+    @provider = Provider.find(params[:booking][:provider_id])
     @booking = Booking.new
-  @booking.start_date = session[:from_date]
-  @booking.end_date = session[:to_date]
+    @booking.start_date = session[:from_date]
+    @booking.end_date = session[:to_date]
   end
 
   def show
@@ -36,16 +40,16 @@ class BookingsController < ApplicationController
 
   def create
 
-  @provider = Provider.find(params[:provider_id])
-  @booking = Booking.new(booking_params)
+    @provider = Provider.find(params[:provider_id])
+    @booking = Booking.new(booking_params)
 
-  @booking.provider_id  = @provider.id
-  @booking.user_id = current_user.id
+    @booking.provider_id  = @provider.id
+    @booking.user_id = current_user.id
 
     if @booking.save
 
       BookingConfirmationMailer.new_booking_notification(@booking, current_country).deliver
-    BookingConfirmationMailer.new_booking_provider_notification(@booking, current_country).deliver
+      BookingConfirmationMailer.new_booking_provider_notification(@booking, current_country).deliver
       #BookingConfirmationMailer.new_booking_for_admin(@booking, current_country).deliver
 
       session[:from_date], session[:to_date] = nil, nil
