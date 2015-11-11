@@ -1,6 +1,8 @@
 class Pet < ActiveRecord::Base
-  belongs_to :user_pet
-  belongs_to :size
+  belongs_to :user_pet 
+  
+  belongs_to :own_size, :class_name => 'Size', :foreign_key => 'size_id'
+  
   belongs_to :behavior
   belongs_to :race
   belongs_to :age
@@ -15,9 +17,6 @@ class Pet < ActiveRecord::Base
   def to_s
     name
   end
-  
-  def get_size
-    self.size.size_title rescue ""
-  end
+ 
 
 end
