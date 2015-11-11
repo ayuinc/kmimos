@@ -35,7 +35,7 @@ class BookingsController < ApplicationController
   end
 
   def show
-  @booking = Booking.where(token: params[:id]).last
+    @booking = Booking.where(token: params[:id]).last
   end
 
   def create

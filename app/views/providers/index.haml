@@ -53,10 +53,8 @@
         .col-md-2
           #map_canvas
             %ui-gmap-google-map(center='filteredProviders[0].coords' zoom='map.zoom' control='map.control')
-              %ui-gmap-markers(models="map.markers" coords="'self'" icon="'icon'" click="onClickMarker")
-                %ui-gmap-windows(show="show")
-                  %ng-non-bindable
-                    Prueba
+              %ui-gmap-markers(models="map.markers" coords="'self'" icon="'icon'")
+              %ui-gmap-windows(models="map.markers" coords="'self'" show="'show'") 
 
 = render "layouts/modal"
 
