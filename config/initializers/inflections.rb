@@ -18,3 +18,7 @@
 ActiveSupport::Inflector.inflections(:es) do |inflect|
   inflect.irregular 'mascota', 'mascotas'
 end
+
+ActiveSupport::Inflector.inflections(:en) do |inflect|
+  inflect.irregular 'mascota', 'mascotas'
+end

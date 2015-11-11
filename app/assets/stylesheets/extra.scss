@@ -398,81 +398,80 @@ h3 {
 }
 
 
+
+
+
+
+
 .booking_resume {
-     
-  background-color: rgb(253, 255, 247);
-  margin: 30px; 
+  background-color: #fdfff7;
+  margin: 30px;
   color: #445a4f;
-   
-  .header{ 
-    text-align: left;
-    margin-left:auto;
-    margin-right:auto;
-    
-    min-width:620px;
-    width:100%;
-    
-    b {
-      color: rgb(77,190,172);
-    }
-
-    .logo {
-        float: right;
-    }
- 
-  }
-  
-  tr.border-bottom td{
-    padding: 8px;
-    border-bottom: 2px solid rgb(203, 207, 200);
-  }
-  
-  .green-light-title {
-    color: rgb(77,190,172);
-    text-align: left;
-    font-weight: 600;
-  }
-
-
-  h1 {
-     
-    font-weight: 200;
-    color: rgb(82, 101, 119); 
-    font-size: 35px;
-  } 
-  
-  p {
-     
-    color: rgb(82, 101, 119); 
-  }
-  
-  .pet_table {
-    .strong_green {
-      background-color: #ace2d3; 
-      width: 40%; 
-      padding: 5px;
-    }
-    
-    .light_green {
-      background-color: #e1eeea; 
-      width: 60%; 
-      margin: 5px;
-      padding: 20px;
-      
-      h3 {
-        font-family: Montserrat-Regular;
-        font-size: 20px;
-        color: rgb(77,190,172);
-        line-height: 31.67px;
-      }
-      
-      h4 {
-        font-family: Montserrat-Bold;
-        font-size: 17px;
-        color: rgb(42,63,85);
-        line-height: 18px;
-        font-weight: 500;
-      }
-    }
-  }
 }
+
+.booking_resume .header {
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 620px;
+  width: 100%;
+}
+
+.booking_resume .header b {
+  color: #4dbeac;
+}
+
+.booking_resume .header .logo {
+  float: right;
+  position: absolute;
+}
+
+.booking_resume tr.border-bottom td {
+  padding: 8px;
+  border-bottom: 2px solid #cbcfc8;
+}
+
+.booking_resume .green-light-title {
+  color: #4dbeac;
+  text-align: left;
+  font-weight: 600;
+}
+
+.booking_resume h1 {
+  font-weight: 200;
+  color: #526577;
+  font-size: 35px;
+}
+
+.booking_resume p {
+  color: #526577;
+}
+
+.booking_resume .pet_table .strong_green {
+  background-color: #ace2d3;
+  width: 40%;
+  padding: 5px;
+}
+
+.booking_resume .pet_table .light_green {
+  background-color: #e1eeea;
+  width: 60%;
+  margin: 5px;
+  padding: 20px;
+}
+
+.booking_resume .pet_table .light_green h3 {
+  font-family: Montserrat-Regular;
+  font-size: 20px;
+  color: #4dbeac;
+  line-height: 31.67px;
+}
+
+.booking_resume .pet_table .light_green h4 {
+  font-family: Montserrat-Bold;
+  font-size: 17px;
+  color: #2a3f55;
+  line-height: 18px;
+  font-weight: 500;
+}
+
