@@ -92,7 +92,7 @@
             <% total = 0 %>
             <% @booking.booked_pets.each do |booked_pet| %>
               <% diff = (@booking.end_date - @booking.start_date).to_i  %>
-              <% amount = AdditionalService.get_pet_rate(booked_pet.pet, @booking.provider_id) rescue 0 %>
+              <% amount = AdditionalService.get_pet_rate(booked_pet.pet_id, @booking.provider_id) rescue 0 %>
               <% total += amount %>
               <tr class="border-bottom">
                 <td>
@@ -105,10 +105,10 @@
                   <%= pluralize(diff, "dia") %>
                 </td>
                 <td class="total">
-                  <%= "$ #{number_to_currency(total, unit: "MXN")}" %>
+                  <%= "$ #{number_to_currency(amount, unit: "MXN")}" %>
                 </td>
                 <td class="total">
-                  <%= "$ #{number_to_currency(total * diff, unit: "MXN")}" %>
+                  <%= "$ #{number_to_currency(amount * diff, unit: "MXN")}" %>
                 </td>
               </tr>
             <% end %>
