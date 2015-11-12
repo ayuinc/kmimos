@@ -6,7 +6,11 @@ ServihogarRails::Application.routes.draw do
 
   root 'providers#home'
 
-  resources :providers
+  resources :providers do
+    member do
+      get 'apply_to_new_version'
+    end
+  end
 
   resources :bookings
   resources :meetings

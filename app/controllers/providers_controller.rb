@@ -1,9 +1,11 @@
   class ProvidersController < ApplicationController
-  before_action :set_provider, only: [:show, :edit, :update, :destroy]
-  before_action :require_current_provider, only: [:edit]
+  before_action :set_provider, only: [:show, :edit, :update, :destroy, :apply_to_new_version]
+  before_action :require_current_provider, only: [:apply_to_new_version, :edit]
   before_action :require_unlogged_provider, only: [:new]
   before_action :get_dates, only: [:index]
   before_action :set_country, only: [:index,:home]
+    
+  
 
   # GET /providers
   # GET /providers.json
@@ -28,6 +30,12 @@
     #end
     @providers = @providers.paginate(:per_page => 20, :page => params[:page])
   end
+    
+  def apply_to_new_version
+    @provider = current_provider
+  end
+    
+  
 
   def home
     @search = Provider.search(params[:q])

@@ -1,0 +1,26 @@
+<div class='row'>
+  <div class='col-md-2'>
+    
+  </div>
+  <div class='col-md-8'>
+    <center>
+      <br/>
+      <h2 class="mt-35 mb-35 p-70"> Para transferir tus datos a la nueva version de kmimos has click en Continuar  </h2> 
+      <br/>
+
+      <form action="http://peaceful-ocean-4005.herokuapp.com/providers" method="post" id="new_provider" class="new_provider">
+        <input type="hidden" name="provider[name]" value="<%= @provider.name %>" />
+        <input type="hidden" name="provider[last_name_1]" value="<%= @provider.last_name_1 %> <%= @provider.last_name_2 %>" />
+        <input type="hidden" name="provider[dni]" value="<%= @provider.dni %>" />
+        <input type="hidden" name="provider[phone]" value="<%= @provider.phone %>" />
+        <input type="hidden" name="provider[email]" value="<%= @provider.email %>" />
+        <input type="hidden" name="provider[description]" value="<%= @provider.description %>" />
+        <input type="hidden" name="provider[experiencia]" value="<%= @provider.experiencia %>" />
+        <input type="hidden" name="provider[latitude]" value="<%= @provider.latitude %>" />
+        <input type="hidden" name="provider[longitude]" value="<%= @provider.longitude %>" />
+        <input type="hidden" name="provider[address]" value="<%= @provider.address %>" />
+        <button type="submit" id = "btn-recomendar" class="btn btn-lg text-white light"> Continuar </button>
+      </form>
+    </center>
+  </div>
+</div>
