@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151111202715) do
+ActiveRecord::Schema.define(version: 20151112213449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -193,6 +193,8 @@ ActiveRecord::Schema.define(version: 20151111202715) do
     t.string  "user_phone"
     t.string  "user_email"
     t.string  "token"
+    t.date    "start_date"
+    t.date    "end_date"
   end
 
   add_index "meetings", ["provider_id"], name: "index_meetings_on_provider_id", using: :btree
@@ -294,7 +296,6 @@ ActiveRecord::Schema.define(version: 20151111202715) do
     t.boolean  "is_favorite"
     t.string   "behaviors_accepted"
     t.integer  "behavior_id"
-    t.boolean  "accept_non_sterilized"
     t.boolean  "only_sterilizated"
   end
 

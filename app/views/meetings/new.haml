@@ -1,0 +1,46 @@
+.container.content.mh-630
+  .row
+    %h2.text-center.mt-35 Conoce a un cuidador de Kmimos en persona
+    .col-md-2
+    .col-md-8.mt-21.mb-42
+      %h3.text-gray.mb-28 Detalle de tu solicitud:
+      %h4.text-gray
+        %small.text-black.bold Cuidador:
+        = Provider.find(session[:chosen_provider_id]).name
+        = Provider.find(session[:chosen_provider_id]).last_name_1
+        = Provider.find(session[:chosen_provider_id]).last_name_2
+      - if !session[:start_date].nil?
+        %h4.text-gray.light
+          %small.text-black.bold Check-in:
+          = session[:start_date].strftime("%d/%m/%Y")
+      - if !session[:end_date].nil?
+        %h4.text-gray.light
+          %small.text-black.bold Check-out:
+          = session[:end_date].strftime("%d/%m/%Y")
+      %hr.hr-gray
+        .panel.panel-primary
+          .panel-heading.mb-21
+            %h4 Completa tus datos para ponernos en contacto contigo. Uno de nuestros agentes te contactará en breve.
+          .panel-body
+            = simple_form_for(@meeting)  do |f|
+              = render "meetings/error_messages"
+              .form-group.row
+                .col-md-6
+                  = f.input :start_date, label: 'Fecha de Inicio:', input_html: {value: "#{Date.strptime(session[:from_date],'%m/%d/%Y').strftime('%d/%m/%Y') rescue '' }"}
+                .col-md-6
+                  = f.input :end_date, label: 'Fecha de Fin:', input_html: {value: "#{Date.strptime(session[:to_date],'%m/%d/%Y').strftime('%d/%m/%Y') rescue '' }"}
+              .form-group.row
+                .col-md-6
+                  = f.input :user_first_name, label: 'Nombre:'
+                .col-md-6
+                  = f.input :user_last_name, label: 'Apellido:' 
+              .form-group.row
+                .col-md-6 
+                  = f.input :user_phone, label: "Teléfono:"
+                  = f.input :provider_id, :value => session[:chosen_provider_id], as: :hidden
+                .col-md-6
+                  = f.input :user_email, label: "E-mail:"
+              .form-group.row
+                .col-md-3
+                  = f.submit "Confirmar", id: "reservar", class: "btn mt-21 btn-primary form-control"
+ 

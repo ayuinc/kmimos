@@ -27,7 +27,7 @@ class MeetingsController < ApplicationController
 	private
 
 	def meeting_params
-	  params.require(:meeting).permit(:user_first_name, :user_last_name, :provider_id, :user_phone, :user_email)
+	  params.require(:meeting).permit! #(:user_first_name, :user_last_name, :provider_id, :user_phone, :user_email)
 	end
 
 	def set_meeting
