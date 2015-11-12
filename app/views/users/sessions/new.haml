@@ -8,7 +8,7 @@
       .panel.panel-primary
         .panel-heading.medium.text-gray.mb-14 Ingresa a tu cuenta Kmimos
         .panel-body
-          = simple_form_for(@user, as: resource_name, url: session_path(resource_name)) do |f|
+          = simple_form_for(@user, url: session_path(@user)) do |f|
             .form-group= f.input :email 
             .form-group= f.input  :password, label: "Contraseña"
             = f.submit "Ingresa", class: 'form-control btn btn-primary mb-21'
