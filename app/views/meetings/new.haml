@@ -24,11 +24,12 @@
           .panel-body
             = simple_form_for(@meeting)  do |f|
               = render "meetings/error_messages"
+              %h4 Posible fecha de estadia
               .form-group.row
                 .col-md-6
-                  = f.input :start_date, label: 'Fecha de Inicio:', input_html: {value: "#{Date.strptime(session[:from_date],'%m/%d/%Y').strftime('%d/%m/%Y') rescue '' }"}
+                  = f.input :start_date, label: 'Fecha de Inicio:', as: :string, input_html: {value: "#{session[:from_date]}", class: 'datepicker'}
                 .col-md-6
-                  = f.input :end_date, label: 'Fecha de Fin:', input_html: {value: "#{Date.strptime(session[:to_date],'%m/%d/%Y').strftime('%d/%m/%Y') rescue '' }"}
+                  = f.input :end_date, label: 'Fecha de Fin:', as: :string, input_html: {value: "#{session[:to_date]}", class: 'datepicker'}
               .form-group.row
                 .col-md-6
                   = f.input :user_first_name, label: 'Nombre:'
@@ -44,3 +45,6 @@
                 .col-md-3
                   = f.submit "Confirmar", id: "reservar", class: "btn mt-21 btn-primary form-control"
  
+:javascript
+
+   $('.datepicker').datepicker();

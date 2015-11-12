@@ -14,8 +14,8 @@
 
     @providers=Provider.where(active: true)
 
-    session[:from_date] = (Date.strptime(params[:from_date], '%d/%m/%Y')).strftime('%m/%d/%Y') if params[:from_date].to_s != ""  rescue ""
-    session[:to_date] = (Date.strptime(params[:to_date], '%d/%m/%Y')).strftime('%m/%d/%Y') if params[:to_date].to_s != "" rescue ""
+    session[:from_date] = params[:from_date] if params[:from_date].to_s != ""  rescue ""
+    session[:to_date] = params[:to_date] if params[:to_date].to_s != "" rescue ""
 
     @providers = @providers.all.page params[:page]
 
