@@ -145,8 +145,8 @@
           <tbody>
             <% total = 0 %>
             <% amount = AdditionalService.get_rate(booked_service.booking.provider_id, booked_service.pet.size_id, booked_service.service_id) rescue 0 %>
-            <% total += amount %>
             <% @booking.booked_services.each do |booked_service| %>
+              <% total += amount %>
               <tr class="border-bottom">
                 <td>
                   <%= booked_service.service %>
