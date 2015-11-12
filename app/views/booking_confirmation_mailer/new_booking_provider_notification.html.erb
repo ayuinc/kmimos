@@ -37,11 +37,11 @@
               ha hecho una reserva en Kmimos para que cuides a su(s) mascota(s) <%="#{@booking.booked_pets.map{|b| b.pet.name}.join(', ')}"%>
               Desde el día 
               <b>
-                <%= "#{@booking.start_date} a las #{@booking.pickup_time}"  %>
+                <%= "#{@booking.start_date.strftime("%d/%m%Y")} a las #{@booking.pickup_time.strftime("%H:%M")}"  %>
               </b>
               hasta el
               <b>
-                <%= "#{@booking.end_date} a las #{@booking.dropoff_time}" %>
+                <%= "#{@booking.end_date.strftime("%d/%m%Y")} a las #{@booking.dropoff_time.strftime("%H:%M")}" %>
               </b>
             </p>
             <p style="font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 22px;">
@@ -125,19 +125,19 @@
           </tbody>
           <tfoot>
             <tr class="border-bottom">
-              <td class="total">(colspan="4") Subtotal</td>
+              <td class="total" colspan="4"> Subtotal</td>
               <td class="total">
                 <%= "$ #{number_to_currency(total, unit: "MXN")}" %>
               </td>
             </tr>
             <tr class="border-bottom">
-              <td class="total">(colspan="4") Beneficios Kmimos </td>
+              <td class="total" colspan="4"> Beneficios Kmimos </td>
               <td class="total">
                 <%= "$ #{number_to_currency(total * 0.2, unit: "MXN")}" %>
               </td>
             </tr>
             <tr class="border-bottom">
-              <td class="total">(colspan="4") Total </td>
+              <td class="total" colspan="4"> Total </td>
               <td class="total">
                 <%= "$ #{number_to_currency(total * 1.2, unit: "MXN")}" %>
               </td>
@@ -155,8 +155,8 @@
           <tbody>
             <% total = 0  %>
             <% amount = AdditionalService.get_rate(booked_service.booking.provider_id, booked_service.pet.size_id, booked_service.service_id) rescue 0 %>
-            <% total += amount %>
             <% @booking.booked_services.each do |booked_service| %>
+            <% total += amount %>
               <tr class="border-bottom">
                 <td>
                   <%= booked_service.service %>
@@ -234,7 +234,7 @@
               <img src="http://www.ucarecdn.com/3a6702b4-7271-4318-83ce-1727c90391f4/twitter.png" style="margin-right: 3px;"/>
             </a>
             <a href="https://instagram.com/kmimosmx/" target="_blank">
-              <img src="http://www.ucarecdn.com/abea12c9-db43-4186-8d55-05380490783a/iconoinstagram.png" style="margin-right: 3px; height:34px"/>
+              <img src="http://www.ucarecdn.com/4711d4df-feb4-4fad-8eee-9f6aa3170675/instagram.png" style="margin-right: 3px; height:34px"/>
             </a>
           </td>
         </tr>
