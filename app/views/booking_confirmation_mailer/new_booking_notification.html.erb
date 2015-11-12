@@ -105,10 +105,10 @@
                   <%= pluralize(diff, "dia") %>
                 </td>
                 <td class="total">
-                  <%= "$ #{number_to_currency(amount, unit: "MXN")}" %>
+                  <%= "$ #{number_to_currency(total, unit: "MXN")}" %>
                 </td>
                 <td class="total">
-                  <%= "$ #{number_to_currency(amount * diff, unit: "MXN")}" %>
+                  <%= "$ #{number_to_currency(total * diff, unit: "MXN")}" %>
                 </td>
               </tr>
             <% end %>
@@ -146,7 +146,7 @@
             <% total = 0 %>
 
             <% @booking.booked_services.each do |booked_service| %>
-                        <% amount = AdditionalService.get_rate(booked_service.booking.provider_id, booked_service.pet.size_id, booked_service.service_id) rescue 0 %>
+              <% amount = AdditionalService.get_rate(booked_service.booking.provider_id, booked_service.pet.size_id, booked_service.service_id) rescue 0 %>
               <% total += amount %>
               <tr class="border-bottom">
                 <td>
