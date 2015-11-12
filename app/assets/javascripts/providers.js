@@ -27,7 +27,7 @@ var paint_map = function(){
     console.log('do function');
 
     $("#mapNew").each(function(){
-      itemLatLng = new google.maps.LatLng($(this).attr('latitude'), $(this).attr('longitude'), 1) 
+      itemLatLng = new google.maps.LatLng($(this).attr('latitude'), $(this).attr('longitude'), 16) 
     });
 
     newProviderMap = new google.maps.Map(document.getElementById('mapNew'), {
