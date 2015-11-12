@@ -39,7 +39,7 @@ class AdditionalService < ActiveRecord::Base
     return price
   end
   
-  def get_pet_rate(pet_id, provider_id)
+  def self.get_pet_rate(pet_id, provider_id)
     pet=Pet.find(pet_id)
     provider = Provider.find(provider_id)
 
@@ -50,9 +50,7 @@ class AdditionalService < ActiveRecord::Base
 
     response = {provider_name: provider.to_s, pet_name: pet.to_s, price: price}
 
-    respond_to do |format|
-      format.json { render json: response.as_json,  success: true }
-    end
+    return price
   end
 
 end

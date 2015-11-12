@@ -20,12 +20,12 @@
           #{"mascota".pluralize(@booking.pets.count)} 
           #{@booking.pets_list} 
           desde el dia
-          %b #{@booking.start_date.strftime("%d/%m%Y")}
+          %b #{@booking.start_date.strftime("%d/%m/%Y")}
           - if (@booking.pickup_time)
             a las 
             %b #{@booking.pickup_time.strftime("%H:%M")}
           hasta el
-          %b #{@booking.end_date.strftime("%d/%m%Y")} 
+          %b #{@booking.end_date.strftime("%d/%m/%Y")} 
           - if (@booking.dropoff_time)
             a las 
             %b #{@booking.dropoff_time.strftime("%H:%M")}
@@ -79,6 +79,7 @@
               - diff = (@booking.end_date - @booking.start_date).to_i 
               - @booking.booked_pets.each do |booked_pet|
                 - amount = AdditionalService.get_pet_rate(booked_pet.pet.id, @booking.provider_id) rescue 0
+                %p= AdditionalService.get_pet_rate(booked_pet.pet.id, @booking.provider_id)
                 - total += amount
                 %tr.border-bottom
                   %td=" Del #{@booking.start_date} al #{@booking.end_date}"
