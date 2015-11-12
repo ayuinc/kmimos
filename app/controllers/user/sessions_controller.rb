@@ -1,5 +1,9 @@
 class User::SessionsController < Devise::SessionsController
    
+  def new
+    super
+    @user = User.new
+  end
 
   def create
     @user = User.find_for_database_authentication(email: params[:user][:email].downcase)
