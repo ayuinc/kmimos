@@ -34,8 +34,8 @@
               <b>
                 <%= "#{@booking.user.first_name} " %>
               </b>
-              ha hecho una reserva en Kmimos para que cuides a su(s) mascota(s) #{@booking.booked_pets.map{|b| b.pet.name}.join(', ')}
-              Desde el dia 
+              ha hecho una reserva en Kmimos para que cuides a su(s) mascota(s) <%="#{@booking.booked_pets.map{|b| b.pet.name}.join(', ')}"%>
+              Desde el día 
               <b>
                 <%= "#{@booking.start_date} a las #{@booking.pickup_time}"  %>
               </b>
@@ -234,7 +234,7 @@
               <img src="http://www.ucarecdn.com/3a6702b4-7271-4318-83ce-1727c90391f4/twitter.png" style="margin-right: 3px;"/>
             </a>
             <a href="https://instagram.com/kmimosmx/" target="_blank">
-              <img src="http://www.ucarecdn.com/abea12c9-db43-4186-8d55-05380490783a/iconoinstagram.png" style="margin-right: 3px; height:100px"/>
+              <img src="http://www.ucarecdn.com/abea12c9-db43-4186-8d55-05380490783a/iconoinstagram.png" style="margin-right: 3px;"/>
             </a>
           </td>
         </tr>
