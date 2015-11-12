@@ -19,7 +19,7 @@
             .hidden-md.separator.separator-gray-dark.separator-centered.mt-0.separator-full-width
       .rating.bg-gray-lighter
         %raty.col-md-6{style:"margin:-18px 0 15px 0"}(score="{{provider.valuation}}" readOnly= true)
-        .comments.col-md-6{style: "float:right;margin-top:-15px; marging-left:70px"}
+        .comments.col-md-6{style: "float:right;margin-top:-15px; margin-left:70px"}
           %span.badge{style:"display:inline"} {{ provider.comments.length }}
           %a{style:"display:inline"}(href="/providers/{{provider.id}}/#comentarios_kmimos")
             %span{style:"display:inline"} Comentarios
