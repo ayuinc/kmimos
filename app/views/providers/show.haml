@@ -156,7 +156,7 @@
             %h4.text-gray.mv-14.border-bottom
               Servicios Adicionales
             %p Elige el servicio que deseas para tu mascota. Puedes agregarlo(s) a tu reserva o contratarlo(s) por separado
-            - @provider.services.uniq.each do |service|
+            - @provider.services.order('id').uniq.each do |service|
               %input.mt-21{value: service.id}(type="checkbox" name="services[]")
                 %small
                   #{service}
