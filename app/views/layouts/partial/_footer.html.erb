@@ -2,34 +2,34 @@
   <section class="bg-success pt-21 pb-21">
     <div class="container">
       <div class="row">
-        <div class="col-md-3 col-xs-12 pt-7">
-          <h5 class="text-white text-footer">Contáctanos: <%= current_country.phone %>  
-            </h5>
-     
-           
-            
-           
+        <div class="col-md-4 col-xs-12 pt-7">
+          <h5 class="text-white text-footer">Contáctanos: </h5>
+            <% current_country.phone.split("/").each do |el|%>
+              <h5 class="text-white text-footer"><%= el %></h5>
+            <% end %>
         </div>
-        <div class="col-md-4 col-xs-12"> 
+        <div class="col-md-2 col-xs-12"> 
           <div class="row pt-7">
-            <div class="col-md-4">
+            <div class="col-md-12">
               <h5 class="text-white text-footer"> Síguenos en </h5>
-            </div>
-            <div class="col-md-8">
-              <a href="<%= current_country.facebook  %>">
+              <a href="<%= current_country.facebook  %>" target="_blank">
                 <%= image_tag('facebook.svg')%>
               </a>
-              <a href="<%= current_country.twitter %>">
+              <a href="<%= current_country.twitter %>" target="_blank">
                 <%= image_tag('twitter.svg')%>
               </a>
-              <a href="https://instagram.com/kmimosmx/">
+              <a href="https://instagram.com/kmimosmx/" target="_blank">
                 <%= image_tag('instagram.svg')%>
               </a>  
             </div>
           </div>
         </div>
-        <div class="col-md-5 text-muted text-right col-xs-12">
+        <div class="col-md-2">
+              <h5 class="text-white text-footer"> www.kmimos.la </h5>
+        </div>
+        <div class="col-md-4 text-muted text-right col-xs-12">
           <h5 class="text-footer">Todos los derechos reservados</h5>
+            <a href="http://eepurl.com/bFnq55" target="_blank">Suscríbete a nuestro newsletter</a>
             <%= link_to '<h5>Términos y condiciones</h5>'.html_safe, page_path('tc'), class: "text-footer" %>
         </div>
       </div>
