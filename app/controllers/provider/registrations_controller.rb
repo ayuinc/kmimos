@@ -1,5 +1,5 @@
 class Provider::RegistrationsController < Devise::RegistrationsController
-
+  skip_before_filter :verify_authenticity_token
   before_filter :configure_permitted_parameters
 
 
@@ -11,7 +11,7 @@ class Provider::RegistrationsController < Devise::RegistrationsController
   def new
     super
     if params[:provider]
-      @provider = params[:provider]
+      @provider = JSON.parse(params[:provider])
     end
   end
 
