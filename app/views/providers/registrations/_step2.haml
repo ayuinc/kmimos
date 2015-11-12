@@ -16,7 +16,7 @@
         .row
           .col-md-3 Pon un precio a la estadia por noche dependiendo del tamaño:
           .col-md-9
-            - Size.all.each do |size|
+            - Size.order('id').each do |size|
               .row
                 .col-md-8
                   %label= size
