@@ -18,7 +18,6 @@
             %p.lh-sm.text-gray.fz-xs {{ provider.description | limitTo: 200 }}
             .hidden-md.separator.separator-gray-dark.separator-centered.mt-0.separator-full-width
       .rating.bg-gray-lighter
-        .row  
           %raty.col-md-6(score="{{provider.valuation}}" readOnly= true)
           .comments.col-md-6{style: "float:right;margin-top:-15px"}
             %span.badge{style:"display:inline"} {{ provider.comments.length }}
