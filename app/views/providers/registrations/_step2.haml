@@ -1,3 +1,5 @@
+ 
+
 %h3 Paso 2
 %section
   .row
@@ -96,7 +98,7 @@
       .form-group
         .row
           .col-md-12
-            %div#mapNew{style: "width: 100% !important; height: 200px !important; ", latitude: 19.414319, longitude: -99.128175, zoom: 16}
+            %div#mapNew{style: "width: 100% !important; height: 200px !important; ", latitude: 19.414319, longitude: -99.128175, zoom: 18} 
       .form-group
         .row
           .col-md-3 Tipo de Propiedad:
@@ -135,76 +137,36 @@
 
 
 
-:javascript
-
+:javascript 
     
-    
-    var newProviderMap;
-    
-    var geocoder = new google.maps.Geocoder();
-    var marker;
-    var itemLatLng;
+  var newProviderMap;
 
-    $("[class^='state_']").hide();
+  var geocoder = new google.maps.Geocoder();
+  var marker;
+  var itemLatLng;
 
-    function select_state(id){
-      $(".state_" + id).toggle();
+  $("[class^='state_']").hide();
 
+  function select_state(id){
+    $(".state_" + id).toggle();
+
+  }
+
+  function check_state(id){
+
+    if ($(".main_state_" + id).prop('checked')){
+      $(".main_state_" + id + "fa").removeClass("fa-caret-down");
+      $(".main_state_" + id + "fa").addClass("fa-caret-up");
+    } else {
+      $(".main_state_" + id + "fa").removeClass("fa-caret-up");
+      $(".main_state_" + id + "fa").addClass("fa-caret-down");
     }
 
-    function check_state(id){
+    console.log($(".main_state_" + id));
+    $(".state_" + id + " .check_boxes").prop('checked', $(".main_state_" + id).prop('checked'));
+  }
 
-      if ($(".main_state_" + id).prop('checked')){
-        $(".main_state_" + id + "fa").removeClass("fa-caret-down");
-        $(".main_state_" + id + "fa").addClass("fa-caret-up");
-      } else {
-        $(".main_state_" + id + "fa").removeClass("fa-caret-up");
-        $(".main_state_" + id + "fa").addClass("fa-caret-down");
-      }
 
-      console.log($(".main_state_" + id));
-      $(".state_" + id + " .check_boxes").prop('checked', $(".main_state_" + id).prop('checked'));
-    }
-    
-    $("#mapNew").ready(function(){
-      
-      $("#mapNew").each(function(){
-        itemLatLng = new google.maps.LatLng($(this).attr('latitude'), $(this).attr('longitude'), 1) 
-      });
-    
-      newProviderMap = new google.maps.Map(document.getElementById('mapNew'), {
-        center: itemLatLng,
-        zoom: 8
-      });
-    
-      marker = new google.maps.Marker({
-          draggable: true,
-          position: itemLatLng,
-          map: newProviderMap
-      });
-    
-      google.maps.event.addListener(marker,'drag',function(event) {
-          $("#provider_latitude").val(event.latLng.lat());
-          $("#provider_longitude").val(event.latLng.lng());
-      });
-    
   
 
-      function codeAddress() {
-          var address = document.getElementById("provider_address").value;
-          geocoder.geocode( { 'address': address}, function(results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-              newProviderMap.setCenter(results[0].geometry.location);
-              marker.setPosition( results[0].geometry.location );
-              console.log(results[0].geometry.location);
-              $("#provider_latitude").val(results[0].geometry.location.lat());
-              $("#provider_longitude").val(results[0].geometry.location.lng());
-            } else {
-              alert("Geocode was not successful for the following reason: " + status);
-            }
-          });
-        }
-      
-    });
-    
     
