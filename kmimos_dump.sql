@@ -1785,8 +1785,6 @@ ALTER TABLE ONLY weights ALTER COLUMN id SET DEFAULT nextval('weights_id_seq'::r
 -- Data for Name: accepted_behaviors; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY accepted_behaviors (id, provider_id, behavior_id, created_at, updated_at) FROM stdin;
-\.
 
 
 --
@@ -1800,8 +1798,6 @@ SELECT pg_catalog.setval('accepted_behaviors_id_seq', 1, false);
 -- Data for Name: active_admin_comments; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY active_admin_comments (id, namespace, body, resource_id, resource_type, author_id, author_type, created_at, updated_at) FROM stdin;
-\.
 
 
 --
@@ -1815,8 +1811,6 @@ SELECT pg_catalog.setval('active_admin_comments_id_seq', 1, false);
 -- Data for Name: add_user_id_to_testimonies; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY add_user_id_to_testimonies (id, user_id, created_at, updated_at) FROM stdin;
-\.
 
 
 --
@@ -1830,10 +1824,8 @@ SELECT pg_catalog.setval('add_user_id_to_testimonies_id_seq', 1, false);
 -- Data for Name: additional_services; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY additional_services (id, service_id, provider_id, size_id, price, created_at, updated_at) FROM stdin;
-1	2	19	\N	50	2015-11-03 07:10:19.421105	2015-11-03 07:10:19.421105
-2	2	18	1	20	2015-11-04 00:40:53.435767	2015-11-04 04:13:47.055666
-\.
+INSERT INTO additional_services VALUES (1, 2, 19, NULL, 50, '2015-11-03 07:10:19.421105', '2015-11-03 07:10:19.421105');
+INSERT INTO additional_services VALUES (2, 2, 18, 1, 20, '2015-11-04 00:40:53.435767', '2015-11-04 04:13:47.055666');
 
 
 --
@@ -1847,9 +1839,7 @@ SELECT pg_catalog.setval('additional_services_id_seq', 2, true);
 -- Data for Name: admin_users; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY admin_users (id, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at) FROM stdin;
-1	admin@example.com	$2a$10$GYG4etnRxap72X5Z1.Ee5O1gq4MO6SWFc2S4ODjRMR0ZpV5H3HFWK	\N	\N	\N	7	2015-10-27 22:11:08.062412	2015-10-27 21:40:35.067695	127.0.0.1	127.0.0.1	2015-10-14 23:29:40.768524	2015-10-27 22:11:08.067937
-\.
+INSERT INTO admin_users VALUES (1, 'admin@example.com', '$2a$10$GYG4etnRxap72X5Z1.Ee5O1gq4MO6SWFc2S4ODjRMR0ZpV5H3HFWK', NULL, NULL, NULL, 7, '2015-10-27 22:11:08.062412', '2015-10-27 21:40:35.067695', '127.0.0.1', '127.0.0.1', '2015-10-14 23:29:40.768524', '2015-10-27 22:11:08.067937');
 
 
 --
@@ -1863,10 +1853,8 @@ SELECT pg_catalog.setval('admin_users_id_seq', 1, true);
 -- Data for Name: ages; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY ages (id, age_group_name) FROM stdin;
-1	Adultos
-2	Cachorros
-\.
+INSERT INTO ages VALUES (1, 'Adultos');
+INSERT INTO ages VALUES (2, 'Cachorros');
 
 
 --
@@ -1880,11 +1868,9 @@ SELECT pg_catalog.setval('ages_id_seq', 2, true);
 -- Data for Name: agings; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY agings (id, provider_id, age_id) FROM stdin;
-1	18	1
-2	19	1
-3	19	2
-\.
+INSERT INTO agings VALUES (1, 18, 1);
+INSERT INTO agings VALUES (2, 19, 1);
+INSERT INTO agings VALUES (3, 19, 2);
 
 
 --
@@ -1898,11 +1884,9 @@ SELECT pg_catalog.setval('agings_id_seq', 9, true);
 -- Data for Name: behaviors; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY behaviors (id, behavior_name, created_at, updated_at, pet_id) FROM stdin;
-1	Agresivo	2015-10-27 22:20:06.131068	2015-10-27 22:20:06.131068	\N
-2	Sociable	2015-10-27 22:20:18.128524	2015-10-27 22:20:18.128524	\N
-3	Insociable	2015-10-27 22:20:28.848692	2015-10-27 22:20:28.848692	\N
-\.
+INSERT INTO behaviors VALUES (1, 'Agresivo', '2015-10-27 22:20:06.131068', '2015-10-27 22:20:06.131068', NULL);
+INSERT INTO behaviors VALUES (2, 'Sociable', '2015-10-27 22:20:18.128524', '2015-10-27 22:20:18.128524', NULL);
+INSERT INTO behaviors VALUES (3, 'Insociable', '2015-10-27 22:20:28.848692', '2015-10-27 22:20:28.848692', NULL);
 
 
 --
@@ -1916,14 +1900,12 @@ SELECT pg_catalog.setval('behaviors_id_seq', 3, true);
 -- Data for Name: booked_pets; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY booked_pets (id, booking_id, pet_id, created_at, updated_at) FROM stdin;
-1	1	2	2015-10-23 19:04:41.289066	2015-10-23 19:04:41.289066
-2	2	2	2015-10-23 22:10:59.690274	2015-10-23 22:10:59.690274
-3	3	2	2015-10-23 22:11:17.217693	2015-10-23 22:11:17.217693
-4	5	1	2015-11-03 23:02:59.398459	2015-11-03 23:02:59.398459
-5	6	1	2015-11-03 23:14:17.127777	2015-11-03 23:14:17.127777
-6	7	1	2015-11-03 23:18:58.44774	2015-11-03 23:18:58.44774
-\.
+INSERT INTO booked_pets VALUES (1, 1, 2, '2015-10-23 19:04:41.289066', '2015-10-23 19:04:41.289066');
+INSERT INTO booked_pets VALUES (2, 2, 2, '2015-10-23 22:10:59.690274', '2015-10-23 22:10:59.690274');
+INSERT INTO booked_pets VALUES (3, 3, 2, '2015-10-23 22:11:17.217693', '2015-10-23 22:11:17.217693');
+INSERT INTO booked_pets VALUES (4, 5, 1, '2015-11-03 23:02:59.398459', '2015-11-03 23:02:59.398459');
+INSERT INTO booked_pets VALUES (5, 6, 1, '2015-11-03 23:14:17.127777', '2015-11-03 23:14:17.127777');
+INSERT INTO booked_pets VALUES (6, 7, 1, '2015-11-03 23:18:58.44774', '2015-11-03 23:18:58.44774');
 
 
 --
@@ -1937,13 +1919,11 @@ SELECT pg_catalog.setval('booked_pets_id_seq', 6, true);
 -- Data for Name: booked_services; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY booked_services (id, booking_id, service_id, created_at, updated_at, pet_id) FROM stdin;
-1	1	1	2015-10-23 19:04:41.35879	2015-10-23 19:04:41.35879	\N
-2	2	1	2015-10-23 22:10:59.72374	2015-10-23 22:10:59.72374	\N
-3	3	1	2015-10-23 22:11:17.231693	2015-10-23 22:11:17.231693	\N
-4	7	1	2015-11-03 23:18:58.456807	2015-11-03 23:18:58.456807	1
-5	7	2	2015-11-03 23:18:58.549254	2015-11-03 23:18:58.549254	1
-\.
+INSERT INTO booked_services VALUES (1, 1, 1, '2015-10-23 19:04:41.35879', '2015-10-23 19:04:41.35879', NULL);
+INSERT INTO booked_services VALUES (2, 2, 1, '2015-10-23 22:10:59.72374', '2015-10-23 22:10:59.72374', NULL);
+INSERT INTO booked_services VALUES (3, 3, 1, '2015-10-23 22:11:17.231693', '2015-10-23 22:11:17.231693', NULL);
+INSERT INTO booked_services VALUES (4, 7, 1, '2015-11-03 23:18:58.456807', '2015-11-03 23:18:58.456807', 1);
+INSERT INTO booked_services VALUES (5, 7, 2, '2015-11-03 23:18:58.549254', '2015-11-03 23:18:58.549254', 1);
 
 
 --
@@ -1957,15 +1937,13 @@ SELECT pg_catalog.setval('booked_services_id_seq', 5, true);
 -- Data for Name: bookings; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY bookings (id, start_date, end_date, provider_id, user_first_name, user_last_name, user_phone, user_email, user_message, created_at, updated_at, ref_code, raza, edad, cuidado_especial, token, address, pickup_time, dropoff_time, pet_name, user_id, total) FROM stdin;
-1	2015-10-23	2015-10-23	\N	\N	\N	\N	\N		2015-10-23 19:04:40.459051	2015-10-23 19:04:40.459051		\N	\N	0	em-uk3souae	Lima	2015-10-23 18:56:00	2015-10-23 18:56:00	\N	\N	\N
-2	2015-10-23	2015-10-23	17	\N	\N	\N	\N	Mensaje	2015-10-23 22:10:59.573309	2015-10-23 22:10:59.573309	67586790	\N	\N	0	gfsrs5fyrkg	Lima	2015-10-23 22:10:00	2015-10-23 22:10:00	\N	2	\N
-3	2015-10-23	2015-10-23	17	\N	\N	\N	\N	Mensaje	2015-10-23 22:11:17.199272	2015-10-23 22:11:17.199272	67586790	\N	\N	0	lxqomhzi4d0	Lima	2015-10-23 22:10:00	2015-10-23 22:10:00	\N	2	\N
-4	2015-10-27	2015-10-27	18	\N	\N	\N	\N		2015-10-27 13:23:31.89769	2015-10-27 13:23:31.89769		\N	\N	\N	5odtyygkxgk	Lima	\N	\N	\N	2	\N
-5	2015-11-03	2015-11-03	18	\N	\N	\N	\N		2015-11-03 23:02:59.345801	2015-11-03 23:02:59.345801		\N	\N	\N	uc5r_bm-ihq		\N	\N	\N	1	\N
-6	2015-11-03	2015-11-03	18	\N	\N	\N	\N		2015-11-03 23:14:17.116186	2015-11-03 23:14:17.116186		\N	\N	\N	kw8mcptk9b0		\N	\N	\N	1	0
-7	2015-11-03	2015-11-03	18	\N	\N	\N	\N		2015-11-03 23:18:58.437591	2015-11-03 23:18:58.437591		\N	\N	\N	2wfrip_2eg4		\N	\N	\N	1	0
-\.
+INSERT INTO bookings VALUES (1, '2015-10-23', '2015-10-23', NULL, NULL, NULL, NULL, NULL, '', '2015-10-23 19:04:40.459051', '2015-10-23 19:04:40.459051', '', NULL, NULL, '0', 'em-uk3souae', 'Lima', '2015-10-23 18:56:00', '2015-10-23 18:56:00', NULL, NULL, NULL);
+INSERT INTO bookings VALUES (2, '2015-10-23', '2015-10-23', 17, NULL, NULL, NULL, NULL, 'Mensaje', '2015-10-23 22:10:59.573309', '2015-10-23 22:10:59.573309', '67586790', NULL, NULL, '0', 'gfsrs5fyrkg', 'Lima', '2015-10-23 22:10:00', '2015-10-23 22:10:00', NULL, 2, NULL);
+INSERT INTO bookings VALUES (3, '2015-10-23', '2015-10-23', 17, NULL, NULL, NULL, NULL, 'Mensaje', '2015-10-23 22:11:17.199272', '2015-10-23 22:11:17.199272', '67586790', NULL, NULL, '0', 'lxqomhzi4d0', 'Lima', '2015-10-23 22:10:00', '2015-10-23 22:10:00', NULL, 2, NULL);
+INSERT INTO bookings VALUES (4, '2015-10-27', '2015-10-27', 18, NULL, NULL, NULL, NULL, '', '2015-10-27 13:23:31.89769', '2015-10-27 13:23:31.89769', '', NULL, NULL, NULL, '5odtyygkxgk', 'Lima', NULL, NULL, NULL, 2, NULL);
+INSERT INTO bookings VALUES (5, '2015-11-03', '2015-11-03', 18, NULL, NULL, NULL, NULL, '', '2015-11-03 23:02:59.345801', '2015-11-03 23:02:59.345801', '', NULL, NULL, NULL, 'uc5r_bm-ihq', '', NULL, NULL, NULL, 1, NULL);
+INSERT INTO bookings VALUES (6, '2015-11-03', '2015-11-03', 18, NULL, NULL, NULL, NULL, '', '2015-11-03 23:14:17.116186', '2015-11-03 23:14:17.116186', '', NULL, NULL, NULL, 'kw8mcptk9b0', '', NULL, NULL, NULL, 1, 0);
+INSERT INTO bookings VALUES (7, '2015-11-03', '2015-11-03', 18, NULL, NULL, NULL, NULL, '', '2015-11-03 23:18:58.437591', '2015-11-03 23:18:58.437591', '', NULL, NULL, NULL, '2wfrip_2eg4', '', NULL, NULL, NULL, 1, 0);
 
 
 --
@@ -1979,12 +1957,10 @@ SELECT pg_catalog.setval('bookings_id_seq', 7, true);
 -- Data for Name: categories; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY categories (id, name) FROM stdin;
-1	Entrenador
-2	Hotel
-3	Paseador
-4	Veterinario
-\.
+INSERT INTO categories VALUES (1, 'Entrenador');
+INSERT INTO categories VALUES (2, 'Hotel');
+INSERT INTO categories VALUES (3, 'Paseador');
+INSERT INTO categories VALUES (4, 'Veterinario');
 
 
 --
@@ -1998,52 +1974,50 @@ SELECT pg_catalog.setval('categories_id_seq', 4, true);
 -- Data for Name: comment_valuations; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY comment_valuations (id, comment_id, valuation_id, created_at, updated_at, value) FROM stdin;
-1	25	1	2015-10-28 15:27:26.874667	2015-10-28 15:27:26.874667	\N
-2	25	2	2015-10-28 15:27:26.914506	2015-10-28 15:27:26.914506	\N
-3	25	3	2015-10-28 15:27:26.922615	2015-10-28 15:27:26.922615	\N
-4	25	4	2015-10-28 15:27:26.932454	2015-10-28 15:27:26.932454	\N
-5	26	1	2015-10-28 15:33:26.547583	2015-10-28 15:33:26.547583	\N
-6	26	2	2015-10-28 15:33:26.555492	2015-10-28 15:33:26.555492	\N
-7	26	3	2015-10-28 15:33:26.56281	2015-10-28 15:33:26.56281	\N
-8	26	4	2015-10-28 15:33:26.569874	2015-10-28 15:33:26.569874	\N
-9	27	1	2015-10-28 15:39:04.666413	2015-10-28 15:39:04.666413	3
-10	27	2	2015-10-28 15:39:04.686461	2015-10-28 15:39:04.686461	3
-11	27	3	2015-10-28 15:39:04.69407	2015-10-28 15:39:04.69407	1
-12	27	4	2015-10-28 15:39:04.701586	2015-10-28 15:39:04.701586	4
-13	28	1	2015-10-28 16:39:21.876894	2015-10-28 16:39:21.876894	4
-14	28	2	2015-10-28 16:39:21.889719	2015-10-28 16:39:21.889719	1
-15	28	3	2015-10-28 16:39:21.898721	2015-10-28 16:39:21.898721	3
-16	28	4	2015-10-28 16:39:21.907801	2015-10-28 16:39:21.907801	5
-17	29	1	2015-10-28 20:10:35.78114	2015-10-28 20:10:35.78114	4
-18	29	2	2015-10-28 20:10:35.789197	2015-10-28 20:10:35.789197	2
-19	29	3	2015-10-28 20:10:35.796422	2015-10-28 20:10:35.796422	5
-20	29	4	2015-10-28 20:10:35.803647	2015-10-28 20:10:35.803647	1
-21	30	1	2015-10-28 20:24:10.44032	2015-10-28 20:24:10.44032	4
-22	30	2	2015-10-28 20:24:10.458472	2015-10-28 20:24:10.458472	3
-23	30	3	2015-10-28 20:24:10.481921	2015-10-28 20:24:10.481921	2
-24	30	4	2015-10-28 20:24:10.5033	2015-10-28 20:24:10.5033	0
-25	31	1	2015-10-28 20:26:17.058326	2015-10-28 20:26:17.058326	4
-26	31	2	2015-10-28 20:26:17.067135	2015-10-28 20:26:17.067135	2
-27	31	3	2015-10-28 20:26:17.076199	2015-10-28 20:26:17.076199	3
-28	31	4	2015-10-28 20:26:17.084785	2015-10-28 20:26:17.084785	5
-29	32	1	2015-11-05 04:27:49.667554	2015-11-05 04:27:49.667554	0
-30	32	2	2015-11-05 04:27:49.794844	2015-11-05 04:27:49.794844	0
-31	32	3	2015-11-05 04:27:49.80338	2015-11-05 04:27:49.80338	0
-32	32	4	2015-11-05 04:27:49.811307	2015-11-05 04:27:49.811307	0
-33	33	1	2015-11-06 01:02:27.301929	2015-11-06 01:02:27.301929	0
-34	33	2	2015-11-06 01:02:27.345102	2015-11-06 01:02:27.345102	0
-35	33	3	2015-11-06 01:02:27.369034	2015-11-06 01:02:27.369034	0
-36	33	4	2015-11-06 01:02:27.378343	2015-11-06 01:02:27.378343	0
-37	34	1	2015-11-07 10:05:04.047968	2015-11-07 10:05:04.047968	3
-38	34	2	2015-11-07 10:05:04.08437	2015-11-07 10:05:04.08437	0
-39	34	3	2015-11-07 10:05:04.099967	2015-11-07 10:05:04.099967	0
-40	34	4	2015-11-07 10:05:04.112316	2015-11-07 10:05:04.112316	0
-41	35	1	2015-11-07 10:05:09.339662	2015-11-07 10:05:09.339662	3
-42	35	2	2015-11-07 10:05:09.724565	2015-11-07 10:05:09.724565	0
-43	35	3	2015-11-07 10:05:09.733639	2015-11-07 10:05:09.733639	0
-44	35	4	2015-11-07 10:05:09.745349	2015-11-07 10:05:09.745349	0
-\.
+INSERT INTO comment_valuations VALUES (1, 25, 1, '2015-10-28 15:27:26.874667', '2015-10-28 15:27:26.874667', NULL);
+INSERT INTO comment_valuations VALUES (2, 25, 2, '2015-10-28 15:27:26.914506', '2015-10-28 15:27:26.914506', NULL);
+INSERT INTO comment_valuations VALUES (3, 25, 3, '2015-10-28 15:27:26.922615', '2015-10-28 15:27:26.922615', NULL);
+INSERT INTO comment_valuations VALUES (4, 25, 4, '2015-10-28 15:27:26.932454', '2015-10-28 15:27:26.932454', NULL);
+INSERT INTO comment_valuations VALUES (5, 26, 1, '2015-10-28 15:33:26.547583', '2015-10-28 15:33:26.547583', NULL);
+INSERT INTO comment_valuations VALUES (6, 26, 2, '2015-10-28 15:33:26.555492', '2015-10-28 15:33:26.555492', NULL);
+INSERT INTO comment_valuations VALUES (7, 26, 3, '2015-10-28 15:33:26.56281', '2015-10-28 15:33:26.56281', NULL);
+INSERT INTO comment_valuations VALUES (8, 26, 4, '2015-10-28 15:33:26.569874', '2015-10-28 15:33:26.569874', NULL);
+INSERT INTO comment_valuations VALUES (9, 27, 1, '2015-10-28 15:39:04.666413', '2015-10-28 15:39:04.666413', 3);
+INSERT INTO comment_valuations VALUES (10, 27, 2, '2015-10-28 15:39:04.686461', '2015-10-28 15:39:04.686461', 3);
+INSERT INTO comment_valuations VALUES (11, 27, 3, '2015-10-28 15:39:04.69407', '2015-10-28 15:39:04.69407', 1);
+INSERT INTO comment_valuations VALUES (12, 27, 4, '2015-10-28 15:39:04.701586', '2015-10-28 15:39:04.701586', 4);
+INSERT INTO comment_valuations VALUES (13, 28, 1, '2015-10-28 16:39:21.876894', '2015-10-28 16:39:21.876894', 4);
+INSERT INTO comment_valuations VALUES (14, 28, 2, '2015-10-28 16:39:21.889719', '2015-10-28 16:39:21.889719', 1);
+INSERT INTO comment_valuations VALUES (15, 28, 3, '2015-10-28 16:39:21.898721', '2015-10-28 16:39:21.898721', 3);
+INSERT INTO comment_valuations VALUES (16, 28, 4, '2015-10-28 16:39:21.907801', '2015-10-28 16:39:21.907801', 5);
+INSERT INTO comment_valuations VALUES (17, 29, 1, '2015-10-28 20:10:35.78114', '2015-10-28 20:10:35.78114', 4);
+INSERT INTO comment_valuations VALUES (18, 29, 2, '2015-10-28 20:10:35.789197', '2015-10-28 20:10:35.789197', 2);
+INSERT INTO comment_valuations VALUES (19, 29, 3, '2015-10-28 20:10:35.796422', '2015-10-28 20:10:35.796422', 5);
+INSERT INTO comment_valuations VALUES (20, 29, 4, '2015-10-28 20:10:35.803647', '2015-10-28 20:10:35.803647', 1);
+INSERT INTO comment_valuations VALUES (21, 30, 1, '2015-10-28 20:24:10.44032', '2015-10-28 20:24:10.44032', 4);
+INSERT INTO comment_valuations VALUES (22, 30, 2, '2015-10-28 20:24:10.458472', '2015-10-28 20:24:10.458472', 3);
+INSERT INTO comment_valuations VALUES (23, 30, 3, '2015-10-28 20:24:10.481921', '2015-10-28 20:24:10.481921', 2);
+INSERT INTO comment_valuations VALUES (24, 30, 4, '2015-10-28 20:24:10.5033', '2015-10-28 20:24:10.5033', 0);
+INSERT INTO comment_valuations VALUES (25, 31, 1, '2015-10-28 20:26:17.058326', '2015-10-28 20:26:17.058326', 4);
+INSERT INTO comment_valuations VALUES (26, 31, 2, '2015-10-28 20:26:17.067135', '2015-10-28 20:26:17.067135', 2);
+INSERT INTO comment_valuations VALUES (27, 31, 3, '2015-10-28 20:26:17.076199', '2015-10-28 20:26:17.076199', 3);
+INSERT INTO comment_valuations VALUES (28, 31, 4, '2015-10-28 20:26:17.084785', '2015-10-28 20:26:17.084785', 5);
+INSERT INTO comment_valuations VALUES (29, 32, 1, '2015-11-05 04:27:49.667554', '2015-11-05 04:27:49.667554', 0);
+INSERT INTO comment_valuations VALUES (30, 32, 2, '2015-11-05 04:27:49.794844', '2015-11-05 04:27:49.794844', 0);
+INSERT INTO comment_valuations VALUES (31, 32, 3, '2015-11-05 04:27:49.80338', '2015-11-05 04:27:49.80338', 0);
+INSERT INTO comment_valuations VALUES (32, 32, 4, '2015-11-05 04:27:49.811307', '2015-11-05 04:27:49.811307', 0);
+INSERT INTO comment_valuations VALUES (33, 33, 1, '2015-11-06 01:02:27.301929', '2015-11-06 01:02:27.301929', 0);
+INSERT INTO comment_valuations VALUES (34, 33, 2, '2015-11-06 01:02:27.345102', '2015-11-06 01:02:27.345102', 0);
+INSERT INTO comment_valuations VALUES (35, 33, 3, '2015-11-06 01:02:27.369034', '2015-11-06 01:02:27.369034', 0);
+INSERT INTO comment_valuations VALUES (36, 33, 4, '2015-11-06 01:02:27.378343', '2015-11-06 01:02:27.378343', 0);
+INSERT INTO comment_valuations VALUES (37, 34, 1, '2015-11-07 10:05:04.047968', '2015-11-07 10:05:04.047968', 3);
+INSERT INTO comment_valuations VALUES (38, 34, 2, '2015-11-07 10:05:04.08437', '2015-11-07 10:05:04.08437', 0);
+INSERT INTO comment_valuations VALUES (39, 34, 3, '2015-11-07 10:05:04.099967', '2015-11-07 10:05:04.099967', 0);
+INSERT INTO comment_valuations VALUES (40, 34, 4, '2015-11-07 10:05:04.112316', '2015-11-07 10:05:04.112316', 0);
+INSERT INTO comment_valuations VALUES (41, 35, 1, '2015-11-07 10:05:09.339662', '2015-11-07 10:05:09.339662', 3);
+INSERT INTO comment_valuations VALUES (42, 35, 2, '2015-11-07 10:05:09.724565', '2015-11-07 10:05:09.724565', 0);
+INSERT INTO comment_valuations VALUES (43, 35, 3, '2015-11-07 10:05:09.733639', '2015-11-07 10:05:09.733639', 0);
+INSERT INTO comment_valuations VALUES (44, 35, 4, '2015-11-07 10:05:09.745349', '2015-11-07 10:05:09.745349', 0);
 
 
 --
@@ -2057,43 +2031,41 @@ SELECT pg_catalog.setval('comment_valuations_id_seq', 44, true);
 -- Data for Name: comments; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY comments (id, user_id, provider_id, title, body, created_at, updated_at) FROM stdin;
-1	2	18	\N	Soy un comentario de prueba	2015-10-24 15:15:17.659755	2015-10-24 15:15:17.659755
-2	2	18	\N	Hello	2015-10-24 16:31:42.72973	2015-10-24 16:39:34.103251
-3	1	18	\N	Hola	2015-10-24 16:40:07.237225	2015-10-24 16:40:07.237225
-4	1	18	\N	Prueba	2015-10-24 16:40:28.81862	2015-10-24 16:40:28.81862
-5	1	18	\N	Prueba	2015-10-24 16:43:15.143253	2015-10-24 16:43:15.143253
-6	1	18	\N	zd	2015-10-24 16:47:11.829372	2015-10-24 16:47:11.829372
-7	1	18	\N	zd	2015-10-24 16:47:14.538117	2015-10-24 16:47:14.538117
-8	1	18	\N	asdf	2015-10-24 16:48:19.194625	2015-10-24 16:48:19.194625
-9	1	18	\N	asdf	2015-10-24 16:48:38.430755	2015-10-24 16:48:38.430755
-10	1	18	\N	asdf	2015-10-24 16:48:51.967273	2015-10-24 16:48:51.967273
-11	1	18	\N	asdf	2015-10-24 16:48:52.897936	2015-10-24 16:48:52.897936
-12	1	18	\N	prueba 2	2015-10-24 16:51:48.063451	2015-10-24 16:51:48.063451
-13	1	18	\N	prueba 2	2015-10-24 16:53:12.511733	2015-10-24 16:53:12.511733
-14	1	18	\N	prueba 2	2015-10-24 16:53:50.839641	2015-10-24 16:53:50.839641
-15	1	18	\N	asdf	2015-10-24 16:53:55.353819	2015-10-24 16:53:55.353819
-16	1	18	\N	Test	2015-10-24 16:53:59.861712	2015-10-24 16:53:59.861712
-17	1	18	\N	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et odio orci. Duis lorem sem, vestibulum ut aliquet eu, posuere sit amet magna. Cras fringilla ac odio vel sagittis. Suspendisse blandit lectus in mi tristique, vitae scelerisque magna ullamcorper. Suspendisse rhoncus eros quis tortor mollis volutpat eget quis ante.	2015-10-24 17:05:54.190832	2015-10-24 17:05:54.190832
-18	1	18	\N	Ut imperdiet aliquet sapien eget bibendum. Phasellus rhoncus pellentesque semper. Donec tempor vitae nulla non bibendum. Proin vestibulum nibh at eros pulvinar finibus.	2015-10-24 17:06:17.024477	2015-10-24 17:06:17.024477
-19	1	18	\N	 fringilla ac odio vel sagittis. Suspendisse blandit lectus in mi tristique, vitae scelerisque magna ullamcorper. Suspendisse rhoncus eros quis tortor mollis volutpat eget quis ante.	2015-10-24 17:25:16.649776	2015-10-24 17:25:16.649776
-20	2	18	\N	Test	2015-10-24 21:13:28.590982	2015-10-24 21:13:28.590982
-21	2	18	\N	Prueba	2015-10-25 17:24:55.179668	2015-10-25 17:24:55.179668
-22	2	18	\N	Prueba 2	2015-10-27 08:04:42.118591	2015-10-27 08:04:42.118591
-23	2	18	\N	Prueba	2015-10-27 23:05:30.05053	2015-10-27 23:05:30.05053
-24	2	18	\N	Hello	2015-10-28 15:24:53.001887	2015-10-28 15:24:53.001887
-25	2	18	\N	Test	2015-10-28 15:27:26.861246	2015-10-28 15:27:26.861246
-26	2	18	\N	3	2015-10-28 15:33:26.502765	2015-10-28 15:33:26.502765
-27	2	18	\N	prueba	2015-10-28 15:39:04.638002	2015-10-28 15:39:04.638002
-28	2	18	\N	HI	2015-10-28 16:39:21.867057	2015-10-28 16:39:21.867057
-29	2	18	\N	Soy un comentario de Prueba	2015-10-28 20:10:35.742288	2015-10-28 20:10:35.742288
-30	2	18	\N	Pruebas 	2015-10-28 20:24:10.388916	2015-10-28 20:24:10.388916
-31	2	18	\N		2015-10-28 20:26:17.049026	2015-10-28 20:26:17.049026
-32	1	18	\N	asd	2015-11-05 04:27:49.044145	2015-11-05 04:27:49.044145
-33	2	18	\N	Soy un comentario de prueba 	2015-11-06 01:02:27.130351	2015-11-06 01:02:27.130351
-34	2	17	\N	hola	2015-11-07 10:05:03.738254	2015-11-07 10:05:03.738254
-35	2	17	\N	hola	2015-11-07 10:05:09.332263	2015-11-07 10:05:09.332263
-\.
+INSERT INTO comments VALUES (1, 2, 18, NULL, 'Soy un comentario de prueba', '2015-10-24 15:15:17.659755', '2015-10-24 15:15:17.659755');
+INSERT INTO comments VALUES (2, 2, 18, NULL, 'Hello', '2015-10-24 16:31:42.72973', '2015-10-24 16:39:34.103251');
+INSERT INTO comments VALUES (3, 1, 18, NULL, 'Hola', '2015-10-24 16:40:07.237225', '2015-10-24 16:40:07.237225');
+INSERT INTO comments VALUES (4, 1, 18, NULL, 'Prueba', '2015-10-24 16:40:28.81862', '2015-10-24 16:40:28.81862');
+INSERT INTO comments VALUES (5, 1, 18, NULL, 'Prueba', '2015-10-24 16:43:15.143253', '2015-10-24 16:43:15.143253');
+INSERT INTO comments VALUES (6, 1, 18, NULL, 'zd', '2015-10-24 16:47:11.829372', '2015-10-24 16:47:11.829372');
+INSERT INTO comments VALUES (7, 1, 18, NULL, 'zd', '2015-10-24 16:47:14.538117', '2015-10-24 16:47:14.538117');
+INSERT INTO comments VALUES (8, 1, 18, NULL, 'asdf', '2015-10-24 16:48:19.194625', '2015-10-24 16:48:19.194625');
+INSERT INTO comments VALUES (9, 1, 18, NULL, 'asdf', '2015-10-24 16:48:38.430755', '2015-10-24 16:48:38.430755');
+INSERT INTO comments VALUES (10, 1, 18, NULL, 'asdf', '2015-10-24 16:48:51.967273', '2015-10-24 16:48:51.967273');
+INSERT INTO comments VALUES (11, 1, 18, NULL, 'asdf', '2015-10-24 16:48:52.897936', '2015-10-24 16:48:52.897936');
+INSERT INTO comments VALUES (12, 1, 18, NULL, 'prueba 2', '2015-10-24 16:51:48.063451', '2015-10-24 16:51:48.063451');
+INSERT INTO comments VALUES (13, 1, 18, NULL, 'prueba 2', '2015-10-24 16:53:12.511733', '2015-10-24 16:53:12.511733');
+INSERT INTO comments VALUES (14, 1, 18, NULL, 'prueba 2', '2015-10-24 16:53:50.839641', '2015-10-24 16:53:50.839641');
+INSERT INTO comments VALUES (15, 1, 18, NULL, 'asdf', '2015-10-24 16:53:55.353819', '2015-10-24 16:53:55.353819');
+INSERT INTO comments VALUES (16, 1, 18, NULL, 'Test', '2015-10-24 16:53:59.861712', '2015-10-24 16:53:59.861712');
+INSERT INTO comments VALUES (17, 1, 18, NULL, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et odio orci. Duis lorem sem, vestibulum ut aliquet eu, posuere sit amet magna. Cras fringilla ac odio vel sagittis. Suspendisse blandit lectus in mi tristique, vitae scelerisque magna ullamcorper. Suspendisse rhoncus eros quis tortor mollis volutpat eget quis ante.', '2015-10-24 17:05:54.190832', '2015-10-24 17:05:54.190832');
+INSERT INTO comments VALUES (18, 1, 18, NULL, 'Ut imperdiet aliquet sapien eget bibendum. Phasellus rhoncus pellentesque semper. Donec tempor vitae nulla non bibendum. Proin vestibulum nibh at eros pulvinar finibus.', '2015-10-24 17:06:17.024477', '2015-10-24 17:06:17.024477');
+INSERT INTO comments VALUES (19, 1, 18, NULL, ' fringilla ac odio vel sagittis. Suspendisse blandit lectus in mi tristique, vitae scelerisque magna ullamcorper. Suspendisse rhoncus eros quis tortor mollis volutpat eget quis ante.', '2015-10-24 17:25:16.649776', '2015-10-24 17:25:16.649776');
+INSERT INTO comments VALUES (20, 2, 18, NULL, 'Test', '2015-10-24 21:13:28.590982', '2015-10-24 21:13:28.590982');
+INSERT INTO comments VALUES (21, 2, 18, NULL, 'Prueba', '2015-10-25 17:24:55.179668', '2015-10-25 17:24:55.179668');
+INSERT INTO comments VALUES (22, 2, 18, NULL, 'Prueba 2', '2015-10-27 08:04:42.118591', '2015-10-27 08:04:42.118591');
+INSERT INTO comments VALUES (23, 2, 18, NULL, 'Prueba', '2015-10-27 23:05:30.05053', '2015-10-27 23:05:30.05053');
+INSERT INTO comments VALUES (24, 2, 18, NULL, 'Hello', '2015-10-28 15:24:53.001887', '2015-10-28 15:24:53.001887');
+INSERT INTO comments VALUES (25, 2, 18, NULL, 'Test', '2015-10-28 15:27:26.861246', '2015-10-28 15:27:26.861246');
+INSERT INTO comments VALUES (26, 2, 18, NULL, '3', '2015-10-28 15:33:26.502765', '2015-10-28 15:33:26.502765');
+INSERT INTO comments VALUES (27, 2, 18, NULL, 'prueba', '2015-10-28 15:39:04.638002', '2015-10-28 15:39:04.638002');
+INSERT INTO comments VALUES (28, 2, 18, NULL, 'HI', '2015-10-28 16:39:21.867057', '2015-10-28 16:39:21.867057');
+INSERT INTO comments VALUES (29, 2, 18, NULL, 'Soy un comentario de Prueba', '2015-10-28 20:10:35.742288', '2015-10-28 20:10:35.742288');
+INSERT INTO comments VALUES (30, 2, 18, NULL, 'Pruebas ', '2015-10-28 20:24:10.388916', '2015-10-28 20:24:10.388916');
+INSERT INTO comments VALUES (31, 2, 18, NULL, '', '2015-10-28 20:26:17.049026', '2015-10-28 20:26:17.049026');
+INSERT INTO comments VALUES (32, 1, 18, NULL, 'asd', '2015-11-05 04:27:49.044145', '2015-11-05 04:27:49.044145');
+INSERT INTO comments VALUES (33, 2, 18, NULL, 'Soy un comentario de prueba ', '2015-11-06 01:02:27.130351', '2015-11-06 01:02:27.130351');
+INSERT INTO comments VALUES (34, 2, 17, NULL, 'hola', '2015-11-07 10:05:03.738254', '2015-11-07 10:05:03.738254');
+INSERT INTO comments VALUES (35, 2, 17, NULL, 'hola', '2015-11-07 10:05:09.332263', '2015-11-07 10:05:09.332263');
 
 
 --
@@ -2107,11 +2079,9 @@ SELECT pg_catalog.setval('comments_id_seq', 35, true);
 -- Data for Name: countries; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY countries (id, name, locale, currency, created_at, updated_at, phone, facebook, twitter, flag, domain, dni_length, dni_label) FROM stdin;
-1	México	es-MX	MXN $	2015-10-14 22:57:49.729485	2015-10-14 22:57:49.729485	+55 3455 0138	https://www.facebook.com/pages/Kamimos/1473614136234432?ref=bookmarks	https://twitter.com/KmimosMx	mexico	mx.kmimos.la	13	IFE
-2	Argentina	es-AR	ARS $	2015-10-14 22:57:50.394725	2015-10-14 22:57:50.394725	+55 3455 0138	https://www.facebook.com/pages/Kamimos/1473614136234432?ref=bookmarks	https://twitter.com/KmimosMx	argentina	ar.kmimos.la	8	DNI
-3	Panamá	es-PA	PAN B/.	2015-10-14 22:57:50.996508	2015-10-14 22:57:50.996508	+507 62453172	https://www.facebook.com/pages/Kamimos/1473614136234432?ref=bookmarks	https://twitter.com/KmimosMx	panama	pa.kmimos.la	12	ID
-\.
+INSERT INTO countries VALUES (1, 'México', 'es-MX', 'MXN $', '2015-10-14 22:57:49.729485', '2015-10-14 22:57:49.729485', '+55 3455 0138', 'https://www.facebook.com/pages/Kamimos/1473614136234432?ref=bookmarks', 'https://twitter.com/KmimosMx', 'mexico', 'mx.kmimos.la', 13, 'IFE');
+INSERT INTO countries VALUES (2, 'Argentina', 'es-AR', 'ARS $', '2015-10-14 22:57:50.394725', '2015-10-14 22:57:50.394725', '+55 3455 0138', 'https://www.facebook.com/pages/Kamimos/1473614136234432?ref=bookmarks', 'https://twitter.com/KmimosMx', 'argentina', 'ar.kmimos.la', 8, 'DNI');
+INSERT INTO countries VALUES (3, 'Panamá', 'es-PA', 'PAN B/.', '2015-10-14 22:57:50.996508', '2015-10-14 22:57:50.996508', '+507 62453172', 'https://www.facebook.com/pages/Kamimos/1473614136234432?ref=bookmarks', 'https://twitter.com/KmimosMx', 'panama', 'pa.kmimos.la', 12, 'ID');
 
 
 --
@@ -2125,10 +2095,8 @@ SELECT pg_catalog.setval('countries_id_seq', 3, true);
 -- Data for Name: favorites; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY favorites (id, created_at, updated_at, provider_id, user_id) FROM stdin;
-1	2015-11-05 06:46:52.157474	2015-11-05 06:46:52.157474	18	1
-2	2015-11-05 06:47:09.058496	2015-11-05 06:47:09.058496	18	1
-\.
+INSERT INTO favorites VALUES (1, '2015-11-05 06:46:52.157474', '2015-11-05 06:46:52.157474', 18, 1);
+INSERT INTO favorites VALUES (2, '2015-11-05 06:47:09.058496', '2015-11-05 06:47:09.058496', 18, 1);
 
 
 --
@@ -2142,35 +2110,33 @@ SELECT pg_catalog.setval('favorites_id_seq', 2, true);
 -- Data for Name: localizations; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY localizations (id, provider_id, location_id, user_id) FROM stdin;
-10	2	1	\N
-15	13	3	\N
-16	13	3	\N
-19	16	3	\N
-20	16	8	\N
-21	16	18	\N
-22	16	19	\N
-23	16	20	\N
-24	17	24	\N
-25	17	29	\N
-26	17	37	\N
-27	17	48	\N
-28	17	56	\N
-30	17	73	\N
-31	17	78	\N
-33	18	30	\N
-34	18	28	\N
-35	18	19	\N
-36	18	24	\N
-37	18	6	\N
-38	\N	29	\N
-39	\N	30	\N
-40	\N	31	\N
-41	\N	32	\N
-42	\N	27	\N
-29	19	65	\N
-32	19	89	\N
-\.
+INSERT INTO localizations VALUES (10, 2, 1, NULL);
+INSERT INTO localizations VALUES (15, 13, 3, NULL);
+INSERT INTO localizations VALUES (16, 13, 3, NULL);
+INSERT INTO localizations VALUES (19, 16, 3, NULL);
+INSERT INTO localizations VALUES (20, 16, 8, NULL);
+INSERT INTO localizations VALUES (21, 16, 18, NULL);
+INSERT INTO localizations VALUES (22, 16, 19, NULL);
+INSERT INTO localizations VALUES (23, 16, 20, NULL);
+INSERT INTO localizations VALUES (24, 17, 24, NULL);
+INSERT INTO localizations VALUES (25, 17, 29, NULL);
+INSERT INTO localizations VALUES (26, 17, 37, NULL);
+INSERT INTO localizations VALUES (27, 17, 48, NULL);
+INSERT INTO localizations VALUES (28, 17, 56, NULL);
+INSERT INTO localizations VALUES (30, 17, 73, NULL);
+INSERT INTO localizations VALUES (31, 17, 78, NULL);
+INSERT INTO localizations VALUES (33, 18, 30, NULL);
+INSERT INTO localizations VALUES (34, 18, 28, NULL);
+INSERT INTO localizations VALUES (35, 18, 19, NULL);
+INSERT INTO localizations VALUES (36, 18, 24, NULL);
+INSERT INTO localizations VALUES (37, 18, 6, NULL);
+INSERT INTO localizations VALUES (38, NULL, 29, NULL);
+INSERT INTO localizations VALUES (39, NULL, 30, NULL);
+INSERT INTO localizations VALUES (40, NULL, 31, NULL);
+INSERT INTO localizations VALUES (41, NULL, 32, NULL);
+INSERT INTO localizations VALUES (42, NULL, 27, NULL);
+INSERT INTO localizations VALUES (29, 19, 65, NULL);
+INSERT INTO localizations VALUES (32, 19, 89, NULL);
 
 
 --
@@ -2184,108 +2150,106 @@ SELECT pg_catalog.setval('localizations_id_seq', 42, true);
 -- Data for Name: locations; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY locations (id, name, state_id, utf_name) FROM stdin;
-1	Xochimilco	1	Xochimilco
-2	Tlalpan	1	Tlalpan
-3	Tláhuac	1	Tláhuac
-4	Magdalena Contreras	1	Magdalena Contreras
-5	Milpa Alta	1	Milpa Alta
-6	Miguel Hidalgo	1	Miguel Hidalgo
-7	Venustiano Carranza	1	Venustiano Carranza
-8	Iztapalapa	1	Iztapalapa
-9	Iztacalco	1	Iztacalco
-10	Gustavo A. Madero	1	Gustavo A. Madero
-11	Cuauhtémoc	1	Cuauhtémoc
-12	Coyoacán	1	Coyoacán
-13	Cuajimalpa de Morelos	1	Cuajimalpa de Morelos
-14	Benito Juárez	1	Benito Juárez
-15	Azcapotzalco	1	Azcapotzalco
-16	Álvaro Obregón	1	Álvaro Obregón
-17	Texcoco	2	Texcoco
-18	Acolman	2	Acolman
-19	Coacalco	2	Coacalco
-20	Toluca	2	Toluca
-21	Tlalnepantla	2	Tlalnepantla
-22	Naucalpan	2	Naucalpan
-23	Metepec	2	Metepec
-24	Cuautitlan Izcalli	2	Cuautitlan Izcalli
-25	Cuautitlan 	2	Cuautitlan 
-26	Atizapán	2	Atizapán
-27	Guadalajara	3	Guadalajara
-28	Zapopan	3	Zapopan
-29	Escobedo	4	Escobedo
-30	San Pedro	4	San Pedro
-31	San Nicolas de los Garza	4	San Nicolas de los Garza
-32	Monterrey	4	Monterrey
-33	Agronomía	5	Agronomía
-34	Almagro	5	Almagro
-35	Balvanera	5	Balvanera
-36	Barracas	5	Barracas
-37	Belgrano	5	Belgrano
-38	Boedo	5	Boedo
-39	Caballito	5	Caballito
-40	Chacarita	5	Chacarita
-41	Coghlan	5	Coghlan
-42	Colegiales	5	Colegiales
-43	Constitución	5	Constitución
-44	Flores	5	Flores
-45	Floresta	5	Floresta
-46	La Boca	5	La Boca
-47	La Paternal	5	La Paternal
-48	Liniers	5	Liniers
-49	Mataderos	5	Mataderos
-50	Monte Castro	5	Monte Castro
-51	Montserrat	5	Montserrat
-52	Nueva Pompeya	5	Nueva Pompeya
-53	Nuñez	5	Nuñez
-54	Palermo	5	Palermo
-55	Parque Avellaneda	5	Parque Avellaneda
-56	Parque Chacabuco	5	Parque Chacabuco
-57	Parque Chas	5	Parque Chas
-58	Parque Patricios	5	Parque Patricios
-59	Puerto Madero	5	Puerto Madero
-60	Recoleta	5	Recoleta
-61	Retiro	5	Retiro
-62	Saavedra	5	Saavedra
-63	San Cristóbal	5	San Cristóbal
-64	San Nicolás	5	San Nicolás
-65	San Telmo	5	San Telmo
-67	Villa Crespo	5	Villa Crespo
-68	Villa Devoto	5	Villa Devoto
-69	Villa General Mitre	5	Villa General Mitre
-70	Villa Lugano	5	Villa Lugano
-71	Villa Luro	5	Villa Luro
-72	Villa Ortúzar	5	Villa Ortúzar
-73	Villa Pueyrredón	5	Villa Pueyrredón
-74	Villa Real	5	Villa Real
-75	Villa Riachuelo	5	Villa Riachuelo
-76	Villa Santa Rita	5	Villa Santa Rita
-77	Villa Soldati	5	Villa Soldati
-78	Villa Urquiza	5	Villa Urquiza
-79	Villa del Parque	5	Villa del Parque
-80	Vélez Sarsfield	5	Vélez Sarsfield
-81	San Francisco	6	San Francisco
-82	Costa del Este	6	Costa del Este
-83	Punta Paitilla	6	Punta Paitilla
-84	Punta Pacifica	6	Punta Pacifica
-85	El Cangrejo	6	El Cangrejo
-86	Marbella	6	Marbella
-87	Bella Vista	6	Bella Vista
-88	Obarrio	6	Obarrio
-89	Avenida Balboa	6	Avenida Balboa
-90	El Dorado	6	El Dorado
-91	Vía España	6	Vía España
-92	Costa Sur	6	Costa Sur
-66	Versalles	6	Versalles
-93	Albrook	6	Albrook
-94	Clayton	6	Clayton
-95	Coco del Mar	6	Coco del Mar
-96	Altos del Golf	6	Altos del Golf
-97	Campo Lindberg	6	Campo Lindberg
-98	Brisas del Golf	6	Brisas del Golf
-99	12 de Octubre	6	12 de Octubre
-100	Rio Abajo	6	Rio Abajo
-\.
+INSERT INTO locations VALUES (1, 'Xochimilco', 1, 'Xochimilco');
+INSERT INTO locations VALUES (2, 'Tlalpan', 1, 'Tlalpan');
+INSERT INTO locations VALUES (3, 'Tláhuac', 1, 'Tláhuac');
+INSERT INTO locations VALUES (4, 'Magdalena Contreras', 1, 'Magdalena Contreras');
+INSERT INTO locations VALUES (5, 'Milpa Alta', 1, 'Milpa Alta');
+INSERT INTO locations VALUES (6, 'Miguel Hidalgo', 1, 'Miguel Hidalgo');
+INSERT INTO locations VALUES (7, 'Venustiano Carranza', 1, 'Venustiano Carranza');
+INSERT INTO locations VALUES (8, 'Iztapalapa', 1, 'Iztapalapa');
+INSERT INTO locations VALUES (9, 'Iztacalco', 1, 'Iztacalco');
+INSERT INTO locations VALUES (10, 'Gustavo A. Madero', 1, 'Gustavo A. Madero');
+INSERT INTO locations VALUES (11, 'Cuauhtémoc', 1, 'Cuauhtémoc');
+INSERT INTO locations VALUES (12, 'Coyoacán', 1, 'Coyoacán');
+INSERT INTO locations VALUES (13, 'Cuajimalpa de Morelos', 1, 'Cuajimalpa de Morelos');
+INSERT INTO locations VALUES (14, 'Benito Juárez', 1, 'Benito Juárez');
+INSERT INTO locations VALUES (15, 'Azcapotzalco', 1, 'Azcapotzalco');
+INSERT INTO locations VALUES (16, 'Álvaro Obregón', 1, 'Álvaro Obregón');
+INSERT INTO locations VALUES (17, 'Texcoco', 2, 'Texcoco');
+INSERT INTO locations VALUES (18, 'Acolman', 2, 'Acolman');
+INSERT INTO locations VALUES (19, 'Coacalco', 2, 'Coacalco');
+INSERT INTO locations VALUES (20, 'Toluca', 2, 'Toluca');
+INSERT INTO locations VALUES (21, 'Tlalnepantla', 2, 'Tlalnepantla');
+INSERT INTO locations VALUES (22, 'Naucalpan', 2, 'Naucalpan');
+INSERT INTO locations VALUES (23, 'Metepec', 2, 'Metepec');
+INSERT INTO locations VALUES (24, 'Cuautitlan Izcalli', 2, 'Cuautitlan Izcalli');
+INSERT INTO locations VALUES (25, 'Cuautitlan ', 2, 'Cuautitlan ');
+INSERT INTO locations VALUES (26, 'Atizapán', 2, 'Atizapán');
+INSERT INTO locations VALUES (27, 'Guadalajara', 3, 'Guadalajara');
+INSERT INTO locations VALUES (28, 'Zapopan', 3, 'Zapopan');
+INSERT INTO locations VALUES (29, 'Escobedo', 4, 'Escobedo');
+INSERT INTO locations VALUES (30, 'San Pedro', 4, 'San Pedro');
+INSERT INTO locations VALUES (31, 'San Nicolas de los Garza', 4, 'San Nicolas de los Garza');
+INSERT INTO locations VALUES (32, 'Monterrey', 4, 'Monterrey');
+INSERT INTO locations VALUES (33, 'Agronomía', 5, 'Agronomía');
+INSERT INTO locations VALUES (34, 'Almagro', 5, 'Almagro');
+INSERT INTO locations VALUES (35, 'Balvanera', 5, 'Balvanera');
+INSERT INTO locations VALUES (36, 'Barracas', 5, 'Barracas');
+INSERT INTO locations VALUES (37, 'Belgrano', 5, 'Belgrano');
+INSERT INTO locations VALUES (38, 'Boedo', 5, 'Boedo');
+INSERT INTO locations VALUES (39, 'Caballito', 5, 'Caballito');
+INSERT INTO locations VALUES (40, 'Chacarita', 5, 'Chacarita');
+INSERT INTO locations VALUES (41, 'Coghlan', 5, 'Coghlan');
+INSERT INTO locations VALUES (42, 'Colegiales', 5, 'Colegiales');
+INSERT INTO locations VALUES (43, 'Constitución', 5, 'Constitución');
+INSERT INTO locations VALUES (44, 'Flores', 5, 'Flores');
+INSERT INTO locations VALUES (45, 'Floresta', 5, 'Floresta');
+INSERT INTO locations VALUES (46, 'La Boca', 5, 'La Boca');
+INSERT INTO locations VALUES (47, 'La Paternal', 5, 'La Paternal');
+INSERT INTO locations VALUES (48, 'Liniers', 5, 'Liniers');
+INSERT INTO locations VALUES (49, 'Mataderos', 5, 'Mataderos');
+INSERT INTO locations VALUES (50, 'Monte Castro', 5, 'Monte Castro');
+INSERT INTO locations VALUES (51, 'Montserrat', 5, 'Montserrat');
+INSERT INTO locations VALUES (52, 'Nueva Pompeya', 5, 'Nueva Pompeya');
+INSERT INTO locations VALUES (53, 'Nuñez', 5, 'Nuñez');
+INSERT INTO locations VALUES (54, 'Palermo', 5, 'Palermo');
+INSERT INTO locations VALUES (55, 'Parque Avellaneda', 5, 'Parque Avellaneda');
+INSERT INTO locations VALUES (56, 'Parque Chacabuco', 5, 'Parque Chacabuco');
+INSERT INTO locations VALUES (57, 'Parque Chas', 5, 'Parque Chas');
+INSERT INTO locations VALUES (58, 'Parque Patricios', 5, 'Parque Patricios');
+INSERT INTO locations VALUES (59, 'Puerto Madero', 5, 'Puerto Madero');
+INSERT INTO locations VALUES (60, 'Recoleta', 5, 'Recoleta');
+INSERT INTO locations VALUES (61, 'Retiro', 5, 'Retiro');
+INSERT INTO locations VALUES (62, 'Saavedra', 5, 'Saavedra');
+INSERT INTO locations VALUES (63, 'San Cristóbal', 5, 'San Cristóbal');
+INSERT INTO locations VALUES (64, 'San Nicolás', 5, 'San Nicolás');
+INSERT INTO locations VALUES (65, 'San Telmo', 5, 'San Telmo');
+INSERT INTO locations VALUES (67, 'Villa Crespo', 5, 'Villa Crespo');
+INSERT INTO locations VALUES (68, 'Villa Devoto', 5, 'Villa Devoto');
+INSERT INTO locations VALUES (69, 'Villa General Mitre', 5, 'Villa General Mitre');
+INSERT INTO locations VALUES (70, 'Villa Lugano', 5, 'Villa Lugano');
+INSERT INTO locations VALUES (71, 'Villa Luro', 5, 'Villa Luro');
+INSERT INTO locations VALUES (72, 'Villa Ortúzar', 5, 'Villa Ortúzar');
+INSERT INTO locations VALUES (73, 'Villa Pueyrredón', 5, 'Villa Pueyrredón');
+INSERT INTO locations VALUES (74, 'Villa Real', 5, 'Villa Real');
+INSERT INTO locations VALUES (75, 'Villa Riachuelo', 5, 'Villa Riachuelo');
+INSERT INTO locations VALUES (76, 'Villa Santa Rita', 5, 'Villa Santa Rita');
+INSERT INTO locations VALUES (77, 'Villa Soldati', 5, 'Villa Soldati');
+INSERT INTO locations VALUES (78, 'Villa Urquiza', 5, 'Villa Urquiza');
+INSERT INTO locations VALUES (79, 'Villa del Parque', 5, 'Villa del Parque');
+INSERT INTO locations VALUES (80, 'Vélez Sarsfield', 5, 'Vélez Sarsfield');
+INSERT INTO locations VALUES (81, 'San Francisco', 6, 'San Francisco');
+INSERT INTO locations VALUES (82, 'Costa del Este', 6, 'Costa del Este');
+INSERT INTO locations VALUES (83, 'Punta Paitilla', 6, 'Punta Paitilla');
+INSERT INTO locations VALUES (84, 'Punta Pacifica', 6, 'Punta Pacifica');
+INSERT INTO locations VALUES (85, 'El Cangrejo', 6, 'El Cangrejo');
+INSERT INTO locations VALUES (86, 'Marbella', 6, 'Marbella');
+INSERT INTO locations VALUES (87, 'Bella Vista', 6, 'Bella Vista');
+INSERT INTO locations VALUES (88, 'Obarrio', 6, 'Obarrio');
+INSERT INTO locations VALUES (89, 'Avenida Balboa', 6, 'Avenida Balboa');
+INSERT INTO locations VALUES (90, 'El Dorado', 6, 'El Dorado');
+INSERT INTO locations VALUES (91, 'Vía España', 6, 'Vía España');
+INSERT INTO locations VALUES (92, 'Costa Sur', 6, 'Costa Sur');
+INSERT INTO locations VALUES (66, 'Versalles', 6, 'Versalles');
+INSERT INTO locations VALUES (93, 'Albrook', 6, 'Albrook');
+INSERT INTO locations VALUES (94, 'Clayton', 6, 'Clayton');
+INSERT INTO locations VALUES (95, 'Coco del Mar', 6, 'Coco del Mar');
+INSERT INTO locations VALUES (96, 'Altos del Golf', 6, 'Altos del Golf');
+INSERT INTO locations VALUES (97, 'Campo Lindberg', 6, 'Campo Lindberg');
+INSERT INTO locations VALUES (98, 'Brisas del Golf', 6, 'Brisas del Golf');
+INSERT INTO locations VALUES (99, '12 de Octubre', 6, '12 de Octubre');
+INSERT INTO locations VALUES (100, 'Rio Abajo', 6, 'Rio Abajo');
 
 
 --
@@ -2299,8 +2263,6 @@ SELECT pg_catalog.setval('locations_id_seq', 100, true);
 -- Data for Name: meetings; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY meetings (id, provider_id, user_first_name, user_last_name, user_phone, user_email, token) FROM stdin;
-\.
 
 
 --
@@ -2314,12 +2276,10 @@ SELECT pg_catalog.setval('meetings_id_seq', 1, false);
 -- Data for Name: own_sizings; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY own_sizings (id, provider_id, size_id, created_at, updated_at) FROM stdin;
-1	18	2	2015-10-16 14:05:38.72002	2015-10-16 14:05:38.72002
-2	19	2	2015-11-03 07:10:19.272148	2015-11-03 07:10:19.272148
-3	19	3	2015-11-03 07:10:19.327161	2015-11-03 07:10:19.327161
-4	19	1	2015-11-03 07:10:19.337808	2015-11-03 07:10:19.337808
-\.
+INSERT INTO own_sizings VALUES (1, 18, 2, '2015-10-16 14:05:38.72002', '2015-10-16 14:05:38.72002');
+INSERT INTO own_sizings VALUES (2, 19, 2, '2015-11-03 07:10:19.272148', '2015-11-03 07:10:19.272148');
+INSERT INTO own_sizings VALUES (3, 19, 3, '2015-11-03 07:10:19.327161', '2015-11-03 07:10:19.327161');
+INSERT INTO own_sizings VALUES (4, 19, 1, '2015-11-03 07:10:19.337808', '2015-11-03 07:10:19.337808');
 
 
 --
@@ -2333,8 +2293,6 @@ SELECT pg_catalog.setval('own_sizings_id_seq', 4, true);
 -- Data for Name: pet_behaviors; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY pet_behaviors (id, behavior_name, created_at, updated_at, provider_id, behavior_id) FROM stdin;
-\.
 
 
 --
@@ -2348,15 +2306,13 @@ SELECT pg_catalog.setval('pet_behaviors_id_seq', 1, false);
 -- Data for Name: pets; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY pets (id, name, weight, sex, behavior_id, created_at, updated_at, photo_file_name, photo_content_type, photo_file_size, photo_updated_at, size_id, race_id, weight_id, age_id) FROM stdin;
-8	Suki	34	Masculino	2	2015-10-28 21:41:01.583656	2015-10-28 22:55:58.524401	mascota2.jpg	image/jpeg	231578	2015-10-28 22:55:56.882982	2	5	\N	\N
-10		\N	\N	\N	2015-10-28 23:30:48.441997	2015-10-28 23:30:48.441997	mascota5.jpg	image/jpeg	244169	2015-10-28 23:30:45.096378	\N	\N	\N	\N
-9	Fido	\N	Masculino	1	2015-10-28 22:22:58.641892	2015-10-29 00:40:43.19744	mascota1.jpg	image/jpeg	61345	2015-10-28 23:30:43.777851	1	1	\N	\N
-11	23	\N	Masculino	2	2015-10-29 00:50:02.614644	2015-10-29 00:50:02.614644	mascota2.jpg	image/jpeg	231578	2015-10-29 00:49:58.987584	3	3	\N	\N
-2	Fido	122		\N	2015-10-22 23:25:34.737757	2015-11-11 18:04:27.939678	BW_Python_logo.jpg	image/jpeg	60266	2015-10-23 18:11:44.971985	\N	\N	\N	\N
-3	Pepito	10	M	\N	2015-10-23 18:11:47.865327	2015-11-11 18:12:32.532199	\N	\N	\N	\N	\N	\N	\N	\N
-1	Fido	12	M	\N	2015-10-21 00:07:20.129334	2015-11-11 21:18:23.926229	mascota2.jpg	image/jpeg	231578	2015-11-03 16:17:00.000562	2	5	\N	1
-\.
+INSERT INTO pets VALUES (8, 'Suki', 34, 'Masculino', 2, '2015-10-28 21:41:01.583656', '2015-10-28 22:55:58.524401', 'mascota2.jpg', 'image/jpeg', 231578, '2015-10-28 22:55:56.882982', 2, 5, NULL, NULL);
+INSERT INTO pets VALUES (10, '', NULL, NULL, NULL, '2015-10-28 23:30:48.441997', '2015-10-28 23:30:48.441997', 'mascota5.jpg', 'image/jpeg', 244169, '2015-10-28 23:30:45.096378', NULL, NULL, NULL, NULL);
+INSERT INTO pets VALUES (9, 'Fido', NULL, 'Masculino', 1, '2015-10-28 22:22:58.641892', '2015-10-29 00:40:43.19744', 'mascota1.jpg', 'image/jpeg', 61345, '2015-10-28 23:30:43.777851', 1, 1, NULL, NULL);
+INSERT INTO pets VALUES (11, '23', NULL, 'Masculino', 2, '2015-10-29 00:50:02.614644', '2015-10-29 00:50:02.614644', 'mascota2.jpg', 'image/jpeg', 231578, '2015-10-29 00:49:58.987584', 3, 3, NULL, NULL);
+INSERT INTO pets VALUES (2, 'Fido', 122, '', NULL, '2015-10-22 23:25:34.737757', '2015-11-11 18:04:27.939678', 'BW_Python_logo.jpg', 'image/jpeg', 60266, '2015-10-23 18:11:44.971985', NULL, NULL, NULL, NULL);
+INSERT INTO pets VALUES (3, 'Pepito', 10, 'M', NULL, '2015-10-23 18:11:47.865327', '2015-11-11 18:12:32.532199', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO pets VALUES (1, 'Fido', 12, 'M', NULL, '2015-10-21 00:07:20.129334', '2015-11-11 21:18:23.926229', 'mascota2.jpg', 'image/jpeg', 231578, '2015-11-03 16:17:00.000562', 2, 5, NULL, 1);
 
 
 --
@@ -2370,8 +2326,6 @@ SELECT pg_catalog.setval('pets_id_seq', 11, true);
 -- Data for Name: promotional_codes; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY promotional_codes (id, code, expire_at, state, created_at, updated_at) FROM stdin;
-\.
 
 
 --
@@ -2385,10 +2339,8 @@ SELECT pg_catalog.setval('promotional_codes_id_seq', 1, false);
 -- Data for Name: properties; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY properties (id, property_name) FROM stdin;
-1	Casa
-2	Departamento
-\.
+INSERT INTO properties VALUES (1, 'Casa');
+INSERT INTO properties VALUES (2, 'Departamento');
 
 
 --
@@ -2402,11 +2354,9 @@ SELECT pg_catalog.setval('properties_id_seq', 2, true);
 -- Data for Name: provider_attachments; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY provider_attachments (id, provider_id, photo, created_at, updated_at) FROM stdin;
-1	18	Hemingway_House_side_yard.jpg	2015-10-16 14:05:38.833946	2015-10-16 14:05:38.833946
-2	18	may-13-2012-003.jpg	2015-10-16 14:05:38.87155	2015-10-16 14:05:38.87155
-3	19	mascota4.jpg	2015-11-03 07:10:19.484188	2015-11-03 07:10:19.484188
-\.
+INSERT INTO provider_attachments VALUES (1, 18, 'Hemingway_House_side_yard.jpg', '2015-10-16 14:05:38.833946', '2015-10-16 14:05:38.833946');
+INSERT INTO provider_attachments VALUES (2, 18, 'may-13-2012-003.jpg', '2015-10-16 14:05:38.87155', '2015-10-16 14:05:38.87155');
+INSERT INTO provider_attachments VALUES (3, 19, 'mascota4.jpg', '2015-11-03 07:10:19.484188', '2015-11-03 07:10:19.484188');
 
 
 --
@@ -2420,12 +2370,12 @@ SELECT pg_catalog.setval('provider_attachments_id_seq', 3, true);
 -- Data for Name: providers; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY providers (id, name, last_name_1, last_name_2, dni, email, category_id, created_at, updated_at, password_digest, avg_rating, phone, description, email_c, avatar, price, areas_externas, emergencia, experiencia, iframe_code, property_id, active, latitude, longitude, address, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, has_other_pets, number_of_pets, pets_allowed, has_green, has_yard, pet_behavior_id, on_top, check_in, check_out, is_favorite, behaviors_accepted, behavior_id, only_sterilizated) FROM stdin;
-17	Joel	Ibaceta	\N	1234567891234	niohnex@gmail.com	\N	2015-10-16 12:38:53.525156	2015-10-22 20:48:54.311654	\N	\N	3925778	Lorem ipsum	\N	7462307a8a69c3e7aa725c14fa6908ae.jpeg	100	\N	\N	3	\N	\N	t	-12.088507986388924	-77.03500262756349	Puerto Madero	$2a$10$PEbEG2qb0RwKNMuYu9tpy.VaJndjSORrVd/kXC0rT5nO1xs8JeuVS	\N	\N	\N	1	2015-10-16 12:38:53.944733	2015-10-16 12:38:53.944733	127.0.0.1	127.0.0.1	\N	\N	\N	t	t	\N	t	\N	\N	\N	\N	\N	\N
-19	Joel	Ibaceta	\N	1234567890987	admin@example.com	\N	2015-11-03 07:10:18.324318	2015-11-11 10:49:44.353071	\N	\N	3241412	Lorem ipsum dolor sit amte	\N	7462307a8a69c3e7aa725c14fa6908ae.jpeg	\N	\N	t	5	\N	1	t	-12.0266998	-76.88958430000002	Ate	$2a$10$GCKHki3.Ictu6BJ.u9TStuHHUDdJDF6G1itpnTjfR/2pfRJa1uugO	\N	\N	\N	6	2015-11-11 10:49:44.283348	2015-11-07 21:21:32.378861	127.0.0.1	127.0.0.1	t	5	4	t	t	\N	\N	03:59:00	18:59:00	\N	--- []\n	3	\N
-18	Joel	Ibaceta		1234578653728	joel_3010@hotmail.com	\N	2015-10-16 14:05:38.549856	2015-10-28 12:14:42.480298	\N	\N	39257783	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque imperdiet, felis dictum tincidunt euismod, mi augue dapibus dolor, eget porta ex nunc sit amet est. Maecenas magna massa, commodo id lacus eu, molestie commodo libero. Duis consectetur fringilla posuere. Aenean dignissim, orci vel convallis tempus, justo augue maximus nisl, sed semper velit elit vel eros. Integer interdum luctus quam, pretium fermentum est accumsan a. Nulla facilisi. Etiam vitae purus mi. Etiam ante quam, tempus ac massa non, egestas egestas leo. 	\N	7462307a8a69c3e7aa725c14fa6908ae.jpeg	100	\N	\N	3	\N	\N	t	-12.08851973122764	-77.03500023346986	Toluca	$2a$10$yD.gm2ykS6cSZqx/S2ueSuTqbUsgyyv9IldgXUibdQ8C0ESttBHY2	\N	\N	\N	1	2015-10-16 14:05:39.017776	2015-10-16 14:05:39.017776	127.0.0.1	127.0.0.1	f	5	8	t	t	\N	t	\N	\N	t	\N	\N	\N
-16	Joel	Ibaceta		1234567890123	mail@joelibaceta.com	1	2015-10-16 07:44:20.908147	2015-11-03 17:10:58.485706	\N	\N	984740003		\N	\N	\N		f	\N	\N	\N	t	-12.088434190330739	-77.03502626719994	Lima	$2a$10$AhPMIc9cRYsJwgnXgH1FXesr0U4LANhuRtYOwchsXDUoSSJ8As6T6	\N	\N	\N	4	2015-11-03 17:03:34.640596	2015-10-23 00:06:34.414193	127.0.0.1	127.0.0.1	\N	\N	\N	\N	\N	\N	t	\N	\N	\N	--- []\n	\N	\N
-\.
+INSERT INTO providers VALUES (17, 'Joel', 'Ibaceta', NULL, '1234567891234', 'niohnex@gmail.com', NULL, '2015-10-16 12:38:53.525156', '2015-10-22 20:48:54.311654', NULL, NULL, '3925778', 'Lorem ipsum', NULL, '7462307a8a69c3e7aa725c14fa6908ae.jpeg', 100, NULL, NULL, 3, NULL, NULL, true, '-12.088507986388924', '-77.03500262756349', 'Puerto Madero', '$2a$10$PEbEG2qb0RwKNMuYu9tpy.VaJndjSORrVd/kXC0rT5nO1xs8JeuVS', NULL, NULL, NULL, 1, '2015-10-16 12:38:53.944733', '2015-10-16 12:38:53.944733', '127.0.0.1', '127.0.0.1', NULL, NULL, NULL, true, true, NULL, true, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO providers VALUES (19, 'Joel', 'Ibaceta', NULL, '1234567890987', 'admin@example.com', NULL, '2015-11-03 07:10:18.324318', '2015-11-11 10:49:44.353071', NULL, NULL, '3241412', 'Lorem ipsum dolor sit amte', NULL, '7462307a8a69c3e7aa725c14fa6908ae.jpeg', NULL, NULL, true, 5, NULL, 1, true, '-12.0266998', '-76.88958430000002', 'Ate', '$2a$10$GCKHki3.Ictu6BJ.u9TStuHHUDdJDF6G1itpnTjfR/2pfRJa1uugO', NULL, NULL, NULL, 6, '2015-11-11 10:49:44.283348', '2015-11-07 21:21:32.378861', '127.0.0.1', '127.0.0.1', true, 5, 4, true, true, NULL, NULL, '03:59:00', '18:59:00', NULL, '--- []
+', 3, NULL);
+INSERT INTO providers VALUES (18, 'Joel', 'Ibaceta', '', '1234578653728', 'joel_3010@hotmail.com', NULL, '2015-10-16 14:05:38.549856', '2015-10-28 12:14:42.480298', NULL, NULL, '39257783', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque imperdiet, felis dictum tincidunt euismod, mi augue dapibus dolor, eget porta ex nunc sit amet est. Maecenas magna massa, commodo id lacus eu, molestie commodo libero. Duis consectetur fringilla posuere. Aenean dignissim, orci vel convallis tempus, justo augue maximus nisl, sed semper velit elit vel eros. Integer interdum luctus quam, pretium fermentum est accumsan a. Nulla facilisi. Etiam vitae purus mi. Etiam ante quam, tempus ac massa non, egestas egestas leo. ', NULL, '7462307a8a69c3e7aa725c14fa6908ae.jpeg', 100, NULL, NULL, 3, NULL, NULL, true, '-12.08851973122764', '-77.03500023346986', 'Toluca', '$2a$10$yD.gm2ykS6cSZqx/S2ueSuTqbUsgyyv9IldgXUibdQ8C0ESttBHY2', NULL, NULL, NULL, 1, '2015-10-16 14:05:39.017776', '2015-10-16 14:05:39.017776', '127.0.0.1', '127.0.0.1', false, 5, 8, true, true, NULL, true, NULL, NULL, true, NULL, NULL, NULL);
+INSERT INTO providers VALUES (16, 'Joel', 'Ibaceta', '', '1234567890123', 'mail@joelibaceta.com', 1, '2015-10-16 07:44:20.908147', '2015-11-03 17:10:58.485706', NULL, NULL, '984740003', '', NULL, NULL, NULL, '', false, NULL, NULL, NULL, true, '-12.088434190330739', '-77.03502626719994', 'Lima', '$2a$10$AhPMIc9cRYsJwgnXgH1FXesr0U4LANhuRtYOwchsXDUoSSJ8As6T6', NULL, NULL, NULL, 4, '2015-11-03 17:03:34.640596', '2015-10-23 00:06:34.414193', '127.0.0.1', '127.0.0.1', NULL, NULL, NULL, NULL, NULL, NULL, true, NULL, NULL, NULL, '--- []
+', NULL, NULL);
 
 
 --
@@ -2439,15 +2389,13 @@ SELECT pg_catalog.setval('providers_id_seq', 22, true);
 -- Data for Name: races; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY races (id, race_name, created_at, updated_at) FROM stdin;
-1	Affenpinscher	2015-10-27 21:31:40.818934	2015-10-27 21:31:40.818934
-2	Airedale terrier	2015-10-27 21:31:58.504384	2015-10-27 21:31:58.504384
-3	Akita Inu	2015-10-27 21:32:09.632984	2015-10-27 21:32:09.632984
-4	Akita Americano	2015-10-27 21:32:20.983853	2015-10-27 21:32:20.983853
-5	Alano español	2015-10-27 21:32:31.330727	2015-10-27 21:32:31.330727
-6	Alaskan malamute	2015-10-27 21:32:43.814441	2015-10-27 21:32:43.814441
-7	American Hairless terrier	2015-10-27 21:32:54.798731	2015-10-27 21:32:54.798731
-\.
+INSERT INTO races VALUES (1, 'Affenpinscher', '2015-10-27 21:31:40.818934', '2015-10-27 21:31:40.818934');
+INSERT INTO races VALUES (2, 'Airedale terrier', '2015-10-27 21:31:58.504384', '2015-10-27 21:31:58.504384');
+INSERT INTO races VALUES (3, 'Akita Inu', '2015-10-27 21:32:09.632984', '2015-10-27 21:32:09.632984');
+INSERT INTO races VALUES (4, 'Akita Americano', '2015-10-27 21:32:20.983853', '2015-10-27 21:32:20.983853');
+INSERT INTO races VALUES (5, 'Alano español', '2015-10-27 21:32:31.330727', '2015-10-27 21:32:31.330727');
+INSERT INTO races VALUES (6, 'Alaskan malamute', '2015-10-27 21:32:43.814441', '2015-10-27 21:32:43.814441');
+INSERT INTO races VALUES (7, 'American Hairless terrier', '2015-10-27 21:32:54.798731', '2015-10-27 21:32:54.798731');
 
 
 --
@@ -2461,15 +2409,13 @@ SELECT pg_catalog.setval('races_id_seq', 7, true);
 -- Data for Name: rates; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY rates (id, provider_id, size_id, price, created_at, updated_at) FROM stdin;
-1	18	1	20	2015-10-27 18:29:00.428556	2015-10-27 18:29:00.428556
-2	19	2	\N	2015-11-03 07:10:18.968704	2015-11-03 07:10:18.968704
-3	19	3	\N	2015-11-03 07:10:19.041651	2015-11-03 07:10:19.041651
-4	19	1	\N	2015-11-03 07:10:19.050284	2015-11-03 07:10:19.050284
-5	19	2	20	2015-11-03 07:36:35.76757	2015-11-03 07:36:35.76757
-6	19	3	30	2015-11-03 07:36:35.778446	2015-11-03 07:36:35.778446
-7	19	1	40	2015-11-03 07:36:35.787726	2015-11-03 07:36:35.787726
-\.
+INSERT INTO rates VALUES (1, 18, 1, 20, '2015-10-27 18:29:00.428556', '2015-10-27 18:29:00.428556');
+INSERT INTO rates VALUES (2, 19, 2, NULL, '2015-11-03 07:10:18.968704', '2015-11-03 07:10:18.968704');
+INSERT INTO rates VALUES (3, 19, 3, NULL, '2015-11-03 07:10:19.041651', '2015-11-03 07:10:19.041651');
+INSERT INTO rates VALUES (4, 19, 1, NULL, '2015-11-03 07:10:19.050284', '2015-11-03 07:10:19.050284');
+INSERT INTO rates VALUES (5, 19, 2, 20, '2015-11-03 07:36:35.76757', '2015-11-03 07:36:35.76757');
+INSERT INTO rates VALUES (6, 19, 3, 30, '2015-11-03 07:36:35.778446', '2015-11-03 07:36:35.778446');
+INSERT INTO rates VALUES (7, 19, 1, 40, '2015-11-03 07:36:35.787726', '2015-11-03 07:36:35.787726');
 
 
 --
@@ -2483,8 +2429,6 @@ SELECT pg_catalog.setval('rates_id_seq', 7, true);
 -- Data for Name: referrals; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY referrals (id, code_value, referrer_name, referrer_email, created_at, updated_at) FROM stdin;
-\.
 
 
 --
@@ -2498,139 +2442,135 @@ SELECT pg_catalog.setval('referrals_id_seq', 1, false);
 -- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY schema_migrations (version) FROM stdin;
-20140902152307
-20140902152803
-20140902210537
-20140902212603
-20140902231431
-20140910163216
-20141007225812
-20141009172639
-20141009184742
-20141009192426
-20141029172124
-20150101184602
-20150109011531
-20150110001414
-20150121173240
-20150121213023
-20150325221218
-20150325221307
-20150325222506
-20150326194701
-20150326194900
-20150326195132
-20150326203324
-20150326211416
-20150326211904
-20150326212010
-20150327212932
-20150330171513
-20150406204604
-20150406210300
-20150407002919
-20150407003211
-20150407160446
-20150407161403
-20150415172016
-20150601195627
-20150601203136
-20150602231925
-20150605175423
-20150727184520
-20150727203940
-20150731212450
-20150731220311
-20150804233110
-20150810064809
-20150814145700
-20150814162413
-20151002194245
-20151012192549
-20151014232144
-20151014232208
-20151014233438
-20151015171720
-20151015194317
-20151015203937
-20151015204104
-20151015210812
-20151015211010
-20151015211600
-20151015211613
-20151015213054
-20151015215002
-20151015215441
-20151015221204
-20151019164242
-20151019164429
-20151020221922
-20151020222926
-20151020222951
-20151020223024
-20151020223114
-20151020223134
-20151020232223
-20151020234241
-20151020234305
-20151020234425
-20151021001551
-20151021001926
-20151022153510
-20151022194837
-20151022225846
-20151022231218
-20151023014409
-20151023152558
-20151023154230
-20151023191146
-20151024171218
-20151024171313
-20151026220431
-20151026220545
-20151026220749
-20151026220816
-20151027122928
-20151027201255
-20151027201320
-20151027204527
-20151027205941
-20151027210046
-20151027233328
-20151027233902
-20151028052758
-20151028130823
-20151028151542
-20151028173711
-20151029160219
-20151029205030
-20151103225803
-20151104042808
-20151104043120
-20151104141019
-20151104141913
-20151104144057
-20151104144139
-20151106164041
-20151106174420
-20151107063329
-20151107064223
-20151107103256
-20151111200833
-20151111202211
-20151111202715
-\.
+INSERT INTO schema_migrations VALUES ('20140902152307');
+INSERT INTO schema_migrations VALUES ('20140902152803');
+INSERT INTO schema_migrations VALUES ('20140902210537');
+INSERT INTO schema_migrations VALUES ('20140902212603');
+INSERT INTO schema_migrations VALUES ('20140902231431');
+INSERT INTO schema_migrations VALUES ('20140910163216');
+INSERT INTO schema_migrations VALUES ('20141007225812');
+INSERT INTO schema_migrations VALUES ('20141009172639');
+INSERT INTO schema_migrations VALUES ('20141009184742');
+INSERT INTO schema_migrations VALUES ('20141009192426');
+INSERT INTO schema_migrations VALUES ('20141029172124');
+INSERT INTO schema_migrations VALUES ('20150101184602');
+INSERT INTO schema_migrations VALUES ('20150109011531');
+INSERT INTO schema_migrations VALUES ('20150110001414');
+INSERT INTO schema_migrations VALUES ('20150121173240');
+INSERT INTO schema_migrations VALUES ('20150121213023');
+INSERT INTO schema_migrations VALUES ('20150325221218');
+INSERT INTO schema_migrations VALUES ('20150325221307');
+INSERT INTO schema_migrations VALUES ('20150325222506');
+INSERT INTO schema_migrations VALUES ('20150326194701');
+INSERT INTO schema_migrations VALUES ('20150326194900');
+INSERT INTO schema_migrations VALUES ('20150326195132');
+INSERT INTO schema_migrations VALUES ('20150326203324');
+INSERT INTO schema_migrations VALUES ('20150326211416');
+INSERT INTO schema_migrations VALUES ('20150326211904');
+INSERT INTO schema_migrations VALUES ('20150326212010');
+INSERT INTO schema_migrations VALUES ('20150327212932');
+INSERT INTO schema_migrations VALUES ('20150330171513');
+INSERT INTO schema_migrations VALUES ('20150406204604');
+INSERT INTO schema_migrations VALUES ('20150406210300');
+INSERT INTO schema_migrations VALUES ('20150407002919');
+INSERT INTO schema_migrations VALUES ('20150407003211');
+INSERT INTO schema_migrations VALUES ('20150407160446');
+INSERT INTO schema_migrations VALUES ('20150407161403');
+INSERT INTO schema_migrations VALUES ('20150415172016');
+INSERT INTO schema_migrations VALUES ('20150601195627');
+INSERT INTO schema_migrations VALUES ('20150601203136');
+INSERT INTO schema_migrations VALUES ('20150602231925');
+INSERT INTO schema_migrations VALUES ('20150605175423');
+INSERT INTO schema_migrations VALUES ('20150727184520');
+INSERT INTO schema_migrations VALUES ('20150727203940');
+INSERT INTO schema_migrations VALUES ('20150731212450');
+INSERT INTO schema_migrations VALUES ('20150731220311');
+INSERT INTO schema_migrations VALUES ('20150804233110');
+INSERT INTO schema_migrations VALUES ('20150810064809');
+INSERT INTO schema_migrations VALUES ('20150814145700');
+INSERT INTO schema_migrations VALUES ('20150814162413');
+INSERT INTO schema_migrations VALUES ('20151002194245');
+INSERT INTO schema_migrations VALUES ('20151012192549');
+INSERT INTO schema_migrations VALUES ('20151014232144');
+INSERT INTO schema_migrations VALUES ('20151014232208');
+INSERT INTO schema_migrations VALUES ('20151014233438');
+INSERT INTO schema_migrations VALUES ('20151015171720');
+INSERT INTO schema_migrations VALUES ('20151015194317');
+INSERT INTO schema_migrations VALUES ('20151015203937');
+INSERT INTO schema_migrations VALUES ('20151015204104');
+INSERT INTO schema_migrations VALUES ('20151015210812');
+INSERT INTO schema_migrations VALUES ('20151015211010');
+INSERT INTO schema_migrations VALUES ('20151015211600');
+INSERT INTO schema_migrations VALUES ('20151015211613');
+INSERT INTO schema_migrations VALUES ('20151015213054');
+INSERT INTO schema_migrations VALUES ('20151015215002');
+INSERT INTO schema_migrations VALUES ('20151015215441');
+INSERT INTO schema_migrations VALUES ('20151015221204');
+INSERT INTO schema_migrations VALUES ('20151019164242');
+INSERT INTO schema_migrations VALUES ('20151019164429');
+INSERT INTO schema_migrations VALUES ('20151020221922');
+INSERT INTO schema_migrations VALUES ('20151020222926');
+INSERT INTO schema_migrations VALUES ('20151020222951');
+INSERT INTO schema_migrations VALUES ('20151020223024');
+INSERT INTO schema_migrations VALUES ('20151020223114');
+INSERT INTO schema_migrations VALUES ('20151020223134');
+INSERT INTO schema_migrations VALUES ('20151020232223');
+INSERT INTO schema_migrations VALUES ('20151020234241');
+INSERT INTO schema_migrations VALUES ('20151020234305');
+INSERT INTO schema_migrations VALUES ('20151020234425');
+INSERT INTO schema_migrations VALUES ('20151021001551');
+INSERT INTO schema_migrations VALUES ('20151021001926');
+INSERT INTO schema_migrations VALUES ('20151022153510');
+INSERT INTO schema_migrations VALUES ('20151022194837');
+INSERT INTO schema_migrations VALUES ('20151022225846');
+INSERT INTO schema_migrations VALUES ('20151022231218');
+INSERT INTO schema_migrations VALUES ('20151023014409');
+INSERT INTO schema_migrations VALUES ('20151023152558');
+INSERT INTO schema_migrations VALUES ('20151023154230');
+INSERT INTO schema_migrations VALUES ('20151023191146');
+INSERT INTO schema_migrations VALUES ('20151024171218');
+INSERT INTO schema_migrations VALUES ('20151024171313');
+INSERT INTO schema_migrations VALUES ('20151026220431');
+INSERT INTO schema_migrations VALUES ('20151026220545');
+INSERT INTO schema_migrations VALUES ('20151026220749');
+INSERT INTO schema_migrations VALUES ('20151026220816');
+INSERT INTO schema_migrations VALUES ('20151027122928');
+INSERT INTO schema_migrations VALUES ('20151027201255');
+INSERT INTO schema_migrations VALUES ('20151027201320');
+INSERT INTO schema_migrations VALUES ('20151027204527');
+INSERT INTO schema_migrations VALUES ('20151027205941');
+INSERT INTO schema_migrations VALUES ('20151027210046');
+INSERT INTO schema_migrations VALUES ('20151027233328');
+INSERT INTO schema_migrations VALUES ('20151027233902');
+INSERT INTO schema_migrations VALUES ('20151028052758');
+INSERT INTO schema_migrations VALUES ('20151028130823');
+INSERT INTO schema_migrations VALUES ('20151028151542');
+INSERT INTO schema_migrations VALUES ('20151028173711');
+INSERT INTO schema_migrations VALUES ('20151029160219');
+INSERT INTO schema_migrations VALUES ('20151029205030');
+INSERT INTO schema_migrations VALUES ('20151103225803');
+INSERT INTO schema_migrations VALUES ('20151104042808');
+INSERT INTO schema_migrations VALUES ('20151104043120');
+INSERT INTO schema_migrations VALUES ('20151104141019');
+INSERT INTO schema_migrations VALUES ('20151104141913');
+INSERT INTO schema_migrations VALUES ('20151104144057');
+INSERT INTO schema_migrations VALUES ('20151104144139');
+INSERT INTO schema_migrations VALUES ('20151106164041');
+INSERT INTO schema_migrations VALUES ('20151106174420');
+INSERT INTO schema_migrations VALUES ('20151107063329');
+INSERT INTO schema_migrations VALUES ('20151107064223');
+INSERT INTO schema_migrations VALUES ('20151107103256');
+INSERT INTO schema_migrations VALUES ('20151111200833');
+INSERT INTO schema_migrations VALUES ('20151111202211');
+INSERT INTO schema_migrations VALUES ('20151111202715');
 
 
 --
 -- Data for Name: services; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY services (id, service_name, created_at, updated_at) FROM stdin;
-1	Baño	2015-10-21 23:45:31.038202	2015-10-21 23:45:31.038202
-2	Corte de pelo y uñas	2015-10-21 23:45:46.024518	2015-10-21 23:45:46.024518
-\.
+INSERT INTO services VALUES (1, 'Baño', '2015-10-21 23:45:31.038202', '2015-10-21 23:45:31.038202');
+INSERT INTO services VALUES (2, 'Corte de pelo y uñas', '2015-10-21 23:45:46.024518', '2015-10-21 23:45:46.024518');
 
 
 --
@@ -2644,11 +2584,9 @@ SELECT pg_catalog.setval('services_id_seq', 2, true);
 -- Data for Name: sizes; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY sizes (id, size_title, min_size, max_size, description, symbol) FROM stdin;
-2	Medianos	\N	\N	\N	\N
-3	Pequeños	\N	\N	\N	\N
-1	Grandes	20	50	\N	\N
-\.
+INSERT INTO sizes VALUES (2, 'Medianos', NULL, NULL, NULL, NULL);
+INSERT INTO sizes VALUES (3, 'Pequeños', NULL, NULL, NULL, NULL);
+INSERT INTO sizes VALUES (1, 'Grandes', 20, 50, NULL, NULL);
 
 
 --
@@ -2662,16 +2600,14 @@ SELECT pg_catalog.setval('sizes_id_seq', 3, true);
 -- Data for Name: sizings; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY sizings (id, provider_id, size_id, additional_service_id) FROM stdin;
-1	18	1	\N
-2	18	2	\N
-3	19	2	\N
-4	19	3	\N
-5	19	1	\N
-6	\N	2	1
-7	\N	3	1
-8	\N	1	1
-\.
+INSERT INTO sizings VALUES (1, 18, 1, NULL);
+INSERT INTO sizings VALUES (2, 18, 2, NULL);
+INSERT INTO sizings VALUES (3, 19, 2, NULL);
+INSERT INTO sizings VALUES (4, 19, 3, NULL);
+INSERT INTO sizings VALUES (5, 19, 1, NULL);
+INSERT INTO sizings VALUES (6, NULL, 2, 1);
+INSERT INTO sizings VALUES (7, NULL, 3, 1);
+INSERT INTO sizings VALUES (8, NULL, 1, 1);
 
 
 --
@@ -2685,14 +2621,12 @@ SELECT pg_catalog.setval('sizings_id_seq', 8, true);
 -- Data for Name: states; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY states (id, name, country_id) FROM stdin;
-1	Distrito Federal	1
-2	Estado de México	1
-3	Jalisco	1
-4	Nuevo León	1
-5	Buenos Aires	2
-6	Ciudad de Panamá	3
-\.
+INSERT INTO states VALUES (1, 'Distrito Federal', 1);
+INSERT INTO states VALUES (2, 'Estado de México', 1);
+INSERT INTO states VALUES (3, 'Jalisco', 1);
+INSERT INTO states VALUES (4, 'Nuevo León', 1);
+INSERT INTO states VALUES (5, 'Buenos Aires', 2);
+INSERT INTO states VALUES (6, 'Ciudad de Panamá', 3);
 
 
 --
@@ -2706,8 +2640,6 @@ SELECT pg_catalog.setval('states_id_seq', 6, true);
 -- Data for Name: testimonies; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY testimonies (id, body, name, created_at, updated_at) FROM stdin;
-\.
 
 
 --
@@ -2721,13 +2653,11 @@ SELECT pg_catalog.setval('testimonies_id_seq', 1, false);
 -- Data for Name: user_pets; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY user_pets (id, user_id, pet_id, created_at, updated_at) FROM stdin;
-1	1	1	2015-10-21 00:07:20.195275	2015-10-21 00:07:20.195275
-2	2	2	2015-10-22 23:25:35.94463	2015-10-22 23:25:35.94463
-3	2	3	2015-10-23 18:11:48.051366	2015-10-23 18:11:48.051366
-5	8	9	2015-10-28 22:22:58.673658	2015-10-28 22:22:58.673658
-7	8	11	2015-10-29 00:50:07.204415	2015-10-29 00:50:07.204415
-\.
+INSERT INTO user_pets VALUES (1, 1, 1, '2015-10-21 00:07:20.195275', '2015-10-21 00:07:20.195275');
+INSERT INTO user_pets VALUES (2, 2, 2, '2015-10-22 23:25:35.94463', '2015-10-22 23:25:35.94463');
+INSERT INTO user_pets VALUES (3, 2, 3, '2015-10-23 18:11:48.051366', '2015-10-23 18:11:48.051366');
+INSERT INTO user_pets VALUES (5, 8, 9, '2015-10-28 22:22:58.673658', '2015-10-28 22:22:58.673658');
+INSERT INTO user_pets VALUES (7, 8, 11, '2015-10-29 00:50:07.204415', '2015-10-29 00:50:07.204415');
 
 
 --
@@ -2741,11 +2671,9 @@ SELECT pg_catalog.setval('user_pets_id_seq', 7, true);
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY users (id, email, encrypted_password, reset_password_token, reset_password_sent_at, remember_created_at, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, created_at, updated_at, first_name, last_name, phone, location_id, postal_code, photo_file_name, photo_content_type, photo_file_size, photo_updated_at, address, state_name, place_name, confirmation_token, confirmed_at, confirmation_sent_at, unconfirmed_email) FROM stdin;
-8	niohnex@gmail.com	$2a$10$Vo7uW1sRCQTS72yCtuIfwO/3yoV3bHGO4T1.2B.0nZPN4eR0YQF3O	\N	\N	\N	1	2015-10-28 21:41:05.15054	2015-10-28 21:41:05.15054	127.0.0.1	127.0.0.1	2015-10-28 21:41:01.551027	2015-10-28 21:41:51.213371	Joel	Ibaceta	02412934	\N	46460	7462307a8a69c3e7aa725c14fa6908ae.jpeg	image/jpeg	24875	2015-10-28 21:41:50.090666	\N	\N	\N	\N	\N	\N	\N
-2	joel_3010@hotmail.com	$2a$10$GOWX7n6aIXqJwOV0jij9vOPyhtn8tnJTbkZwfg5x188qhtMQfhFKG	\N	\N	\N	24	2015-11-11 18:02:22.971847	2015-11-10 17:24:28.962459	127.0.0.1	127.0.0.1	2015-10-22 23:25:33.961847	2015-11-11 18:02:22.982946	Joel	Ibacet	1234123	30	Lima 36	centrosUniversitarios01.jpg	image/jpeg	177983	2015-10-23 18:09:51.857344	Lima	\N	\N	\N	\N	\N	\N
-1	mail@joelibaceta.com	$2a$10$AsY91SbztcrZQQP3oTNrYOR66s3lFVwzM55Qvu8OEao.pzINCCCxm	\N	\N	\N	19	2015-11-11 20:00:26.60669	2015-11-10 23:12:44.318343	127.0.0.1	127.0.0.1	2015-10-21 00:07:20.104657	2015-11-11 20:00:26.616097	Joel	Ibaceta	2194123	19	Lima	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N	\N
-\.
+INSERT INTO users VALUES (8, 'niohnex@gmail.com', '$2a$10$Vo7uW1sRCQTS72yCtuIfwO/3yoV3bHGO4T1.2B.0nZPN4eR0YQF3O', NULL, NULL, NULL, 1, '2015-10-28 21:41:05.15054', '2015-10-28 21:41:05.15054', '127.0.0.1', '127.0.0.1', '2015-10-28 21:41:01.551027', '2015-10-28 21:41:51.213371', 'Joel', 'Ibaceta', '02412934', NULL, '46460', '7462307a8a69c3e7aa725c14fa6908ae.jpeg', 'image/jpeg', 24875, '2015-10-28 21:41:50.090666', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO users VALUES (2, 'joel_3010@hotmail.com', '$2a$10$GOWX7n6aIXqJwOV0jij9vOPyhtn8tnJTbkZwfg5x188qhtMQfhFKG', NULL, NULL, NULL, 24, '2015-11-11 18:02:22.971847', '2015-11-10 17:24:28.962459', '127.0.0.1', '127.0.0.1', '2015-10-22 23:25:33.961847', '2015-11-11 18:02:22.982946', 'Joel', 'Ibacet', '1234123', 30, 'Lima 36', 'centrosUniversitarios01.jpg', 'image/jpeg', 177983, '2015-10-23 18:09:51.857344', 'Lima', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO users VALUES (1, 'mail@joelibaceta.com', '$2a$10$AsY91SbztcrZQQP3oTNrYOR66s3lFVwzM55Qvu8OEao.pzINCCCxm', NULL, NULL, NULL, 19, '2015-11-11 20:00:26.60669', '2015-11-10 23:12:44.318343', '127.0.0.1', '127.0.0.1', '2015-10-21 00:07:20.104657', '2015-11-11 20:00:26.616097', 'Joel', 'Ibaceta', '2194123', 19, 'Lima', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 
 --
@@ -2759,12 +2687,10 @@ SELECT pg_catalog.setval('users_id_seq', 8, true);
 -- Data for Name: valuations; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY valuations (id, name, created_at, updated_at) FROM stdin;
-1	Cuidado	2015-10-27 23:14:02.982955	2015-10-27 23:14:02.982955
-2	Puntualidad	2015-10-27 23:14:13.759963	2015-10-27 23:14:13.759963
-3	Limpieza	2015-10-27 23:14:20.895753	2015-10-27 23:14:20.895753
-4	Area de Cuidado	2015-10-27 23:14:34.122513	2015-10-27 23:14:34.122513
-\.
+INSERT INTO valuations VALUES (1, 'Cuidado', '2015-10-27 23:14:02.982955', '2015-10-27 23:14:02.982955');
+INSERT INTO valuations VALUES (2, 'Puntualidad', '2015-10-27 23:14:13.759963', '2015-10-27 23:14:13.759963');
+INSERT INTO valuations VALUES (3, 'Limpieza', '2015-10-27 23:14:20.895753', '2015-10-27 23:14:20.895753');
+INSERT INTO valuations VALUES (4, 'Area de Cuidado', '2015-10-27 23:14:34.122513', '2015-10-27 23:14:34.122513');
 
 
 --
@@ -2778,8 +2704,6 @@ SELECT pg_catalog.setval('valuations_id_seq', 4, true);
 -- Data for Name: weights; Type: TABLE DATA; Schema: public; Owner: kmimos
 --
 
-COPY weights (id, name, min_weight, max_weight, created_at, updated_at) FROM stdin;
-\.
 
 
 --
