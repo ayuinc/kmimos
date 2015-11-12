@@ -16,7 +16,7 @@
           Se ha hecho una reserva en Kmimos para que
           %b #{@booking.provider.name} 
           cuide a 
-          #{"tu".pluralize(@booking.pets.count)} 
+          #{"tu".pluralize(@booking.pets.count)}
           #{"mascota".pluralize(@booking.pets.count)} 
           #{@booking.pets_list} 
           desde el dia
@@ -78,8 +78,7 @@
               - total = 0
               - diff = (@booking.end_date - @booking.start_date).to_i 
               - @booking.booked_pets.each do |booked_pet|
-                - amount = AdditionalService.get_pet_rate(booked_pet.pet.id, @booking.provider_id) rescue 0
-                %p= AdditionalService.get_pet_rate(booked_pet.pet.id, @booking.provider_id)
+                - amount = AdditionalService.get_pet_rate(booked_pet.pet.id, @booking.provider_id) 
                 - total += amount
                 %tr.border-bottom
                   %td=" Del #{@booking.start_date} al #{@booking.end_date}"
@@ -103,7 +102,7 @@
           %table.table{width: "100%"}
             %thead
               %th.green-light-title Servicios
-              %th.total Costo
+              %th.total Precio Total
             %tbody
               - total = 0 
               - amount = AdditionalService.get_rate(booked_service.booking.provider_id, booked_service.pet.size_id, booked_service.service_id) rescue 0
@@ -111,7 +110,10 @@
               - @booking.booked_services.each do |booked_service|
                 %tr.border-bottom
                   %td= booked_service.service
-                  %td= AdditionalService.get_rate(@booking.provider_id, booked_service.pet.size_id, booked_service.service_id) rescue 0
+                  - cost = AdditionalService.get_rate(@booking.provider_id, booked_service.pet.size_id, booked_service.service_id) rescue 0
+                  %td.total= "$ #{number_to_currency(cost, unit: "MXN")}"
+                  
+                  
             %tfoot
               %tr.border-bottom
                 %td.total Subtotal
