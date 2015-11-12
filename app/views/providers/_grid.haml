@@ -1,7 +1,7 @@
 #cuidadores(ng-if="providers != undefined")
   .provider-item(ng-repeat="provider in ($parent.filteredProviders = (providers | searchProvider: search | orderBy : '-valuation')) ")
     .block-cuidadores
-      %a(href="/providers/{{provider.id}}" ng-)
+      %a(href="/providers/{{provider.id}}")
         .bg-img-block.border-radius.square-green(style = "height: 150px; background-image: url('{{provider.avatar}}');")
           .oculto.text-center.pt-21
             %img{:alt => "", :src => "assets/icono-huella-hover.svg", :width => "70"}
@@ -17,11 +17,12 @@
               %small(ng-repeat="state in provider.states ") {{ state }}
             %p.lh-sm.text-gray.fz-xs {{ provider.description | limitTo: 200 }}
             .hidden-md.separator.separator-gray-dark.separator-centered.mt-0.separator-full-width
-          .rating  
-            %raty(score="{{provider.valuation}}" readOnly= true)
-            .comments
-              %span.badge {{ provider.comments.length }}
-              %span Comentarios
+      .rating  
+        %raty(score="{{provider.valuation}}" readOnly= true)
+        .comments
+          %span.badge {{ provider.comments.length }}
+          %a(href="/providers/{{provider.id}}/#comentarios_kmimos")
+            %span Comentarios
 #waiting-screen(ng-if="providers == undefined")
   %center
     %br
