@@ -129,7 +129,7 @@
         .row
           .col-md-12 Tamaño de tu(s) perro(s)
         .row
-          .col-md-12.tricol_checkboxes= f.association :own_sizes, as: :check_boxes, label: false, :collection => Size.all
+          .col-md-12.tricol_checkboxes= f.association :own_sizes, as: :check_boxes, label: false, :collection => Size.order('id')
       .row
         .col-md-12 Comportamiento de tus perros
       .row
