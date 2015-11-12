@@ -11,7 +11,7 @@ class Provider::RegistrationsController < Devise::RegistrationsController
   def new
     super
     if params[:provider]
-      @provider = Provider.new(JSON.parse(params[:provider]))
+      @provider = Provider.new(params[:provider])
     end
   end
 
