@@ -2084,8 +2084,8 @@ SELECT pg_catalog.setval('comments_id_seq', 31, true);
 --
 
 COPY countries (id, name, locale, currency, created_at, updated_at, phone, facebook, twitter, flag, domain, dni_length, dni_label) FROM stdin;
-1	México	es-MX	MXN $	2015-10-14 22:57:49.729485	2015-10-14 22:57:49.729485	+55 3455 0138	https://www.facebook.com/pages/Kamimos/1473614136234432?ref=bookmarks	https://twitter.com/KmimosMx	mexico	mx.kmimos.la	13	IFE
-2	Argentina	es-AR	ARS $	2015-10-14 22:57:50.394725	2015-10-14 22:57:50.394725	+55 3455 0138	https://www.facebook.com/pages/Kamimos/1473614136234432?ref=bookmarks	https://twitter.com/KmimosMx	argentina	ar.kmimos.la	8	DNI
+1	México	es-MX	MXN $	2015-10-14 22:57:49.729485	2015-10-14 22:57:49.729485	+55 1791 4931 / 55 6578 6147	https://www.facebook.com/pages/Kamimos/1473614136234432?ref=bookmarks	https://twitter.com/KmimosMx	mexico	mx.kmimos.la	13	IFE
+2	Argentina	es-AR	ARS $	2015-10-14 22:57:50.394725	2015-10-14 22:57:50.394725	+55 1791 4931 / 55 6578 6147	https://www.facebook.com/pages/Kamimos/1473614136234432?ref=bookmarks	https://twitter.com/KmimosMx	argentina	ar.kmimos.la	8	DNI
 3	Panamá	es-PA	PAN B/.	2015-10-14 22:57:50.996508	2015-10-14 22:57:50.996508	+507 62453172	https://www.facebook.com/pages/Kamimos/1473614136234432?ref=bookmarks	https://twitter.com/KmimosMx	panama	pa.kmimos.la	12	ID
 \.
 

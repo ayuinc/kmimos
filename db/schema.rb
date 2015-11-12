@@ -294,6 +294,7 @@ ActiveRecord::Schema.define(version: 20151111202715) do
     t.boolean  "is_favorite"
     t.string   "behaviors_accepted"
     t.integer  "behavior_id"
+    t.boolean  "accept_non_sterilized"
     t.boolean  "only_sterilizated"
   end
 
