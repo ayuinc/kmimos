@@ -41,12 +41,8 @@ class Api::BookingsController < ApplicationController
   def get_pet_rate
     pet=Pet.find(params[:pet])
     provider = Provider.find(params[:provider])
-
     rate = Rate.where(provider_id: provider.id, size_id: pet.size_id).last
-
-
     price = rate.price rescue 0
-
     response = {provider_name: provider.to_s, pet_name: pet.to_s, price: price}
 
     respond_to do |format|

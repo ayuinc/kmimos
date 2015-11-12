@@ -1,6 +1,7 @@
 
 /*global bookings_module */
 /*global angular */
+/*global console */
 
 bookings_module.controller('BookingsController', ['$scope', '$filter', '$http', function ($scope, $filter, $http) {
 
@@ -123,7 +124,7 @@ bookings_module.controller('BookingsController', ['$scope', '$filter', '$http', 
         service.service_name = response.data.service_name;
         $scope.set_total_services();
       }, function (error) {
-        // console.log(error);
+        console.log(error);
       });
 
     });

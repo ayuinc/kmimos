@@ -73,6 +73,8 @@ gem "bower-rails"
 
 
 
+
+
 group :development do
   gem 'rack_image_assets_cache_control'
   gem 'quiet_assets'
@@ -80,6 +82,8 @@ group :development do
   
   gem 'flamegraph'
   gem 'rack-mini-profiler'
+  
+  gem 'rubocop'
   
   #gem 'guard-livereload'
   #gem 'guard-bundler'

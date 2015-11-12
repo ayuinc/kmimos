@@ -7,6 +7,13 @@ class Provider::RegistrationsController < Devise::RegistrationsController
   #  super
   #  ProviderMailer.welcome_message(@provider).deliver unless @provider.invalid?
   #end
+  
+  def new
+    super
+    if params[:provider]
+      @provider = params[:provider]
+    end
+  end
 
 
   protected
