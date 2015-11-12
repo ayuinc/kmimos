@@ -12,3 +12,10 @@
  *= require jquery-ui
  *= require main
  */
+
+
+.custom_yellow_button {
+  white-space: normal !important;
+  margin-top: 20px;
+  width: 140px;
+}
