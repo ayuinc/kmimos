@@ -88,7 +88,7 @@
                 .col-md-3 Servicio: 
                 .col-md-3
                   %select.form-control.bkd_srv{name: "booking[booked_services_attributes][][service_id]"}(ng-model= "serv.service_id" ng-change="update_services(#{@provider.id})")
-                    -@provider.services.each do |se|
+                    -@provider.services.uniq.each do |se|
                       %option{value: se.id}= se
                 .col-md-3
                   %select.form-control.bkd_pt{name: "booking[booked_services_attributes][][pet_id]"}(ng-model= "serv.pet_id" ng-change="update_services(#{@provider.id})")
