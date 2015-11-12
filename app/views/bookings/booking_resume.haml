@@ -76,9 +76,9 @@
                 %th.total Precio Total
             %tbody
               - total = 0
+              - diff = (@booking.end_date - @booking.start_date).to_i 
               - @booking.booked_pets.each do |booked_pet|
-                - diff = (@booking.end_date - @booking.start_date).to_i 
-                - amount = AdditionalService.get_pet_rate(booked_pet.pet, @booking.provider_id) rescue 0
+                - amount = AdditionalService.get_pet_rate(booked_pet.pet.id, @booking.provider_id) rescue 0
                 - total += amount
                 %tr.border-bottom
                   %td=" Del #{@booking.start_date} al #{@booking.end_date}"

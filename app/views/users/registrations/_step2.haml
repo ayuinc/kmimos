@@ -16,11 +16,10 @@
           .col-md-9= p.association :race, label: false
         .row 
           .col-md-3 Edad:
-          .col-md-6= p.input :age, label: false
-          .col-md-3 Años
+          .col-md-6= p.association :age, label: false 
         .row 
           .col-md-3 Tamaño:
-          .col-md-9= p.association :own_size, label: false 
+          .col-md-9= p.association :own_size, label: false, :collection => Size.order('id').all
         .row
           .col-md-3 Peso:
           .col-md-9= p.input :weight, label: false 
