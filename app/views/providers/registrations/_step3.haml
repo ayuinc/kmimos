@@ -12,7 +12,7 @@
           .col-md-6= s.association :service, label: false
           .col-md-2= s.link_to_remove "Eliminar"
         .row
-          .col-md-6.tricol_checkboxes= s.association :sizes, label: false, as: :check_boxes
+          .col-md-6.tricol_checkboxes= s.association :sizes, label: false, as: :check_boxes, :collection => Size.order('id')
           .col-md-2 Precio
           .col-md-2= s.input :price, label: false
         .row
