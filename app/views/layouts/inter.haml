@@ -20,11 +20,14 @@
   
 
   %body
-    = render partial: 'layouts/partial/initializer'
+    - cache do
+      = render partial: 'layouts/partial/initializer'
     = render "layouts/partial/header"
-    = render :partial => 'layouts/shared/search_form'
+    - cache('main_search_form') do
+      = render :partial => 'layouts/shared/search_form'
     = yield
-    = render "layouts/partial/footer"
+    - cache do
+      = render "layouts/partial/footer"
 
   %script{:src => "//use.typekit.net/jod1lcb.js"}
   :javascript
