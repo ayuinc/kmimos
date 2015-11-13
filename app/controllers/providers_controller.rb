@@ -4,6 +4,8 @@
   #before_action :require_unlogged_provider, only: [:new]
 
   before_action :set_country, only: [:index,:home]
+  
+  caches_page :benefits
 
   # GET /providers
   # GET /providers.json
