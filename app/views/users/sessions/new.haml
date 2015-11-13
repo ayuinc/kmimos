@@ -3,11 +3,11 @@
 .container.mh-630
   .row.mt-70
     .col-md-4
-    .col-md-4
-      
+    .col-md-4 
       .panel.panel-primary
         .panel-heading.medium.text-gray.mb-14 Ingresa a tu cuenta Kmimos
         .panel-body
+          - @user = User.new(email: "#{params[:user][:email]}  rescue ''")
           = simple_form_for(@user, url: session_path(@user)) do |f|
             .form-group= f.input :email 
             .form-group= f.input  :password, label: "Contraseña"

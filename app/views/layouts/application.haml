@@ -24,7 +24,9 @@
     / END FONTS
 
   %body
-    = render partial: 'layouts/partial/initializer'
+    - cache do
+      = render partial: 'layouts/partial/initializer'
     = render "layouts/partial/header" unless home?
     = yield
-    = render "layouts/partial/footer"
+    - cache do
+      = render "layouts/partial/footer"

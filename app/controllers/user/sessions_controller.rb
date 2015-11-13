@@ -12,7 +12,7 @@ class User::SessionsController < Devise::SessionsController
       sign_in(@user)
       redirect_to session[:previous_url] || '/'
     else
-      @user == User.new(params[:user]) if @user == nil 
+      @user == User.new({email: params[:user][:email]}) if @user == nil 
       render 'new'
     end
   end
