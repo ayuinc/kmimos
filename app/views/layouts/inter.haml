@@ -22,6 +22,7 @@
   %body
     - cache do
       = render partial: 'layouts/partial/initializer'
+      = render partial: 'layouts/partial/mix_panel'
     = render "layouts/partial/header"
     - cache('main_search_form') do
       = render :partial => 'layouts/shared/search_form'

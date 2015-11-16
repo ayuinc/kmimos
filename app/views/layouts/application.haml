@@ -26,6 +26,7 @@
   %body
     - cache do
       = render partial: 'layouts/partial/initializer'
+      = render partial: 'layouts/partial/mix_panel'
     = render "layouts/partial/header" unless home?
     = yield
     - cache do
