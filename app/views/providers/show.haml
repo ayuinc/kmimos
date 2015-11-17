@@ -59,10 +59,9 @@
       %h3.text-gray.mb-35.mt-49= "Fotos de #{@provider.name} #{@provider.last_name_1}"
       / Place somewhere in the <body> of your page
       #slider.flexslider.carousel-gallery.mb-7
-         
         %ul.slides
           - @provider_attachments.each do |p|
-            %li
+            %li(style="width: 120px; float: left; display: block;")
               .row.ml-0.mr-0
                 .col-md-12.server-pic.ph-0
                   = image_tag p.photo
@@ -70,8 +69,7 @@
       #carousel.flexslider
         %ul.slides
           - @provider_attachments.each do |p|
-            %li
-              = image_tag p.photo
+            %li= image_tag p.photo
       %h3.text-gray.mb-35 Otros detalles
       .row.details-profile.pl-21
         .col-md-3
