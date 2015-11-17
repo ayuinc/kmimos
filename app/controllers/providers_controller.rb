@@ -90,7 +90,7 @@
   # POST /providers
   # POST /providers.json
   def create
-    @provider = Provider.new(provider_params)
+    @provider = Provider.new(all_provider_params)
     @provider.category_id = Category.find_by_name("Hotel").id
 
     if @provider.save
@@ -98,7 +98,7 @@
       unless params[:provider_attachments].nil?
         params[:provider_attachments]['photo'].each do |a|
            @provider_attachment = @provider.provider_attachments.create!(:photo => a, :provider_id => @provider.id)
-        end
+        end 
       end
       flash.now[:success] = "Hola #{@provider.name}, bienvenido a Kmimos."
       redirect_to root_path
@@ -112,6 +112,7 @@
   # PATCH/PUT /providers/1
   def update 
     @provider = Provider.find(params[:id])
+    
     if @provider.update_attributes(all_provider_params)
       redirect_to root_path
     else

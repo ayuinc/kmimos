@@ -15,6 +15,8 @@
             .user-info.col-md-9
               %h3.m-0.mb-7
                 = "#{@provider.name} #{@provider.last_name_1}"
+              %p
+                %b Areas donde puede recoger a tu perrito
               - @provider.locations.group_by(&:state_id).each do |k, state|
                 %b.mb-7= state.first.state
                 %br
@@ -57,21 +59,19 @@
       %h3.text-gray.mb-35.mt-49= "Fotos de #{@provider.name} #{@provider.last_name_1}"
       / Place somewhere in the <body> of your page
       #slider.flexslider.carousel-gallery.mb-7
-        - if !@provider_attachments.empty?
-          %ul.slides
-            - @provider_attachments.each do |p|
-              %li
-                .row.ml-0.mr-0
-                  .col-md-12.server-pic.ph-0
-                    = image_tag p.photo_url
-        - else
-          %p No hay fotos
+         
+        %ul.slides
+          - @provider_attachments.each do |p|
+            %li
+              .row.ml-0.mr-0
+                .col-md-12.server-pic.ph-0
+                  = image_tag p.photo
+         
       #carousel.flexslider
-        - if !@provider_attachments.empty?
-          %ul.slides
-            - @provider_attachments.each do |p|
-              %li
-                = image_tag p.photo_url
+        %ul.slides
+          - @provider_attachments.each do |p|
+            %li
+              = image_tag p.photo
       %h3.text-gray.mb-35 Otros detalles
       .row.details-profile.pl-21
         .col-md-3
