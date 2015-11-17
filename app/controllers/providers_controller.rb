@@ -110,21 +110,13 @@
   end
 
   # PATCH/PUT /providers/1
-  def update
-    respond_to do |format|
-      if @provider.update(all_provider_params)
-        unless params[:provider_attachments].nil?
-          params[:provider_attachments]['photo'].each do |a|
-             @provider_attachment = @provider.provider_attachments.create!(:photo => a, :provider_id => @provider.id)
-          end
-        end
-        format.html { redirect_to root_path }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @provider.errors, status: :unprocessable_entity }
-      end
-    end
+  def update 
+    @provider = Prodivder.find(params[:id])
+    if @provider.update_attributes(all_provider_params)
+      redirect_to root_path
+    else
+      format.html { render action: 'edit' }
+    end 
   end
 
   # DELETE /providers/1
