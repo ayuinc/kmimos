@@ -15,14 +15,14 @@
       @providers = @search.result
       .joins('LEFT OUTER JOIN "states" ON "states"."id" = "locations"."state_id" 
              LEFT OUTER JOIN "countries" ON "countries".id = "states"."country_id"')
-      .where('"countries"."id" = ? and "providers".active = ?',current_country.id,true).order("last_name_1 DESC")
+      .where('"countries"."id" = ? and "providers".active = ?',current_country.id,true).order("last_name_1")
     else
       @providers = Provider.select("providers.*")
       .joins('LEFT OUTER JOIN "localizations" on "localizations"."provider_id" = "providers"."id"
               LEFT OUTER JOIN "locations" on "locations".id = "localizations"."location_id"
               LEFT OUTER JOIN "states" ON "states"."id" = "locations"."state_id" 
               LEFT OUTER JOIN "countries" ON "countries".id = "states"."country_id"')
-      .where('"countries"."id" = ? and "providers".active = ?',current_country.id,true).order("last_name_1 DESC")
+      .where('"countries"."id" = ? and "providers".active = ?',current_country.id,true).order("last_name_1")
       .distinct
     end
     #if params[:direction] != nil
