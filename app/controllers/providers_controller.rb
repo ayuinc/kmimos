@@ -111,7 +111,7 @@
 
   # PATCH/PUT /providers/1
   def update 
-    @provider = Prodivder.find(params[:id])
+    @provider = Provider.find(params[:id])
     if @provider.update_attributes(all_provider_params)
       redirect_to root_path
     else
