@@ -60,7 +60,7 @@
       / Place somewhere in the <body> of your page
       #slider.flexslider.carousel-gallery.mb-7
         %ul.slides
-          - @provider_attachments.each do |p|
+          - @provider.provider_attachments.each do |p|
             %li(style="width: 120px; float: left; display: block;")
               .row.ml-0.mr-0
                 .col-md-12.server-pic.ph-0
@@ -68,8 +68,9 @@
          
       #carousel.flexslider
         %ul.slides
-          - @provider_attachments.each do |p|
-            %li= image_tag p.photo
+          - @provider.provider_attachments.each do |p|
+            %li(style="width: 120px; float: left; display: block;")
+              = image_tag p.photo
       %h3.text-gray.mb-35 Otros detalles
       .row.details-profile.pl-21
         .col-md-3
@@ -175,13 +176,35 @@
 
 
 :javascript
+  
+  $(window).load(function() {
+    // The slider being synced must be initialized first
+    $('#carousel').flexslider({
+      animation: "slide",
+      controlNav: false,
+      animationLoop: false,
+      slideshow: false,
+      itemWidth: 120,
+      itemMargin: 5,
+      asNavFor: '#slider'
+    });
+
+    $('#slider').flexslider({
+      animation: "slide",
+      controlNav: false,
+      animationLoop: false,
+      slideshow: false,
+      sync: "#carousel"
+    });
+  });
 
   providerMap = initMap('providerMap', 'map');
 
   /* * * CONFIGURATION VARIABLES * * */
   var disqus_shortname = 'kmimos';
 
-
+  
+  
   /* * * DON'T EDIT BELOW THIS LINE * * */
   (function() {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
