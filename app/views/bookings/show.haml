@@ -4,14 +4,14 @@
       = image_tag('reserva.svg')
     .col-md-4 
       %h1.mb-21{style: "font-family: Montserrat-Bold;color: #637988;line-height: 48px;"} ¡Gracias por reservar en Kmimos!
-      %br
+      %br 
       %p.text-small{style: "font-family: Montserrat-Light; font-size: 24px;color: #637988;line-height: 42px;"}
         El dia #{@booking.start_date.strftime("%d/%m/%Y")} a las #{@booking.pickup_time.strftime("%I:%M %p")},
-        %b=@booking.provider        
-        irá a tu domicilio en #{@booking.user.address}, a recoger a tu mascota. Cuidará a tu perrito hasta el 
+        %b=@booking.provider 
+        estará cuidando a tu perrito y te lo entregara el día ,
         %b= @booking.end_date.strftime("%d/%m/%Y,")
-        , el costo de este servicio es de $ 
-        %b=@booking.total 
+        En el caso de que hayas escogido transportación tu perrito sera recogido en la dirección #{@booking.user.address}. El costo de la reserva es de  
+        %b=@booking.total  
         %b MXN
         %br
       .col-md-4
@@ -39,12 +39,13 @@
     %b="$ #{total.to_f + @booking.total } MXN"
   %br
   .row.text-center{style: "background-color: #fefcb4;"}
-    %h5{style:"font-family: Montserrat-Light;color: #637988;line-height: 42px;"} Recibirás un correo de confirmación y el cuidador se contactará contigo.
-    %h5{style:"font-family: Montserrat-Light;color: #637988;line-height: 42px;"} (*) Esta reserva esta sujeta a cambios si no es confirmada en las próximas 24 horas.
+    %h5{style:"font-family: Montserrat-Light;color: #637988;line-height: 42px;"} Llegara a tu correo el registro de la reserva con los datos de tú cuidador y datos de contacto con Kmimos. El cuidador se pondra en contacto contigo en un plazo de 24 horas. 
+
+    %h5{style:"font-family: Montserrat-Light;color: #637988;line-height: 42px;"} (*) Confirmaremos tu reserva en un periodo de 24 horas, es posible que pueda haber un cambio. Si asi sucede nos contactaremos contigo para informarte y darte la mejor solución.
     %br.mt-42/
     %br
    
-    %h3 Quédate tranquilo que tu mascota estara en buenas manos.
+    %h3 Quédate tranquilo que tu perrito estara en buenas manos.
     %br
     %br 
         
