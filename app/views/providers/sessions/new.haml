@@ -9,7 +9,8 @@
           %center 
             %h5 Ingresa a tu cuenta de cuidador Kmimos
         .panel-body
-          = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          - @provider = Provider.new(email: "#{params[:provider][:email] rescue ''}")
+          = simple_form_for(@provider, url: session_path(@provider)) do |f|
             .form-group= f.input :email 
             .form-group= f.input  :password, label: "Contraseña"
             = f.submit "Ingresa", class: 'form-control btn btn-primary mb-21'

@@ -4,6 +4,8 @@
   #before_action :require_unlogged_provider, only: [:new]
 
   before_action :set_country, only: [:index,:home]
+  
+  caches_page :benefits
 
   # GET /providers
   # GET /providers.json
@@ -14,8 +16,8 @@
 
     @providers=Provider.where(active: true)
 
-    session[:from_date] = (Date.strptime(params[:from_date], '%d/%m/%Y')).strftime('%m/%d/%Y') if params[:from_date].to_s != ""  rescue ""
-    session[:to_date] = (Date.strptime(params[:to_date], '%d/%m/%Y')).strftime('%m/%d/%Y') if params[:to_date].to_s != "" rescue ""
+    session[:from_date] = params[:from_date] if params[:from_date].to_s != ""  rescue ""
+    session[:to_date] = params[:to_date] if params[:to_date].to_s != "" rescue ""
 
     @providers = @providers.all.page params[:page]
 
@@ -88,7 +90,7 @@
   # POST /providers
   # POST /providers.json
   def create
-    @provider = Provider.new(provider_params)
+    @provider = Provider.new(all_provider_params)
     @provider.category_id = Category.find_by_name("Hotel").id
 
     if @provider.save
@@ -96,7 +98,7 @@
       unless params[:provider_attachments].nil?
         params[:provider_attachments]['photo'].each do |a|
            @provider_attachment = @provider.provider_attachments.create!(:photo => a, :provider_id => @provider.id)
-        end
+        end 
       end
       flash.now[:success] = "Hola #{@provider.name}, bienvenido a Kmimos."
       redirect_to root_path
@@ -108,21 +110,14 @@
   end
 
   # PATCH/PUT /providers/1
-  def update
-    respond_to do |format|
-      if @provider.update(all_provider_params)
-        unless params[:provider_attachments].nil?
-          params[:provider_attachments]['photo'].each do |a|
-             @provider_attachment = @provider.provider_attachments.create!(:photo => a, :provider_id => @provider.id)
-          end
-        end
-        format.html { redirect_to root_path }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @provider.errors, status: :unprocessable_entity }
-      end
-    end
+  def update 
+    @provider = Provider.find(params[:id])
+    
+    if @provider.update_attributes(all_provider_params)
+      redirect_to root_path
+    else
+      format.html { render action: 'edit' }
+    end 
   end
 
   # DELETE /providers/1

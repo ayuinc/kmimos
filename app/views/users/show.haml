@@ -85,7 +85,6 @@
               %a{href: provider_path(favorite.provider.id)}
                 = image_tag(favorite.provider.avatar, class: 'avatar', width: '100px')
 
-
 %br
 
 :javascript
@@ -97,11 +96,11 @@
    }
 
    $(document).on('nested:fieldAdded', function(event){
-     var n = (Math.flooMath.random() * 900) + 1;
+     var n = (Math.floor(Math.random() * 900) + 1);
      var field = event.field;    
      var button = field.find('.pretty_upload_input');     
-     var input = field.find('.e');
+     var input = field.find('input')[0]field.find('input')[0];
      button.attr('el', '.photo_' + String(n));
-     input.addClass('photo_' + String(n));     
-    paint_pretty_uploads();
+     $(input).addClass('photo_' + String(n));     
+     paint_pretty_uploads();
    });

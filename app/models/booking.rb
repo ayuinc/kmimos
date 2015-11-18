@@ -8,7 +8,9 @@
 #  provider_id      :integer
 #  user_first_name  :string(255)
 #  user_last_name   :string(255)
+
 #  user_phone       :string(255)
+ 
 #  user_email       :string(255)
 #  user_message     :string(255)
 #  created_at       :datetime
@@ -32,7 +34,6 @@ class Booking < ActiveRecord::Base
   belongs_to :user
   
   #validates_presence_of :user_email, :user_first_name, :user_last_name, :pet_name, :provider_id, :user_phone, :raza, :edad, :address
-  #validates_format_of :user_email, with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
   has_many :booked_pets
   has_many :pets, :through => :booked_pets
@@ -41,6 +42,10 @@ class Booking < ActiveRecord::Base
   has_many :booked_services
   has_many :services, :through => :booked_services
   accepts_nested_attributes_for :booked_services
+  
+  state_machine :state, :initial => :created do
+    
+  end
   
   def to_param
     token

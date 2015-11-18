@@ -39,13 +39,13 @@ class Provider < ActiveRecord::Base
   accepts_nested_attributes_for :localizations
 
   has_many :comments
-
+  
   has_many :additional_services
   has_many :services, :through => :additional_services
   accepts_nested_attributes_for :additional_services
-
+  
   has_many :provider_attachments
-  accepts_nested_attributes_for :provider_attachments
+  accepts_nested_attributes_for :provider_attachments, allow_destroy: true
 
   has_many :pet_behaviors
   has_many :own_behaviors, :through => :pet_behaviors, :source => :behavior

@@ -1,7 +1,208 @@
-!!!
+<<<<<<< Local Changes
+!!!:css
+  #license_terms {
+    overflow-y: scroll;
+  }
+
+= render partial: 'error_messages'
+%div(ng-app="bookings_module")
+  .container.content.mh-630(ng-controller = "BookingsController")
+    = simple_nested_form_for(@booking)  do |f|
+      %input{value: @provider.id}(name="provider_id" type="hidden")
+      .row
+        .col-md-12
+          %h2.text-center.mt-35 Datos de la reserva
+          %br
+
+      .row
+        .col-md-2
+        .col-md-3
+          = image_tag(@provider.avatar, width: '200px')
+        .col-md-5
+          %h2= @provider
+          %h4.text-gray.light
+            %small.text-black.bold Precio:
+            = "#{current_country.currency} #{ 1.2 * (@provider.rates.minimum(:price))} noche"
+          - @provider.locations.group_by(&:state_id).each do |k, state|
+            %b= state.first.state
+            %br
+            %span.text-gray= state.map(&:name).join(", ")
+      %br
+      .row
+        .col-md-2
+        .col-md-8
+          %h3.text-gray.mb-14 Genera tu reserva:
+      .row.booking-container
+        .col-md-2
+        .col-md-8.mt-21.mb-42
+          %br
+          %br
+          .row#datepair
+            .col-md-3
+              Llegada
+              =f.input :start_date, as: :string, label: false, input_html: {class: "date start datepicker_min", 'ng-model': 'minDate', 'ng-change': 'get_diff_dates()'}
+            .col-md-3
+              Horas
+              =f.input :pickup_time, :as => :time_picker, label: false, input_html: {style: "width: 50%; display: inline;"}
+            .col-md-3
+              Salida
+              =f.input :end_date, as: :string, label: false, input_html: {class: "date end datepicker_max", 'ng-model': 'maxDate', 'ng-change': 'get_diff_dates()'}
+            .col-md-3
+              Hora
+              =f.input :dropoff_time, :as => :time_picker, label: false, input_html: {style: "width: 50%; display: inline;"}
+
+          .row
+            .col-md-12
+              .panel.panel-primary
+                .panel-body.line-regular
+                  %p Añade a tu mascota a la reserva del tiempo de estadía que selecciones.
+                  .form-group.row(ng-repeat="pet in pets_booked")
+                    .row.pd-0.border-bottom
+                      .col-md-3 Nombre:
+                      .col-md-6
+                        %select.form-control{name: "booking[booked_pets_attributes][][pet_id]"}(ng-model= "pet.pet_id"  ng-change="update_pets(#{@provider.id})")
+                          -current_user.pets.each do |pet|
+                            %option{value: pet.id}= pet
+                      .col-md-2 $ {{ pet.price }} MXN
+                      .col-md-1
+                        %a(ng-click="deletePet(pet)" href="#") X
+                  %a.btn.btn-primary(ng-click="add_pet()") Quiero agregar a mi mascota
+                  .row.mt-35.mb-14
+                    %label Información Adicional
+                  .form-group.row
+                    .col-md-12
+                      %p Dirección de Recojo
+                      = f.input :address, class: "form-control", label: false, as: :text, input_html: { value: current_user.address }
+                  .form-group.row
+                    .col-md-12
+                      %p ¿Necesitas que sepamos algún dato extra sobre tu perrito?
+                      = f.input :user_message, label: false, as: :text, class: "form-control"
+
+          %hr.hr-gray/
+          %br
+          %h4 ¿Quieres contratar servicios adicionales?
+          %br
+          %p Kmimos te ofrece servicios adicionales para tu mascota, puedes adquirirlos independientemente de tu reserva.
+          .panel-body
+            .form-group.row(ng-repeat="serv in services_booked")
+              .row.border-bottom
+                .col-md-3 Servicio: 
+                .col-md-3
+                  %select.form-control.bkd_srv{name: "booking[booked_services_attributes][][service_id]"}(ng-model= "serv.service_id" ng-change="update_services(#{@provider.id})")
+                    -@provider.services.uniq.each do |se|
+                      %option{value: se.id}= se
+                .col-md-3
+                  %select.form-control.bkd_pt{name: "booking[booked_services_attributes][][pet_id]"}(ng-model= "serv.pet_id" ng-change="update_services(#{@provider.id})")
+                    -current_user.pets.each do |pet|
+                      %option{value: pet.id}= pet
+                .col-md-2 $ {{serv.price}}  MXN
+                .col-md-1
+                  %a(ng-click="deleteServ(serv)" href="#") X
+            %center
+              %a.btn.btn-primary.add_srv_btn(ng-click="add_service()") Agregar Servicio
+          .panel-heading
+            %hr.hr-gray/
+          .panel-body
+          = f.input :total, as: :hidden, input_html: {value: "{{services_booked_total * 1.2 + pets_booked_total * 1.2}}"}
+          .table
+            %div(ng-if="parseInt(services_booked_total) != 0")
+              %h4 Costos del servicio de estadia
+              %table(width="100%")
+                %thead
+                  %th Mascota
+                  %th Dias
+                  %th.total Precio
+                  %th.total SubTotal
+                %tbody
+                  %tr(ng-repeat="pet in pets_booked")
+                    %td {{ pet.pet_name }}
+                    %td {{ diff }}
+                    %td.total $ {{ pet.price | number:2 }} MXN
+                    %td.total $ {{ diff * pet.price | number:2 }} MXN
+                %tfoot
+                  %tr
+                    %th.total(colspan=3) SUBTOTAL :
+                    %th.total $ {{ pets_booked_total | number:2 }}  MXN
+                  %tr
+                    %th.total(colspan=3) BENEFICIOS KMIMOS :
+                    %th.total $ {{ pets_booked_total * 0.2 | number:2 }}  MXN
+                  %tr
+                    %th.total(colspan=3) TOTAL :
+                    %th.total $ {{ pets_booked_total * 1.2 | number:2 }}  MXN
+            %div(ng-if="parseInt(services_booked_total) != 0")
+              %h4 Costos de los servicios adicionales
+              %table(width="100%")
+                %thead
+                  %th Mascota
+                  %th Servicio
+                  %th.total Precio
+                %tbody
+                  %tr(ng-repeat="serv in services_booked")
+                    %td {{ serv.pet_name }}
+                    %td {{ serv.service_name }}
+                    %td.total $ {{ serv.price | number:2 }} MXN
+                %tfoot
+                  %tr
+                    %th.total(colspan=2) SUBTOTAL :
+                    %th.total $ {{ services_booked_total | number:2 }}  MXN
+                  %tr
+                    %th.total(colspan=2) BENEFICIOS KMIMOS :
+                    %th.total $ {{ services_booked_total * 0.2 | number:2 }}  MXN
+                  %tr
+                    %th.total(colspan=2) TOTAL :
+                    %th.total $ {{ services_booked_total * 1.2 | number:2 }}  MXN
+          .panel-body
+            = render partial: 'terms', locals: {f: f}
+
+            .form-group.row
+              .col-md-12
+                %center
+                  = link_to 'Reservar', '#myModal', 'data-toggle' => 'modal', :class => "btn grey-button form-control mt-21"
+
+          %div
+            %h5 (*) Esta reserva esta sujeta a cambios si no es confirmada en las próximas 24 horas.
+
+:javascript
+
+  var preselect_services =[]
+
+- @services.each do |service|
+  :javascript
+    setTimeout(function(){
+      $('.add_srv_btn').click();
+      preselect_services.push("#{service.id}")
+      $('.bkd_srv').each(function(index){
+        $(this).val(preselect_services[index]);
+      });
+    }, 1000);
+
+:javascript
+
+
+  $('.datepicker_min').datepicker();
+
+  $('.datepicker_max').datepicker();
+
+
+  setTimeout(function(){
+
+    $('.datepicker_max').datepicker("setDate", "#{session[:to_date]}");
+
+    $('.datepicker_min').datepicker("setDate", "#{session[:from_date]}");
+
+
+    $('.datepicker_max').change();
+    $('.datepicker_min').change();
+
+  }, 1000);
+
 %html
   %head
-    %meta{:charset => "utf-8"}
+    %meta{:charset => "utf-8"} 
+    %meta{:content => "0in", :name => "pdfkit-margin_top"}/
+    %meta{:content => "0in", :name => "pdfkit-margin_right"}/
+    %meta{:content => "0in", :name => "pdfkit-margin_bottom"}/
+    %meta{:content => "0in", :name => "pdfkit-margin_left"}/
     = stylesheet_link_tag "style", media: "all"
     = stylesheet_link_tag "extra", media: "all" 
   %body.booking_resume 
@@ -16,16 +217,16 @@
           Se ha hecho una reserva en Kmimos para que
           %b #{@booking.provider.name} 
           cuide a 
-          #{"tu".pluralize(@booking.pets.count)} 
+          #{"tu".pluralize(@booking.pets.count)}
           #{"mascota".pluralize(@booking.pets.count)} 
           #{@booking.pets_list} 
           desde el dia
-          %b #{@booking.start_date.strftime("%d/%m%Y")}
+          %b #{@booking.start_date.strftime("%d/%m/%Y")}
           - if (@booking.pickup_time)
             a las 
             %b #{@booking.pickup_time.strftime("%H:%M")}
           hasta el
-          %b #{@booking.end_date.strftime("%d/%m%Y")} 
+          %b #{@booking.end_date.strftime("%d/%m/%Y")} 
           - if (@booking.dropoff_time)
             a las 
             %b #{@booking.dropoff_time.strftime("%H:%M")}
@@ -78,7 +279,7 @@
               - total = 0
               - diff = (@booking.end_date - @booking.start_date).to_i 
               - @booking.booked_pets.each do |booked_pet|
-                - amount = AdditionalService.get_pet_rate(booked_pet.pet.id, @booking.provider_id) rescue 0
+                - amount = AdditionalService.get_pet_rate(booked_pet.pet.id, @booking.provider_id) 
                 - total += amount
                 %tr.border-bottom
                   %td=" Del #{@booking.start_date} al #{@booking.end_date}"
@@ -102,7 +303,7 @@
           %table.table{width: "100%"}
             %thead
               %th.green-light-title Servicios
-              %th.total Costo
+              %th.total Precio Total
             %tbody
               - total = 0 
               - amount = AdditionalService.get_rate(booked_service.booking.provider_id, booked_service.pet.size_id, booked_service.service_id) rescue 0
@@ -110,7 +311,10 @@
               - @booking.booked_services.each do |booked_service|
                 %tr.border-bottom
                   %td= booked_service.service
-                  %td= AdditionalService.get_rate(@booking.provider_id, booked_service.pet.size_id, booked_service.service_id) rescue 0
+                  - cost = AdditionalService.get_rate(@booking.provider_id, booked_service.pet.size_id, booked_service.service_id) rescue 0
+                  %td.total= "$ #{number_to_currency(cost, unit: "MXN")}"
+                  
+                  
             %tfoot
               %tr.border-bottom
                 %td.total Subtotal
@@ -142,3 +346,5 @@
                 %img{:alt => "", :src => "http://s17.postimg.org/r4ttx53vf/facebook_mail_confirmacion.png", :style => "margin-right: 3px;"}/
               %a{:href => "https://twitter.com/KmimosMx"}
                 %img{:alt => "", :src => "http://s12.postimg.org/gdclxk795/twitter_mail_confirmacion.png"}/
+=======
+>>>>>>> External Changes

@@ -20,9 +20,11 @@
     :javascript
       try{Typekit.load({ async: true });}catch(e){}
   %body
-    = render :partial => 'layouts/shared/search_form'
+    - cache('main_search_form') do
+      = render :partial => 'layouts/shared/search_form'
     = yield
-    = render partial: 'layouts/partial/footer'
+    - cache do
+      = render partial: 'layouts/partial/footer'
     //%script{:src => "assets/js/jquery.min.js"}
     / App scripts
     //%script{:src => "assets/js/scripts.min.js"}
