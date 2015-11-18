@@ -24,23 +24,29 @@
           Usted solicitó también los servicios adicionales
         %br
         %br
-             
+        - total = 0 
         - @booking.booked_services.each do |service|
+          - amount = AdditionalService.get_rate(booked_service.booking.provider_id, booked_service.pet.size_id, booked_service.service_id) rescue 0
+          - total += amount
           .row.border-bottom
             .col-md-8{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"}="- #{service.service}"
             .col-md-4
               %b{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"}="$ #{AdditionalService.get_rate(@booking.provider_id, service.pet.size_id, service.service_id) rescue 0} MXN"
         %br
-
-    .row.text-center{style: "background-color: #fefcb4;"}
-      %h5{style:"font-family: Montserrat-Light;color: #637988;line-height: 42px;"} Recibirás un correo de confirmación y el cuidador se contactará contigo.
-      %h5{style:"font-family: Montserrat-Light;color: #637988;line-height: 42px;"} (*) Esta reserva esta sujeta a cambios si no es confirmada en las próximas 24 horas.
-      %br.mt-42/
-      %br
-     
-      %h3 Quédate tranquilo que tu mascota estara en buenas manos.
-      %br
-      %br 
+  %br
+  %p
+    %b Total a pagar:
+    %b="$ #{total.to_f + @booking.total } MXN"
+  %br
+  .row.text-center{style: "background-color: #fefcb4;"}
+    %h5{style:"font-family: Montserrat-Light;color: #637988;line-height: 42px;"} Recibirás un correo de confirmación y el cuidador se contactará contigo.
+    %h5{style:"font-family: Montserrat-Light;color: #637988;line-height: 42px;"} (*) Esta reserva esta sujeta a cambios si no es confirmada en las próximas 24 horas.
+    %br.mt-42/
+    %br
+   
+    %h3 Quédate tranquilo que tu mascota estara en buenas manos.
+    %br
+    %br 
         
 / Facebook Conversion Code for Reservacion exitosa
 :javascript

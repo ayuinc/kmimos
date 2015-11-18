@@ -74,12 +74,12 @@
                       = f.input :address, class: "form-control", label: false, as: :text, input_html: { value: current_user.address }
                   .form-group.row
                     .col-md-12
-                      %p ¿Necesitas que sepamos algún dato extra sobre tu perrito?
+                      %p ¿Necesitas que sepamos algo mas de tu perrito? (Ej: Necesita medicamentos, no convive con otros perros, sale a pasear 3 veces al dia, etc)
                       = f.input :user_message, label: false, as: :text, class: "form-control"
 
           %hr.hr-gray/
           %br
-          %h4 ¿Quieres contratar servicios adicionales?
+          %h4 ¿Quieres que pasen a recoger a tu perrito a tu casa? ¿Quieres que lo bañen? Checa estos servicios adicionales
           %br
           %p Kmimos te ofrece servicios adicionales para tu mascota, puedes adquirirlos independientemente de tu reserva.
           .panel-body
@@ -159,7 +159,7 @@
                   = link_to 'Reservar', '#myModal', 'data-toggle' => 'modal', :class => "btn grey-button form-control mt-21"
 
           %div
-            %h5 (*) Esta reserva esta sujeta a cambios si no es confirmada en las próximas 24 horas.
+            %h5 (*) Confirmaremos tu reserva en un periodo de 24 horas, es posible que pueda haber un cambio. Si asi sucede nos contactaremos contigo para informarte y darte la mejor solucion.
 
 :javascript
 
