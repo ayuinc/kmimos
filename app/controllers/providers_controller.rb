@@ -1,4 +1,4 @@
-  class ProvidersController < ApplicationController
+class ProvidersController < ApplicationController
 
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
   #before_action :require_unlogged_provider, only: [:new]
@@ -11,6 +11,7 @@
   # GET /providers.json
 
   def index
+        
 
     @search = Provider.search(params[:q])
 
@@ -30,6 +31,7 @@
 
   def home
 
+    @benefits = Benefit.all
     @agent = request.env["HTTP_USER_AGENT"]
 
     @search = Provider.search(params[:q])
