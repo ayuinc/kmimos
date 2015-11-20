@@ -2,7 +2,6 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show]
   before_action :authenticate_user!, except: [:booking_resume]
   
-  
   caches_page   :public
   caches_action :booking_resume
 

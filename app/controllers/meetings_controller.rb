@@ -3,7 +3,13 @@ class MeetingsController < ApplicationController
 
 	def new
 		session[:chosen_provider_id] = params[:provider_id]
+    
 	  @meeting = Meeting.new
+    @meeting.user_email = current_user.email rescue ""
+    @meeting.user_first_name = current_user.first_name rescue ""
+    @meeting.user_last_name = current_user.last_name rescue ""
+    @meeting.user_phone = current_user.phone rescue ""
+     @meeting.provider_id = params[:provider_id]
 	end
 
 	def show
@@ -11,9 +17,12 @@ class MeetingsController < ApplicationController
 
 	def create 
 		@meeting = Meeting.new(meeting_params)
+    
+    
 	  if @meeting.save
     	MeetingConfirmationMailer.new_meeting_notification(@meeting, current_country).deliver
     	MeetingConfirmationMailer.new_meeting_for_admin(@meeting, current_country).deliver
+      
 	    session[:start_date] = nil
 	    session[:end_date] = nil
       	session[:user_email] = nil
