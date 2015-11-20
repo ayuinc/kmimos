@@ -173,8 +173,6 @@ function initMap(mapName, mapId) {
 
 }
 
-
-
 var players=[];
 
 function load_player(playerName, playerId){
@@ -183,7 +181,7 @@ function load_player(playerName, playerId){
   player = new YT.Player(playerId, {
     height: '315',
     width: '560',
-    videoId: '_08UJ0aYDCk',
+    videoId: '4CkQYZVVyBc',
     playerVars: {
         'autoplay': 0,
         'rel': 0,

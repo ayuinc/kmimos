@@ -58,19 +58,13 @@
 
       %h3.text-gray.mb-35.mt-49= "Fotos de #{@provider.name} #{@provider.last_name_1}"
       / Place somewhere in the <body> of your page
-      #slider.flexslider.carousel-gallery.mb-7
-        %ul.slides
-          - @provider.provider_attachments.each do |p|
-            %li(style="width: 120px; float: left; display: block;")
-              .row.ml-0.mr-0
-                .col-md-12.server-pic.ph-0
-                  = image_tag p.photo
-         
-      #carousel.flexslider
-        %ul.slides
-          - @provider.provider_attachments.each do |p|
-            %li(style="width: 120px; float: left; display: block;")
-              = image_tag p.photo
+
+      .slider
+        - @provider.provider_attachments.each do |p|
+          .slide{style: "background: url('#{p.photo.url}')"} 
+      .carousel
+        - @provider.provider_attachments.each do |p|
+          .slide-thumb{style: "background: url('#{p.photo.url}')"}
       %h3.text-gray.mb-35 Otros detalles
       .row.details-profile.pl-21
         .col-md-3
@@ -180,26 +174,25 @@
 
 :javascript
   
-  $(window).load(function() {
     // The slider being synced must be initialized first
-    $('#carousel').flexslider({
-      animation: "slide",
-      controlNav: false,
-      animationLoop: false,
-      slideshow: false,
-      itemWidth: 120,
-      itemMargin: 5,
-      asNavFor: '#slider'
+    $('.carousel').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      asNavFor: '.slider',
+      dots: true,
+      centerMode: true,
+      focusOnSelect: true,
+      autoplay: true,
+      autoplaySpeed: 2000
     });
 
-    $('#slider').flexslider({
-      animation: "slide",
-      controlNav: false,
-      animationLoop: false,
-      slideshow: false,
-      sync: "#carousel"
+    $('.slider').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      asNavFor: '.carousel',
+      fade: true,
+      arrows: false
     });
-  });
 
   providerMap = initMap('providerMap', 'map');
 

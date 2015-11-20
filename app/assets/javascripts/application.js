@@ -25,6 +25,8 @@
 //= require jquery.purr
 //= require best_in_place
 
+//= require slick-carousel/slick/slick.min
+
 //= require lodash/lodash
 
 //= require jquery_ujs

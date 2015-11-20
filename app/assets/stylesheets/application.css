@@ -9,6 +9,8 @@
  *= require jquery.raty.css
  *= require jquery-timepicker-jt/jquery.timepicker
  *= require angular-rangeslider/angular.rangeSlider
+ *= require slick-carousel/slick/slick
+ *= require slick-carousel/slick/slick-theme
  *= require rzslider
  *= require new_styles
  *= require bootstrap-datetimepicker

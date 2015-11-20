@@ -7,6 +7,7 @@
     "jquery-ui": "latest",
     "jquery-timepicker-jt": "latest",
     "datepair.js": "latest",
-    "ngmap": "latest"
+    "ngmap": "latest",
+    "slick-carousel": "latest"
   }
 }
