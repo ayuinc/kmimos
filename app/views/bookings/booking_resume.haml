@@ -11,9 +11,13 @@
   %body.booking_resume 
     .container{:style => "margin: 0 auto;padding: 25px;"}
       .header
-        %p Orden de reservacion
-        %b= @booking.token
-        %img.logo{:src => "http://s1.postimg.org/n12q65th7/logo_mail_confirmacion.png"}
+        %table{style: 'width: 90%;'}
+          %tr
+            %td
+              %p Orden de reservacion
+              %b= @booking.token
+            %td
+              %img.logo{:src => "http://s1.postimg.org/n12q65th7/logo_mail_confirmacion.png"}
       .container-sm
         %h1 Hola #{@booking.user.first_name}, 
         %p 

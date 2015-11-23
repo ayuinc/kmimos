@@ -15,6 +15,7 @@
         %b MXN
         %br
       .col-md-4
+  - total = 0 
   -if @booking.booked_services     
     .row{style: "background-color: #fefcb4;"}
       .col-md-4
@@ -23,8 +24,7 @@
         %h5{style:"font-family: Montserrat-Light;color: #637988;line-height: 42px;"}
           Usted solicitó también los servicios adicionales
         %br
-        %br
-        - total = 0 
+        %br 
         - @booking.booked_services.each do |service|
           - amount = AdditionalService.get_rate(booked_service.booking.provider_id, booked_service.pet.size_id, booked_service.service_id) rescue 0
           - total += amount
@@ -34,9 +34,10 @@
               %b{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"}="$ #{AdditionalService.get_rate(@booking.provider_id, service.pet.size_id, service.service_id) rescue 0} MXN"
         %br
   %br
-  %p
-    %b Total a pagar:
-    %b="$ #{total.to_f + @booking.total } MXN"
+  %center
+    %h2
+      %b Total a pagar:
+      %b="$ #{total.to_f + @booking.total } MXN"
   %br
   .row.text-center{style: "background-color: #fefcb4;"}
     %h5{style:"font-family: Montserrat-Light;color: #637988;line-height: 42px;"} Llegara a tu correo el registro de la reserva con los datos de tú cuidador y datos de contacto con Kmimos. El cuidador se pondra en contacto contigo en un plazo de 24 horas. 

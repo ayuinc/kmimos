@@ -7,11 +7,19 @@
 <body class="booking_resume">
   <div class="container" style="margin: 0 auto;padding: 25px;">
     <div class="header">
-      <p>Orden de reservacion</p>
-      <b>
-        <%= @booking.token %>
-      </b>
-      <img class="logo" src="http://s1.postimg.org/n12q65th7/logo_mail_confirmacion.png"/>
+      <table style="width: 90%;">
+        <tr>
+          <td>
+            <p>Orden de reservacion</p>
+            <b>
+              <%= @booking.token %>
+            </b>
+          </td>
+          <td>
+            <img class="logo" src="http://s1.postimg.org/n12q65th7/logo_mail_confirmacion.png"/>
+          </td>
+        </tr>
+      </table>
     </div>
     <div class="container-sm">
       <h1>Hola <%="#{@booking.user.first_name}"%>, </h1>

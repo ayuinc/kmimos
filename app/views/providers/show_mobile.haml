@@ -100,18 +100,9 @@
         / Place somewhere in the <body> of your page
         .slider
           - @provider.provider_attachments.each do |p|
-            .slide{style: "background: url('#{p.photo.url}')"} 
-        .carousel
-          - @provider.provider_attachments.each do |p|
-            .slide-thumb{style: "background: url('#{p.photo.url}')"}
+            .slide{style: "background: url('#{p.photo.url}')"}  
       - else
-        %p No hay fotos
-      #carousel.flexslider
-        - if !@provider_attachments.empty?
-          %ul.slides
-            - @provider_attachments.each do |p|
-              %li
-                = image_tag p.photo_url
+        %p No hay fotos 
       %h3.text-gray.mb-35 Otros detalles
       .row.details-profile.pl-21
         .col-md-3
@@ -171,3 +162,14 @@
               %h5= valuation
               .ratingStars.pl-14.mt-7{score: value.to_i, readOnly: true}
             %br
+
+:javascript
+            
+  $('.slider').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1, 
+    fade: true,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 2000
+  });
