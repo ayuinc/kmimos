@@ -10,7 +10,9 @@
 class State < ActiveRecord::Base
   validates_presence_of :name
   belongs_to :country
+  
   has_many :locations
+  accepts_nested_attributes_for :locations, :allow_destroy => true
   
   def to_s 
     name
