@@ -37,18 +37,18 @@
           %br
           %br
           .row#datepair
-            .col-md-3
+            .col-md-2
               Llegada
               =f.input :start_date, as: :string, label: false, input_html: {class: "date start datepicker_min", 'ng-model': 'minDate', 'ng-change': 'get_diff_dates()'}
             .col-md-4
               Horas
-              =f.input :pickup_time, :as => :time, label: false, input_html: {style: "width: 50%; display: inline;"}
+              =f.input :pickup_time, :as => :time, label: false 
             .col-md-2
               Salida
               =f.input :end_date, as: :string, label: false, input_html: {class: "date end datepicker_max", 'ng-model': 'maxDate', 'ng-change': 'get_diff_dates()'}
             .col-md-4
               Hora
-              =f.input :dropoff_time, :as => :time, label: false, input_html: {style: "width: 50%; display: inline;"}
+              =f.input :dropoff_time, :as => :time, label: false 
 
           .row
             .col-md-12
