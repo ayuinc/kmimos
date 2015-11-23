@@ -105,13 +105,7 @@
           - @provider.provider_attachments.each do |p|
             .slide-thumb{style: "background: url('#{p.photo.url}')"}
       - else
-        %p No hay fotos
-      #carousel.flexslider
-        - if !@provider_attachments.empty?
-          %ul.slides
-            - @provider_attachments.each do |p|
-              %li
-                = image_tag p.photo_url
+        %p No hay fotos 
       %h3.text-gray.mb-35 Otros detalles
       .row.details-profile.pl-21
         .col-md-3
