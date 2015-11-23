@@ -15,6 +15,8 @@
 //= require jquery.timepicker.min.js
 //= require easing
 
+//= require jquery-timepicker-jt/jquery.timepicker
+
 //= require jquery.steps.js
 //= require jquery.raty.js
 //= require jquery_nested_form
