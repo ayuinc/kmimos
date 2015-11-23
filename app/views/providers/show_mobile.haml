@@ -104,8 +104,8 @@
         .carousel
           - @provider.provider_attachments.each do |p|
             .slide-thumb{style: "background: url('#{p.photo.url}')"}
-        - else
-          %p No hay fotos
+      - else
+        %p No hay fotos
       #carousel.flexslider
         - if !@provider_attachments.empty?
           %ul.slides
