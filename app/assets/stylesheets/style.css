@@ -1214,7 +1214,7 @@
 #cuidadores .square-green:hover .oculto {
   visibility: visible !important;
   background-color: rgba(99, 209, 184, 0.8);
-  height: 200px; 
+  height: 220px; 
 }
 
 .grey-button {

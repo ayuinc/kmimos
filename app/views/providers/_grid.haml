@@ -2,29 +2,32 @@
   .provider-item(ng-repeat="provider in ($parent.filteredProviders = (providers | searchProvider: search | orderBy : '-valuation')) ")
     .block-cuidadores
       %a(href="/providers/{{provider.id}}")
-        .bg-img-block.border-radius.square-green(style = "height: 150px; background-image: url('{{provider.avatar}}');")
-          .oculto.text-center.pt-21
-            %img{:alt => "", :src => "assets/icono-huella-hover.svg", :width => "70"}
-        .bg-gray-lighter.p-14
+        .bg-img-block.border-radius.square-green(style = "height: 220px; background-image: url('{{provider.avatar}}');")
+          .oculto.text-center.pt-42
+            %img{:alt => "", :src => "assets/icono-huella-hover.svg", :width => "70",style: "padding-top:42px"}
+        .p-14
           .body.border-bottom.body-provider
-            %small.fz-xs Desde
+            %small{style:"font-size:16px;color: #333333;line-height: 18px;"} Desde
             %div(ng-if="provider.isFavorite"){style: "float: right;"}
               %img{:alt => "", :src => "assets/cuidador_wow.png", :width => "70"}
-            %h4.text-primary.lh-xs.mv-0 Mex ${{provider.price}}
-            %small.text-primary.fz-xs por noche
-            %h5.bold {{ provider.name }}
+            %h4.text-primary{style:"font-size: 24px;color: #3EB89D;line-height: 28px;margin-top:-2px;margin-bottom:-8px"} Mex ${{provider.price}}
+            %small.text-primary.fz-xs{style:"color: #333333;line-height: 15px;"} por noche
+            %h5.bold{style:"font-size: 22px;color: #333333;line-height: 26px;margin-bottom:-10px"} {{ provider.name }}
             %h6
-              %small(ng-repeat="state in provider.states ") {{ state }}
-            %p.lh-sm.text-gray.fz-xs {{ provider.description | limitTo: 200 }}
+              %small(ng-repeat="state in provider.states ") 
+                %span {{ state }}    
+            %p{style:"color-#222222;line-height:20px"} {{ provider.description | limitTo: 200 }}
             .hidden-md.separator.separator-gray-dark.separator-centered.mt-0.separator-full-width
-      .rating.bg-gray-lighter
-        %raty.col-md-6{style:"margin:-18px 0 15px 0"}(score="{{provider.valuation}}" readOnly= true)
-        .comments.col-md-6{style: "float:right;margin-top:-15px; margin-left:70px"}
-          %span.badge{style:"display:inline"} {{ provider.comments.length }}
-          %a{style:"display:inline"}(href="/providers/{{provider.id}}/#comentarios_kmimos")
-            %span{style:"display:inline"} Comentarios
+      .rating
+        %raty.col-md-6{style:"margin:0px 0 15px 0"}(score="{{provider.valuation}}" readOnly= true)
+        .comments.col-md-6{style: "float:right !important;margin:4px 0 0px 0"}
+          %span{style:"display:inline;font-size: 12px;color: #333333;line-height: 18px"} {{ provider.comments.length }}
+          %a{style:"display:inline;"}(href="/providers/{{provider.id}}/#comentarios_kmimos")
+            %span 
+            %span{style:"display:inline;font-size: 12px;margin-top:5px;color: #333333;line-height: 18px"} &nbsp; Comentarios
 #waiting-screen(ng-if="providers == undefined")
   %center
     %br
     %h3 ... Cargando Cuidadores ... 
+
 

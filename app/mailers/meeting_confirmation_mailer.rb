@@ -15,7 +15,7 @@ class MeetingConfirmationMailer < ActionMailer::Base
     @meeting = meeting     
     @country = current_country
     admins = []
-    #admins << "r.gonzalez@desdigitec.com" << "e.celli@desdigitec.com"
+    #admins << "r.gonzalez@desdigitec.com" << "e.celli@desdigitec.com"  << "m.castellon@desdigitec.com" << "f.trujillo@desdigitec.com"
     admins << "lalo@laboratoria.la" << "lalo@laboratoria.la"
     
     # Panamá
