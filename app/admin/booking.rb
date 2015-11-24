@@ -35,8 +35,8 @@ ActiveAdmin.register Booking do
   controller do 
     
     def destroy
-      @provider = Provider.where(token: params[:id]).last
-      @provider.destroy
+      @booking = Booking.where(token: params[:id]).last
+      @booking.destroy
       redirec_to action: :index
     end
   end
