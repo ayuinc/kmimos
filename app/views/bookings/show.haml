@@ -32,7 +32,7 @@
           - amount_1 = AdditionalService.get_pet_rate(booked_pet.pet, @booking.provider_id) rescue 0
           - total += amount_1 
           .row.border-bottom
-            .col-md-8{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"} Estadia
+            .col-md-8{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"} - Estadia
             .col-md-4
               %b{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"}="$ #{AdditionalService.get_pet_rate(booked_pet.pet, @booking.provider_id) * diff_1 rescue 0} MXN"
         %br 
@@ -47,13 +47,13 @@
           .row.border-bottom
             .col-md-8{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"} Beneficios Kmimos 
             .col-md-4
-              %b{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"}="$ #{total * 1.2 } MXN"              
+              %b{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"}="$ #{total * 0.2 } MXN"              
         %br
   %br
   %center
     %h2
       %b Total a pagar:
-      %b="$ #{total.to_f + @booking.total } MXN"
+      %b="$ #{@booking.total } MXN"
   %br
   .row.text-center{style: "background-color: #fefcb4;"}
     %h5{style:"font-family: Montserrat-Light;color: #637988;line-height: 42px;"} Llegara a tu correo el registro de la reserva con los datos de tú cuidador y datos de contacto con Kmimos. El cuidador se pondra en contacto contigo en un plazo de 24 horas. 
