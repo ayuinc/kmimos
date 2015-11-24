@@ -25,10 +25,12 @@
           Usted solicitó también los siguientes servicios
         %br
 
-        %br 
+        %br
+        - total = 0 
         - @booking.booked_pets.each do |booked_pet|
           - diff_1 = (@booking.end_date - @booking.start_date).to_i 
           - amount_1 = AdditionalService.get_pet_rate(booked_pet.pet, @booking.provider_id) rescue 0
+          - total += amount_1 
           .row.border-bottom
             .col-md-8{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"} Estadia
             .col-md-4
@@ -41,6 +43,11 @@
             .col-md-8{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"}="- #{service.service}"
             .col-md-4
               %b{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"}="$ #{AdditionalService.get_rate(@booking.provider_id, service.pet.size_id, service.service_id) rescue 0} MXN"
+        %br 
+          .row.border-bottom
+            .col-md-8{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"} Beneficios Kmimos 
+            .col-md-4
+              %b{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"}="$ #{total * 1.2 } MXN"              
         %br
   %br
   %center
