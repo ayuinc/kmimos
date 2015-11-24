@@ -16,6 +16,7 @@
         %br
       .col-md-4
   - total = 0 
+  - total_2 = 0
   -if @booking.booked_services     
     .row{style: "background-color: #fefcb4;"}
       .col-md-4
@@ -26,17 +27,15 @@
         %br
 
         %br
-        - @total_1 = 0 
         - @booking.booked_pets.each do |booked_pet|
           - diff_1 = (@booking.end_date - @booking.start_date).to_i 
           - amount_1 = AdditionalService.get_pet_rate(booked_pet.pet, @booking.provider_id) rescue 0
-          - @total_1 += amount_1 * diff_1 
+          - total += amount_1 * diff_1 
           .row.border-bottom
             .col-md-8{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"} - Estadia
             .col-md-4
               %b{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"}="$ #{AdditionalService.get_pet_rate(booked_pet.pet, @booking.provider_id) * diff_1 rescue 0} MXN"
         %br 
-        - total_2 = 0
         - @booking.booked_services.each do |service|
           - amount = AdditionalService.get_rate(booked_service.booking.provider_id, booked_service.pet.size_id, booked_service.service_id) rescue 0
           - total_2 += amount
@@ -48,7 +47,7 @@
           .row.border-bottom
             .col-md-8{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"} - Beneficios Kmimos 
             .col-md-4
-              %b{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"}="$ #{(@total_1 + total_2) * 0.2 } MXN"              
+              %b{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"}="$ #{(total + total_2) * 0.2 } MXN" "#{total_2}"  "#{total}"              
         %br
   %br
   %center
