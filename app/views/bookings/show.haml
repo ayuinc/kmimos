@@ -30,7 +30,7 @@
         - @booking.booked_pets.each do |booked_pet|
           - diff_1 = (@booking.end_date - @booking.start_date).to_i 
           - amount_1 = AdditionalService.get_pet_rate(booked_pet.pet, @booking.provider_id) rescue 0
-          - @total += amount_1 
+          - @total += amount_1 * diff_1 
           .row.border-bottom
             .col-md-8{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"} - Estadia
             .col-md-4
