@@ -10,34 +10,50 @@
         %b=@booking.provider 
         estará cuidando a tu perrito y te lo entregara el día ,
         %b= @booking.end_date.strftime("%d/%m/%Y,")
-        En el caso de que hayas escogido transportación tu perrito sera recogido en la dirección #{@booking.user.address}. El costo de la reserva es de  
+        En el caso de que hayas escogido transportación tu perrito será recogido en la dirección #{@booking.user.address}. El costo de la reserva es de  
         %b=@booking.total  
         %b MXN
         %br
       .col-md-4
   - total = 0 
+  - total_2 = 0
   -if @booking.booked_services     
     .row{style: "background-color: #fefcb4;"}
       .col-md-4
       .col-md-4.text-center
         %br
         %h5{style:"font-family: Montserrat-Light;color: #637988;line-height: 42px;"}
-          Usted solicitó también los servicios adicionales
+          Este es el detalle de su reserva:
         %br
+
+        %br
+        - @booking.booked_pets.each do |booked_pet|
+          - diff_1 = (@booking.end_date - @booking.start_date).to_i 
+          - amount_1 = AdditionalService.get_pet_rate(booked_pet.pet, @booking.provider_id) rescue 0
+          - total += amount_1 * diff_1 
+          .row.border-bottom
+            .col-md-8{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"} - Estadia
+            .col-md-4
+              %b{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"}="$ #{AdditionalService.get_pet_rate(booked_pet.pet, @booking.provider_id) * diff_1 rescue 0} MXN"
         %br 
         - @booking.booked_services.each do |service|
-          - amount = AdditionalService.get_rate(booked_service.booking.provider_id, booked_service.pet.size_id, booked_service.service_id) rescue 0
-          - total += amount
+          - amount = AdditionalService.get_rate(@booking.provider_id, service.pet.size_id, service.service_id) rescue 0
+          - total_2 += amount
           .row.border-bottom
             .col-md-8{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"}="- #{service.service}"
             .col-md-4
               %b{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"}="$ #{AdditionalService.get_rate(@booking.provider_id, service.pet.size_id, service.service_id) rescue 0} MXN"
+        %br 
+          .row.border-bottom
+            .col-md-8{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"} - Beneficios Kmimos 
+            .col-md-4
+              %b{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"}="$ #{number_to_currency((total + total_2) * 0.2, unit:'MXN' ) } "              
         %br
   %br
   %center
     %h2
       %b Total a pagar:
-      %b="$ #{total.to_f + @booking.total } MXN"
+      %b="$ #{@booking.total } MXN"
   %br
   .row.text-center{style: "background-color: #fefcb4;"}
     %h5{style:"font-family: Montserrat-Light;color: #637988;line-height: 42px;"} Llegara a tu correo el registro de la reserva con los datos de tú cuidador y datos de contacto con Kmimos. El cuidador se pondra en contacto contigo en un plazo de 24 horas. 
