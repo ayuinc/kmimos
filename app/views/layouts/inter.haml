@@ -26,6 +26,7 @@
     = render "layouts/partial/header"
     - cache('main_search_form') do
       = render :partial => 'layouts/shared/search_form'
+    = render "layouts/shared/flash_alerts" unless home?
     = yield
     - cache do
       = render "layouts/partial/footer"
