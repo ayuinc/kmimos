@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   
-  include Mobylette::RespondToMobileRequests
+   
   
   include ActionController::Caching
 

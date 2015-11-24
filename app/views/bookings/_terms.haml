@@ -200,17 +200,14 @@
             %p.pull-left.text-danger Debe aceptar los términos y condiciones para continuar.
           .col-md-6
             %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Cancelar 
-            = f.submit "Confirmar", id: "new_booking", class: "btn btn-primary", disabled: true
+            = f.submit "Confirmar", id: "confim_new_booking", class: "btn btn-primary btn-green", disabled: true
             
 :javascript
- 
-  $(document).ready(function() { 
-    
-    $("input[name=license_term]").click(function(e) {
-      if ($(this).is(":checked")) {
-        $("#new_booking").prop("disabled", false);
-      } else {
-        $("#new_booking").attr("disabled", true);
-      }
-    });
+  
+  $("input[name=license_term]").click(function(e) {
+    if ($(this).is(":checked")) {
+      $("#confim_new_booking").prop("disabled", false);
+    } else {
+      $("#confim_new_booking").attr("disabled", true);
+    }
   });

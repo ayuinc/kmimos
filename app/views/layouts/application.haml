@@ -28,6 +28,7 @@
       = render partial: 'layouts/partial/initializer'
       = render partial: 'layouts/partial/mix_panel'
     = render "layouts/partial/header" unless home?
+    = render "layouts/shared/flash_alerts" unless home?
     = yield
     - cache do
       = render "layouts/partial/footer"
