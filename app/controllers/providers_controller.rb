@@ -1,4 +1,5 @@
 class ProvidersController < ApplicationController
+  include Mobylette::RespondToMobileRequests
 
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
   #before_action :require_unlogged_provider, only: [:new]
