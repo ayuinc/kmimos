@@ -30,7 +30,7 @@
           - diff_1 = (@booking.end_date - @booking.start_date).to_i 
           - amount_1 = AdditionalService.get_pet_rate(booked_pet.pet, @booking.provider_id) rescue 0
           .row.border-bottom
-            .col-md-8{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"}=Estadia
+            .col-md-8{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"} Estadia
             .col-md-4
               %b{style:"font-family: Montserrat-Regular;color: #637988;line-height: 26px;"}="$ #{AdditionalService.get_pet_rate(booked_pet.pet, @booking.provider_id) rescue 0}*diff_1 MXN"
         %br 
