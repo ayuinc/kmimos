@@ -43,7 +43,7 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
   
   
   $scope.$watch('filteredProviders', function () {
-    console.log("changed!");
+    
     
     var temp_markers, log;
     
@@ -51,6 +51,8 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
     temp_markers = [];
 
     angular.forEach($scope.filteredProviders, function (provider, key) {
+      
+      console.log(provider.name);
       temp_markers.push({
         latitude: provider.latitude,
         longitude: provider.longitude,
