@@ -18,6 +18,8 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
 
   $scope.providers;
   
+  $scope.mapOptions = {zoomControl: true, panControl: true, scaleControl: true};
+  
   $scope.filteredProviders;
   
   ProviderService.get().$promise.then(function (providers) {
