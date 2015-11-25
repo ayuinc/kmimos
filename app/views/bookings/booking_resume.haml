@@ -14,20 +14,19 @@
         %table{style: 'width: 90%;'}
           %tr
             %td
-              %p Orden de reservacion
-              %b= @booking.token
+              %p Orden de Reserva
             %td
               %img.logo{:src => "http://s1.postimg.org/n12q65th7/logo_mail_confirmacion.png"}
       .container-sm
         %h1 Hola #{@booking.user.first_name}, 
         %p 
-          Se ha hecho una reserva en Kmimos para que
+          Has hecho una reserva en Kmimos para que
           %b #{@booking.provider.name} 
           cuide a 
           #{"tu".pluralize(@booking.pets.count)}
           #{"mascota".pluralize(@booking.pets.count)} 
           #{@booking.pets_list} 
-          desde el dia
+          desde el día
           %b #{@booking.start_date.strftime("%d/%m/%Y")}
           - if (@booking.pickup_time)
             a las 
@@ -42,12 +41,16 @@
           #{"perrito".pluralize(@booking.pets.count)} 
           - if @booking.address 
             en el domicilio ubicado en
-            %b #{@booking.address}
+            %b #{@booking.address} .
         %p
-          Para cualquier duda y/o comentario puedes contactarte al telefono
+          Para cualquier duda y/o comentario puedes contactarte al teléfono
           %b #{@booking.provider.phone}
           o al correo
-          %b #{@booking.provider.email}
+          %b #{@booking.provider.email}.
+          O con Kmimos a los teléfonos 
+          %b 55 1791 4931 - 55 6578 6147 
+          o al correo 
+          %b e.celli@desdigitec.com
         - @booking.pets.each do |pet|
           %table.table.pet_table{style: "width: 100%;"}
             %tr
@@ -113,9 +116,9 @@
               %th.total Precio Total
             %tbody
               - total = 0 
+              - @booking.booked_services.each do |booked_service|
               - amount = AdditionalService.get_rate(booked_service.booking.provider_id, booked_service.pet.size_id, booked_service.service_id) rescue 0
               - total += amount
-              - @booking.booked_services.each do |booked_service|
                 %tr.border-bottom
                   %td= booked_service.service
                   - cost = AdditionalService.get_rate(@booking.provider_id, booked_service.pet.size_id, booked_service.service_id) rescue 0

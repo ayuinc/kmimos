@@ -37,7 +37,7 @@
         <b><%="#{@booking.end_date.strftime("%d/%m%Y")}"%> </b>
         <% if (@booking.dropoff_time) %>
         a las 
-        <b><%="#{@booking.dropoff_time.strftime("%H:%M")}"%></b>
+        <b><%="#{@booking.dropoff_time.strftime("%H:%M")}"%>. </b>
         <% end %>
         Recogiendo y entregando a 
         <%= "#{'tu'.pluralize(@booking.pets.count)}" %>
@@ -48,11 +48,11 @@
         <% end %>
       </p>
       <p>
-        Para cualquier duda y/o comentario puedes contactarte con el cuidador al telefono
+        Para cualquier duda y/o comentario puedes contactarte con el cuidador al teléfono
         <b><%="#{@booking.provider.phone}"%></b>
         o al correo
         <b><%="#{@booking.provider.email}"%></b>
-        O con Kmimos a los telefonos 55 1791 4931, 55 6578 6147 o al correo e.celli@desdigitec.com
+        O con Kmimos a los teléfonos 55 1791 4931, 55 6578 6147 o al correo e.celli@desdigitec.com
       </p>
       <% @booking.pets.each do |pet| %>
       <table class="table pet_table" style="width: 100%;">
@@ -66,7 +66,7 @@
             <p style="font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 18px;"><%="#{pet.own_size.size_title}"%></p>
             <label style="font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;">Peso</label>
             <p style="font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 18px;"><%="#{pet.weight}"%></p>
-            <label style="font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;">Peso</label>
+            <label style="font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;">Sexo</label>
             <p style="font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 18px;"><%="#{pet.sex}"%></p>
           </td>
           <td>
@@ -110,7 +110,7 @@
                 <%= booked_pet.pet %>
               </td>
               <td >
-                <%= pluralize(diff, "dia") %>
+                <%= pluralize(diff, "días") %> 
               </td>
               <td class="total" >
                 <%= "$ #{number_to_currency(amount, unit: "MXN")}" %>
