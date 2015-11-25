@@ -27,7 +27,7 @@
         <%= "#{'tu'.pluralize(@booking.pets.count)}" %>
         <%= "#{'mascota'.pluralize(@booking.pets.count)}" %>
         <%= "#{@booking.pets_list}" %>
-        desde el dia
+        desde el día
         <b><%="#{@booking.start_date.strftime("%d/%m%Y")}"%></b>
         <% if (@booking.pickup_time) %>
         a las 
@@ -111,7 +111,7 @@
                 <%= booked_pet.pet %>
               </td>
               <td >
-                <%= pluralize(diff, "días") %> 
+                <%= pluralize(diff, "noche") %> 
               </td>
               <td class="total" >
                 <%= "$ #{number_to_currency(amount, unit: "MXN")}" %>
