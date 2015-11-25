@@ -71,7 +71,7 @@
             <label style="font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;">Sexo</label>
             <p style="font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 18px;"><%="#{pet.sex}"%></p>
           </td>
-          <td "background-color: #fffdb7; width: 40%; padding: 5px;">
+          <td style="background-color: #fffdb7; width: 40%; padding: 5px;">
             <h4 style="font-family: Montserrat-Bold;font-size: 15px;color: #637988;line-height: 18px;">Comportamiento</h4>
             <p style="font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 22px;"><%="#{pet.behavior}"%></p>
             <br/>
@@ -165,7 +165,7 @@
               <%= booked_service.service %>
             </td>
             <td>
-              <%= AdditionalService.get_rate(@booking.provider_id, booked_service.pet.size_id, booked_service.service_id) rescue 0 %>
+              <%= "$ #{number_to_currency(amount, unit: "MXN")}" %>
             </td>
           </tr>
           <% end %>
