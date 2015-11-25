@@ -100,7 +100,7 @@
             </tr>
             </thead>
           </thead>
-          <tbody>
+          <tbody style="border-bottom:1px solid black">
             <% total = 0 %>
             <% super_total = 0 %>
             <% @booking.booked_pets.each do |booked_pet| %>
@@ -151,14 +151,14 @@
         <br/>
         <h3>Servicios Adicionales</h3>
         <br/>
-        <table class="table" width="100%">
+        <table class="table" width="100%" style="border-bottom:1px solid black">
           <thead>
             <tr>
               <th class="green-light-title" align="left">Servicios</th>
               <th class="total" align="left">Costo</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody style="border-bottom:1px solid black">
             <% total = 0  %>
             <% @booking.booked_services.each do |booked_service| %>
               <% amount = AdditionalService.get_rate(booked_service.booking.provider_id, booked_service.pet.size_id, booked_service.service_id) rescue 0 %>
@@ -168,7 +168,7 @@
                   <%= booked_service.service %>
                 </td>
                 <td>
-                <%= "$ #{number_to_currency(amount, unit: "MXN")}" %>
+                  <%= "$ #{number_to_currency(amount, unit: "MXN")}" %>
                 </td>
               </tr>
             <% end %>
@@ -187,7 +187,7 @@
               </td>
             </tr>
             <tr class="border-bottom">
-              <td class="total">Total servicios adicionales</td>
+              <td class="total">Total por servicios adicionales</td>
               <td class="total">
                 <b><%= "$ #{number_to_currency(total * 1.2, unit: "MXN")}" %></b>
                 <% super_total += total * 1.2%>
