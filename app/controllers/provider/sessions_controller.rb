@@ -7,7 +7,7 @@ class Provider::SessionsController < Devise::SessionsController
       sign_in(@provider)
       redirect_to session[:previous_url] || '/'
     else
-      flash[:alert] = 'Email o password inválido o proveedor inactivo' # Not quite right!
+      flash[:error] = 'Email o password inválido o proveedor inactivo' # Not quite right!
       render 'new' 
     end
   end
