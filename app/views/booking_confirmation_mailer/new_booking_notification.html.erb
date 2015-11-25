@@ -54,12 +54,14 @@
         <b><%="#{@booking.provider.email}"%></b>
         O con Kmimos a los teléfonos 55 1791 4931, 55 6578 6147 o al correo e.celli@desdigitec.com
       </p>
+      <h4>Mascotas incluidas en la reserva</h4>
       <% @booking.pets.each do |pet| %>
       <table class="table pet_table" style="width: 100%;">
         <tr>
+        <h3 style="font-family: Montserrat-Regular;font-size: 20px;color: #48CFC2;line-height: 31.67px;">Nombre: <%="#{pet.name}"%></h3>
+        </tr>
+        <tr>
           <td style="background-color: #ace2d3; width: 40%; padding: 5px;">
-            <label style="font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;">Nombre</label>
-            <p style="font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 18px;"><%="#{pet}"%></p>
             <label style="font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;">Raza</label>
             <p style="font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 18px;"><%="#{pet.race}"%></p>
             <label style="font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;">Tamaño</label>
@@ -69,9 +71,7 @@
             <label style="font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;">Sexo</label>
             <p style="font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 18px;"><%="#{pet.sex}"%></p>
           </td>
-          <td>
-            <h3 style="font-family: Montserrat-Regular;font-size: 20px;color: #48CFC2;line-height: 31.67px;">Acerca de <%="#{pet}"%></h3>
-            <br/>
+          <td "background-color: #fffdb7; width: 40%; padding: 5px;">
             <h4 style="font-family: Montserrat-Bold;font-size: 15px;color: #637988;line-height: 18px;">Comportamiento</h4>
             <p style="font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 22px;"><%="#{pet.behavior}"%></p>
             <br/>
@@ -137,7 +137,7 @@
           <tr class="border-bottom">
             <td class="total" colspan="4"> Total </td>
             <td class="total">
-              <%= "$ #{number_to_currency(total * 1.2, unit: "MXN")}" %>
+              <b><%= "$ #{number_to_currency(total * 1.2, unit: "MXN")}" %></b>
             </td>
           </tr>
         </tfoot>
@@ -145,7 +145,7 @@
       <br/>
       <h3>Servicios Adicionales</h3>
       <br/>
-      <table class="table" width="100%">
+      <table class="table" width="100%" style="border-bottom:1px solid black">
         <thead>
           <tr>
           <th class="green-light-title" align="left">Servicios</th>
@@ -184,10 +184,22 @@
           <tr class="border-bottom">
             <td class="total">Precio Total </td>
             <td class="total">
-              <%= "$ #{number_to_currency(total * 1.2, unit: "MXN")}" %>
+              <b><%= "$ #{number_to_currency(total * 1.2, unit: "MXN")}" %></b>
             </td>
           </tr>
         </tfoot>
+      </table>
+      <table>
+        <thead>
+          <tr align="center">
+            <td>
+              <h3><b>Total a pagar</b></h3>
+            </td>
+            <td>
+              <h3><b><%= "#{number_to_currency(super_total, unit: "MXN")}"%></b></h3>
+            </td>
+          </tr>
+        </thead>
       </table>
       <br/>
       <p>(*) Confirmaremos tu reserva en un periodo de 24 horas, es posible que pueda haber u n cambio. Si asi sucede nos contactaremos contigo para informarte y darte la mejor solución. </p>
