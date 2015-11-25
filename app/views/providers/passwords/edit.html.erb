@@ -11,18 +11,16 @@
       <%= devise_error_messages! %>
       <%= f.hidden_field :reset_password_token %>
   <div class="panel-body">
-      <div class="field">
-        <%= f.label :password, "Nueva contraseña" %><br />
+      <div class="form-group">
         <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> Caracteres Minimos)</em>
           <br/>
         <% end %>
-        <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
+        <%= f.input :password, autofocus: true, autocomplete: "off", label: "contraseña" %>
       </div>
 
       <div class="form-group">
-        <%= f.label :password_confirmation, "Confirma tu nueva contraseña" %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        <%= f.input :password_confirmation, autocomplete: "off", label: "Confirmar contraseña" %>
       </div>
 
       <div class="actions">

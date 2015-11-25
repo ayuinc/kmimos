@@ -10,7 +10,7 @@ class MeetingConfirmationMailer < ActionMailer::Base
       subject: 'Solicitud para conocer cuidador Kmimos recibida')
   end
 
-  def new_meeting_notification_for_provider(meeting, current_country)
+  def new_meeting_provider_notification(meeting, current_country)
     @meeting = meeting
     @country = current_country
     mail(
