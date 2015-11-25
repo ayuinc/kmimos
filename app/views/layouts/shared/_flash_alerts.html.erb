@@ -1,13 +1,26 @@
-<% flash.each do |key, value| %>
-  <div class="row mb-0">
-  	<div class="col-md-2">	
-  	</div>
-  	<div class="col-md-8 mt-63 mb-0">
-  		<div class="alert alert-danger mt-21">
-        <h5 class="book inline-block"><%= value %></h5>
-  		</div>
-    </div>
-  </div>
-<% end %>
+    <% if flash[:notice].present? %>
+	    <div class="container text-center alert alert-primary">
+	    	<%= flash[:notice] %>
+	    </div>
+    <% end %>
 
+    <% if flash[:alert].present? %>
+	    <div class="container text-center alert alert-warning">
+	    	<%= flash[:alert] %>
+	    </div>
+    <% end %>
+
+    <% if flash[:success].present? %>
+	    <div class="container text-center alert alert-success">
+	    	<%= flash[:success] %>
+	    </div>
+    <%end%>
+    <% if flash[:error].present? %>
+	    <div class="container text-center alert alert-danger">
+	    	<%= flash[:error] %>
+	    </div>
+    <% end %>
+
+
+ 
 
