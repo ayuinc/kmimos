@@ -1,4 +1,6 @@
 
+var codeAddress;
+
 $(".registration_wizard").ready(function(){
     $(".registration_wizard").steps({
         headerTag: "h3",
@@ -48,7 +50,7 @@ var paint_map = function(){
 
 
 
-    function codeAddress() {
+    codeAddress = function() {
         var address = document.getElementById("provider_address").value;
         geocoder.geocode( { 'address': address}, function(results, status) {
           if (status == google.maps.GeocoderStatus.OK) {

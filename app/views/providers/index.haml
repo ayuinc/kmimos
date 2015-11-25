@@ -43,7 +43,7 @@
                 .col-xs-6
                   %input(type="checkbox" checked ng-model="search.number_of" ng-true-value="4" data-ng-false-value='') 4 o mas
               %br
-              .form-group
+              .form-grouped_collection_select
                 %label Servicios Adicionales
                 %div(ng-repeat="service in services ")
                   %input(type="checkbox" checked ng-model="search.sel_service[service.id]" ng-true-value="{{service.id}}" data-ng-false-value='') {{service.service_name}}
