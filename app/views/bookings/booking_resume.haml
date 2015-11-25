@@ -90,7 +90,7 @@
               - diff = (@booking.end_date - @booking.start_date).to_i 
               - @booking.booked_pets.each do |booked_pet|
                 - amount = AdditionalService.get_pet_rate(booked_pet.pet.id, @booking.provider_id) 
-                - total += amount
+                - total += amount * diff 
                 %tr.border-bottom
                   %td=" Del #{@booking.start_date} al #{@booking.end_date}"
                   %td= booked_pet.pet
