@@ -102,10 +102,11 @@
           </thead>
           <tbody>
             <% total = 0 %>
+            <% super_total = 0 %>
             <% @booking.booked_pets.each do |booked_pet| %>
               <% diff = (@booking.end_date - @booking.start_date).to_i  %>
               <% amount = AdditionalService.get_pet_rate(booked_pet.pet, @booking.provider_id) rescue 0 %>
-              <% total += amount %>
+              <% total += amount * diff %>
               <tr class="border-bottom">
                 <td>
                   <%= " Del #{@booking.start_date} al #{@booking.end_date}" %>
@@ -114,7 +115,7 @@
                   <%= booked_pet.pet %>
                 </td>
                 <td>
-                  <%= pluralize(diff, "dia") %>
+                  <%= pluralize(diff, "noche") %>
                 </td>
                 <td class="total">
                   <%= "$ #{number_to_currency(total, unit: "MXN")}" %>
@@ -143,6 +144,7 @@
               <td class="total">
                 <%= "$ #{number_to_currency(total * 1.2, unit: "MXN")}" %>
               </td>
+              <% super_total += total * 1.2 %> 
             </tr>
           </tfoot>
         </table>
@@ -166,7 +168,7 @@
                   <%= booked_service.service %>
                 </td>
                 <td>
-                  <%= AdditionalService.get_rate(@booking.provider_id, booked_service.pet.size_id, booked_service.service_id) rescue 0 %>
+                <%= "$ #{number_to_currency(amount, unit: "MXN")}" %>
                 </td>
               </tr>
             <% end %>
@@ -188,9 +190,22 @@
               <td class="total">Precio Total </td>
               <td class="total">
                 <%= "$ #{number_to_currency(total * 1.2, unit: "MXN")}" %>
+                <% super_total += total * 1.2%>
               </td>
             </tr>
           </tfoot>
+        </table>
+        <table>
+          <thead>
+            <tr>
+              <td>
+                <h3>Total a pagar</h3>
+              </td>
+              <td>
+                <h3><%= "#{number_to_currency(super_total, unit: "MXN")}"%></h3>
+              </td>
+            </tr>
+          </thead>
         </table>
         <br/>
         <p>(*) Esta reserva esta sujeta a cambios si no es confirmada en las próximas 24 horas.</p>
