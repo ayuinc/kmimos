@@ -58,24 +58,24 @@
             </p>
           </td>
         </tr>
+        <h4>Mascotas incluidas en la reserva</h4>
         <% @booking.booked_pets.each do |booked| %>
           <table>
             <tr>
+              <h3 style="font-family: Montserrat-Regular;font-size: 20px;color: #48CFC2;line-height: 31.67px;">Nombre: <%="#{booked.pet}"%></h3>
+            </tr>
+            <tr>
               <td style="background-color: #ace2d3; width: 40%; padding: 5px;">
-                <label style="font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;">Nombre</label>
-                <p style="font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 18px;"><%="#{booked.pet}"%></p>
                 <label style="font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;">Raza</label>
                 <p style="font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 18px;"><%="#{booked.pet.race}"%></p>
                 <label style="font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;">Tamaño</label>
                 <p style="font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 18px;"><%="#{booked.pet.own_size}"%></p>
                 <label style="font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;">Peso</label>
                 <p style="font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 18px;"><%="#{booked.pet.weight}"%></p>
-                <label style="font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;">Peso</label>
+                <label style="font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;">Sexo</label>
                 <p style="font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 18px;"><%="#{booked.pet.sex}"%></p>
               </td>
-              <td>
-                <h3 style="font-family: Montserrat-Regular;font-size: 20px;color: #48CFC2;line-height: 31.67px;">Acerca de <%="#{booked.pet}"%></h3>
-                <br/>
+              <td "background-color: #fffdb7; width: 40%; padding: 5px;">
                 <h4 style="font-family: Montserrat-Bold;font-size: 15px;color: #637988;line-height: 18px;">Comportamiento</h4>
                 <p style="font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 22px;"><%="#{booked.pet.behavior}"%></p>
                 <br/>
@@ -100,12 +100,13 @@
             </tr>
             </thead>
           </thead>
-          <tbody>
+          <tbody style="border-bottom:1px solid black">
             <% total = 0 %>
+            <% super_total = 0 %>
             <% @booking.booked_pets.each do |booked_pet| %>
               <% diff = (@booking.end_date - @booking.start_date).to_i  %>
               <% amount = AdditionalService.get_pet_rate(booked_pet.pet, @booking.provider_id) rescue 0 %>
-              <% total += amount %>
+              <% total += amount * diff %>
               <tr class="border-bottom">
                 <td>
                   <%= " Del #{@booking.start_date} al #{@booking.end_date}" %>
@@ -114,10 +115,10 @@
                   <%= booked_pet.pet %>
                 </td>
                 <td>
-                  <%= pluralize(diff, "dia") %>
+                  <%= pluralize(diff, "noche") %>
                 </td>
                 <td class="total">
-                  <%= "$ #{number_to_currency(total, unit: "MXN")}" %>
+                  <%= "$ #{number_to_currency(amount, unit: "MXN")}" %>
                 </td>
                 <td class="total">
                   <%= "$ #{number_to_currency(total * diff, unit: "MXN")}" %>
@@ -139,24 +140,25 @@
               </td>
             </tr>
             <tr class="border-bottom">
-              <td class="total" colspan="4"> Total </td>
+              <td class="total" colspan="4"> Total por estadia </td>
               <td class="total">
-                <%= "$ #{number_to_currency(total * 1.2, unit: "MXN")}" %>
+                <b><%= "$ #{number_to_currency(total * 1.2, unit: "MXN")}" %></b>
               </td>
+              <% super_total += total * 1.2 %> 
             </tr>
           </tfoot>
         </table>
         <br/>
         <h3>Servicios Adicionales</h3>
         <br/>
-        <table class="table" width="100%">
+        <table class="table" width="100%" style="border-bottom:1px solid black">
           <thead>
             <tr>
               <th class="green-light-title" align="left">Servicios</th>
               <th class="total" align="left">Costo</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody style="border-bottom:1px solid black">
             <% total = 0  %>
             <% @booking.booked_services.each do |booked_service| %>
               <% amount = AdditionalService.get_rate(booked_service.booking.provider_id, booked_service.pet.size_id, booked_service.service_id) rescue 0 %>
@@ -166,7 +168,7 @@
                   <%= booked_service.service %>
                 </td>
                 <td>
-                  <%= AdditionalService.get_rate(@booking.provider_id, booked_service.pet.size_id, booked_service.service_id) rescue 0 %>
+                  <%= "$ #{number_to_currency(amount, unit: "MXN")}" %>
                 </td>
               </tr>
             <% end %>
@@ -185,12 +187,25 @@
               </td>
             </tr>
             <tr class="border-bottom">
-              <td class="total">Precio Total </td>
+              <td class="total">Total por servicios adicionales</td>
               <td class="total">
-                <%= "$ #{number_to_currency(total * 1.2, unit: "MXN")}" %>
+                <b><%= "$ #{number_to_currency(total * 1.2, unit: "MXN")}" %></b>
+                <% super_total += total * 1.2%>
               </td>
             </tr>
           </tfoot>
+        </table>
+        <table>
+          <thead>
+            <tr align="center">
+              <td>
+                <h3><b>Total a pagar</b></h3>
+              </td>
+              <td>
+                <h3><b><%= "#{number_to_currency(super_total, unit: "MXN")}"%></b></h3>
+              </td>
+            </tr>
+          </thead>
         </table>
         <br/>
         <p>(*) Esta reserva esta sujeta a cambios si no es confirmada en las próximas 24 horas.</p>
