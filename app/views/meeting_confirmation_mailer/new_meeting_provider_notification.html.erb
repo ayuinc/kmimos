@@ -43,7 +43,7 @@
 					</tr>
 					<tr>
 						<td>
-							<p><%=@meeting.user_name %> realizó una solicitud para conocerte.</p>
+							<p><%=@meeting.user_first_name %> realizó una solicitud para conocerte.</p>
 							<p>Aquí los detalles de la solicitud:</p>
 						</td>
 					</tr>
@@ -68,7 +68,7 @@
 					    	<p style="margin: 0;">Datos del cliente</p>
 					    </td>
 					    <td>
-					    	<p style="margin: 0;">: <%= @meeting.user_name %> <%= @meeting.user_last_name %></p>
+					    	<p style="margin: 0;">: <%= @meeting.user_first_name %> <%= @meeting.user_last_name %></p>
 					    </td>
 					    <td>
 					    <p style="margin: 0;">: <%= @meeting.user_email %></p>
