@@ -12,6 +12,7 @@ class User::SessionsController < Devise::SessionsController
       sign_in(@user)
       redirect_to session[:previous_url] || '/'
     else
+      flash[:error] = "El usuario o contraseña ingresados no son válidos"
       @user == User.new({email: params[:user][:email]}) if @user == nil 
       render 'new'
     end

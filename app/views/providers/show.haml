@@ -16,7 +16,7 @@
               %h3.m-0.mb-7
                 = "#{@provider.name} #{@provider.last_name_1}"
               %p
-                %b Areas donde puede recoger a tu perrito
+                %b Áreas donde puede recoger a tu perrito
               - @provider.locations.group_by(&:state_id).each do |k, state|
                 %b.mb-7= state.first.state
                 %br

@@ -21,7 +21,9 @@ class MeetingsController < ApplicationController
     
 	  if @meeting.save
     	MeetingConfirmationMailer.new_meeting_notification(@meeting, current_country).deliver
+    	MeetingConfirmationMailer.new_meeting_provider_notification(@meeting, current_country).deliver
     	MeetingConfirmationMailer.new_meeting_for_admin(@meeting, current_country).deliver
+
       
 	    session[:start_date] = nil
 	    session[:end_date] = nil

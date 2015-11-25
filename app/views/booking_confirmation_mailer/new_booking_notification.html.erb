@@ -10,9 +10,9 @@
       <table style="width: 90%;">
         <tr>
           <td>
-            <p>Orden de reservacion</p>
+            <p>Orden de Reserva</p>
           </td>
-          <td>
+          <td align="right">
             <img class="logo" src="http://s1.postimg.org/n12q65th7/logo_mail_confirmacion.png"/>
           </td>
         </tr>
@@ -21,7 +21,7 @@
     <div class="container-sm">
       <h1>Hola <%="#{@booking.user.first_name}"%>, </h1>
       <p>
-        Se ha hecho una reserva en Kmimos para que
+        Has hecho una reserva en Kmimos para que
         <b><%="#{@booking.provider.name}"%> </b>
         cuide a 
         <%= "#{'tu'.pluralize(@booking.pets.count)}" %>
@@ -37,7 +37,7 @@
         <b><%="#{@booking.end_date.strftime("%d/%m%Y")}"%> </b>
         <% if (@booking.dropoff_time) %>
         a las 
-        <b><%="#{@booking.dropoff_time.strftime("%H:%M")}"%></b>
+        <b><%="#{@booking.dropoff_time.strftime("%H:%M")}"%>. </b>
         <% end %>
         Recogiendo y entregando a 
         <%= "#{'tu'.pluralize(@booking.pets.count)}" %>
@@ -48,11 +48,11 @@
         <% end %>
       </p>
       <p>
-        Para cualquier duda y/o comentario puedes contactarte con el cuidador al telefono
+        Para cualquier duda y/o comentario puedes contactarte con el cuidador al teléfono
         <b><%="#{@booking.provider.phone}"%></b>
         o al correo
         <b><%="#{@booking.provider.email}"%></b>
-        O con Kmimos a los telefonos 55 1791 4931, 55 6578 6147 o al correo e.celli@desdigitec.com
+        O con Kmimos a los teléfonos 55 1791 4931, 55 6578 6147 o al correo e.celli@desdigitec.com
       </p>
       <% @booking.pets.each do |pet| %>
       <table class="table pet_table" style="width: 100%;">
@@ -66,7 +66,7 @@
             <p style="font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 18px;"><%="#{pet.own_size.size_title}"%></p>
             <label style="font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;">Peso</label>
             <p style="font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 18px;"><%="#{pet.weight}"%></p>
-            <label style="font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;">Peso</label>
+            <label style="font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;">Sexo</label>
             <p style="font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 18px;"><%="#{pet.sex}"%></p>
           </td>
           <td>
@@ -87,11 +87,13 @@
       <table class="table" width="100%">
         <thead>
           <thead>
-            <th class="green-light-title">Detalle</th>
-            <th class="green-light-title">Mascota</th>
-            <th class="green-light-title">Tiempo</th>
-            <th class="total">Costo Unitario</th>
-            <th class="total">Precio Total</th>
+          <tr>
+            <th class="green-light-title" align="left">Detalle</th>
+            <th class="green-light-title" align="left">Mascota</th>
+            <th class="green-light-title" align="left">Tiempo</th>
+            <th class="total" align="left">Costo Unitario</th>
+            <th class="total" align="left">Precio Total</th>
+          </tr>
           </thead>
         </thead>
         <tbody>
@@ -101,19 +103,19 @@
           <% amount = AdditionalService.get_pet_rate(booked_pet.pet_id, @booking.provider_id) rescue 0 %>
           <% total += amount * diff %>
             <tr class="border-bottom">
-              <td style="border:1px solid black"> 
+              <td> 
                 <%= " Del #{@booking.start_date} al #{@booking.end_date}" %>
               </td>
-              <td  style="border:1px solid black">
+              <td >
                 <%= booked_pet.pet %>
               </td>
-              <td  style="border:1px solid black">
-                <%= pluralize(diff, "dia") %>
+              <td >
+                <%= pluralize(diff, "días") %> 
               </td>
-              <td class="total"  style="border:1px solid black">
+              <td class="total" >
                 <%= "$ #{number_to_currency(amount, unit: "MXN")}" %>
               </td>
-              <td class="total"  style="border:1px solid black">
+              <td class="total" >
                 <%= "$ #{number_to_currency(amount * diff, unit: "MXN")}" %>
               </td>
             </tr>
@@ -145,8 +147,10 @@
       <br/>
       <table class="table" width="100%">
         <thead>
-          <th class="green-light-title">Servicios</th>
-          <th class="total">Costo</th>
+          <tr>
+          <th class="green-light-title" align="left">Servicios</th>
+          <th class="total" align="left">Costo</th>
+          </tr>
         </thead>
         <tbody>
           <% total = 0 %>
@@ -196,7 +200,7 @@
         <img src="http://www.ucarecdn.com/624fa984-5c02-47a7-8786-6309a432ff9f/importante_kmimos_mail.png" width="50%"/>
       </center>
     </div>
-    <div>
+    <div style="padding-bottom:10px">
       <center>
         <a href="http://cp.kmimos.la/bookings/booking_resume/<%= @booking.id %>.pdf">
           <img src="http://www.ucarecdn.com/105ce605-5244-46c8-ad82-a1a5221de862/descargar_reserva.png"/>
@@ -219,7 +223,7 @@
             <p style="color:white; margin-right: 17px; margin-left: 12px;">Contáctanos: 55 1791 4931 / 55 6578 614</p>
           </td>
           <td style="background:#13334C">
-            <%if @country == "México" %>
+            <%if @country.name == "México" %>
               <a href="http://www.kmimos.la/" style="color: white; margin-right: 88px; text-decoration: none;">
                 www.kmimos.com.mx
               </a>

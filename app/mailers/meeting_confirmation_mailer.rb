@@ -7,7 +7,15 @@ class MeetingConfirmationMailer < ActionMailer::Base
     @country = current_country
     mail(
       to: @meeting.user_email,
-      subject: 'Solicitud recibida.')
+      subject: 'Solicitud para conocer cuidador Kmimos recibida')
+  end
+
+  def new_meeting_notification_for_provider(meeting, current_country)
+    @meeting = meeting
+    @country = current_country
+    mail(
+      to: @meeting.provider.email,
+      subject: 'Tienes una solicitud para conocerte en Kmimos')
   end
 
   def new_meeting_for_admin(meeting, current_country)
