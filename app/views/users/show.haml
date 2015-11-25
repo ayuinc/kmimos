@@ -94,7 +94,8 @@
      var n = (Math.floor(Math.random() * 900) + 1);
      var field = event.field;    
      var button = field.find('.pretty_upload_input');     
-     var input = field.find('input')[0]field.find('input')[0];
+     var input = field.find('input')[0];
+      
      button.attr('el', '.photo_' + String(n));
      $(input).addClass('photo_' + String(n));     
      paint_pretty_uploads();
