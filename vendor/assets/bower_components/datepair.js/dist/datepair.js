@@ -1,5 +1,5 @@
 /*!
- * datepair.js v0.4.10 - A javascript plugin for intelligently selecting date and time ranges inspired by Google Calendar.
+ * datepair.js v0.4.13 - A javascript plugin for intelligently selecting date and time ranges inspired by Google Calendar.
  * Copyright (c) 2015 Jon Thornton - http://jonthornton.github.com/Datepair.js
  * License: MIT
  */
@@ -9,14 +9,14 @@
 	'use strict';
 
 	var _ONE_DAY = 86400000;
-	var jq = window.Zepto || window.jQuery
+	var jq = window.Zepto || window.jQuery;
 	
 	function simpleExtend(obj1, obj2) {
 		var out = obj2 || {};
 	
 		for (var i in obj1) {
 			if (!(i in out)) {
-				out[i] = obj1[i]
+				out[i] = obj1[i];
 			}
 		}
 	
@@ -86,7 +86,7 @@
 		this.endTimeInput = this.container.querySelector('.'+this.settings.endClass+'.'+this.settings.timeClass);
 	
 		// initialize date and time deltas
-		this.refresh()
+		this.refresh();
 		this._updateEndMintime();
 	
 		// init starts here
@@ -117,7 +117,7 @@
 			// time-only pair will always be >= 0
 			var delta = this.dateDelta + this.timeDelta;
 			if (delta < 0 && (!this.startDateInput || !this.endDateInput) ) {
-				delta += _ONE_DAY
+				delta += _ONE_DAY;
 			}
 	
 			return delta;
@@ -143,7 +143,7 @@
 	
 		remove: function()
 		{
-			this._unbindChangeHandler()
+			this._unbindChangeHandler();
 		},
 	
 		_bindChangeHandler: function(){
@@ -174,6 +174,7 @@
 			if (hasClass(e.target, this.settings.dateClass)) {
 				if (e.target.value != '') {
 					this._dateChanged(e.target);
+					this._timeChanged(e.target);
 				} else {
 					this.dateDelta = null;
 				}
@@ -187,13 +188,13 @@
 			}
 	
 			this._validateRanges();
-			this._updateEndMintime()
+			this._updateEndMintime();
 			this._bindChangeHandler();
 		},
 	
 		_dateChanged: function(target){
 			if (!this.startDateInput || !this.endDateInput) {
-				return
+				return;
 			}
 	
 			var startDate = this.settings.parseDate(this.startDateInput);
@@ -238,7 +239,7 @@
 	
 		_timeChanged: function(target){
 			if (!this.startTimeInput || !this.endTimeInput) {
-				return
+				return;
 			}
 	
 			var startTime = this.settings.parseTime(this.startTimeInput);
@@ -266,14 +267,27 @@
 				var newTime = new Date(startTime.getTime() + this.timeDelta);
 				this.settings.updateTime(this.endTimeInput, newTime);
 				endTime = this.settings.parseTime(this.endTimeInput);
+	
+				this._doMidnightRollover(startTime, endTime);
 			} else if (this.settings.anchor == 'end' && hasClass(target, this.settings.endClass)) {
 				var newTime = new Date(endTime.getTime() - this.timeDelta);
 				this.settings.updateTime(this.startTimeInput, newTime);
 				startTime = this.settings.parseTime(this.startTimeInput);
+	
+				this._doMidnightRollover(startTime, endTime);
 			} else {
-				if (endTime < startTime) {
+				this._doMidnightRollover(startTime, endTime);
+	
+				var startDate, endDate;
+				if (this.startDateInput && this.endDateInput) {
+					startDate = this.settings.parseDate(this.startDateInput);
+					endDate = this.settings.parseDate(this.endDateInput);
+				}
+	
+				if ((+startDate == +endDate) && (endTime < startTime)) {
+					var thisInput  = hasClass(target, this.settings.endClass) ? this.endTimeInput : this.startTimeInput;
 					var otherInput = hasClass(target, this.settings.startClass) ? this.endTimeInput : this.startTimeInput;
-					var selectedTime = this.settings.parseTime(target);
+					var selectedTime = this.settings.parseTime(thisInput);
 					this.timeDelta = 0;
 					this.settings.updateTime(otherInput, selectedTime);
 				} else {
@@ -281,6 +295,16 @@
 				}
 			}
 	
+	
+		},
+	
+		_doMidnightRollover: function(startTime, endTime) {
+			if (!this.startDateInput || !this.endDateInput) {
+				return;
+			}
+	
+			var endDate = this.settings.parseDate(this.endDateInput);
+			var startDate = this.settings.parseDate(this.startDateInput);
 			var newDelta = endTime.getTime() - startTime.getTime();
 			var offset = (endTime < startTime) ? _ONE_DAY : -1 * _ONE_DAY;
 	
@@ -291,11 +315,9 @@
 					&& ((newDelta >= 0 && this.timeDelta < 0) || (newDelta < 0 && this.timeDelta >= 0))) {
 	
 				if (this.settings.anchor == 'start') {
-					var endDate = this.settings.parseDate(this.endDateInput);
 					this.settings.updateDate(this.endDateInput, new Date(endDate.getTime() + offset));
 					this._dateChanged(this.endDateInput);
 				} else if (this.settings.anchor == 'end') {
-					var startDate = this.settings.parseDate(this.startDateInput);
 					this.settings.updateDate(this.startDateInput, new Date(startDate.getTime() - offset));
 					this._dateChanged(this.startDateInput);
 				}
@@ -332,7 +354,7 @@
 				triggerSimpleCustomEvent(this.container, 'rangeError');
 			}
 		}
-	}
+	};
 
 	window.Datepair = Datepair;
 
