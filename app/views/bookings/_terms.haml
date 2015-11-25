@@ -207,6 +207,7 @@
   $("input[name=license_term]").click(function(e) {
     if ($(this).is(":checked")) {
       $("#confim_new_booking").prop("disabled", false);
+      $("#confim_new_booking").attr("style","background-color: #55af8c")
     } else {
       $("#confim_new_booking").attr("disabled", true);
     }
