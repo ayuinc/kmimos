@@ -5,8 +5,11 @@
 <p>Nombre del cliente:  <%= @meeting.user_first_name %> <%= @meeting.user_last_name %></p>	
 <p>Teléfono del cliente:  <%= @meeting.user_phone %></p>	
 <p>Correo electrónico del cliente:  <%= @meeting.user_email %></p>
-
+<p>Posible fecha de Reserva: <%=@meeting.start_date%> al <%=@meeting.end_date%> </p>
 
 <p>Nombre del cuidador: <%= @meeting.provider.name %>  <%= @meeting.provider.last_name_1 %></p>
+<p>Teléfono del cuidador: <%= @meeting.provider.phone %></p>
+<p>Email del cuidador: <%= @meeting.provider.email %> </p>
+
 
 <p>Kmimos</p>
