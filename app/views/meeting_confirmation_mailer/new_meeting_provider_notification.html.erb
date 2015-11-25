@@ -78,11 +78,6 @@
 					<table>
 						<tr>
 							<td>
-								<p>¡Gracias!</p>
-							</td>
-						</tr>
-						<tr>
-							<td>
 								<p>Durante las próximas 24 horas recibirás una llamada telefónica o te contactaremos por correo electrónico para coordinar la reunión en persona con el cliente.</p>
 								<p>Cualquier pregunta no dudes en contactarnos al +55 1791 4931 / 55 6578 6147.</p>
 								<p>¡Gracias!</p>
@@ -90,37 +85,41 @@
 							</td>
 						</tr>
 					</table>
-					
-					<table>
-					  <tr>
-					  	<td><img src="http://s24.postimg.org/c5rfifgph/banner_mail_confirmacion.png" alt="" style="  margin-bottom: 28px;"></td>
-					    
-					  </tr>
-					</table>
 				</tbody>
 			</div>
-			<footer  style="background:#1dba9a; padding: 4px 12px;">
-				<table>
-					<tr>
-						<td>
-							<p  style="color:white; margin-right: 17px; margin-left: 12px;">Contáctanos: +55 1791 4931 / 55 6578 6147 </p>
+			<footer style="background:#13334C; padding: 4px 12px; width:100%">
+				<table style="background:#13334C; padding: 4px 12px;width:100%">
+					<tr style="background:#13334C; padding: 4px 12px;">
+						<td style="background:#13334C; padding: 4px 12px;">
+							<p style="color:white; margin-right: 17px; margin-left: 12px;">Contáctanos: 55 1791 4931 / 55 6578 614</p>
 						</td>
-
-						<td>
-							<% if @country.name == "México" %>
-								<a href="http://www.kmimos.com.mx/" style="color: white; margin-right: 88px; text-decoration: none;">www.kmimos.com.mx</a>
-							<% else %>
-								<a href="http://www.kmimos.la/" style="color: white; margin-right: 88px; text-decoration: none;">www.kmimos.la</a>
-							<% end %>
-							
+						<td style="background:#13334C">
+							<%if @country.name == "México" %>
+							<a href="http://www.kmimos.la/" style="color: white; margin-right: 88px; text-decoration: none;">
+								www.kmimos.com.mx
+							</a>
+							<%else%>
+							<a href="http://www.kmimos.com.mx/" style="color: white; margin-right: 88px; text-decoration: none;">
+								www.kmimos.la
+							</a>
+							<%end%>
 						</td>
-						<td><p style="color:white; margin-right: 14px;">Síguenos en: </p></td>
-						<td>
-						<a href="https://www.facebook.com/pages/Kamimos/1473614136234432?ref=bookmarks"><img src="http://s17.postimg.org/r4ttx53vf/facebook_mail_confirmacion.png" alt="" style="margin-right: 3px;"></a>
-						<a href="https://twitter.com/KmimosMx"><img src="http://s12.postimg.org/gdclxk795/twitter_mail_confirmacion.png" alt=""></a></td>
+						<td style=style="background:#13334C; padding: 4px 12px;">
+							<p style="color:white; margin-right: 14px;">Síguenos en:</p>
+						</td>
+						<td style="background:#13334C; padding: 4px 12px;">
+							<a href="https://www.facebook.com/pages/Kamimos/1473614136234432?ref=bookmarks" target="_blank">
+								<img src="http://www.ucarecdn.com/9765bf04-3080-4b1f-afff-246b0f011018/facebook.png" style="margin-right: 3px;"/>
+							</a>
+							<a href="https://twitter.com/KmimosMx" target="_blank">
+								<img src="http://www.ucarecdn.com/3a6702b4-7271-4318-83ce-1727c90391f4/twitter.png" style="margin-right: 3px;"/>
+							</a>
+							<a href="https://instagram.com/kmimosmx/" target="_blank">
+								<img src="http://www.ucarecdn.com/4711d4df-feb4-4fad-8eee-9f6aa3170675/instagram.png" style="margin-right: 3px;"/>
+							</a>
+						</td>
 					</tr>
 				</table>
-				
 			</footer>
 		</div>
 	</body>

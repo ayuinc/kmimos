@@ -3,7 +3,7 @@
 
       <div class="panel-heading medium text-gray mb-14">
       <center>
-        <h5>Cambiar contraseña</h5>
+        <h2>Cambiar contraseña</h2>
       </center>
     </div>
 
@@ -12,11 +12,7 @@
       <%= f.hidden_field :reset_password_token %>
   <div class="panel-body">
       <div class="form-group">
-        <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> Caracteres Minimos)</em>
-          <br/>
-        <% end %>
-        <%= f.input :password, autofocus: true, autocomplete: "off", label: "contraseña" %>
+        <%= f.input :password, autofocus: true, autocomplete: "off", label: "Contraseña" %>
       </div>
 
       <div class="form-group">
