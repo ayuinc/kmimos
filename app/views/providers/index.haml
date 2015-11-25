@@ -54,9 +54,10 @@
           #map_canvas
             %ui-gmap-google-map(center='filteredProviders[0].coords' zoom='map.zoom' control='map.control' options='mapOptions')
               %ui-gmap-markers(models="map.markers" coords="'self'" icon="'icon'") 
-                %ui-gmap-windows(show="show")
-                  %div(ng-non-bindable='')  
-                    {{title}}
+                %ui-gmap-windows(models="map.markers" show="show" doRebuildAll='true' ng-cloak='')
+                  %div(ng-non-bindable='')
+                    %img(src="{{provider.avatar}}" width= '100px' )
+                    %p {{provider.name}}
 
 
 = render "layouts/modal"
