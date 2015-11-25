@@ -98,6 +98,7 @@
         </thead>
         <tbody>
           <% total = 0 %>
+          <% super_total = 0 %>
           <% @booking.booked_pets.each do |booked_pet| %>
           <% diff = (@booking.end_date - @booking.start_date).to_i  %>
           <% amount = AdditionalService.get_pet_rate(booked_pet.pet_id, @booking.provider_id) rescue 0 %>
@@ -135,9 +136,10 @@
             </td>
           </tr>
           <tr class="border-bottom">
-            <td class="total" colspan="4"> Total </td>
+            <td class="total" colspan="4"> Total por estadía </td>
             <td class="total">
               <b><%= "$ #{number_to_currency(total * 1.2, unit: "MXN")}" %></b>
+              <% super_total += total * 1.2 %> 
             </td>
           </tr>
         </tfoot>
@@ -182,9 +184,10 @@
             </td>
           </tr>
           <tr class="border-bottom">
-            <td class="total">Precio Total </td>
+            <td class="total">Total por servicios adicionales</td>
             <td class="total">
               <b><%= "$ #{number_to_currency(total * 1.2, unit: "MXN")}" %></b>
+              <% super_total += total * 1.2%>
             </td>
           </tr>
         </tfoot>
