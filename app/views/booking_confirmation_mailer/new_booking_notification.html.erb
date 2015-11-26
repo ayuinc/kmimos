@@ -27,7 +27,7 @@
         <%= "#{'tu'.pluralize(@booking.pets.count)}" %>
         <%= "#{'mascota'.pluralize(@booking.pets.count)}" %>
         <%= "#{@booking.pets_list}" %>
-        desde el dia
+        desde el día
         <b><%="#{@booking.start_date.strftime("%d/%m%Y")}"%></b>
         <% if (@booking.pickup_time) %>
         a las 
@@ -54,7 +54,7 @@
         <b><%="#{@booking.provider.email}"%></b>
         O con Kmimos a los teléfonos 55 1791 4931, 55 6578 6147 o al correo e.celli@desdigitec.com
       </p>
-      <h4>Mascotas incluidas en la reserva</h4>
+      <h3><b>Mascotas incluidas en la reserva</b></h3>
       <% @booking.pets.each do |pet| %>
       <table class="table pet_table" style="width: 100%;">
         <tr>
@@ -62,14 +62,10 @@
         </tr>
         <tr>
           <td style="background-color: #ace2d3; width: 40%; padding: 5px;">
-            <label style="font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;">Raza</label>
-            <p style="font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 18px;"><%="#{pet.race}"%></p>
-            <label style="font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;">Tamaño</label>
-            <p style="font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 18px;"><%="#{pet.own_size.size_title}"%></p>
-            <label style="font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;">Peso</label>
-            <p style="font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 18px;"><%="#{pet.weight}"%></p>
-            <label style="font-family: Montserrat-Bold;font-size: 14px;color: #637988;line-height: 18px;">Sexo</label>
-            <p style="font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 18px;"><%="#{pet.sex}"%></p>
+            <p style="font-family: Montserrat-Light;font-size: 14px;color: #637988;line-height: 18px;"><b>Raza:  </b><%="#{pet.race}"%></p>
+            <p style="font-family: Montserrat-Light;font-size: 14px;color: #637988;line-height: 18px;"><b>Tamaño: </b><%="#{pet.own_size.size_title}"%></p>
+            <p style="font-family: Montserrat-Light;font-size: 14px;color: #637988;line-height: 18px;"><b>Peso: </b><%="#{pet.weight}"%></p>
+            <p style="font-family: Montserrat-Light;font-size: 12px;color: #637988;line-height: 18px;"><b>Sexo: </b><%="#{pet.sex}"%></p>
           </td>
           <td style="background-color: #fffdb7; width: 40%; padding: 5px;">
             <h4 style="font-family: Montserrat-Bold;font-size: 15px;color: #637988;line-height: 18px;">Comportamiento</h4>
@@ -111,7 +107,7 @@
                 <%= booked_pet.pet %>
               </td>
               <td >
-                <%= pluralize(diff, "días") %> 
+                <%= pluralize(diff, "noche") %> 
               </td>
               <td class="total" >
                 <%= "$ #{number_to_currency(amount, unit: "MXN")}" %>
