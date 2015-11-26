@@ -34,7 +34,7 @@ ActiveAdmin.register Booking do
   controller do 
     
     def show
-      @booking = Booking.find(token: params[:id])
+      @booking = Booking.where(token: params[:id]).last
       render :show
     end
     
