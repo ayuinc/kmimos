@@ -19,7 +19,7 @@
       </table>
     </div>
     <div class="container-sm">
-      <h1>Hola <%="#{@booking.user.first_name}"%>, </h1>
+      <h1 style="font-weight:200;color:#526577;font-size:35px">Hola <%="#{@booking.user.first_name}"%>, </h1>
       <p>
         Has hecho una reserva en Kmimos para que
         <b><%="#{@booking.provider.name}"%> </b>
@@ -84,11 +84,11 @@
         <thead>
           <thead>
           <tr>
-            <th class="green-light-title" align="left" style="color:#4dbeac;text-align:left;font-weight:600">Detalle</th>
-            <th class="green-light-title" align="left" style="color:#4dbeac;text-align:left;font-weight:600">Mascota</th>
-            <th class="green-light-title" align="left" style="color:#4dbeac;text-align:left;font-weight:600">Tiempo</th>
+            <th align="left" style="color:#4dbeac;text-align:left;font-weight:600">Detalle</th>
+            <th align="left" style="color:#4dbeac;text-align:left;font-weight:600">Mascota</th>
+            <th align="left" style="color:#4dbeac;text-align:left;font-weight:600">Tiempo</th>
             <th class="total" align="left" style="color:#4dbeac;text-align:left;font-weight:600">Costo Unitario</th>
-            <th class="total" align="left" style="color:#4dbeac;text-align:left;font-weight:600">Precio Total</th>
+            <th align="left" style="color:#4dbeac;text-align:left;font-weight:600">Precio Total</th>
           </tr>
           </thead>
         </thead>
@@ -99,41 +99,41 @@
           <% diff = (@booking.end_date - @booking.start_date).to_i  %>
           <% amount = AdditionalService.get_pet_rate(booked_pet.pet_id, @booking.provider_id) rescue 0 %>
           <% total += amount * diff %>
-            <tr style="padding:8px;border-bottom:2px solid #cbcfc8">
-              <td> 
+            <tr>
+              <td style="padding:8px;border-bottom:2px solid #cbcfc8"> 
                 <%= " Del #{@booking.start_date} al #{@booking.end_date}" %>
               </td>
-              <td >
+              <td style="padding:8px;border-bottom:2px solid #cbcfc8">
                 <%= booked_pet.pet %>
               </td>
-              <td >
+              <td style="padding:8px;border-bottom:2px solid #cbcfc8">
                 <%= pluralize(diff, "noche") %> 
               </td>
-              <td class="total" >
+              <td class="total" style="padding:8px;border-bottom:2px solid #cbcfc8">
                 <%= "$ #{number_to_currency(amount, unit: "MXN")}" %>
               </td>
-              <td class="total" >
+              <td class="total" style="padding:8px;border-bottom:2px solid #cbcfc8">
                 <%= "$ #{number_to_currency(amount * diff, unit: "MXN")}" %>
               </td>
             </tr>
           <% end %>
         </tbody>
         <tfoot>
-          <tr style="padding:8px;border-bottom:2px solid #cbcfc8">
-            <td class="total" colspan="4"> Subtotal</td>
-            <td class="total">
+          <tr>
+            <td class="total" style="padding:8px;border-bottom:2px solid #cbcfc8"colspan="4"> Subtotal</td>
+            <td class="total" style="padding:8px;border-bottom:2px solid #cbcfc8">
               <%= "$ #{number_to_currency(total, unit: "MXN")}" %>
             </td>
           </tr>
           <tr class="border-bottom">
-            <td class="total" colspan="4"> Beneficios Kmimos </td>
-            <td class="total">
+            <td class="total" colspan="4" style="padding:8px;border-bottom:2px solid #cbcfc8"> Beneficios Kmimos </td>
+            <td class="total" style="padding:8px;border-bottom:2px solid #cbcfc8">
               <%= "$ #{number_to_currency(total * 0.2, unit: "MXN")}" %>
             </td>
           </tr>
-          <tr class="border-bottom">
-            <td class="total" colspan="4"> Total por estadía </td>
-            <td class="total">
+          <tr class="border-bottom" >
+            <td class="total" colspan="4" style="padding:8px;border-bottom:2px solid #cbcfc8"> Total por estadía </td>
+            <td class="total" style="padding:8px;border-bottom:2px solid #cbcfc8">
               <b><%= "$ #{number_to_currency(total * 1.2, unit: "MXN")}" %></b>
               <% super_total += total * 1.2 %> 
             </td>
@@ -143,11 +143,11 @@
       <br/>
       <h3 style="font-weight:600;color:#536774">Servicios Adicionales</h3>
       <br/>
-      <table class="table" width="100%" style="border-bottom:1px solid black">
+      <table class="table" width="100%">
         <thead>
           <tr>
-          <th class="green-light-title" align="left">Servicios</th>
-          <th class="total" align="left">Costo</th>
+          <th style="color:#4dbeac;text-align:left;font-weight:600" align="left">Servicios</th>
+          <th style="color:#4dbeac;text-align:left;font-weight:600" align="left">Costo</th>
           </tr>
         </thead>
         <tbody>
@@ -157,10 +157,10 @@
           <% amount = AdditionalService.get_rate(booked_service.booking.provider_id, booked_service.pet.size_id, booked_service.service_id) rescue 0 %>
           <% total += amount %>
           <tr class="border-bottom">
-            <td>
+            <td style="padding:8px;border-bottom:2px solid #cbcfc8">
               <%= booked_service.service %>
             </td>
-            <td>
+            <td style="padding:8px;border-bottom:2px solid #cbcfc8">
               <%= "$ #{number_to_currency(amount, unit: "MXN")}" %>
             </td>
           </tr>
@@ -168,20 +168,20 @@
         </tbody>
         <tfoot>
           <tr class="border-bottom">
-            <td class="total">Subtotal</td>
-            <td class="total">
+            <td class="total" style="padding:8px;border-bottom:2px solid #cbcfc8">Subtotal</td>
+            <td class="total" style="padding:8px;border-bottom:2px solid #cbcfc8">
               <%= "$ #{number_to_currency(total, unit: "MXN")}" %>
             </td>
           </tr>
-          <tr class="border-bottom">
-            <td class="total">Beneficios Kmimos </td>
-            <td class="total">
+          <tr class="border-bottom" >
+            <td class="total" style="padding:8px;border-bottom:2px solid #cbcfc8">Beneficios Kmimos </td>
+            <td class="total" style="padding:8px;border-bottom:2px solid #cbcfc8">
               <%= "$ #{number_to_currency(total * 0.2, unit: "MXN")}" %>
             </td>
           </tr>
           <tr class="border-bottom">
-            <td class="total">Total por servicios adicionales</td>
-            <td class="total">
+            <td class="total" style="padding:8px;border-bottom:2px solid #cbcfc8">Total por servicios adicionales</td>
+            <td class="total" style="padding:8px;border-bottom:2px solid #cbcfc8">
               <b><%= "$ #{number_to_currency(total * 1.2, unit: "MXN")}" %></b>
               <% super_total += total * 1.2%>
             </td>
