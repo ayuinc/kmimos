@@ -19,7 +19,9 @@ class User < ActiveRecord::Base
      validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
 
 
-
+     def to_s
+       "#{first_name} #{last_name}"
+     end
 
 
 

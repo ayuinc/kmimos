@@ -34,6 +34,13 @@ ActiveAdmin.register Booking do
   
   controller do 
     
+    form do |f|
+      f.inputs "Nueva Reserva" do
+        f.input :user_first_name
+        f.input :user_last_name
+      end
+    end
+    
     def destroy
       @booking = Booking.where(token: params[:id]).last
       @booking.destroy
