@@ -29,22 +29,16 @@ ActiveAdmin.register Booking do
   
   permit_params :start_date, :end_date, :provider, :user_first_name, :user_last_name, :user_phone, 
   :user_mail, :user_message, :ref_code, :raza, :edad, :cuidado_especial, :address, :pet_name
-  
-   
+ 
   
   controller do 
     
-    form do |f|
-      f.inputs "Nueva Reserva" do
-        f.input :user_first_name
-        f.input :user_last_name
-      end
-    end
+    
     
     def destroy
       @booking = Booking.where(token: params[:id]).last
       @booking.destroy
-      redirect_to action: :index
+      redirec_to action: :index
     end
   end
   
