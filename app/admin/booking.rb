@@ -33,7 +33,10 @@ ActiveAdmin.register Booking do
   
   controller do 
     
-    
+    def show
+      @booking = Booking.find(params[:id])
+      render :show
+    end
     
     def destroy
       @booking = Booking.where(token: params[:id]).last
