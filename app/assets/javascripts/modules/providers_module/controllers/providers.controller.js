@@ -58,7 +58,7 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
         longitude: provider.longitude,
         id: provider.id,
         icon: 'assets/huella-mensaje-17-mini.png',
-        provider: {name: provider.name, avatar: provider.avatar}
+        provider: {id: provider.id, name: provider.name, avatar: provider.avatar}
       });
     }, log);
 
