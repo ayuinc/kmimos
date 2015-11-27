@@ -6,7 +6,7 @@
       .row
         .col-md-2.padding-0
           .form-filter
-            %h3.text-header Buscar cuidador  
+            %h3.text-header Buscar cuidador   
             %p Selecciona donde, cuando y que necesitas para dejar tu perrito.
             = search_form_for @search do |f|
               .form-group
@@ -22,11 +22,11 @@
               .form-group
                 %label Tamaño de Perro
                 %br
-                %input(type="checkbox" checked ng-model="search.sizes[0]" ng-true-value="Pequeños" data-ng-false-value='') Pequeño
+                %input(type="checkbox" checked ng-model="search.sizes[0]" ng-true-value="Pequeños" data-ng-false-value='') Pequeños
                 %br
-                %input(type="checkbox" checked ng-model="search.sizes[1]" ng-true-value="Medianos" data-ng-false-value='') Mediano
+                %input(type="checkbox" checked ng-model="search.sizes[1]" ng-true-value="Medianos" data-ng-false-value='') Medianos
                 %br
-                %input(type="checkbox" checked ng-model="search.sizes[2]" ng-true-value="Grandes" data-ng-false-value='') Grande
+                %input(type="checkbox" checked ng-model="search.sizes[2]" ng-true-value="Grandes" data-ng-false-value='') Grandes
               .row
                 %label Cantidad de Perros
               .row
@@ -62,5 +62,10 @@
 
 :javascript
   $("#q_locations_id_eq").select2();
+  
   $('.datepicker').datepicker();
   $('body').attr("style","background-color:#f7f7f7");
+  
+  setTimeout(function(){ 
+    $("#q_locations_id_eq").val("#{@location}").change();
+  }, 1000);

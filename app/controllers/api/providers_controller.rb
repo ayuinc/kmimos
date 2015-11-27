@@ -40,7 +40,7 @@ class Api::ProvidersController < ApplicationController
    end
  end
  
- def get_search_session_params 
+ def get_session_params 
    
    hash_response = { from_date: session[:from_date], 
                      to_date:   session[:to_date], 

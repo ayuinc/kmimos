@@ -11,7 +11,11 @@ class ProvidersController < ApplicationController
     # Get search form params
     session[:from_date]     ||= params[:from_date] 
     session[:to_date]       ||= params[:to_date]  
-    session[:q_location]    ||= params[:q][:locations_id_eq]
+     
+    session[:q_location]    ||= Location.find(params[:q][:locations_id_eq]).name
+    
+    @location = Location.find(params[:q][:locations_id_eq]).name rescue ''
+  
     
     @search = Provider.search(params[:q])
     

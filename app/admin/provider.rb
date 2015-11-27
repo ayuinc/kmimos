@@ -1,7 +1,6 @@
 ActiveAdmin.register Provider do
   permit_params :name, :last_name_1, :last_name_2, :dni, :email, :phone, :description, :email_c, :avatar,
   :price, :areas_externas, :emergencia, :experiencia, :active, :latitude, :longitude, :address, :is_favorite, :on_top
-   
   
   filter :name
   filter :last_name_1
