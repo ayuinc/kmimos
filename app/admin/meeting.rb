@@ -6,5 +6,5 @@ ActiveAdmin.register Meeting do
   #  user_phone      :string(255)
   #  user_email      :string(255)
   
-  permit_params :provider, :user_first_name, :user_last_name, :user_phone, :user_email
+  permit_params :provider, :user_id
 end

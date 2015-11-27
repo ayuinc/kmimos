@@ -1,5 +1,6 @@
 class MeetingsController < ApplicationController
-	before_action :set_meeting, only: [:show]
+	before_action :set_meeting, only: [:showm]
+  before_action :authenticate_user! 
 
 	def new
 		session[:chosen_provider_id] = params[:provider_id]
@@ -18,6 +19,7 @@ class MeetingsController < ApplicationController
 	def create 
 		@meeting = Meeting.new(meeting_params)
     
+    @meeting.user = current_user
     
 	  if @meeting.save
     	MeetingConfirmationMailer.new_meeting_notification(@meeting, current_country).deliver
