@@ -29,15 +29,19 @@ ActiveAdmin.register Booking do
   
   permit_params :start_date, :end_date, :provider, :user_first_name, :user_last_name, :user_phone, 
   :user_mail, :user_message, :ref_code, :raza, :edad, :cuidado_especial, :address, :pet_name
-  
-   
+ 
   
   controller do 
+    
+    def show
+      @booking = Booking.where(token: params[:id]).last
+      render :show
+    end
     
     def destroy
       @booking = Booking.where(token: params[:id]).last
       @booking.destroy
-      redirect_to action: :index
+      redirec_to action: :index
     end
   end
   
