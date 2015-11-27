@@ -1,33 +1,25 @@
 class ProvidersController < ApplicationController
   include Mobylette::RespondToMobileRequests
 
-  before_action :set_provider, only: [:show, :edit, :update, :destroy]
-  #before_action :require_unlogged_provider, only: [:new]
-
+  before_action :set_provider, only: [:show, :edit, :update, :destroy] 
   before_action :set_country, only: [:index,:home]
   
+  #Static pages cached
   caches_page :benefits
 
-  # GET /providers
-  # GET /providers.json
-
-  def index
-        
-
+  def index 
+    # Get search form params
+    session[:from_date]     ||= params[:from_date] 
+    session[:to_date]       ||= params[:to_date]  
+    session[:q_location]    ||= params[:q][:locations_id_eq]
+    
     @search = Provider.search(params[:q])
-
-    @providers=Provider.where(active: true)
-
-    session[:from_date] = params[:from_date] if params[:from_date].to_s != ""  rescue ""
-    session[:to_date] = params[:to_date] if params[:to_date].to_s != "" rescue ""
-
-    @providers = @providers.all.page params[:page]
-
+    
+    #Custom view for mobile
     respond_to do |format|
       format.html   { render 'index' }
       format.mobile { render 'index_mobile', layout: 'mobile' }
     end
-
   end
 
   def home

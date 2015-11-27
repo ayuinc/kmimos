@@ -9,26 +9,28 @@ class Api::ProvidersController < ApplicationController
  def get_providers
 
    hash_response = Array.new
-   @providers = Provider.where(active: true)
+   
+   @providers = Provider.actives
 
    @providers.each do |provider|
      hash_provider = Hash.new
-     hash_provider[:id] = provider.id
-     hash_provider[:isFavorite] = provider.is_favorite
-     hash_provider[:name] = "#{provider.name} #{provider.last_name_1}"
-     hash_provider[:states] = provider.locations.map{|l| l.state.name}.uniq
-     hash_provider[:longitude] = provider.longitude
-     hash_provider[:latitude] = provider.latitude
-     hash_provider[:coords] = {latitude: provider.latitude, longitude: provider.longitude }
-     hash_provider[:locations] = provider.locations.map{|l| l.name}.uniq
-     hash_provider[:description] = provider.description
-     hash_provider[:price] = provider.rates.minimum(:price).to_f * 1.2
-     hash_provider[:avatar] = provider.avatar.url == nil ? "assets/user.jpg" : provider.avatar.url
-     hash_provider[:sizes] = provider.sizes.map{|s| s.size_title}.uniq
-     hash_provider[:pet_qty] = provider.pets_allowed.to_i
-     hash_provider[:services] = provider.services.map{|s| s.service_name}.uniq
-     hash_provider[:comments] = provider.comments
-     hash_provider[:valuation] = provider.get_valoration.to_i
+     
+     hash_provider[:id]           = provider.id
+     hash_provider[:isFavorite]   = provider.is_favorite
+     hash_provider[:name]         = "#{provider.name} #{provider.last_name_1} #{provider.last_name_2}"
+     hash_provider[:states]       = provider.locations.map{|l| l.state.name}.uniq
+     hash_provider[:longitude]    = provider.longitude
+     hash_provider[:latitude]     = provider.latitude
+     hash_provider[:coords]       = {latitude: provider.latitude, longitude: provider.longitude }
+     hash_provider[:locations]    = provider.locations.map{|l| l.name}.uniq
+     hash_provider[:description]  = provider.description
+     hash_provider[:price]        = provider.rates.minimum(:price).to_f * 1.2
+     hash_provider[:avatar]       = provider.avatar.url == nil ? "assets/user.jpg" : provider.avatar.url
+     hash_provider[:sizes]        = provider.sizes.map{|s| s.size_title}.uniq
+     hash_provider[:pet_qty]      = provider.pets_allowed.to_i
+     hash_provider[:services]     = provider.services.map{|s| s.service_name}.uniq
+     hash_provider[:comments]     = provider.comments
+     hash_provider[:valuation]    = provider.get_valoration.to_i
 
      hash_response << hash_provider
    end
@@ -36,6 +38,18 @@ class Api::ProvidersController < ApplicationController
    respond_to do |format|
      format.json { render json: hash_response.as_json,  success: true }
    end
+ end
+ 
+ def get_search_session_params 
+   
+   hash_response = { from_date: session[:from_date], 
+                     to_date:   session[:to_date], 
+                     location:  session[:q_location] }
+   
+   respond_to do |format|
+     format.json { render json: hash_response.as_json,  success: true }
+   end
+   
  end
 
  private

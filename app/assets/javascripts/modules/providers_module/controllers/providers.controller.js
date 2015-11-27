@@ -4,31 +4,28 @@
 
 
 providers_module.controller('ProvidersController', ['$scope', '$filter', 'ProviderService', 'ServiceService', function ($scope, $filter, ProviderService, ServiceService) {
-
   "use strict";
-
+  
+  $scope.providers;
+  $scope.filteredProviders;
+  
   $scope.search = {};
-
+  $scope.search.number_of;
   $scope.search.locations = "";
   $scope.search.states = "";
   $scope.search.sizes = [];
-  $scope.search.number_of;
-  
   $scope.search.sel_service = [];
-
-  $scope.providers;
+  $scope.map = { zoom: 10, control: {}, markers: []};
+  $scope.map.markers = [];
+  $scope.mapOptions = { zoomControl: true, panControl: true, scaleControl: true }; 
   
-  $scope.mapOptions = {zoomControl: true, panControl: true, scaleControl: true};
   
-  $scope.filteredProviders;
   
   ProviderService.get().$promise.then(function (providers) {
     $scope.providers = providers;
   });
   
-  $scope.map = { zoom: 10, control: {}, markers: []};
-
-  $scope.map.markers = [];
+  
 
   $scope.search.price = {
     min: 0,
@@ -44,15 +41,12 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
   
   $scope.$watch('filteredProviders', function () {
     
+    var temp_markers, log; 
     
-    var temp_markers, log;
-    
-    log = [];
-    temp_markers = [];
+    log           = [];
+    temp_markers  = [];
 
     angular.forEach($scope.filteredProviders, function (provider, key) {
-      
-      console.log(provider.name);
       temp_markers.push({
         latitude: provider.latitude,
         longitude: provider.longitude,
@@ -63,7 +57,6 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
     }, log);
 
     $scope.map.markers = temp_markers;
-     
     
   });
 
@@ -73,7 +66,5 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
   };
 
   $scope.services = ServiceService.get();
-
-
 
 }]);

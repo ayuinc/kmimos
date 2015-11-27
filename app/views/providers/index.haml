@@ -1,6 +1,5 @@
 %center
-  %h1 Cuidadores Sugeridos
-  %br
+  %h1 Cuidadores Sugeridos 
 %div(ng-app="providers_module")
   %div(ng-controller="ProvidersController")
     .container-fluid.pb-14
@@ -15,12 +14,10 @@
               .form-group
                 %input.form-control.datepicker{value: session[:to_date]}(placeholder="Hasta" name="to_date")
               .form-group
-                %label Municipio
-                %br
+                %label Municipio 
                 = f.grouped_collection_select(:locations_id_eq, State.where("country_id=?",@country.id).order(:name), :locations, :name, :name, :name , {:prompt => @country.id == 2 ? "Elegir Barrio" : "Elegir Municipio o Delegación"}, 'ng-model': "search.locations", class: "form-control", "multiple":"")  #, html_input: {'ng-model': ''}
               .form-group
-                %label Rango de Precio
-                %br
+                %label Rango de Precio 
                 %rzslider(rz-slider-model="search.price" rz-slider-floor="search.price.floor" rz-slider-ceil="search.price.ceil" rz-slider-model="search.price.min" rz-slider-high="search.price.max" )
               .form-group
                 %label Tamaño de Perro
@@ -65,6 +62,5 @@
 
 :javascript
   $("#q_locations_id_eq").select2();
-
   $('.datepicker').datepicker();
   $('body').attr("style","background-color:#f7f7f7");
