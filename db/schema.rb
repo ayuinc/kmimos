@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151118202807) do
+ActiveRecord::Schema.define(version: 20151127221925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -203,6 +203,7 @@ ActiveRecord::Schema.define(version: 20151118202807) do
     t.string  "token"
     t.date    "start_date"
     t.date    "end_date"
+    t.integer "user_id"
   end
 
   add_index "meetings", ["provider_id"], name: "index_meetings_on_provider_id", using: :btree
@@ -307,7 +308,6 @@ ActiveRecord::Schema.define(version: 20151118202807) do
     t.boolean  "is_favorite"
     t.string   "behaviors_accepted"
     t.integer  "behavior_id"
-    t.boolean  "accept_non_sterilized"
     t.boolean  "only_sterilizated"
   end
 

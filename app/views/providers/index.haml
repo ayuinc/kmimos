@@ -1,13 +1,12 @@
 %center
-  %h1 Cuidadores Sugeridos
-  %br
+  %h1 Cuidadores Sugeridos 
 %div(ng-app="providers_module")
   %div(ng-controller="ProvidersController")
     .container-fluid.pb-14
       .row
         .col-md-2.padding-0
           .form-filter
-            %h3.text-header Buscar cuidador  
+            %h3.text-header Buscar cuidador   
             %p Selecciona donde, cuando y que necesitas para dejar tu perrito.
             = search_form_for @search do |f|
               .form-group
@@ -15,21 +14,19 @@
               .form-group
                 %input.form-control.datepicker{value: session[:to_date]}(placeholder="Hasta" name="to_date")
               .form-group
-                %label Municipio
-                %br
+                %label Municipio 
                 = f.grouped_collection_select(:locations_id_eq, State.where("country_id=?",@country.id).order(:name), :locations, :name, :name, :name , {:prompt => @country.id == 2 ? "Elegir Barrio" : "Elegir Municipio o Delegación"}, 'ng-model': "search.locations", class: "form-control", "multiple":"")  #, html_input: {'ng-model': ''}
               .form-group
-                %label Rango de Precio
-                %br
+                %label Rango de Precio 
                 %rzslider(rz-slider-model="search.price" rz-slider-floor="search.price.floor" rz-slider-ceil="search.price.ceil" rz-slider-model="search.price.min" rz-slider-high="search.price.max" )
               .form-group
                 %label Tamaño de Perro
                 %br
-                %input(type="checkbox" checked ng-model="search.sizes[0]" ng-true-value="Pequeños" data-ng-false-value='') Pequeño
+                %input(type="checkbox" checked ng-model="search.sizes[0]" ng-true-value="Pequeños" data-ng-false-value='') Pequeños
                 %br
-                %input(type="checkbox" checked ng-model="search.sizes[1]" ng-true-value="Medianos" data-ng-false-value='') Mediano
+                %input(type="checkbox" checked ng-model="search.sizes[1]" ng-true-value="Medianos" data-ng-false-value='') Medianos
                 %br
-                %input(type="checkbox" checked ng-model="search.sizes[2]" ng-true-value="Grandes" data-ng-false-value='') Grande
+                %input(type="checkbox" checked ng-model="search.sizes[2]" ng-true-value="Grandes" data-ng-false-value='') Grandes
               .row
                 %label Cantidad de Perros
               .row
@@ -65,6 +62,10 @@
 
 :javascript
   $("#q_locations_id_eq").select2();
-
+  
   $('.datepicker').datepicker();
   $('body').attr("style","background-color:#f7f7f7");
+  
+  setTimeout(function(){ 
+    $("#q_locations_id_eq").val("#{@location}").change();
+  }, 1000);

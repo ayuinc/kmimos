@@ -1,6 +1,7 @@
-providers_module.factory('ProviderService', ['$resource', function($resource){
-  var host_name = document.location.hostname;
-  var port = document.location.port;
-  var url_service="http://" + host_name +":" + port + "/api/providers/get_providers.json"; //local url
+providers_module.factory('ProviderService', function($resource, AGENT){
+   
+  var url_service="http://" + AGENT.HOST_NAME + ":" + AGENT.PORT + "/api/providers/get_providers.json"; 
+  
   return $resource(url_service, {}, {get: {method: 'GET', isArray: true}});
-}]);
+  
+});
