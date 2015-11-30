@@ -21,6 +21,7 @@
     :javascript
       try{Typekit.load({ async: true });}catch(e){}
   %body
+    = render "layouts/partial/header" unless home?
     = yield
     .searcher
       %h3.text-header  Buscar cuidador
