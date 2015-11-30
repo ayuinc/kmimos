@@ -33,27 +33,32 @@
       %h3.text-gray Detalles
       .row.details-profile.mt-35
         .col-md-3
-          %p.label.text-center
+          %p.label.text-center.text-gray
             -if @provider.property != nil
               Tipo de propiedad
               .icon= image_tag('detalles-casa.svg', height: '32px')
-              %p.label-small= @provider.property
+              %p.label-small
+                %b= @provider.property
             - else
               Tipo de propiedad
               .icon= image_tag('detalles-casa.svg', height: '32px')
-              %p.label-small= @provider.property
+              %p.label-small
+                %b= @provider.property
         .col-md-3
-          %p.label.text-center Tamaño aceptados
+          %p.label.text-center.text-gray Tamaño aceptados
           .icon= image_tag('detalles-perro-grande.svg', height: '32px')
-          %p.label-small="Perros #{@provider.sizes.map{|size| size.size_title}.join(', ')} "
+          %p.label-small
+            %b="Perros #{@provider.sizes.map{|size| size.size_title}.join(', ')} "
         .col-md-3
-          %p.label.text-center Edades aceptadas
+          %p.label.text-center.text-gray Edades aceptadas
           .icon= image_tag('detalles-edad-perro-cachorro.svg', height: '32px')
-          %p.label-small="#{@provider.ages.join(', ')} "
+          %p.label-small
+            %b="#{@provider.ages.join(', ')} "
         .col-md-3
-          %p.label.text-center Años de experiencia
+          %p.label.text-center.text-gray Años de experiencia
           .icon= image_tag('detalles-experiencia.svg', height: '32px')
-          %p.label-small= "#{@provider.experiencia} "
+          %p.label-small
+            %b= "#{@provider.experiencia} "
       .border-bottom.mt-21
       -if @provider.provider_attachments.count > 0
         %h3.text-gray.mb-35.mt-49= "Fotos de #{@provider.name} #{@provider.last_name_1}"
@@ -68,27 +73,32 @@
       %h3.text-gray.mb-35 Otros detalles
       .row.details-profile.pl-21
         .col-md-3
-          %p.label.text-center Tengo
+          %p.label.text-center.text-gray Tengo
           .icon= image_tag('otros-detalles-otros-perros.svg', height: '32px')
-          %p.label-small= "#{@provider.number_of_pets} Perros en casa (#{@provider.own_sizes.map{|size| size.size_title}.join(', ')})"
+          %p.label-small
+            %b= "#{@provider.number_of_pets} Perros en casa (#{@provider.own_sizes.map{|size| size.size_title}.join(', ')})"
         .col-md-3
-          %p.label.text-center Mi propiedad
+          %p.label.text-center.text-gray Mi propiedad
           .icon= image_tag('otros-detalles-patio.svg', height: '32px')
-          %p.label-small= @provider.has_yard ? "Tiene patio" : "No tiene patio"
+          %p.label-small
+            %b= @provider.has_yard ? "Tiene patio" : "No tiene patio"
         .col-md-3
-          %p.label.text-center Mi propiedad
+          %p.label.text-center.text-gray Mi propiedad
           .icon= image_tag('otros-detalles-areas-verdes.svg', height: '32px')
-          %p.label-small= @provider.has_green ? "Tiene areas Verdes" : "No tiene areas verdes"
+          %p.label-small
+            %b= @provider.has_green ? "Tiene areas Verdes" : "No tiene areas verdes"
         .col-md-3
-          %p.label.text-center # Perros aceptados
+          %p.label.text-center.text-gray # Perros aceptados
           .icon= image_tag('otros-detalles-cantidad-perros.svg', height: '32px')
-          %p.label-small="#{@provider.pets_allowed.to_i}"
+          %p.label-small
+            %b="#{@provider.pets_allowed.to_i}"
       .row.details-profile.pl-21
         - if !(@provider.only_sterilizated)
           .col-md-3
-            %p.label.text-center Esterilizacón
+            %p.label.text-center.text-gray Esterilizacón
             .icon= image_tag('perro_esterilizado.svg', height: '32px')
-            %p.label-small Solo acepta perros esterilizados
+            %p.label-small 
+              %b Solo acepta perros esterilizados
       .Comportamientos
         %h3.text-gray Comportamientos de perros aceptados
         .row.comp
@@ -129,11 +139,11 @@
             %h4.m-7.price
               = 1.2*(@provider.rates.minimum(:price)) rescue 0
               = current_country.currency
-            %h5.light.mt-0.text-gray.text-small.border-bottom por noche
-            %p Tarifas por tamaños
-            %ul
-              - @provider.rates.each do |a|
-                %li="#{a.size.size_title} : #{1.2*(a.price) rescue 0}"
+            %h5.light.mt-0.text-gray.text-small por noche
+            .col-md-12.border-top.border-bottom.pt-7.pb-7  
+              %p Tarifas por tamaños
+              - @provider.rates.order(size_id: :asc).each do |a|
+                %p{style:"font-size:11px"}="#{a.size.size_title} :  #{1.2*(a.price) rescue 0}  #{current_country.currency}"
             =f.submit "Reservar".html_safe, :class => "mt-14 mb-21 btn btn-primary btn-small btn-fold" #,  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Reservar', 'provider_#{@provider.id.to_s}']);"
             %br/
             = link_to "Conocer cuidador".html_safe, new_meeting_path(:provider_id => @provider.id), :class => "text-secondary btn btn-fold", :style => "border-color: #1DBA9A; padding: 10px 7px;",  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Conocer', 'provider_#{@provider.id.to_s}']);"
