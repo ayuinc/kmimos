@@ -19,6 +19,7 @@ class MeetingsController < ApplicationController
       session[:user_email] = nil
 	    redirect_to  meeting_path(@meeting)
 	  else
+      
 	    render 'new'
 	  end
 	end

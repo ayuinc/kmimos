@@ -12,16 +12,21 @@ class BookingsController < ApplicationController
 
 	def create 
 		@booking = Booking.new(booking_params)
-	  if @booking.save
-    	BookingConfirmationMailer.new_booking_notification(@booking, current_country).deliver
-    	BookingConfirmationMailer.new_booking_for_admin(@booking, current_country).deliver
-	    session[:start_date] = nil
-	    session[:end_date] = nil
-      session[:user_email] = nil
-	    redirect_to booking_path(@booking)
-	  else
-	    render 'new'
-	  end
+    begin 
+  	  if @booking.save
+      	BookingConfirmationMailer.new_booking_notification(@booking, current_country).deliver
+      	BookingConfirmationMailer.new_booking_for_admin(@booking, current_country).deliver
+  	    session[:start_date] = nil
+  	    session[:end_date] = nil
+        session[:user_email] = nil
+  	    redirect_to booking_path(@booking)
+  	  else
+  	    render 'new'
+  	  end
+    rescue
+      flash[:notice] = "Ups, Ha ocurrido un error"
+      render 'new'
+    end
 	end
 
 	private
