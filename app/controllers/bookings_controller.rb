@@ -23,8 +23,8 @@ class BookingsController < ApplicationController
   	  else
   	    render 'new'
   	  end
-    rescue
-      SupportMailer.new_booking_notification(session[:chosen_provider_id], params.inspect).deliver
+    rescue => error
+      SupportMailer.new_booking_notification(session[:chosen_provider_id], params.inspect, error).deliver
       flash[:notice] = "Ups, Ha ocurrido un error"
       render 'new'
     end
