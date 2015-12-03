@@ -18,6 +18,8 @@ class MeetingConfirmationMailer < ActionMailer::Base
     # Panamá
     if @country.id == 3
       admins << "nenavieira@gmail.com" << "bobthin@gmail.com"
+    elsif @country.id == 1
+      admins << "m.castellon@desdigitec.com" <<  "f.trujillo@desdigitec.com"
     end
     admins << @meeting.provider.email
     p admins
