@@ -8,7 +8,10 @@ ServihogarRails::Application.routes.draw do
 
   resources :providers do
     member do
-      get 'apply_to_new_version'
+      get 'apply_to_new_version' 
+    end
+    collection do
+      get 'update_state', as: 'update_state'
     end
   end
 
