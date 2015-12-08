@@ -24,7 +24,7 @@
 			           <%= collection_select(:states, :id, State.where("country_id=?",@country.id).order(:name), :id, :name, {:prompt => 'Seleccione un Estado'}, {class: "input-lg borderless form-location-nav" }) %>
               </div>
             <div class="col-sm-6">
-			        <%= f.collection_select(:locations_id_eq, State.where("country_id=?",@country.id).order(:name).first.locations, :id, :name, {:prompt =>  "Elegir Estado"}, { :class=> "input-lg borderless form-location-nav" }) %>
+			        <%= f.collection_select(:locations_id_eq, State.where("country_id=?",@country.id).first.locations.order(:name), :id, :name, {:prompt =>  "Elegir Estado"}, { :class=> "input-lg borderless form-location-nav" }) %>
             </div>
              </div>
             <div class="col-sm-3 botones-searchs p-0">
@@ -63,7 +63,7 @@
 <div class="container pb-14">
   <% @providers.each do |provider| %>
   <div class="row mt-14 mb-14">
-    <div class="col-md-2 col-xs-1"></div>   
+    <div class="col-md-2 col-xs-1"></div>
     <%= link_to(provider_path(provider)) do %>
       <div class="col-md-8 list-profiles pl-0 pr-0">
       <div class="col-md-3 text-center p-14 picture-perfil col-xs-12">
