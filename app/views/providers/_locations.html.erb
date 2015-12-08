@@ -1,3 +1,3 @@
-<% @locations.each do |location| %>
+<% @locations.order(:name).each do |location| %>
   <option value="<%= location.id %>"><%= location.name %></option>
 <% end %>
