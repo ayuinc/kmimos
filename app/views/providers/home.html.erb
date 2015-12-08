@@ -82,28 +82,35 @@
     <div class="container-fluid mt-21">
       <div class="row bg-check" id="bg-check">
         <h3 class="hidden-lg text-bg-check text-white text-center">Elige en donde y cuando</h3>
-        <div class="col-sm-2 hidden-sm"></div>
-        <div class="col-md-8 contenedor-search col-sm-12">
+        <div class="col-sm-1 hidden-sm"></div>
+        <div class="col-md-10 contenedor-search col-sm-12">
           <h3 class="pl-14 text-white thin mv-7 text-bg-check hidden-xs">Busca cuidadores calificados que atiendan a tu mascota mientras estás de viaje</h3>
           <%= search_form_for @search do |f| %>
           <div class="row header-form">
-            <div class="col-sm-3 col-xs-in">
+            <div class="col-sm-2 col-xs-in">
               <% if session[:start_date].nil? %>
                 <%= text_field_tag(:start_date, nil, class: 'datepicker input-lg form-control form-check', placeholder: 'DD/MM/AAAA') %>
               <% else %>
                 <%= text_field_tag(:start_date, session[:start_date].strftime("%d/%m/%Y"), class: 'datepicker input-lg form-control form-check', placeholder: 'DD/MM/AAAA') %>
               <% end %>
             </div>
-            <div class="col-sm-3 col-xs-out">
+            <div class="col-sm-2 col-xs-out">
+              
               <% if session[:end_date].nil? %>
                 <%= text_field_tag(:end_date, nil, class: 'datepicker input-lg form-control form-check', placeholder: 'DD/MM/AAAA') %>
               <% else %>
-                <%= text_field_tag(:end_date, session[:end_date].strftime("%d/%m/%Y"), class: 'datepicker input-lg form-control form-check', placeholder: 'DD/MM/AAAA') %>
+                <%= text_field_tag(:end_date, session[:end_date].strftime("%d/%m/%Y"), class: 'datepicker input-lg form-control form-check', placeholder: 'DD/MM/AAAA') %>  
               <% end %>
             </div>
-            <div class="col-sm-3 locations-dd">
-              <%= f.grouped_collection_select(:locations_id_eq, State.where("country_id=?",@country.id).order(:name), :locations, :name, :id, :name, {:prompt => @country.id == 2 ? "Elegir Barrio" : "Elegir Municipio o Delegación"}, { :class=> "input-lg borderless form-location-nav" }) %>
+             <div class="col-sm-5 locations-dd">
+               <div class="col-sm-6">
+			           <%= collection_select(:states, :id, State.where("country_id=?",@country.id).order(:name), :id, :name, {:prompt => 'Seleccione un Estado'}, {class: "input-lg borderless form-location-nav" }) %>
+              </div>
+              <div class="col-sm-6">
+              <%= f.collection_select(:locations_id_eq, Location.where("state_id=?", State.where("country_id=?", @country.id).first.id.to_s), :id, :name, {:prompt => @country.id == 2 ? "Elegir Barrio" : "Elegir Municipio o Delegación"}, { :class=> "input-lg borderless form-location-nav" }) %>
+              </div>
             </div>
+            
             <div class="col-sm-3 search-btn">
               <%= f.submit "Buscar", class:" borderless form-search" %>
             </div>
@@ -292,5 +299,4 @@
     </div>
   </div>
 </div> 
-
-
+ 

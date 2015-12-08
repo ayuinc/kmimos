@@ -5,23 +5,28 @@
     <div class="col-sm-10 pl-70 col-xs-10">
           <%= search_form_for @search do |f| %>
           <div class="row header-form">
-            <div class="col-sm-3 col-xs-in">
+            <div class="col-sm-2 col-xs-in">
               <% if session[:start_date].nil? %>
                 <%= text_field_tag(:start_date, nil, class: 'datepicker input-lg form-control form-check', placeholder: 'DD/MM/AAAA') %>
               <% else %>
                 <%= text_field_tag(:start_date, session[:start_date].strftime("%d/%m/%Y"), class: 'datepicker input-lg form-control form-check', placeholder: 'DD/MM/AAAA') %>
               <% end %>
             </div>
-            <div class="col-sm-3 col-xs-out">
+            <div class="col-sm-2 col-xs-out">
               <% if session[:end_date].nil? %>
                 <%= text_field_tag(:end_date, nil, class: 'datepicker input-lg form-control form-check', placeholder: 'DD/MM/AAAA') %>
               <% else %>
                 <%= text_field_tag(:end_date, session[:end_date].strftime("%d/%m/%Y"), class: 'datepicker input-lg form-control form-check', placeholder: 'DD/MM/AAAA') %>
               <% end %>
             </div>
-            <div class="col-sm-3 botones-searchs p-0 mb-14">
-              <%= f.grouped_collection_select(:locations_id_eq, State.where("country_id=?",@country.id).order(:name), :locations, :name, :id, :name , {:prompt => @country.id == 2 ? "Elegir Barrio" : "Elegir Municipio o Delegación"}, { :class=> "input-lg borderless form-location-nav" }) %>
+            <div class="col-sm-5 botones-searchs p-0 mb-14">
+               <div class="col-sm-6">
+			           <%= collection_select(:states, :id, State.where("country_id=?",@country.id).order(:name), :id, :name, {:prompt => 'Seleccione un Estado'}, {class: "input-lg borderless form-location-nav" }) %>
+              </div>
+            <div class="col-sm-6">
+			        <%= f.collection_select(:locations_id_eq, State.where("country_id=?",@country.id).order(:name).first.locations, :id, :name, {:prompt =>  "Elegir Estado"}, { :class=> "input-lg borderless form-location-nav" }) %>
             </div>
+             </div>
             <div class="col-sm-3 botones-searchs p-0">
               <%= f.submit "Buscar", class:"ml-7 borderless form-search" %>
             </div>

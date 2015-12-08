@@ -119,6 +119,12 @@
       format.json { head :no_content }
     end
   end
+  
+  def update_state
+    state = State.find(params[:country_id])
+    @locations = state.locations rescue nil
+    render partial: 'locations'
+  end
 
   private
   

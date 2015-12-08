@@ -214,4 +214,25 @@ function disqus_config() {
   this.callbacks.afterRender = [function() {
     console.log("disqus");
   }];
+  
+  
 }
+
+
+$(function() {
+  return $(document).on('change', '#states_id', function(evt) {
+    return $.ajax('/providers/update_state', {
+      type: 'GET', 
+      data: {
+        country_id: $("#states_id option:selected").val()
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        return console.log("AJAX Error: " + textStatus);
+      },
+      success: function(data, textStatus, jqXHR) {
+        $("#q_locations_id_eq").html(data);
+        return console.log("Dynamic country select OK! ");
+      }
+    });
+  });
+});
