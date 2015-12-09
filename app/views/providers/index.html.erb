@@ -64,6 +64,7 @@
 
 <div class="container pb-14">
   <% @providers.each do |provider| %>
+  <% if provider.active == true %>
   <div class="row mt-14 mb-14">
     <div class="col-md-2 col-xs-1"></div>
     <%= link_to(provider_path(provider)) do %>
@@ -115,6 +116,8 @@
     <div class="col-md-2 col-xs-1"></div>
   </div>
   <% end %>
+  <% end %>
+
   <div class="row">
     <div class="text-center">
       <%= will_paginate @providers, :previous_label => '< Anterior ', :next_label => ' Siguiente >' %>
