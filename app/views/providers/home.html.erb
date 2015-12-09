@@ -107,7 +107,7 @@
 			           <%= collection_select(:states, :id, State.where("country_id=?",@country.id).order(:name), :id, :name, {:prompt => 'Seleccione un Estado', :selected => @state_id}, {class: "input-lg borderless form-location-nav" }) %>
               </div>
               <div class="col-sm-6">
-              <%= collection_select(:locations, :id, Location.where("state_id=?", State.where("country_id=?", @country.id).first.id.to_s), :id, :name, {:prompt => @country.id == 2 ? "Seleccione un Barrio" : "Municipio o Delegación"}, { :class=> "input-lg borderless form-location-nav" }) %>
+              <%= collection_select(:locations, :id, Location.where("state_id=?", State.where("country_id=?", @country.id).first.id.to_s).order(:name), :id, :name, {:prompt => @country.id == 2 ? "Seleccione un Barrio" : "Municipio o Delegación"}, { :class=> "input-lg borderless form-location-nav" }) %>
               </div>
             </div>
 
