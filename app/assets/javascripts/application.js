@@ -62,7 +62,7 @@ $(document).ready(function() {
    $('[data-tracking-area="footer"]').hide();
   //validate datepickers
   $("input.form-search").click(function(event){
-    if($("#start_date").val() == "" | $("#end_date").val() == "") {
+    if($("#start_date").val() == "" | $("#end_date").val() == "" | $("#states_id").val() == "") {
       event.preventDefault(); // cancel default behavior
       // alert("llenalo");
       $("#fechas-warning").show();
