@@ -22,6 +22,7 @@
     @providers = Location.find(@location_id).providers if @location_id.to_s != ''
     @providers = state.locations.map{|location| location.providers.map{|provider| provider}}.flatten unless @location_id
 
+    @providers = @providers.order(:id)
 
     @providers = @providers.paginate(:per_page => 20, :page => params[:page])
   end
