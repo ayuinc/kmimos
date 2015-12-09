@@ -11,7 +11,6 @@
   # GET /providers.json
   def index
 
-    @providers = Provider.where(active: true)
     @search = Provider.search(params[:q])
 
     @state_id = params[:states][:id]
@@ -20,7 +19,9 @@
     state = State.find(@state_id)
 
     @providers = Location.find(@location_id).providers if @location_id.to_s != ''
-    @providers = state.locations.map{|location| location.providers.map{|provider| provider}}.flatten unless @location_id.to_s == ''
+    @providers = Provider.where(id: state.locations.map{|location| location.providers.map{|provider| provider.id}}.flatten) if @location_id.to_s == ''
+
+    @providers = @providers.where(active: true)
 
     @providers = @providers.order(:id)
 
