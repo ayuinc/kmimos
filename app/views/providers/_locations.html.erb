@@ -1,3 +1,4 @@
+<option value=""> <%=current_country.id == 2 ? "Todos los Barrios" : "Todos los Municipio"%></option>
 <% @locations.order(:name).each do |location| %>
   <option value="<%= location.id %>"><%= location.name %></option>
 <% end %>

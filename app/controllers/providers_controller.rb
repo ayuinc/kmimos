@@ -4,44 +4,39 @@
   before_action :require_unlogged_provider, only: [:new]
   before_action :get_dates, only: [:index]
   before_action :set_country, only: [:index,:home]
-    
-  
+
+
 
   # GET /providers
   # GET /providers.json
   def index
+
+    @providers = Provider.all
     @search = Provider.search(params[:q])
-    if (params[:q] != nil and params[:q][:locations_id_eq] != "") 
-      @providers = @search.result
-      .joins('LEFT OUTER JOIN "states" ON "states"."id" = "locations"."state_id" 
-             LEFT OUTER JOIN "countries" ON "countries".id = "states"."country_id"')
-      .where('"countries"."id" = ? and "providers".active = ?',current_country.id,true).order("id")
-    else
-      @providers = Provider.select("providers.*")
-      .joins('LEFT OUTER JOIN "localizations" on "localizations"."provider_id" = "providers"."id"
-              LEFT OUTER JOIN "locations" on "locations".id = "localizations"."location_id"
-              LEFT OUTER JOIN "states" ON "states"."id" = "locations"."state_id" 
-              LEFT OUTER JOIN "countries" ON "countries".id = "states"."country_id"')
-      .where('"countries"."id" = ? and "providers".active = ?',current_country.id,true).order("id")
-      .distinct
-    end
-    #if params[:direction] != nil
-    #  @providers = @providers.order("price " + params[:direction])
-    #end
+
+    @state_id = params[:states][:id]
+    @location_id = params[:locations][:id] rescue nil
+
+    state = State.find(@state_id)
+
+    @providers = Location.find(@location_id).providers if @location_id.to_s != ''
+    @providers = state.locations.map{|location| location.providers.map{|provider| provider}}.flatten unless @location_id
+
+
     @providers = @providers.paginate(:per_page => 20, :page => params[:page])
   end
-    
+
   def apply_to_new_version
     @provider = current_provider
   end
-    
-  
+
+
 
   def home
     @search = Provider.search(params[:q])
     @referral = Referral.new
   end
-  
+
   def la_home
     @countries = Country.all
     render :layout => "inter"
@@ -50,10 +45,10 @@
   # GET /providers/1
   # GET /providers/1.json
   def show
-    if @provider.active 
+    if @provider.active
       @provider_attachments = @provider.provider_attachments.all
     else
-      redirect_to :home
+      redirect_to action: :home
     end
   end
 
@@ -119,7 +114,7 @@
       format.json { head :no_content }
     end
   end
-  
+
   def update_state
     state = State.find(params[:country_id])
     @locations = state.locations rescue nil
@@ -127,12 +122,12 @@
   end
 
   private
-  
+
     def set_country
       @country = current_country
-      redirect_to :action => :la_home if @country == nil      
+      redirect_to :action => :la_home if @country == nil
     end
-  
+
     # Use callbacks to share common setup or constraints between actions.
     def set_provider
       @provider = Provider.find(params[:id])
@@ -140,11 +135,11 @@
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def provider_params
-      params.require(:provider).permit(:tipo_propiedad, :areas_externas, :emergencia, :experiencia, 
-      :name, :last_name_1, :last_name_2, :dni, :avatar, :avatar_cache, :description, 
+      params.require(:provider).permit(:tipo_propiedad, :areas_externas, :emergencia, :experiencia,
+      :name, :last_name_1, :last_name_2, :dni, :avatar, :avatar_cache, :description,
       :email, :email_c, :phone, :price, :avg_rating, :property_id, :category_id, :latitude, :longitude,
-      :address, :password, :password_confirmation,:q, locations_attributes: [:id], 
-      location_ids: [], provider_attachments_attributes: [:id, :provider_id, :photo], 
+      :address, :password, :password_confirmation,:q, locations_attributes: [:id],
+      location_ids: [], provider_attachments_attributes: [:id, :provider_id, :photo],
       age_ids: [], size_ids: [])
     end
 

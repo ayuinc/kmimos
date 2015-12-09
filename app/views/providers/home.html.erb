@@ -1,4 +1,4 @@
-<section class="home-filters"> 
+<section class="home-filters">
   <div class="container-fluid pr-0">
    <div class="navbar p-7">
       <div class="navbar-header">
@@ -28,7 +28,7 @@
             </li>
             <li class="hidden-lg hidden-md">
               <ul class="list-group m-0 pt-7 pl-0 list-movil-header">
-                
+
                 <li class="hidden-lg hidden-md hidden-sm  li-first">
                   <%= link_to 'Home', root_url, class: "not-underline log-in" %>
                 </li>
@@ -42,7 +42,7 @@
                 <li class="list-group-item"><%= link_to 'Salir'.html_safe, salir_path, :method => :delete, class: "text-danger" %></li>
               </ul>
             </li>
-          <% else %>    
+          <% else %>
           <li class="active hidden-xs mr-7">
             <%= link_to 'Iniciar sesión', new_providers_session_path, class: "not-underline log-in" %>
           </li>
@@ -64,12 +64,12 @@
           <li class="hidden-lg hidden-md hidden-sm">
             <%= link_to 'Ser cuidador', new_provider_path, class: "not-underline log-in" %>
           </li>
-          <% end %>   
+          <% end %>
         </ul>
       </div>
       <!--/.nav-collapse -->
     </div>
-   
+
       <div class="row text-center text-white pt-70 m-0">
         <div class="col-md-offset-3 col-md-6 col-xs-12">
           <h1 class="mb-14 thin xl font-lato title-strong">Viaja con tranquilidad dejando a tu mascota en buenas manos</h1>
@@ -95,22 +95,22 @@
               <% end %>
             </div>
             <div class="col-sm-2 col-xs-out">
-              
+
               <% if session[:end_date].nil? %>
                 <%= text_field_tag(:end_date, nil, class: 'datepicker input-lg form-control form-check', placeholder: 'DD/MM/AAAA') %>
               <% else %>
-                <%= text_field_tag(:end_date, session[:end_date].strftime("%d/%m/%Y"), class: 'datepicker input-lg form-control form-check', placeholder: 'DD/MM/AAAA') %>  
+                <%= text_field_tag(:end_date, session[:end_date].strftime("%d/%m/%Y"), class: 'datepicker input-lg form-control form-check', placeholder: 'DD/MM/AAAA') %>
               <% end %>
             </div>
              <div class="col-sm-5 locations-dd">
                <div class="col-sm-6">
-			           <%= collection_select(:states, :id, State.where("country_id=?",@country.id).order(:name), :id, :name, {:prompt => 'Seleccione un Estado'}, {class: "input-lg borderless form-location-nav" }) %>
+			           <%= collection_select(:states, :id, State.where("country_id=?",@country.id).order(:name), :id, :name, {:prompt => 'Seleccione un Estado', :selected => @state_id}, {class: "input-lg borderless form-location-nav" }) %>
               </div>
               <div class="col-sm-6">
-              <%= f.collection_select(:locations_id_eq, Location.where("state_id=?", State.where("country_id=?", @country.id).first.id.to_s), :id, :name, {:prompt => @country.id == 2 ? "Elegir Barrio" : "Elegir Municipio o Delegación"}, { :class=> "input-lg borderless form-location-nav" }) %>
+              <%= collection_select(:locations, :id, Location.where("state_id=?", State.where("country_id=?", @country.id).first.id.to_s), :id, :name, {:prompt => @country.id == 2 ? "Todos los Barrios" : "Todos los Municipio"}, { :class=> "input-lg borderless form-location-nav" }) %>
               </div>
             </div>
-            
+
             <div class="col-sm-3 search-btn">
               <%= f.submit "Buscar", class:" borderless form-search" %>
             </div>
@@ -226,7 +226,7 @@
             </div>
           </li>
         </ul>
-      </div>   
+      </div>
     </div>
   </div>
 </section>
@@ -243,7 +243,7 @@
           <div class="separator-gray separator-lg pull-right hidden-xs hidden-sm"></div><br>
           <h4 class="light fz-30">en tu siguiente reserva</h4>
         </div>
-        
+
         <div class="row text-right mr-70">
           <%# Added Bootstrap data modal attribute %>
           <%# Bootstrap modal markup. @see: http://getbootstrap.com/javascript/#modals %>
@@ -271,10 +271,10 @@
             </div>
           </div>
           <nav>
-           
+
             <%= link_to 'Recomendar', '#new_code_modal', 'data-toggle' => 'modal', :class => "mt-28 btn btn-lg text-white light", :id => "btn-recomendar", :onClick=>"_gaq.push(['_trackEvent', 'Homepage', 'Recomendar-modal-trigger']);"  %>
           </nav>
-        </div>  
+        </div>
       </div>
     </div>
   </div>
@@ -298,5 +298,4 @@
       </div>
     </div>
   </div>
-</div> 
- 
+</div>
