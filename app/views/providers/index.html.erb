@@ -25,7 +25,7 @@
               </div>
               <div class="col-sm-6">
                 <% locations = @location_id.to_s == '' ? State.where("country_id=?",@country.id).first.locations.order(:name) : State.find(@state_id).locations.order(:name) %>
-                <% prompt = @country.id == 2 ? "Todos los Barrios" : "Todos los Municipios" %>
+                <% prompt = @country.id == 2 ? "Seleccione un Barrio" : "Seleccione un Municipio" %>
   			        <%= collection_select(:locations, :id, locations, :id, :name, {:prompt => prompt, :selected => @location_id}, { :class=> "input-lg borderless form-location-nav" }) %>
               </div>
             </div>
