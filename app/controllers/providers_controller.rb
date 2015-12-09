@@ -11,7 +11,7 @@
   # GET /providers.json
   def index
 
-    @providers = Provider.all
+    @providers = Provider.where(active: true)
     @search = Provider.search(params[:q])
 
     @state_id = params[:states][:id]
