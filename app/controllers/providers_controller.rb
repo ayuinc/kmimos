@@ -20,7 +20,7 @@
     state = State.find(@state_id)
 
     @providers = Location.find(@location_id).providers if @location_id.to_s != ''
-    @providers = state.locations.map{|location| location.providers.map{|provider| provider}}.flatten unless @location_id
+    @providers = state.locations.map{|location| location.providers.map{|provider| provider}}.flatten unless @location_id.to_s == ''
 
     @providers = @providers.order(:id)
 
