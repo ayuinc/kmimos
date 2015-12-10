@@ -19,8 +19,7 @@ class ApplicationController < ActionController::Base
     'www.kmimos.com.mx' => 'México',
     'ar.kmimos.la' => 'Argentina',
     'pa.kmimos.la' => 'Panamá',
-    'dry-oasis-5911.herokuapp.com' => 'México',
-    'kmimos-ivandevp.c9.io' => 'México'
+    'dry-oasis-5911.herokuapp.com' => 'México'
   }
  
   def set_locale
@@ -38,4 +37,5 @@ class ApplicationController < ActionController::Base
     end
     return Country.find_by_name(session[:country])
   end
+
 end

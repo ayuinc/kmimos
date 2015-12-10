@@ -18,6 +18,7 @@ gem 'hirb'
 
 gem 'carrierwave'
 gem 'rmagick', '2.13.3', :require => 'RMagick'
+#gem 'rmagick', '~> 2.15', '>= 2.15.4'
 gem 'fog', '~> 1.24.0'
 gem 'high_voltage', '~> 2.3.0'
 

@@ -29,4 +29,6 @@ ServihogarRails::Application.routes.draw do
   
   get 'la' => 'providers#la_home', as: 'la_home'
 
+  get '/ver_ultimos_cuidadores_inscritos' => 'providers#ver_ultimos_cuidadores_inscritos'
+
 end

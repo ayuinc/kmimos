@@ -159,6 +159,8 @@
               <%= link_to "Borrar foto", p, method: :delete %>
             <% end %>
             <div class="col-md-6">
+            <%= f.label :photo, "Agrega o edita las fotos adicionales de tu perfil" %>
+            <p>Sube una foto adicional por cada actualización</p>
               <%= f.fields_for @new_provider_attachment do |p| %>
                 <div class="field mv-7">                
                   <%= p.file_field :photo, :multiple => true, name: "provider_attachments[photo][]" %>

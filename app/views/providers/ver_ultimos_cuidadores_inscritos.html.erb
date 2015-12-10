@@ -1,0 +1,76 @@
+
+<h2 class="text-center">Resultados</h2>
+
+<div class="container pb-14">
+  <% @providers.each do |provider| %>
+
+  <div class="row mt-14 mb-14">
+    <div class="col-md-2 col-xs-1"></div>
+    <%= link_to(provider_path(provider)) do %>
+      <div class="col-md-8 list-profiles pl-0 pr-0">
+      <div class="col-md-3 text-center p-14 picture-perfil col-xs-12">
+        <% if provider.avatar? %>
+        <%= image_tag(provider.avatar_url(:thumb), :class => "img-circle") %>
+        <% else %>
+        <%= image_tag('server_carnet.png', :class => "img-circle" ) %>
+        <% end %>
+         <div class="row mt-7 ">
+           <div class="col-xs-1 hidden-lg"></div>
+           <div class="col-xs-10 col-md-12">
+             <h3 class="text-center text-gray mb-0 mt-0 hidden-lg hidden-md"><%= provider.name %> <%= provider.last_name_1 %> <%= provider.last_name_2 %></h3>
+             <h5 class="text-center text-graylight mt-7 hidden-lg hidden-md"><%= provider.prov_locations_modal %>, y otras zonas que puedes ver <span class="text-primary">aquí</span></h5>
+            <h4 class="light m-0 text-gray">Desde</h4>
+             <h3 class="m-0 text-secondary light"><%= current_country.currency %><%= provider.price.to_i %></h3>
+             <h4 class="light m-0 text-gray">por noche</h4>
+           </div>
+         </div>
+      </div>
+      <div class="col-md-9 p-28 text-description-1 col-xs-12">
+        <h3 class="text-left text-gray mb-0 mt-0 hidden-xs hidden-sm"><%= provider.name %> <%= provider.last_name_1 %> <%= provider.last_name_2 %></h3>
+        <h5 class="text-left text-graylight mt-7 hidden-xs hidden-sm"><%= provider.prov_locations_modal %>, y otras zonas que puedes ver <span class="text-primary">aquí</span></h5>
+        <div class="rating-reviews hidden-xs hidden-sm">
+          <% unless provider.avg_rating.nil? %>
+          <% provider.avg_rating.to_i.times do %>
+            <span><i class="fa fa-star text-yellow"></i></span>
+          <% end %>
+          <% end %>
+          <span class="text-gray ml-28 light"><%=image_tag('iconos-mensaje.png') %> Ver comentarios</span>
+        </div>
+        <div class="rating-reviews hidden-lg hidden-md text-center">
+          <% unless provider.avg_rating.nil? %>
+          <% provider.avg_rating.to_i.times do %>
+            <span><i class="fa fa-star text-yellow"></i></span>
+          <% end %>
+          <% end %>
+          <span class="text-gray ml-28 light"><%=image_tag('iconos-mensaje.png') %> Ver comentarios</span>
+        </div>
+
+        <p class="text-left light hidden-xs hidden-sm text-description mt-14 text-gray"><%= truncate(provider.description, :length => 230, :omission => '...') %></p>
+                <p class="text-center hidden-lg hidden-md light  text-description mt-14 text-gray"><%= truncate(provider.description, :length => 230, :omission => '...') %></p>
+
+      </div>
+      <div class="col-md-1 hidden-xs"></div>
+    </div>
+    <% end %>
+    <div class="col-md-2 col-xs-1"></div>
+  </div>
+  <% end %>
+
+
+  <div class="row">
+    <div class="text-center">
+      <%= will_paginate @providers, :previous_label => '< Anterior ', :next_label => ' Siguiente >' %>
+    </div>
+  </div>
+</div>
+<%= render "layouts/modal" %>
+<script type="text/javascript">
+  $(document).ready(function(e){
+    if ($("#direction").length > 0) {
+      $("#direction").change(function(e) {
+        e.preventDefault();
+        $(this).parent().parent().submit();
+      });
+    }
+  });
+</script>
