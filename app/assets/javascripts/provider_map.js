@@ -1,6 +1,6 @@
 var map;
 
-setTimeout(function(){
+
 
   if ($("#map").length > 0) {
     map = new GMaps({
@@ -8,7 +8,7 @@ setTimeout(function(){
       lat: -12.043333,
       lng: -77.028333,
       zoom: 15
-    });   
+    });
     GMaps.geolocate({
       success: function(position) {
         map.setCenter(position.coords.latitude, position.coords.longitude);
@@ -36,7 +36,7 @@ setTimeout(function(){
         lng: longitude
       });
     }
-  }  
+  }
 
   $("#provider_address").keydown(function(e) {
     if (e.keyCode == 13) {
@@ -82,5 +82,4 @@ setTimeout(function(){
       $("#provider_longitude").val(lng);
     });
   }
-
-}, 3000);
+ 
