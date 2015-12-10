@@ -19,10 +19,7 @@ class EmailValidator < ActiveModel::EachValidator
     pattern = "/\A#{addr_spec}\z/"
   end
 
-  def validate_each(record, attribute, value)
-    unless value =~ EmailAddress
-      record.errors[attribute] << (options[:message] || "is not valid")
-    end
+  def validate_each(record, attribute, value) 
   end
 
 end
