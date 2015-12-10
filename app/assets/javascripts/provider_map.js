@@ -7,8 +7,8 @@ var map;
   });
 
   function select_state(id){
-    $("[class^='state_" + id + "']").toggle();
-    $("[class^='title_" + id + "']").toggleText('-', '+');
+    $(".state_" + id + "'").toggle();
+    $(".'title_" + id + "'").toggleText('-', '+');
   }
 
   $("[class^='state_']").hide();
