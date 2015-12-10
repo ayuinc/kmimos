@@ -1,4 +1,4 @@
-<style type="text/css">
+  <style type="text/css">
   #license_terms {
     overflow-y: scroll;
   }
@@ -79,10 +79,10 @@
             </div>
           </div>
           <% State.where("country_id = ?",current_country.id).each do |state| %>
-          <p><%= state.name %></p> 
-          <div class="row">
+          <p><a href="javascript:select_state('<%= state.id %>')" class="title_<%= state.id %> btn btn-default btn-xs mr-7"> + </a><%= state.name %> </p>
+          <div class="state_<%=state.id.to_s%> row">
             <% state.locations.order('id DESC').each do |location| %>
-            <div class="col-xs-12 col-md-4">
+            <div class=" col-xs-12 col-md-4">
               <%= check_box_tag "provider[location_ids][]", location.id, @provider.location_ids.include?(location.id), id: dom_id(location), :onClick => "uncheckMain(this);", class: "location_cbx" %>
               <%= label_tag dom_id(location), location.name, class: "small" %>
             </div>
@@ -118,7 +118,7 @@
               </div>
             </div>
             <div class="col-md-3">
-              <div> 
+              <div>
                 <%= f.label "Edades:" %><br/>
                 <% Age.find_each do |age| %>
                 <%= check_box_tag "provider[age_ids][]", age.id, @provider.age_ids.include?(age.id), id: dom_id(age) %>
@@ -246,7 +246,7 @@
 
                       <p>"SERVICIOS DE ESTADÍA-PROPORCIONADA", los servicios relacionados de estadía, estadía, reservación u hospedaje de mascotas a cargo de un cuidador registrado en Kmimos.</p>
 
-                      <p>" LISTADO DE SERVICIOS DE CUIDADO PROPORCIONADO", refiere a todos los servicios que un cuidador puede ofrecer a los amantes o dueños de perros para beneficio de su mascota en su estadía  fuera de ella, en donde Kmimos solo es intermediario de la comunicación pero no es responsable de estos servicios.</p> 
+                      <p>" LISTADO DE SERVICIOS DE CUIDADO PROPORCIONADO", refiere a todos los servicios que un cuidador puede ofrecer a los amantes o dueños de perros para beneficio de su mascota en su estadía  fuera de ella, en donde Kmimos solo es intermediario de la comunicación pero no es responsable de estos servicios.</p>
 
                       <p>"PROVEEDORES tercero", tercera parte representante de marcas, contratistas, distribuidores, comerciantes o patrocinadores de Kmimos.</p>
 
@@ -432,13 +432,13 @@
 
                           <h3>COBERTURA SEGURO VETERINARIO</h3>
                           <p>Kmimos te ofrece un seguro veterinario sobre aquellos eventos que sufra tu(s) mascota(s), siempre y
-                            cuando se encuentre(n) bajo el cuidado de un cuidador Kmimos.  El nombre y apellido de  este cuidador 
-                            Kmimos debe ser el mismo que se encuentra en el correo de confirmación que recibió el cliente al 
-                            momento de completar la reserva de estadía a través de la página web www.kmimos.com.mx; 
+                            cuando se encuentre(n) bajo el cuidado de un cuidador Kmimos.  El nombre y apellido de  este cuidador
+                            Kmimos debe ser el mismo que se encuentra en el correo de confirmación que recibió el cliente al
+                            momento de completar la reserva de estadía a través de la página web www.kmimos.com.mx;
                             www.cani.mx ó www.kmimos.la.</p>
                             <p>Para garantizar la cobertura por parte de Kmimos, el evento que ocurra con la mascota durante la
-                              permanencia en manos del cuidador Kmimos debe estar incluido en el LISTADO DE EVENTOS mostrado 
-                              abajo. Todos aquellos padecimientos o enfermedades no listadas en el LISTADO DE EVENTOS no serán  
+                              permanencia en manos del cuidador Kmimos debe estar incluido en el LISTADO DE EVENTOS mostrado
+                              abajo. Todos aquellos padecimientos o enfermedades no listadas en el LISTADO DE EVENTOS no serán
                               amparados por el seguro que ofrece Kmimos.</p>
                               <br>
                               <h4>LISTADO DE EVENTOS</h4>
@@ -452,23 +452,23 @@
                               </ul>
                               <br>
                               <p>La cobertura ampara el pago hasta por un monto de 5,000 pesos mexicanos  (CINCO MIL con 00/100),
-                                sobre aquellos eventos incluidos en el LISTADO DE EVENTOS, vía reembolso al cliente por parte de 
-                                Kmimos.  Kmimos deberá recibir por parte del cliente una comprobación del pago realizado al 
-                                veterinario, clínica u hospital veterinario.  Esta comprobación de pago será válida únicamente mediante 
+                                sobre aquellos eventos incluidos en el LISTADO DE EVENTOS, vía reembolso al cliente por parte de
+                                Kmimos.  Kmimos deberá recibir por parte del cliente una comprobación del pago realizado al
+                                veterinario, clínica u hospital veterinario.  Esta comprobación de pago será válida únicamente mediante
                                 Factura Fiscal emitida a nombre de:</p>
                                 <br>
                                 <p>RAZON SOCIAL: DESDIGITEC SAPI DE CV</p>
                                 <p>RFC: DES140825LX0</p><br>
-                                <p>DIRECCION FISCAL: BOSQUES DE DURAZNOS 65, INTERIOR 211.  BOSQUES DE LAS LOMAS, MIGUEL 
+                                <p>DIRECCION FISCAL: BOSQUES DE DURAZNOS 65, INTERIOR 211.  BOSQUES DE LAS LOMAS, MIGUEL
                                   HIDALGO, D.F. CP 11700</p><br>
                                   <p>En caso de fallecimiento de la mascota mientras esté bajo el cuidado de un cuidador Kmimos, se brinda
-                                    cobertura para gastos funerarios hasta por un monto de 10,000.00 pesos mexicanos (DIEZ MIL con 
-                                    00/100),  vía reembolso al cliente por parte de Kmimos.  Kmimos deberá recibir por parte del cliente una 
-                                    comprobación del pago realizado al veterinario, clínica u hospital veterinario.  Esta comprobación de 
-                                    pago será válida únicamente mediante Factura Fiscal (datos fiscales compartidos en los párrafos 
+                                    cobertura para gastos funerarios hasta por un monto de 10,000.00 pesos mexicanos (DIEZ MIL con
+                                    00/100),  vía reembolso al cliente por parte de Kmimos.  Kmimos deberá recibir por parte del cliente una
+                                    comprobación del pago realizado al veterinario, clínica u hospital veterinario.  Esta comprobación de
+                                    pago será válida únicamente mediante Factura Fiscal (datos fiscales compartidos en los párrafos
                                     anteriores)</p>
                                     <p>Cualquier reembolso se realiza dentro de los 30 días continuos posteriores a 1) fecha del pago hecho por
-                                      parte del cliente al veterinario, clínica u hospital veterinario y entregado, y b) Fecha de entrega del 
+                                      parte del cliente al veterinario, clínica u hospital veterinario y entregado, y b) Fecha de entrega del
                                       documento físico de la Factura Fiscal por parte del cliente a Kmimos.</p>
                                       <div class="form-group">
                                         <input type="checkbox" name="license_term"><label for="license_term">Acepto los términos y condiciones *</label>
@@ -481,9 +481,9 @@
                                         </div>
                                         <div class="col-md-6">
                                           <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                          <%= f.submit "Confirmar", id: "confirm_new_provider", class: "btn btn-primary", disabled: true %>    
+                                          <%= f.submit "Confirmar", id: "confirm_new_provider", class: "btn btn-primary", disabled: true %>
                                         </div>
-                                      </div>                    
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
@@ -506,7 +506,7 @@
                               </script>
 
                               <div class="col-md-3 pl-0 mb-42">
-                                <%= link_to 'Regístrate', '#myModal', 'data-toggle' => 'modal', :class => "btn btn-primary form-control", :onClick=>"_gaq.push(['_trackEvent', 'Homepage', 'Recomendar-modal-trigger']);"  %>  
+                                <%= link_to 'Regístrate', '#myModal', 'data-toggle' => 'modal', :class => "btn btn-primary form-control", :onClick=>"_gaq.push(['_trackEvent', 'Homepage', 'Recomendar-modal-trigger']);"  %>
                               </div>
                               <% end %>
                             </div> <!-- panel-body -->
@@ -514,5 +514,5 @@
                         </div> <!-- col-md-8 -->
                       </div> <!-- row -->
                     </div>
-<%= javascript_include_tag 'gmaps.min' %>  
-<%= javascript_include_tag 'provider_map' %>  
+<%= javascript_include_tag 'gmaps.min' %>
+<%= javascript_include_tag 'provider_map' %>

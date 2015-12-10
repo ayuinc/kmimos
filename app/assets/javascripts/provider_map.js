@@ -1,5 +1,17 @@
 var map;
 
+  $.fn.extend({
+    toggleText: function(a, b) {
+        $.trim(this.html()) == a ? this.html(b) : this.html(a);
+    }
+  });
+
+  function select_state(id){
+    $("'.state_" + id + "'").toggle();
+    $("'.title_" + id + "'").toggleText('-', '+');
+  }
+
+  $("[class^='state_']").hide();
 
 
   if ($("#map").length > 0) {
@@ -82,4 +94,3 @@ var map;
       $("#provider_longitude").val(lng);
     });
   }
- 
