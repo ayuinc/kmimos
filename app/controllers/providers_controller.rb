@@ -124,7 +124,7 @@
   end
 
   def ver_ultimos_cuidadores_inscritos
-    @providers = Provider.all.order(id: :desc).paginate(:per_page => 20, :page => params[:page])
+    @providers = Provider.where(active: true).order(id: :desc).paginate(:per_page => 20, :page => params[:page])
   end
 
   private
