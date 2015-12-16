@@ -92,7 +92,7 @@
   # PATCH/PUT /providers/1
   def update
     respond_to do |format|
-      if @provider.update(provider_params)
+      if @provider.update_attributes(provider_params)
         unless params[:provider_attachments].nil?
           params[:provider_attachments]['photo'].each do |a|
              @provider_attachment = @provider.provider_attachments.create!(:photo => a, :provider_id => @provider.id)
