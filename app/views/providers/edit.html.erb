@@ -1,5 +1,4 @@
-<%= javascript_include_tag 'gmaps.min' %>  
-<%= javascript_include_tag 'provider_map' %>  
+
 <div class="container content mh-630">
   <div class="row mt-35">
     <div class="col-md-2"></div>
@@ -22,7 +21,7 @@
                 <%= f.label :last_name_2, "Apellido materno:" %><br>
                 <%= f.text_field :last_name_2, class: "form-control" %>
               </div>
-            </div>  
+            </div>
 
             <div class="form-group row">
               <div class="col-md-4">
@@ -72,13 +71,13 @@
               </div>
             </div>
             <% State.where("country_id = ?",current_country.id).each do |state| %>
-            <p><%= state.name %></p> 
-            <div class="row">
+            <p><a href="javascript:select_state('<%= state.id %>')" class="title_<%= state.id %> btn btn-default btn-xs mr-7"> + </a><%= state.name %> </p>
+            <div class="state_<%=state.id.to_s%> row">
               <% state.locations.order('id DESC').each do |location| %>
-                <div class="col-xs-12 col-md-4">
+              <div class=" col-xs-12 col-md-4">
                 <%= check_box_tag "provider[location_ids][]", location.id, @provider.location_ids.include?(location.id), id: dom_id(location), :onClick => "uncheckMain(this);", class: "location_cbx" %>
                 <%= label_tag dom_id(location), location.name, class: "small" %>
-                </div>
+              </div>
               <% end %>
             </div>
             <% end %>
@@ -89,7 +88,7 @@
                 <%= f.text_field :description, class: "form-control" %>
               </div>
             </div>
-            
+
              <div class="row mt-28">
 
               <div class="col-md-3">
@@ -102,7 +101,7 @@
                 </div>
               </div>
               <div class="col-md-3">
-                <div> 
+                <div>
                   <%= f.label "Edades:" %> <br>
                   <% Age.find_each do |age| %>
                     <%= check_box_tag "provider[age_ids][]", age.id, @provider.age_ids.include?(age.id), id: dom_id(age) %>
@@ -162,12 +161,12 @@
             <%= f.label :photo, "Agrega o edita las fotos adicionales de tu perfil" %>
             <p>Sube una foto adicional por cada actualización</p>
               <%= f.fields_for @new_provider_attachment do |p| %>
-                <div class="field mv-7">                
+                <div class="field mv-7">
                   <%= p.file_field :photo, :multiple => true, name: "provider_attachments[photo][]" %>
                 </div>
               <% end %>
             </div>
-    
+
 
       <div class="form-group mv-28">
         <%= f.submit "Actualizar perfil", id: "submit", class: "btn btn-primary-grad" %>
@@ -177,5 +176,7 @@
        </div> <!-- panel-body -->
       </div> <!-- panel-primary -->
     </div>    <!-- col-md-8 -->
-  </div>   <!-- row --> 
-</div>   <!-- container -->   
+  </div>   <!-- row -->
+</div>   <!-- container -->
+<%= javascript_include_tag 'gmaps.min' %>
+<%= javascript_include_tag 'provider_map' %>
