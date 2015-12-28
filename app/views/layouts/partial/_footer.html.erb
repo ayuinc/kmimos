@@ -10,7 +10,7 @@
         </div>
         <div class="col-md-2 col-xs-12"> 
           <div class="row pt-7">
-            <div class="col-md-12">
+            <div class="col-md-12 footer-links">
               <h5 class="text-white text-footer"> Síguenos en </h5>
               <a href="<%= current_country.facebook  %>" target="_blank">
                 <%= image_tag('facebook.svg')%>
@@ -24,16 +24,16 @@
             </div>
           </div>
         </div>
-        <div class="col-md-2">
-        <% if current_country.name == "México" %>
-          <a href="http://www.kmimos.com.mx"><h5 class="text-white text-footer"> www.kmimos.com.mx </h5></a>
-        <% else %>
-          <a href="http://www.kmimos.la"><h5 class="text-white text-footer"> www.kmimos.la </h5></a>
-        <% end %>      
+        <div class="col-md-2 url-link">
+          <% if current_country.name == "México" %>
+            <a href="http://www.kmimos.com.mx"><h5 class="text-white text-footer"> www.kmimos.com.mx </h5></a>
+          <% else %>
+            <a href="http://www.kmimos.la"><h5 class="text-white text-footer"> www.kmimos.la </h5></a>
+          <% end %>      
         </div>
         <div class="col-md-4 text-muted text-right col-xs-12">
           <h5 class="text-footer">Todos los derechos reservados</h5>
-            <a href="http://eepurl.com/bFnq55" target="_blank">Suscríbete a nuestro newsletter</a>
+            <a href="http://eepurl.com/bFnq55" target="_blank" class="newsletter">Suscríbete a nuestro newsletter</a>
             <%= link_to '<h5>Términos y condiciones</h5>'.html_safe, page_path('tc'), class: "text-footer" %>
         </div>
       </div>

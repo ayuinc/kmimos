@@ -1,15 +1,17 @@
  
 .site-wrapper.provider-home
   %main#scene.site-content{:role => "main"}
+    
     %img.fixed-ball(src="assets/pelota.svg")
     .row.bg-img-block.home-bkg.no-margin-row
+      
       =render partial: 'layouts/partial/new_header.haml'
       - cache('home_main') do
         .home-scene
           =image_tag('home-duena-without_ball.svg', class: "left-person")
           .right-dogs
-            =image_tag("home-perro-vainilla.svg")
-            =image_tag("home-perro-bull-terrier.svg")
+            =image_tag("home-perro-vainilla.svg", class: "perro-vainilla")
+            =image_tag("home-perro-bull-terrier.svg", class: "perro-bull-terrier")
         .row.mb-56
           .col-md-12.text-center
             %img.pt-7.img-home{:src => "assets/logo-kmimos.svg", :width => "220"}/

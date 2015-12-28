@@ -11,7 +11,10 @@
 
     = stylesheet_link_tag "style", media: "all"
     = stylesheet_link_tag "application", media: "all"
+    = stylesheet_link_tag "mobile", media: "all"
+    
     = javascript_include_tag "application"
+    = javascript_include_tag "snap"
     / App styles
     = stylesheet_link_tag "ebm", media: "all"
     = stylesheet_link_tag "responsive", media: "all"
@@ -21,8 +24,13 @@
     :javascript
       try{Typekit.load({ async: true });}catch(e){}
   %body
-    = render "layouts/partial/header" unless home?
-    = yield
+    #drawers
+      #right-drawer
+        = render partial: 'layouts/partial/mobile_header'
+    #content
+      = yield
+      - cache do
+        = render "layouts/partial/footer"
     .searcher
       %h3.text-header  Buscar cuidador
       %p Selecciona donde, cuando y que necesitas para dejar tu perrito.
@@ -36,10 +44,20 @@
         %button.grey-button Buscar
       %br
       %br
+    
+    
     %button.grey-button.do_search{style: 'padding: 20px;'} Buscar
 
-
 :javascript
+
+  var snapper = new Snap({
+    element: document.getElementById('content'),
+    resistance: 0.5,
+    easing: 'ease',
+    transitionSpeed: 0.3,
+    minDragDistance: 5,
+    disable: 'left'
+  });
 
 
   $('.do_search').on('click', function(){
@@ -50,6 +68,33 @@
     // App scripts
     //%script{:src => "assets/js/scripts.min.js"}
     //%script{:src => "assets/js/menu-control.js"}
+    
+    (function() {
+
+      "use strict";
+
+      var toggles = document.querySelectorAll(".c-hamburger");
+
+      for (var i = toggles.length - 1; i >= 0; i--) {
+        var toggle = toggles[i];
+        toggleHandler(toggle);
+      };
+
+      function toggleHandler(toggle) {
+        toggle.addEventListener( "click", function(e) {
+          e.preventDefault();
+          if (this.classList.contains("is-active") === true) {
+            //this.classList.remove("is-active");
+            snapper.close();
+          } else { 
+            //this.classList.add("is-active"); 
+            snapper.open('right');
+          }
+          
+        });
+      }
+
+    })();
 
 :javascript
 

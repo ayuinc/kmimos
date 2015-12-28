@@ -1,39 +1,21 @@
-.navbar.navbar-default
-  .container-fluid
-    .navbar-header
-      .navbar-brand.text-white.pl-42
-        Kmimos
-      %button.navbar-toggle.mt-28.res-toogle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-
-    .collapse.navbar-collapse
-      %ul.nav.navbar-nav.navbar-right
-        - if current_user
-          %li= link_to 'Mi Perfil', user_path(current_user)
-          %li= link_to 'Mis Reservas', bookings_path
-        - if current_provider
-          %li= link_to 'Mi perfil'.html_safe, edit_provider_path(current_provider.id)
-          %li= link_to 'Salir'.html_safe, destroy_provider_session_path, :method => :delete
-        - if !(current_provider || current_user)
-          %li
-            %a{:href => new_user_session_path} Iniciar sesión como Cliente
-          %li
-            %a{:href => new_provider_session_path} Iniciar sesión como Cuidador
-
-.container-fluid.no-padding-margin
+#mobile-wrapper.container-fluid.no-padding-margin
   .row.provider-home
     .col-md-12.home-bkg.p-21
-      %center.mt-21
+      .c-hamburger.c-hamburger--htra
+        %span
+      %center.mt-56
         %img.mb-21.pt-7.img-home{:src => "assets/logo-kmimos.svg", :width => "220"}
         %br
       .text-center
-        .h3.text-white.mv-35.lh-xl.bold.text-responsive
+        .h3.text-white.lh-xl.bold.text-responsive
           Viaja con tranquilidad, dejando a tu mascota en buenas manos.
+      =image_tag('home-duena-without_ball.svg', class: "left-person")
+      .right-dogs
+        =image_tag("home-perro-bull-terrier.svg", class: "perro-bull-terrier")
+        =image_tag("home-perro-vainilla.svg", class: "perro-vainilla")
 
-  .row
-    #video-main.video
+
+
   .row.mb-56#beneficios
     .container-sm.pv-42
       .row.text-center
@@ -57,50 +39,79 @@
   .row.mb-56#testimonios{style: "background-image: url('assets/home-testimonios-background.svg')"}
     .container-sm.pv-42
       %h1.bold.pb-42.text-gray-dark.text-center.pt-56 Testimonios
-      .row.mt-35
-        .col-xs-12
-          .triangle-left
-            .col-md-2.pl-0
-              %img{:alt => "", :src => "assets/testimonios-comillas.svg"}/
-            .col-md-10.pl-0
-              %h4.text-gray-dark.medium.mt-14 Confié plenamente en los cuidados de @KmimosMx y no me arrepentí. Lo recomiendo 100%.
-      .row
-        .col-xs-12
-          %img.img-circle.img-responsive{:alt => "", :src => "assets/test_1.jpg", :width => "80"}/
-          %h4.bold.text-success.mt-14.text-white Vicente Leyba
-      .row.mt-35
-        .col-xs-12
-          .triangle-left
-            .col-md-2.pl-0
-              %img{:alt => "", :src => "assets/testimonios-comillas.svg"}/
-            .col-md-10.pl-0
-              %h4.text-gray-dark.medium.mt-14 Bruno siempre regresa feliz y tranquilo, siempre que nos vamos de viaje se que lo dejo en buenas manos.
-      .row
-        .col-xs-12
-          %img.img-circle.img-responsive{:alt => "", :src => "assets/test_2.jpg", :width => "80"}/
-          %h4.bold.text-success.mt-14.text-white Giovanni Ciullo
-      .row.mt-35
-        .col-xs-12
-          .triangle-left
-            .col-md-2.pl-0
-              %img{:alt => "", :src => "assets/testimonios-comillas.svg"}/
-            .col-md-10.pl-0
-              %h4.text-gray-dark.medium.mt-14 El servicio fue magnifico y regresaron sanos y salvos mis perritos en especial Odin.
-      .row
-        .col-xs-12
-          %img.img-circle.img-responsive{:alt => "", :src => "assets/test_3.jpg", :width => "80"}/
-          %h4.bold.text-success.mt-14.text-white Victor Villegas
+      .testimonies
+        .testimony
+          .row.mt-35
+            .col-xs-12
+              .triangle-left
+                .col-md-2.pl-0
+                  %img{:alt => "", :src => "assets/testimonios-comillas.svg"}/
+                .col-md-10.pl-0
+                  %h4.text-gray-dark.medium.mt-14 Confié plenamente en los cuidados de @KmimosMx y no me arrepentí. Lo recomiendo 100%.
+          .row
+            .col-xs-12
+              %center
+                %img.img-circle.img-responsive{:alt => "", :src => "assets/test_1.jpg", :width => "160"}/
+                %h4.bold.text-success.mt-14.text-white Vicente Leyba
+        .testimony
+          .row.mt-35
+            .col-xs-12
+              .triangle-left
+                .col-md-2.pl-0
+                  %img{:alt => "", :src => "assets/testimonios-comillas.svg"}/
+                .col-md-10.pl-0
+                  %h4.text-gray-dark.medium.mt-14 Bruno siempre regresa feliz y tranquilo, siempre que nos vamos de viaje se que lo dejo en buenas manos.
+          .row
+            .col-xs-12
+              %center
+                %img.img-circle.img-responsive{:alt => "", :src => "assets/test_2.jpg", :width => "160"}/
+                %h4.bold.text-success.mt-14.text-white Giovanni Ciullo
+        .testimony
+          .row.mt-35
+            .col-xs-12
+              .triangle-left
+                .col-md-2.pl-0
+                  %img{:alt => "", :src => "assets/testimonios-comillas.svg"}/
+                .col-md-10.pl-0
+                  %h4.text-gray-dark.medium.mt-14 El servicio fue magnifico y regresaron sanos y salvos mis perritos en especial Odin.
+          .row
+            .col-xs-12
+              %center
+                %img.img-circle.img-responsive{:alt => "", :src => "assets/test_3.jpg", :width => "160"}/
+                %h4.bold.text-success.mt-14.text-white Victor Villegas
+    %center
+      %img{:alt => "", :src => "assets/testimoniales-perro-vainilla.svg"}/
   .row.mb-35#cuidadores-semana
     %h1.bold.pb-42.text-gray-dark.text-center Cuidadores del mes
+    
     .row
       - Provider.on_top_providers(3).each do |provider|
-        %a.col-md-4{href: provider_path(provider.id)}
+        %a.col-md-4.providers-month{href: provider_path(provider.id)}
           .bg-img-block.border-radius.square-green.mt-7{:style => " background-image: url(#{provider.avatar.url});"}
-            #a.oculto.text-center.pt-21
-              %img{:alt => "", :src => "assets/icono-huella-hover.svg", :width => "70"}/
-              %h4.bold.text-center.mv-7.text-white= provider
-              - val = Valuation.by_comments(provider.id)
-              - score = val.map{|val| val[1]}.reduce(:+).to_i / val.size.to_i rescue 0
-              .ratingStarsWhite{score: score, readOnly: true}
+            #a.oculto.text-center.pt-21 
+        %center
+          %h4.bold.text-center.mv-7= provider
+          - val = Valuation.by_comments(provider.id)
+          - score = val.map{|val| val[1]}.reduce(:+).to_i / val.size.to_i rescue 0
+          .ratingStars{score: score, readOnly: true}
+          %br
+          %br
+          %img{:alt => "", :src => "assets/cuidadores-mes-perro-vainilla.svg"}/
+          
+
 :javascript
-  initPlayer('homePlayer', 'video-main');
+  $('.testimonies').slick({
+    autoplay: true, 
+    autoplaySpeed: 2000,
+    arrows: false,
+    infinite: true,
+    mobileFirst: true
+  });
+  
+  $('.providers-month').slick({
+    autoplay: true, 
+    autoplaySpeed: 2000,
+    arrows: false,
+    infinite: true,
+    mobileFirst: true
+  });
