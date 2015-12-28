@@ -23,6 +23,8 @@ gem 'high_voltage', '~> 2.3.0'
 
 gem 'kaminari'
 
+
+
 gem 'actionpack-page_caching'
 gem 'actionpack-action_caching'
 
@@ -75,6 +77,8 @@ group :development do
   gem 'rack_image_assets_cache_control'
   gem 'quiet_assets'
   gem 'faker'
+  
+  gem 'rails-erd'
   
   gem 'flamegraph'
   gem 'rack-mini-profiler'
