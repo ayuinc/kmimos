@@ -32,6 +32,9 @@ ActiveAdmin.register Provider do
       f.input :active
       f.input :on_top
       f.input :avatar
+      f.input :dni
+      f.input :email
+      f.input :phone 
     end
     f.actions
   end
