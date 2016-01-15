@@ -35,6 +35,7 @@ ActiveAdmin.register Provider do
       f.input :dni
       f.input :email
       f.input :phone 
+      f.input :description, as: :text
     end
     f.actions
   end
