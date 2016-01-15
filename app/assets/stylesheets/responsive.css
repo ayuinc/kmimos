@@ -41,6 +41,7 @@ ul.navbar-nav li {
   text-align: center;
   position: fixed;
   bottom: 0px;
+  z-index: 5;
 }
 
 .do_search {
