@@ -42,6 +42,13 @@ ul.navbar-nav li {
   position: fixed;
   bottom: 0px;
   z-index: 5;
+   
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 40px;
+  border-radius: 10px;
 }
 
 .do_search {
