@@ -36,8 +36,7 @@ ul.navbar-nav li {
 
 .searcher {
   display: none;
-  background-color: #283848;
-  padding: 20px;
+  background-color: #283848; 
   color: #fff;
   text-align: center;
   position: fixed;
@@ -46,6 +45,9 @@ ul.navbar-nav li {
 
 .do_search {
   position: fixed;
+  padding-top: 10px;
+  z-index: 5;
+  padding-bottom: 30px;
   bottom: 0px;
 }
 
