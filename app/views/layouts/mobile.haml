@@ -79,15 +79,15 @@
         var toggle = toggles[i];
         toggleHandler(toggle);
       };
-
+      
       function toggleHandler(toggle) {
         toggle.addEventListener( "click", function(e) {
           e.preventDefault();
           if (this.classList.contains("is-active") === true) {
-            //this.classList.remove("is-active");
+            this.classList.remove("is-active");
             snapper.close();
           } else { 
-            //this.classList.add("is-active"); 
+            this.classList.add("is-active"); 
             snapper.open('right');
           }
           
