@@ -70,3 +70,7 @@ ul.navbar-nav li {
 .provider-item {
   overflow: hidden;
 }
+
+.collapse {
+  display: none !important;
+}

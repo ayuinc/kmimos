@@ -28,6 +28,7 @@
       #right-drawer
         = render partial: 'layouts/partial/mobile_header'
     #content{style: "background-color: #fff;"}
+      = render "layouts/partial/header" unless home?
       = yield
       - cache do
         = render "layouts/partial/footer"
