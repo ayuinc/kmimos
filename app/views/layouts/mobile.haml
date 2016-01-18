@@ -58,6 +58,7 @@
     transitionSpeed: 0.3,
     minDragDistance: 5,
     disable: 'left'
+    
   });
 
 
@@ -70,32 +71,7 @@
     //%script{:src => "assets/js/scripts.min.js"}
     //%script{:src => "assets/js/menu-control.js"}
     
-    (function() {
-
-      "use strict";
-
-      var toggles = document.querySelectorAll(".c-hamburger");
-
-      for (var i = toggles.length - 1; i >= 0; i--) {
-        var toggle = toggles[i];
-        toggleHandler(toggle);
-      };
-      
-      function toggleHandler(toggle) {
-        toggle.addEventListener( "click", function(e) {
-          e.preventDefault();
-          if (this.classList.contains("is-active") === true) {
-            this.classList.remove("is-active");
-            snapper.close();
-          } else { 
-            this.classList.add("is-active"); 
-            snapper.open('right');
-          }
-          
-        });
-      }
-
-    })();
+    
 
 :javascript
 
