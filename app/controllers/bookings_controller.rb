@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController 
   
   before_action :set_booking, only: [:show,:destroy]
-  before_action :authenticate_user!, except: [:booking_resume]
+  before_action :authenticate_user!, except: [:new, :booking_resume]
   
   caches_page   :public
   caches_action :booking_resume
@@ -27,11 +27,15 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @services =  params[:services] != nil ? Service.where(id: params[:services]) : []
-    @provider = Provider.find(params[:booking][:provider_id])
-    @booking = Booking.new
-    @booking.start_date = session[:from_date]
-    @booking.end_date = session[:to_date]
+    if user_signed_in?
+      @services =  params[:services] != nil ? Service.where(id: params[:services]) : []
+      @provider = Provider.find(params[:booking][:provider_id])
+      @booking = Booking.new
+      @booking.start_date = session[:from_date]
+      @booking.end_date = session[:to_date]
+    else
+      redirect_to '/users/sign_in'
+    end
   end
 
   def show
