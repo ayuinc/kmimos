@@ -6,7 +6,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
 
-  process :resize_to_fit => [800, 800]
+  process :rotate
 
   version :thumb do
     process :resize_to_fill => [190,190]
@@ -56,5 +56,11 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+  def rotate
+    manipulate! do |image|
+      image.auto_orient
+    end
+  end
 
 end
