@@ -10,20 +10,23 @@
       %ul.nav.navbar-nav.mt-7.ml-56.hidden-xs
         %li= link_to 'Mi Perfil', user_path(current_user), class: "not-underline white-text"
         %li= link_to 'Mis Reservas', bookings_path, class: "not-underline white-text"
-  .collapse.navbar-collapse.pr-21.text-center.pv-14
+  .collapse.navbar-collapse.pr-21.text-center.pv-14-xs
     %div.text-center.hidden-lg.hidden-md
     - if current_provider
-      %li.block.h2= link_to 'Mi perfil', edit_provider_path(current_provider.id)
-      %li.block.h2= link_to 'Salir', destroy_provider_session_path, :method => :delete   
+      .hidden-lg.hidden-md
+        %li.block.h2= link_to 'Mi perfil', edit_provider_path(current_provider.id)
+        %li.block.h2= link_to 'Salir', destroy_provider_session_path, :method => :delete   
     - elsif current_user
-      %li.block.h2= link_to 'Mi perfil', user_path(current_user)
-      %li.block.h2= link_to 'Mis Reservas', bookings_path
-      %li.block.h2= link_to 'Salir', destroy_user_session_path, :method => :delete 
+      .hidden-lg.hidden-md
+        %li.block.h2= link_to 'Mi perfil', user_path(current_user)
+        %li.block.h2= link_to 'Mis Reservas', bookings_path
+        %li.block.h2= link_to 'Salir', destroy_user_session_path, :method => :delete 
     - else
-      %li.block.h2= link_to 'Iniciar sesión como Cliente', new_user_session_path, class:'not-underline text-header'
-      %li.block.h2= link_to 'Iniciar sesión como Cuidador', new_provider_session_path, class:'not-underline text-header'
-      %li.block.h2.pb-21= link_to 'Regístrate', new_user_registration_path, class: "not-underline text-header"
-      %li.block.h2= link_to 'Quiero ser cuidador', new_provider_registration_path, class: "not-underline sign-up"
+      .hidden-lg.hidden-md
+        %li.block.h2= link_to 'Iniciar sesión como Cliente', new_user_session_path, class:'not-underline text-header'
+        %li.block.h2= link_to 'Iniciar sesión como Cuidador', new_provider_session_path, class:'not-underline text-header'
+        %li.block.h2.pb-21= link_to 'Regístrate', new_user_registration_path, class: "not-underline text-header"
+        %li.block.h2= link_to 'Quiero ser cuidador', new_provider_registration_path, class: "not-underline sign-up"
 
     %ul.nav.navbar-nav.mt-14.hidden-xs
       - if current_provider
