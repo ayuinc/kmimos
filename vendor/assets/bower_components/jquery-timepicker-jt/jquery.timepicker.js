@@ -1,5 +1,5 @@
 /*!
- * jquery-timepicker v1.8.7 - A jQuery timepicker plugin inspired by Google Calendar. It supports both mouse and keyboard navigation.
+ * jquery-timepicker v1.8.9 - A jQuery timepicker plugin inspired by Google Calendar. It supports both mouse and keyboard navigation.
  * Copyright (c) 2015 Jon Thornton - http://jonthornton.github.com/jquery-timepicker/
  * License: MIT
  */
@@ -502,6 +502,7 @@
 				row.text(timeString);
 			} else {
 				var row = $('<li />');
+				row.addClass(timeInt % 86400 < 43200 ? 'ui-timepicker-am' : 'ui-timepicker-pm');
 				row.data('time', (timeInt <= 86400 ? timeInt : timeInt % 86400));
 				row.text(timeString);
 			}
@@ -633,7 +634,7 @@
 
 	function _generateBaseDate()
 	{
-		return new Date(1970, 1, 1, 0, 0, 0);
+		return new Date(1970, 0, 1, 0, 0, 0);
 	}
 
 	// event handler to decide whether to close timepicker
@@ -1104,7 +1105,8 @@
 			return null;
 		}
 
-		var hour = parseInt(time[2]*1, 10) % 24;
+		var unboundedHour = parseInt(time[2]*1, 10);
+		var hour = (unboundedHour > 24) ? unboundedHour % 24 : unboundedHour;
 		var ampm = time[1] || time[5];
 		var hours = hour;
 
@@ -1168,6 +1170,9 @@
 		roundingFunction: function(seconds, settings) {
 			if (seconds === null) {
 				return null;
+			} else if (typeof settings.step !== "number") {
+				// TODO: nearest fit irregular steps
+				return seconds;
 			} else {
 				var offset = seconds % (settings.step*60); // step is in minutes
 
