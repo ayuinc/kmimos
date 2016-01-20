@@ -37,7 +37,9 @@
       %p Selecciona donde, cuando y que necesitas para dejar tu perrito.
       = search_form_for @search do |f|
         .form-group
-          = f.grouped_collection_select(:locations_id_eq, State.where("country_id=?", current_country.id).order(:name), :locations, :name, :id, :name , {:prompt => current_country.id == 2 ? "Elegir Barrio" : "Elegir Municipio o Delegación"}, { :class=> "form-control" })
+          = collection_select(:states, :id, State.where("country_id=?",@country.id).order(:name), :id, :name, {:prompt => @country.id == 2 ? "Seleccione una Provincia" : "Seleccione un Estado", :selected => @state_id}, {class: "form-control" })
+        .form-group
+          = collection_select(:locations, :id, Location.where("state_id=?", State.where("country_id=?", @country.id).first.id.to_s).order(:name), :id, :name, {:prompt => @country.id == 2 ? "Seleccione un Barrio" : "Municipio o Delegación"}, { :class=> "form-control" })
         .form-group
           %input.form-control{value: session[:from_date]}(placeholder="Desde" name="from_date" type= 'date')
         .form-group

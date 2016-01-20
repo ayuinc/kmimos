@@ -212,3 +212,21 @@ $(window).scroll(function () {
 
 
 });
+
+$(function() {
+  $(document).on('change', '#states_id', function(evt) {
+    $.ajax('/providers/update_state', {
+      type: 'GET',
+      data: {
+        country_id: $("#states_id option:selected").val()
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        return console.log("AJAX Error: " + textStatus);
+      },
+      success: function(data, textStatus, jqXHR) {
+        $("#locations_id").html(data);
+        return console.log("Dynamic country select OK! ");
+      }
+    });
+  });
+});

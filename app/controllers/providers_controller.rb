@@ -15,7 +15,7 @@ class ProvidersController < ApplicationController
     session[:q_location]    ||= Location.find(params[:q][:locations_id_eq]).name rescue nil
     
     @location = Location.find(params[:q][:locations_id_eq]).name rescue ''
-  
+
     @search = Provider.search(params[:q])
     
     #Custom view for mobile
@@ -126,6 +126,12 @@ class ProvidersController < ApplicationController
       format.html { redirect_to providers_url }
       format.json { head :no_content }
     end
+  end
+
+  def update_state
+    state = State.find(params[:country_id])
+    @locations = state.locations rescue nil
+    render partial: 'locations'
   end
 
   private
