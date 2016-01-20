@@ -7,18 +7,29 @@
     .provider-item
       .block-cuidadores
         %a(href="/providers/#{provider.id}")
-          .bg-img-block.border-radius.square-green(style = "height: 150px; background-image: url('#{provider.avatar}');")
-          .bg-gray-lighter.p-14
-            .body.border-bottom.body-provider
+          - if provider.avatar?
+            .bg-img-block.border-radius.hidden.square-green(style = "height: 150px; background-image: url('#{provider.avatar}');")
+          - else
+            .bg-img-block.border-radius.hidden.square-green(style = "height: 150px; background-image: url('/assets/server_carnet.png');")
+          .bg-gray-lighter.p-14.m-21
+            .body.body-provider
+              .row
+                .col-xs-4
+                .col-xs-8
+                  %h5.bold #{ provider.name }
+                  %p Distrito Federal, Jalisco
+                  .rating
+                    .ratingStars
+            .border-top.pt-21.mt-14
               %small.fz-xs Desde
-              %h4.text-primary.lh-xs.mv-0 Mex $#{provider.price}
+              %h4.text-primary.lh-xs.mv-0.inline Mex $ #{ provider.price }
               %small.text-primary.fz-xs por noche
-              %h5.bold #{ provider.name }
-              %p.lh-sm.text-gray.fz-xs #{ provider.description[0...200] }
-              .hidden-md.separator.separator-gray-dark.separator-centered.mt-0.separator-full-width
-            .rating
-              .ratingStars
-              .comments
+              %h5.bold.hidden #{ provider.name }
+              %p.lh-sm.text-gray.fz-xs.hidden #{ provider.description[0...200] }
+              .hidden-md.separator.separator-gray-dark.separator-centered.hidden.mt-0.separator-full-width
+            .rating.hidden
+              .ratingStars.hidden
+              .comments.hidden
                 %span.badge #{ provider.comments.length }
                 %span Comentarios
 %br

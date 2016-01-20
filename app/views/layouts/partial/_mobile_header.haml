@@ -1,11 +1,13 @@
 - if current_user
-  %h2 Mi Perfil
-  %h2 Mis Reservas
+  %h2= link_to 'Mi Perfil', user_path(current_user), class: "not-underline white-text"
+  %h2= link_to 'Mis Reservas', bookings_path, class: "not-underline white-text"
+  %h2= link_to 'Salir', destroy_provider_session_path, :method => :delete  
 - elsif current_provider
-  %h2 Mi Perfil
-  %h2 Salir
+  %h2= link_to 'Actualizar mi perfil'.html_safe, edit_provider_path(current_provider), class: "not-underline white-text"
+  %h2= link_to 'Salir'.html_safe, destroy_provider_session_path, :method => :delete 
 - else
-  %h2 Iniciar Sesion como Cliente
-  %h2 Iniciar Sesion como Proveedor
-  %h2 Registrate
-  %h2 Quiero ser cuidador
+  %h2= link_to 'Iniciar sesión como Cliente', new_user_session_path, class:'not-underline text-header'
+  %h2= link_to 'Iniciar sesión como Cuidador', new_provider_session_path, class:'not-underline text-header'
+  %h2= link_to 'Regístrate', new_user_registration_path, class: "not-underline text-header"
+  %h2= link_to 'Quiero ser cuidador', new_provider_registration_path, class: "not-underline sign-up"
+    
