@@ -16,7 +16,6 @@ class ProvidersController < ApplicationController
     
     @location = Location.find(params[:q][:locations_id_eq]).name rescue ''
   
-    
     @search = Provider.search(params[:q])
     
     #Custom view for mobile
