@@ -22,7 +22,7 @@ gem 'high_voltage', '~> 2.3.0'
 
 gem 'kaminari'
 
-# gem 'net-ssh'
+gem 'net-ssh'
 
 gem 'actionpack-page_caching'
 gem 'actionpack-action_caching'
