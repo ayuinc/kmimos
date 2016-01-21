@@ -2,7 +2,7 @@
   %h1 Cuidadores Sugeridos
   %br
 %div
-  - Provider.where(active: true).each do |provider|
+  - @providers.each do |provider|
     %br
     .provider-item
       .block-cuidadores

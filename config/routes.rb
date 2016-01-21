@@ -14,8 +14,7 @@ ServihogarRails::Application.routes.draw do
   root 'providers#home'
 
   get 'bookings/booking_resume/:booking_id' => 'bookings#booking_resume', as: 'booking_resume'
-
-
+  get 'providers/update_state' => 'providers#update_state'
   resources :providers
   resources :users
 

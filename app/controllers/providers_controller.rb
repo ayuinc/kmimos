@@ -18,6 +18,20 @@ class ProvidersController < ApplicationController
     
     @search = Provider.search(params[:q])
 
+    @state_id = params[:states][:id] rescue nil
+    @location_id = params[:locations][:id] rescue nil
+
+    if @state_id
+      state = State.find(@state_id)
+      @providers = Location.find(@location_id).providers if !@location_id.empty?
+      p @providers
+      @providers = Provider.where(id: state.locations.map{|location| location.providers.map{|provider| provider.id}}.flaten) if @location_id.empty?
+      @providers = @providers.where(active: true) if @providers != nil
+      @providers = @providers.order(:id) rescue []
+    else
+      @providers = Provider.where(active: true)
+    end
+
     #Custom view for mobile
     respond_to do |format|
       format.html   { render 'index' }
