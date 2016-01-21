@@ -7,15 +7,13 @@
     .provider-item
       .block-cuidadores
         %a(href="/providers/#{provider.id}")
-          - if provider.avatar
-            .bg-img-block.border-radius.hidden.square-green(style = "height: 150px; background-image: url('#{provider.avatar}');")
-          - else
-            .bg-img-block.border-radius.hidden.square-green(style = "height: 150px; background-image: url('/assets/server_carnet.png');")
           .bg-gray-lighter.p-14.m-21
             .body.body-provider
               .row
-                .col-xs-4
-                .col-xs-8
+                .col-xs-5
+                  = image_tag(@provider.avatar, class: 'img-responsive') if provider.avatar?
+                  = image_tag('server_carnet.png', class: 'img-responsive') unless provider.avatar?
+                .col-xs-7
                   %h5.bold #{ provider.name }
                   - provider.locations.group_by(&:state_id).each do |k, state|
                     %p= state.first.state
@@ -25,7 +23,7 @@
                     .ratingStars{score: score, readOnly: true}
             .border-top.pt-21.mt-14
               %small.fz-xs Desde
-              %h4.text-primary.lh-xs.mv-0.inline Mex $#{ provider.rates.minimum(:price) }
+              %h4.text-primary.lh-xs.mv-0.inline Mex $#{provider.rates.minimum(:price)}
               %small.text-primary.fz-xs por noche
               %h5.bold.hidden #{ provider.name }
               %p.lh-sm.text-gray.fz-xs.hidden #{ provider.description[0...200] }
@@ -34,6 +32,6 @@
               .ratingStars.hidden
               .comments.hidden
                 %span.badge #{ provider.comments.length }
-                %span Comentarios 
+                %span Comentarios
 %br
 %br

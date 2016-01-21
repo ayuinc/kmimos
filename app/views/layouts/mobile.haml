@@ -24,7 +24,7 @@
     :javascript
       try{Typekit.load({ async: true });}catch(e){}
   %body
-    #drawers
+    #drawers 
       #right-drawer
         = render partial: 'layouts/partial/mobile_header'
     #content{style: "background-color: #fff;"}
@@ -33,13 +33,15 @@
       - cache do
         = render "layouts/partial/footer"
     .searcher
+      .pulse
+        = image_tag('cerrar-buscador.svg')
       %h3.text-header  Buscar cuidador
       %p Selecciona donde, cuando y que necesitas para dejar tu perrito.
       = search_form_for @search do |f|
         .form-group
-          = collection_select(:states, :id, State.where("country_id=?",@country.id).order(:name), :id, :name, {:prompt => @country.id == 2 ? "Seleccione una Provincia" : "Seleccione un Estado", :selected => @state_id}, {class: "form-control" })
+          = collection_select(:states, :id, State.where("country_id=?",current_country.id).order(:name), :id, :name, {:prompt => current_country.id == 2 ? "Seleccione una Provincia" : "Seleccione un Estado", :selected => @state_id}, {class: "form-control" })
         .form-group
-          = collection_select(:locations, :id, Location.where("state_id=?", State.where("country_id=?", @country.id).first.id.to_s).order(:name), :id, :name, {:prompt => @country.id == 2 ? "Seleccione un Barrio" : "Municipio o Delegación"}, { :class=> "form-control" })
+          = collection_select(:locations, :id, Location.where("state_id=?", State.where("country_id=?", current_country.id).first.id.to_s).order(:name), :id, :name, {:prompt => current_country.id == 2 ? "Seleccione un Barrio" : "Municipio o Delegación"}, { :class=> "form-control" })
         .form-group
           %input.form-control{value: session[:from_date]}(placeholder="Desde" name="from_date" type= 'date')
         .form-group
@@ -53,17 +55,6 @@
 
 :javascript
 
-  var snapper = new Snap({
-    element: document.getElementById('content'),
-    resistance: 0.5,
-    easing: 'ease',
-    transitionSpeed: 0.3,
-    minDragDistance: 5,
-    disable: 'left'
-    
-  });
-
-
   $('.do_search').on('click', function(){
     $('.searcher').slideToggle();
   });
@@ -76,32 +67,39 @@
 :javascript
 
   $('.datepicker').datepicker();
-
+  
 :javascript
+  (function() {
+    "use strict";
+    
+    var snapper = new Snap({
+      element: document.getElementById('content'),
+      resistance: 0.5,
+      easing: 'ease',
+      transitionSpeed: 0.3,
+      minDragDistance: 5,
+      disable: 'left'
+      
+    });
+    
+    var toggles = document.querySelectorAll(".c-menu");
 
-    (function() {
- 
-       "use strict";
- 
-       var toggles = document.querySelectorAll(".c-hamburger");
- 
-       for (var i = toggles.length-1; i >= 0; i--) {
-         var toggle = toggles[i];
-         toggleHandler(toggle);
-       };
-       
-       function toggleHandler(toggle) {
-         toggle.addEventListener( "click", function(e) {
-           e.preventDefault();
-           if (this.classList.contains("isactive") === true) {
-             this.classList.remove("isactive");
-             snapper.close();
-           } else { 
-             this.classList.add("isactive"); 
-             snapper.open('right');
-           }
-           
-         });
-       }
- 
-     })();
+      for (var i = toggles.length-1; i >= 0; i--) {
+        var toggle = toggles[i];
+        toggleHandler(toggle);
+      };
+
+      function toggleHandler(toggle) {
+        toggle.addEventListener( "click", function(e) {
+        e.preventDefault();
+        
+        if (this.classList.contains("isactive") === true) {
+          this.classList.remove("isactive");
+          snapper.close();
+        } else { 
+          this.classList.add("isactive"); 
+          snapper.open('right');
+        }
+      });
+    }
+  })();

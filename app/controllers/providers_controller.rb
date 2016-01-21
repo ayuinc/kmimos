@@ -21,11 +21,10 @@ class ProvidersController < ApplicationController
     @state_id = params[:states][:id] rescue nil
     @location_id = params[:locations][:id] rescue nil
 
-    if @state_id
+    if !@state_id.to_s.empty?
       state = State.find(@state_id)
       @providers = Location.find(@location_id).providers if !@location_id.empty?
-      p @providers
-      @providers = Provider.where(id: state.locations.map{|location| location.providers.map{|provider| provider.id}}.flaten) if @location_id.empty?
+      @providers = Provider.where(id: state.locations.map{|location| location.providers.map{|provider| provider.id}}.flatten) if @location_id.empty?
       @providers = @providers.where(active: true) if @providers != nil
       @providers = @providers.order(:id) rescue []
     else
@@ -70,7 +69,7 @@ class ProvidersController < ApplicationController
     if @provider.active
       @provider_attachments = @provider.provider_attachments.all
       respond_to do |format|
-        format.html   { render 'show', layout: 'inter' }
+        format.html   { render 'show', layout: 'application' }
         format.mobile { render 'show_mobile', layout: 'mobile' }
       end
     else

@@ -4,9 +4,7 @@
     = render partial: 'layouts/partial/metas'
     %title kmimos
 
-    = stylesheet_link_tag "application", media: "all"
-    = stylesheet_link_tag "providers", media: "all"
-    = javascript_include_tag "application", media: "all"
+    = stylesheet_link_tag "international", media: "all"
     = csrf_meta_tags
 
     / Fonts for Homepage
@@ -20,16 +18,7 @@
   
 
   %body
-    - cache do
-      = render partial: 'layouts/partial/initializer'
-      = render partial: 'layouts/partial/mix_panel'
-    = render "layouts/partial/header"
-    - cache('main_search_form') do
-      = render :partial => 'layouts/shared/search_form'
-    = render "layouts/shared/flash_alerts" unless home?
     = yield
-    - cache do
-      = render "layouts/partial/footer"
 
   %script{:src => "//use.typekit.net/jod1lcb.js"}
   :javascript
