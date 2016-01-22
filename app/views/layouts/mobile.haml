@@ -34,7 +34,7 @@
         = render "layouts/partial/footer"
     .searcher
       .pulse
-        = image_tag('cerrar-buscador.svg')
+        = image_tag('cerrar-buscador.svg', class: "toggle-down")
       %h3.text-header  Buscar cuidador
       %p Selecciona donde, cuando y que necesitas para dejar tu perrito.
       = search_form_for @search do |f|
@@ -56,6 +56,10 @@
 :javascript
 
   $('.do_search').on('click', function(){
+    $('.searcher').slideToggle();
+  });
+  
+  $('.toggle-down').on('click', function(){
     $('.searcher').slideToggle();
   });
 

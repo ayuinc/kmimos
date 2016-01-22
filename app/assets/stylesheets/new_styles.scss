@@ -54,12 +54,14 @@
 .pulse{
     width: 80px;
     height: 50px;
-    margin-top: -30px;
+    margin-top: -32px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #283848;
     z-index: 5;
-    border-radius: 10px;
+}
+
+.pulse img{
+  width: 100%;
 }
 
 
