@@ -11,7 +11,7 @@
             .body.body-provider
               .row
                 .col-xs-5
-                  = image_tag(@provider.avatar, class: 'img-responsive') if provider.avatar?
+                  = image_tag(provider.avatar, class: 'img-responsive') if provider.avatar?
                   = image_tag('server_carnet.png', class: 'img-responsive') unless provider.avatar?
                 .col-xs-7
                   %h5.bold #{ provider.name }
