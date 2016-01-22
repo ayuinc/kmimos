@@ -74,7 +74,7 @@
             .new_pet_fieldset
               = f.link_to_add "Agregar Mascota", :pets, class: "btn btn-primary"
             %br
-            %h4 Cuidadores Favritos
+            %h4 Cuidadores Favoritos
             %hr
             - @user.favorites.each do |favorite|
               %a{href: provider_path(favorite.provider.id)}
