@@ -87,6 +87,7 @@
                 %th.total Precio Total
             %tbody
               - total = 0
+              - super_total = 0
               - diff = (@booking.end_date - @booking.start_date).to_i 
               - @booking.booked_pets.each do |booked_pet|
                 - amount = AdditionalService.get_pet_rate(booked_pet.pet.id, @booking.provider_id) 
@@ -107,6 +108,7 @@
               %tr.border-bottom
                 %td.total(colspan="4") Total 
                 %td.total= "$ #{number_to_currency(total * 1.2, unit: "MXN")}"
+                - super_total += total * 1.2
           %br 
           %h3 Servicios Adicionales
           %br
@@ -133,6 +135,17 @@
               %tr.border-bottom
                 %td.total Precio Total 
                 %td.total= "$ #{number_to_currency(total * 1.2, unit: "MXN")}"
+              - super_total += total * 1.2
+          %table
+            %thead
+              %tr{align: "center"}
+                %th
+                  %h3
+                    %b Total a pagar
+                %th
+                  %h3
+                    %b= "#{number_to_currency(super_total, unit: "MXN")}"
+                    
           %br
           %p (*) Esta reserva esta sujeta a cambios si no es confirmada en las proximas 24 horas.
           %br
