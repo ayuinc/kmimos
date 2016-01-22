@@ -9,8 +9,8 @@ class ProvidersController < ApplicationController
 
   def index
     # Get search form params
-    session[:from_date]     ||= params[:from_date].strftime('%F')
-    session[:to_date]       ||= params[:to_date].strftime('%F')
+    session[:from_date]     ||= params[:from_date]
+    session[:to_date]       ||= params[:to_date]
 
     session[:q_location]    ||= Location.find(params[:q][:locations_id_eq]).name rescue nil
     
