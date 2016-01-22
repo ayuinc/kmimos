@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="49px" height="21px" viewBox="0 0 49 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.4 (17249) - http://www.bohemiancoding.com/sketch -->
+    <title>Group Copy 18 + Shape Copy 12 Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Group-Copy-18-+-Shape-Copy-12-Copy" sketch:type="MSLayerGroup">
+            <g sketch:type="MSShapeGroup">
+                <g id="Group-Copy-18" transform="translate(24.500000, 10.500000) rotate(-90.000000) translate(-24.500000, -10.500000) translate(14.000000, -13.500000)" fill="#435C70">
+                    <g transform="translate(10.500000, 24.000000) scale(-1, 1) translate(-10.500000, -24.000000) " id="Rectangle-path">
+                        <path d="M0,8.19493102 C0,3.77406066 3.5753601,0.190237445 8.00709933,0.190237828 L20.2595215,0.190238889 L20.2595215,47.6942693 L8.00709933,47.6942682 C3.58490048,47.6942678 0,44.1042718 0,39.6895736 L0,8.19493102 Z"></path>
+                    </g>
+                </g>
+                <path d="M27.907263,19.012105 L21.487895,10.886705 L27.907263,3.01210505" id="Shape-Copy-12" stroke="#FFFFFF" stroke-width="3" transform="translate(24.697579, 11.012105) rotate(-270.000000) translate(-24.697579, -11.012105) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

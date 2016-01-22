@@ -50,9 +50,10 @@
       %br
       %br
     
-    
     %button.grey-button.do_search Buscar Cuidador
-
+    
+    
+    = image_tag('abrir-buscador.svg', class: "open-search")
 :javascript
 
   $('.do_search').on('click', function(){
@@ -60,6 +61,11 @@
   });
   
   $('.toggle-down').on('click', function(){
+    $('.searcher').slideToggle();
+    $('.open-search').removeClass('hidden');
+  });
+  
+  $('.open-search').on('click', function(){
     $('.searcher').slideToggle();
   });
 
