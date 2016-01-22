@@ -3,6 +3,7 @@ class ProvidersController < ApplicationController
 
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
   before_action :set_country, only: [:index,:home]
+  before_action :authenticate_user!, only: [:edit]
 
   #Static pages cached
   caches_page :benefits

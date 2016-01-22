@@ -1,6 +1,6 @@
   class UsersController < ApplicationController
     respond_to :html, :json
-    
+    before_action :authenticate_user!, only: [:show]
     
     
     def show
