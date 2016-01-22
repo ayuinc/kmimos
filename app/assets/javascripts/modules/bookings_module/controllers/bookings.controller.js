@@ -22,16 +22,10 @@ bookings_module.controller('BookingsController', ['$scope', '$filter', '$http', 
     
     min = $scope.minDate;
     max = $scope.maxDate;
-
-    min = String(min).split('/');
-    max = String(max).split('/');
     
-    min = [min[1], min[0], min[2]].join('/');
-    max = [max[1], max[0], max[2]].join('/');
-
-    min = Date.parse(min);
-    max = Date.parse(max);
- 
+    min = new Date(min);
+    max = new Date(max);
+    
     diff = (max - min) / 1000 / 60 / 60 / 24;
  
     $scope.diff = diff;
