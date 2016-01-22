@@ -64,4 +64,39 @@
   width: 100%;
 }
 
+.open-search{
+  position: fixed;
+  padding-top: 10px;
+  z-index: 2;
+  padding-bottom: 30px;
+  bottom: 8px;
+  width: 80px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+}
 
+.pop-up{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.42);
+  z-index: 10000000;
+  display: block;
+  position: absolute;
+}
+
+.close-popup{
+  right: 17px;
+  position: absolute;
+}
+
+.main-video-responsive{
+  height: 200px !important;
+  width: 380px !important;
+  bottom: 0;
+  left: 0;
+  top: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+}

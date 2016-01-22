@@ -1,4 +1,8 @@
 #mobile-wrapper.container-fluid.no-padding-margin
+  .pop-up.hidden
+    %span.h1.text-white.close-popup X
+    .main-video-responsive.main-video
+      #video
   .row.provider-home
     .col-md-12.home-bkg.p-21
       .c-hamburger.c-hamburger--htra.c-menu
@@ -9,6 +13,7 @@
       .text-center
         .h3.text-white.lh-xl.bold.text-responsive
           Viaja con tranquilidad, dejando a tu mascota en buenas manos.
+        %a.btn.not-underline.sign-up.text-gray-darker Descubre cómo
       =image_tag('home-duena-without_ball.svg', class: "left-person")
       .right-dogs
         =image_tag("home-perro-bull-terrier.svg", class: "perro-bull-terrier")
@@ -100,6 +105,15 @@
           
 
 :javascript
+
+  $('.sign-up').on('click', function(){
+    $('.pop-up').removeClass('hidden');
+  });
+  
+  $('.close-popup').on('click', function(){
+    $('.pop-up').addClass('hidden');
+  });
+
   $('.testimonies').slick({
     autoplay: true, 
     autoplaySpeed: 2000,
