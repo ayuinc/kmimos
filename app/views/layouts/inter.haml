@@ -1,8 +1,9 @@
 !!!
 %html
   %head
-    = render partial: 'layouts/partial/metas'
     %title kmimos
+    %link{:href => "assets/favicon.png", :rel => "shortcut icon"}/
+    = render partial: 'layouts/partial/metas'
 
     = stylesheet_link_tag "international", media: "all"
     = csrf_meta_tags
