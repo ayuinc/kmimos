@@ -142,7 +142,7 @@
             %h5.light.mt-0.text-gray.text-small por noche
             .col-md-12.border-top.border-bottom.pt-7.pb-7  
               %p Tarifas por tamaños
-              - @provider.rates.order(size_id: :asc).each do |a|
+              - @provider.rates.order(size_id: :asc).uniq.each do |a|
                 %p{style:"font-size:11px"}="#{a.size.size_title} :  #{1.2*(a.price) rescue 0}  #{current_country.currency}"
             =f.submit "Reservar".html_safe, :class => "mt-14 mb-21 btn btn-primary btn-small btn-fold" #,  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Reservar', 'provider_#{@provider.id.to_s}']);"
             %br/
