@@ -55,6 +55,10 @@ ul.navbar-nav li {
   height: 16px;
 }
 
+.valorations .ratingStars img {
+  height: 12px;
+}
+
 .do_search {
   position: fixed;
   padding-top: 10px;
