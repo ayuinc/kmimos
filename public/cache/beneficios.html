@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>kmimos</title>
+    <link href='/assets/favicon.png' rel='shortcut icon'>
     <meta charset='utf-8'>
     <meta content='IE=edge,chrome=1' http-equiv='X-UA-Compatible'>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1' name='viewport'>
@@ -25,12 +27,11 @@
     <meta content='' name='twitter:site'>
     <meta content='' name='twitter:creator'>
     <meta content='' name='twitter:image'>
-    <title>kmimos</title>
     <link href="/assets/application.css" media="all" rel="stylesheet" />
     <link href="/assets/providers.css" media="all" rel="stylesheet" />
     <script src="/assets/application.js"></script>
     <meta content="authenticity_token" name="csrf-param" />
-    <meta content="Ywz9If+Hd6oEhml1Xeoc0jPrSd5na5OkzH/hdYfzeaw=" name="csrf-token" />
+    <meta content="Rtdu+Op+YtlZBNwfykXCnCFlK6vWJWsxOLIprpnHFiU=" name="csrf-token" />
     <!-- Fonts for Homepage -->
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
@@ -54,18 +55,35 @@
       $.src='//v2.zopim.com/?2rAZA158tdPofy3mBWtUwxr1sLuiKHRl';z.t=+new Date;$.
       type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
     </script>
+    <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+    for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+    mixpanel.init("77809472a7285576b84c47460cd1c826");</script><!-- end Mixpanel -->
+      
+    <script type="text/javascript">
+    setTimeout(function(){var a=document.createElement("script");
+    var b=document.getElementsByTagName("script")[0];
+    a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0039/9228.js?"+Math.floor(new Date().getTime()/3600000);
+    a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+    </script>
     <div class='navbar internal'>
       <div class='navbar-header'>
-        <button class='navbar-toggle mt-28' data-target='.navbar-collapse' data-toggle='collapse' type='button'>
+        <button class='navbar-toggle mt-28 c-menu' data-target='.navbar-collapse' type='button'>
           <span class='icon-bar'></span>
           <span class='icon-bar'></span>
           <span class='icon-bar'></span>
         </button>
-        <div class='p-7 hidden-xs hidden-sm col-xs-4'><a href="http://localhost:3000/"><img alt="Logo kmimos" class="mt--14 img-logo" src="/assets/logo-kmimos.svg" /></a></div>
-        <div class='p-7 hidden-md hidden-lg col-xs-4'><a href="http://localhost:3000/"><img alt="Logo kmimos" class="mt-0 img-logo" src="/assets/logo-kmimos.svg" /></a></div>
+        <div class='p-7 hidden-xs hidden-sm col-xs-4'><a href="https://cpkmimos-ivandevp.c9users.io/"><img alt="Logo kmimos" class="mt--14 img-logo" src="/assets/logo-kmimos.svg" /></a></div>
+        <div class='p-7 hidden-md hidden-lg col-xs-4'><a href="https://cpkmimos-ivandevp.c9users.io/"><img alt="Logo kmimos" class="mt-0 img-logo" src="/assets/logo-kmimos.svg" /></a></div>
       </div>
-      <div class='collapse navbar-collapse pr-21'>
-        <ul class='nav navbar-nav mt-14'>
+      <div class='collapse navbar-collapse text-center'>
+        <div class='text-center hidden-lg hidden-md'></div>
+        <div class='hidden-lg hidden-md hidden'>
+          <li class='block h2'><a class="not-underline text-header" href="/users/sign_in">Iniciar sesión como Cliente</a></li>
+          <li class='block h2'><a class="not-underline text-header" href="/providers/sign_in">Iniciar sesión como Cuidador</a></li>
+          <li class='block h2 pb-21'><a class="not-underline text-header" href="/users/sign_up">Regístrate</a></li>
+          <li class='block h2'><a class=" sign-up" href="/providers/sign_up">Quiero ser cuidador</a></li>
+        </div>
+        <ul class='nav navbar-nav mt-14 hidden-xs'>
           <li>
             <div class='dropdown'>
               <a class='dropdown-toggle text-header btn pv-7' data-toggle='dropdown'>
@@ -87,25 +105,26 @@
         </ul>
       </div>
     </div>
+    
     <div class='benefits'>
       <div class='row even'>
         <center class='col-md-12'>
           <img src='assets/beneficios-seguro-salud.svg'>
-          <h1>Seguro de salud para tu macota</h1>
+          <h1>Seguro para tu perrito</h1>
           <p>Tu perrito tendrá cobertura contra accidentes durante su estadía con nuestros cuidadores asociados.</p>
         </center>
       </div>
       <div class='row odd'>
         <center class='col-md-12'>
           <img src='assets/beneficios-cuidadores-especializados.svg'>
-          <h1>Cuidadores especializados y evaluados</h1>
+          <h1>Cuidadores certificados</h1>
           <p>Nuestros cuidadores asociados pasan por un riguroso proceso de certificación, basado en estándares internacionales y mediante los que evaluamos su integridad, conocimientos y experiencia en el cuidado de perros</p>
         </center>
       </div>
       <div class='row even'>
         <center class='col-md-12'>
           <img src='assets/beneficios-fotos.svg'>
-          <h1>Recibe fotos del estado de tu perrito</h1>
+          <h1>Fotografias y videos diarios</h1>
           <p>Desde el momento en el que tu perrito llega al hogar de nuestros cuidadores asociados, se toman fotografías y/o videos que serán compartidos contigo de manera diaria para que puedas ver cómo la están pasando en su estadía.  Nuestro personal monitorea de manera constante a los cuidadores asociados mientras tu amigo vive la experiencia Kmimos.</p>
           <figure class='photoDisplay'>
             <img alt='img01' id='Photo1' src='assets/mascota1.jpg'>
@@ -119,7 +138,7 @@
       <div class='row odd'>
         <center class='col-md-12'>
           <img src='assets/beneficios-atencion24_7.svg'>
-          <h1>Atencion 24 / 7 para tu mascota</h1>
+          <h1>Atencion personalizada</h1>
           <p>Brindamos cualquier apoyo necesario para garantizar que tu perrito disfruta la experiencia mas placentera que jamás haya tenido, y para ello tanto los clientes como cuidadores asociados Kmimos recibirán atención 24 horas durante la estadía de tu perrito.</p>
         </center>
       </div>
@@ -132,6 +151,16 @@
       _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute('charset','utf-8');
       $.src='//v2.zopim.com/?2rAZA158tdPofy3mBWtUwxr1sLuiKHRl';z.t=+new Date;$.
       type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
+    </script>
+    <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+    for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+    mixpanel.init("77809472a7285576b84c47460cd1c826");</script><!-- end Mixpanel -->
+      
+    <script type="text/javascript">
+    setTimeout(function(){var a=document.createElement("script");
+    var b=document.getElementsByTagName("script")[0];
+    a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0039/9228.js?"+Math.floor(new Date().getTime()/3600000);
+    a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
     </script>
   </body>
 </html>
