@@ -1,5 +1,5 @@
 %center
-  %h1 Cuidadores Sugeridos
+  %h1.mobile-font-title Cuidadores Sugeridos
   %br
 %div
   - @providers.each do |provider|
@@ -7,24 +7,26 @@
     .provider-item
       .block-cuidadores
         %a(href="/providers/#{provider.id}")
-          .bg-gray-lighter.p-14.m-21
-            .body.body-provider
+          .bg-gray-lighter.mobile-box.p-14.m-21
+            .body.body-provider-mobile
               .row
                 .col-xs-5
                   = image_tag(provider.avatar, class: 'img-responsive') if provider.avatar?
                   = image_tag('server_carnet.png', class: 'img-responsive') unless provider.avatar?
                 .col-xs-7
-                  %h5.bold #{ provider.name }
-                  - provider.locations.group_by(&:state_id).each do |k, state|
-                    %p= state.first.state
+                  %h5.bold.mobile-font-title-2 #{ provider.name } #{ provider.last_name_1}
+                  - @states = []
+                  - provider.locations.group_by(&:state_id).each do |k, location|
+                    -@states << location.first.state.name
+                  %p= @states.join(', ') 
                   .rating
                     - val = Valuation.by_comments(provider.id)
                     - score = val.map{|val| val[1]}.reduce(:+).to_i / val.size.to_i rescue 0
                     .ratingStars{score: score, readOnly: true}
             .border-top.pt-21.mt-14
-              %small.fz-xs Desde
-              %h4.text-primary.lh-xs.mv-0.inline Mex $#{provider.rates.minimum(:price)}
-              %small.text-primary.fz-xs por noche
+              %small.gray-mobile Desde
+              %h4.lh-xs.mv-0.inline.price-mobile-1 Mex $#{provider.rates.minimum(:price)}
+              %small.fz-xsprice-mobile por noche
               %h5.bold.hidden #{ provider.name }
               %p.lh-sm.text-gray.fz-xs.hidden #{ provider.description[0...200] }
               .hidden-md.separator.separator-gray-dark.separator-centered.hidden.mt-0.separator-full-width
