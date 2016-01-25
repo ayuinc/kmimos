@@ -11,7 +11,8 @@ class Api::ProvidersController < ApplicationController
    hash_response = Array.new
    
    @providers = Provider.actives
-
+   @providers = @providers.where(id: State.where(country_id: current_country).map{|state| state.locations.map{|location| location.providers.map{|provider| provider.id}}}.flatten)
+   
    @providers.each do |provider|
      hash_provider = Hash.new
      
