@@ -3,7 +3,6 @@ class ProvidersController < ApplicationController
 
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
   before_action :set_country, only: [:index,:home]
-  before_action :authenticate_user!, only: [:edit]
 
   #Static pages cached
   caches_page :benefits
@@ -91,12 +90,16 @@ class ProvidersController < ApplicationController
 
   # GET /providers/1/edit
   def edit
-    @provider_attachment = @provider.provider_attachments.build
-    @new_provider_attachment = @provider.provider_attachments.new
-    @provider_attachments = @provider.provider_attachments.all
-
-    @provider = Provider.find(params[:id])
-    # @provider.pictures.build
+    if current_provider != nil
+      @provider_attachment = @provider.provider_attachments.build
+      @new_provider_attachment = @provider.provider_attachments.new
+      @provider_attachments = @provider.provider_attachments.all
+  
+      @provider = Provider.find(params[:id])
+      # @provider.pictures.build
+    else
+      redirect_to '/providers/sign_in'
+    end
   end
 
 

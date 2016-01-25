@@ -1,7 +1,7 @@
-/*! angularjs-slider - v2.4.1 - 
+/*! angularjs-slider - v2.5.0 - 
  (c) Rafal Zajac <rzajac@gmail.com>, Valentin Hervieu <valentin@hervieu.me>, Jussi Saarivirta <jusasi@gmail.com>, Angelin Sirbu <angelin.sirbu@gmail.com> - 
  https://github.com/angular-slider/angularjs-slider - 
- 2016-01-15 */
+ 2016-01-24 */
 /*jslint unparam: true */
 /*global angular: false, console: false, define, module */
 (function(root, factory) {
@@ -31,6 +31,7 @@
       ceil: null, //defaults to rz-slider-model
       step: 1,
       precision: 0,
+      minRange: 0,
       id: null,
       translate: null,
       stepsArray: null,
@@ -736,7 +737,7 @@
         this.scope.ticks = [];
         for (var i = 0; i < ticksCount; i++) {
           var value = this.roundStep(this.minValue + i * this.step);
-          var tick =   {
+          var tick = {
             selected: this.isTickSelected(value)
           };
           if (tick.selected && this.options.getSelectionBarColor) {
@@ -790,36 +791,45 @@
 
       /**
        * Call the onStart callback if defined
+       * The callback call is wrapped in a $evalAsync to ensure that its result will be applied to the scope.
        *
        * @returns {undefined}
        */
       callOnStart: function() {
         if (this.options.onStart) {
-          this.options.onStart(this.options.id);
+          var self = this;
+          this.scope.$evalAsync(function () {
+            self.options.onStart(self.options.id, self.scope.rzSliderModel, self.scope.rzSliderHigh);
+          });
         }
       },
 
       /**
        * Call the onChange callback if defined
+       * The callback call is wrapped in a $evalAsync to ensure that its result will be applied to the scope.
        *
        * @returns {undefined}
        */
       callOnChange: function() {
         if (this.options.onChange) {
-          this.options.onChange(this.options.id);
+          var self = this;
+          this.scope.$evalAsync(function () {
+            self.options.onChange(self.options.id, self.scope.rzSliderModel, self.scope.rzSliderHigh);
+          });
         }
       },
 
       /**
        * Call the onEnd callback if defined
+       * The callback call is wrapped in a $evalAsync to ensure that its result will be applied to the scope.
        *
        * @returns {undefined}
        */
       callOnEnd: function() {
         if (this.options.onEnd) {
           var self = this;
-          $timeout(function() {
-            self.options.onEnd(self.options.id);
+          this.scope.$evalAsync(function () {
+            self.options.onEnd(self.options.id, self.scope.rzSliderModel, self.scope.rzSliderHigh);
           });
         }
       },
@@ -1514,7 +1524,9 @@
         var switched = false;
 
         if (this.range) {
-          /* This is to check if we need to switch the min and max handles*/
+          newValue = this.applyMinRange(newValue);
+          newOffset = this.valueToOffset(newValue);
+          /* This is to check if we need to switch the min and max handles */
           if (this.tracking === 'rzSliderModel' && newValue >= this.scope.rzSliderHigh) {
             switched = true;
             this.scope[this.tracking] = this.scope.rzSliderHigh;
@@ -1551,6 +1563,21 @@
           this.applyModel();
         }
         return switched;
+      },
+
+      applyMinRange: function(newValue) {
+        if (this.options.minRange !== 0) {
+          var oppositeValue = this.tracking === 'rzSliderModel' ? this.scope.rzSliderHigh : this.scope.rzSliderModel,
+            difference = Math.abs(newValue - oppositeValue);
+
+          if (difference < this.options.minRange) {
+            if (this.tracking === 'rzSliderModel')
+              return this.scope.rzSliderHigh - this.options.minRange;
+            else
+              return this.scope.rzSliderModel + this.options.minRange;
+          }
+        }
+        return newValue;
       },
 
       /**
