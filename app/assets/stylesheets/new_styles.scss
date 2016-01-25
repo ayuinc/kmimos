@@ -130,13 +130,18 @@
 
 .main-video-responsive{
   height: 200px !important;
-  width: 380px !important;
+  width: 100% !important;
   bottom: 0;
   left: 0;
   top: 0;
   margin: auto;
   position: absolute;
   right: 0;
+  iframe{
+    width: 250px;
+    height: 170px;
+    margin : 0 auto;
+  }
 }
 
 .grey-button-exit{
