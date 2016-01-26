@@ -60,6 +60,10 @@
 
 = render "layouts/modal"
 
+- if Rails.env.production?
+  :javascript
+    mixpanel.track('Realizó búsqueda en #{@country.name} ');
+
 :javascript
   $("#q_locations_id_eq").select2();
   
@@ -69,3 +73,5 @@
   setTimeout(function(){ 
     $("#q_locations_id_eq").val("#{@location}").change();
   }, 1000);
+  
+ 

@@ -65,7 +65,14 @@
     %h3 Quédate tranquilo que tu perrito estará en buenas manos.
     %br
     %br 
-        
+- if Rails.env.production?
+  :javascript
+    mixpanel.track("Reserva exitosa",{
+      "id_cuidador" :#{@booking.provider.id},
+      "nombre_cuidador": "#{@booking.provider.name}",
+      "apellido_cuidador": "#{@booking.provider.last_name_1}"
+    });
+
 / Facebook Conversion Code for Reservacion exitosa
 :javascript
   (function() {
@@ -79,7 +86,7 @@
       _fbq.loaded = true;
     }
   })();
-  
+
   
   window._fbq = window._fbq || [];
   window._fbq.push(['track', '6021903685305', {'value':'0.01','currency':'MXN'}]);

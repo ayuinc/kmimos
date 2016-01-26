@@ -11,9 +11,13 @@
             .registration_wizard_user
               = render partial: 'step1', locals: {f: f}
               = render partial: 'step2', locals: {f: f} 
-            = render partial: 'terms', locals: {f: f}
+              = render partial: 'terms', locals: {f: f}
  
-            
+- if Rails.env.production?
+  :javascript
+    mixpanel.track("Crear cuenta como Cliente");            
+
+
 :javascript
   
   $(".registration_wizard_user").steps({
@@ -31,4 +35,6 @@
         _gaq.push(['_trackEvent', 'Homepage', 'Recomendar-modal-trigger']);
       }
   });
+
+
   
