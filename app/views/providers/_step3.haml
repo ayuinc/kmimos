@@ -18,3 +18,10 @@
         .col-md-12
           %hr
     = f.link_to_add "Agregar un Servicio Adicional", :additional_services 
+
+
+:javascript
+
+mixpanel.track('Crear cuenta como Cuidador',{
+    "Paso" : "3",
+  });

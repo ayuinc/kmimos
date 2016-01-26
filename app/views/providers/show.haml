@@ -221,3 +221,9 @@
       dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
       (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
+
+  mixpanel.track('Ingresó a perfil de cuidador',{
+    "id_cuidador" :#{@provider.id},
+    "nombre_cuidador": "#{@provider.name}",
+    "apellido_cuidador": "#{@provider.last_name_1}"
+  });

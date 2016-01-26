@@ -36,6 +36,16 @@
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+    for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+    mixpanel.init("77809472a7285576b84c47460cd1c826");</script><!-- end Mixpanel -->
+      
+    <script type="text/javascript">
+    setTimeout(function(){var a=document.createElement("script");
+    var b=document.getElementsByTagName("script")[0];
+    a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0039/9228.js?"+Math.floor(new Date().getTime()/3600000);
+    a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+    </script>
     <!-- Google API -->
     <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCQBZylrzO1yGB_xh5dUCLhEISHFZb7a0c'></script>
     <!-- FONTS -->
@@ -74,34 +84,31 @@
         </button>
         <div class='p-7 hidden-xs hidden-sm col-xs-4'><a href="http://localhost:3000/"><img alt="Logo kmimos" class="mt--14 img-logo" src="/assets/logo-kmimos.svg" /></a></div>
         <div class='p-7 hidden-md hidden-lg col-xs-4'><a href="http://localhost:3000/"><img alt="Logo kmimos" class="mt-0 img-logo" src="/assets/logo-kmimos.svg" /></a></div>
+        <ul class='nav navbar-nav mt-7 ml-56 hidden-xs'>
+          <li><a class="not-underline white-text" href="/users/9">Mi Perfil</a></li>
+          <li><a class="not-underline white-text" href="/bookings">Mis Reservas</a></li>
+        </ul>
       </div>
       <div class='collapse navbar-collapse text-center'>
         <div class='text-center hidden-lg hidden-md'></div>
         <div class='hidden-lg hidden-md hidden'>
-          <li class='block h2'><a class="not-underline text-header" href="/users/sign_in">Iniciar sesión como Cliente</a></li>
-          <li class='block h2'><a class="not-underline text-header" href="/providers/sign_in">Iniciar sesión como Cuidador</a></li>
-          <li class='block h2 pb-21'><a class="not-underline text-header" href="/users/sign_up">Regístrate</a></li>
-          <li class='block h2'><a class=" sign-up" href="/providers/sign_up">Quiero ser cuidador</a></li>
+          <li class='block h2'><a href="/users/9">Mi perfil</a></li>
+          <li class='block h2'><a href="/bookings">Mis Reservas</a></li>
+          <li class='block h2'><a data-method="delete" href="/users/sign_out" rel="nofollow">Salir</a></li>
         </div>
         <ul class='nav navbar-nav mt-14 hidden-xs'>
-          <li>
+          <li class='ml-35'>
             <div class='dropdown'>
-              <a class='dropdown-toggle text-header btn pv-7' data-toggle='dropdown'>
-                <span class='h5 book pr-14 ls-md'>Iniciar Sesión</span>
-                <span class='caret'></span>
+              <a class='dropdown-toggle text-header' data-toggle='dropdown' href='#'>
+                Hola, Lalo
               </a>
-              <ul class='dropdown-menu'>
-                <li>
-                  <a href='/users/sign_in'>Iniciar sesión como Cliente</a>
-                </li>
-                <li>
-                  <a href='/providers/sign_in'>Iniciar sesión como Cuidador</a>
-                </li>
+              <ul class='dropdown-menu' id='dropdown-menu'>
+                <li><a href="/users/9">Mi perfil</a></li>
+                <li><a href="/bookings">Mis reservas</a></li>
+                <li><a data-method="delete" href="/users/sign_out" rel="nofollow">Salir</a></li>
               </ul>
             </div>
           </li>
-          <li><a class="not-underline text-header" href="/users/sign_up">Registrarme</a></li>
-          <li class='active'><a class="not-underline sign-up" href="/providers/sign_up">Quiero ser cuidador</a></li>
         </ul>
       </div>
     </div>

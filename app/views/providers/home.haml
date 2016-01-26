@@ -1,4 +1,3 @@
- 
 .site-wrapper.provider-home
   %main#scene.site-content{:role => "main"}
     
@@ -121,3 +120,4 @@
 :javascript
 
   initPlayer('homePlayer', 'video');
+  mixpanel.track('Ingresó a la página de #{@country.name} ');

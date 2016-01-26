@@ -13,3 +13,7 @@
               = render partial: 'step2', locals: {f: f}
               = render partial: 'step3', locals: {f: f} 
             = render partial: 'terms', locals: {f: f}
+
+:javascript 
+ 
+  mixpanel.track("Crear cuenta como Cuidador");

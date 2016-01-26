@@ -79,7 +79,11 @@
       _fbq.loaded = true;
     }
   })();
-  
+  mixpanel.track("Reserva exitosa",{
+    "id_cuidador" :#{@booking.provider.id},
+    "nombre_cuidador": "#{@booking.provider.name}",
+    "apellido_cuidador": "#{@booking.provider.last_name_1}"
+  });
   
   window._fbq = window._fbq || [];
   window._fbq.push(['track', '6021903685305', {'value':'0.01','currency':'MXN'}]);

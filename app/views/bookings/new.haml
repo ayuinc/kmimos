@@ -196,3 +196,4 @@
     $('.datepicker_min').change();
 
   }, 1000);
+  mixpanel.track('Intenta hacer reserva con #{@provider.id} - #{@provider.name} #{@provider.last_name_1}');

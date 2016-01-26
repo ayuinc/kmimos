@@ -69,3 +69,5 @@
   setTimeout(function(){ 
     $("#q_locations_id_eq").val("#{@location}").change();
   }, 1000);
+  
+  mixpanel.track('Realizó búsqueda en #{@country.name} ');

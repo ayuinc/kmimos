@@ -18,7 +18,7 @@
     / App styles
     = stylesheet_link_tag "ebm", media: "all"
     = stylesheet_link_tag "responsive", media: "all"
-
+    = render partial: 'layouts/partial/mix_panel'
     %script{:src => "https://use.typekit.net/jod1lcb.js"}
     = csrf_meta_tag
     :javascript

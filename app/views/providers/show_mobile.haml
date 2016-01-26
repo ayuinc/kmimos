@@ -174,3 +174,9 @@
     autoplay: true,
     autoplaySpeed: 2000
   });
+
+  mixpanel.track('Ingresó a perfil de cuidador',{
+    "id_cuidador" :#{@provider.id},
+    "nombre_cuidador": "#{@provider.name}",
+    "apellido_cuidador": "#{@provider.last_name_1}"
+  });
