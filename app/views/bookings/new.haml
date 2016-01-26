@@ -160,6 +160,15 @@
           %div
             %h5 (*) Confirmaremos tu reserva en un período de 24 horas, es posible que pueda haber un cambio. Si así sucede nos contactaremos contigo para informarte y darte la mejor solución.
 
+- if Rails.env.production?
+  :javascript
+    mixpanel.track("Inicio reserva",{
+       "id_cuidador": #{@provider.id},
+       "nombre_cuidador": "#{@provider.name}",
+       "apellido_cuidador": "#{@provider.last_name_1}"
+    });
+
+
 :javascript
 
   var preselect_services =[]
@@ -196,4 +205,3 @@
     $('.datepicker_min').change();
 
   }, 1000);
-  mixpanel.track('Intenta hacer reserva con #{@provider.id} - #{@provider.name} #{@provider.last_name_1}');

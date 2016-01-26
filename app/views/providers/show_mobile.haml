@@ -164,6 +164,15 @@
               .ratingStars.pl-14.mt-7{score: value.to_i, readOnly: true}
             %br
 
+- if Rails.env.production?
+  :javascript
+    mixpanel.track('Ingresó a perfil de cuidador',{
+     "id_cuidador" :#{@provider.id},
+      "nombre_cuidador": "#{@provider.name}",
+      "apellido_cuidador": "#{@provider.last_name_1}"
+    });
+
+
 :javascript
             
   $('.slider').slick({
@@ -173,10 +182,4 @@
     arrows: false,
     autoplay: true,
     autoplaySpeed: 2000
-  });
-
-  mixpanel.track('Ingresó a perfil de cuidador',{
-    "id_cuidador" :#{@provider.id},
-    "nombre_cuidador": "#{@provider.name}",
-    "apellido_cuidador": "#{@provider.last_name_1}"
   });

@@ -38,6 +38,6 @@
 %br
 %br
 
-:javascript
-
- mixpanel.track('Realizó búsqueda en #{@country.name} ');
+- if Rails.env.production?
+  :javascript
+    mixpanel.track('Realizó búsqueda en #{@country.name} ');

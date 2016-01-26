@@ -20,6 +20,9 @@
 		<div class="perros-responsive pt-42-xs"></div>
 	</div>
 </div>
-<script type="text/javascript">
-	mixpanel.track("Visitó el home");
-</script>
+
+<% if Rails.env.production? %>
+	<script type="text/javascript">
+		mixpanel.track("Visitó el home");
+	</script>
+<% end %>

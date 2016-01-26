@@ -5,6 +5,7 @@
     .row.bg-img-block.home-bkg.no-margin-row
       
       =render partial: 'layouts/partial/new_header.haml'
+      =render partial: 'layouts/partial/mix_panel'
       - cache('home_main') do
         .home-scene
           =image_tag('home-duena-without_ball.svg', class: "left-person")
@@ -115,9 +116,11 @@
               /   %a.btn.btn-primary-lighter.btn.mt-35.mb-21.pv-7{:href => "#"}
               /     %h4.bold.text-success.mv-0.ph-35 Recomendar
 
-
+- if Rails.env.production?
+  :javascript
+    mixpanel.track('Ingresó a la página de #{@country.name} ');
 
 :javascript
 
   initPlayer('homePlayer', 'video');
-  mixpanel.track('Ingresó a la página de #{@country.name} ');
+  
