@@ -39,16 +39,16 @@
           %label ¿En qué municipios puedes trabajar?
         - current_country.states.each do |state|
           .row.border-bottom.pt-14
-            .col-md-1
+            .col-md-1.col-xs-1
               %input{type: 'checkbox', onchange: "javascript:check_state(#{state.id.to_s})", class: "main_state_#{state.id}"}
-            .col-md-10=state.name
-            .col-md-1
+            .col-md-10.col-xs-8=state.name
+            .col-md-1.col-xs-1
               %a.btn.btn-default.btn-xs{href: "javascript:select_state(#{state.id.to_s})"}
                 %i.fa.fa-caret-down
-            .col-md-12
+            .col-md-12-col-xs-12
               .div{class: "state_#{state.id}", style: "display: none;"}
                 %label= state
-                .tricol_checkboxes= f.association :locations, as: :check_boxes, label: false, :collection => state.locations
+                .bicol_checkboxes= f.association :locations, as: :check_boxes, label: false, :collection => state.locations
     .row.pt-14.pb-14
       %label.pt-14 Trabajo con Mascotas
       .form-group

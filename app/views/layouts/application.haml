@@ -15,6 +15,9 @@
     %link{:href => "https://fonts.googleapis.com/css?family=Montserrat", :rel => "stylesheet", :type => "text/css"}/
     %link{:href => "https://fonts.googleapis.com/css?family=Open+Sans", :rel => "stylesheet", :type => "text/css"}
 
+    = stylesheet_link_tag "ebm", media: "all"
+    = stylesheet_link_tag "mobile", media: "all"
+
     / Google API
     %script{src: "https://maps.googleapis.com/maps/api/js?key=AIzaSyCQBZylrzO1yGB_xh5dUCLhEISHFZb7a0c"}
 
@@ -23,13 +26,54 @@
     :javascript
       try{Typekit.load();}catch(e){}
     / END FONTS
-
+    
   %body
+  
     - cache do
       = render partial: 'layouts/partial/initializer'
       = render partial: 'layouts/partial/mix_panel'
-    = render "layouts/partial/header" unless home?
-    = render "layouts/shared/flash_alerts" unless home?
-    = yield
-    - cache do
-      = render "layouts/partial/footer"
+    #drawers 
+      #right-drawer
+        = render partial: 'layouts/partial/mobile_header'
+    #content{style: "background-color: #fff;"}
+      = render "layouts/partial/header" unless home?
+      = render "layouts/shared/flash_alerts" unless home?
+      = yield
+      - cache do 
+        = render "layouts/partial/footer"
+    = javascript_include_tag "snap"
+    :javascript
+      (function() {
+        "use strict";
+        
+        var snapper = new Snap({
+          element: document.getElementById('content'),
+          resistance: 0.5,
+          easing: 'ease',
+          transitionSpeed: 0.3,
+          minDragDistance: 5,
+          disable: 'left'
+          
+        });
+        
+        var toggles = document.querySelectorAll(".c-menu");
+    
+          for (var i = toggles.length-1; i >= 0; i--) {
+            var toggle = toggles[i];
+            toggleHandler(toggle);
+          };
+    
+          function toggleHandler(toggle) {
+            toggle.addEventListener( "click", function(e) {
+            e.preventDefault();
+            
+            if (this.classList.contains("isactive") === true) {
+              this.classList.remove("isactive");
+              snapper.close();
+            } else { 
+              this.classList.add("isactive"); 
+              snapper.open('right');
+            }
+          });
+        }
+      })();
