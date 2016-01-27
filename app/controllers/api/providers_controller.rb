@@ -25,7 +25,7 @@ class Api::ProvidersController < ApplicationController
      hash_provider[:coords]       = {latitude: provider.latitude, longitude: provider.longitude }
      hash_provider[:locations]    = provider.locations.map{|l| l.name}.uniq
      hash_provider[:description]  = provider.description
-     hash_provider[:price]        = provider.rates.minimum(:price).to_f * 1.2
+     hash_provider[:price]        = provider.rates.where("price>0").where("price>0").to_f * 1.2
      hash_provider[:avatar]       = provider.avatar.url == nil ? "assets/user.jpg" : provider.avatar.url
      hash_provider[:sizes]        = provider.sizes.map{|s| s.size_title}.uniq
      hash_provider[:pet_qty]      = provider.pets_allowed.to_i
