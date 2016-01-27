@@ -80715,12 +80715,14 @@ angular.module('nemLogging').provider('nemDebug', function (){
 
   return this;
 });
-var bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
+var bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  slice = [].slice;
 
 angular.module('nemLogging').provider('nemSimpleLogger', [
   'nemDebugProvider', function(nemDebugProvider) {
-    var LEVELS, Logger, _fns, _isValidLogObject, _maybeExecLevel, _wrapDebug, i, key, len, nemDebug, val;
+    var LEVELS, Logger, _debugCache, _fns, _isValidLogObject, _maybeExecLevel, _wrapDebug, i, key, len, nemDebug, val;
     nemDebug = nemDebugProvider.debug;
+    _debugCache = {};
     _fns = ['debug', 'info', 'warn', 'error', 'log'];
     LEVELS = {};
     for (key = i = 0, len = _fns.length; i < len; key = ++i) {
@@ -80752,9 +80754,12 @@ angular.module('nemLogging').provider('nemSimpleLogger', [
       Overide logeObject.debug with a nemDebug instance
       see: https://github.com/visionmedia/debug/blob/master/Readme.md
      */
-    _wrapDebug = function(debugStrLevel, logObject) {
+    _wrapDebug = function(namespace, logObject) {
       var debugInstance, j, len1, newLogger;
-      debugInstance = nemDebug(debugStrLevel);
+      if (_debugCache[namespace] == null) {
+        _debugCache[namespace] = nemDebug(namespace);
+      }
+      debugInstance = _debugCache[namespace];
       newLogger = {};
       for (j = 0, len1 = _fns.length; j < len1; j++) {
         val = _fns[j];
@@ -80777,10 +80782,13 @@ angular.module('nemLogging').provider('nemSimpleLogger', [
         logFns = {};
         fn1 = (function(_this) {
           return function(level) {
-            logFns[level] = function(msg) {
+            logFns[level] = function() {
+              var args;
+              args = 1 <= arguments.length ? slice.call(arguments, 0) : [];
               if (_this.doLog) {
                 return _maybeExecLevel(LEVELS[level], _this.currentLevel, function() {
-                  return _this.$log[level](msg);
+                  var ref;
+                  return (ref = _this.$log)[level].apply(ref, args);
                 });
               }
             };
@@ -96878,10 +96886,10 @@ angular.module('uiGmapgoogle-maps.extensions')
   };
 }]);
 }( window,angular));
-/*! angularjs-slider - v2.4.1 - 
+/*! angularjs-slider - v2.5.0 - 
  (c) Rafal Zajac <rzajac@gmail.com>, Valentin Hervieu <valentin@hervieu.me>, Jussi Saarivirta <jusasi@gmail.com>, Angelin Sirbu <angelin.sirbu@gmail.com> - 
  https://github.com/angular-slider/angularjs-slider - 
- 2016-01-15 */
+ 2016-01-24 */
 /*jslint unparam: true */
 /*global angular: false, console: false, define, module */
 
@@ -96912,6 +96920,7 @@ angular.module('uiGmapgoogle-maps.extensions')
       ceil: null, //defaults to rz-slider-model
       step: 1,
       precision: 0,
+      minRange: 0,
       id: null,
       translate: null,
       stepsArray: null,
@@ -97617,7 +97626,7 @@ angular.module('uiGmapgoogle-maps.extensions')
         this.scope.ticks = [];
         for (var i = 0; i < ticksCount; i++) {
           var value = this.roundStep(this.minValue + i * this.step);
-          var tick =   {
+          var tick = {
             selected: this.isTickSelected(value)
           };
           if (tick.selected && this.options.getSelectionBarColor) {
@@ -97671,36 +97680,45 @@ angular.module('uiGmapgoogle-maps.extensions')
 
       /**
        * Call the onStart callback if defined
+       * The callback call is wrapped in a $evalAsync to ensure that its result will be applied to the scope.
        *
        * @returns {undefined}
        */
       callOnStart: function() {
         if (this.options.onStart) {
-          this.options.onStart(this.options.id);
+          var self = this;
+          this.scope.$evalAsync(function () {
+            self.options.onStart(self.options.id, self.scope.rzSliderModel, self.scope.rzSliderHigh);
+          });
         }
       },
 
       /**
        * Call the onChange callback if defined
+       * The callback call is wrapped in a $evalAsync to ensure that its result will be applied to the scope.
        *
        * @returns {undefined}
        */
       callOnChange: function() {
         if (this.options.onChange) {
-          this.options.onChange(this.options.id);
+          var self = this;
+          this.scope.$evalAsync(function () {
+            self.options.onChange(self.options.id, self.scope.rzSliderModel, self.scope.rzSliderHigh);
+          });
         }
       },
 
       /**
        * Call the onEnd callback if defined
+       * The callback call is wrapped in a $evalAsync to ensure that its result will be applied to the scope.
        *
        * @returns {undefined}
        */
       callOnEnd: function() {
         if (this.options.onEnd) {
           var self = this;
-          $timeout(function() {
-            self.options.onEnd(self.options.id);
+          this.scope.$evalAsync(function () {
+            self.options.onEnd(self.options.id, self.scope.rzSliderModel, self.scope.rzSliderHigh);
           });
         }
       },
@@ -98395,7 +98413,9 @@ angular.module('uiGmapgoogle-maps.extensions')
         var switched = false;
 
         if (this.range) {
-          /* This is to check if we need to switch the min and max handles*/
+          newValue = this.applyMinRange(newValue);
+          newOffset = this.valueToOffset(newValue);
+          /* This is to check if we need to switch the min and max handles */
           if (this.tracking === 'rzSliderModel' && newValue >= this.scope.rzSliderHigh) {
             switched = true;
             this.scope[this.tracking] = this.scope.rzSliderHigh;
@@ -98432,6 +98452,21 @@ angular.module('uiGmapgoogle-maps.extensions')
           this.applyModel();
         }
         return switched;
+      },
+
+      applyMinRange: function(newValue) {
+        if (this.options.minRange !== 0) {
+          var oppositeValue = this.tracking === 'rzSliderModel' ? this.scope.rzSliderHigh : this.scope.rzSliderModel,
+            difference = Math.abs(newValue - oppositeValue);
+
+          if (difference < this.options.minRange) {
+            if (this.tracking === 'rzSliderModel')
+              return this.scope.rzSliderHigh - this.options.minRange;
+            else
+              return this.scope.rzSliderModel + this.options.minRange;
+          }
+        }
+        return newValue;
       },
 
       /**
@@ -103020,6 +103055,115 @@ providers_module.factory('ProviderService', function($resource, AGENT){
   return $resource(url_service, {}, {get: {method: 'GET', isArray: true}});
   
 });
+
+providers_module.factory('ProviderFilterService', ['$http', '$q', '$location', function($http, $q, $location) {
+  
+  var url_service = $location.protocol() + "://" + $location.host() + ":" + $location.port() + "/api/providers/get_providers.json"; 
+  
+  function all () {
+    var deferred = $q.defer();
+    
+    $http.get(url_service)
+      .success(function (data) {
+        deferred.resolve(data);
+      });
+    
+    return deferred.promise;
+  }
+  
+  function byNumberOf(number_of_pets) {
+    var deferred = $q.defer();
+    
+    var providers = JSON.parse(localStorage.getItem("filteredProviders"));
+    
+    var results = providers.filter(function (provider) {
+      var isValid = true;
+      for (var i = 0; i < number_of_pets.length; i++) {
+        if (number_of_pets[i] == 4)
+          isValid = isValid && (provider.pet_qty >= 4);
+        else
+          isValid = isValid && (provider.pet_qty >= number_of_pets[i]);
+      }
+      return isValid;
+    })
+      
+    if (results.length > 0)
+      deferred.resolve(results);
+    else 
+      deferred.reject();
+    
+    return deferred.promise;
+  }
+  
+  function bySize(sizes) {
+    var deferred = $q.defer();
+    
+    var providers = JSON.parse(localStorage.getItem("filteredProviders"));
+    var size_list = ['Pequeños', 'Medianos', 'Grandes'];
+    
+    var results = providers.filter(function (provider) {
+      var isValid = true;
+      for (var i = 0; i < sizes.length; i++) {
+        isValid = isValid && (provider.sizes.indexOf(size_list[sizes[i] - 1]) >= 0);
+      }
+      return isValid;
+    })
+      
+    if (results.length > 0)
+      deferred.resolve(results);
+    else 
+      deferred.reject();
+    
+    return deferred.promise;
+  }
+  
+  function byService(services) {
+    var deferred = $q.defer();
+    
+    var providers = JSON.parse(localStorage.getItem("filteredProviders"));
+    
+    var results = providers.filter(function (provider) {
+      var isValid = true;
+      for (var i = 0; i < services.length; i++) {
+        isValid = isValid && (provider.services.indexOf(services[i].service_name) >= 0);
+      }
+      return isValid;
+    })
+      
+    if (results.length > 0)
+      deferred.resolve(results);
+    else 
+      deferred.reject();
+    
+    return deferred.promise;
+  }
+  
+  function byPriceRange(minPrice, maxPrice) {
+    var deferred = $q.defer();
+    
+    var providers = JSON.parse(localStorage.getItem("filteredProviders"));
+    
+    var results = providers.filter(function (provider) {
+      return provider.price >= minPrice && provider.price <= maxPrice;
+    })
+      
+    if (results.length > 0)
+      deferred.resolve(results);
+    else 
+      deferred.reject();
+    
+    return deferred.promise;
+  }
+  
+  return {
+    all: all,
+    byNumberOf: byNumberOf,
+    bySize: bySize,
+    byService: byService,
+    byPriceRange: byPriceRange
+  };
+  
+}]);
 providers_module.factory('ServiceService', ['$resource', function($resource){
   var host_name = document.location.hostname;
   var port = document.location.port;
@@ -103034,6 +103178,27 @@ providers_module.factory('ServiceService', ['$resource', function($resource){
 
   return $resource(url_service, {}, {get: {method: 'GET', isArray: true}});
 
+}]);
+
+providers_module.factory('ServiceFilterService', ['$http', '$q', '$location', function($http, $q, $location) {
+  
+  var url_service = $location.protocol() + "://" + $location.host() + ":" + $location.port() + "/api/services/get_services.json"; 
+  
+  function all () {
+    var deferred = $q.defer();
+    
+    $http.get(url_service)
+      .success(function (data) {
+        deferred.resolve(data);
+      });
+    
+    return deferred.promise;
+  }
+  
+  return {
+    all: all
+  };
+  
 }]);
 providers_module.directive("raty", function() {
   return {
@@ -103060,6 +103225,7 @@ providers_module.filter('searchProvider', function(){
       return providers;
     }
 
+    var tmp_sizes = ['Pequeños', 'Medianos', 'Grandes'];
     var keys = Object.keys(filterData);
     var filtered = [];
     var isValid=true; 
@@ -103083,7 +103249,6 @@ providers_module.filter('searchProvider', function(){
             }
 
             if (keys[j]=='sizes'){
-                
                 temp_valid = true;
                 
                 for(var k=0; k < filterData[keys[j]].length; k++){
@@ -103093,7 +103258,7 @@ providers_module.filter('searchProvider', function(){
                 if (temp_valid){
                   isValid = isValid && true;
                 } else {
-                  isValid = isValid &&  contains(filterData[keys[j]], provider[keys[j]]);
+                  isValid = isValid &&  contains(tmp_sizes[filterData[keys[j]]], provider[keys[j]]);
                 }
               
                 
@@ -103104,7 +103269,7 @@ providers_module.filter('searchProvider', function(){
             }
 
             if (keys[j] == 'number_of'){
-                isValid = isValid &&  (parseFloat(provider[keys[j]]) > parseFloat(filterData[keys[j]]));
+                isValid = isValid || (parseFloat(provider.pet_qty) > parseFloat(filterData[keys[j]]));
             }
 
             if (keys[j] == 'sel_service'){
@@ -103147,35 +103312,44 @@ function contains(filterData, originData){
 
 
 
-providers_module.controller('ProvidersController', ['$scope', '$filter', 'ProviderService', 'ServiceService', '$http', 'AGENT', function ($scope, $filter, ProviderService, ServiceService, $http, AGENT) {
+providers_module.controller('ProvidersController', ['$scope', '$filter', 'ProviderService', 'ServiceService', '$http', '$location', 'ProviderFilterService', 'ServiceFilterService', function ($scope, $filter, ProviderService, ServiceService, $http, $location, ProviderFilterService, ServiceFilterService) {
   "use strict";
   
   $scope.providers;
   $scope.filteredProviders;
   
   $scope.search = {};
-  $scope.search.number_of;
+  $scope.search.number_of = [0, 0, 0, 0];
   $scope.search.locations = "";
   $scope.search.states = "";
-  $scope.search.sizes = [];
-  $scope.search.sel_service = [];
+  $scope.search.sizes = [0, 0, 0];
+  $scope.search.sel_service = [0,0,0,0,0,0,0,0,0];
   $scope.params = [];
   $scope.map = { zoom: 10, control: {}, markers: []};
   $scope.map.markers = [];
   $scope.mapOptions = { zoomControl: true, panControl: true, scaleControl: true }; 
   
-  var url_params  = "http://" + AGENT.HOST_NAME + ":" + AGENT.PORT + "/api/providers/get_session_params.json";
+  var url_params  = $location.protocol() + "://" + $location.host() + ":" + $location.port() + "/api/providers/get_session_params.json";
   
+  var providers = localStorage.getItem("providers");
   
+  if (providers != undefined) {
+    $scope.providers = JSON.parse(providers);
+  } else {
+    ProviderFilterService.all().then(function (providers) {
+      localStorage.setItem("providers", JSON.stringify(providers));
+      localStorage.setItem("filteredProviders", JSON.stringify(providers));
+      $scope.providers = providers;
+    }) 
+  }
   
-  $scope.$watch('filteredProviders', function () {  
+  $scope.$watch('providers', function () {  
     var temp_markers, log;  
     
     log           = [];
     temp_markers  = []; 
     
-    angular.forEach($scope.filteredProviders, function (provider, key) {
-      console.log(provider);
+    angular.forEach($scope.providers, function (provider, key) {
       temp_markers.push({
         latitude: provider.latitude,
         longitude: provider.longitude,
@@ -103187,13 +103361,7 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
     
     $scope.map.markers = temp_markers;
   });  
-  
-  ProviderService.get().$promise.then(function (providers) {
-    $scope.providers = providers;
-    
-  });
-  
-  
+
   $http({
     method: 'GET',
     url: url_params
@@ -103211,15 +103379,76 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
   $scope.onClick = function (marker, eventName, model) {
     model.show = !model.show;
   };
-  
-  
 
   $scope.onSliderChange = function () {
     $scope.search.price.min = $scope.priceSlider.min;
     $scope.search.price.max = $scope.priceSlider.max;
   };
 
-  $scope.services = ServiceService.get();
+  ServiceFilterService.all().then(function (services) {
+    $scope.services = services;
+  });
+  
+  $scope.filterSize = function() {
+    var sizes = $scope.search.sizes.filter(function (size) { return size > 0 });
+    if (sizes.length == 0) {
+      var providers = localStorage.getItem("providers");
+      var filteredProviders = localStorage.getItem("filteredProviders");
+      if (filteredProviders == null) localStorage.setItem("filteredProviders", providers);
+      $scope.providers = JSON.parse(providers);
+    }
+    else {
+      ProviderFilterService.bySize(sizes).then(function (providers) {
+        localStorage.setItem("filteredProviders", JSON.stringify(providers));
+        $scope.providers = providers;
+      }); 
+    }
+  }
+  
+  $scope.filterNumberOfPets = function() {
+    var number_of_pets = $scope.search.number_of.filter(function (number_of_pets) { return number_of_pets > 0 });
+    if (number_of_pets.length == 0) {
+      var providers = localStorage.getItem("providers");
+      var filteredProviders = localStorage.getItem("filteredProviders");
+      if (filteredProviders == null) localStorage.setItem("filteredProviders", providers);
+      $scope.providers = JSON.parse(providers);
+    }
+    else {
+      ProviderFilterService.byNumberOf(number_of_pets).then(function(providers) {
+        localStorage.setItem("filteredProviders", JSON.stringify(providers));
+        $scope.providers = providers;
+      })
+    }
+  }
+  
+  $scope.filterService = function() {
+    var services = $scope.search.sel_service.filter(function (service) { return service > 0 });
+    if (services.length == 0) {
+      var providers = localStorage.getItem("providers");
+      var filteredProviders = localStorage.getItem("filteredProviders");
+      if (filteredProviders == null) localStorage.setItem("filteredProviders", providers);
+      $scope.providers = JSON.parse(providers);
+    } else {
+      var filtered_services = $scope.services.filter(function (service) { return services.indexOf(service.id) >= 0 });
+      ProviderFilterService.byService(filtered_services) .then(function (providers) {
+        localStorage.setItem("filteredProviders", JSON.stringify(providers));
+        $scope.providers = providers;
+      });
+    }
+  }
+  
+  $scope.$on("slideEnded", function() {
+    var minPrice = $scope.search.price.min;
+    var maxPrice = $scope.search.price.max;
+    if (minPrice == 0 && maxPrice == 1000) {
+      $scope.providers = JSON.parse(localStorage.getItem("providers"));
+    } else {
+      ProviderFilterService.byPriceRange($scope.search.price.min, $scope.search.price.max).then(function (providers) {
+        localStorage.setItem("filteredProviders", JSON.stringify(providers));
+        $scope.providers = providers;
+      });
+    }
+  });
    
 
 }]);
@@ -103248,16 +103477,10 @@ bookings_module.controller('BookingsController', ['$scope', '$filter', '$http', 
     
     min = $scope.minDate;
     max = $scope.maxDate;
-
-    min = String(min).split('/');
-    max = String(max).split('/');
     
-    min = [min[1], min[0], min[2]].join('/');
-    max = [max[1], max[0], max[2]].join('/');
-
-    min = Date.parse(min);
-    max = Date.parse(max);
- 
+    min = new Date(min);
+    max = new Date(max);
+    
     diff = (max - min) / 1000 / 60 / 60 / 24;
  
     $scope.diff = diff;
