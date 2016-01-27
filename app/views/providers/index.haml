@@ -22,28 +22,28 @@
               .form-group
                 %label Tamaño de Perro
                 %br
-                %input(type="checkbox" checked ng-model="search.sizes[0]" ng-true-value="Pequeños" data-ng-false-value='') Pequeños
+                %input(type="checkbox" checked ng-model="search.sizes[0]" ng-true-value="1" ng-false-value='0' ng-click="filterSize('Pequeños')") Pequeños
                 %br
-                %input(type="checkbox" checked ng-model="search.sizes[1]" ng-true-value="Medianos" data-ng-false-value='') Medianos
+                %input(type="checkbox" checked ng-model="search.sizes[1]" ng-true-value="2" ng-false-value='0' ng-click="filterSize('Medianos')") Medianos
                 %br
-                %input(type="checkbox" checked ng-model="search.sizes[2]" ng-true-value="Grandes" data-ng-false-value='') Grandes
+                %input(type="checkbox" checked ng-model="search.sizes[2]" ng-true-value="3" ng-false-value='0' ng-click="filterSize('Grandes')") Grandes
               .row
                 %label Cantidad de Perros
               .row
                 .col-xs-6
-                  %input(type="checkbox" checked ng-model="search.number_of" ng-true-value="1" data-ng-false-value='') 1
+                  %input(type="checkbox" checked ng-model="search.number_of[0]" ng-true-value="1" ng-false-value='0' ng-click="filterNumberOfPets()") 1
                 .col-xs-6
-                  %input(type="checkbox" checked ng-model="search.number_of" ng-true-value="3" data-ng-false-value='') 3
+                  %input(type="checkbox" checked ng-model="search.number_of[1]" ng-true-value="3" ng-false-value='0' ng-click="filterNumberOfPets()") 3
               .row
                 .col-xs-6
-                  %input(type="checkbox" checked ng-model="search.number_of" ng-true-value="2" data-ng-false-value='') 2
+                  %input(type="checkbox" checked ng-model="search.number_of[2]" ng-true-value="2" ng-false-value='0' ng-click="filterNumberOfPets()") 2
                 .col-xs-6
-                  %input(type="checkbox" checked ng-model="search.number_of" ng-true-value="4" data-ng-false-value='') 4 o mas
+                  %input(type="checkbox" checked ng-model="search.number_of[3]" ng-true-value="4" ng-false-value='0' ng-click="filterNumberOfPets()") 4 o mas
               %br
               .form-grouped_collection_select
                 %label Servicios Adicionales
                 %div(ng-repeat="service in services ")
-                  %input(type="checkbox" checked ng-model="search.sel_service[service.id]" ng-true-value="{{service.id}}" data-ng-false-value='') {{service.service_name}}
+                  %input(type="checkbox" checked ng-model="search.sel_service[service.id]" ng-true-value="{{service.id}}" ng-false-value='0' ng-click='filterService()') {{service.service_name}}
                   %br
         .col-md-8{style: "padding: 0px !important; margin: 0px;"}
           =render partial: 'grid'

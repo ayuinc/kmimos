@@ -1,5 +1,9 @@
+#waiting-screen(ng-if="providers == undefined")
+  %center
+    %br
+    %h3 ... Cargando Cuidadores ... 
 #cuidadores(ng-if="providers != undefined")
-  .provider-item(ng-repeat="provider in ($parent.filteredProviders = (providers | searchProvider: search | orderBy : '-valuation')) ")
+  .provider-item(ng-repeat="provider in ($parent.filteredProviders = (providers | orderBy : '-valuation')) ")
     .block-cuidadores
       %a(href="/providers/{{provider.id}}")
         .bg-img-block.border-radius.square-green(style = "height: 220px; background-image: url('{{provider.avatar}}');")
@@ -25,9 +29,3 @@
           %a{style:"display:inline;"}(href="/providers/{{provider.id}}/#comentarios_kmimos")
             %span 
             %span{style:"display:inline;font-size: 12px;margin-top:5px;color: #333333;line-height: 18px"} &nbsp; Comentarios
-#waiting-screen(ng-if="providers == undefined")
-  %center
-    %br
-    %h3 ... Cargando Cuidadores ... 
-
-
