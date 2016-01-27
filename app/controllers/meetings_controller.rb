@@ -1,6 +1,6 @@
 class MeetingsController < ApplicationController
-	before_action :set_meeting, only: [:showm]
-  before_action :authenticate_user! 
+	before_action :set_meeting, only: [:show]
+    before_action :authenticate_user! 
 
 	def new
 		session[:chosen_provider_id] = params[:provider_id]
@@ -45,7 +45,7 @@ class MeetingsController < ApplicationController
 
 	def set_meeting
     @meeting = Meeting.find_by_token(params[:id])
-  end
+  	end
 
 	def get_dates
 	  unless params[:start_date].nil? || params[:start_date].empty?
