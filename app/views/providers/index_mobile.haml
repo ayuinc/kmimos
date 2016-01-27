@@ -26,7 +26,7 @@
             .border-top.pt-21.mt-14
               %small.gray-mobile Desde
               - if provider.rates 
-                %h4.lh-xs.mv-0.inline.price-mobile-1 Mex $ #{provider.rates.minimum(:price)*1.2} 
+                %h4.lh-xs.mv-0.inline.price-mobile-1 Mex $ #{provider.rates.minimum(:price)} 
               %small.fz-xsprice-mobile por noche
               %h5.bold.hidden #{ provider.name }
               %p.lh-sm.text-gray.fz-xs.hidden #{ provider.description[0...200] }
