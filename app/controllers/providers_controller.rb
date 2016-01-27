@@ -25,10 +25,10 @@ class ProvidersController < ApplicationController
       state = State.find(@state_id)
       @providers = Location.find(@location_id).providers if !@location_id.empty?
       @providers = Provider.where(id: state.locations.map{|location| location.providers.map{|provider| provider.id}}.flatten) if @location_id.empty?
+      @providers = Provider.where(id: Rate.where("price>0").map{|rate| rate.provider_id}.flatten)
     end
     
     @providers = @providers.where(active: true) if @providers != nil
-    @providers = Provider.where(id: Rate.where("price >0").map{|rate| rate.provider_id}.flatten)
     @providers = @providers.order(:id) rescue []
 
     #Custom view for mobile
