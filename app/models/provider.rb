@@ -72,7 +72,7 @@ class Provider < ActiveRecord::Base
   
 
   def active_provider
-    update_attributes(:active => true)
+    update_attributes(:active => false)
   end
   
   def favorite?(user)

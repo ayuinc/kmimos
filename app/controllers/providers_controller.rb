@@ -105,6 +105,7 @@ class ProvidersController < ApplicationController
 
   def create
     @provider = Provider.new(all_provider_params)
+    @provider.active = false
     @provider.category_id = Category.find_by_name("Hotel").id
 
     if @provider.save
