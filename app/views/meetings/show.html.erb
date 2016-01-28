@@ -19,3 +19,12 @@
     </div>
   </div>
 </div>
+<% if Rails.env.production? %>
+<script type="text/javascript">
+    mixpanel.track("Hizo una cita",{
+       "id_cuidador": "<%= @meeting.provider.id%>",
+       "nombre_cuidador": "<%=@meeting.provider.name%>",
+       "apellido_cuidador": "<%=@meeting.provider.last_name_1%>"
+    });
+</script>
+<% end %>

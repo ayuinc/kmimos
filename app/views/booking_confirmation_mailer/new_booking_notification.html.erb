@@ -22,7 +22,7 @@
       <h1 style="font-weight:200;color:#526577;font-size:35px">Hola <%="#{@booking.user.first_name}"%>, </h1>
       <p>
         Has hecho una reserva en Kmimos para que
-        <b><%="#{@booking.provider.name}"%> </b>
+        <b><%="#{@booking.provider.name}"%><%="#{@booking.provider.last_name_1}"%> </b>
         cuide a 
         <%= "#{'tu'.pluralize(@booking.pets.count)}" %>
         <%= "#{'mascota'.pluralize(@booking.pets.count)}" %>

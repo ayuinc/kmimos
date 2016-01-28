@@ -38,12 +38,12 @@
 				<tbody>
 					<tr>
 						<td>
-							<h1 style="font-family: arial;font-weight: 100;color: gray;">Hola <%= @meeting.provider.name %>,</h1>
+							<h1 style="font-family: arial;font-weight: 100;color: gray;">Hola <%= @meeting.provider.name %> <%= @meeting.provider.last_name_1 %>,</h1>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<p><%=@meeting.user_first_name %> realizó una solicitud para conocerte.</p>
+							<p><%=@meeting.user_first_name %> <%=@meeting.user_last_name %> realizó una solicitud para conocerte.</p>
 							<p>Aquí los detalles de la solicitud:</p>
 						</td>
 					</tr>

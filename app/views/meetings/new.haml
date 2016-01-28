@@ -45,6 +45,15 @@
                 .col-md-3
                   = f.submit "Confirmar", id: "reservar", class: "btn mt-21 btn-primary form-control"
  
+- if Rails.env.production?
+  - @provider = Provider.find(session[:chosen_provider_id])
+  :javascript
+    mixpanel.track("Inicio Cita",{
+       "id_cuidador": #{@provider.id},
+       "nombre_cuidador": "#{@provider.name}",
+       "apellido_cuidador": "#{@provider.last_name_1}"
+    });
+
 :javascript
 
    $('.datepicker').datepicker();
