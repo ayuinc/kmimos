@@ -28,16 +28,20 @@
         %h1.bold.pb-42.text-gray-dark.mt-56 Beneficios
         .col-md-3
           %img.img-circle{:alt => "", :src => "assets/beneficios-seguro-salud.svg", :width => "100"}/
-          %h4.light.text-gray Seguro para tu perrito
+          %h4.light.text-gray 
+            = Benefit.find(1).title
         .col-md-3
           %img.img-circle{:alt => "", :src => "assets/beneficios-cuidadores-especializados.svg", :width => "100"}/
-          %h4.light.text-gray Cuidadores certificados
+          %h4.light.text-gray 
+            = Benefit.find(2).title
         .col-md-3
           %img.img-circle{:alt => "", :src => "assets/beneficios-fotos.svg", :width => "100"}/
-          %h4.light.text-gray Fotografias y videos diarios
+          %h4.light.text-gray 
+            = Benefit.find(3).title
         .col-md-3
           %img.img-circle{:alt => "", :src => "assets/beneficios-atencion24_7.svg", :width => "100"}/
-          %h4.light.text-gray Atención personalizada
+          %h4.light.text-gray
+            = Benefit.find(4).title
       .text-center.mt-35
         %a.btn.btn-outline.btn-default.ph-35{:href => "/beneficios"}
           %h4.book.text-primary.m-0 Leer más
