@@ -52,18 +52,21 @@
       var elVal = $(el).val();
       
       var client = new XMLHttpRequest();
-      client.open("GET", "http://api.zippopotam.us/MX/" + elVal, true);
+      client.open("GET", location.protocol + "//maps.googleapis.com/maps/api/geocode/json?address=" + elVal + "&sensor=false&components=country:#{current_country.locale[3..-1]}", true);
       
       client.onreadystatechange = function() {
+        $('.stateUser').val('');
+        $('.cityUser').val('');  
+      	
       	if(client.readyState == 4) {
       		var response = JSON.parse(client.response);
-          console.log(response.places[0]);
-          $('.stateUser').val(response.places[0]['state']);
-          $('.cityUser').val(response.places[0]['place name']);
-      	} else {
-          $('.stateUser').val('');
-          $('.cityUser').val('');
-      	};
+          if (response.status == 'OK') {
+            if (response.results[0].address_components.length >= 6) {
+              $('.stateUser').val(response.results[0].address_components[4].long_name);
+              $('.cityUser').val(response.results[0].address_components[2].long_name);  
+            }
+          }
+        }
       };
 
       client.send();
