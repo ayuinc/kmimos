@@ -24,12 +24,12 @@ class MeetingConfirmationMailer < ActionMailer::Base
     @country = current_country
     admins = []
     #admins << "r.gonzalez@desdigitec.com" << "e.celli@desdigitec.com"  << "m.castellon@desdigitec.com" << "f.trujillo@desdigitec.com"
-    admins << "lalo@laboratoria.la" << "lalo@laboratoria.la"
+    admins << "lalo@laboratoria.la" << "r.gonzalez@desdigitec.com"
     
     # Panamá
     if @country.id == 3
       #admins << "nenavieira@gmail.com" << "bobthin@gmail.com"
-      admins << "lalo@laboratoria.la" << "lalo@laboratoria.la"
+      admins << "lalo@laboratoria.la" << "r.gonzalez@desdigitec.com"
     end
  
     admins << @meeting.provider.email

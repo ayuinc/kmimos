@@ -21,10 +21,10 @@ class BookingConfirmationMailer < ActionMailer::Base
     @country = current_country
     admins = []
     #admins << "r.gonzalez@desdigitec.com" << "e.celli@desdigitec.com" <<"f.trujillo@desdigitec.com"
-    admins << "lalo@laboratoria.la" << "lalo@laboratoria.la"
+    admins << "lalo@laboratoria.la" << "r.gonzalez@desdigitec.com"
     # Panamá
     if @country.id == 3
-      admins << "lalo@laboratoria.la" << "lalo@laboratoria.la"
+      admins << "lalo@laboratoria.la" << "r.gonzalez@desdigitec.com"
       #admins << "nenavieira@gmail.com" << "bobthin@gmail.com"
     end
  
