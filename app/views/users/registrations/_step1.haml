@@ -63,6 +63,10 @@
           if (response.status == 'OK') {
             if (response.results[0].address_components.length >= 6) {
               $('.stateUser').val(response.results[0].address_components[4].long_name);
+              $('.cityUser').val(response.results[0].address_components[3].long_name);  
+            }
+            else if (response.results[0].address_components.length >= 4 && response.results[0].address_components.length < 6) {
+              $('.stateUser').val(response.results[0].address_components[4].long_name);
               $('.cityUser').val(response.results[0].address_components[2].long_name);  
             }
           }
