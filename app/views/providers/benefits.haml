@@ -1,35 +1,43 @@
 .benefits
   .row.even
     %center.col-md-12
-      %img(src="assets/beneficios-seguro-salud.svg")
-      %h1 
-        = Benefit.find(1).title
-      %p
-        = Benefit.find(1).description
+      .col-md-6.col-md-offset-3
+        %img(src="assets/beneficios-seguro-salud.svg")
+        %h1{style: "font-family:proxima-nova"} 
+          = Benefit.find(1).title
+      .col-md-6.col-md-offset-3
+        %p{style: "font-size:18px;font-weight:300"}
+          = Benefit.find(1).description
   .row.odd
     %center.col-md-12
-      %img(src="assets/beneficios-cuidadores-especializados.svg")
-      %h1 
-        = Benefit.find(2).title
-      %p 
-        = Benefit.find(2).description
+      .col-md-6.col-md-offset-3
+        %img(src="assets/beneficios-cuidadores-especializados.svg")
+        %h1 
+          = Benefit.find(2).title
+      .col-md-6.col-md-offset-3
+        %p{style: "font-size:18px;font-weight:300"}
+          = Benefit.find(2).description
   .row.even
     %center.col-md-12
-      %img(src="assets/beneficios-fotos.svg")
-      %h1 
-        = Benefit.find(3).title
-      %p 
-        = Benefit.find(3).description
-      %figure.photoDisplay
-        %img#Photo1(src="assets/mascota1.jpg" alt="img01") 
-        %img#Photo2(src="assets/mascota2.jpg" alt="img02")
-        %img#Photo3(src="assets/mascota3.jpg" alt="img03")
-        %img#Photo4(src="assets/mascota4.jpg" alt="img04")
-        %img#Photo5(src="assets/mascota5.jpg" alt="img05") 
+      .col-md-6.col-md-offset-3
+        %img(src="assets/beneficios-fotos.svg")
+        %h1 
+          = Benefit.find(3).title
+      .col-md-6.col-md-offset-3
+        %p{style: "font-size:18px;font-weight:300"} 
+          = Benefit.find(3).description
+        %figure.photoDisplay
+          %img#Photo1(src="assets/mascota1.jpg" alt="img01") 
+          %img#Photo2(src="assets/mascota2.jpg" alt="img02")
+          %img#Photo3(src="assets/mascota3.jpg" alt="img03")
+          %img#Photo4(src="assets/mascota4.jpg" alt="img04")
+          %img#Photo5(src="assets/mascota5.jpg" alt="img05") 
   .row.odd
     %center.col-md-12
-      %img(src="assets/beneficios-atencion24_7.svg")
-      %h1 
-        = Benefit.find(4).title
-      %p 
-        = Benefit.find(4).description
+      .col-md-6.col-md-offset-3
+        %img(src="assets/beneficios-atencion24_7.svg")
+        %h1 
+          = Benefit.find(4).title
+      .col-md-6.col-md-offset-3
+        %p{style: "font-size:18px;font-weight:300"} 
+          = Benefit.find(4).description
