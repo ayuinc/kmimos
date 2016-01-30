@@ -28,13 +28,13 @@
         <%= "#{'mascota'.pluralize(@booking.pets.count)}" %>
         <%= "#{@booking.pets_list}" %>
         desde el día
-        <b><%="#{@booking.start_date.strftime("%d/%m%Y")}"%></b>
+        <b><%="#{@booking.start_date.strftime("%d/%m/%Y")}"%></b>
         <% if (@booking.pickup_time) %>
         a las 
         <b><%="#{@booking.pickup_time.strftime("%H:%M")}"%></b>
         <% end %>
         hasta el
-        <b><%="#{@booking.end_date.strftime("%d/%m%Y")}"%> </b>
+        <b><%="#{@booking.end_date.strftime("%d/%m/%Y")}"%> </b>
         <% if (@booking.dropoff_time) %>
         a las 
         <b><%="#{@booking.dropoff_time.strftime("%H:%M")}"%>. </b>
