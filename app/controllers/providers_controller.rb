@@ -30,7 +30,7 @@ class ProvidersController < ApplicationController
       @providers = @providers.where(active: true) if @providers != nil
     end
     
-    @providers = Provider.where(id: Rate.where("price>0").map{|rate| rate.provider_id}.flatten)
+    @providers = @providers.where(id: Rate.where("price>0").map{|rate| rate.provider_id}.flatten)
     @providers = @providers.order(:id) rescue []
 
     #Custom view for mobile
