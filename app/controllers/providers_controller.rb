@@ -27,7 +27,7 @@ class ProvidersController < ApplicationController
       @providers = Provider.where(id: state.locations.map{|location| location.providers.map{|provider| provider.id}}.flatten) if @location_id.empty?
       @providers = @providers.where(active: true) if @providers != nil
     else
-      @providers = @providers.where(active: true) if @providers != nil
+      @providers = Provider.where(active: true) if @providers != nil
     end
     
     @providers = @providers.where(id: Rate.where("price>0").map{|rate| rate.provider_id}.flatten)
