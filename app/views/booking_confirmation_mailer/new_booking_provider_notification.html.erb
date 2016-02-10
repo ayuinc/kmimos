@@ -9,7 +9,7 @@
       <table style="width: 90%;">
         <tr>
           <td>
-            <p>Orden de Reserva</p>
+            <p>Solicitud de Orden de Reserva</p>
           </td>
           <td align="right">
             <img class="logo" src="http://s1.postimg.org/n12q65th7/logo_mail_confirmacion.png"/>
@@ -34,7 +34,7 @@
               <b>
                 <%= "#{@booking.user.first_name} " %> <%= "#{@booking.user.last_name} " %>
               </b>
-              ha hecho una reserva en Kmimos para que cuides a su(s) mascota(s) <%="#{@booking.booked_pets.map{|b| b.pet.name}.join(', ')}"%>
+              ha hecho una solicitud de reserva en Kmimos para que cuides a su(s) mascota(s) <%="#{@booking.booked_pets.map{|b| b.pet.name}.join(', ')}"%>
               Desde el día 
               <b>
                 <%= "#{@booking.start_date.strftime("%d/%m/%Y")} a las #{@booking.pickup_time.strftime("%H:%M")}"  %>

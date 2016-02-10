@@ -14,13 +14,13 @@
         %table{style: 'width: 90%;'}
           %tr
             %td
-              %p Orden de Reserva
+              %p Solicitud de Orden de Reserva
             %td
               %img.logo{:src => "http://s1.postimg.org/n12q65th7/logo_mail_confirmacion.png"}
       .container-sm
         %h1 Hola #{@booking.user.first_name}, 
         %p 
-          Has hecho una reserva en Kmimos para que
+          Has hecho una solicitud de reserva en Kmimos para que
           %b #{@booking.provider.name} 
           cuide a 
           #{"tu".pluralize(@booking.pets.count)}
