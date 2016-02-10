@@ -103050,7 +103050,7 @@ bookings_module = angular.module('bookings_module', ['ngResource']);
  
 providers_module.factory('ProviderService', function($resource, AGENT){
    
-  var url_service="http://" + AGENT.HOST_NAME + ":" + AGENT.PORT + "/api/providers/get_providers.json"; 
+  var url_service="http://" + AGENT.HOST_NAME + ":" + AGENT.PORT + "/api/providers/get_providers"; 
   
   return $resource(url_service, {}, {get: {method: 'GET', isArray: true}});
   
@@ -103058,15 +103058,18 @@ providers_module.factory('ProviderService', function($resource, AGENT){
 
 providers_module.factory('ProviderFilterService', ['$http', '$q', '$location', function($http, $q, $location) {
   
-  var url_service = $location.protocol() + "://" + $location.host() + ":" + $location.port() + "/api/providers/get_providers.json"; 
+  var url_service = $location.protocol() + "://" + $location.host() + ":" + $location.port() + "/api/providers/get_providers"; 
   
-  function all () {
+  function all (location_id) {
     var deferred = $q.defer();
     
-    $http.get(url_service)
-      .success(function (data) {
-        deferred.resolve(data);
-      });
+    $http({
+      method: 'GET',
+      url: url_service,
+      params: { location_id : location_id }
+    }).success(function (data) {
+      deferred.resolve(data);
+    });
     
     return deferred.promise;
   }
@@ -103225,7 +103228,6 @@ providers_module.filter('searchProvider', function(){
       return providers;
     }
 
-    var tmp_sizes = ['Pequeños', 'Medianos', 'Grandes'];
     var keys = Object.keys(filterData);
     var filtered = [];
     var isValid=true; 
@@ -103249,6 +103251,7 @@ providers_module.filter('searchProvider', function(){
             }
 
             if (keys[j]=='sizes'){
+                
                 temp_valid = true;
                 
                 for(var k=0; k < filterData[keys[j]].length; k++){
@@ -103258,7 +103261,7 @@ providers_module.filter('searchProvider', function(){
                 if (temp_valid){
                   isValid = isValid && true;
                 } else {
-                  isValid = isValid &&  contains(tmp_sizes[filterData[keys[j]]], provider[keys[j]]);
+                  isValid = isValid &&  contains(filterData[keys[j]], provider[keys[j]]);
                 }
               
                 
@@ -103269,7 +103272,7 @@ providers_module.filter('searchProvider', function(){
             }
 
             if (keys[j] == 'number_of'){
-                isValid = isValid || (parseFloat(provider.pet_qty) > parseFloat(filterData[keys[j]]));
+                isValid = isValid &&  (parseFloat(provider[keys[j]]) > parseFloat(filterData[keys[j]]));
             }
 
             if (keys[j] == 'sel_service'){
@@ -103329,19 +103332,21 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
   $scope.map.markers = [];
   $scope.mapOptions = { zoomControl: true, panControl: true, scaleControl: true }; 
   
-  var url_params  = $location.protocol() + "://" + $location.host() + ":" + $location.port() + "/api/providers/get_session_params.json";
+  var url_params  = $location.protocol() + "://" + $location.host() + ":" + $location.port() + "/api/providers/get_session_params";
   
-  var providers = localStorage.getItem("providers");
-  
-  if (providers != undefined) {
-    $scope.providers = JSON.parse(providers);
-  } else {
-    ProviderFilterService.all().then(function (providers) {
+  $http({
+    method: 'GET',
+    url: url_params
+  }).then(function successCallback(response) {
+    $scope.params.location = response.data.location;
+    $scope.params.location_id = response.data.location_id;
+    console.log(response.data);console.log(response.data.location_id);
+    ProviderFilterService.all($scope.params.location_id).then(function (providers) {
       localStorage.setItem("providers", JSON.stringify(providers));
       localStorage.setItem("filteredProviders", JSON.stringify(providers));
       $scope.providers = providers;
-    }) 
-  }
+    });    
+  });
   
   $scope.$watch('providers', function () {  
     var temp_markers, log;  
@@ -103361,13 +103366,6 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
     
     $scope.map.markers = temp_markers;
   });  
-
-  $http({
-    method: 'GET',
-    url: url_params
-  }).then(function successCallback(response) {
-    $scope.params.location = response.location;
-  });
 
   $scope.search.price = {
     min: 0,

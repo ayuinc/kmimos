@@ -28,7 +28,7 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
   }).then(function successCallback(response) {
     $scope.params.location = response.data.location;
     $scope.params.location_id = response.data.location_id;
-    
+    console.log(response.data);console.log(response.data.location_id);
     ProviderFilterService.all($scope.params.location_id).then(function (providers) {
       localStorage.setItem("providers", JSON.stringify(providers));
       localStorage.setItem("filteredProviders", JSON.stringify(providers));
