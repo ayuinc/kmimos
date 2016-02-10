@@ -1,6 +1,6 @@
 providers_module.factory('ProviderService', function($resource, AGENT){
    
-  var url_service="http://" + AGENT.HOST_NAME + ":" + AGENT.PORT + "/api/providers/get_providers.json"; 
+  var url_service="http://" + AGENT.HOST_NAME + ":" + AGENT.PORT + "/api/providers/get_providers"; 
   
   return $resource(url_service, {}, {get: {method: 'GET', isArray: true}});
   
@@ -8,15 +8,18 @@ providers_module.factory('ProviderService', function($resource, AGENT){
 
 providers_module.factory('ProviderFilterService', ['$http', '$q', '$location', function($http, $q, $location) {
   
-  var url_service = $location.protocol() + "://" + $location.host() + ":" + $location.port() + "/api/providers/get_providers.json"; 
+  var url_service = $location.protocol() + "://" + $location.host() + ":" + $location.port() + "/api/providers/get_providers"; 
   
-  function all () {
+  function all (location_id) {
     var deferred = $q.defer();
     
-    $http.get(url_service)
-      .success(function (data) {
-        deferred.resolve(data);
-      });
+    $http({
+      method: 'GET',
+      url: url_service,
+      params: { location_id : location_id }
+    }).success(function (data) {
+      deferred.resolve(data);
+    });
     
     return deferred.promise;
   }
