@@ -29,18 +29,11 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
     $scope.params.location = response.data.location;
     $scope.params.location_id = response.data.location_id;
     
-    var providers = localStorage.getItem("providers");
-  
-    if (providers != undefined) {
-      $scope.providers = JSON.parse(providers);
-    } else {
-      ProviderFilterService.all($scope.params.location_id).then(function (providers) {
-        localStorage.setItem("providers", JSON.stringify(providers));
-        localStorage.setItem("filteredProviders", JSON.stringify(providers));
-        $scope.providers = providers;
-      }) 
-    }
-    
+    ProviderFilterService.all($scope.params.location_id).then(function (providers) {
+      localStorage.setItem("providers", JSON.stringify(providers));
+      localStorage.setItem("filteredProviders", JSON.stringify(providers));
+      $scope.providers = providers;
+    });    
   });
   
   $scope.$watch('providers', function () {  
