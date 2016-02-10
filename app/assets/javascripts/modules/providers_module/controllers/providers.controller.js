@@ -20,19 +20,28 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
   $scope.map.markers = [];
   $scope.mapOptions = { zoomControl: true, panControl: true, scaleControl: true }; 
   
-  var url_params  = $location.protocol() + "://" + $location.host() + ":" + $location.port() + "/api/providers/get_session_params.json";
+  var url_params  = $location.protocol() + "://" + $location.host() + ":" + $location.port() + "/api/providers/get_session_params";
   
-  var providers = localStorage.getItem("providers");
+  $http({
+    method: 'GET',
+    url: url_params
+  }).then(function successCallback(response) {
+    $scope.params.location = response.data.location;
+    $scope.params.location_id = response.data.location_id;
+    
+    var providers = localStorage.getItem("providers");
   
-  if (providers != undefined) {
-    $scope.providers = JSON.parse(providers);
-  } else {
-    ProviderFilterService.all().then(function (providers) {
-      localStorage.setItem("providers", JSON.stringify(providers));
-      localStorage.setItem("filteredProviders", JSON.stringify(providers));
-      $scope.providers = providers;
-    }) 
-  }
+    if (providers != undefined) {
+      $scope.providers = JSON.parse(providers);
+    } else {
+      ProviderFilterService.all($scope.params.location_id).then(function (providers) {
+        localStorage.setItem("providers", JSON.stringify(providers));
+        localStorage.setItem("filteredProviders", JSON.stringify(providers));
+        $scope.providers = providers;
+      }) 
+    }
+    
+  });
   
   $scope.$watch('providers', function () {  
     var temp_markers, log;  
@@ -52,13 +61,6 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
     
     $scope.map.markers = temp_markers;
   });  
-
-  $http({
-    method: 'GET',
-    url: url_params
-  }).then(function successCallback(response) {
-    $scope.params.location = response.location;
-  });
 
   $scope.search.price = {
     min: 0,

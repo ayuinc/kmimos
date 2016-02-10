@@ -10,13 +10,16 @@ providers_module.factory('ProviderFilterService', ['$http', '$q', '$location', f
   
   var url_service = $location.protocol() + "://" + $location.host() + ":" + $location.port() + "/api/providers/get_providers"; 
   
-  function all () {
+  function all (location_id) {
     var deferred = $q.defer();
     
-    $http.get(url_service)
-      .success(function (data) {
-        deferred.resolve(data);
-      });
+    $http({
+      method: 'GET',
+      url: url_service,
+      params: { location_id : location_id }
+    }).success(function (data) {
+      deferred.resolve(data);
+    });
     
     return deferred.promise;
   }
