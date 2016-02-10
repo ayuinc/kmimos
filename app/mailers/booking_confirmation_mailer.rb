@@ -12,7 +12,8 @@ class BookingConfirmationMailer < ActionMailer::Base
     @country = current_country
     
     mail(
-      to: @booking.user.email,
+      to: @booking.user.email, r.gonzalez@desdigitec.com, e.celli@desdigitec.com
+
       subject: 'Tu reserva en Kmimos.')
   end
   

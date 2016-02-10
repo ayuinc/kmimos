@@ -8,7 +8,7 @@
       %p.text-small{style: "font-family: Montserrat-Light; font-size: 24px;color: #637988;line-height: 42px;"}
         El día #{@booking.start_date.strftime("%d/%m/%Y")} a las #{@booking.pickup_time.strftime("%I:%M %p")},
         %b=@booking.provider 
-        estará cuidando a tu perrito y te lo entregara el día ,
+        estará cuidando a tu perrito y te lo entregará el día ,
         %b= @booking.end_date.strftime("%d/%m/%Y,")
         En el caso de que hayas escogido transportación tu perrito será recogido en la dirección #{@booking.user.address}. El costo de la reserva es de  
         %b=@booking.total  
