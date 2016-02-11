@@ -23,19 +23,17 @@
       %br
         %label ¿En qué municipios puedes trabajar?
       - current_country.states.each do |state|
-        .row.border-bottom
-          .col-md-1
+        .row.border-bottom.pt-14
+          .col-md-1.col-xs-1
             %input{type: 'checkbox', onchange: "javascript:check_state(#{state.id.to_s})", class: "main_state_#{state.id}"}
-          .col-md-10=state.name
-          .col-md-1
-            %a.btn.btn-default.btn-xs{href: "javascript:select_state(" + state.id.to_s + ")"}
-              = "-"
-
-      - current_country.states.each do |state|
-        .div{class: "state_#{state.id} row", style: "display: none;"}
-          .col-md-12
-            %label= state
-            .tricol_checkboxes= f.association :locations, as: :check_boxes, label: false, :collection => state.locations
+          .col-md-10.col-xs-8=state.name
+          .col-md-1.col-xs-1
+            %a.btn.btn-default.btn-xs{href: "javascript:select_state(#{state.id.to_s})"}
+              %i.fa.fa-caret-down
+          .col-md-12-col-xs-12
+            .div{class: "state_#{state.id}", style: "display: none;"}
+              %label= state
+              .bicol_checkboxes= f.association :locations, as: :check_boxes, label: false, :collection => state.locations
     .row
       .col-md-6 Años de experiencia cuidando perros
       .col-md-2= f.input :experiencia, label: false
