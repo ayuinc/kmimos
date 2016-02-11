@@ -60,15 +60,13 @@
           = f.input :longitude, as: :hidden
     .row
       .col-md-9
-        = f.input :address, label: "Dirección:", placeholder: "Ingrese su dirección...", hint: "*Si el pin no se sitúa en el lugar de tu dirección, por favor ajústalo.", input_html: {:onchange=>"codeAddress()"}
+        = f.input :address, label: "Dirección:", placeholder: "Ingrese su dirección...", hint: "*Si el pin no se sitúa en el lugar de tu dirección, por favor ajústalo.", input_html: {:onchange=>"codeAddress()", :onkeypress=>"checkEnter()"}
       .col-md-3
         %label{:for => "search_address", :style => "display:block;color:white"} Buscar
-        %button#search_address.btn.btn-primary.form-control.ml-0{:name => "search_address", :type => "button"} Buscar
-
+        %button#search_address.btn.btn-primary.form-control.ml-0{:name => "search_address", :type => "button", :onclick => "codeAddress()"} Buscar
     .row
       .col-md-12
-        %p{style: "width: 100% !mportant; height: 200px !important; ", latitude: @provider.latitude, longitude: @provider.longitude, zoom: 16 }
-
+        %div#mapNew{style: "width: 100% !important; height: 200px !important; ", latitude: @provider.latitude.empty? ? 19.414319 : @provider.latitude , longitude: @provider.longitude.empty? ? -99.128175 : @provider.longitude, zoom: 18} 
       %br
     .row
       .col-md-12 ¿Tienes perros en casa?
@@ -104,48 +102,33 @@
 
   .col-md-1
 
-:javascript
-
-
-
-
-  function check_state(id){
-
-    if ($(".main_state_" + id).prop('checked')){
-      $(".main_state_" + id + "fa").removeClass("fa-caret-down");
-      $(".main_state_" + id + "fa").addClass("fa-caret-up");
-    } else {
-      $(".main_state_" + id + "fa").removeClass("fa-caret-up");
-      $(".main_state_" + id + "fa").addClass("fa-caret-down");
-    }
-
-    console.log($(".main_state_" + id));
-    $(".state_" + id + " .check_boxes").prop('checked', $(".main_state_" + id).prop('checked'));
-  }
-
+  :javascript
     var geocoder = new google.maps.Geocoder();
 
-    var marker_item = $("#marker");
+    $("#mapNew").each(function(){
+      itemLatLng = new google.maps.LatLng($(this).attr('latitude'), $(this).attr('longitude'), 16) 
+    });
 
-    var itemLatLng = {lat: parseFloat(marker_item.attr('latitude')),ng: parseFloat(marker_item.attr('longitude'))};
+    newProviderMap = new google.maps.Map(document.getElementById('mapNew'), {
+      center: itemLatLng,
+      zoom: 8
+    });
 
-    newProviderMap = initMap('editProvider', 'mapNew');
-
-    newProviderMap.setCenter(itemLatLng);
-
-    var marker = new google.maps.Marker({
+    marker = new google.maps.Marker({
         draggable: true,
-        posin: itemLatLng,
+        position: itemLatLng,
         map: newProviderMap
     });
 
     google.maps.event.addListener(marker,'drag',function(event) {
-        $("#prider_latitude").val(event.latLng.lat());
+        $("#provider_latitude").val(event.latLng.lat());
         $("#provider_longitude").val(event.latLng.lng());
     });
 
-    function codeAddress() {
-      var address = document.getElementById("providerddress").value;
+
+
+    codeAddress = function() {
+      var address = document.getElementById("provider_address").value;
       geocoder.geocode( { 'address': address}, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
           newProviderMap.setCenter(results[0].geometry.location);
@@ -159,10 +142,9 @@
       });
     }
 
-
-
-  $("[class^state_']").hide();
-
-  function select_state(id){
-    $(".state_" + id).toggle();
-  }
+    checkEnter = function() {
+      if (event.which == 13) {
+        event.preventDefault();
+        codeAddress();
+      }
+    }
