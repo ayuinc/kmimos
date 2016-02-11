@@ -18,14 +18,13 @@ class ApplicationController < ActionController::Base
   HOSTS_MAPPING = {
     'kmimos.la' => 'la',
     'www.kmimos.la' => 'la',
-    'mx.kmimos.la' => 'México',
-    'cani.mx' => 'México',
+    # 'mx.kmimos.la' => 'México',
+    # 'cani.mx' => 'México',
     'kmimos.com.mx' => 'México',
-    'www.cani.mx' => 'México',
+    # 'www.cani.mx' => 'México',
     'www.kmimos.com.mx' => 'México',
     'ar.kmimos.la' => 'Argentina',
     'pa.kmimos.la' => 'Panamá',
-    'dry-oasis-5911.herokuapp.com' => 'México',
     'kmimos-ivandevp.c9.io' => 'México'
   }
 
