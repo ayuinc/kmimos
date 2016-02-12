@@ -10,7 +10,7 @@
           <div class="user-card user-card-round size xs mb-21">
             <div class="user-pic flex-middle">                        
               <% if @provider.avatar? %>
-              <%= image_tag(@provider.avatar_url(:thumb), :class => "img-circle") %>
+              <%= image_tag(@provider.avatar_url(:thumb), :class => "img-circle", :style => "height:80px") %>
               <% else %>
               <%= image_tag('server_carnet.png', :class => "img-circle" ) %>
               <% end %>
