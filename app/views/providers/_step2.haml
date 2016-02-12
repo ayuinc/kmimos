@@ -148,3 +148,23 @@
         codeAddress();
       }
     }
+  
+    $("[class^='state_']").hide();
+
+    function select_state(id){
+    $(".state_" + id).toggle();
+
+    }
+    function check_state(id){
+
+    if ($(".main_state_" + id).prop('checked')){
+    $(".main_state_" + id + "fa").removeClass("fa-caret-down");
+    $(".main_state_" + id + "fa").addClass("fa-caret-up");
+    } else {
+    $(".main_state_" + id + "fa").removeClass("fa-caret-up");
+    $(".main_state_" + id + "fa").addClass("fa-caret-down");
+    }
+
+    console.log($(".main_state_" + id));
+    $(".state_" + id + " .check_boxes").prop('checked', $(".main_state_" + id).prop('checked'));
+    }
