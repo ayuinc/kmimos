@@ -3,6 +3,9 @@
     %br
     %h3 ... Cargando Cuidadores ... 
 #cuidadores(ng-if="providers != undefined")
+  %center(ng-if="providersMsg.length > 0")
+    %br
+    %h3 {{ providersMsg }}
   .provider-item(ng-repeat="provider in ($parent.filteredProviders = (providers | orderBy : '-valuation')) ")
     .block-cuidadores
       %a(href="/providers/{{provider.id}}")

@@ -8,6 +8,7 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
   
   $scope.providers;
   $scope.filteredProviders;
+  $scope.providersMsg = '';
   
   $scope.search = {};
   $scope.search.number_of = [0, 0, 0, 0];
@@ -30,8 +31,12 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
     $scope.params.location_id = response.data.location_id;
     console.log(response.data);console.log(response.data.location_id);
     ProviderFilterService.all($scope.params.location_id).then(function (providers) {
-      localStorage.setItem("providers", JSON.stringify(providers));
-      localStorage.setItem("filteredProviders", JSON.stringify(providers));
+      if (providers.length == 0) {
+        $scope.providersMsg = 'Probablemente no hay cuidadores en el área seleccionada :(';
+      } else {
+        localStorage.setItem("providers", JSON.stringify(providers));
+        localStorage.setItem("filteredProviders", JSON.stringify(providers));
+      }
       $scope.providers = providers;
     });    
   });
