@@ -168,6 +168,8 @@
        "apellido_cuidador": "#{@provider.last_name_1}"
     });
 
+- to_date_r = Date.parse(session[:to_date])
+- from_date_r = Date.parse(session[:from_date])
 
 :javascript
 
@@ -193,11 +195,9 @@
 
   setTimeout(function(){
 
-    var to_date = new Date("#{session[:to_date]}");  
-    to_date.setDate(to_date.getDate() + 1);
+    var to_date = new Date(#{to_date_r.strftime('%Y')}, #{to_date_r.strftime('%m').to_i - 1} , #{to_date_r.strftime('%d')});  
     $('.datepicker_max').datepicker("setDate", to_date);
-    var from_date = new Date("#{session[:from_date]}");
-    from_date.setDate(from_date.getDate() + 1);
+    var from_date = new Date(#{from_date_r.strftime('%Y')}, #{from_date_r.strftime('%m').to_i - 1}, #{from_date_r.strftime('%d')});
     $('.datepicker_min').datepicker("setDate", from_date);
 
 
