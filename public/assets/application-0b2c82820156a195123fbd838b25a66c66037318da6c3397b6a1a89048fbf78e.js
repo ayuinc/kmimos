@@ -37015,7 +37015,7 @@ function load_player(playerName, playerId){
   player = new YT.Player(playerId, {
     height: '315',
     width: '560',
-    videoId: '4CkQYZVVyBc',
+    videoId: '_08UJ0aYDCk',
     playerVars: {
         'autoplay': 0,
         'rel': 0,
@@ -103320,6 +103320,7 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
   
   $scope.providers;
   $scope.filteredProviders;
+  $scope.providersMsg = '';
   
   $scope.search = {};
   $scope.search.number_of = [0, 0, 0, 0];
@@ -103340,19 +103341,16 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
   }).then(function successCallback(response) {
     $scope.params.location = response.data.location;
     $scope.params.location_id = response.data.location_id;
-    
-    var providers = localStorage.getItem("providers");
-  
-    if (providers != undefined) {
-      $scope.providers = JSON.parse(providers);
-    } else {
-      ProviderFilterService.all($scope.params.location_id).then(function (providers) {
+    console.log(response.data);console.log(response.data.location_id);
+    ProviderFilterService.all($scope.params.location_id).then(function (providers) {
+      if (providers.length == 0) {
+        $scope.providersMsg = 'Probablemente no hay cuidadores en el área seleccionada :(';
+      } else {
         localStorage.setItem("providers", JSON.stringify(providers));
         localStorage.setItem("filteredProviders", JSON.stringify(providers));
-        $scope.providers = providers;
-      }) 
-    }
-    
+      }
+      $scope.providers = providers;
+    });    
   });
   
   $scope.$watch('providers', function () {  
