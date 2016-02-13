@@ -21,18 +21,18 @@ class BookingConfirmationMailer < ActionMailer::Base
     @booking = booking
     @country = current_country
     admins = []
-    #admins << "r.gonzalez@desdigitec.com" << "e.celli@desdigitec.com" <<"f.trujillo@desdigitec.com"
-    admins << "lalo@laboratoria.la" << "r.gonzalez@desdigitec.com"
+    admins << "r.gonzalez@desdigitec.com" << "e.celli@desdigitec.com" << "f.trujillo@desdigitec.com"
+
     # Panamá
     if @country.id == 3
-      admins << "lalo@laboratoria.la" << "r.gonzalez@desdigitec.com"
-      #admins << "nenavieira@gmail.com" << "bobthin@gmail.com"
+      # admins << "lalo@laboratoria.la" << "r.gonzalez@desdigitec.com"
+      admins << "nenavieira@gmail.com" << "bobthin@gmail.com"
     end
  
     admins << @booking.provider.email
     p admins
     mail(
-      to: "lalo@laboratoria.la", #to: "r.cuevas@desdigitec.com",
+      to: "r.cuevas@desdigitec.com",
       cc: admins,
       subject: 'Nueva reserva en Kmimos ' + @country.name)
  
