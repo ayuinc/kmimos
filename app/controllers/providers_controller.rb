@@ -42,13 +42,14 @@ class ProvidersController < ApplicationController
   end
 
   def home
-
+    p current_country
     @benefits = Benefit.all
     @agent = request.env["HTTP_USER_AGENT"]
 
     @search = Provider.search(params[:q])
     @referral = Referral.new
-
+    p @search
+    p current_country
     respond_to do |format|
       format.html   { render 'home', layout: 'home' }
       format.mobile { render 'home_mobile', layout: 'mobile' }
