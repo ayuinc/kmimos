@@ -18,10 +18,10 @@ class ApplicationController < ActionController::Base
   HOSTS_MAPPING = {
     'kmimos.la' => 'la',
     'www.kmimos.la' => 'la',
-    # 'mx.kmimos.la' => 'México',
-    # 'cani.mx' => 'México',
+    'mx.kmimos.la' => 'México',
+    'cani.mx' => 'México',
     'kmimos.com.mx' => 'México',
-    # 'www.cani.mx' => 'México',
+    'www.cani.mx' => 'México',
     'www.kmimos.com.mx' => 'México',
     'ar.kmimos.la' => 'Argentina',
     'pa.kmimos.la' => 'Panamá',
@@ -65,6 +65,7 @@ class ApplicationController < ActionController::Base
        current_country = HOSTS_MAPPING[request.host] != nil ? HOSTS_MAPPING[request.host] : "la"
        session[:country] = current_country != "la" ? current_country : nil
       end
+      p session[:country]
       return Country.find_by_name(session[:country])
     end
   end
