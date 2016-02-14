@@ -25,7 +25,8 @@ class ApplicationController < ActionController::Base
     'www.kmimos.com.mx' => 'México',
     'ar.kmimos.la' => 'Argentina',
     'pa.kmimos.la' => 'Panamá',
-    'cp.kmimos.la' => 'la'
+    'cp.kmimos.la' => 'la',
+    'kmimosmx.herokuapp.com' => 'México'
   }
 
 
