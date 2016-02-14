@@ -28,7 +28,7 @@ class AdditionalService < ActiveRecord::Base
 
   def self.get_min_rates_for(provider_id, service_id)
     price = 0
-    additional_services = AdditionalService.where(service_id: service_id, provider_id: provider_id)
+    additional_services = AdditionalService.where(service_id: service_id, provider_id: provider_id).where("price is not null")
 
     hash_prices = Hash.new
 
