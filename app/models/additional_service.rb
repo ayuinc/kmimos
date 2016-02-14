@@ -36,7 +36,7 @@ class AdditionalService < ActiveRecord::Base
 
     price = additional_services.minimum(:price)
 
-    return price
+    return price == nil ? 0 : price
   end
   
   def self.get_pet_rate(pet_id, provider_id)
