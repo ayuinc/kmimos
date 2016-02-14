@@ -11,7 +11,7 @@ ServihogarRails::Application.routes.draw do
 
   resources :referrals
 
-  root 'providers#home'
+  root 'providers#la_home'
 
   get 'bookings/booking_resume/:booking_id' => 'bookings#booking_resume', as: 'booking_resume'
   get 'providers/update_state' => 'providers#update_state'

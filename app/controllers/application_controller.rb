@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     'www.kmimos.com.mx' => 'México',
     'ar.kmimos.la' => 'Argentina',
     'pa.kmimos.la' => 'Panamá',
-    'kmimos-ivandevp.c9.io' => 'México'
+    'cp.kmimos.la' => 'la'
   }
 
 
@@ -58,19 +58,14 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_country
   def current_country
-    Country.first
+    if Rails.env.development?
+      Country.first
+    else
+      if session[:country] == nil || session[:country] != HOSTS_MAPPING[request.host]
+       current_country = HOSTS_MAPPING[request.host] != nil ? HOSTS_MAPPING[request.host] : "la"
+       session[:country] = current_country != "la" ? current_country : nil
+      end
+      return Country.find_by_name(session[:country])
+    end
   end
-    #if Rails.env.development?
-      #Country.first
-      #elsif ENV['MANUAL_DEFAULT'] == 'on'
-
-    #else
-      #if session[:country] == nil || session[:country] != HOSTS_MAPPING[request.host]
-      #  current_country = HOSTS_MAPPING[request.host] != nil ? HOSTS_MAPPING[request.host] : "la"
-      #  session[:country] = current_country != "la" ? current_country : nil
-      #end
-      #return Country.find_by_name(session[:country])
-      #end
-
-
 end
