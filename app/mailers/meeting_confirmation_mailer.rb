@@ -31,7 +31,7 @@ class MeetingConfirmationMailer < ActionMailer::Base
     end
     
     mail(
-      to: "r.cuevas@desdigitec.com"
+      to: "r.cuevas@desdigitec.com",
       cc: admins, 
       subject: 'Conocer en persona - Nueva solicitud. Kmimos ' + @country.name)
  
