@@ -30,7 +30,7 @@
                   %i.fa.fa-heart-o
                   %small Agregar a Favoritos
     .col-md-12
-      = simple_form_for Booking.new, :url => new_booking_path do |f|
+      = simple_form_for Booking.new, :method => 'GET', :url => new_booking_path do |f|
         = f.input :provider_id, as: :hidden, input_html: {value: @provider.id}
         .content-article.mt-14.mb-28.m-21
           .border-bottom.text-center
