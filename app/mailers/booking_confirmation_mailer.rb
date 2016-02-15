@@ -10,16 +10,16 @@ class BookingConfirmationMailer < ActionMailer::Base
   def new_booking_notification(booking, current_country) 
     @booking = booking
     @country = current_country
-    
+    @url = ActionMailer::Base.default_url_options
     mail(
       to: [ @booking.user.email, "r.gonzalez@desdigitec.com", "e.celli@desdigitec.com" ],
-
       subject: 'Tu reserva en Kmimos.')
   end
   
   def new_booking_for_admin(booking, current_country)
     @booking = booking
     @country = current_country
+    @url = ActionMailer::Base.default_url_options
     admins = []
     admins << "r.gonzalez@desdigitec.com" << "e.celli@desdigitec.com" << "f.trujillo@desdigitec.com"
 
@@ -30,7 +30,7 @@ class BookingConfirmationMailer < ActionMailer::Base
     end
  
     admins << @booking.provider.email
-    p admins
+    
     mail(
       to: "r.cuevas@desdigitec.com",
       cc: admins,
@@ -41,7 +41,7 @@ class BookingConfirmationMailer < ActionMailer::Base
   def new_booking_provider_notification(booking, current_country) 
     @booking = booking
     @country = current_country
-    
+    @url = ActionMailer::Base.default_url_options
     mail(
       to: @booking.provider.email,
       subject: 'Reserva realizada.')
