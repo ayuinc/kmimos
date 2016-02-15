@@ -179,29 +179,24 @@
   :javascript
     setTimeout(function(){
       $('.add_srv_btn').click();
-      preselect_services.push("#{service.id}")
+      preselect_services.push("#{service.id}");
       $('.bkd_srv').each(function(index){
         $(this).val(preselect_services[index]);
+        angular.element($(this)).triggerHandler('change');
       });
     }, 1000);
 
 :javascript
 
-
   $('.datepicker_min').datepicker({ dateFormat: 'yy-mm-dd' });
-
   $('.datepicker_max').datepicker({ dateFormat: 'yy-mm-dd' });
 
-
   setTimeout(function(){
-
     var to_date = new Date(#{to_date_r.strftime('%Y')}, #{to_date_r.strftime('%m').to_i - 1} , #{to_date_r.strftime('%d')});  
     $('.datepicker_max').datepicker("setDate", to_date);
     var from_date = new Date(#{from_date_r.strftime('%Y')}, #{from_date_r.strftime('%m').to_i - 1}, #{from_date_r.strftime('%d')});
     $('.datepicker_min').datepicker("setDate", from_date);
 
-
     $('.datepicker_max').change();
     $('.datepicker_min').change();
-
   }, 1000);
