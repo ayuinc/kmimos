@@ -5,8 +5,6 @@
     .row.bg-img-block.home-bkg.no-margin-row
       
       =render partial: 'layouts/partial/new_header.haml'
-      =render partial: 'layouts/partial/mix_panel'
-      =render partial: 'layouts/partial/initializer'
       - cache('home_main') do
         .home-scene
           =image_tag('home-duena-without_ball.svg', class: "left-person")
