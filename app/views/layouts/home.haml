@@ -12,6 +12,9 @@
     = stylesheet_link_tag "style", media: "all"
     = stylesheet_link_tag "application", media: "all"
     = javascript_include_tag "application"
+    - cache do
+      = render partial: 'layouts/partial/initializer'
+      = render partial: 'layouts/partial/mix_panel'
     / App styles
     = stylesheet_link_tag "ebm", media: "all"
     %script{:src => "https://use.typekit.net/jod1lcb.js"}
