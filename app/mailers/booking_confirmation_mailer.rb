@@ -1,6 +1,6 @@
 class BookingConfirmationMailer < ActionMailer::Base
   #default from: "\"Kmimos\" <reservas@cani.mx>" 
-  default from: "\"Kmimos\" <lalo@laboratoria.la>" 
+  default from: "\"Kmimos\" <contacto@kmimos.la" 
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
