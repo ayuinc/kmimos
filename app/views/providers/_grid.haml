@@ -5,9 +5,9 @@
 #cuidadores(ng-if="providers != undefined")
   %center(ng-if="providersMsg.length > 0")
     %br
-    %h3 {{ providersMsg }}
+    %h3(ng-cloak) {{ providersMsg }}
   .provider-item(ng-repeat="provider in ($parent.filteredProviders = (providers | orderBy : '-valuation')) ")
-    .block-cuidadores
+    .block-cuidadores(ng-cloak)
       %a(href="/providers/{{provider.id}}")
         .bg-img-block.border-radius.square-green(style = "height: 220px; background-image: url('{{provider.avatar}}');")
           .oculto.text-center.pt-42
