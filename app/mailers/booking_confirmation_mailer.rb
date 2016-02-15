@@ -1,6 +1,6 @@
 class BookingConfirmationMailer < ActionMailer::Base
   #default from: "\"Kmimos\" <reservas@cani.mx>" 
-  default from: "\"Kmimos\" <contacto@kmimos.la" 
+  default from: "\"Kmimos\" <contacto@kmimos.la>" 
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -25,11 +25,8 @@ class BookingConfirmationMailer < ActionMailer::Base
 
     # Panamá
     if @country.id == 3
-      # admins << "lalo@laboratoria.la" << "r.gonzalez@desdigitec.com"
       admins << "nenavieira@gmail.com" << "bobthin@gmail.com"
     end
- 
-    admins << @booking.provider.email
     
     mail(
       to: "r.cuevas@desdigitec.com",
