@@ -220,10 +220,10 @@
     
     <div style="padding-bottom:10px">
       <center>
-        <a href="http://cp.kmimos.la/bookings/booking_resume/<%= @booking.id %>.pdf">
+        <a href="<%="#{@url[:protocol] + @url[:host]}"%>/bookings/booking_resume/<%= @booking.id %>.pdf">
           <img src="http://www.ucarecdn.com/105ce605-5244-46c8-ad82-a1a5221de862/descargar_reserva.png"/>
         </a>
-        <a href="http://cp.kmimos.la/providers/<%= @booking.provider.id %>">
+        <a href="<%="#{@url[:protocol] + @url[:host]}"%>/providers/<%= @booking.provider.id %>">
           <img src="http://www.ucarecdn.com/419395cb-fd36-4efd-9e70-0a619b7ec24e/ver_perfil.png"/>
         </a>
       </center>
