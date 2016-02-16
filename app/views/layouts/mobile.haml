@@ -9,6 +9,7 @@
     %meta{:content => "width=device-width, initial-scale=1.0, user-scalable=no", :name => "viewport"}/
     %link{:href => "/assets/favicon.png", :rel => "shortcut icon"}/
 
+    = stylesheet_link_tag "ebm", media: "all"
     = stylesheet_link_tag "style", media: "all"
     = stylesheet_link_tag "application", media: "all"
     = stylesheet_link_tag "mobile", media: "all"
@@ -16,7 +17,6 @@
     = javascript_include_tag "application"
     = javascript_include_tag "snap"
     / App styles
-    = stylesheet_link_tag "ebm", media: "all"
     = stylesheet_link_tag "responsive", media: "all"
     = render partial: 'layouts/partial/mix_panel'
     = render partial: 'layouts/partial/initializer'

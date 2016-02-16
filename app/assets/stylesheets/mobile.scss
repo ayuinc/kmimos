@@ -202,3 +202,69 @@
   bottom: 0;
   transform: translateX(-4px) translateY(-2px) rotate(45deg);
 }
+
+.avatar-mobile {
+  width: 70%;
+  margin: 0px auto;
+}
+
+.body-provider-mobile {
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.user-card .user-pic img.avatar {
+  width: 70%;
+  margin-top:20px;
+}
+
+.p0-b-5 {
+  padding:0;
+  padding-bottom: 5%;
+}
+
+  #myModal {
+    .modal-dialog {
+      height: 440px;
+    }
+    
+    .modal-content {
+      height: 440px;
+    }
+    
+    .modal-body {
+      height:220px;
+    }
+  }
+  
+  .hr-gray {
+    margin: 20px 14px !important;
+    border-top: 2px solid #ccc !important;
+  }
+  
+  .plr-14 {
+    padding: 0px 14px;
+  }
+  
+  .table table {
+    margin-bottom: 30px;
+  }
+  
+@media screen and (max-width: 480px) {
+  .booking_pickup_time select,
+  .booking_dropoff_time select {
+      width: 70px;
+      display: inline-block;
+  }
+  
+  .btn {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .grey-button {
+    height: auto;
+    padding-top: 15px;
+    padding-bottom: 15px;    
+  }
+}

@@ -19,8 +19,8 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-  # username: kmimos
-  # password: laboratoria
+  username: postgres
+  password: laboratoria
   host: localhost
 
 development:

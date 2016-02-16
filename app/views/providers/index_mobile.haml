@@ -1,6 +1,5 @@
 %center
   %h1.mobile-font-title Cuidadores Sugeridos
-  %br
 %div
   - @providers.each do |provider|
     %br
@@ -9,20 +8,17 @@
         %a(href="/providers/#{provider.id}")
           .bg-gray-lighter.mobile-box.p-14.m-21
             .body.body-provider-mobile
-              .row
-                .col-xs-5
-                  = image_tag(provider.avatar, class: 'img-responsive') if provider.avatar?
-                  = image_tag('server_carnet.png', class: 'img-responsive') unless provider.avatar?
-                .col-xs-7
-                  %h5.bold.mobile-font-title-2 #{ provider.name } #{ provider.last_name_1}
-                  - @states = []
-                  - provider.locations.group_by(&:state_id).each do |k, location|
-                    -@states << location.first.state.name
-                  %p= @states.join(', ') 
-                  .rating
-                    - val = Valuation.by_comments(provider.id)
-                    - score = val.map{|val| val[1]}.reduce(:+).to_i / val.size.to_i rescue 0
-                    .ratingStars{score: score, readOnly: true}
+              = image_tag(provider.avatar, class: 'img-responsive avatar-mobile') if provider.avatar?
+              = image_tag('server_carnet.png', class: 'img-responsive avatar-mobile') unless provider.avatar?
+              %h5.bold.mobile-font-title-2 #{ provider.name } #{ provider.last_name_1}
+              - @states = []
+              - provider.locations.group_by(&:state_id).each do |k, location|
+                -@states << location.first.state.name
+              %p= @states.join(', ') 
+              .rating
+                - val = Valuation.by_comments(provider.id)
+                - score = val.map{|val| val[1]}.reduce(:+).to_i / val.size.to_i rescue 0
+                .ratingStars{score: score, readOnly: true}
             .border-top.pt-21.mt-14
               %small.gray-mobile Desde
               - if provider.rates 

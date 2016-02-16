@@ -12,13 +12,12 @@
         .col-md-12
           %h2.text-center.mt-35 Datos de la reserva
           %br
-
       .row
         .col-md-2
         .col-md-3
           = image_tag(@provider.avatar, width: '200px')
         .col-md-5
-          %h2= @provider
+          %h3= @provider
           %h4.text-gray.light
             %small.text-black.bold Precio:
             = "#{current_country.currency} #{ 1.2 * (@provider.rates.minimum(:price))} noche"
@@ -33,8 +32,7 @@
           %h3.text-gray.mb-14 Genera tu reserva:
       .row.booking-container
         .col-md-2
-        .col-md-8.mt-21.mb-42
-          %br
+        .col-md-8.mb-42.p-0
           %br
           .row#datepair
             .col-md-3
@@ -66,21 +64,22 @@
                         %a(ng-click="deletePet(pet)" href="#") X
                   %a.btn.btn-primary(ng-click="add_pet()") Quiero agregar a mi mascota
                   .row.mt-35.mb-14
-                    %label Información Adicional
+                    %h3.text-gray Información Adicional
                   .form-group.row
-                    .col-md-12
+                    .col-md-12.p-0
                       %p Dirección de Recojo
                       = f.input :address, class: "form-control", label: false, as: :text, input_html: { value: current_user.address }
                   .form-group.row
-                    .col-md-12
+                    .col-md-12.p-0
                       %p ¿Necesitas que sepamos algo más de tu perrito? (Ej: Necesita medicamentos, no convive con otros perros, sale a pasear 3 veces al día, etc)
                       = f.input :user_message, label: false, as: :text, class: "form-control"
 
           %hr.hr-gray/
-          %br
-          %h4 ¿Quieres que pasen a recoger a tu perrito a tu casa? ¿Quieres que lo bañen? Checa estos servicios adicionales
-          %br
-          %p Kmimos te ofrece servicios adicionales para tu mascota, puedes adquirirlos independientemente de tu reserva.
+          .row
+            .col-md-12
+              %h4 ¿Quieres que pasen a recoger a tu perrito a tu casa? ¿Quieres que lo bañen? Checa estos servicios adicionales
+              %br
+              %p Kmimos te ofrece servicios adicionales para tu mascota, puedes adquirirlos independientemente de tu reserva.
           .panel-body
             .form-group.row(ng-repeat="serv in services_booked")
               .row.border-bottom
@@ -102,7 +101,7 @@
             %hr.hr-gray/
           .panel-body
           = f.input :total, as: :hidden, input_html: {value: "{{services_booked_total * 1.2 + pets_booked_total * 1.2}}"}
-          .table
+          .table.plr-14
             %div(ng-if="parseInt(services_booked_total) != 0")
               %h4 Costos del servicio de estadia
               %table(width="100%")

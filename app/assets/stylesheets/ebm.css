@@ -11816,7 +11816,7 @@ hr.hr-custom-gray-dark:before {
   background: #333333; }
 
 hr.hr-gray, hr.hr-custom-gray {
-  border-top: 2px solid #555555 !important;
+  border-top: 2px solid #ccc !important;
   margin: 14px 0; }
 hr.hr-custom-gray:before {
   width: 140px;

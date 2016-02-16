@@ -191,17 +191,13 @@
           Cualquier reembolso se realiza dentro de los 30 días continuos posteriores a 1) fecha del pago hecho por
           parte del cliente al veterinario, clínica u hospital veterinario y entregado, y b) Fecha de entrega del
           documento físico de la Factura Fiscal por parte del cliente a Kmimos.
+      .modal-footer
+        %p.text-danger Debe aceptar los términos y condiciones para continuar.
         .form-group
           %input{:name => "license_term", :type => "checkbox"}
           %label{:for => "license_term"} Acepto los términos y condiciones *
-      .modal-footer
-        .row
-          .col-md-6
-            %p.pull-left.text-danger Debe aceptar los términos y condiciones para continuar.
-          .col-md-6
-            %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Cancelar 
-            = f.submit "Confirmar", id: "confim_new_booking", class: "btn btn-primary btn-green", disabled: true
-            
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Cancelar 
+        = f.submit "Confirmar", id: "confim_new_booking", class: "btn btn-primary btn-green", disabled: true
 :javascript
   
   $("input[name=license_term]").click(function(e) {

@@ -1,8 +1,8 @@
 
 
-.container.pvp-7.ph-21
+.container.pvp-7
   .row
-    .col-md-12
+    .col-md-12.p-0
       .info
         .user.border-bottom.text-center.pb-14
           %h3.m-0.mb-7
@@ -15,7 +15,7 @@
                 - val = Valuation.by_comments(@provider.id)
                 - score = val.map{|val| val[1]}.reduce(:+).to_i / val.size.to_i rescue 0
                 .ratingStars{score: score, readOnly: true}
-    .user-info.col-md-12.text-center
+    .user-info.col-md-12.text-center.p-0
       - @provider.locations.group_by(&:state_id).each do |k, state|
         %b.mb-7= state.first.state
         %br
@@ -29,10 +29,10 @@
                 %a.btn.bordered-btn{href: "#{new_favorite_path}?provider_id=#{@provider.id}"}
                   %i.fa.fa-heart-o
                   %small Agregar a Favoritos
-    .col-md-12
+    .col-md-12.p-0
       = simple_form_for Booking.new, :url => new_booking_path do |f|
         = f.input :provider_id, as: :hidden, input_html: {value: @provider.id}
-        .content-article.mt-14.mb-28.m-21
+        .content-article.mt-14.mb-28
           .border-bottom.text-center
             %p.light.mb-0.text-gray.text-small Desde
             %h4.m-7.price
@@ -72,11 +72,10 @@
 
     .col-md-12
 
-      .content-detalles.mt-14-mb-28.m-21.pb-14
       %h3.text-gray Detalles
       .row.details-profile.mt-35
-        .col-md-3.col-xs-6
-          %p.label.text-center
+        .col-md-3.col-xs-6.p0-b-5
+          %p.label.text-center.bold
             -if @provider.property != nil
               Tipo de propiedad
               .icon= image_tag('detalles-casa.svg', height: '32px')
@@ -85,18 +84,18 @@
               Tipo de propiedad
               .icon= image_tag('detalles-casa.svg', height: '32px')
               %p.label-small= @provider.property
-        .col-md-3.col-xs-6
-          %p.label.text-center Tamaño aceptados
+        .col-md-3.col-xs-6.p0-b-5
+          %p.label.text-center.bold Tamaño aceptados
           .icon= image_tag('detalles-perro-grande.svg', height: '32px')
           %p.label-small="Perros #{@provider.sizes.map{|size| size.size_title}.join(', ')} "
-        .col-md-3.col-xs-6
-          %p.label.text-center Edades aceptadas
+        .col-md-3.col-xs-6.p-0
+          %p.label.text-center.bold Edades aceptadas
           .icon= image_tag('detalles-edad-perro-cachorro.svg', height: '32px')
           %p.label-small="#{@provider.ages.join(' ')} "
-        .col-md-3.col-xs-6
-          %p.label.text-center Años de experiencia
+        .col-md-3.col-xs-6.p-0
+          %p.label.text-center.bold Años de experiencia
           .icon= image_tag('detalles-experiencia.svg', height: '32px')
-          %p.label-small= "#{@provider.experiencia} "
+          %p.label-small= "#{@provider.experiencia} años"
       .border-bottom.mt-21
 
       -if @provider.provider_attachments.count > 0
@@ -109,20 +108,20 @@
         %p No hay fotos 
       %h3.text-gray.mb-35 Otros detalles
       .row.details-profile.pl-21
-        .col-md-3.col-xs-6
-          %p.label.text-center Tengo
+        .col-md-3.col-xs-6.p0-b-5
+          %p.label.text-center.bold Tengo
           .icon= image_tag('otros-detalles-otros-perros.svg', height: '32px')
           %p.label-small= "#{@provider.number_of_pets} Perros en casa (#{@provider.own_sizes.map{|size| size.size_title}.join(', ')})"
-        .col-md-3.col-xs-6
-          %p.label.text-center Mi propiedad
+        .col-md-3.col-xs-6.p0-b-5
+          %p.label.text-center.bold Mi propiedad
           .icon= image_tag('otros-detalles-patio.svg', height: '32px')
           %p.label-small= @provider.has_yard ? "Tiene patio" : "No tiene patio"
-        .col-md-3.col-xs-6
-          %p.label.text-center Mi propiedad
+        .col-md-3.col-xs-6.p-0
+          %p.label.text-center.bold Mi propiedad
           .icon= image_tag('otros-detalles-areas-verdes.svg', height: '32px')
           %p.label-small= @provider.has_green ? "Tiene areas Verdes" : "No tiene areas verdes"
-        .col-md-3.col-xs-6
-          %p.label.text-center # Perros aceptados
+        .col-md-3.col-xs-6.p-0
+          %p.label.text-center.bold # Perros aceptados
           .icon= image_tag('otros-detalles-cantidad-perros.svg', height: '32px')
           %p.label-small="#{@provider.pets_allowed.to_i}"
       .row.details-profile.pl-21
@@ -158,7 +157,7 @@
         #comments-div
           = render partial: 'layouts/partial/comments', locals: {provider: @provider}
 
-        .content-detalles.mt-14-mb-28.m-21.pb-14
+        .content-detalles.mt-14-mb-28.pb-14
           .border-bottom.text-left.pl-21
             %h4.text-gray.mv-14="#{@provider.comments.count} Evaluaciones"
           .text-left.ph-21
