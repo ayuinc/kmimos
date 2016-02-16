@@ -8,8 +8,8 @@
   .col-md-10
     .row
       .col-md-5
-        = image_tag(@provider.avatar, width: '100%') 
-        = f.input :avatar, label: false 
+        = image_tag(@provider.avatar, width: '100%', id: 'provider_avatar_img') 
+        = f.input :avatar, label: false, :input_html => { :onchange => 'previewImage(this, "provider_avatar_img", false)' }
         .input-append
           %a#upload-btn.btn.btn-primary.pretty_upload_input{el: "#provider_avatar"}
             %i.icon-upload-alt
@@ -40,13 +40,13 @@
         %ul.slides
           = f.simple_fields_for :provider_attachments do |attachment|
             %li(style="width: 120px; float: left; display: block;")
-              = image_tag(attachment.object.photo)
+              = image_tag(attachment.object.photo, :class => "attachment_image")
               .input-append
                 %a#upload-btn.btn.btn-primary.pretty_upload_input{el: ".photo_local_#{attachment.object.id}", style: "float: left;"}
                   %i.icon-upload-alt
                   = "..." 
               = attachment.link_to_remove "x", class: "btn btn-danger ml-49"
-              = attachment.input :photo, label: false, input_html: {class: "photo_local_#{attachment.object.id}", style: "display: none;"}
+              = attachment.input :photo, label: false, input_html: {class: "photo_local_#{attachment.object.id}", style: "display: none;", onchange: "previewImage(this, 'attachment_image', true)"}
         = f.link_to_add "Agrega fotos de tu hogar", :provider_attachments
         
   .col-md-1

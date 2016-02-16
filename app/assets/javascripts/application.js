@@ -143,6 +143,41 @@ function allLabel() {
   }
 }
 
+function previewImage(input, container, isClass) {
+  if (typeof(isClass)==='undefined') isClass = false;
+  // Check for the various File API support.
+  if (window.File && window.FileReader && window.FileList && window.Blob) {
+    var files = input.files; // FileList object
+
+    // files is a FileList of File objects. List some properties.
+    if (files.length > 0) {
+      var reader = new FileReader();
+      var preview = null;
+
+      if (isClass) {
+        var containers = document.getElementsByClassName(container);
+        for (var i = containers.length - 1; i >= 0; i--) {
+          if (containers[i].src.length <= 0 || containers[i].src.indexOf("missing.png") > 0) {
+            preview = containers[i];
+            break;
+          }
+        }
+      }
+      else {
+        preview = document.getElementById(container);
+      } 
+
+      reader.onload = function(e) {
+        preview.src = e.target.result;
+      };
+
+      reader.readAsDataURL(files[0]);
+    }
+  } else {
+    alert('The File APIs are not fully supported in this browser.');
+  }
+}
+
 // referrals
 (function($) {
 
