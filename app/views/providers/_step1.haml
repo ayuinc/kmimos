@@ -39,15 +39,15 @@
       #carousel.flexslider
         %ul.slides
           = f.simple_fields_for :provider_attachments do |attachment|
-            %li(style="width: 120px; float: left; display: block;")
+            %li(style="width: 180px; height: 160px; float: left; display: block;")
               = image_tag(attachment.object.photo, :class => "attachment_image")
               .input-append
                 %a#upload-btn.btn.btn-primary.pretty_upload_input{el: ".photo_local_#{attachment.object.id}", style: "float: left;"}
                   %i.icon-upload-alt
-                  = "..." 
-              = attachment.link_to_remove "x", class: "btn btn-danger ml-49"
+                  = "Buscar" 
+              = attachment.link_to_remove "Borrar", class: "btn btn-danger ml-49"
               = attachment.input :photo, label: false, input_html: {class: "photo_local_#{attachment.object.id}", style: "display: none;", onchange: "previewImage(this, 'attachment_image', true)"}
-        = f.link_to_add "Agrega fotos de tu hogar", :provider_attachments
+        = f.link_to_add "Agrega una foto", :provider_attachments
         
   .col-md-1
   
