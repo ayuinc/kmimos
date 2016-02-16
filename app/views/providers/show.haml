@@ -138,7 +138,7 @@
             %p.light.mb-0.text-gray.text-small Desde
             %h4.m-7.price
               = current_country.currency
-              = number_with_precision(1.2*(@provider.rates.minimum(:price).to_f), :precision => 2)
+              = number_with_precision(1.2*(@provider.rates.where("coalesce(price,0) > 0").minimum(:price).to_f), :precision => 2)
             %h5.light.mt-0.text-gray.text-small por noche
             %p{style:"font-size:10px;margin-bottom:-5px"} * Los precios incluyen el 20% de Beneficios Kmimos
             .col-md-12.border-top.border-bottom.pt-7.pb-7  
