@@ -37015,7 +37015,7 @@ function load_player(playerName, playerId){
   player = new YT.Player(playerId, {
     height: '315',
     width: '560',
-    videoId: '4CkQYZVVyBc',
+    videoId: '_08UJ0aYDCk',
     playerVars: {
         'autoplay': 0,
         'rel': 0,
@@ -103320,6 +103320,7 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
   
   $scope.providers;
   $scope.filteredProviders;
+  $scope.providersMsg = '';
   
   $scope.search = {};
   $scope.search.number_of = [0, 0, 0, 0];
@@ -103340,10 +103341,14 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
   }).then(function successCallback(response) {
     $scope.params.location = response.data.location;
     $scope.params.location_id = response.data.location_id;
-    console.log(response.data);console.log(response.data.location_id);
+    
     ProviderFilterService.all($scope.params.location_id).then(function (providers) {
-      localStorage.setItem("providers", JSON.stringify(providers));
-      localStorage.setItem("filteredProviders", JSON.stringify(providers));
+      if (providers.length == 0) {
+        $scope.providersMsg = 'Probablemente no hay cuidadores en el área seleccionada :(';
+      } else {
+        localStorage.setItem("providers", JSON.stringify(providers));
+        localStorage.setItem("filteredProviders", JSON.stringify(providers));
+      }
       $scope.providers = providers;
     });    
   });
@@ -103720,6 +103725,41 @@ function allLabel() {
   }else{
     main_checkbox.checked = true;
     checkAll();
+  }
+}
+
+function previewImage(input, container, isClass) {
+  if (typeof(isClass)==='undefined') isClass = false;
+  // Check for the various File API support.
+  if (window.File && window.FileReader && window.FileList && window.Blob) {
+    var files = input.files; // FileList object
+
+    // files is a FileList of File objects. List some properties.
+    if (files.length > 0) {
+      var reader = new FileReader();
+      var preview = null;
+
+      if (isClass) {
+        var containers = document.getElementsByClassName(container);
+        for (var i = containers.length - 1; i >= 0; i--) {
+          if (containers[i].src.length <= 0 || containers[i].src.indexOf("missing.png") > 0) {
+            preview = containers[i];
+            break;
+          }
+        }
+      }
+      else {
+        preview = document.getElementById(container);
+      } 
+
+      reader.onload = function(e) {
+        preview.src = e.target.result;
+      };
+
+      reader.readAsDataURL(files[0]);
+    }
+  } else {
+    alert('The File APIs are not fully supported in this browser.');
   }
 }
 

@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController 
   
   before_action :set_booking, only: [:show,:destroy]
-  before_action :authenticate_user!, except: [:new, :booking_resume]
+  before_action :authenticate_user!, except: [:new, :booking_resume, :send_mail]
   
   caches_page   :public
   caches_action :booking_resume
@@ -62,7 +62,17 @@ class BookingsController < ApplicationController
       render 'new'
     end
   end
-  
+
+  def send_mail
+    @provider = Provider.find(params[:provider_id])
+    @booking = Booking.find(params[:booking_id])
+
+    BookingConfirmationMailer.new_booking_notification(@booking, current_country).deliver
+    BookingConfirmationMailer.new_booking_provider_notification(@booking, current_country).deliver
+    BookingConfirmationMailer.new_booking_for_admin(@booking, current_country).deliver
+    
+    render :text => "Correo enviado a " + @provider.name + "(" + @provider.id.to_s + ") con la reserva " + @booking.id.to_s + "."
+  end  
 
   private
 

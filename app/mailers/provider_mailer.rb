@@ -1,5 +1,5 @@
 class ProviderMailer < ActionMailer::Base
-  default from: "\"Kmimos\" <contact@cani.mx>" 
+  default from: "\"Kmimos\" <contact@kmimos.la>" 
   
   def welcome_message(provider)
     @provider = provider

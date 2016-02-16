@@ -1,5 +1,5 @@
 class MeetingConfirmationMailer < ActionMailer::Base
-  default from: "\"Kmimos\" <reservas@cani.mx>"
+  default from: "\"Kmimos\" <contacto@kmimos.la>"
 
 
   def new_meeting_notification(meeting, current_country)
@@ -23,21 +23,16 @@ class MeetingConfirmationMailer < ActionMailer::Base
     @meeting = meeting     
     @country = current_country
     admins = []
-    #admins << "r.gonzalez@desdigitec.com" << "e.celli@desdigitec.com"  << "m.castellon@desdigitec.com" << "f.trujillo@desdigitec.com"
-    admins << "lalo@laboratoria.la" << "r.gonzalez@desdigitec.com"
+    admins << "r.gonzalez@desdigitec.com" << "e.celli@desdigitec.com" << "f.trujillo@desdigitec.com"
     
     # Panamá
     if @country.id == 3
-      #admins << "nenavieira@gmail.com" << "bobthin@gmail.com"
-      admins << "lalo@laboratoria.la" << "r.gonzalez@desdigitec.com"
+      admins << "nenavieira@gmail.com" << "bobthin@gmail.com"
     end
- 
-    admins << @meeting.provider.email
-    p admins 
+    
     mail(
-      to: "lalo@laboratoria.la", #to: "r.cuevas@desdigitec.com"
-      cc: admins,
- 
+      to: "r.cuevas@desdigitec.com",
+      cc: admins, 
       subject: 'Conocer en persona - Nueva solicitud. Kmimos ' + @country.name)
  
   end
