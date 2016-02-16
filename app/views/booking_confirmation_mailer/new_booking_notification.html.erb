@@ -21,9 +21,8 @@
     <div class="container-sm">
       <h1 style="font-weight:200;color:#526577;font-size:35px">Hola <%="#{@booking.user.first_name}"%>, </h1>
       <p>
-        Has hecho una solicitud de reserva en Kmimos para que
+        Ya está confirmada tu reserva en Kmimos para que 
         <b><%="#{@booking.provider.name}"%><%="#{@booking.provider.last_name_1}"%> </b>
-        cuide a 
         <%= "#{'tu'.pluralize(@booking.pets.count)}" %>
         <%= "#{'mascota'.pluralize(@booking.pets.count)}" %>
         <%= "#{@booking.pets_list}" %>
@@ -39,13 +38,16 @@
         a las 
         <b><%="#{@booking.dropoff_time.strftime("%H:%M")}"%>. </b>
         <% end %>
-        Recogiendo y entregando a 
-        <%= "#{'tu'.pluralize(@booking.pets.count)}" %>
-        <%= "#{'perrito'.pluralize(@booking.pets.count)}" %>
-        <% if @booking.address  %>
+      </p>
+      <p>
+        Si solicitaste el servicio de transportación, la cuidadora pasará recogiendo
+        y entregando a tus perritos 
+        <% if @booking.address %>
         en el domicilio ubicado en
         <b><%="#{@booking.address}"%></b>
-        <% end %>
+        <% end %>.
+        Si no lo solicitaste, la cuidadora estará esperándote en su domicilio en los
+        horarios señalados.
       </p>
       <p>
         Para cualquier duda y/o comentario puedes contactarte con el cuidador al teléfono
