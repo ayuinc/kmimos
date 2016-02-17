@@ -15,7 +15,7 @@ class ProvidersController < ApplicationController
     session[:q_location]    = Location.find(params[:q][:locations_id_eq]).name rescue nil
     session[:q_location_id] = params[:q][:locations_id_eq] rescue nil
     
-    if session[:from_date].to_s.length == 0 || session[:to_date].to_s.length == 0 || session[:q_location] == nil
+    if session[:from_date].to_s.length == 0 || session[:to_date].to_s.length == 0
       redirect_to '/'
     else
       @location = Location.find(params[:q][:locations_id_eq]).name rescue ''
