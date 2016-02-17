@@ -46,15 +46,16 @@
       (function() {
         "use strict";
         
-        var snapper = new Snap({
-          element: document.getElementById('content'),
-          resistance: 0.5,
-          easing: 'ease',
-          transitionSpeed: 0.3,
-          minDragDistance: 5,
-          disable: 'left'
-          
-        });
+        if ($(document).width() < 480) {
+          var snapper = new Snap({
+            element: document.getElementById('content'),
+            resistance: 0.5,
+            easing: 'ease',
+            transitionSpeed: 0.3,
+            minDragDistance: 5,
+            disable: 'left'
+          });
+        }
         
         var toggles = document.querySelectorAll(".c-menu");
     

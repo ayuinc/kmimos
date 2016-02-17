@@ -4,9 +4,9 @@
   }
 
 = render partial: 'error_messages'
-%div(ng-app="bookings_module")
-  .container.content.mh-630(ng-controller = "BookingsController")
-    = simple_nested_form_for(@booking)  do |f|
+= simple_nested_form_for(@booking)  do |f|
+  %div(ng-app="bookings_module")
+    .container.content.mh-630(ng-controller = "BookingsController")
       %input{value: @provider.id}(name="provider_id" type="hidden")
       .row
         .col-md-12
@@ -149,8 +149,6 @@
                     %th.total(colspan=2) TOTAL :
                     %th.total $ {{ services_booked_total * 1.2 | number:2 }}  MXN
           .panel-body
-            = render partial: 'terms', locals: {f: f}
-
             .form-group.row
               .col-md-12
                 %center
@@ -158,6 +156,7 @@
 
           %div
             %h5 (*) Confirmaremos tu reserva en un período de 24 horas, es posible que pueda haber un cambio. Si así sucede nos contactaremos contigo para informarte y darte la mejor solución.
+  = render partial: 'terms', locals: {f: f}
 
 - if Rails.env.production?
   :javascript
