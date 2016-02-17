@@ -146,6 +146,10 @@
   display: none;
 }
 
+.panel-heading {
+  font-size:18px;
+}
+
   
 @media screen and (max-width: 480px) {
   
@@ -290,4 +294,22 @@
   .alert_edit {
     margin-bottom:5px;
   }
+  
+  .provider_provider_attachments_photo {
+    margin: 0px;
+  }
+  
+  .fields {
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .wizard > .steps
+  {
+      position: relative;
+      display: block;
+      width: 100%;
+      margin: 0;
+  }  
+  
 }
