@@ -138,8 +138,8 @@
   position: absolute;
   right: 0;
   iframe{
-    width: 250px;
-    height: 170px;
+    width: 90%;
+    height: 90%;
     margin : 0 auto;
   }
 }
@@ -161,4 +161,13 @@
 
 .bg-error{
   background-color: #FFFFC1;
+}
+
+.alert_edit {
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+  color: #8a6d3b;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
 }

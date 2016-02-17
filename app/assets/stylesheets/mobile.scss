@@ -18,99 +18,6 @@
 #a {
   height: 270px !important;
 }
-
-#drawers {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: auto;
-  height: auto;
-  
-  h2 {
-    font-size: 22px;
-    padding-top: 20px;
-  }
-  
-  #right-drawer {
-    color: rgb(255, 255, 255);
-    padding: 15px;
-    text-align: center;
-    background-color: rgb(10,46,71);
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 1;
-    bottom: 0;
-    left: auto;
-    width: 265px;
-    height: auto;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    -webkit-transition: width 0.3s ease;
-       -moz-transition: width 0.3s ease;
-        -ms-transition: width 0.3s ease;
-         -o-transition: width 0.3s ease;
-            transition: width 0.3s ease;
-  }
-}
-
-.home-bkg {
-  background-image: url("home-background.svg");
-  background-size: cover;
-  background-position: center; 
-  display: table;
-  max-height:520px;
-  
-  .h3 {
-    font-size: 2rem;  
-  }  
-  
-  .text-white{
-    margin-bottom: 4rem;
-  }
-  
-  .left-person {
-    height: 200px;
-    padding-left: 0px !important;
-    margin-top:0px;
-  }
-  
-  .right-dogs{
-    text-align: right;
-    margin-top:40px;
-    
-    .perro-vainilla {
-      height: 60px;
-    }
-    .perro-bull-terrier {
-      height: 90px;
-    } 
-  }
-  
-}
-
-#content {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: auto;
-  height: auto;
-  z-index: 2;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  -webkit-transform: translate3d(0, 0, 0);
-     -moz-transform: translate3d(0, 0, 0);
-      -ms-transform: translate3d(0, 0, 0);
-       -o-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-  #mobile-wrapper {
-    background:#fff;
-  }
-}
  
 .c-hamburger {
   display: block;
@@ -223,6 +130,122 @@
   padding-bottom: 5%;
 }
 
+#myModal {
+  .modal-dialog,
+  .modal-content {
+      height: 90%;
+  }
+  
+  .modal-body {
+      max-height: calc(100% - 185px);
+      overflow-y: scroll;
+  }
+}
+
+#drawers {
+  display: none;
+}
+
+.panel-heading {
+  font-size:18px;
+}
+
+  
+@media screen and (max-width: 480px) {
+  
+  .home-bkg {
+    background-image: url("home-background.svg");
+    background-size: cover;
+    background-position: center; 
+    display: table;
+    max-height:520px;
+    
+    .h3 {
+      font-size: 2rem;  
+    }  
+    
+    .text-white{
+      margin-bottom: 4rem;
+    }
+    
+    .left-person {
+      height: 200px;
+      padding-left: 0px !important;
+      margin-top:0px;
+    }
+    
+    .right-dogs {
+      text-align: right;
+      margin-top:40px;
+      
+      .perro-vainilla {
+        height: 60px;
+      }
+      .perro-bull-terrier {
+        height: 90px;
+      } 
+    }
+  }  
+  
+  #content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    z-index: 2;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    -webkit-transform: translate3d(0, 0, 0);
+       -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+         -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+    #mobile-wrapper {
+      background:#fff;
+    }
+  }  
+  
+#drawers {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+  
+  h2 {
+    font-size: 22px;
+    padding-top: 20px;
+  }
+  
+  #right-drawer {
+    color: rgb(255, 255, 255);
+    padding: 15px;
+    text-align: center;
+    background-color: rgb(10,46,71);
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    bottom: 0;
+    left: auto;
+    width: 265px;
+    height: auto;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    -webkit-transition: width 0.3s ease;
+       -moz-transition: width 0.3s ease;
+        -ms-transition: width 0.3s ease;
+         -o-transition: width 0.3s ease;
+            transition: width 0.3s ease;
+  }
+}  
+  
   #myModal {
     .modal-dialog {
       height: 440px;
@@ -248,9 +271,9 @@
   
   .table table {
     margin-bottom: 30px;
-  }
+  }  
   
-@media screen and (max-width: 480px) {
+  
   .booking_pickup_time select,
   .booking_dropoff_time select {
       width: 70px;
@@ -267,4 +290,26 @@
     padding-top: 15px;
     padding-bottom: 15px;    
   }
+  
+  .alert_edit {
+    margin-bottom:5px;
+  }
+  
+  .provider_provider_attachments_photo {
+    margin: 0px;
+  }
+  
+  .fields {
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .wizard > .steps
+  {
+      position: relative;
+      display: block;
+      width: 100%;
+      margin: 0;
+  }  
+  
 }

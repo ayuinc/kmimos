@@ -1,48 +1,49 @@
 %h3 Paso 1
 %section
   .row
-    .col-md-12
+    .col-md-12.p-0
       %h2.title-step Datos Personales
       %hr
   .row 
-    .col-md-12
+    .col-md-12.p-0
       .row
-        .col-md-3 Nombre:
-        .col-md-9= f.input :name, label: false 
+        .col-md-3.p-0 Nombre:
+        .col-md-9.p-0= f.input :name, label: false 
       .row
-        .col-md-3 Apellido:
-        .col-md-9= f.input :last_name_1, label: false 
+        .col-md-3.p-0 Apellido:
+        .col-md-9.p-0= f.input :last_name_1, label: false 
       .row
-        .col-md-3= current_country.dni_label 
-        .col-md-3= f.input :dni, label: false 
+        .col-md-3.p-0= current_country.dni_label 
+        .col-md-3.p-0= f.input :dni, label: false 
         .col-md-1
-        .col-md-2 Teléfono:
-        .col-md-3= f.input :phone, label: false
+        .col-md-2.p-0 Teléfono:
+        .col-md-3.p-0= f.input :phone, label: false
       .row.border-bottom.mb-42
-      
         = f.input :avatar, as: :file, label: false
-        .input-append
-          %a#upload-btn.btn.btn-primary.pretty_upload_input{el: "#provider_avatar"}
-            %i.icon-upload-alt 
-            Sube tu foto de perfil   
-        %br
+        .col-md-3.p-0
+        .col-md-9.p-0
+          .input-append.p-0
+            %a#upload-btn.btn.btn-primary.pretty_upload_input{el: "#provider_avatar"}
+              %i.icon-upload-alt 
+              Sube tu foto de perfil   
+          %br
       .row
-        .col-md-3 Correo electrónico:
-        .col-md-9= f.input :email, label: false
+        .col-md-3.p-0 Correo electrónico:
+        .col-md-9.p-0= f.input :email, label: false
       .row 
-        .col-md-3 Contraseña:
-        .col-md-9= f.input :password, label: false
+        .col-md-3.p-0 Contraseña:
+        .col-md-9.p-0= f.input :password, label: false
       .row 
-        .col-md-3 Confirma tu contraseña:
-        .col-md-9= f.input :password_confirmation, label: false
+        .col-md-3.p-0 Confirma tu contraseña:
+        .col-md-9.p-0= f.input :password_confirmation, label: false
       
       .row
-        .col-md-3 Sube fotos adicionales para tu perfil:
-        .col-md-9
+        .col-md-3.p-0 Fotos adicionales:
+        .col-md-9.p-0
           - f.fields_for :provider_attachments do |a|  
             .row 
-              .col-md-10= a.input :photo, :multiple => true, label: false
-              .col-md-2= a.link_to_remove "X"
+              .col-md-10.p-0= a.input :photo, :multiple => true, label: false
+              .col-md-2.p-0= a.link_to_remove "Eliminar"
           = f.link_to_add "Agregar Foto", :provider_attachments 
    
 :javascript 

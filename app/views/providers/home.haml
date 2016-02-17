@@ -36,7 +36,7 @@
           .text-center.pt-42
             %img{:alt => "", :src => "assets/scrolldown.svg"}/
     - cache('testimonies') do
-      .row.mb-56#testimonios{style: "background-image: url('assets/home-testimonios-background.svg')"}
+      .row.mb-56#testimonios{style: "background-image: url('assets/home-testimonios-background.svg');background-position:center;background-size:cover"}
         .container-sm.pv-42
           %h1.bold.pb-42.text-gray-dark.text-center.pt-56 Testimonios
           .row
@@ -72,7 +72,7 @@
               %h4.bold.text-success.mt-14 Victor Villegas
           %img{ style: "float: right;" }(src = "assets/testimoniales-perro-vainilla.svg")
 
-        .text-center.pt-42
+        .container-sm.text-center.pt-42
     - cache('week_providers') do
       .row.mb-35#cuidadores-semana
         %img{ style: "float: right; padding-top: 120px;" }(src = "assets/cuidadores-mes-perro-vainilla.svg")
@@ -89,8 +89,8 @@
                     - score = val.map{|val| val[1]}.reduce(:+).to_i / val.size.to_i rescue 0
                     .ratingStarsWhite{score: score, readOnly: true}
     - cache('discount_form') do
-      .row.pb-56#recomendacion.bg-primary{style: "background-image: url(assets/home-descuento-background.svg);"}
-        .container.pv-42
+      .row.pb-56#recomendacion.bg-primary{style: "background-image: url(assets/home-descuento-background.svg);background-position:center;background-size:cover"}
+        .container-sm.pv-42
           .row
             .col-md-7
               %img.mt-28{ style: "float: left; margin-left: 100px; margin-top: 200px !important;" }(src = "assets/home-dueno-perro-descuento_2.svg")
