@@ -304,12 +304,54 @@
     margin-bottom: 10px;
   }
   
-  .wizard > .steps
-  {
-      position: relative;
-      display: block;
-      width: 100%;
-      margin: 0;
+  .wizard > .steps {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 0;
   }  
+  
+  .wizard > .content {
+    margin: 10px 0px;
+  }
+  
+  #provider_check_in_4i,
+  #provider_check_in_5i,
+  #provider_check_out_4i,
+  #provider_check_out_5i {
+    width: 80px;
+    display: inline-block;
+  }
+  
+  .country_state {
+    margin-bottom: 5px;
+  }  
+  
+  .country_state_checkbox {
+    line-height: 43px;
+    padding: 0px;
+  }
+  
+  .country_state_name {
+    line-height: 40px;
+  }
+  
+  .country_select_state {
+    padding: 10px;
+  }
+  
+  .bicol_checkboxes {
+    padding-left: 15px;
+    margin-top: 50px;
+  }
+  
+  #provider_experiencia {
+    width: 60px;
+    margin-right: 5px;
+  }
+  
+  .tricol_checkboxes .checkbox {
+    width:100%;
+  }
   
 }
