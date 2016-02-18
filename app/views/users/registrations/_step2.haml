@@ -1,40 +1,40 @@
 %h3 Paso 2
 %section
   .row
-    .col-md-12
+    .col-md-12.p-0
       %h2.title-step Datos de tu mascota
       %hr
   .row
-    .col-md-1
-    .col-md-10
+    .col-md-1.hidden-xs.hidden-sm
+    .col-md-10.p-0
       = f.simple_fields_for :pets do |p|
         .row
-          .col-md-3 Nombre:
-          .col-md-9= p.input :name, label: false 
+          .col-md-3.p-0 Nombre:
+          .col-md-9.p-0= p.input :name, label: false 
         .row 
-          .col-md-3 Raza:
-          .col-md-9= p.association :race, label: false
+          .col-md-3.p-0 Raza:
+          .col-md-9.p-0= p.association :race, label: false
         .row 
-          .col-md-3 Edad:
-          .col-md-6= p.association :age, label: false 
+          .col-md-3.p-0 Edad:
+          .col-md-6.p-0= p.association :age, label: false 
         .row 
-          .col-md-3 Tamaño:
-          .col-md-9= p.association :own_size, label: false, :collection => Size.order('id').all
+          .col-md-3.p-0 Tamaño:
+          .col-md-9.p-0= p.association :own_size, label: false, :collection => Size.order('id').all
         .row
-          .col-md-3 Peso:
-          .col-md-9= p.input :weight, label: false 
+          .col-md-3.p-0 Peso:
+          .col-md-9.p-0= p.input :weight, label: false 
         .row
-          .col-md-3 Sexo:
-          .col-md-9= p.input :sex, label: false, as: :radio_buttons, :collection => ['Masculino', 'Femenino']
+          .col-md-3.p-0 Sexo:
+          .col-md-9.p-0= p.input :sex, label: false, as: :radio_buttons, :collection => ['Masculino', 'Femenino']
         .row
-          .col-md-3 Comportamiento:
-          .col-md-9= p.association :behavior, label: false
+          .col-md-3.p-0 Comportamiento:
+          .col-md-9.p-0= p.association :behavior, label: false
         .row
-          .col-md-3 Sube una foto de perfil:
-          .col-md-9= p.input :photo, label: false
+          .col-md-3.p-0 Sube una foto de perfil:
+          .col-md-9.p-0= p.input :photo, label: false
         .row.border-bottom
-          .col-md-12= p.link_to_remove "Eliminar"
+          .col-md-12.link_remove.p-0= p.link_to_remove "Eliminar"
       = f.link_to_add "Agregar una Mascota", :pets
-    .col-md-1
+    .col-md-1.hidden-xs.hidden-sm
 
   

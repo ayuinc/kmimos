@@ -1,48 +1,48 @@
 %h3 Paso 1
 %section
   .row
-    .col-md-12
+    .col-md-12.p-0
       %h2.title-step Datos personales
       %hr
   .row
     .col-md-1
-    .col-md-10
+    .col-md-10.p-0
       .row
-        .col-md-3 Nombre:
-        .col-md-9= f.input :first_name, label: false
+        .col-md-3.p-0 Nombre:
+        .col-md-9.p-0= f.input :first_name, label: false
       .row
-        .col-md-3 Apellido:
-        .col-md-9= f.input :last_name, label: false
+        .col-md-3.p-0 Apellido:
+        .col-md-9.p-0= f.input :last_name, label: false
       .row
-        .col-md-3 Teléfono:
-        .col-md-5= f.input :phone, label: false
+        .col-md-3.p-0 Teléfono:
+        .col-md-5.p-0= f.input :phone, label: false
       .row
-        .col-md-3 Código Postal:
-        .col-md-5= f.input :postal_code, label: false, input_html: {onchange: "getDirection(this)"}
+        .col-md-3.p-0 Código Postal:
+        .col-md-5.p-0= f.input :postal_code, label: false, input_html: {onchange: "getDirection(this)"}
        
       .row
-        .col-md-3 Estado:
-        .col-md-5= f.input :state_name, as: :text, label: false, input_html: {class: 'stateUser', disabled: true} 
+        .col-md-3.p-0 Estado:
+        .col-md-5.p-0= f.input :state_name, as: :text, label: false, input_html: {class: 'stateUser', disabled: true} 
       .row
-        .col-md-3 Municipio:
-        .col-md-5= f.input :place_name, as: :text, label: false, input_html: {class: 'cityUser', disabled: true} 
+        .col-md-3.p-0 Municipio:
+        .col-md-5.p-0= f.input :place_name, as: :text, label: false, input_html: {class: 'cityUser', disabled: true} 
       .row
-        .col-md-3 Dirección:
-        .col-md-5= f.input :address, as: :text, label: false, hint: 'Tu dirección solo será compartida al momento de completar una reserva'
+        .col-md-3.p-0 Dirección:
+        .col-md-5.p-0= f.input :address, as: :text, label: false, hint: 'Tu dirección solo será compartida al momento de completar una reserva'
       
       .row
-        .col-md-3 Foto de perfil:
-        .col-md-5= f.input :photo, label: false
+        .col-md-3.p-0 Foto de perfil:
+        .col-md-5.p-0= f.input :photo, label: false
       .row
         .col-md-12
           %br
           %hr
       .row
-        .col-md-3 Correo electrónico:
-        .col-md-9= f.input :email, label: false
+        .col-md-3.p-0 Correo electrónico:
+        .col-md-9.p-0= f.input :email, label: false
       .row
-        .col-md-3 Contraseña:
-        .col-md-9= f.input :password, label: false
+        .col-md-3.p-0 Contraseña:
+        .col-md-9.p-0= f.input :password, label: false
     .col-md-1
     
     

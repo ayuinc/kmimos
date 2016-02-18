@@ -150,6 +150,67 @@
   font-size:18px;
 }
 
+.reservas {
+  padding: 3% 10%;
+  
+  h1 {
+    font-weight: bold;
+    color: #637988;
+    line-height: 41px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  h2 {
+    text-align: center;
+    font-weight: bold;
+    color: #637988;
+    line-height: 41px;
+  }
+  .header {
+    color: #637988 !important;
+    line-height: 24px;
+    .col-md-1 {
+      border-top: 1px solid #e0e0e0;
+      border-right: 1px solid #e0e0e0;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 11px 15px 12px 15px;
+    }
+    .col-md-1:first-child {
+      border-left: 1px solid #e0e0e0;
+    }
+  }
+  .line {
+    .col-md-1 {
+      background-color: #fffff8;
+      color: #435C70;
+      line-height: 22px;
+      padding: 4px 18px;
+      border-right: 1px solid #e0e0e0;
+      border-bottom: 1px solid #e0e0e0;
+      height: 74px;
+    }
+    .col-md-1:first-child {
+      border-left: 1px solid #e0e0e0;
+    }
+  }
+  
+}
+
+.registration_wizard_user {
+  .steps {
+    padding: 0px 20%;
+    ul { 
+      li {
+        width: 50% !important;
+      }
+    }
+  }
+}
+
+.link_remove {
+  margin: 20px 0px;
+}
   
 @media screen and (max-width: 480px) {
   
@@ -208,43 +269,43 @@
     }
   }  
   
-#drawers {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: auto;
-    height: auto;
-  
-  h2 {
-    font-size: 22px;
-    padding-top: 20px;
-  }
-  
-  #right-drawer {
-    color: rgb(255, 255, 255);
-    padding: 15px;
-    text-align: center;
-    background-color: rgb(10,46,71);
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 1;
-    bottom: 0;
-    left: auto;
-    width: 265px;
-    height: auto;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    -webkit-transition: width 0.3s ease;
-       -moz-transition: width 0.3s ease;
-        -ms-transition: width 0.3s ease;
-         -o-transition: width 0.3s ease;
-            transition: width 0.3s ease;
-  }
-}  
+  #drawers {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      width: auto;
+      height: auto;
+    
+    h2 {
+      font-size: 22px;
+      padding-top: 20px;
+    }
+    
+    #right-drawer {
+      color: rgb(255, 255, 255);
+      padding: 15px;
+      text-align: center;
+      background-color: rgb(10,46,71);
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
+      bottom: 0;
+      left: auto;
+      width: 265px;
+      height: auto;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      -webkit-transition: width 0.3s ease;
+         -moz-transition: width 0.3s ease;
+          -ms-transition: width 0.3s ease;
+           -o-transition: width 0.3s ease;
+              transition: width 0.3s ease;
+    }
+  }  
   
   #myModal {
     .modal-dialog {
@@ -354,4 +415,57 @@
     width:100%;
   }
   
+  .reservas {
+    padding: 3% 3%;
+    .seven-cols {
+      display: none;
+    }
+    .ratingStars {
+      display: inline-block;
+    }
+    .reserva {
+      border: 1px solid #e0e0e0;
+      background-color: #fffff8;
+      margin-bottom:30px;
+      padding-top:10px;
+    }
+  }
+  
+  .sign-up-form {
+    margin-top: 0;
+  }
+  
+}
+
+//Seven columns layouts
+
+@media (min-width: 768px){
+  .seven-cols .col-md-1,
+  .seven-cols .col-sm-1,
+  .seven-cols .col-lg-1  {
+    width: 100%;
+    *width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .seven-cols .col-md-1,
+  .seven-cols .col-sm-1,
+  .seven-cols .col-lg-1 {
+    width: 14.285714285714285714285714285714%;
+    *width: 14.285714285714285714285714285714%;
+  }
+}
+
+/**
+ *  The following is not really needed in this case
+ *  Only to demonstrate the usage of @media for large screens
+ */    
+@media (min-width: 1200px) {
+  .seven-cols .col-md-1,
+  .seven-cols .col-sm-1,
+  .seven-cols .col-lg-1 {
+    width: 14.285714285714285714285714285714%;
+    *width: 14.285714285714285714285714285714%;
+  }
 }
