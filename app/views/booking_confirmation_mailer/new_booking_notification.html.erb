@@ -23,6 +23,7 @@
       <p>
         Ya está confirmada tu reserva en Kmimos para que 
         <b><%="#{@booking.provider.name}"%><%="#{@booking.provider.last_name_1}"%> </b>
+        cuide a 
         <%= "#{'tu'.pluralize(@booking.pets.count)}" %>
         <%= "#{'mascota'.pluralize(@booking.pets.count)}" %>
         <%= "#{@booking.pets_list}" %>
