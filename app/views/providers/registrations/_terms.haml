@@ -205,8 +205,6 @@
     $('#myInput').focus()
   });
    
-  var altura = $(window).height() - 250;
-  $("#license_terms").height(altura);
   $("input[name=license_term]").click(function(e) {
     if ($(this).is(":checked")) {
       $("#confirm_new_provider").prop("disabled", false);
