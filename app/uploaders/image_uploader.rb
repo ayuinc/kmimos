@@ -5,6 +5,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
+  process :rotate
 
   process :resize_to_fit => [800, 800]
 
@@ -56,5 +57,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+  def rotate
+    manipulate! do |image|
+      image.auto_orient
+    end
+  end
 
 end
