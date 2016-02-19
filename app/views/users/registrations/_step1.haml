@@ -20,10 +20,10 @@
         .col-md-3.p-0 Código Postal:
         .col-md-5.p-0= f.input :postal_code, label: false, input_html: {onchange: "getDirection(this)"}
        
-      .row
+      .row.hidden
         .col-md-3.p-0 Estado:
         .col-md-5.p-0= f.input :state_name, as: :text, label: false, input_html: {class: 'stateUser', disabled: true} 
-      .row
+      .row.hidden
         .col-md-3.p-0 Municipio:
         .col-md-5.p-0= f.input :place_name, as: :text, label: false, input_html: {class: 'cityUser', disabled: true} 
       .row
