@@ -52,8 +52,8 @@
               .panel.panel-primary
                 .panel-body.line-regular
                   %p Añade a tu mascota a la reserva del tiempo de estadía que selecciones.
-                  .form-group.row(ng-repeat="pet in pets_booked")
-                    .row.pd-0.border-bottom
+                  .row(ng-repeat="pet in pets_booked")
+                    .row.pd-0.border-bottom.add_pet
                       .col-md-3 Nombre:
                       .col-md-6
                         %select.form-control{name: "booking[booked_pets_attributes][][pet_id]"}(ng-model= "pet.pet_id"  ng-change="update_pets(#{@provider.id})")
@@ -61,7 +61,7 @@
                             %option{value: pet.id}= pet
                       .col-md-2 $ {{ pet.price }} MXN
                       .col-md-1
-                        %a(ng-click="deletePet(pet)" href="#") X
+                        %a(ng-click="deletePet(pet)" href="#") Eliminar
                   %a.btn.btn-primary(ng-click="add_pet()") Quiero agregar a mi mascota
                   .row.mt-35.mb-14
                     %h3.text-gray Información Adicional
@@ -74,15 +74,15 @@
                       %p ¿Necesitas que sepamos algo más de tu perrito? (Ej: Necesita medicamentos, no convive con otros perros, sale a pasear 3 veces al día, etc)
                       = f.input :user_message, label: false, as: :text, class: "form-control"
 
-          %hr.hr-gray/
+          %hr.hr-gray-booking/
           .row
             .col-md-12
               %h4 ¿Quieres que pasen a recoger a tu perrito a tu casa? ¿Quieres que lo bañen? Checa estos servicios adicionales
-              %br
               %p Kmimos te ofrece servicios adicionales para tu mascota, puedes adquirirlos independientemente de tu reserva.
+              %br
           .panel-body
-            .form-group.row(ng-repeat="serv in services_booked")
-              .row.border-bottom
+            .row(ng-repeat="serv in services_booked")
+              .row.border-bottom.add_service
                 .col-md-3 Servicio: 
                 .col-md-3
                   %select.form-control.bkd_srv{name: "booking[booked_services_attributes][][service_id]"}(ng-model= "serv.service_id" ng-change="update_services(#{@provider.id})")
@@ -94,11 +94,11 @@
                       %option{value: pet.id}= pet
                 .col-md-2 $ {{serv.price}}  MXN
                 .col-md-1
-                  %a(ng-click="deleteServ(serv)" href="#") X
+                  %a(ng-click="deleteServ(serv)" href="#") Eliminar
             %center
               %a.btn.btn-primary.add_srv_btn(ng-click="add_service()") Agregar Servicio
           .panel-heading
-            %hr.hr-gray/
+            %hr.hr-gray-booking/
           .panel-body
           = f.input :total, as: :hidden, input_html: {value: "{{services_booked_total * 1.2 + pets_booked_total * 1.2}}"}
           .table.plr-14
