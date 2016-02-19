@@ -43,9 +43,9 @@
             %a.dropdown-toggle.text-header{"data-toggle" => "dropdown", :href => "#"}
               Hola, #{current_user.first_name}
             %ul#dropdown-menu.dropdown-menu
-              %li= link_to 'Mi perfil', user_path(current_user)
-              %li= link_to 'Mis reservas', bookings_path 
-              %li= link_to 'Salir', destroy_user_session_path, :method => :delete 
+              %li{:style => "display:block;"}= link_to 'Mi perfil', user_path(current_user)
+              %li{:style => "display:block;"}= link_to 'Mis reservas', bookings_path 
+              %li{:style => "display:block;"}= link_to 'Salir', destroy_user_session_path, :method => :delete 
            
       - else
         %li
