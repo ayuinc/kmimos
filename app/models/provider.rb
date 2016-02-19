@@ -57,6 +57,7 @@ class Provider < ActiveRecord::Base
   validates_format_of :email, with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :locations, :presence => true
+  validates :phone, length: { in: 8..10 }
 
   validate :dni_length, on: :create
   validate :dni_uniqueness, on: :create
