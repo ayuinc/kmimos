@@ -18,25 +18,28 @@ class ProvidersController < ApplicationController
     if session[:from_date].to_s.length == 0 || session[:to_date].to_s.length == 0
       redirect_to '/'
     else
-      @location = Location.find(params[:q][:locations_id_eq]).name rescue ''
-    
-      @search = Provider.search(params[:q])
 
-      @state_id = params[:states][:id] rescue nil
-      @location_id = params[:locations][:id] rescue nil
-
-      if !@state_id.to_s.empty?
-        state = State.find(@state_id)
-        @providers = Location.find(@location_id).providers if !@location_id.empty?
-        @providers = Provider.where(id: state.locations.map{|location| location.providers.map{|provider| provider.id}}.flatten) if @location_id.empty?
-        @providers = @providers.where(active: true) if @providers != nil
-      else
+      if session[:q_location_id] == nil
         @providers = Provider.where(active: true)
+      else
+        @location = Location.find(params[:q][:locations_id_eq]).name rescue ''
+        @search = Provider.search(params[:q])
+        @state_id = params[:states][:id] rescue nil
+        @location_id = params[:locations][:id] rescue nil
+
+        if !@state_id.to_s.empty?
+          state = State.find(@state_id)
+          @providers = Location.find(@location_id).providers if !@location_id.empty?
+          @providers = Provider.where(id: state.locations.map{|location| location.providers.map{|provider| provider.id}}.flatten) if @location_id.empty?
+          @providers = @providers.where(active: true) if @providers != nil
+        else
+          @providers = Provider.where(active: true)
+        end
       end
-      
+
       @providers = @providers.where(id: Rate.where("price>0").map{|rate| rate.provider_id}.flatten)
       @providers = @providers.order(:id) rescue []
-
+      
       #Custom view for mobile
       respond_to do |format|
         format.html   { render 'index' }

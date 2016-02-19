@@ -15,7 +15,7 @@
                 %input.form-control.datepicker{value: session[:to_date]}(placeholder="Hasta" name="to_date")
               .form-group
                 %label Municipio 
-                = f.grouped_collection_select(:locations_id_eq, State.where("country_id=?",@country.id).order(:name), :locations, :name, :name, :name , {:prompt => @country.id == 2 ? "Elegir Barrio" : "Elegir Municipio o Delegación"}, 'ng-model': "search.locations", class: "form-control", "multiple":"")  #, html_input: {'ng-model': ''}
+                = f.grouped_collection_select(:locations_id_eq, State.where("country_id=?",@country.id).order(:name), :locations, :name, :name, :name , {:prompt => @country.id == 2 ? "Elegir Barrio" : "Todos los municipios"}, 'ng-model': "search.locations", class: "form-control", "multiple":"")  #, html_input: {'ng-model': ''}
               .form-group
                 %label Rango de Precio 
                 %rzslider(rz-slider-model="search.price" rz-slider-floor="search.price.floor" rz-slider-ceil="search.price.ceil" rz-slider-model="search.price.min" rz-slider-high="search.price.max" )

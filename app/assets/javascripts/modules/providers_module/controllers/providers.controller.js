@@ -27,8 +27,8 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
     method: 'GET',
     url: url_params
   }).then(function successCallback(response) {
-    $scope.params.location = response.data.location;
-    $scope.params.location_id = response.data.location_id;
+    $scope.params.location = response.data.location == null ? 'all' : response.data.location;
+    $scope.params.location_id = response.data.location_id.length == 0 ? 0 : response.data.location_id;
     
     ProviderFilterService.all($scope.params.location_id).then(function (providers) {
       if (providers.length == 0) {

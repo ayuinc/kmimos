@@ -7,15 +7,21 @@ class Api::ProvidersController < ApplicationController
  skip_before_action :verify_authenticity_token
 
  def get_providers
-   
+
    hash_response = Array.new
    
    @location_id = params[:location_id]
-   @state = State.where(country_id: current_country)
-   @providers = Location.find(@location_id).providers if !@location_id.empty?
-   @providers = Provider.where(id: @state.locations.map{|location| location.providers.map{|provider| provider.id}}.flatten) if @location_id.empty?
-   @providers = @providers.where(id: Rate.where("price > ?", 0).map{|rate| rate.provider_id}.flatten) if !@providers.empty?
-   @providers = @providers.where(active: true) if @providers != nil
+
+   if @location_id == "0"
+     @providers = Provider.where(active: true)
+     @providers = @providers.where(id: Rate.where("price > ?", 0).map{|rate| rate.provider_id}.flatten) if !@providers.empty?
+   else
+     @state = State.where(country_id: current_country)
+     @providers = Location.find(@location_id).providers if !@location_id.empty?
+     @providers = Provider.where(id: @state.locations.map{|location| location.providers.map{|provider| provider.id}}.flatten) if @location_id.empty?
+     @providers = @providers.where(id: Rate.where("price > ?", 0).map{|rate| rate.provider_id}.flatten) if !@providers.empty?
+     @providers = @providers.where(active: true) if @providers != nil
+   end
    
    @providers.each do |provider|
      hash_provider = Hash.new
@@ -39,7 +45,7 @@ class Api::ProvidersController < ApplicationController
 
      hash_response << hash_provider
    end
-   p @providers
+   
    respond_to do |format|
      format.json { render json: hash_response.as_json,  success: true }
    end
