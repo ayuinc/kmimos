@@ -31,7 +31,7 @@
     <link href="/assets/providers.css" media="all" rel="stylesheet" />
     <script src="/assets/application.js"></script>
     <meta content="authenticity_token" name="csrf-param" />
-    <meta content="bVsltF6zDxDMIKXtlxoyhS6Z6xjREUxLNllMk2TX1Nw=" name="csrf-token" />
+    <meta content="9FS5TB1jQ39SzzU6ZvsHolhn2hyGQmocSLSUjSS+B7A=" name="csrf-token" />
     <!-- Fonts for Homepage -->
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
@@ -69,7 +69,7 @@
     </script>
     <div id='drawers'>
       <div id='right-drawer'>
-        <h2><a class="not-underline white-text" href="/users/9">Mi Perfil</a></h2>
+        <h2><a class="not-underline white-text" href="/users/41">Mi Perfil</a></h2>
         <h2><a class="not-underline white-text" href="/bookings">Mis Reservas</a></h2>
         <h2><a data-method="delete" href="/providers/sign_out" rel="nofollow">Salir</a></h2>
       </div>
@@ -82,17 +82,17 @@
             <span class='icon-bar'></span>
             <span class='icon-bar'></span>
           </button>
-          <div class='p-7 hidden-xs hidden-sm col-xs-4'><a href="http://localhost:3000/"><img alt="Logo kmimos" class="mt--14 img-logo" src="/assets/logo-kmimos.svg" /></a></div>
-          <div class='p-7 hidden-md hidden-lg col-xs-4'><a href="http://localhost:3000/"><img alt="Logo kmimos" class="mt-0 img-logo" src="/assets/logo-kmimos.svg" /></a></div>
+          <div class='p-7 hidden-xs hidden-sm col-xs-4'><a href="https://kmimos-giancorzo.c9users.io/"><img alt="Logo kmimos" class="mt--14 img-logo" src="/assets/logo-kmimos.svg" /></a></div>
+          <div class='p-7 hidden-md hidden-lg col-xs-4'><a href="https://kmimos-giancorzo.c9users.io/"><img alt="Logo kmimos" class="mt-0 img-logo" src="/assets/logo-kmimos.svg" /></a></div>
           <ul class='nav navbar-nav mt-7 ml-56 hidden-xs'>
-            <li><a class="not-underline white-text" href="/users/9">Mi Perfil</a></li>
+            <li><a class="not-underline white-text" href="/users/41">Mi Perfil</a></li>
             <li><a class="not-underline white-text" href="/bookings">Mis Reservas</a></li>
           </ul>
         </div>
         <div class='collapse navbar-collapse text-center'>
           <div class='text-center hidden-lg hidden-md'></div>
           <div class='hidden-lg hidden-md hidden'>
-            <li class='block h2'><a href="/users/9">Mi perfil</a></li>
+            <li class='block h2'><a href="/users/41">Mi perfil</a></li>
             <li class='block h2'><a href="/bookings">Mis Reservas</a></li>
             <li class='block h2'><a data-method="delete" href="/users/sign_out" rel="nofollow">Salir</a></li>
           </div>
@@ -100,10 +100,10 @@
             <li class='ml-35'>
               <div class='dropdown'>
                 <a class='dropdown-toggle text-header' data-toggle='dropdown' href='#'>
-                  Hola, Lalo
+                  Hola, Herman
                 </a>
                 <ul class='dropdown-menu' id='dropdown-menu'>
-                  <li><a href="/users/9">Mi perfil</a></li>
+                  <li><a href="/users/41">Mi perfil</a></li>
                   <li><a href="/bookings">Mis reservas</a></li>
                   <li><a data-method="delete" href="/users/sign_out" rel="nofollow">Salir</a></li>
                 </ul>
@@ -207,15 +207,16 @@
       (function() {
         "use strict";
         
-        var snapper = new Snap({
-          element: document.getElementById('content'),
-          resistance: 0.5,
-          easing: 'ease',
-          transitionSpeed: 0.3,
-          minDragDistance: 5,
-          disable: 'left'
-          
-        });
+        if ($(document).width() < 480) {
+          var snapper = new Snap({
+            element: document.getElementById('content'),
+            resistance: 0.5,
+            easing: 'ease',
+            transitionSpeed: 0.3,
+            minDragDistance: 5,
+            disable: 'left'
+          });
+        }
         
         var toggles = document.querySelectorAll(".c-menu");
       

@@ -206,6 +206,31 @@
 .link_remove {
   margin: 20px 0px;
 }
+
+.add_pet {
+  margin-bottom: 21px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  .col-md-3,
+  .col-md-1,
+  .col-md-2 {
+    line-height: 34px;
+  }
+}
+  
+.hr-gray-booking {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+  border: 0;
+  border-top: 2px solid #ccc !important;
+  margin-left: 14px;
+  margin-right: 14px;
+}  
+
+.plr-14 {
+  padding: 0px 14px;
+}
+  
   
 @media screen and (max-width: 480px) {
   
@@ -326,10 +351,16 @@
     border-top: 2px solid #ccc !important;
   }
   
-  .plr-14 {
-    padding: 0px 14px;
+  .add_service,
+  .add_pet {
+    .col-md-1,
+    .col-md-2,
+    .col-md-3,
+    .col-md-5,
+    .col-md-6 {
+      padding: 8px 0px;
+    }
   }
-  
   .table table {
     margin-bottom: 30px;
   }  
@@ -435,6 +466,10 @@
     margin-top: 0;
   }
   
+  .pb-6 {
+    padding-bottom: 6px !important;
+  }
+  
 }
 
 //Seven columns layouts
@@ -468,4 +503,19 @@
     width: 14.285714285714285714285714285714%;
     *width: 14.285714285714285714285714285714%;
   }
+}
+
+.add_service {
+  margin-left: 14px !important;
+  margin-right: 14px !important;
+  margin-bottom: 21px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  .col-md-3,
+  .col-md-1,
+  .col-md-2 {
+    line-height: 34px;
+  }
+  
+  
 }

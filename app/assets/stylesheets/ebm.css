@@ -11817,7 +11817,8 @@ hr.hr-custom-gray-dark:before {
 
 hr.hr-gray, hr.hr-custom-gray {
   border-top: 2px solid #ccc !important;
-  margin: 14px 0; }
+  margin: 14px 0; 
+}
 hr.hr-custom-gray:before {
   width: 140px;
   height: 3px;
