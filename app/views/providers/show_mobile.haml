@@ -6,7 +6,7 @@
       .info
         .user.border-bottom.text-center.pb-14
           %h3.m-0.mb-7
-            = "#{@provider.name} #{@provider.last_name_1}"
+            = "#{@provider.name.downcase.capitalize} #{@provider.last_name_1.downcase.capitalize}"
           .user-card.user-card-round.size.xs.mb-21.row
             .user-pic.margin-auto
               = image_tag(@provider.avatar, class: 'avatar') if @provider.avatar?
