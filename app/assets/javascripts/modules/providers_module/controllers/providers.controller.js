@@ -135,7 +135,6 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
       $scope.providers = JSON.parse(localStorage.getItem("providers"));
     } else {
       ProviderFilterService.byPriceRange($scope.search.price.min, $scope.search.price.max).then(function (providers) {
-        localStorage.setItem("filteredProviders", JSON.stringify(providers));
         $scope.providers = providers;
       });
     }

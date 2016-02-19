@@ -94,7 +94,7 @@ providers_module.factory('ProviderFilterService', ['$http', '$q', '$location', f
   function byPriceRange(minPrice, maxPrice) {
     var deferred = $q.defer();
     
-    var providers = JSON.parse(localStorage.getItem("filteredProviders"));
+    var providers = JSON.parse(localStorage.getItem("providers"));
     
     var results = providers.filter(function (provider) {
       return provider.price >= minPrice && provider.price <= maxPrice;

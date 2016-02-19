@@ -103144,7 +103144,7 @@ providers_module.factory('ProviderFilterService', ['$http', '$q', '$location', f
   function byPriceRange(minPrice, maxPrice) {
     var deferred = $q.defer();
     
-    var providers = JSON.parse(localStorage.getItem("filteredProviders"));
+    var providers = JSON.parse(localStorage.getItem("providers"));
     
     var results = providers.filter(function (provider) {
       return provider.price >= minPrice && provider.price <= maxPrice;
@@ -103309,6 +103309,12 @@ function contains(filterData, originData){
   return is_valid;
 }
 ;
+providers_module.filter('capitalize', function(){
+    return function(input, all) {
+      var reg = (all) ? /([^\W_]+[^\s-]*) */g : /([^\W_]+[^\s-]*)/;
+      return (!!input) ? input.replace(reg, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}) : '';
+    }
+});
 /*global providers_module */
 /*global angular */
 /*global console */
@@ -103447,7 +103453,6 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
       $scope.providers = JSON.parse(localStorage.getItem("providers"));
     } else {
       ProviderFilterService.byPriceRange($scope.search.price.min, $scope.search.price.max).then(function (providers) {
-        localStorage.setItem("filteredProviders", JSON.stringify(providers));
         $scope.providers = providers;
       });
     }
@@ -103644,6 +103649,7 @@ bookings_module.controller('BookingsController', ['$scope', '$filter', '$http', 
 
 
 
+
 $(document).ready(function() {
   var docHeight = $(window).height();
   var footerHeight = $('#footer').height();
@@ -103725,6 +103731,41 @@ function allLabel() {
   }else{
     main_checkbox.checked = true;
     checkAll();
+  }
+}
+
+function previewImage(input, container, isClass) {
+  if (typeof(isClass)==='undefined') isClass = false;
+  // Check for the various File API support.
+  if (window.File && window.FileReader && window.FileList && window.Blob) {
+    var files = input.files; // FileList object
+
+    // files is a FileList of File objects. List some properties.
+    if (files.length > 0) {
+      var reader = new FileReader();
+      var preview = null;
+
+      if (isClass) {
+        var containers = document.getElementsByClassName(container);
+        for (var i = containers.length - 1; i >= 0; i--) {
+          if (containers[i].src.length <= 0 || containers[i].src.indexOf("missing.png") > 0) {
+            preview = containers[i];
+            break;
+          }
+        }
+      }
+      else {
+        preview = document.getElementById(container);
+      } 
+
+      reader.onload = function(e) {
+        preview.src = e.target.result;
+      };
+
+      reader.readAsDataURL(files[0]);
+    }
+  } else {
+    alert('The File APIs are not fully supported in this browser.');
   }
 }
 
