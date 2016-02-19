@@ -27,11 +27,11 @@
       .form-group.pt-14
         .row
           .col-md-3.p-0 Hora de check in
-          .col-md-9.p-0= f.input :check_in, as: :time, label: false
+          .col-md-9.p-0= f.input :check_in, as: :time, label: false, minute_step: 15
       .form-group
         .row
           .col-md-3.p-0 Hora de check out
-          .col-md-9.p-0= f.input :check_out, as: :time, label: false
+          .col-md-9.p-0= f.input :check_out, as: :time, label: false, minute_step: 15
       .form-group
         .row
           %label ¿En qué municipios puedes trabajar?
