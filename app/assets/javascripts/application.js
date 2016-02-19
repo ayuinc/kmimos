@@ -50,6 +50,7 @@
 //= require modules/providers_module/services/services.service.js
 //= require modules/providers_module/directives/raty.directive.js
 //= require modules/providers_module/filters/search.filter.js
+//= require modules/providers_module/filters/capitalize.filter.js
 //= require modules/providers_module/controllers/providers.controller.js
 //= require modules/bookings_module/controllers/bookings.controller.js
 

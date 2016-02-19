@@ -19,11 +19,11 @@
               %img{:alt => "", :src => "assets/cuidador_wow.png", :width => "70"}
             %h4.text-primary{style:"font-size: 24px;color: #3EB89D;line-height: 28px;margin-top:-2px;margin-bottom:-8px"} Mex ${{provider.price}}
             %small.text-primary.fz-xs{style:"color: #333333;line-height: 15px;"} por noche
-            %h5.bold{style:"font-size: 22px;color: #333333;line-height: 26px;margin-bottom:-10px"} {{ provider.name }}
+            %h5.bold{style:"font-size: 22px;color: #333333;line-height: 26px;margin-bottom:-10px;"} {{ provider.name | capitalize:true }}
             %h6
               %small(ng-repeat="state in provider.states ") 
                 %span {{ state }}    
-            %p{style:"color-#222222;line-height:20px"} {{ provider.description | limitTo: 200 }}
+            %p{style:"color-#222222;line-height:20px"} {{ provider.description | limitTo: 200 | lowercase | capitalize }}
             .hidden-md.separator.separator-gray-dark.separator-centered.mt-0.separator-full-width
       .rating
         %raty.col-md-6{style:"margin:0px 0 15px 0"}(score="{{provider.valuation}}" readOnly= true)
