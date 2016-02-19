@@ -14,7 +14,7 @@
                 .ratingStars{score: score, readOnly: true}
             .user-info.col-md-9
               %h3.m-0.mb-7
-                = "#{@provider.name} #{@provider.last_name_1}"
+                = "#{@provider.name.downcase.capitalize} #{@provider.last_name_1.downcase.capitalize}"
               %p
                 %b Áreas donde puede recoger a tu perrito
               - @provider.locations.group_by(&:state_id).each do |k, state|

@@ -10,7 +10,7 @@
             .body.body-provider-mobile
               = image_tag(provider.avatar, class: 'img-responsive avatar-mobile') if provider.avatar?
               = image_tag('server_carnet.png', class: 'img-responsive avatar-mobile') unless provider.avatar?
-              %h5.bold.mobile-font-title-2 #{ provider.name } #{ provider.last_name_1}
+              %h5.bold.mobile-font-title-2 #{ provider.name.downcase.capitalize } #{ provider.last_name_1.downcase.capitalize}
               - @states = []
               - provider.locations.group_by(&:state_id).each do |k, location|
                 -@states << location.first.state.name
