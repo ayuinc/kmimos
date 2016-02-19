@@ -230,6 +230,16 @@
 .plr-14 {
   padding: 0px 14px;
 }
+
+.grey-button:hover {
+  color: #F1F1F1 !important;
+  background-color: #485b6d;
+}
+
+.reservar {
+  padding: 15px 5px;
+  height: auto;
+}
   
   
 @media screen and (max-width: 480px) {
