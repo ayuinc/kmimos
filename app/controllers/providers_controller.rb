@@ -19,22 +19,17 @@ class ProvidersController < ApplicationController
       redirect_to '/'
     else
 
-      if session[:q_location_id] == nil
-        @providers = Provider.where(active: true)
-        @providers = @providers.where(id: State.where(country_id: current_country).map{|state| state.locations.map{|location| location.providers.map{|provider| provider.id}}}.flatten) if current_country != nil
-      else
-        @location = Location.find(params[:q][:locations_id_eq]).name rescue ''
-        @state_id = params[:states][:id] rescue nil
-        @location_id = params[:locations][:id] rescue nil
+      @location = Location.find(params[:q][:locations_id_eq]).name rescue ''
+      @state_id = params[:states][:id] rescue nil
+      @location_id = params[:locations][:id] rescue nil
 
-        if !@state_id.to_s.empty?
-          state = State.find(@state_id)
-          @providers = Location.find(@location_id).providers if !@location_id.empty?
-          @providers = Provider.where(id: state.locations.map{|location| location.providers.map{|provider| provider.id}}.flatten) if @location_id.empty?
-          @providers = @providers.where(active: true) if @providers != nil
-        else
-          @providers = Provider.where(active: true)
-        end
+      if !@state_id.to_s.empty?
+        state = State.find(@state_id)
+        @providers = Location.find(@location_id).providers if !@location_id.empty?
+        @providers = Provider.where(id: state.locations.map{|location| location.providers.map{|provider| provider.id}}.flatten) if @location_id.empty?
+        @providers = @providers.where(active: true) if @providers != nil
+      else
+        @providers = Provider.where(active: true)
       end
 
       @search = Provider.search(params[:q])
