@@ -71,6 +71,11 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
     model.show = !model.show;
   };
 
+  $scope.onLocationChange = function () {
+    console.log('holaaa!');
+    console.log($scope.search.location);
+  }
+
   $scope.onSliderChange = function () {
     $scope.search.price.min = $scope.priceSlider.min;
     $scope.search.price.max = $scope.priceSlider.max;

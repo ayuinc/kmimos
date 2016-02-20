@@ -16,7 +16,7 @@ gem 'sort_alphabetical'
 gem 'hirb'
 
 gem 'carrierwave'
-gem 'rmagick', '2.15.4', :require => 'RMagick'
+gem 'rmagick', :require => 'RMagick'
 gem 'fog', '~> 1.24.0'
 gem 'high_voltage', '~> 2.3.0'
 

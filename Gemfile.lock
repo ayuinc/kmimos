@@ -445,7 +445,7 @@ DEPENDENCIES
   rails_12factor
   ransack
   rb-fsevent
-  rmagick (= 2.15.4)
+  rmagick
   rubocop
   ruby-graphviz
   sass
