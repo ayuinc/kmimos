@@ -14,6 +14,7 @@ class Api::ProvidersController < ApplicationController
 
    if @location_id == "0"
      @providers = Provider.where(active: true)
+     @providers = @providers.where(id: State.where(country_id: current_country).map{|state| state.locations.map{|location| location.providers.map{|provider| provider.id}}}.flatten) if current_country != nil
      @providers = @providers.where(id: Rate.where("price > ?", 0).map{|rate| rate.provider_id}.flatten) if !@providers.empty?
    else
      @state = State.where(country_id: current_country)

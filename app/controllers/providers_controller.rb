@@ -21,6 +21,7 @@ class ProvidersController < ApplicationController
 
       if session[:q_location_id] == nil
         @providers = Provider.where(active: true)
+        @providers = @providers.where(id: State.where(country_id: current_country).map{|state| state.locations.map{|location| location.providers.map{|provider| provider.id}}}.flatten) if current_country != nil
       else
         @location = Location.find(params[:q][:locations_id_eq]).name rescue ''
         @state_id = params[:states][:id] rescue nil
@@ -37,7 +38,6 @@ class ProvidersController < ApplicationController
       end
 
       @search = Provider.search(params[:q])
-      p @search
       @providers = @providers.where(id: Rate.where("price>0").map{|rate| rate.provider_id}.flatten)
       @providers = @providers.order(:id) rescue []
       
