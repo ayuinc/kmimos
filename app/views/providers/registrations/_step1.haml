@@ -48,7 +48,6 @@
           = f.link_to_add "Agregar Foto", :provider_attachments 
    
 :javascript 
-  paint_pretty_uploads();
   $('#provider_avatar').change(function() {
     var filename = this.files[0].name;
     $('#uploaded_photo').text("Foto subida: " + filename);
