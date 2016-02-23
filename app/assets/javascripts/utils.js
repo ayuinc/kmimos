@@ -24,7 +24,6 @@ var uniqueItems = function (data, key) {
     return result;
   };
 
-
 function groupBy(array, f) {
   var groups = {};
   array.forEach(function (o) {
@@ -42,7 +41,6 @@ function get_score(score, el) {
   console.log(score);
   return score;
 }
-
 
 var paint_ratings = function() {
   $(".ratingStars").raty({
@@ -64,11 +62,9 @@ var paint_ratings = function() {
   });
 };
 
-
 $(".ratingStars").ready(function () {
   paint_ratings();
 });
-
 
 var paint_ratings_white = function () {
   
@@ -89,30 +85,16 @@ var paint_ratings_white = function () {
   });
 };
 
-
 $(".ratingStarsWhite").ready(function(){
   paint_ratings_white();
 });
 
-
-var paint_pretty_uploads = function() {
-
-$(".pretty_upload_input").on('click', function() {
-  $($(this).attr('el')).click();
+$(document).on('click', '.pretty_upload_input', function(event) {
+  event = event || window.event;
+  if (event.target.id == $(this).attr("id")) {
+      $($(this).attr('el')).click();
+  }
 });
-
-$(".pretty_upload_input").on('change', function() {
-      $($(this).attr('display')).val("Archivo elegido: " + $($(this).attr('el').val().replace(/^.*[\\\/]/, '')));
-    });
-
-  };
-
-
-$(".pretty_upload_input").ready(function() {
-  paint_pretty_uploads();
-});
-
-
 
 var maps=[];
 

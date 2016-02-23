@@ -18,10 +18,8 @@ class ProvidersController < ApplicationController
     if session[:from_date].to_s.length == 0 || session[:to_date].to_s.length == 0
       redirect_to '/'
     else
-      @location = Location.find(params[:q][:locations_id_eq]).name rescue ''
-    
-      @search = Provider.search(params[:q])
 
+      @location = Location.find(params[:q][:locations_id_eq]).name rescue ''
       @state_id = params[:states][:id] rescue nil
       @location_id = params[:locations][:id] rescue nil
 
@@ -33,10 +31,11 @@ class ProvidersController < ApplicationController
       else
         @providers = Provider.where(active: true)
       end
-      
+
+      @search = Provider.search(params[:q])
       @providers = @providers.where(id: Rate.where("price>0").map{|rate| rate.provider_id}.flatten)
       @providers = @providers.order(:id) rescue []
-
+      
       #Custom view for mobile
       respond_to do |format|
         format.html   { render 'index' }

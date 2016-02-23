@@ -103144,7 +103144,7 @@ providers_module.factory('ProviderFilterService', ['$http', '$q', '$location', f
   function byPriceRange(minPrice, maxPrice) {
     var deferred = $q.defer();
     
-    var providers = JSON.parse(localStorage.getItem("filteredProviders"));
+    var providers = JSON.parse(localStorage.getItem("providers"));
     
     var results = providers.filter(function (provider) {
       return provider.price >= minPrice && provider.price <= maxPrice;
@@ -103309,6 +103309,12 @@ function contains(filterData, originData){
   return is_valid;
 }
 ;
+providers_module.filter('capitalize', function(){
+    return function(input, all) {
+      var reg = (all) ? /([^\W_]+[^\s-]*) */g : /([^\W_]+[^\s-]*)/;
+      return (!!input) ? input.replace(reg, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}) : '';
+    }
+});
 /*global providers_module */
 /*global angular */
 /*global console */
@@ -103339,8 +103345,8 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
     method: 'GET',
     url: url_params
   }).then(function successCallback(response) {
-    $scope.params.location = response.data.location;
-    $scope.params.location_id = response.data.location_id;
+    $scope.params.location = response.data.location == null ? 'all' : response.data.location;
+    $scope.params.location_id = response.data.location_id.length == 0 ? 0 : response.data.location_id;
     
     ProviderFilterService.all($scope.params.location_id).then(function (providers) {
       if (providers.length == 0) {
@@ -103382,11 +103388,6 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
   $scope.onClick = function (marker, eventName, model) {
     model.show = !model.show;
   };
-
-  $scope.onLocationChange = function () {
-    console.log('holaaa!');
-    console.log($scope.search.location);
-  }
 
   $scope.onSliderChange = function () {
     $scope.search.price.min = $scope.priceSlider.min;
@@ -103452,7 +103453,6 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
       $scope.providers = JSON.parse(localStorage.getItem("providers"));
     } else {
       ProviderFilterService.byPriceRange($scope.search.price.min, $scope.search.price.max).then(function (providers) {
-        localStorage.setItem("filteredProviders", JSON.stringify(providers));
         $scope.providers = providers;
       });
     }
@@ -103634,6 +103634,7 @@ bookings_module.controller('BookingsController', ['$scope', '$filter', '$http', 
 
 
  
+
 
 
 

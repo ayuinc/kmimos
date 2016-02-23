@@ -103144,7 +103144,7 @@ providers_module.factory('ProviderFilterService', ['$http', '$q', '$location', f
   function byPriceRange(minPrice, maxPrice) {
     var deferred = $q.defer();
     
-    var providers = JSON.parse(localStorage.getItem("filteredProviders"));
+    var providers = JSON.parse(localStorage.getItem("providers"));
     
     var results = providers.filter(function (provider) {
       return provider.price >= minPrice && provider.price <= maxPrice;
@@ -103309,6 +103309,12 @@ function contains(filterData, originData){
   return is_valid;
 }
 ;
+providers_module.filter('capitalize', function(){
+    return function(input, all) {
+      var reg = (all) ? /([^\W_]+[^\s-]*) */g : /([^\W_]+[^\s-]*)/;
+      return (!!input) ? input.replace(reg, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}) : '';
+    }
+});
 /*global providers_module */
 /*global angular */
 /*global console */
@@ -103447,7 +103453,6 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
       $scope.providers = JSON.parse(localStorage.getItem("providers"));
     } else {
       ProviderFilterService.byPriceRange($scope.search.price.min, $scope.search.price.max).then(function (providers) {
-        localStorage.setItem("filteredProviders", JSON.stringify(providers));
         $scope.providers = providers;
       });
     }
@@ -103629,6 +103634,7 @@ bookings_module.controller('BookingsController', ['$scope', '$filter', '$http', 
 
 
  
+
 
 
 

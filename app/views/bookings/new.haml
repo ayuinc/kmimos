@@ -40,13 +40,13 @@
               =f.input :start_date, as: :string, label: false, input_html: {class: "date start datepicker_min", 'ng-model': 'minDate', 'ng-change': 'get_diff_dates()'}
             .col-md-3
               Horas
-              =f.input :pickup_time, :as => :time, label: false 
+              =f.input :pickup_time, :as => :time, label: false, :minute_step => 15
             .col-md-3
               Salida
               =f.input :end_date, as: :string, label: false, input_html: {class: "date end datepicker_max", 'ng-model': 'maxDate', 'ng-change': 'get_diff_dates()'}
             .col-md-3
               Hora
-              =f.input :dropoff_time, :as => :time, label: false 
+              =f.input :dropoff_time, :as => :time, label: false, :minute_step => 15
           .row
             .col-md-12
               .panel.panel-primary

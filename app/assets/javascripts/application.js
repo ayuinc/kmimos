@@ -144,8 +144,9 @@ function allLabel() {
   }
 }
 
-function previewImage(input, container, isClass) {
+function previewImage(input, container, isClass, isUserPet) {
   if (typeof(isClass)==='undefined') isClass = false;
+  if (typeof(isUserPet)==='undefined') isUserPet = false;
   // Check for the various File API support.
   if (window.File && window.FileReader && window.FileList && window.Blob) {
     var files = input.files; // FileList object
@@ -155,7 +156,10 @@ function previewImage(input, container, isClass) {
       var reader = new FileReader();
       var preview = null;
 
-      if (isClass) {
+      if (isUserPet) {
+        preview = input.parentElement.parentElement.children[0];
+      }
+      else if (isClass) {
         var containers = document.getElementsByClassName(container);
         for (var i = containers.length - 1; i >= 0; i--) {
           if (containers[i].src.length <= 0 || containers[i].src.indexOf("missing.png") > 0) {

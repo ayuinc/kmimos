@@ -132,6 +132,16 @@
   padding-left: 0px !important;
   padding-right: 0px !important;
 }
+
+
+.home-scene {
+  width: 93%;
+}
+
+.right-dogs {
+  text-align: right;
+  margin-top:40px;
+}
 /*!
  * jQuery UI CSS Framework 1.11.4
  * http://jqueryui.com
@@ -11809,7 +11819,7 @@ ul.navbar-nav li a:hover .overlay {
   margin-top: 49px !important;
   margin-bottom: 49px !important;
   border: 0;
-  border-top: 2px solid #aaa !important;
+  border-top: 2px solid #ccc !important;
 }
 
 /* line 415, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/custom/views/_home.scss */
@@ -17899,7 +17909,8 @@ h2.title-step {
 {
     position: relative;
     display: block;
-    width: 100%;
+    width: 80%;
+    margin: 30px auto;
     
 }
 
@@ -17923,8 +17934,6 @@ h2.title-step {
     
     text-align: center;
     width: 33.3%;
-    padding-left: 12%;
-    padding-right: 12%;  
 }
 
 .wizard > .steps > ul > li,
@@ -17945,7 +17954,6 @@ h2.title-step {
 {
     display: block;
     width: auto;
-    width: 60px;
     height: 60px; 
     text-decoration: none;
  
@@ -18030,7 +18038,7 @@ h2.title-step {
 {
     float: left;
     position: relative;
-    width: 95%; 
+    width: 100%; 
     padding: 2.5%;
 }
 
@@ -19252,47 +19260,48 @@ rzslider .rz-ticks .tick .tick-value {
 
 /* line 56, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
 .mobile-font {
-  font-family: "proxima-nova";
+  font-family: "proxima-nova", Helvetica, Arial, sans-serif;
 }
 
 /* line 60, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
 .mobile-font-title {
-  font-family: "proxima-nova";
+  font-family: "proxima-nova", Helvetica, Arial, sans-serif;
   font-weight: 700;
-  font-size: 40px;
+  font-size: 31px;
   color: #516675;
 }
 
 /* line 67, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
 .mobile-font-title-2 {
-  font-family: "proxima-nova";
+  font-family: "proxima-nova", Helvetica, Arial, sans-serif;
   font-weight: 700;
   font-size: 25px;
   color: #516675;
+  text-transform: capitalize;
 }
 
-/* line 74, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
+/* line 75, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
 .price-mobile {
   color: #56c9a7 !important;
 }
 
-/* line 78, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
+/* line 79, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
 .price-mobile-1 {
   color: #56c9a7 !important;
   font-size: 25px;
 }
 
-/* line 83, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
+/* line 84, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
 .gray-mobile {
   color: #516675;
 }
 
-/* line 87, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
+/* line 88, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
 .mobile-box {
   border: solid 3px #d4d1d5;
 }
 
-/* line 92, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
+/* line 93, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
 .pulse {
   width: 80px;
   height: 50px;
@@ -19302,12 +19311,12 @@ rzslider .rz-ticks .tick .tick-value {
   z-index: 5;
 }
 
-/* line 101, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
+/* line 102, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
 .pulse img {
   width: 100%;
 }
 
-/* line 105, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
+/* line 106, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
 .open-search {
   position: fixed;
   padding-top: 10px;
@@ -19320,7 +19329,7 @@ rzslider .rz-ticks .tick .tick-value {
   right: 0;
 }
 
-/* line 117, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
+/* line 118, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
 .pop-up {
   width: 100%;
   height: 100%;
@@ -19330,13 +19339,13 @@ rzslider .rz-ticks .tick .tick-value {
   position: absolute;
 }
 
-/* line 126, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
+/* line 127, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
 .close-popup {
   right: 17px;
   position: absolute;
 }
 
-/* line 131, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
+/* line 132, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
 .main-video-responsive {
   height: 200px !important;
   width: 100% !important;
@@ -19347,14 +19356,14 @@ rzslider .rz-ticks .tick .tick-value {
   position: absolute;
   right: 0;
 }
-/* line 140, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
+/* line 141, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
 .main-video-responsive iframe {
-  width: 250px;
-  height: 170px;
+  width: 90%;
+  height: 90%;
   margin: 0 auto;
 }
 
-/* line 147, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
+/* line 148, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
 .grey-button-exit {
   background-color: #34495d;
   border: none;
@@ -19364,15 +19373,25 @@ rzslider .rz-ticks .tick .tick-value {
   font-weight: bold;
 }
 
-/* line 156, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
+/* line 157, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
 .ph-70 {
   padding-top: 70px;
   padding-bottom: 70px;
 }
 
-/* line 162, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
+/* line 163, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
 .bg-error {
   background-color: #FFFFC1;
+}
+
+/* line 167, /Users/ivanmdevp/Projects/ruby/rails/kmimos/app/assets/stylesheets/new_styles.scss */
+.alert_edit {
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+  color: #8a6d3b;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
 }
 /*!
  * Datetimepicker for Bootstrap 3
