@@ -39,6 +39,12 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
       }
       $scope.providers = providers;
     });    
+
+    if ($scope.params.location_id != 0) {
+      ProviderFilterService.all(0).then(function (providers) {
+        localStorage.setItem("allProviders", JSON.stringify(providers));
+      });
+    }
   });
   
   $scope.$watch('providers', function () {  
@@ -70,11 +76,6 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
   $scope.onClick = function (marker, eventName, model) {
     model.show = !model.show;
   };
-
-  $scope.onLocationChange = function () {
-    console.log('holaaa!');
-    console.log($scope.search.location);
-  }
 
   $scope.onSliderChange = function () {
     $scope.search.price.min = $scope.priceSlider.min;
@@ -144,6 +145,22 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
       });
     }
   });
+
+  $scope.changeLocation = function() {
+    $scope.providersMsg = '';
+    var locations = $scope.search.locations;
+    if (locations.length == 0) {
+      $scope.providers = JSON.parse(localStorage.getItem("providers"));
+    } else {
+      ProviderFilterService.byLocation(locations).then(function (providers_by_location) {
+        $scope.providers = providers_by_location;
+      }, function(reason) {
+        console.log(reason);
+        $scope.providers = [];
+        $scope.providersMsg = 'Probablemente no hay cuidadores en el área seleccionada :(';
+      });
+    }
+  };
    
 
 }]);
