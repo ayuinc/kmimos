@@ -6,7 +6,7 @@
   %center(ng-if="providersMsg.length > 0")
     %br
     %h3(ng-cloak) {{ providersMsg }}
-  .provider-item(ng-repeat="provider in ($parent.filteredProviders = (providers | orderBy : '-valuation')) ")
+  .provider-item(ng-repeat="provider in ($parent.filteredProviders = (providers | orderBy:predicate:reverse)) ")
     .block-cuidadores(ng-cloak)
       %a(href="/providers/{{provider.id}}")
         .bg-img-block.border-radius.square-green(style = "height: 220px; background-image: url('{{provider.avatar}}');")

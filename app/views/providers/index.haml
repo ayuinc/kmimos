@@ -48,6 +48,12 @@
         .col-md-8{style: "padding: 0px !important; margin: 0px;"}
           =render partial: 'grid'
         .col-md-2
+          %div
+            %p Ordenar por
+            %input(type="radio" id="price" name="filter" ng-click="order('price')")
+            %label(for="price") Precio
+            %input(type="radio" id="nanme" name="filter" ng-click="order('name')")
+            %label(for="name") Nombre
           #map_canvas
             %ui-gmap-google-map(center='filteredProviders[0].coords' zoom='map.zoom' control='map.control' options='mapOptions')
               %ui-gmap-markers(models="map.markers" coords="'self'" icon="'icon'") 
@@ -56,8 +62,7 @@
                     %a(href="/providers/{{provider.id}}")
                       %img(src="{{provider.avatar}}" width= '100px' )
                       %p {{provider.name}}
-
-
+    
 = render "layouts/modal"
 
 - if Rails.env.production?
