@@ -70,10 +70,25 @@
     $('.searcher').slideToggle();
   });
 
-    //%script{:src => "assets/js/jquery.min.js"}
-    // App scripts
-    //%script{:src => "assets/js/scripts.min.js"}
-    //%script{:src => "assets/js/menu-control.js"}
+  $('#provider_search').on('submit', function(e) {
+    var preventDates = false;
+    var preventLocation = false;
+    var datepickers = $(this).find("input[type=date]");
+    var location = $("#states_id").val();
+    for (var i = 0; i < datepickers.length; i++) {
+      if ($(datepickers[i]).val().length == 0) preventDates = true;
+    }
+    if (location == undefined || location.length == 0) {
+      preventLocation = true;
+    }
+    if (preventLocation) {
+      e.preventDefault();
+      alert('Ingrese el lugar donde desea buscar cuidadores, por favor.')
+    } else if (preventDates) {
+      e.preventDefault();
+      alert('Ingrese un rango de fecha válido, por favor.');
+    } 
+  });
   
 :javascript
   (function() {
