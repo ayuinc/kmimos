@@ -155,7 +155,6 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
       ProviderFilterService.byLocation(locations).then(function (providers_by_location) {
         $scope.providers = providers_by_location;
       }, function(reason) {
-        console.log(reason);
         $scope.providers = [];
         $scope.providersMsg = 'Probablemente no hay cuidadores en el área seleccionada :(';
       });

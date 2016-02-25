@@ -152,7 +152,7 @@
             .form-group.row
               .col-md-12
                 %center
-                  = link_to 'Reservar', '#myModal', 'data-toggle' => 'modal', :class => "btn grey-button form-control mt-21"
+                  = link_to 'Reservar', '#myModal', 'data-toggle' => 'modal', :class => "btn grey-button form-control mt-21", 'ng-show' => 'pets_booked.length > 0 || services_booked_total > 0'
 
           %div
             %h5 (*) Confirmaremos tu reserva en un período de 24 horas, es posible que pueda haber un cambio. Si así sucede nos contactaremos contigo para informarte y darte la mejor solución.
