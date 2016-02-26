@@ -62,9 +62,12 @@
                       .col-md-2 $ {{ pet.price }} MXN
                       .col-md-1
                         %a(ng-click="deletePet(pet)" href="#") Eliminar
-                  %a.btn.btn-primary(ng-click="add_pet()") Quiero agregar a mi mascota
-                  .row.mt-35.mb-14
-                    %h3.text-gray Información Adicional
+                  - provider_pet_sizes = @provider.rates.where("coalesce(price,0) > 0").map{|rate| rate.size_id}
+                  - user_pet_sizes = current_user.pets.map{|pet| pet.size_id}
+                  - if (provider_pet_sizes.any?{|pet_size| user_pet_sizes.include?(pet_size)})
+                    %a.btn.btn-primary(ng-click="add_pet()") Quiero agregar a mi mascota
+                    .row.mt-35.mb-14
+                  %h3.text-gray Información Adicional
                   .form-group.row
                     .col-md-12.p-0
                       %p Dirección de Recojo
