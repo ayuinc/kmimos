@@ -159,7 +159,7 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
     var locations = $scope.search.locations;
     if (locations.length == 0) {
       $scope.providers = JSON.parse(localStorage.getItem("providers"));
-    } else {
+    } else if (locations[0].length > 0) {
       ProviderFilterService.byLocation(locations).then(function (providers_by_location) {
         $scope.providers = providers_by_location;
       }, function(reason) {
