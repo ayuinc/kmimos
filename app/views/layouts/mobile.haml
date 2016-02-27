@@ -44,9 +44,15 @@
         .form-group
           = collection_select(:locations, :id, Location.where("state_id=?", State.where("country_id=?", current_country.id).first.id.to_s).order(:name), :id, :name, {:prompt => current_country.id == 2 ? "Seleccione un Barrio" : "Municipio o Delegación", :selected => @location_id}, { :class=> "form-control" })
         .form-group
+<<<<<<< HEAD
           %input.form-control.from-date{value: session[:from_date]}(placeholder="Desde" name="from_date" type= 'date' required="true" min="#{Date.today}")
         .form-group
           %input.form-control.to-date{value: session[:to_date]}(placeholder="Hasta" name="to_date" type= 'date' required="true" min="#{Date.today}")
+=======
+          %input.form-control{value: session[:from_date]}(placeholder="Desde" name="from_date" type= 'date' required="true" min="#{Date.today}")
+        .form-group
+          %input.form-control{value: session[:to_date]}(placeholder="Hasta" name="to_date" type= 'date' required="true" min="#{Date.today}")
+>>>>>>> a3c98a7fd1a33398d47c4471af551ba4b50d6f1b
         %button.grey-button Buscar
       %br
       %br
@@ -78,7 +84,7 @@
     for (var i = 0; i < datepickers.length; i++) {
       if ($(datepickers[i]).val().length == 0) preventDates = true;
     }
-    
+
     if ($(this).find(".from-date").val() > $(this).find(".to-date").val()) preventDates = true;
     
     if (location == undefined || location.length == 0) {

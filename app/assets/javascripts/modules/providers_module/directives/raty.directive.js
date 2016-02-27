@@ -3,11 +3,7 @@ providers_module.directive("raty", function() {
     restrict: 'AE',
     link: function (scope, elem, attrs) {
       $(elem).raty({score: function(){
-            if (parseInt(attrs.score) == 0){
-              return 4;
-            } else {
-              return attrs.score;
-            }
+            return attrs.score;
           },
           starOff : '/assets/icono-hueso-gris.svg',
           starOn  : '/assets/icono-hueso-verde.svg',

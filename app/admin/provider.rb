@@ -39,6 +39,26 @@ ActiveAdmin.register Provider do
     end
     f.actions
   end
+
+  csv do
+    column :id
+    column :name
+    column :last_name_1
+    column :dni
+    column :email
+    column :phone
+    column :active
+    column :description
+    column :address
+    column :emergencia
+    column :experiencia
+    column :has_other_pets
+    column :number_of_pets
+    column :pets_allowed
+    column :has_green
+    column :has_yard
+    column :created_at
+  end
   
 end
 
