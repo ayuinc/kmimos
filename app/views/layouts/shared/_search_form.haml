@@ -5,13 +5,36 @@
     .form-group
       = f.grouped_collection_select(:locations_id_eq, State.where("country_id=?", current_country.id).order(:name), :locations, :name, :id, :name , {:prompt => current_country.id == 2 ? "Elegir Barrio" : "Todos los municipios"}, { :class=> "form-control" })
     .form-group
-      %input.form-control.datepicker{value: session[:from_date]}(placeholder="Desde" name="from_date" required="true")
+      %input.form-control.from-date{value: session[:from_date]}(placeholder="Desde" name="from_date" required="true")
     .form-group
-      %input.form-control.datepicker{value: session[:to_date]}(placeholder="Hasta" name="to_date" required="true")
+      %input.form-control.to-date{value: session[:to_date]}(placeholder="Hasta" name="to_date" required="true")
     %button.grey-button Buscar
 
 :javascript
+
+
   // Format Controls
-  $('.datepicker').datepicker({ minDate: new Date() });
+  $('.from-date').datepicker({ 
+    minDate: new Date(),
+    onSelect: function() {
+      var toDatePicker = $('.to-date');
+      var startDate = $(this).datepicker('getDate');
+      var toDate = toDatePicker.datepicker('getDate');
+      if (toDate != null && startDate !=null && startDate > toDate) {
+        toDatePicker.datepicker('setDate', startDate);
+      }
+    }
+  });
+  $('.to-date').datepicker({
+    minDate: new Date(),
+    onSelect: function() {
+      var startDatePicker = $('.from-date');
+      var toDate = $(this).datepicker('getDate');
+      var startDate = startDatePicker.datepicker('getDate');
+      if (toDate != null && startDate !=null && startDate > toDate) {
+        startDatePicker.datepicker('setDate', toDate);
+      }
+    }    
+  });
   $('#q_locations_id_eq').select2();
   console.log(#{current_country.id});

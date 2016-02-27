@@ -10,12 +10,12 @@
             %p Selecciona donde, cuando y que necesitas para dejar tu perrito.
             = search_form_for @search do |f|
               .form-group
-                %input.form-control.datepicker{value: session[:from_date]}(placeholder="Desde" name="from_date")
+                %input.form-control.from-date{value: session[:from_date]}(placeholder="Desde" name="from_date")
               .form-group
-                %input.form-control.datepicker{value: session[:to_date]}(placeholder="Hasta" name="to_date")
+                %input.form-control.to-date{value: session[:to_date]}(placeholder="Hasta" name="to_date")
               .form-group
                 %label Municipio 
-                = f.grouped_collection_select(:locations_id_eq, State.where("country_id=?",@country.id).order(:name), :locations, :name, :name, :name , {:prompt => @country.id == 2 ? "Elegir Barrio" : "Todos los municipios"}, 'ng-model': "search.locations", class: "form-control", "multiple":"")  #, html_input: {'ng-model': ''}
+                = f.grouped_collection_select(:locations_id_eq, State.where("country_id=?",@country.id).order(:name), :locations, :name, :name, :name , {:prompt => @country.id == 2 ? "Elegir Barrio" : "Todos los municipios"}, 'ng-model': "search.locations", class: "form-control", "multiple":"", 'ng-change': 'changeLocation()')
               .form-group
                 %label Rango de Precio 
                 %rzslider(rz-slider-model="search.price" rz-slider-floor="search.price.floor" rz-slider-ceil="search.price.ceil" rz-slider-model="search.price.min" rz-slider-high="search.price.max" )
@@ -48,6 +48,12 @@
         .col-md-8{style: "padding: 0px !important; margin: 0px;"}
           =render partial: 'grid'
         .col-md-2
+          / %div
+          /   %p Ordenar por
+          /   %input(type="radio" id="price" name="filter" ng-click="order('price')")
+          /   %label(for="price") Precio
+          /   %input(type="radio" id="nanme" name="filter" ng-click="order('name')")
+          /   %label(for="name") Nombre
           #map_canvas
             %ui-gmap-google-map(center='filteredProviders[0].coords' zoom='map.zoom' control='map.control' options='mapOptions')
               %ui-gmap-markers(models="map.markers" coords="'self'" icon="'icon'") 
@@ -56,8 +62,7 @@
                     %a(href="/providers/{{provider.id}}")
                       %img(src="{{provider.avatar}}" width= '100px' )
                       %p {{provider.name}}
-
-
+    
 = render "layouts/modal"
 
 - if Rails.env.production?
@@ -67,7 +72,29 @@
 :javascript
   $("#q_locations_id_eq").select2();
   
-  $('.datepicker').datepicker();
+  $('.from-date').datepicker({ 
+    minDate: new Date(),
+    onSelect: function() {
+      var toDatePicker = $('.to-date');
+      var startDate = $(this).datepicker('getDate');
+      var toDate = toDatePicker.datepicker('getDate');
+      if (toDate != null && startDate !=null && startDate > toDate) {
+        toDatePicker.datepicker('setDate', startDate);
+      }
+    }
+  });
+  $('.to-date').datepicker({
+    minDate: new Date(),
+    onSelect: function() {
+      var startDatePicker = $('.from-date');
+      var toDate = $(this).datepicker('getDate');
+      var startDate = startDatePicker.datepicker('getDate');
+      if (toDate != null && startDate !=null && startDate > toDate) {
+        startDatePicker.datepicker('setDate', toDate);
+      }
+    }    
+  });
+  
   $('body').attr("style","background-color:#f7f7f7");
   
   setTimeout(function(){ 

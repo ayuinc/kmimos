@@ -44,9 +44,9 @@
         .form-group
           = collection_select(:locations, :id, Location.where("state_id=?", State.where("country_id=?", current_country.id).first.id.to_s).order(:name), :id, :name, {:prompt => current_country.id == 2 ? "Seleccione un Barrio" : "Municipio o Delegación", :selected => @location_id}, { :class=> "form-control" })
         .form-group
-          %input.form-control{value: session[:from_date]}(placeholder="Desde" name="from_date" type= 'date' required="true")
+          %input.form-control.from-date{value: session[:from_date]}(placeholder="Desde" name="from_date" type= 'date' required="true" min="#{Date.today}")
         .form-group
-          %input.form-control{value: session[:to_date]}(placeholder="Hasta" name="to_date" type= 'date' required="true")
+          %input.form-control.to-date{value: session[:to_date]}(placeholder="Hasta" name="to_date" type= 'date' required="true" min="#{Date.today}")
         %button.grey-button Buscar
       %br
       %br
@@ -70,14 +70,28 @@
     $('.searcher').slideToggle();
   });
 
-    //%script{:src => "assets/js/jquery.min.js"}
-    // App scripts
-    //%script{:src => "assets/js/scripts.min.js"}
-    //%script{:src => "assets/js/menu-control.js"}
+  $('#provider_search').on('submit', function(e) {
+    var preventDates = false;
+    var preventLocation = false;
+    var datepickers = $(this).find("input[type=date]");
+    var location = $("#states_id").val();
+    for (var i = 0; i < datepickers.length; i++) {
+      if ($(datepickers[i]).val().length == 0) preventDates = true;
+    }
     
-:javascript
-
-  $('.datepicker').datepicker();
+    if ($(this).find(".from-date").val() > $(this).find(".to-date").val()) preventDates = true;
+    
+    if (location == undefined || location.length == 0) {
+      preventLocation = true;
+    }
+    if (preventLocation) {
+      e.preventDefault();
+      alert('Ingrese el lugar donde desea buscar cuidadores, por favor.')
+    } else if (preventDates) {
+      e.preventDefault();
+      alert('Ingrese un rango de fecha válido, por favor.');
+    } 
+  });
   
 :javascript
   (function() {
