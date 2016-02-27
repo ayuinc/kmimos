@@ -51,25 +51,20 @@
             .col-md-12
               .panel.panel-primary
                 .panel-body.line-regular
-                  - provider_pet_sizes = @provider.rates.where("coalesce(price,0) > 0").map{|rate| rate.size_id}
-                  - user_pet_sizes = current_user.pets.map{|pet| pet.size_id}
-                  - if (provider_pet_sizes.any?{|pet_size| user_pet_sizes.include?(pet_size)})
-                    %p Añade a tu mascota a la reserva del tiempo de estadía que selecciones.
-                    .row(ng-repeat="pet in pets_booked")
-                      .row.pd-0.border-bottom.add_pet
-                        .col-md-3 Nombre:
-                        .col-md-6
-                          %select.form-control{name: "booking[booked_pets_attributes][][pet_id]"}(ng-model= "pet.pet_id"  ng-change="update_pets(#{@provider.id})")
-                            -current_user.pets.each do |pet|
-                              %option{value: pet.id}= pet
-                        .col-md-2 $ {{ pet.price }} MXN
-                        .col-md-1
-                          %a(ng-click="deletePet(pet)" href="#") Eliminar
-                    %a.btn.btn-primary(ng-click="add_pet()") Quiero agregar a mi mascota
-                    .row.mt-35.mb-14
-                  - else
-                    %p Este cuidador no tiene disponibilidad para cuidar el tamaño de perro con el que usted cuenta. 
-                  %h3.text-gray Información Adicional
+                  %p Añade a tu mascota a la reserva del tiempo de estadía que selecciones.
+                  .row(ng-repeat="pet in pets_booked")
+                    .row.pd-0.border-bottom.add_pet
+                      .col-md-3 Nombre:
+                      .col-md-6
+                        %select.form-control{name: "booking[booked_pets_attributes][][pet_id]"}(ng-model= "pet.pet_id"  ng-change="update_pets(#{@provider.id})")
+                          -current_user.pets.each do |pet|
+                            %option{value: pet.id}= pet
+                      .col-md-2 $ {{ pet.price }} MXN
+                      .col-md-1
+                        %a(ng-click="deletePet(pet)" href="#") Eliminar
+                  %a.btn.btn-primary(ng-click="add_pet()") Quiero agregar a mi mascota
+                  .row.mt-35.mb-14
+                    %h3.text-gray Información Adicional
                   .form-group.row
                     .col-md-12.p-0
                       %p Dirección de Recojo
@@ -83,13 +78,9 @@
           .row
             .col-md-12
               %h4 ¿Quieres que pasen a recoger a tu perrito a tu casa? ¿Quieres que lo bañen? Checa estos servicios adicionales
-              - if @provider.additional_services.empty?
-                %p Este cuidador no tiene servicios adicionales disponibles.
-              - else
-                %p Kmimos te ofrece servicios adicionales para tu mascota, puedes adquirirlos independientemente de tu reserva.
+              %p Kmimos te ofrece servicios adicionales para tu mascota, puedes adquirirlos independientemente de tu reserva.
               %br
-          - if !@provider.additional_services.empty?
-            .panel-body
+          .panel-body
             .row(ng-repeat="serv in services_booked")
               .row.border-bottom.add_service
                 .col-md-3 Servicio: 
@@ -161,7 +152,7 @@
             .form-group.row
               .col-md-12
                 %center
-                  = link_to 'Reservar', '#myModal', 'data-toggle' => 'modal', :class => "btn grey-button form-control mt-21", 'ng-show' => 'pets_booked.length > 0 || services_booked_total > 0'
+                  = link_to 'Reservar', '#myModal', 'data-toggle' => 'modal', :class => "btn grey-button form-control mt-21 reservar"
 
           %div
             %h5 (*) Confirmaremos tu reserva en un período de 24 horas, es posible que pueda haber un cambio. Si así sucede nos contactaremos contigo para informarte y darte la mejor solución.

@@ -103139,36 +103139,13 @@ providers_module.factory('ProviderFilterService', ['$http', '$q', '$location', f
     
     return deferred.promise;
   }
-
-  function byLocation(locations) {
-    var deferred = $q.defer();
-
-    var providers = JSON.parse(localStorage.getItem("allProviders"));
-
-    var results = providers.filter(function (provider) {
-      var isValid = false;
-      for (var i = 0; i < locations.length; i++) {
-        isValid = (provider.locations.indexOf(locations[i]) >= 0);
-        if (isValid) break;
-      }
-      return isValid;
-    })
-
-    if (results.length > 0)
-      deferred.resolve(results)
-    else
-      deferred.reject()
-
-    return deferred.promise;
-  }
   
   return {
     all: all,
     byNumberOf: byNumberOf,
     bySize: bySize,
     byService: byService,
-    byPriceRange: byPriceRange,
-    byLocation: byLocation
+    byPriceRange: byPriceRange
   };
   
 }]);
@@ -103213,7 +103190,11 @@ providers_module.directive("raty", function() {
     restrict: 'AE',
     link: function (scope, elem, attrs) {
       $(elem).raty({score: function(){
-            return attrs.score;
+            if (parseInt(attrs.score) == 0){
+              return 4;
+            } else {
+              return attrs.score;
+            }
           },
           starOff : '/assets/icono-hueso-gris.svg',
           starOn  : '/assets/icono-hueso-verde.svg',
@@ -103339,14 +103320,6 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
   $scope.map = { zoom: 10, control: {}, markers: []};
   $scope.map.markers = [];
   $scope.mapOptions = { zoomControl: true, panControl: true, scaleControl: true }; 
-
-  $scope.predicate = 'valuation';
-  $scope.reverse = true;
-
-  $scope.order = function(predicate) {
-    $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
-    $scope.predicate = predicate;
-  }
   
   var url_params  = $location.protocol() + "://" + $location.host() + ":" + $location.port() + "/api/providers/get_session_params";
   
@@ -103366,12 +103339,6 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
       }
       $scope.providers = providers;
     });    
-
-    if ($scope.params.location_id != 0) {
-      ProviderFilterService.all(0).then(function (providers) {
-        localStorage.setItem("allProviders", JSON.stringify(providers));
-      });
-    }
   });
   
   $scope.$watch('providers', function () {  
@@ -103403,6 +103370,11 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
   $scope.onClick = function (marker, eventName, model) {
     model.show = !model.show;
   };
+
+  $scope.onLocationChange = function () {
+    console.log('holaaa!');
+    console.log($scope.search.location);
+  }
 
   $scope.onSliderChange = function () {
     $scope.search.price.min = $scope.priceSlider.min;
@@ -103472,21 +103444,6 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
       });
     }
   });
-
-  $scope.changeLocation = function() {
-    $scope.providersMsg = '';
-    var locations = $scope.search.locations;
-    if (locations.length == 0) {
-      $scope.providers = JSON.parse(localStorage.getItem("providers"));
-    } else if (locations[0].length > 0) {
-      ProviderFilterService.byLocation(locations).then(function (providers_by_location) {
-        $scope.providers = providers_by_location;
-      }, function(reason) {
-        $scope.providers = [];
-        $scope.providersMsg = 'Probablemente no hay cuidadores en el área seleccionada :(';
-      });
-    }
-  };
    
 
 }]);
@@ -103529,12 +103486,10 @@ bookings_module.controller('BookingsController', ['$scope', '$filter', '$http', 
 
   $scope.deleteServ = function (serv) {
     $scope.services_booked.splice($scope.services_booked.indexOf(serv), 1);
-    $scope.set_total_services();
   };
 
   $scope.deletePet = function (pet) {
     $scope.pets_booked.splice($scope.pets_booked.indexOf(pet), 1);
-    $scope.set_total_pets();
   };
 
   $scope.add_pet = function () {

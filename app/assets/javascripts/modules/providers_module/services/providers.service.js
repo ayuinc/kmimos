@@ -107,36 +107,13 @@ providers_module.factory('ProviderFilterService', ['$http', '$q', '$location', f
     
     return deferred.promise;
   }
-
-  function byLocation(locations) {
-    var deferred = $q.defer();
-
-    var providers = JSON.parse(localStorage.getItem("allProviders"));
-
-    var results = providers.filter(function (provider) {
-      var isValid = false;
-      for (var i = 0; i < locations.length; i++) {
-        isValid = (provider.locations.indexOf(locations[i]) >= 0);
-        if (isValid) break;
-      }
-      return isValid;
-    })
-
-    if (results.length > 0)
-      deferred.resolve(results)
-    else
-      deferred.reject()
-
-    return deferred.promise;
-  }
   
   return {
     all: all,
     byNumberOf: byNumberOf,
     bySize: bySize,
     byService: byService,
-    byPriceRange: byPriceRange,
-    byLocation: byLocation
+    byPriceRange: byPriceRange
   };
   
 }]);

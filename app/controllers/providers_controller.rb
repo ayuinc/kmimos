@@ -34,7 +34,7 @@ class ProvidersController < ApplicationController
 
       @search = Provider.search(params[:q])
       @providers = @providers.where(id: Rate.where("price>0").map{|rate| rate.provider_id}.flatten)
-      @providers = @providers.sort_by {|provider| provider.get_valoration}.reverse rescue []
+      @providers = @providers.order(:id) rescue []
       
       #Custom view for mobile
       respond_to do |format|
