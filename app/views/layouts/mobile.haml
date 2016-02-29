@@ -78,7 +78,6 @@
     for (var i = 0; i < datepickers.length; i++) {
       if ($(datepickers[i]).val().length == 0) preventDates = true;
     }
-    
     if ($(this).find(".from-date").val() > $(this).find(".to-date").val()) preventDates = true;
     
     if (location == undefined || location.length == 0) {

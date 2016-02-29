@@ -50,7 +50,9 @@
           .row
             .col-md-12
               .panel.panel-primary
-                .panel-body.line-regular
+                - provider_pet_sizes = @provider.rates.where("coalesce(price,0) > 0").map{|rate| rate.size_id}
+                - user_pet_sizes = current_user.pets.map{|pet| pet.size_id}
+                - if (provider_pet_sizes.any?{|pet_size| user_pet_sizes.include?(pet_size)})
                   %p Añade a tu mascota a la reserva del tiempo de estadía que selecciones.
                   .row(ng-repeat="pet in pets_booked")
                     .row.pd-0.border-bottom.add_pet
@@ -64,24 +66,30 @@
                         %a(ng-click="deletePet(pet)" href="#") Eliminar
                   %a.btn.btn-primary(ng-click="add_pet()") Quiero agregar a mi mascota
                   .row.mt-35.mb-14
-                    %h3.text-gray Información Adicional
-                  .form-group.row
-                    .col-md-12.p-0
-                      %p Dirección de Recojo
-                      = f.input :address, class: "form-control", label: false, as: :text, input_html: { value: current_user.address }
-                  .form-group.row
-                    .col-md-12.p-0
-                      %p ¿Necesitas que sepamos algo más de tu perrito? (Ej: Necesita medicamentos, no convive con otros perros, sale a pasear 3 veces al día, etc)
-                      = f.input :user_message, label: false, as: :text, class: "form-control"
+                - else
+                  %p Este cuidador no tiene disponibilidad para cuidar el tamaño de perro con el que usted cuenta.
+                %h3.text-gray Información Adicional
+                .form-group.row
+                  .col-md-12.p-0
+                    %p Dirección de Recojo
+                    = f.input :address, class: "form-control", label: false, as: :text, input_html: { value: current_user.address }
+                .form-group.row
+                  .col-md-12.p-0
+                    %p ¿Necesitas que sepamos algo más de tu perrito? (Ej: Necesita medicamentos, no convive con otros perros, sale a pasear 3 veces al día, etc)
+                    = f.input :user_message, label: false, as: :text, class: "form-control"
 
           %hr.hr-gray-booking/
           .row
             .col-md-12
               %h4 ¿Quieres que pasen a recoger a tu perrito a tu casa? ¿Quieres que lo bañen? Checa estos servicios adicionales
-              %p Kmimos te ofrece servicios adicionales para tu mascota, puedes adquirirlos independientemente de tu reserva.
+              - if @provider.additional_services.empty?
+                %p Este cuidador no tiene servicios adicionales disponibles.
+              - else
+                %p Kmimos te ofrece servicios adicionales para tu mascota, puedes adquirirlos independientemente de tu reserva.
               %br
-          .panel-body
-            .row(ng-repeat="serv in services_booked")
+          - if !@provider.additional_services.empty?
+            .panel-body
+              .row(ng-repeat="serv in services_booked")
               .row.border-bottom.add_service
                 .col-md-3 Servicio: 
                 .col-md-3
@@ -152,7 +160,7 @@
             .form-group.row
               .col-md-12
                 %center
-                  = link_to 'Reservar', '#myModal', 'data-toggle' => 'modal', :class => "btn grey-button form-control mt-21 reservar"
+                  = link_to 'Reservar', '#myModal', 'data-toggle' => 'modal', :class => "btn grey-button form-control mt-21", 'ng-show' => 'pets_booked.length > 0 || services_booked_total > 0'
 
           %div
             %h5 (*) Confirmaremos tu reserva en un período de 24 horas, es posible que pueda haber un cambio. Si así sucede nos contactaremos contigo para informarte y darte la mejor solución.
@@ -170,9 +178,7 @@
 - from_date_r = Date.parse(session[:from_date])
 
 :javascript
-
   var preselect_services =[]
-
 - @services.each do |service|
   :javascript
     setTimeout(function(){
@@ -185,16 +191,13 @@
     }, 1000);
 
 :javascript
-
   $('.datepicker_min').datepicker({ dateFormat: 'yy-mm-dd' });
   $('.datepicker_max').datepicker({ dateFormat: 'yy-mm-dd' });
-
   setTimeout(function(){
-    var to_date = new Date(#{to_date_r.strftime('%Y')}, #{to_date_r.strftime('%m').to_i - 1} , #{to_date_r.strftime('%d')});  
+    var to_date = new Date(#{to_date_r.strftime('%Y')}, #{to_date_r.strftime('%m').to_i - 1} , #{to_date_r.strftime('%d')});
     $('.datepicker_max').datepicker("setDate", to_date);
     var from_date = new Date(#{from_date_r.strftime('%Y')}, #{from_date_r.strftime('%m').to_i - 1}, #{from_date_r.strftime('%d')});
     $('.datepicker_min').datepicker("setDate", from_date);
-
     $('.datepicker_max').change();
     $('.datepicker_min').change();
   }, 1000);

@@ -55,23 +55,36 @@
 					    <td><p style="margin: 0;">: <%= @meeting.start_date %>  </p></td>
 					    <td> </td>
 					  </tr>
-            <tr>
+            		  <tr>
 					    <td><p style="margin: 0;">Fecha de Fin</p></td>
 					    <td><p style="margin: 0;">: <%= @meeting.end_date %>  </p></td>
 					    <td> </td>
 					  </tr>
 					</table>
-          <br/>
+          			<br/>
 					<table>
-            <tr>
+            		  <tr>
 					    <td>
 					    	<p style="margin: 0;">Datos del cliente</p>
 					    </td>
 					    <td>
 					    	<p style="margin: 0;">: <%= @meeting.user_first_name %> <%= @meeting.user_last_name %></p>
 					    </td>
+					  </tr>
+					  <tr>
+					  	<td>
+					  		<p style="margin: 0;">Correo</p>
+					  	</td>
 					    <td>
-					    <p style="margin: 0;">: <%= @meeting.user_email %></p>
+					    	<p style="margin: 0;">: <%= @meeting.user_email %></p>
+					    </td>
+					  </tr>
+					  <tr>
+					  	<td>
+					  		<p style="margin: 0;">Teléfono</p>
+					  	</td>
+					    <td>
+					    	<p style="margin: 0;">: <%= @meeting.user_phone %></p>
 					    </td>
 					  </tr>
 					</table>
