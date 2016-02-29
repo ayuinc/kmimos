@@ -36858,7 +36858,6 @@ var uniqueItems = function (data, key) {
     return result;
   };
 
-
 function groupBy(array, f) {
   var groups = {};
   array.forEach(function (o) {
@@ -36876,7 +36875,6 @@ function get_score(score, el) {
   console.log(score);
   return score;
 }
-
 
 var paint_ratings = function() {
   $(".ratingStars").raty({
@@ -36898,11 +36896,9 @@ var paint_ratings = function() {
   });
 };
 
-
 $(".ratingStars").ready(function () {
   paint_ratings();
 });
-
 
 var paint_ratings_white = function () {
   
@@ -36923,30 +36919,16 @@ var paint_ratings_white = function () {
   });
 };
 
-
 $(".ratingStarsWhite").ready(function(){
   paint_ratings_white();
 });
 
-
-var paint_pretty_uploads = function() {
-
-$(".pretty_upload_input").on('click', function() {
-  $($(this).attr('el')).click();
+$(document).on('click', '.pretty_upload_input', function(event) {
+  event = event || window.event;
+  if (event.target.id == $(this).attr("id")) {
+      $($(this).attr('el')).click();
+  }
 });
-
-$(".pretty_upload_input").on('change', function() {
-      $($(this).attr('display')).val("Archivo elegido: " + $($(this).attr('el').val().replace(/^.*[\\\/]/, '')));
-    });
-
-  };
-
-
-$(".pretty_upload_input").ready(function() {
-  paint_pretty_uploads();
-});
-
-
 
 var maps=[];
 
@@ -103144,7 +103126,7 @@ providers_module.factory('ProviderFilterService', ['$http', '$q', '$location', f
   function byPriceRange(minPrice, maxPrice) {
     var deferred = $q.defer();
     
-    var providers = JSON.parse(localStorage.getItem("filteredProviders"));
+    var providers = JSON.parse(localStorage.getItem("providers"));
     
     var results = providers.filter(function (provider) {
       return provider.price >= minPrice && provider.price <= maxPrice;
@@ -103345,8 +103327,8 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
     method: 'GET',
     url: url_params
   }).then(function successCallback(response) {
-    $scope.params.location = response.data.location;
-    $scope.params.location_id = response.data.location_id;
+    $scope.params.location = response.data.location == null ? 'all' : response.data.location;
+    $scope.params.location_id = response.data.location_id.length == 0 ? 0 : response.data.location_id;
     
     ProviderFilterService.all($scope.params.location_id).then(function (providers) {
       if (providers.length == 0) {
@@ -103388,6 +103370,11 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
   $scope.onClick = function (marker, eventName, model) {
     model.show = !model.show;
   };
+
+  $scope.onLocationChange = function () {
+    console.log('holaaa!');
+    console.log($scope.search.location);
+  }
 
   $scope.onSliderChange = function () {
     $scope.search.price.min = $scope.priceSlider.min;
@@ -103453,7 +103440,6 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
       $scope.providers = JSON.parse(localStorage.getItem("providers"));
     } else {
       ProviderFilterService.byPriceRange($scope.search.price.min, $scope.search.price.max).then(function (providers) {
-        localStorage.setItem("filteredProviders", JSON.stringify(providers));
         $scope.providers = providers;
       });
     }
@@ -103735,8 +103721,9 @@ function allLabel() {
   }
 }
 
-function previewImage(input, container, isClass) {
+function previewImage(input, container, isClass, isUserPet) {
   if (typeof(isClass)==='undefined') isClass = false;
+  if (typeof(isUserPet)==='undefined') isUserPet = false;
   // Check for the various File API support.
   if (window.File && window.FileReader && window.FileList && window.Blob) {
     var files = input.files; // FileList object
@@ -103746,7 +103733,10 @@ function previewImage(input, container, isClass) {
       var reader = new FileReader();
       var preview = null;
 
-      if (isClass) {
+      if (isUserPet) {
+        preview = input.parentElement.parentElement.children[0];
+      }
+      else if (isClass) {
         var containers = document.getElementsByClassName(container);
         for (var i = containers.length - 1; i >= 0; i--) {
           if (containers[i].src.length <= 0 || containers[i].src.indexOf("missing.png") > 0) {
@@ -103768,6 +103758,22 @@ function previewImage(input, container, isClass) {
   } else {
     alert('The File APIs are not fully supported in this browser.');
   }
+}
+
+function isNumberKey(txt, event) {
+  var charCode = (event.which) ? event.which : event.keyCode;
+  if (charCode == 46) {
+      if (txt.value.indexOf('.') === -1) {
+          return true;
+      } else {
+          return false;
+      }
+  } else {
+      if (charCode > 31
+           && (charCode < 48 || charCode > 57))
+          return false;
+  }
+  return true;
 }
 
 // referrals

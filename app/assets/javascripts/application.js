@@ -183,6 +183,22 @@ function previewImage(input, container, isClass, isUserPet) {
   }
 }
 
+function isNumberKey(txt, event) {
+  var charCode = (event.which) ? event.which : event.keyCode;
+  if (charCode == 46) {
+      if (txt.value.indexOf('.') === -1) {
+          return true;
+      } else {
+          return false;
+      }
+  } else {
+      if (charCode > 31
+           && (charCode < 48 || charCode > 57))
+          return false;
+  }
+  return true;
+}
+
 // referrals
 (function($) {
 
