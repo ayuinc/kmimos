@@ -24,7 +24,7 @@
     = csrf_meta_tag
     :javascript
       try{Typekit.load({ async: true });}catch(e){}
-  %body
+  %body(data-snap-ignore="true")
     #drawers 
       #right-drawer
         = render partial: 'layouts/partial/mobile_header'
@@ -102,6 +102,7 @@
       easing: 'ease',
       transitionSpeed: 0.3,
       minDragDistance: 5,
+      touchToDrag: true,
       disable: 'left'
       
     });

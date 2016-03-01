@@ -27,7 +27,7 @@
       try{Typekit.load();}catch(e){}
     / END FONTS
     
-  %body
+  %body(data-snap-ignore="true")
   
     - cache do
       = render partial: 'layouts/partial/initializer'
@@ -53,6 +53,7 @@
             easing: 'ease',
             transitionSpeed: 0.3,
             minDragDistance: 5,
+            touchToDrag: true,
             disable: 'left'
           });
         }

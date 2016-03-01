@@ -1,18 +1,18 @@
-.container.content.mh-630.mb-70
-  .row.mt-35
-    .col-md-1
-    .col-md-10.p-0
-      %h1.text-align-center Sé parte de Kmimos 
-      .panel.panel-primary
-        .panel-heading.mb-21.text-gray.text-align-center
-          Para registrarte como cuidado de Kmimos, llena este formulario y nos pondremos en contacto contigo.
-        .panel-body 
-          = simple_nested_form_for(@provider, :html => {:multipart => true}) do |f|  
+= simple_nested_form_for(@provider, :html => {:multipart => true}) do |f|  
+  .container.content.mh-630.mb-70
+    .row
+      .col-md-1.p-0
+      .col-md-10.p-0
+        %h1.text-align-center Sé parte de Kmimos 
+        .panel.panel-primary
+          .panel-heading.mb-21.text-gray.text-align-center
+            Para registrarte como cuidado de Kmimos, llena este formulario y nos pondremos en contacto contigo.
+          .panel-body 
             .registration_wizard
               = render partial: 'step1', locals: {f: f}
               = render partial: 'step2', locals: {f: f}
               = render partial: 'step3', locals: {f: f} 
-            = render partial: 'terms', locals: {f: f}
+  = render partial: 'terms', locals: {f: f}
 
 
 - if Rails.env.production? 
