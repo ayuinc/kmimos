@@ -63,3 +63,8 @@
           %a{href: request.protocol + request.host + "/bookings/booking_resume/#{book.id}.pdf"} Ver Reserva
           %br
           %br
+:javascript
+  $(document).ready(function() {
+    window._vis_opt_queue = window._vis_opt_queue || [];
+    window._vis_opt_queue.push(function() {_vis_opt_goal_conversion(200);});  
+  });

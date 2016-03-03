@@ -110,20 +110,25 @@ bookings_module.controller('BookingsController', ['$scope', '$filter', '$http', 
     
     angular.forEach($scope.services_booked, function (service, key) {
 
-      $http({
-        method: 'POST',
-        url: url_service,
-        data: { pet: service.pet_id, service: service.service_id, provider: provider_id}
-      }).then(function (response) {
-        service.price = response.data.price;
-        service.pet_name = response.data.pet_name;
-        service.service_name = response.data.service_name;
-        $scope.set_total_services();
-      }, function (error) {
-        console.log(error);
-      });
+      if (service.pet_id !== "" && service.service_id !== "" && provider_id !== "") {
+        $http({
+          method: 'POST',
+          url: url_service,
+          data: { pet: service.pet_id, service: service.service_id, provider: provider_id}
+        }).then(function (response) {
+          service.price = response.data.price;
+          service.pet_name = response.data.pet_name;
+          service.service_name = response.data.service_name;
+          $scope.set_total_services();
+        }, function (error) {
+          console.log(error);
+        });
+      }
 
     });
   };
+  
+  $scope.add_pet();
+  $scope.add_service();
 
 }]);

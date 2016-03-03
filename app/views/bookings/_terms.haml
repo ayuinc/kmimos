@@ -194,8 +194,9 @@
       .modal-footer
         %p.text-danger Debe aceptar los términos y condiciones para continuar.
         .form-group
-          %input{:name => "license_term", :type => "checkbox"}
-          %label{:for => "license_term"} Acepto los términos y condiciones *
+          %label
+            %input{:name => "license_term", :type => "checkbox"}
+            Acepto los términos y condiciones *
         %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Cancelar 
         = f.submit "Confirmar", id: "confim_new_booking", class: "btn btn-primary btn-green", disabled: true
 :javascript
