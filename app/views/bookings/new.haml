@@ -68,8 +68,10 @@
                       .col-md-2 $ {{ pet.price }} MXN
                       .col-md-1
                         %a(ng-click="deletePet(pet)" href="#") Eliminar
-                  - if current_user.pets.size > 1  
+                  - if !current_user.pets.empty?
                     %a.btn.btn-primary(ng-click="add_pet()") Agregar otra mascota
+                  - else
+                    %p Aún no tienes ninguna mascota registrada anda a tu perfil para agregar una.
                   .row.mt-35.mb-14
                 - else
                   %p Este cuidador no tiene disponibilidad para cuidar el tamaño de perro con el que usted cuenta.
