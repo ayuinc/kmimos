@@ -2,7 +2,7 @@
   %center
     %br
     %h3 ... Cargando Cuidadores ... 
-#cuidadores(ng-if="providers != undefined")
+#cuidadores.pull-left(ng-if="providers != undefined")
   %center(ng-if="providersMsg.length > 0")
     %br
     %h3(ng-cloak) {{ providersMsg }}
