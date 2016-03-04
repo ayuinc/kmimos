@@ -15,12 +15,7 @@
             .user-info.col-md-9
               %h3.m-0.mb-7
                 = "#{@provider.name.downcase.capitalize} #{@provider.last_name_1.downcase.capitalize}"
-              %p
-                %b Áreas donde puede recoger a tu perrito
-              - @provider.locations.group_by(&:state_id).each do |k, state|
-                %b.mb-7= state.first.state
-                %br
-                %p.mt-7.mb-7.text-gray= state.map(&:name).join(", ")
+              %p= @provider.description
               - if current_user != nil
                 .row
                   .col-md-5
@@ -73,10 +68,13 @@
       %h3.text-gray.mb-35 Otros detalles
       .row.details-profile.pl-21
         .col-md-3
-          %p.label.text-center.text-gray Tengo
+          %p.label.text-center.text-gray Mascotas en casa
           .icon= image_tag('otros-detalles-otros-perros.svg', height: '32px')
           %p.label-small
-            %b= "#{@provider.number_of_pets} Perros en casa (#{@provider.own_sizes.map{|size| size.size_title}.join(', ')})"
+            - if !@provider.own_sizes.empty?
+              %b= "#{@provider.number_of_pets} Perros en casa (#{@provider.own_sizes.map{|size| size.size_title}.join(', ')})"
+            - else
+              %b Ninguna
         .col-md-3
           %p.label.text-center.text-gray Mi propiedad
           .icon= image_tag('otros-detalles-patio.svg', height: '32px')
@@ -99,16 +97,13 @@
             .icon= image_tag('perro_esterilizado.svg', height: '32px')
             %p.label-small 
               %b Solo acepta perros esterilizados
-      .Comportamientos
-        %h3.text-gray Comportamientos de perros aceptados
-        .row.comp
-          - @provider.accepted_behaviors.each do |behavior|
-            = image_tag('huella_comportamientos.svg')
-            = behavior
-      .descripcion-perfil.border-top
-        %h3.text-gray="Sobre #{@provider.name} :"
-        %p= @provider.description
-
+      - if !@provider.accepted_behaviors.empty?
+        .Comportamientos
+          %h3.text-gray Comportamientos de perros aceptados
+          .row.comp
+            - @provider.accepted_behaviors.each do |behavior|
+              = image_tag('huella_comportamientos.svg')
+              = behavior
       .ubicacion
         %h3.text-gray Ubicación
         .row
@@ -162,32 +157,34 @@
               %b Check out:
               = @provider.check_out.strftime("%H:%M") rescue ""
 
-        .content-detalles.mt-14-mb-28.m-21.pb-14
-          .border-bottom.text-left.pl-21
-            %h4.text-gray.mv-14.border-bottom
-              Servicios Adicionales
-            %p Elige el servicio que deseas para tu mascota. Si solo quieres contratar un servicio y no una estadía, entonces selecciona el servicio y dale Contratar. 
-            %p{style:"font-size:10px;margin-bottom:-5px"} * Los precios incluyen el 20% de Beneficios Kmimos
-            - @provider.services.order('id').uniq.each do |service|
-              %input.mt-21{value: service.id}(type="checkbox" name="services[]")
-                %small
-                  #{service}
-                  %i{style: 'color: #a7a279'}
-                    %br
-                    desde 
-                    = current_country.currency
-                    =number_with_precision((AdditionalService.get_min_rates_for(@provider.id, service.id)*1.2), :precision => 2)
-                    
+        - if !@provider.services.empty?
+          .content-detalles.mt-14-mb-28.m-21.pb-14
+            .border-bottom.text-left.pl-21
+              %h4.text-gray.mv-14.border-bottom
+                Servicios Adicionales
+              %p Elige el servicio que deseas para tu mascota. Si solo quieres contratar un servicio y no una estadía, entonces selecciona el servicio y dale Contratar. 
+              %p{style:"font-size:10px;margin-bottom:-5px"} * Los precios incluyen el 20% de Beneficios Kmimos
+              - @provider.services.order('id').uniq.each do |service|
+                %input.mt-21{value: service.id}(type="checkbox" name="services[]")
+                  %small
+                    #{service}
+                    %i{style: 'color: #a7a279'}
+                      %br
+                      desde 
+                      = current_country.currency
+                      =number_with_precision((AdditionalService.get_min_rates_for(@provider.id, service.id)*1.2), :precision => 2)
+                      
+                %br
+              =f.submit "Contratar".html_safe, :class => "mt-14 mb-21 btn btn-primary btn-small btn-fold" #,  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Reservar', 'provider_#{@provider.id.to_s}']);"
+        - if !@provider.comments.empty?
+          .content-detalles.mt-14-mb-28.m-21.pb-14
+            .border-bottom.text-left.pl-21
+              %h4.text-gray.mv-14="#{@provider.comments.count} Evaluaciones"
+            .text-left.ph-21
+              -Valuation.by_comments(@provider.id).each do |valuation, value|
+                %h5= valuation
+                .ratingStars.pl-14.mt-7{score: value.to_i, readOnly: true}
               %br
-            =f.submit "Contratar".html_safe, :class => "mt-14 mb-21 btn btn-primary btn-small btn-fold" #,  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Reservar', 'provider_#{@provider.id.to_s}']);"
-        .content-detalles.mt-14-mb-28.m-21.pb-14
-          .border-bottom.text-left.pl-21
-            %h4.text-gray.mv-14="#{@provider.comments.count} Evaluaciones"
-          .text-left.ph-21
-            -Valuation.by_comments(@provider.id).each do |valuation, value|
-              %h5= valuation
-              .ratingStars.pl-14.mt-7{score: value.to_i, readOnly: true}
-            %br
 
 - if Rails.env.production?
   :javascript

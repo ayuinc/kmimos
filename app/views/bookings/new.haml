@@ -21,10 +21,7 @@
           %h4.text-gray.light
             %small.text-black.bold Precio:
             = "#{current_country.currency} #{ 1.2 * (@provider.rates.where("coalesce(price,0) > 0").minimum(:price))} noche"
-          - @provider.locations.group_by(&:state_id).each do |k, state|
-            %b= state.first.state
-            %br
-            %span.text-gray= state.map(&:name).join(", ")
+          %p= @provider.description
       %br
       .row
         .col-md-2.p-0
