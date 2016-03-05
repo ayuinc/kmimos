@@ -16,10 +16,7 @@
                 - score = val.map{|val| val[1]}.reduce(:+).to_i / val.size.to_i rescue 0
                 .ratingStars{score: score, readOnly: true}
     .user-info.col-md-12.text-center.p-0
-      - @provider.locations.group_by(&:state_id).each do |k, state|
-        %b.mb-7= state.first.state
-        %br
-        %p.mt-7.mb-7.text-gray= state.map(&:name).join(", ")
+      %p= @provider.description
       -if current_user != nil
         .row
           .col-md-5
@@ -109,9 +106,12 @@
       %h3.text-gray.mb-35 Otros detalles
       .row.details-profile.pl-21
         .col-md-3.col-xs-6.p0-b-5
-          %p.label.text-center.bold Tengo
+          %p.label.text-center.bold Mascotas en casa
           .icon= image_tag('otros-detalles-otros-perros.svg', height: '32px')
-          %p.label-small= "#{@provider.number_of_pets} Perros en casa (#{@provider.own_sizes.map{|size| size.size_title}.join(', ')})"
+          - if !@provider.own_sizes.empty?
+            %p.label-small= "#{@provider.number_of_pets} Perros en casa (#{@provider.own_sizes.map{|size| size.size_title}.join(', ')})"
+          - else
+            %b Ninguna
         .col-md-3.col-xs-6.p0-b-5
           %p.label.text-center.bold Mi propiedad
           .icon= image_tag('otros-detalles-patio.svg', height: '32px')
@@ -130,16 +130,13 @@
             %p.label.text-center Esterilizacón
             .icon= image_tag('perro_esterilizado.svg', height: '32px')
             %p.label-small Solo acepta perros esterilizados
-      .Comportamientos
-        %h3.text-gray Comportamientos de perros aceptados
-        .row.comp
-          - @provider.accepted_behaviors.each do |behavior|
-            = image_tag('huella_comportamientos.svg')
-            = behavior
-      .descripcion-perfil.border-top
-        %h3.text-gray="Sobre #{@provider.name} :"
-        %p= @provider.description
-
+      - if !@provider.accepted_behaviors.empty?
+        .Comportamientos
+          %h3.text-gray Comportamientos de perros aceptados
+          .row.comp
+            - @provider.accepted_behaviors.each do |behavior|
+              = image_tag('huella_comportamientos.svg')
+              = behavior
       .ubicacion
         %h3.text-gray Ubicación
         .row
