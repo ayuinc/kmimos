@@ -140,7 +140,10 @@
       .ubicacion
         %h3.text-gray Ubicación
         .row
-          .col-md-5
+          .col-md-7.p-0
+            #map{style: "width: 100%; height: 400px;", latitude: @provider.latitude, longitude: @provider.longitude, zoom: "14"}
+            .circle{latitude: @provider.latitude, longitude: @provider.longitude, radio: '800'}          
+          .col-md-5.p-0
             %h4.text-secondary Areas del Servicio
             - @provider.locations.group_by(&:state_id).each do |k, state|
               %h4.mb-14.mt-21.pb-7.border-bottom= state.first.state
@@ -182,3 +185,5 @@
     autoplay: true,
     autoplaySpeed: 2000
   });
+
+  providerMap = initMap('providerMap', 'map');
