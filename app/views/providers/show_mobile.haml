@@ -111,7 +111,7 @@
           - if !@provider.own_sizes.empty?
             %p.label-small= "#{@provider.number_of_pets} Perros en casa (#{@provider.own_sizes.map{|size| size.size_title}.join(', ')})"
           - else
-            %b Ninguna
+            %p.label-small Ninguna
         .col-md-3.col-xs-6.p0-b-5
           %p.label.text-center.bold Mi propiedad
           .icon= image_tag('otros-detalles-patio.svg', height: '32px')
@@ -127,7 +127,7 @@
       .row.details-profile.pl-21
         - if !(@provider.only_sterilizated)
           .col-md-3
-            %p.label.text-center Esterilizacón
+            %p.label.text-center.bold Esterilizacón
             .icon= image_tag('perro_esterilizado.svg', height: '32px')
             %p.label-small Solo acepta perros esterilizados
       - if !@provider.accepted_behaviors.empty?

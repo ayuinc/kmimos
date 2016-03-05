@@ -5,8 +5,8 @@
   .container.p-0
     .row
       .col-md-2.hidden-md
-      .col-md-8
-        .row.mv-35
+      .col-md-8.p-0
+        .row
           .col-md-3
             %h3(style="margin-top: 0px;")= "#{@user.first_name} #{@user.last_name}"
             .form-group
@@ -32,54 +32,59 @@
               .row= best_in_place @user, :email
             .form-group
               %br
-              %a.save_user{class: "btn bordered-btn", style: 'width: 100% !important;', href: "javascript:submit_form()"} Guardar
+              %a.save_user.hidden-xs.btn.bordered-btn{style: 'width: 100% !important;', href: "javascript:submit_form()"} Guardar
           .col-md-9
             %h4 Datos de mis mascotas
-            %br
             %p Si quieres editar alguno de tus datos, da click en el texto que escribiste
-            %hr
+            %hr(style="margin-bottom:20px")
             = f.simple_fields_for  :pets do |pet|
-              .row.pet-conainer
-                .col-md-4
-                  = image_tag(pet.object.photo, style: 'width: 100% !important;', id: 'user_avatar_img')
-                  = pet.input :photo, label: false, input_html: {style: 'display: none;', class: "photo_local_#{pet.object.id}", :onchange => 'previewImage(this, "user_avatar_img", false, true)' }
-                  .input-append
-                    %a#upload-btn.btn.btn-primary.pretty_upload_input{style: "padding: 6px 12px;", el: ".photo_local_#{pet.object.id}"}
-                      %i.icon-upload-alt
-                      Subir Foto
-                  = pet.link_to_remove "Eliminar", class: "btn btn-danger btn_delete_nested"
-                .col-md-4
-                  .form-group
-                    %label Nombre
-                    = pet.object.name.to_s != "" ? best_in_place(pet.object, :name) : pet.input(:name, label: false)
-                  .form-group
-                    %label Raza
-                    = pet.object.race.to_s != "" ? best_in_place(pet.object, :race_id, as: :select, collection: Race.all.map{|r| [r.id, r.race_name] }) : pet.association(:race, label: false)
-                  .form-group
-                    %label Edad
-                    = pet.object.age.to_s != "" ? best_in_place(pet.object, :age_id, as: :select, collection: Age.all.map{|a| [a.id, a.age_group_name] }) : pet.association(:age, label: false)
-                  .form-group
-                    %label Tamaño 
-                    = pet.object.own_size.to_s != "" ? best_in_place(pet.object, :size_id, as: :select, collection: Size.all.map{|s| [s.id, s.size_title] }) : pet.association(:own_size, label: false)
-                    %br
-                .col-md-4
-                  .form-group
-                    %label Peso
-                    = pet.object.weight.to_s != "" ? best_in_place(pet.object, :weight) : pet.input(:weight, label: false)
-                  .form-group
-                    = pet.input :sex, label:'Sexo', as: :radio_buttons, :collection => ['Masculino', 'Femenino']
-                  .form-group
-                    %label Comportamiento
-                    = pet.object.name.to_s != "" ? best_in_place(pet.object, :behavior_id, as: :select, collection: Behavior.all.map{|b| [b.id, b.behavior_name] }) : pet.association(:behavior, label: false)
-            .new_pet_fieldset
-              = f.link_to_add "Agregar Mascota", :pets, class: "btn btn-primary"
+              .pet-container(style="margin:0px 0px 10px")
+                .row
+                  .col-md-4
+                    = image_tag(pet.object.photo, style: 'width: 100% !important;', id: 'user_avatar_img')
+                    = pet.input :photo, label: false, input_html: {style: 'display: none;', class: "photo_local_#{pet.object.id}", :onchange => 'previewImage(this, "user_avatar_img", false, true)' }
+                    .input-append
+                      %a#upload-btn.btn.btn-primary.pretty_upload_input{style: "padding: 6px 12px;", el: ".photo_local_#{pet.object.id}"}
+                        %i.icon-upload-alt
+                        Subir Foto
+                  .col-md-4
+                    .form-group
+                      %label Nombre
+                      = pet.object.name.to_s != "" ? best_in_place(pet.object, :name) : pet.input(:name, label: false)
+                    .form-group
+                      %label Raza
+                      = pet.object.race.to_s != "" ? best_in_place(pet.object, :race_id, as: :select, collection: Race.all.map{|r| [r.id, r.race_name] }) : pet.association(:race, label: false)
+                    .form-group
+                      %label Edad
+                      = pet.object.age.to_s != "" ? best_in_place(pet.object, :age_id, as: :select, collection: Age.all.map{|a| [a.id, a.age_group_name] }) : pet.association(:age, label: false)
+                    .form-group
+                      %label Tamaño 
+                      = pet.object.own_size.to_s != "" ? best_in_place(pet.object, :size_id, as: :select, collection: Size.all.map{|s| [s.id, s.size_title] }) : pet.association(:own_size, label: false)
+                      %br
+                  .col-md-4
+                    .form-group
+                      %label Peso
+                      = pet.object.weight.to_s != "" ? best_in_place(pet.object, :weight) : pet.input(:weight, label: false)
+                    .form-group
+                      = pet.input :sex, label:'Sexo', as: :radio_buttons, :collection => ['Masculino', 'Femenino']
+                    .form-group
+                      %label Comportamiento
+                      = pet.object.name.to_s != "" ? best_in_place(pet.object, :behavior_id, as: :select, collection: Behavior.all.map{|b| [b.id, b.behavior_name] }) : pet.association(:behavior, label: false)
+                .row
+                  .col-md-12.text-center
+                    %a.btn.btn-primary(href="javascript:submit_form()") Guardar
+                    = pet.link_to_remove "Eliminar mascota", class: "btn btn-danger"
+            = f.link_to_add "Agregar nueva Mascota", :pets, class: "btn btn-primary"
             %br
-            %h4 Cuidadores Favoritos
-            %hr
-            - @user.favorites.each do |favorite|
-              %a{href: provider_path(favorite.provider.id)}
-                = image_tag(favorite.provider.avatar, class: 'avatar', width: '100px')
-
+            - if !@user.favorites.empty?
+              %h4 Cuidadores Favoritos
+              %hr
+              - @user.favorites.each do |favorite|
+                %a{href: provider_path(favorite.provider.id)}
+                  = image_tag(favorite.provider.avatar, class: 'avatar', width: '100px')
+        .row
+          .col-md-12
+            %a.save_user.visible-xs.btn.bordered-btn{style: 'width: 100% !important;', href: "javascript:submit_form()"} Guardar
 %br
 
 :javascript
