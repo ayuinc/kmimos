@@ -31,7 +31,7 @@
     <link href="/assets/providers.css" media="all" rel="stylesheet" />
     <script src="/assets/application.js"></script>
     <meta content="authenticity_token" name="csrf-param" />
-    <meta content="9FS5TB1jQ39SzzU6ZvsHolhn2hyGQmocSLSUjSS+B7A=" name="csrf-token" />
+    <meta content="i+9iahQU4gHM3rA7T5PeGo2KWSnNZpIQos9xUyyK0H4=" name="csrf-token" />
     <!-- Fonts for Homepage -->
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
@@ -47,7 +47,7 @@
     </script>
     <!-- END FONTS -->
   </head>
-  <body>
+  <body data-snap-ignore='true'>
     <!-- / Google Analytics -->
     <!-- / Start of Zopim Live Chat Script -->
     <script>
@@ -67,11 +67,34 @@
     a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0039/9228.js?"+Math.floor(new Date().getTime()/3600000);
     a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
     </script>
+    
+    <!-- Start Visual Website Optimizer Synchronous Code -->
+    <script type='text/javascript'>
+    var _vis_opt_account_id = 222949;
+    var _vis_opt_protocol = (('https:' == document.location.protocol) ? 'https://' : 'http://');
+    document.write('<s' + 'cript src="' + _vis_opt_protocol +
+    'dev.visualwebsiteoptimizer.com/deploy/js_visitor_settings.php?v=1&a='+_vis_opt_account_id+'&url='
+    +encodeURIComponent(document.URL)+'&random='+Math.random()+'" type="text/javascript">' + '<\/s' + 'cript>');
+    </script>
+    
+    <script type='text/javascript'>
+    if(typeof(_vis_opt_settings_loaded) == "boolean") { document.write('<s' + 'cript src="' + _vis_opt_protocol +
+    'd5phz18u4wuww.cloudfront.net/vis_opt.js" type="text/javascript">' + '<\/s' + 'cript>'); }
+    // if your site already has jQuery 1.4.2, replace vis_opt.js with vis_opt_no_jquery.js above
+    </script>
+    
+    <script type='text/javascript'>
+    if(typeof(_vis_opt_settings_loaded) == "boolean" && typeof(_vis_opt_top_initialize) == "function") {
+            _vis_opt_top_initialize(); vwo_$(document).ready(function() { _vis_opt_bottom_initialize(); });
+    }
+    </script>
+    <!-- End Visual Website Optimizer Synchronous Code -->
     <div id='drawers'>
       <div id='right-drawer'>
-        <h2><a class="not-underline white-text" href="/users/41">Mi Perfil</a></h2>
-        <h2><a class="not-underline white-text" href="/bookings">Mis Reservas</a></h2>
-        <h2><a data-method="delete" href="/providers/sign_out" rel="nofollow">Salir</a></h2>
+        <h2><a class="not-underline text-header" href="/users/sign_in">Iniciar sesión como Cliente</a></h2>
+        <h2><a class="not-underline text-header" href="/providers/sign_in">Iniciar sesión como Cuidador</a></h2>
+        <h2><a class="not-underline text-header" href="/users/sign_up">Regístrate</a></h2>
+        <h2><a class="not-underline sign-up" href="/providers/sign_up">Quiero ser cuidador</a></h2>
       </div>
     </div>
     <div id='content' style='background-color: #fff;'>
@@ -82,33 +105,36 @@
             <span class='icon-bar'></span>
             <span class='icon-bar'></span>
           </button>
-          <div class='p-7 hidden-xs hidden-sm col-xs-4'><a href="https://kmimos-giancorzo.c9users.io/"><img alt="Logo kmimos" class="mt--14 img-logo" src="/assets/logo-kmimos.svg" /></a></div>
-          <div class='p-7 hidden-md hidden-lg col-xs-4'><a href="https://kmimos-giancorzo.c9users.io/"><img alt="Logo kmimos" class="mt-0 img-logo" src="/assets/logo-kmimos.svg" /></a></div>
-          <ul class='nav navbar-nav mt-7 ml-56 hidden-xs'>
-            <li><a class="not-underline white-text" href="/users/41">Mi Perfil</a></li>
-            <li><a class="not-underline white-text" href="/bookings">Mis Reservas</a></li>
-          </ul>
+          <div class='p-7 hidden-xs hidden-sm col-xs-4'><a href="http://kmimos-giancorzo.c9users.io/"><img alt="Logo kmimos" class="mt--14 img-logo" src="/assets/logo-kmimos.svg" /></a></div>
+          <div class='p-7 hidden-md hidden-lg col-xs-4'><a href="http://kmimos-giancorzo.c9users.io/"><img alt="Logo kmimos" class="mt-0 img-logo" src="/assets/logo-kmimos.svg" /></a></div>
         </div>
         <div class='collapse navbar-collapse text-center'>
           <div class='text-center hidden-lg hidden-md'></div>
           <div class='hidden-lg hidden-md hidden'>
-            <li class='block h2'><a href="/users/41">Mi perfil</a></li>
-            <li class='block h2'><a href="/bookings">Mis Reservas</a></li>
-            <li class='block h2'><a data-method="delete" href="/users/sign_out" rel="nofollow">Salir</a></li>
+            <li class='block h2'><a class="not-underline text-header" href="/users/sign_in">Iniciar sesión como Cliente</a></li>
+            <li class='block h2'><a class="not-underline text-header" href="/providers/sign_in">Iniciar sesión como Cuidador</a></li>
+            <li class='block h2 pb-21'><a class="not-underline text-header" href="/users/sign_up">Regístrate</a></li>
+            <li class='block h2'><a class=" sign-up" href="/providers/sign_up">Quiero ser cuidador</a></li>
           </div>
           <ul class='nav navbar-nav mt-14 hidden-xs'>
-            <li class='ml-35'>
+            <li>
               <div class='dropdown'>
-                <a class='dropdown-toggle text-header' data-toggle='dropdown' href='#'>
-                  Hola, Herman
+                <a class='dropdown-toggle text-header btn pv-7' data-toggle='dropdown'>
+                  <span class='h5 book pr-14 ls-md'>Iniciar Sesión</span>
+                  <span class='caret'></span>
                 </a>
-                <ul class='dropdown-menu' id='dropdown-menu'>
-                  <li><a href="/users/41">Mi perfil</a></li>
-                  <li><a href="/bookings">Mis reservas</a></li>
-                  <li><a data-method="delete" href="/users/sign_out" rel="nofollow">Salir</a></li>
+                <ul class='dropdown-menu'>
+                  <li>
+                    <a href='/users/sign_in'>Iniciar sesión como Cliente</a>
+                  </li>
+                  <li>
+                    <a href='/providers/sign_in'>Iniciar sesión como Cuidador</a>
+                  </li>
                 </ul>
               </div>
             </li>
+            <li><a class="not-underline text-header" href="/users/sign_up">Registrarme</a></li>
+            <li class='active'><a class="not-underline sign-up" href="/providers/sign_up">Quiero ser cuidador</a></li>
           </ul>
         </div>
       </div>
@@ -201,6 +227,28 @@
     a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0039/9228.js?"+Math.floor(new Date().getTime()/3600000);
     a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
     </script>
+    
+    <!-- Start Visual Website Optimizer Synchronous Code -->
+    <script type='text/javascript'>
+    var _vis_opt_account_id = 222949;
+    var _vis_opt_protocol = (('https:' == document.location.protocol) ? 'https://' : 'http://');
+    document.write('<s' + 'cript src="' + _vis_opt_protocol +
+    'dev.visualwebsiteoptimizer.com/deploy/js_visitor_settings.php?v=1&a='+_vis_opt_account_id+'&url='
+    +encodeURIComponent(document.URL)+'&random='+Math.random()+'" type="text/javascript">' + '<\/s' + 'cript>');
+    </script>
+    
+    <script type='text/javascript'>
+    if(typeof(_vis_opt_settings_loaded) == "boolean") { document.write('<s' + 'cript src="' + _vis_opt_protocol +
+    'd5phz18u4wuww.cloudfront.net/vis_opt.js" type="text/javascript">' + '<\/s' + 'cript>'); }
+    // if your site already has jQuery 1.4.2, replace vis_opt.js with vis_opt_no_jquery.js above
+    </script>
+    
+    <script type='text/javascript'>
+    if(typeof(_vis_opt_settings_loaded) == "boolean" && typeof(_vis_opt_top_initialize) == "function") {
+            _vis_opt_top_initialize(); vwo_$(document).ready(function() { _vis_opt_bottom_initialize(); });
+    }
+    </script>
+    <!-- End Visual Website Optimizer Synchronous Code -->
     </div>
     <script src="/assets/snap.js"></script>
     <script>
@@ -214,6 +262,7 @@
             easing: 'ease',
             transitionSpeed: 0.3,
             minDragDistance: 5,
+            touchToDrag: true,
             disable: 'left'
           });
         }
