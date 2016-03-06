@@ -18744,7 +18744,7 @@ body.ngrs-touching {
 /* Slider */
 .slick-loading .slick-list
 {
-    background: #fff url(/slick-carousel/slick/ajax-loader.gif) center center no-repeat;
+    background: #fff url(/assets/slick-carousel/slick/ajax-loader.gif) center center no-repeat;
 }
 
 /* Icons */
