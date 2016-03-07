@@ -159,7 +159,7 @@
             .form-group.row
               .col-md-12
                 %center
-                  = link_to 'Reservar', '#myModal', 'data-toggle' => 'modal', :class => "btn grey-button form-control mt-21", 'ng-show' => 'pets_booked_total > 0 || services_booked_total > 0'
+                  = link_to 'Reservar', '#myModal', :class => "btn grey-button form-control mt-21", 'ng-show' => 'pets_booked_total > 0 || services_booked_total > 0', 'ng-click' => 'validate_submit()'
 
           %div
             %h5 (*) Confirmaremos tu reserva en un período de 24 horas, es posible que pueda haber un cambio. Si así sucede nos contactaremos contigo para informarte y darte la mejor solución.
@@ -190,8 +190,16 @@
     }, 1000);
 
 :javascript
-  $('.datepicker_min').datepicker({ dateFormat: 'yy-mm-dd' });
-  $('.datepicker_max').datepicker({ dateFormat: 'yy-mm-dd' });
+  $('.datepicker_min').datepicker({ 
+    dateFormat: 'yy-mm-dd',
+    minDate: new Date()
+  });
+  
+  $('.datepicker_max').datepicker({ 
+    dateFormat: 'yy-mm-dd',
+    minDate: new Date()
+  });
+  
   setTimeout(function(){
     var to_date = new Date(#{to_date_r.strftime('%Y')}, #{to_date_r.strftime('%m').to_i - 1} , #{to_date_r.strftime('%d')});
     $('.datepicker_max').datepicker("setDate", to_date);

@@ -12,6 +12,8 @@ bookings_module.controller('BookingsController', ['$scope', '$filter', '$http', 
   $scope.services_booked = [];
   $scope.minDate;
   $scope.maxDate;
+  $scope.pickup_time;
+  $scope.dropoff_time;
   $scope.diff = 0;
   $scope.services_booked_total = 0;
   $scope.pets_booked_total = 0;
@@ -23,15 +25,21 @@ bookings_module.controller('BookingsController', ['$scope', '$filter', '$http', 
     min = $scope.minDate;
     max = $scope.maxDate;
     
-    min = new Date(min);
-    max = new Date(max);
-    
-    diff = (max - min) / 1000 / 60 / 60 / 24;
- 
-    $scope.diff = diff;
+    if (max != min) { 
+      min = new Date(min);
+      max = new Date(max);
 
+      diff = (max - min) / 1000 / 60 / 60 / 24;
+      $scope.diff = diff;
+    } else {
+      $scope.diff = 1;
+    }
     $scope.set_total_pets();
 
+  };
+  
+  $scope.drop_and_pickup_validation = function() {
+    alert($scope.pickup_time)
   };
 
   $scope.deleteServ = function (serv) {
@@ -75,6 +83,22 @@ bookings_module.controller('BookingsController', ['$scope', '$filter', '$http', 
     });
     $scope.pets_booked_total = total;
   };
+  
+  $scope.validate_submit = function() {
+    $("input[name=license_term]").attr("checked",false);
+    $("#confim_new_booking").attr("disabled", true);
+    var pickup_hour = $('#booking_pickup_time_4i').val();
+    var pickup_minutes = $('#booking_pickup_time_5i').val();
+    var dropoff_hour = $('#booking_dropoff_time_4i').val();
+    var dropoff_minutes = $('#booking_dropoff_time_5i').val();
+    if (pickup_hour < dropoff_hour || (pickup_hour == dropoff_hour && pickup_minutes < dropoff_minutes)) {
+      $("#myModal").modal({
+        keyboard: false
+      });
+    } else {
+      alert("La fecha de inicio debe ser menor que la fecha de fin");
+    }
+  }
 
   $scope.update_pets = function (provider_id) {
 
