@@ -87,11 +87,16 @@ bookings_module.controller('BookingsController', ['$scope', '$filter', '$http', 
   $scope.validate_submit = function() {
     $("input[name=license_term]").attr("checked",false);
     $("#confim_new_booking").attr("disabled", true);
+    
+    var to_date = $('.datepicker_min').datepicker("getDate");
+    var from_date = $('.datepicker_max').datepicker("getDate");
+    
     var pickup_hour = $('#booking_pickup_time_4i').val();
     var pickup_minutes = $('#booking_pickup_time_5i').val();
     var dropoff_hour = $('#booking_dropoff_time_4i').val();
     var dropoff_minutes = $('#booking_dropoff_time_5i').val();
-    if (pickup_hour < dropoff_hour || (pickup_hour == dropoff_hour && pickup_minutes < dropoff_minutes)) {
+    
+    if (to_date.getTime() < from_date.getTime() || (to_date.getTime() == from_date.getTime() && (pickup_hour < dropoff_hour || (pickup_hour == dropoff_hour && pickup_minutes < dropoff_minutes)))) {
       $("#myModal").modal({
         keyboard: false
       });
