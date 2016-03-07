@@ -133,15 +133,15 @@
             %p.light.mb-0.text-gray.text-small Desde
             %h4.m-7.price
               = current_country.currency
-              = number_with_precision(1.2*(@provider.rates.where("coalesce(price,0) > 0").minimum(:price).to_f), :precision => 2)
+              = number_with_precision(1.2*(@provider.rates.where("coalesce(price,0) > 0").minimum(:price).to_f), :precision => 0)
             %h5.light.mt-0.text-gray.text-small por noche
-            %p{style:"font-size:10px;margin-bottom:-5px"} * Los precios incluyen el 20% de Beneficios Kmimos
+            %p{style:"font-size:10px;margin-bottom:-5px"} * Precio final (incluye cobertura veterinaria y gastos administrativos; no incluye servicios adicionales) 
             .col-md-12.border-top.border-bottom.pt-7.pb-7  
               %p Tarifas por tamaños
               - rates = Array.new
               - @provider.rates.order(size_id: :asc).uniq.each do |a|
                 - if !rates.include?(a.size.size_title)
-                  %p{style:"font-size:11px"}="#{a.size.size_title} :  #{current_country.currency}#{number_with_precision(1.20*(a.price == nil ? 0 : a.price),:precision => 2)}"
+                  %p{style:"font-size:11px"}="#{a.size.size_title} :  #{current_country.currency}#{number_with_precision(1.20*(a.price == nil ? 0 : a.price),:precision => 0)}"
                 - rates << a.size.size_title
             =f.submit "Reservar".html_safe, :class => "mt-14 mb-21 btn btn-primary btn-small btn-fold" #,  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Reservar', 'provider_#{@provider.id.to_s}']);"
             %br/
@@ -163,7 +163,7 @@
               %h4.text-gray.mv-14.border-bottom
                 Servicios Adicionales
               %p Elige el servicio que deseas para tu mascota. Si solo quieres contratar un servicio y no una estadía, entonces selecciona el servicio y dale Contratar. 
-              %p{style:"font-size:10px;margin-bottom:-5px"} * Los precios incluyen el 20% de Beneficios Kmimos
+              %p{style:"font-size:10px;margin-bottom:-5px"} * Precio final (incluye cobertura veterinaria y gastos administrativos; no incluye servicios adicionales) 
               - @provider.services.order('id').uniq.each do |service|
                 %input.mt-21{value: service.id}(type="checkbox" name="services[]")
                   %small
@@ -172,7 +172,7 @@
                       %br
                       desde 
                       = current_country.currency
-                      =number_with_precision((AdditionalService.get_min_rates_for(@provider.id, service.id)*1.2), :precision => 2)
+                      =number_with_precision((AdditionalService.get_min_rates_for(@provider.id, service.id)*1.2), :precision => 0)
                       
                 %br
               =f.submit "Contratar".html_safe, :class => "mt-14 mb-21 btn btn-primary btn-small btn-fold" #,  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Reservar', 'provider_#{@provider.id.to_s}']);"

@@ -36,7 +36,7 @@
               = current_country.currency
               = number_with_precision(1.2*(@provider.rates.minimum(:price)),:precision => 2)
             %h5.light.mt-0.text-gray.text-small por noche
-            %p{style:"font-size:10px;margin-bottom:-5px"} * Los precios incluyen el 20% de Beneficios Kmimos
+            %p{style:"font-size:10px;margin-bottom:-5px"} * Precio final (incluye cobertura veterinaria y gastos administrativos; no incluye servicios adicionales) 
             =f.submit "Reservar".html_safe, :class => "mt-14 mb-21 btn btn-primary btn-small btn-fold" #,  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Reservar', 'provider_#{@provider.id.to_s}']);"
             %br/
             = link_to "Conocer cuidador".html_safe, new_meeting_path(:provider_id => @provider.id), :class => "text-secondary btn btn-fold", :style => "border-color: #1DBA9A; padding: 10px 7px;",  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Conocer', 'provider_#{@provider.id.to_s}']);"
@@ -53,7 +53,7 @@
             %h4.text-gray.mv-14.border-bottom
               Servicios Adicionales
             %p Elige el servicio que deseas para tu mascota. Si solo quieres contratar un servicio y no una estadía, entonces selecciona el servicio y dale Contratar. 
-            %p{style:"font-size:10px;"} * Los precios incluyen el 20% de Beneficios Kmimos
+            %p{style:"font-size:10px;"} * Precio final (incluye cobertura veterinaria y gastos administrativos; no incluye servicios adicionales) 
             - @provider.services.order('id').uniq.each do |service|
               %input.mt-21{value: service.id}(type="checkbox" name="services[]")
                 %p.inline
