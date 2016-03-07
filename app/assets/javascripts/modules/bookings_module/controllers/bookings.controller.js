@@ -44,9 +44,9 @@ bookings_module.controller('BookingsController', ['$scope', '$filter', '$http', 
     $scope.set_total_pets();
   };
 
-  $scope.add_pet = function () {
+  $scope.add_pet = function (pet_id) {
     var rand = Math.floor(Math.random() * 6000) + 1;
-    $scope.pets_booked.push({uniq: rand, pet_id: '', price: 0});
+    $scope.pets_booked.push({uniq: rand, pet_id: pet_id, price: 0});
     $scope.set_total_pets();
   };
 
