@@ -156,3 +156,9 @@
 .meet-provider-btn:hover {
   background-color: #ff436b;
 }
+
+.bounce {
+  width:100%;
+  height:1px;
+  background-color: #73E0E3;
+}

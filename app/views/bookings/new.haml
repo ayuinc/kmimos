@@ -174,8 +174,8 @@
        "apellido_cuidador": "#{@provider.last_name_1}"
     });
 
-- to_date_r = Date.parse(session[:to_date])
-- from_date_r = Date.parse(session[:from_date])
+- to_date_r = Date.parse(session[:to_date] || Date.new.to_s)
+- from_date_r = Date.parse(session[:from_date] || Date.new.to_s)
 
 :javascript
   var preselect_services =[]

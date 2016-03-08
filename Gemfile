@@ -71,6 +71,7 @@ gem 'sass-rails'
 gem 'rails-i18n'
 
 gem "bower-rails"
+gem 'fancybox2-rails', '~> 0.2.8'
 
 group :development do
   gem 'rack_image_assets_cache_control'
