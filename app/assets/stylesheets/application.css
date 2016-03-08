@@ -145,3 +145,14 @@
 .add_srv_btn {
   margin-top: 10px;
 }
+
+.meet-provider-btn {
+  background-color: #FF5C7F;
+  color: #FFF !important; 
+  padding: 10px 7px !important;
+  width: 100% !important;
+}
+
+.meet-provider-btn:hover {
+  background-color: #ff436b;
+}

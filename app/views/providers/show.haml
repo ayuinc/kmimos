@@ -129,7 +129,7 @@
       = simple_form_for Booking.new, :method => 'GET', :url => new_booking_path do |f|
         = f.input :provider_id, as: :hidden, input_html: {value: @provider.id}
         .content-article.mt-14.mb-28.m-21
-          .border-bottom.text-left.pl-21
+          .border-bottom.text-left
             %p.light.mb-0.text-gray.text-small Desde
             %h4.m-7.price
               = current_country.currency
@@ -143,9 +143,9 @@
                 - if !rates.include?(a.size.size_title)
                   %p{style:"font-size:11px"}="#{a.size.size_title} :  #{current_country.currency}#{number_with_precision(1.20*(a.price == nil ? 0 : a.price),:precision => 0)}"
                 - rates << a.size.size_title
-            =f.submit "Reservar".html_safe, :class => "mt-14 mb-21 btn btn-primary btn-small btn-fold" #,  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Reservar', 'provider_#{@provider.id.to_s}']);"
+            =f.submit "Reservar".html_safe, :class => "mt-14 mb-21 btn btn-primary btn-small btn-fold", :style=> "width:100%;",  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Reservar', 'provider_#{@provider.id.to_s}']);"
             %br/
-            = link_to "Conocer cuidador".html_safe, new_meeting_path(:provider_id => @provider.id), :class => "text-secondary btn btn-fold", :style => "border-color: #1DBA9A; padding: 10px 7px;",  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Conocer', 'provider_#{@provider.id.to_s}']);"
+            = link_to "Conocer al cuidador".html_safe, new_meeting_path(:provider_id => @provider.id), :class => "text-secondary btn btn-fold meet-provider-btn",  :onClick=>"_gaq.push(['_trackEvent', 'Proveedores', 'Conocer', 'provider_#{@provider.id.to_s}']);"
             %br
             %br
             %p
