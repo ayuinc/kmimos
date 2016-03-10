@@ -58,7 +58,7 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require pickers
-
+//= require fancybox
 
 $(document).ready(function() {
   var docHeight = $(window).height();
@@ -199,6 +199,10 @@ function isNumberKey(txt, event) {
   return true;
 }
 
+function bounceHover() {
+  $(".promo").click();
+}
+
 // referrals
 (function($) {
 
@@ -285,4 +289,4 @@ $(function() {
       }
     });
   });
-});
+});;
