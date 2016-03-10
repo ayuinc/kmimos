@@ -2,6 +2,8 @@
 .trigger.hidden#contenedor{style: "margin:50px auto;width:200px;"}
   - if current_user
     %a.promo{href: "https://kmimos.com.ve/mx/promo/?id=#{current_user.id}", "data-fancybox-type": "iframe"} Click here
+  - else
+    %a.promo{href: "https://kmimos.com.ve/mx/promo", "data-fancybox-type": "iframe"} Click here
 .site-wrapper.provider-home
   %main#scene.site-content{:role => "main"}
     
