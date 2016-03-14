@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
    has_many :favorites
    has_many :meetings
 
+   validates_presence_of :phone
+
    accepts_nested_attributes_for :pets, :allow_destroy => true, update_only: true
 
    has_attached_file :photo, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "user.jpg"
