@@ -88,6 +88,10 @@ class ProvidersController < ApplicationController
 
   end
 
+  def promo
+    render :layout => "external"
+  end
+
   # GET /providers/new
   def new
     @provider = Provider.new

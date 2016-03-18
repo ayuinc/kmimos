@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %title #{yield :title}
+    %link{:href => "/assets/favicon.png", :rel => "shortcut icon"}/
+    = render partial: 'layouts/partial/metas'
+    
+    = csrf_meta_tags
+
+    / FONTS
+    %script{:src => "//use.typekit.net/jod1lcb.js"}
+    :javascript
+      try{Typekit.load();}catch(e){}
+    / END FONTS
+
+    / PROVIDER STYLES
+    = stylesheet_link_tag 'promo.css'
+    
+  %body(data-snap-ignore="true")
+  
+    - cache do
+      = render partial: 'layouts/partial/initializer'
+      = render partial: 'layouts/partial/mix_panel'
+    = yield :content

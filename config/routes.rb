@@ -31,6 +31,7 @@ ServihogarRails::Application.routes.draw do
   resources :favorites
 
   get 'beneficios' => 'providers#benefits'
+  get 'promo' => 'providers#promo'
 
   namespace :api, defaults: { format: 'json' } do
     get 'providers/get_providers' => 'providers#get_providers', as: 'api_get_providers'

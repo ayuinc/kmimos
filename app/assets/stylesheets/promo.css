@@ -1,0 +1,127 @@
+body {
+	background-image: url(fondo.jpg);
+	background-repeat: no-repeat;
+	background-align: center;
+	background-color: rgb(1, 183, 158);
+	background-position: center top;
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	min-height: 625px;
+}
+#ventana {
+	margin: auto;
+	height: 75%;
+	width: 75%;
+	min-height: 400px;
+	color: #FC0606;
+	font-weight: bolder;
+	text-align: center;
+	font-size: xx-large;
+	padding: 30px;
+}
+.subtitulo {
+	font-size: 24px;
+	color: #545454;
+	text-align: center;
+	padding: 10px;
+}
+.detalle {
+	text-align: center;
+	color: #333333;
+	font-weight: normal;
+	font-size: medium;
+	padding: 10px;
+}
+.catalogo {
+	min-height: 100px;
+}
+.instrucciones {
+	text-align: center;
+	color: #333333;
+	font-weight: normal;
+	font-size: medium;
+	padding: 10px;
+}
+.bienvenidos {
+	font-size: 2.2em;
+	color: #FFFFFF;
+	height: 50px;
+	width: 480px;
+	margin-top: 20px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	font-weight: 600;
+	text-align:center;
+}
+#patita {
+	margin: 3px 0px -2px -3px;
+}.entrar {
+	height: 36px;
+	width: 240px;
+	margin-top: 250px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	padding-top: 18px;
+	text-align:center;
+}
+.boton {
+	width: 240px;
+	height: 36px;
+	border-radius: 18px;
+	border: 1px solid #515151;
+	background-color: #fefe78;
+	text-decoration: none;
+	color: #515151;
+	margin-top: 40px;
+	padding-top: 10px;
+	padding-right: 40px;
+	padding-bottom: 10px;
+	padding-left: 40px;
+}
+.boton:hover {
+	background-color: #dff58b;
+}
+.envio {
+	font-size: 36px;
+	color: #dd4646;
+	text-align: center;
+	font-family: Abril Fatface;
+	font-weight: bold;
+	font-style: normal;
+}
+.precio {
+	width: 120px;
+	font-weight: bold;
+	color: #dd4646;
+	text-align: center;
+}
+.mensaje {
+	color: #ffffff;
+	text-align: center;
+	font-size: 24px;
+}
+.izquierda {
+	float: left;
+	width: 50%;
+}
+.derecha {
+	float: right;
+	width: 50%;
+}
+.producto-izq {
+	width: 120px;
+	padding: 8px 2px 2px 2px;
+	float: right;
+	background-color: #ffffff;
+    margin: 5px;
+	border-radius: 3px;
+}
+.producto-der {
+	width: 120px;
+	padding: 8px 2px 2px 2px;
+	float:left;
+	background-color: #ffffff;
+    margin: 5px;
+	border-radius: 3px;
+}
