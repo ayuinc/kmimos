@@ -20,7 +20,7 @@
       %h2.text-center{style: "font-family: Montserrat-Bold;color: #637988;line-height: 48px;"} Envío Gratis
       %p.text-small{style: "font-family: Montserrat-Bold;font-weight:bold;"}
         Disfruta de los nuevos productos que tenemos para ofrecerte, estos serán entregados en la casa de tu cuidador de confianza.
-      %a.text-secondary.text-center.btn.btn-fold.meet-provider-btn.promo{href: "https://kmimos.com.ve/mx/promo/?id=#{@booking.provider.id}", "data-fancybox-type": "iframe"} Conoce más
+      %a.text-secondary.text-center.btn.btn-fold.meet-provider-btn.promo{href: "/promo", "data-fancybox-type": "iframe"} Conoce más
       %br
       %br
       .col-md-4
@@ -91,6 +91,16 @@
       'width': '80%',
       'height': '80%'
     });
+    var bClicked = false;
+    $(".promo").click(function() {
+      bClicked = true;
+    });
+    setTimeout(displayPopup, 5000);
+    function displayPopup() {
+      if (!bClicked) {
+        $(".promo").click();
+      }
+    }
   })();
 
 / Facebook Conversion Code for Reservacion exitosa
