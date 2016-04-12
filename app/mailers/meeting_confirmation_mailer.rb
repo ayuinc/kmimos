@@ -6,7 +6,7 @@ class MeetingConfirmationMailer < ActionMailer::Base
     @meeting = meeting
     @country = current_country
     mail(
-      to: [ @meeting.user_email,"r.gonzalez@desdigitec.com", "e.celli@desdigitec.com", "m.castellon@desdigitec.com" ],
+      to: [ @meeting.user_email,"r.gonzalez@desdigitec.com", "e.celli@desdigitec.com" ],
       subject: 'Solicitud para conocer cuidador Kmimos recibida')
   end
 
@@ -23,7 +23,7 @@ class MeetingConfirmationMailer < ActionMailer::Base
     @meeting = meeting     
     @country = current_country
     admins = []
-    admins << "r.gonzalez@desdigitec.com" << "e.celli@desdigitec.com" << "f.trujillo@desdigitec.com" << "m.castellon@desdigitec.com"
+    admins << "r.gonzalez@desdigitec.com" << "e.celli@desdigitec.com" << "f.trujillo@desdigitec.com" 
     
     # Panamá
     if @country.id == 3
