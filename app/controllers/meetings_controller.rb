@@ -36,6 +36,17 @@ class MeetingsController < ApplicationController
 	  end
 	end
 
+	def send_mail
+	    @provider = Provider.find(params[:provider_id])
+	    @meeting = Meeting.find(params[:meeting_id])
+
+	    MeetingConfirmationMailer.new_meeting_notification(@meeting, current_country).deliver
+    	MeetingConfirmationMailer.new_meeting_provider_notification(@meeting, current_country).deliver
+    	MeetingConfirmationMailer.new_meeting_for_admin(@meeting, current_country).deliver
+
+	    render :text => "Correo enviado a " + @provider.name + "(" + @provider.id.to_s + ") con el meeting " + @meeting.id.to_s + "."
+	  end  
+
 
 	private
 
