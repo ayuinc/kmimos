@@ -20,5 +20,10 @@ ActiveAdmin.register Meeting do
       @meeting.destroy
       redirec_to action: :index
     end
+
+    def edit
+      @meeting = Meeting.where(token: params[:id]).last
+      render :edit
+    end
   end
 end

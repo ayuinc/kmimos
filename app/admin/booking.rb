@@ -43,6 +43,11 @@ ActiveAdmin.register Booking do
       @booking.destroy
       redirec_to action: :index
     end
+
+    def edit
+      @booking = Booking.where(token: params[:id]).last
+      render :edit
+    end
   end
   
 end
