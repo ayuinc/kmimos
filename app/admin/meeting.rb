@@ -7,4 +7,18 @@ ActiveAdmin.register Meeting do
   #  user_email      :string(255)
   
   permit_params :provider, :user_id
+
+  controller do 
+    
+    def show
+      @meeting = Meeting.where(token: params[:id]).last
+      render :show
+    end
+    
+    def destroy
+      @meeting = Meeting.where(token: params[:id]).last
+      @meeting.destroy
+      redirec_to action: :index
+    end
+  end
 end
