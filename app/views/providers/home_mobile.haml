@@ -109,7 +109,10 @@
           %br
           %br
           %img{:alt => "", :src => "assets/cuidadores-mes-perro-vainilla.svg"}/
-          
+
+- if Rails.env.production?
+  :javascript
+    mixpanel.track('Ingresó a la página de #{@country.name} ');          
 
 :javascript
 
