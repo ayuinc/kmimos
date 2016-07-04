@@ -21,7 +21,7 @@
     @country = current_country
     @url = ActionMailer::Base.default_url_options
     admins = []
-    admins << "r.gonzalez@desdigitec.com" << "e.celli@desdigitec.com" << "f.trujillo@desdigitec.com" << "c.martin@desdigitec.com"
+    admins << "r.gonzalez@desdigitec.com" << "e.celli@desdigitec.com" << "f.trujillo@desdigitec.com" << "c.martin@desdigitec.com" << "m.castellon@desdigitec.com"
 
     # Panamá
     if @country.id == 3
