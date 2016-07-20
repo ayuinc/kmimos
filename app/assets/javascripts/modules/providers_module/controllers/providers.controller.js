@@ -20,13 +20,13 @@ providers_module.controller('ProvidersController', ['$scope', '$filter', 'Provid
   $scope.map = { zoom: 10, control: {}, markers: []};
   $scope.map.markers = [];
   $scope.mapOptions = { zoomControl: true, panControl: true, scaleControl: true }; 
-  $scope.predicate = 'valuation';
+  $scope.predicate = 'on_top';
   $scope.reverse = true;
 
-  $scope.order = function(predicate) {
-    $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
-    $scope.predicate = predicate;
-  }
+  // $scope.order = function(predicate) {
+  //   $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
+  //   $scope.predicate = predicate;
+  // }
  
   var url_params  = $location.protocol() + "://" + $location.host() + ":" + $location.port() + "/api/providers/get_session_params";
   

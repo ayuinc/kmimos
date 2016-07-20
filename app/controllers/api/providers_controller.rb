@@ -43,6 +43,7 @@ class Api::ProvidersController < ApplicationController
      hash_provider[:services]     = provider.services.map{|s| s.service_name}.uniq
      hash_provider[:comments]     = provider.comments
      hash_provider[:valuation]    = provider.get_valoration.to_i
+     hash_provider[:on_top]       = provider.on_top
 
      hash_response << hash_provider
    end

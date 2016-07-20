@@ -46,15 +46,16 @@
                   %input(type="checkbox" checked ng-model="search.sel_service[service.id]" ng-true-value="{{service.id}}" ng-false-value='0' ng-click='filterService()') {{service.service_name}}
                   %br
         .col-md-8{style: "padding: 0px !important; margin: 0px;"}
-          %div.form-inline.pull-right(style="margin-right:25px;")
-            %div.form-group
-              %span Ordenar por
-              %label(for="price")
-                %input(type="radio" id="price" name="filter" ng-click="order('price')")
-                Precio
-              %label(for="name")
-                %input(type="radio" id="nanme" name="filter" ng-click="order('name')")
-                Nombre
+          /
+            %div.form-inline.pull-right(style="margin-right:25px;")
+              %div.form-group
+                %span Ordenar por
+                %label(for="price")
+                  %input(type="radio" id="price" name="filter" ng-click="order('price')")
+                  Precio
+                %label(for="name")
+                  %input(type="radio" id="nanme" name="filter" ng-click="order('name')")
+                  Nombre
           =render partial: 'grid'
         .col-md-2
           #map_canvas
