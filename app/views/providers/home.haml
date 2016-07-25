@@ -1,6 +1,3 @@
-.bounce#borde{style: "width:100%;height:5px;", onmouseover: "return bounceHover();"}
-.trigger.hidden#contenedor{style: "margin:50px auto;width:200px;"}
-  %a.promo{href: "/promo", "data-fancybox-type": "iframe"} Click here
 .site-wrapper.provider-home
   %main#scene.site-content{:role => "main"}
     
@@ -18,7 +15,7 @@
           .col-md-12.text-center
             %img.pt-7.pb-7.img-home{:src => "assets/logo-kmimos.svg", :width => "220"}/
             %br/
-            = link_to image_tag('booking.svg', class: "pt-7 img-home", style: "width: 250px"), "http://booking.com", target: '_blank'
+            = link_to image_tag('booking.svg', class: "pt-7 img-home", style: "width: 250px"), "http://www.booking.com/index.html?aid=1147066", target: '_blank'
             %p.h3.text-white.mv-35.lh-xl.bold.text-responsive
               Déjalo en casa de tu cuidador de confianza, 
               %br/
@@ -127,15 +124,3 @@
 :javascript
 
   initPlayer('homePlayer', 'video');
-  
-:javascript
-  (function() {
-    $(".promo").fancybox({
-      'autoScale': false,
-      'transitionIn': 'none',
-      'transitionOut': 'none',
-      'width': '80%',
-      'height': '80%'
-    });
-  })();
-  
