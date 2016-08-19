@@ -81,7 +81,7 @@
         .container-sm.pv-42
           %h1.bold.pb-42.text-gray-dark.text-center Cuidadores del mes
           .row
-            - Provider.on_top_providers(3).each do |provider|
+            - Provider.favorite_providers(3).each do |provider|
               %a.col-md-4{href: provider_path(provider.id)}
                 .bg-img-block.border-radius.square-green.mt-7{:style => " background-image: url(#{provider.avatar.url});"}
                   #a.oculto.text-center.pt-21
