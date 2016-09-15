@@ -6,7 +6,7 @@ class MeetingConfirmationMailer < ActionMailer::Base
     @meeting = meeting
     @country = current_country
     mail(
-      to: [ @meeting.user_email,"r.gonzalez@desdigitec.com", "e.celli@desdigitec.com" ],
+      to: [ @meeting.user_email,"r.gonzalez@desdigitec.com", "e.celli@desdigitec.com", "m.castellon@desdigitec.com" ],
       subject: 'Solicitud para conocer cuidador Kmimos recibida')
   end
 

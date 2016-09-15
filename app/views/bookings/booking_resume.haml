@@ -36,12 +36,15 @@
           - if (@booking.dropoff_time)
             a las 
             %b #{@booking.dropoff_time.strftime("%H:%M")}
-          Recogiendo y entregando a 
+          El cuidador buscará y entregará a   
           #{"tu".pluralize(@booking.pets.count)} 
-          #{"perrito".pluralize(@booking.pets.count)} 
+          #{"mascota".pluralize(@booking.pets.count)} 
           - if @booking.address 
-            en el domicilio ubicado en
-            %b #{@booking.address} .
+            en la dirección 
+            %b #{@booking.address}
+            , solo en caso de que hayas seleccionado Transportación en la sección de Servicios Adicionales.  En caso de que no lo hayas seleccionado, deberás acordar con tu cuidador la dirección en la que entregará y buscará a 
+            #{"tu".pluralize(@booking.pets.count)} 
+            #{"mascota".pluralize(@booking.pets.count)} 
         %p
           Para cualquier duda y/o comentario puedes contactarte al teléfono
           %b #{@booking.provider.phone}

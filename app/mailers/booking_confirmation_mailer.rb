@@ -12,7 +12,7 @@
     @country = current_country
     @url = ActionMailer::Base.default_url_options
     mail(
-      to: [ @booking.user.email, "r.gonzalez@desdigitec.com", "e.celli@desdigitec.com" ],
+      to: [ @booking.user.email, "r.gonzalez@desdigitec.com", "e.celli@desdigitec.com", "m.castellon@desdigitec.com" ],
       subject: 'Tu reserva en Kmimos.')
   end
   
