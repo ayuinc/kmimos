@@ -21,12 +21,11 @@
     <div class="container-sm">
       <h1 style="font-weight:200;color:#526577;font-size:35px">Hola <%="#{@booking.user.first_name}"%>, </h1>
       <p>
-        Ya está confirmada tu reserva en Kmimos para que 
+        Has hecho una solicitud de reserva en Kmimos para que  
         <b><%="#{@booking.provider.name}"%><%="#{@booking.provider.last_name_1}"%> </b>
         cuide a 
         <%= "#{'tu'.pluralize(@booking.pets.count)}" %>
         <%= "#{'mascota'.pluralize(@booking.pets.count)}" %>
-        <%= "#{@booking.pets_list}" %>
         desde el día
         <b><%="#{@booking.start_date.strftime("%d/%m/%Y")}"%></b>
         <% if (@booking.pickup_time) %>
@@ -41,14 +40,18 @@
         <% end %>
       </p>
       <p>
-        Si solicitaste el servicio de transportación, el cuidador pasará recogiendo
-        y entregando a tus perritos 
+        El cuidador buscará y entregará a 
+        <%= "#{'tu'.pluralize(@booking.pets.count)}" %>
+        <%= "#{'mascota'.pluralize(@booking.pets.count)}" %>
         <% if @booking.address %>
-        en el domicilio ubicado en
+        en la dirección 
         <b><%="#{@booking.address}"%></b>
-        <% end %>.
-        Si no lo solicitaste, el cuidador estará esperándote en su domicilio en los
-        horarios señalados.
+        <% end %>, solo en caso de que hayas seleccionado Transportación en 
+        la sección de Servicios Adicionales.  
+        En caso de que no lo hayas seleccionado, deberás acordar con tu cuidador 
+        la dirección en la que entregarás y buscarás a
+        <%= "#{'tu'.pluralize(@booking.pets.count)}" %>
+        <%= "#{'mascota'.pluralize(@booking.pets.count)}" %>.
       </p>
       <p>
         Para cualquier duda y/o comentario puedes contactarte con el cuidador al teléfono
