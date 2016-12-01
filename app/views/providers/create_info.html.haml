@@ -1,0 +1,53 @@
+.container.content.mh-630.mb-70
+
+  .row
+    .col-md-1.p-0
+    .col-md-10.p-0
+      %br
+      .page-header
+        %h1
+          Bienvenido a Kmimos
+          %small 
+      
+      .panel.panel-primary
+        .panel-heading.mb-21.text-gray.text-align-center{:style => "font-size: 16px;"}
+          Estimado Kmiamigo, tu perfil ha sido creado con éxito.  El mismo permanecerá inactivo en la página hasta que completes los siguientes pasos listados abajo.
+        
+        .panel-heading.mb-21.text-gray.text-align-center{:style => "font-size: 16px;"}  
+          Dichos pasos han sido diseñados para cumplir con un estricto perfil de seguridad, que garantice que cualquier persona que se convierta en Cuidador asociado Kmimos presente un perfil apto para cuidar y apapachar a nuestros peludos amigos
+
+        .panel-heading.mb-21.text-gray.text-align-center{:style => "font-size: 16px;"}
+          %br
+          %b
+            Siguientes Pasos para activar tu perfil:
+        .panel-body.mb-21.text-gray
+
+          %div
+            %ul
+              %li 
+                %p{:style => "font-size: 15px;"}
+                  Compártenos por Mensaje Directo a nuestro Facebook @Kmimosmx tu nombre y apellido completo, email, teléfono de casa y celular
+              %li 
+                %p{:style => "font-size: 15px;"}
+                  Una vez que nos envíes dichos datos, en menos de 24 horas recibirás en el correo que registraste las Pruebas Psicométricas y Pruebas de Conceptos Veterinarios básicos.  Por favor respóndelas, y nos llegará a nosotros un mensaje de completadas.
+              %li 
+                %p{:style => "font-size: 15px;"}
+                  En menos de 24 horas después de completadas las pruebas recibirás un correo por parte de Certificación Kmimos, notificando tus resultados.  NO TE OLVIDES DE CHECAR SIEMPRE LA BANDEJA DE ENTRADA O EL CORREO NO DESEADO, ya que a veces llegan allí los correos.
+              %li 
+                %p{:style => "font-size: 15px;"}
+                  En caso de haber aprobado, lee el archivo adjunto al correo que te muestra las políticas operativas.
+              %li
+                %p{:style => "font-size: 15px;"}
+                  Por último, recibirás una llamada para entrevista telefónica y notificación para la auditoría a tu hogar.
+          
+          %center
+            %p{:style => "font-size: 15px;"}
+              %i
+                Haz caso omiso a este mensaje si ya completaste tus pruebas y recibiste el correo por parte de Kmimos dándote la bienvenida.
+            %br/        
+          
+          %center 
+            = link_to "Modificar Mi Perfil", edit_provider_path(current_provider.id), class: "btn btn-primary mb-21" , style: "color:white!important"
+            = link_to "Continuar en Kmimos", root_path, class: "btn btn-primary mb-21" , style: "color:white!important"
+
+

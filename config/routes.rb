@@ -12,12 +12,18 @@ ServihogarRails::Application.routes.draw do
   resources :referrals
 
   root 'providers#home'
-
   get 'bookings/booking_resume/:booking_id' => 'bookings#booking_resume', as: 'booking_resume'
   get 'bookings/send_mail/:provider_id/:booking_id' => 'bookings#send_mail'
   get 'meetings/send_mail/:provider_id/:meeting_id' => 'meetings#send_mail'
   get 'providers/update_state' => 'providers#update_state'
-  resources :providers
+  
+
+  resources :providers do
+    collection do      
+       get 'create_info' 
+    end  
+  end    
+
   resources :users
 
   resources :pets

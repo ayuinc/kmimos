@@ -3,18 +3,24 @@ class Provider::RegistrationsController < Devise::RegistrationsController
   before_filter :configure_permitted_parameters
 
 
-  #def create
-  #  super
-  #  ProviderMailer.welcome_message(@provider).deliver unless @provider.invalid?
-  #end
+  def create   
+    super   
+    Thread.new do
+      ProviderMailer.welcome_message(@provider).deliver! unless @provider.invalid?
+      ActiveRecord::Base.connection.close
+    end   
+  end
   
-  def new
+  def new    
     super
     if params[:provider]
       @provider = Provider.new(params[:provider])
     end
   end
 
+  def after_sign_up_path_for(resource)
+    create_info_providers_path
+  end
 
   protected
 

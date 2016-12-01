@@ -159,32 +159,34 @@ class ProvidersController < ApplicationController
     render partial: 'locations'
   end
 
-  private
-
-  def set_country
-    @country = current_country
-    redirect_to :action => :la_home if @country == nil
-  end
-
-  def set_provider
-    @provider = Provider.find(params[:id])
+  def create_info
+    
   end
 
   private
 
-  def all_provider_params
-    params.require(:provider).permit!
-  end
+    def set_country
+      @country = current_country
+      redirect_to :action => :la_home if @country == nil
+    end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def provider_params
-    params.require(:provider).permit(:tipo_propiedad, :areas_externas, :emergencia, :experiencia,
-    :name, :last_name_1, :last_name_2, :dni, :avatar, :avatar_cache, :description,
-    :email, :email_c, :phone, :price, :avg_rating, :property_id, :category_id, :latitude, :longitude,
-    :address, :password, :password_confirmation,:q, locations_attributes: [:id],
-    location_ids: [], provider_attachments_attributes: [:id, :provider_id, :photo],
-    age_ids: [], size_ids: [])
-  end
+    def set_provider
+      @provider = Provider.find(params[:id])
+    end
+  
+    def all_provider_params
+      params.require(:provider).permit!
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def provider_params
+      params.require(:provider).permit(:tipo_propiedad, :areas_externas, :emergencia, :experiencia,
+      :name, :last_name_1, :last_name_2, :dni, :avatar, :avatar_cache, :description,
+      :email, :email_c, :phone, :price, :avg_rating, :property_id, :category_id, :latitude, :longitude,
+      :address, :password, :password_confirmation,:q, locations_attributes: [:id],
+      location_ids: [], provider_attachments_attributes: [:id, :provider_id, :photo],
+      age_ids: [], size_ids: [])
+    end
 
 
 

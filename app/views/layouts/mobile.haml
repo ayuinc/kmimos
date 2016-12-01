@@ -39,7 +39,7 @@
     .searcher
       .pulse
         = image_tag('cerrar-buscador.svg', class: "toggle-down")
-      %h3.text-header  Buscar cuidador
+      %h3.text-header  Búsqueda
       %p Selecciona donde, cuando y que necesitas para dejar tu perrito.
       = search_form_for @search do |f|
         .form-group
@@ -50,17 +50,20 @@
           %input.form-control.from-date{value: session[:from_date]}(placeholder="Desde" name="from_date" type= 'date' required="true" min="#{Date.today}")
         .form-group
           %input.form-control.to-date{value: session[:to_date]}(placeholder="Hasta" name="to_date" type= 'date' required="true" min="#{Date.today}")
-        %button.grey-button Buscar
+        
+        %button.green_button_inside{style: "padding-top: 15px;font-weight: 300; height: auto;padding-bottom: 15px;"} BUSCAR CUIDADOR
+
       %br
       %br
-    
-    %button.grey-button.do_search Buscar Cuidador
+        
+    %button.grey-button.do_search_main INICIAR BÚSQUEDA
+
     
     
     = image_tag('abrir-buscador.svg', class: "open-search")
 :javascript
 
-  $('.do_search').on('click', function(){
+  $('.do_search_main').on('click', function(){
     $('.searcher').slideToggle();
   });
   

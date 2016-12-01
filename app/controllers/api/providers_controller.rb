@@ -17,9 +17,10 @@ class Api::ProvidersController < ApplicationController
      @providers = @providers.where(id: State.where(country_id: current_country.id).map{|state| state.locations.map{|location| location.providers.map{|provider| provider.id}}}.flatten) if current_country != nil
      @providers = @providers.where(id: Rate.where("price > ?", 0).map{|rate| rate.provider_id}.flatten) if !@providers.empty?
    else
-     @state = State.where(country_id: current_country)
+     @state = State.where(country_id: current_country)     
+     locations = Location.where("state_id in (?)", @state.ids)     
      @providers = Location.find(@location_id).providers if !@location_id.empty?
-     @providers = Provider.where(id: @state.locations.map{|location| location.providers.map{|provider| provider.id}}.flatten) if @location_id.empty?
+     @providers = Provider.where(id: locations.map{|location| location.providers.map{|provider| provider.id}}.flatten) if @location_id.empty?
      @providers = @providers.where(id: Rate.where("price > ?", 0).map{|rate| rate.provider_id}.flatten) if !@providers.empty?
      @providers = @providers.where(active: true) if @providers != nil
    end

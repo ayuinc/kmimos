@@ -5,6 +5,8 @@ class ProviderMailer < ActionMailer::Base
     @provider = provider
     mail(
       to: provider.email,
-      subject: 'Bienvenido a Kmimos')
+      subject: 'Bienvenido a Kmimos',
+      template_path: 'providers/mailer',
+      template_name: 'welcome_message')
   end
 end

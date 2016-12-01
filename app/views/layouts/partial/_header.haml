@@ -6,7 +6,14 @@
       %span.icon-bar
     .p-7.hidden-xs.hidden-sm.col-xs-4= link_to image_tag('logo-kmimos.svg', class: "mt--14 img-logo"), root_url
     .p-7.hidden-xs.hidden-sm.col-xs-4
-    .p-7.hidden-md.hidden-lg.col-xs-4= link_to image_tag('logo-kmimos.svg', class: "mt-0 img-logo"), root_url
+      = link_to image_tag('booking.svg', class: "pt-7 mt-14 ml-28 img-home", style: "width: 250px"), "http://www.booking.com/index.html?aid=1147066", target: '_blank'
+
+    .p-7.hidden-md.hidden-lg.col-xs-4
+      = link_to image_tag('logo-kmimos.svg', class: "mt-0 img-logo"), root_url      
+      = link_to image_tag('booking.svg', class: "", style: "width: 200px; padding: 0px; padding-left: 10px;"), "http://www.booking.com/index.html?aid=1147066", target: '_blank'
+    
+      
+
     - if current_user
       %ul.nav.navbar-nav.mt-7.ml-56.hidden-xs
         %li= link_to 'Mi Perfil', user_path(current_user), class: "not-underline white-text"

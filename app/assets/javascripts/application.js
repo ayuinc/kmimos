@@ -62,13 +62,15 @@
 
 $(document).ready(function() {
   var docHeight = $(window).height();
-  var footerHeight = $('#footer').height();
 
-  var footerTop = $('#footer').position().top + footerHeight;
-
-  if (footerTop < docHeight) {
-    $('#footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
-  }
+  if ($('#footer').length)
+  {
+    var footerHeight = $('#footer').height();
+    var footerTop = $('#footer').position().top + footerHeight;
+    if (footerTop < docHeight) {
+      $('#footer').css('margin-top', 10+ (docHeight - footerTop) + 'px');
+    }
+  } 
 
   // modal for referral codes
   //$(document).bind('ajaxError', 'form#new_referral', function(event, jqxhr, settings, exception){
