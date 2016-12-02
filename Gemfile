@@ -17,7 +17,7 @@ gem 'hirb'
 
 gem 'carrierwave'
 gem 'rmagick', :require => 'RMagick'
-gem 'fog', '~> 1.24.0'
+gem 'fog'
 gem 'high_voltage', '~> 2.3.0'
 
 gem 'kaminari'
@@ -42,13 +42,13 @@ end
 gem 'bcrypt-ruby'
 
 gem 'haml-rails'    #Haml Template Engine Added
-gem 'devise'        #Devise Gem Added for Authentication
+gem 'devise', '3.5.4'        #Devise Gem Added for Authentication
 gem 'activeadmin', git: 'git://github.com/gregbell/active_admin.git'  # Fast Admin Generator Tool
 gem 'active_skin'
 
 gem 'simple_form'   #Gem for form simplification
 
-gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+gem "paperclip"
 gem 'aws-sdk'
 
 gem 'font-awesome-sass'
@@ -80,7 +80,7 @@ group :development do
   
   gem 'rails-erd'
   
-  gem 'flamegraph'
+  #gem 'flamegraph'
   gem 'rack-mini-profiler'
   
   gem 'rubocop'
